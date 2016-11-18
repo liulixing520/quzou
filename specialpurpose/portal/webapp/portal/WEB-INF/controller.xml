@@ -1,0 +1,2080 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- take care: later requests/views will overwrite earlier ones in the controller.xml list -->
+   
+    <include location="component://common/webcommon/WEB-INF/handlers-controller.xml"/>
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+    <include location="component://ofbiztools/webapp/ofbiztools/WEB-INF/common-controller.xml"/>
+    <include location="component://portal/webapp/portal/WEB-INF/cart-controller.xml"/>
+    <include location="component://portal/webapp/portal/WEB-INF/prod-controller.xml"/>
+    <include location="component://portal/webapp/portal/WEB-INF/order-controller.xml"/>
+    <include location="component://portal/webapp/portal/WEB-INF/mng-controller.xml"/>
+    <include location="component://sysCommon/webapp/sysCommon/WEB-INF/controller.xml"/>
+   
+    <!-- so the order should be from most common to most specific-->
+    <description>Show portal information in the system</description>
+
+	
+    
+    <!-- Events run from here for the first hit in a visit -->
+    <firstvisit>
+        <event name="autoLoginCheck" type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="autoLoginCheck"/>
+        <event name="checkTrackingCodeCookies" type="java" path="org.ofbiz.marketing.tracking.TrackingCodeEvents" invoke="checkTrackingCodeCookies"/>
+        <event name="setDefaultStoreSettings" type="java" path="org.ofbiz.product.product.ProductEvents" invoke="setDefaultStoreSettings"/>
+        <event name="createGuestShoppingListCookies" type="java" path="org.ofbiz.order.shoppinglist.MultiShoppingListEvents" invoke="createGuestShoppingListCookies"/>
+        <event name="restoreAutoSaveList" type="java" path="org.ofbiz.order.shoppinglist.MultiShoppingListEvents" invoke="restoreAutoSaveList"/>
+    </firstvisit>
+    
+    <preprocessor>
+    	<event name="keepCartUpdated" type="java" path="org.ofbiz.order.shoppingcart.MultiShoppingCartEvents" invoke="keepCartUpdated"/>
+    </preprocessor>
+    
+    <after-login>
+    	<event name="setDefaultStoreSettings" type="java" path="org.ofbiz.product.product.ProductEvents" invoke="setDefaultStoreSettings"/>
+        <!-- <event name="updateAssociatedDistributor" type="java" path="org.ofbiz.ecommerce.misc.ThirdPartyEvents" invoke="updateAssociatedDistributor"/> -->
+        <event name="keepCartUpdated" type="java" path="org.ofbiz.order.shoppingcart.MultiShoppingCartEvents" invoke="keepCartUpdated"/>
+        <!-- after login, get everything from the auto-save list -->
+        <event name="restoreAutoSaveList" type="java" path="org.ofbiz.order.shoppinglist.MultiShoppingListEvents" invoke="restoreAutoSaveList"/>
+        <!-- after login and restoring from the auto-save list, save everything to the auto-save list to handle anything that may have already been in the cart before login -->
+        <event name="saveCartToAutoSaveList" type="java" path="org.ofbiz.order.shoppinglist.MultiShoppingListEvents" invoke="saveCartToAutoSaveList"/>
+        <event name="clearGuestShoppingListCookies" type="java" path="org.ofbiz.order.shoppinglist.MultiShoppingListEvents" invoke="clearGuestShoppingListCookies"/>
+        <event name="updateProductVisit" type="java" path="org.ofbiz.product.product.ProductVisitWorker" invoke="updateProductVisit"/>
+    </after-login>
+    
+    <request-map uri="main">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="main" save-current-view="true"/>
+    </request-map>
+    
+    <request-map uri="img">
+        <security auth="false" https="false"/>
+        <event type="java" path="org.ofbiz.content.data.DataEvents" invoke="serveImage"/>
+        <response name="success" type="none"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+    
+    <!-- Common json reponse events, chain these after events to send json reponses -->
+    <!-- Standard json response, For security reason (OFBIZ-5409) tries to keep only the initially called service attributes -->
+    <request-map uri="json">
+        <security direct-request="false"/>
+        <event type="java" path="org.ofbiz.common.CommonEvents" invoke="jsonResponseFromRequestAttributes"/>
+        <response name="success" type="none"/>
+    </request-map>
+    
+    <!-- 个人验证 -->
+    <request-map uri="upCertificateContentForPerson">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="uploadPartyContentFile"/>
+        <response name="success" type="request" value="stor_certification4"/>
+        <response name="error" type="view" value="stor_certification4"/>
+    </request-map>
+	<!-- 企业验证 -->
+    <request-map uri="upCertificateContentForCompany">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="uploadPartyContentFile"/>
+        <response name="success" type="request" value="stor_certificationTwo"/>
+        <response name="error" type="view" value="stor_certificationTwo"/>
+    </request-map>
+    <!-- 个体户验证 -->
+    <request-map uri="upCertificateContentForSelfEmployed">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="uploadPartyContentFile"/>
+        <response name="success" type="request" value="stor_certification3"/>
+        <response name="error" type="view" value="stor_certification3"/>
+    </request-map>
+    
+    <request-map uri="view">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="main"/>
+    </request-map>
+    <!-- 卖家注册 -->
+    <request-map uri="joinFree">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="joinFree"/>
+    </request-map>
+    <request-map uri="createseller">
+        <security https="false" auth="false"/>
+        <event type="simple" path="component://portal/script/org/ofbiz/ebiz/seller/SellerEvents.xml" invoke="createSeller"/>
+        <response name="success" type="request" value="createProductStore"/>
+        <response name="error" type="view" value="joinFree"/>
+    </request-map>
+    <request-map uri="login">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.securityext.login.LoginEvents" invoke="storeLogin"/>
+        <response name="success" type="view" value="main"/>
+        <response name="requirePasswordChange" type="view" value="requirePasswordChange"/>
+        <response name="error" type="view" value="login"/>
+    </request-map>
+    <!-- 卖家登录 -->
+	<request-map uri="buyerlogin">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.securityext.login.LoginEvents" invoke="storeLogin"/>
+        <response name="success" type="view" value="main"/>
+        <response name="requirePasswordChange" type="view" value="requirePasswordChange"/>
+        <response name="error" type="view" value="buyerlogin"/>
+    </request-map>
+    <request-map uri="getPassword">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="getPassword"/>
+        <response name="error" type="view" value="getPassword"/>
+    </request-map>
+    
+    <request-map uri="logout">
+        <security https="false" auth="true"/>
+        <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="logout"/>
+        <response name="success" type="request-redirect" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+    
+    <request-map uri="checkLogin" edit="false">
+        <description>Verify a user is logged in.</description>
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.securityext.login.LoginEvents" invoke="storeCheckLogin"/>
+        <response name="success" type="view" value="main"/>
+        <response name="error" type="view" value="login"/>
+    </request-map>
+
+    <request-map uri="autoLogout">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="autoLoginRemove"/>
+        <response name="success" type="request-redirect" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+    
+    <!-- Session Setting Requests -->
+    <request-map uri="setSessionLocale">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.common.CommonEvents" invoke="setSessionLocale"/>
+        <response name="success" type="request-redirect" value="fromSetSessionLocale"/>        
+        <response name="error" type="view" value="main"/>
+    </request-map>
+    
+    <request-map uri="fromSetSessionLocale">
+        <event type="simple" path="component://ecommerce/script/org/ofbiz/ecommerce/customer/CustomerEvents.xml" invoke="fromSetSessionLocale"/>
+        <response name="success" type="view" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+
+    <request-map uri="setSessionCurrencyUom">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.common.CommonEvents" invoke="setSessionCurrencyUom"/>
+        <response name="success" type="view-last" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+    
+    <request-map uri="setSessionLocaleAndCurrency">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.common.CommonEvents" invoke="setSessionLocale"/>
+        <response name="success" type="request" value="setSessionCurrencyUomTwo"/>        
+        <response name="error" type="view" value="main"/>
+    </request-map>
+    <request-map uri="fromSetSessionLocaleToCurrency">
+        <event type="simple" path="component://portal/script/org/ofbiz/ebiz/customer/CustomerEvents.xml" invoke="fromSetSessionLocale"/>
+        <response name="success" type="request" value="setSessionCurrencyUomTwo"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+    <request-map uri="setSessionCurrencyUomTwo">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.common.CommonEvents" invoke="setSessionCurrencyUom"/>
+        <response name="success" type="view-last" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+    
+    <request-map uri="newcustomer">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="newcustomer"/>
+    </request-map>
+    <!-- 注册页面异步请求查询地区 -->
+    <request-map uri="search_geo_reg">
+        <security https="false" auth="false"/>
+        <event type="groovy" path="component://portal/webapp/portal/WEB-INF/actions/customer/SearchGeo.groovy"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none" value="json"/>
+    </request-map>
+    <request-map uri="createcustomer">
+        <security https="false" auth="false"/>
+        <event type="simple" path="component://portal/script/org/ofbiz/ebiz/customer/CustomerEvents.xml" invoke="createCustomer"/>
+        <response name="success" type="view" value="main"/>
+        <response name="error" type="view" value="newcustomer"/>
+    </request-map>
+    
+    <request-map uri="keywordsearch">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.product.product.ProductSearchSession" invoke="checkDoKeywordOverride"/>
+        <response name="success" type="view" value="keywordsearch"/>
+        <response name="none" type="none" value=""/>
+    </request-map>
+    
+    <request-map uri="orderstatus">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="orderstatus"/>
+    </request-map>
+    <request-map uri="orderhistory">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="orderhistory"/>
+    </request-map>
+    
+     <!-- ShoppingList Requests -->
+    <request-map uri="editShoppingList">
+        <security auth="true" https="false"/>
+        <response name="success" type="view" value="editShoppingList"/>
+    </request-map>
+    
+    <request-map uri="forgotpassword">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.securityext.login.LoginEvents" invoke="forgotPassword"/>
+        <response name="success" type="view" value="getPassword"/>
+        <response name="error" type="view" value="getPassword"/>
+    </request-map>
+    
+    <!-- PDFs -->
+    <request-map uri="order.pdf"><security https="false" auth="true"/><response name="success" type="view" value="OrderPDF"/></request-map>
+    <request-map uri="invoice.pdf"><security https="false" auth="true"/><response name="success" type="view" value="InvoicePDF"/></request-map>
+
+	<!-- 个人商户首页 -->
+	<request-map uri="sellerIndex">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="sellerIndex"/>
+    </request-map>
+    
+    <!-- ProductStore -->
+    <request-map uri="EditProductStore">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditProductStore"/>
+    </request-map>
+    <request-map uri="createProductStore">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="createSellerProductStore"/>
+        <response name="success" type="request" value="store"/>
+        <response name="error" type="view" value="store"/>
+    </request-map>
+    <!-- 设置店铺服务地址 -->
+    <request-map uri="store_addressSets">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="store_addressSets"/>
+        <response name="error" type="view" value="store_addressSets"/>
+    </request-map>
+    <!-- 保存店铺服务地址 -->
+    <request-map uri="store_addressSets2">
+        <security https="false" auth="true"/>
+        <event type="groovy"
+			path="component://portal/webapp/portal/WEB-INF/actions/store/SetAddressForStore.groovy" />
+        <response name="success" type="request" value="store"/>
+        <response name="error" type="request" value="store"/>
+    </request-map>
+    <request-map uri="updateProductStore">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updateSellerProductStore"/>
+        <response name="success" type="view" value="store"/>
+        <response name="error" type="view" value="store"/>
+    </request-map>
+    <request-map uri="uploadStoreImage">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="store"/>
+    </request-map>
+    
+	<!-- 跳转到店铺管理送货方式页面 -->
+	<request-map uri="EditProductStoreShipSetup">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditProductStoreShipSetup" />
+	</request-map>
+	<request-map uri="ShipCostConfig">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="ShipCostConfig" />
+	</request-map>
+	<request-map uri="delShipCostConfig">
+		<security https="false" auth="true" />
+		<event type="java" path="org.ofbiz.product.store.ProductStoreShipConfigEvents" invoke="delShipCostConfig"/>
+		<response name="success" type="request" value="json" />
+	</request-map>
+	<request-map uri="modifyShipCostConfig">
+		<security https="false" auth="true" />
+		<event type="java" path="org.ofbiz.product.store.ProductStoreShipConfigEvents" invoke="modifyShipCostConfig"/>
+		<response name="success" type="request" value="json" />
+	</request-map>
+	<request-map uri="createShipConfig">
+		<security https="false" auth="true" />
+		<event type="java" path="org.ofbiz.product.store.ProductStoreShipConfigEvents" invoke="createShipConfig"/>
+		<response name="success" type="request" value="json" />
+	</request-map>
+
+	<!-- 跳转到店铺送货方式详情页面 -->
+	<request-map uri="prepareCreateShipMeth">
+		<security https="false" auth="true" />
+		<event type="groovy"
+			path="component://product/webapp/catalog/store/prepareCreateShipMeth.groovy" />
+		<response name="success" type="view" value="EditProductStoreShipSetup" />
+		<response name="error" type="view" value="EditProductStoreShipSetup" />
+	</request-map>
+
+	<!-- 保存详情 -->
+	<request-map uri="storeCreateShipMeth">
+		<security https="false" auth="true" />
+		<event type="service" invoke="createProductStoreShipMeth" />
+		<response name="success" type="view" value="EditProductStoreShipSetup" />
+		<response name="error" type="view" value="EditProductStoreShipSetup" />
+	</request-map>
+	<!-- 	修改详情 -->
+	<request-map uri="storeUpdateShipMeth">
+		<security https="false" auth="true" />
+		<event type="service" invoke="updateProductStoreShipMeth" />
+		<response name="success" type="view" value="EditProductStoreShipSetup" />
+		<response name="error" type="view" value="EditProductStoreShipSetup" />
+	</request-map>
+	<!-- 删除详情 -->
+	<request-map uri="storeRemoveShipMeth">
+		<security https="false" auth="true" />
+		<event type="service" invoke="removeProductStoreShipMeth" />
+		<response name="success" type="view" value="EditProductStoreShipSetup" />
+		<response name="error" type="view" value="EditProductStoreShipSetup" />
+	</request-map>
+    
+	<!-- 个人商户 产品 管理产品 -->
+    <request-map uri="goodsMgnt">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="goodsMgnt"/>
+    </request-map>
+	<!-- 我的店铺首页  -->
+	<request-map uri="tmall">
+        <security https="false" auth="true"/>
+        <!-- <response name="success" type="view" value="sellerhome"/> -->
+        <response name="success" type="view" value="tmall"/>
+    </request-map>
+	<request-map uri="sellerhome">
+        <security https="false" auth="false"/>
+        <!-- <response name="success" type="view" value="sellerhome"/> -->
+        <response name="success" type="view" value="tmall"/>
+    </request-map>
+    
+    <request-map uri="mySellerbuyer">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mySellerbuyer"/>
+    </request-map>
+    
+	<!-- 产品 新增产品 -->
+	<request-map uri="addNewGoods">
+		<security https="false" auth="false" />
+		<response name="success" type="view" value="addNewGoods" />
+	</request-map>
+	<request-map uri="addNewGoodsNext">
+		<security https="false" auth="false" />
+		<response name="success" type="view" value="addNewGoodsNext" />
+	</request-map>
+	<request-map uri="FindProduct">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindProduct"/>
+    </request-map>
+    
+    <request-map uri="Hassold">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="Hassold"/>
+    </request-map>
+	<request-map uri="EditProduct">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditProduct"/>
+    </request-map>
+	<request-map uri="createProduct">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="createSellerProduct"/>
+        <response name="success" type="view" value="EditProduct"/>
+        <response name="error" type="view" value="EditProduct"/>
+    </request-map>
+    <request-map uri="updateProduct">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateSellerProduct"/>
+        <response name="success" type="view" value="EditProduct"/>
+        <response name="error" type="view" value="EditProduct"/>
+    </request-map>
+    <request-map uri="createProductPrice">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="createSellerProductPrice"/>
+        <response name="success" type="request-redirect" value="EditProduct"><redirect-parameter name="productId"/></response>
+        <response name="error" type="view" value="EditProduct"/>
+    </request-map>
+    <request-map uri="updateProductPrice">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateSellerProductPrice"/>
+        <response name="success" type="request-redirect" value="EditProduct"><redirect-parameter name="productId"/></response>
+        <response name="error" type="view" value="EditProduct"/>
+    </request-map>
+    <request-map uri="deleteProductPrice">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="deleteSellerProductPrice"/>
+        <response name="success" type="request-redirect" value="EditProduct"><redirect-parameter name="productId"/></response>
+        <response name="error" type="view" value="EditProduct"/>
+    </request-map>
+    <request-map uri="updateProductContent">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateSellerProduct"/>
+        <response name="success" type="view" value="EditProduct"/>
+        <response name="error" type="view" value="EditProduct"/>
+    </request-map>
+    <request-map uri="UploadProductImage">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditProduct"/>
+    </request-map>
+    <request-map uri="addAdditionalImagesForProduct">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="uploadProductAdditionalViewImages"/>
+        <response name="success" type="view" value="EditProduct"/>
+        <response name="error" type="view" value="EditProduct"/>
+    </request-map>
+    <request-map uri="EditProductCategories">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditProductCategories"/>
+    </request-map>
+    <request-map uri="addProductToCategory">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="safeAddProductToCategory"/>
+        <response name="success" type="view" value="EditProduct"/>
+        <response name="error" type="view" value="EditProduct"/>
+    </request-map>
+    <request-map uri="updateProductToCategory">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateProductToCategory"/>
+        <response name="success" type="view" value="EditProduct"/>
+        <response name="error" type="view" value="EditProduct"/>
+    </request-map>
+    <request-map uri="removeProductFromCategory">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="removeProductFromCategory"/>
+        <response name="success" type="view" value="EditProduct"/>
+        <response name="error" type="view" value="EditProduct"/>
+    </request-map>
+    <request-map uri="LookupProductCategory"><security auth="true" https="false"/><response name="success" type="view" value="LookupProductCategory"/></request-map>
+    
+	<!-- 个人商户 产品 产品管理组 -->
+    <request-map uri="goodsGroupMgnt">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="goodsGroupMgnt"/>
+    </request-map>
+    <!-- 个人商户 产品 产品管理 待审核 -->
+    <request-map uri="prodAudit">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="prodAudit"/>
+    </request-map>
+    <!-- 个人商户 产品 产品管理 审核不通过 -->
+    <request-map uri="prodAuditFail">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="prodAuditFail"/>
+    </request-map>
+    <!-- 个人商户 产品 产品管理 产品下架 -->
+    <request-map uri="prodDownShelf">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="prodDownShelf"/>
+    </request-map>
+	
+	<!-- 个人商户 产品 关联产品模板 -->
+    <request-map uri="goodsModule">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="goodsModule"/>
+    </request-map>
+	
+    <!--  店铺后台设置页面 -->
+    <request-map uri="modityPassword">
+        <security auth="false" https="false"/>
+        <response name="success" type="view" value="modityPassword"/>
+    </request-map>
+    <request-map uri="modityEmail">
+        <security auth="false" https="false"/>
+        <response name="success" type="view" value="modityEmail"/>
+    </request-map>
+    <request-map uri="modityMobilephone">
+        <security auth="false" https="false"/>
+        <response name="success" type="view" value="modityMobilephone"/>
+    </request-map>
+    <request-map uri="deliverAdreess">
+        <security auth="false" https="false"/>
+        <response name="success" type="view" value="deliverAdreess"/>
+    </request-map>
+    <request-map uri="returnAddress">
+        <security auth="false" https="false"/>
+        <response name="success" type="view" value="returnAddress"/>
+    </request-map>
+    <request-map uri="companyInfo">
+        <security auth="false" https="false"/>
+        <response name="success" type="view" value="companyInfo"/>
+    </request-map>
+    <request-map uri="factorySetsup">
+        <security auth="false" https="false"/>
+        <response name="success" type="view" value="factorySetsup"/>
+    </request-map>
+    <request-map uri="merchantsInfo">
+        <security auth="false" https="false"/>
+        <response name="success" type="view" value="merchantsInfo"/>
+    </request-map>
+    <request-map uri="shortmessageService">
+        <security auth="false" https="false"/>
+        <response name="success" type="view" value="shortmessageService"/>
+    </request-map>
+    <request-map uri="accountSets">
+        <security auth="false" https="false"/>
+        <response name="success" type="view" value="accountSets"/>
+    </request-map>
+    <request-map uri="identityAuthentication">
+        <security auth="false" https="false"/>
+        <response name="success" type="view" value="identityAuthentication"/>
+    </request-map>
+    <request-map uri="setMobilenum">
+        <security auth="false" https="false"/>
+        <response name="success" type="view" value="setMobilenum"/>
+    </request-map>
+    <!-- chenfei -->
+    <request-map uri="showProductToOne">
+        <security auth="false" https="false"/>
+        <response name="success" type="view" value="showProductToOne"/>
+    </request-map>
+    
+    <!-- Product -->
+    <request-map uri="category">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="category"/>
+    </request-map>
+    <request-map uri="product">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="product" save-current-view="true"/>
+    </request-map>
+    <!-- 店铺身份认证   个人-->
+   	<request-map uri="stor_certification">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="stor_certification"/>
+    </request-map>
+    <!-- 店铺身份认证  公司 -->
+   	<request-map uri="stor_certificationTwo">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="stor_certificationTwo"/>
+    </request-map>
+    <!-- 店铺身份认证  个体户-->
+   	<request-map uri="stor_certification3">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="stor_certification3"/>
+    </request-map>
+    <!-- 店铺身份认证  个人-->
+   	<request-map uri="stor_certification4">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="stor_certification4"/>
+    </request-map>
+    <!-- 交易  -->
+    <!-- 订单后的商品评价  -->
+    <request-map uri="appraisal">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="appraisal"/>
+    </request-map>
+    <!-- 客户咨询  -->
+    <request-map uri="review">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="review"/>
+    </request-map>
+    <!-- 客户咨询 详情 -->
+    <request-map uri="reviewDetail">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="reviewDetail"/>
+    </request-map>
+    <!-- 全部订单  -->
+    <!--  
+    <request-map uri="myorder">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="myorder"/>
+    </request-map>
+    -->
+   
+    <!-- 查询退款请求 -->
+    <request-map uri="findreturn">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="findreturn"/>
+    </request-map>
+    <request-map uri="updateReturn">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="updateReturnHeader"/>
+        <response name="success" type="view" value="returnhead"/>
+    </request-map>
+    <request-map uri="returnMain">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="returnhead"/>
+    </request-map>
+    <!-- 订单详情 -->
+    <request-map uri="myorderDeail">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="myorderDeail"/>
+    </request-map>
+    <!-- 纠纷订单  -->
+    <request-map uri="disorder">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="disorder"/>
+    </request-map>
+    <!-- 批量導出订单  -->
+    <request-map uri="batchexportorders">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="batchexportorders"/>
+    </request-map>
+    <!-- 返還佣金  -->
+    <request-map uri="rebate">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="rebate"/>
+    </request-map>
+      <!-- 國際e郵寶 -->
+    <request-map uri="internationalEPo">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="internationalEPo"/>
+    </request-map>
+     <!-- 倉庫發貨 -->
+    <request-map uri="warehouse">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="warehouse"/>
+    </request-map>
+    <!-- 交易評價管理 -->
+    <request-map uri="transmanagevaluation">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="transmanagevaluation"/>
+    </request-map>
+    <!-- 產品評價管理 -->
+    <request-map uri="productevaluamanage">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="productevaluamanage"/>
+    </request-map>
+    <!-- 買家名單-->
+    <request-map uri="buyerslist">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="buyerslist"/>
+    </request-map>
+    <!-- 買家黑名單-->
+    <request-map uri="blacklist">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="blacklist"/>
+    </request-map>
+    
+<!-- 產品 -->
+    <!-- 商鋪信息-->
+    <request-map uri="store">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="store"/>
+    </request-map>
+    <!-- 商鋪裝修-->
+    <request-map uri="shopdecoration">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="shopdecoration"/>
+    </request-map>
+    <!-- 櫥窗管理-->
+    <request-map uri="windowmanage">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="windowmanage"/>
+    </request-map>
+    <!-- 商鋪類目-->
+    <request-map uri="shopscategory">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="shopscategory"/>
+    </request-map>
+    <!-- 備貨管理-->
+    <request-map uri="stockmanage">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="stockmanage"/>
+    </request-map>
+    <!-- 海外退貨服務設定-->
+    <request-map uri="overseaservice">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="overseaservice"/>
+    </request-map>
+    <!-- 產品相冊-->
+    <request-map uri="ductphotoalbum">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="ductphotoalbum"/>
+    </request-map>
+    <!-- 申訴管理-->
+    <request-map uri="complaintmanage">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="complaintmanage"/>
+    </request-map>
+    <!-- 經營品牌-->
+    <request-map uri="brandmanage">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="brandmanage"/>
+    </request-map>
+    <!-- 商铺中加入购物车的商品-->
+    <request-map uri="buyCartGoods">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="buyCartGoods"/>
+    </request-map>
+    <!-- 商铺中加入购物车的放弃 out商品-->
+    <request-map uri="buyCartOutGoods">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="buyCartOutGoods"/>
+    </request-map>
+    <!-- 商铺的畅销商品-->
+    <request-map uri="bestSellingGoods">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="bestSellingGoods"/>
+    </request-map>
+    <!-- 商铺的销售量报表-->
+    <request-map uri="salesVolumeGoods">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="salesVolumeGoods"/>
+    </request-map>
+   	<!-- 商铺的销售额报表-->
+    <request-map uri="salesAmountGoods">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="salesAmountGoods"/>
+    </request-map>
+	<!-- 品牌添加页面 -->
+	<request-map uri="createBrandmanage">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="createBrandmanage" />
+	</request-map>
+		<!-- 修改品牌 -->
+	<request-map uri="editBrandmanage">
+		<security https="false" auth="true" />
+		<event type="service" invoke="editBrandmanage" />
+		<response name="success" type="view" value="brandmanage" />
+	</request-map>
+	
+		<!-- 删除品牌 -->
+	<request-map uri="storeRemoveBrand">
+		<security https="false" auth="true" />
+		<event type="service" invoke="removeProductStoreBrand" />
+		<response name="success" type="view" value="brandmanage" />
+	</request-map>
+	
+<!-- 	添加品牌 -->
+	<request-map uri="addBrandmanage">
+        <security auth="true" https="false"/>
+        <event type="service" path="" invoke="addBrandmanage"/>
+        <response name="success" type="view" value="brandmanage"/>
+    </request-map>
+	
+    <!-- 屬性缺失產品-->
+    <request-map uri="lackductattribute">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="lackductattribute"/>
+    </request-map>
+    <!-- 違規待處理產品-->
+    <request-map uri="lllegalductprocessed">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="lllegalductprocessed"/>
+    </request-map>
+    <!-- 一鍵達搬家-->
+    <request-map uri="keyupmove">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="keyupmove"/>
+    </request-map>
+    <!-- 搬家記錄-->
+    <request-map uri="movingrecords">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="movingrecords"/>
+    </request-map>
+    <!-- 運費模板管理-->
+    <request-map uri="freightemplatemanage">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="freightemplatemanage"/>
+    </request-map>
+    
+    <!-- 消息 -->
+    <request-map uri="sysMessage">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="sysMessage"/>
+    </request-map>
+    <request-map uri="platformAnnouncement">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="platformAnnouncement"/>
+    </request-map>
+    <request-map uri="bin">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="bin"/>
+    </request-map>
+    <request-map uri="onlineMessage">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="onlineMessage"/>
+    </request-map>
+    <request-map uri="historicalMessage">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="historicalMessage"/>
+    </request-map>
+    <request-map uri="buyersMessage">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="buyersMessage"/>
+    </request-map>
+    
+      	 <!-- 商户管理 处罚管理详情 -->
+    <request-map uri="punishmgnt">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="punishmgnt"/>
+    </request-map>
+    
+    <!-- 商户管理 商户评级详情 -->
+    <request-map uri="ratedetail">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="ratedetail"/>
+    </request-map>   
+    
+    
+         <!-- 精选优惠-->
+    <request-map uri="commoditySpecialOffer">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="commoditySpecialOffer"/>
+    </request-map>
+     <!-- 每日优惠-->
+    <request-map uri="commodityDailyOffer">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="commodityDailyOffer"/>
+    </request-map>
+     <!-- 周末优惠-->
+    <request-map uri="commodityWeekendOffer">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="commodityWeekendOffer"/>
+    </request-map>
+    
+     <!-- 全球速卖-->
+    <request-map uri="globalSpeedSold">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="globalSpeedSold"/>
+    </request-map>
+     <!-- 热门产品-->
+    <request-map uri="hotProducts">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="hotProducts"/>
+    </request-map>
+
+     <!-- 商铺联系方式-->
+    <request-map uri="sellerContactDetails">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="sellerContactDetails"/>
+    </request-map>
+    
+     <!-- 商铺出售的商品-->
+    <request-map uri="tmall">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="tmall"/>
+    </request-map>
+    
+	<!-- 开店铺页面 -->
+	<request-map uri="addShop">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="addShop" />
+	</request-map>
+
+	<!-- 开店铺方法 -->
+	<request-map uri="createShop">
+		<security https="false" auth="true" />
+		<event type="service" invoke="createShop" />
+		<response name="success" type="view" value="addShop" />
+		<response name="error" type="view" value="addShop" />
+	</request-map>
+	
+    
+    
+    
+    <request-map uri="productCategoryList">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="productCategoryList" save-current-view="true"/>
+    </request-map>
+
+    <!-- 商铺 产品组管理 -->
+    <request-map uri="listSellerCatagory">
+        <security auth="true" https="false"/>
+        <response name="success" type="view" value="listSellerCatagory"/>
+    </request-map>
+	<!-- 删除产品组 -->
+	<request-map uri="delStoreCatagory">
+        <security auth="true" https="false"/>
+        <event type="service" path="" invoke="removeProductCatagory"/>
+        <response name="success" type="view" value="listSellerCatagory"/>
+    </request-map>
+
+    <!-- 添加商铺分类 -->
+    <request-map uri="editStoreCatagory">
+        <security auth="true" https="false"/>
+        <response name="success" type="view" value="editStoreCatagory"/>
+    </request-map>
+
+    <request-map uri="createStoreCatagory">
+        <security auth="true" https="false"/>
+        <event type="service" path="" invoke="createStoreCatagory"/>
+        <response name="success" type="view" value="editStoreCatagory"/>
+    </request-map>
+
+    <request-map uri="updateStoreCatagory">
+        <security auth="true" https="false"/>
+        <event type="service" path="" invoke="createStoreCatagory"/>
+        <response name="success" type="view" value="listSellerCatagory"/>
+    </request-map>
+
+
+    <!-- 订单详情 -->
+    <request-map uri="userSettlement">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="userSettlement"/>
+    </request-map>
+   <!-- 支付页面 -->
+    <request-map uri="userPayment">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="userPayment"/>
+    </request-map>
+    <request-map uri="paymentSuccess">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="paymentSuccess"/>
+    </request-map>
+    <!-- 假的支付订单 -->
+	<request-map uri="zfd">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="zfd" />
+	</request-map>
+	<request-map uri="zfdd">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="zfdd" />
+	</request-map>
+	<request-map uri="zfddd">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="zfddd" />
+	</request-map>
+	<request-map uri="zfdddd">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="zfdddd" />
+	</request-map>
+    
+    
+    <request-map uri="userShoppingCart">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="userShoppingCart"/>
+    </request-map>
+    <request-map uri="payCheck">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="payCheck"/>
+    </request-map>
+
+    <!-- 商户后台功能 命名以seller_开头 -->
+
+    <request-map uri="seller_EditUserLogin">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="seller_EditUserLogin"/>
+    </request-map>
+	<request-map uri="seller_userEmail">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="seller_userEmail"/>
+    </request-map>
+
+    <request-map uri="seller_ProfileUpdatePassword">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updatePassword"/>
+        <response name="success" type="view" value="seller_EditUserLogin"/>
+        <response name="error" type="view" value="seller_EditUserLogin"/>
+    </request-map>
+    <!-- 商铺地址管理 -->
+    <request-map uri="seller_createPostalAddress">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="createPartyPostalAddress"/>
+        <response name="success" type="view" value="seller_listAddress"/>
+        <response name="error" type="view" value="seller_EditAddress"/>
+    </request-map> 
+    
+    <!-- 仓库地址创建 -->
+    <request-map uri="seller_createFacilityAddress">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createFacilityPostalAddress"/>
+        <response name="success" type="request-redirect" value="seller_listFacilityAddress"/>
+        <response name="error" type="request-redirect" value="seller_EditFacilityAddress"/>
+    </request-map>
+    <!-- 仓库地址修改 -->
+    <request-map uri="seller_updateFacilityPostalAddress">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updateFacilityPostalAddress"/>
+        <response name="success" type="view" value="seller_listFacilityAddress"/>
+        <response name="error" type="view" value="seller_EditFacilityAddress"/>
+    </request-map>
+    <!-- 删除仓库地址 -->
+    <request-map uri="seller_deleteFacilityContactMech">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="deleteFacilityContactMech"/>
+        <response name="success" type="view-home" value="seller_listFacilityAddress"/>
+        <response name="error" type="view" value="seller_listFacilityAddress"/>
+    </request-map>
+    <request-map uri="seller_createDeliveryPostalAddress">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="createPartyPostalAddress"/>
+        <response name="success" type="view" value="seller_listDeliveryAddress"/>
+        <response name="error" type="view" value="seller_EditDeliveryAddress"/>
+    </request-map>
+    <request-map uri="seller_updatePostalAddress">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updatePartyPostalAddress"/>
+        <response name="success" type="view" value="seller_listAddress"/>
+        <response name="error" type="view" value="seller_EditAddress"/>
+    </request-map>
+    <request-map uri="seller_updateDeliveryPostalAddress">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updatePartyPostalAddress"/>
+        <response name="success" type="view" value="seller_listDeliveryAddress"/>
+        <response name="error" type="view" value="seller_EditDeliveryAddress"/>
+    </request-map>
+    <request-map uri="seller_deleteContactMech">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="deletePartyContactMech"/>
+        <response name="success" type="view-home" value="seller_listAddress"/>
+        <response name="error" type="view" value="seller_listAddress"/>
+    </request-map>
+    <request-map uri="seller_deleteDeliveryContactMech">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="deletePartyContactMech"/>
+        <response name="success" type="view-home" value="seller_listDeliveryAddress"/>
+        <response name="error" type="view" value="seller_listDeliveryAddress"/>
+    </request-map>
+    
+    
+    
+    <request-map uri="seller_EditAddress">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="seller_EditAddress"/>
+        <response name="error" type="view" value="seller_EditAddress"/>
+    </request-map>
+    <request-map uri="seller_EditDeliveryAddress">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="seller_EditDeliveryAddress"/>
+        <response name="error" type="view" value="seller_EditDeliveryAddress"/>
+    </request-map>
+    <!-- 仓库地址修改 -->
+     <request-map uri="seller_EditFacilityAddress">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="seller_EditFacilityAddress"/>
+        <response name="error" type="view" value="seller_EditFacilityAddress"/>
+    </request-map>
+    
+    <request-map uri="seller_listAddress">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="seller_listAddress"/>
+        <response name="error" type="view" value="seller_listAddress"/>
+    </request-map>
+    <!-- 送货地址 -->
+	<request-map uri="seller_listDeliveryAddress">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="seller_listDeliveryAddress"/>
+        <response name="error" type="view" value="seller_listDeliveryAddress"/>
+    </request-map>
+    <!-- 仓库送货地址 -->
+	<request-map uri="seller_listFacilityAddress">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="seller_listFacilityAddress"/>
+        <response name="error" type="view" value="seller_listFacilityAddress"/>
+    </request-map>
+    
+    <!-- 用户功能 命名以user_开头 -->
+    <request-map uri="userMain">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="userMain"/>
+    </request-map>
+    <request-map uri="userInfo">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="userInfo"/>
+    </request-map>
+    <request-map uri="user_updateInfo">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updatePorUserInfo"/>
+        <response name="success" type="request-redirect" value="userInfo"/>
+        <response name="error" type="request-redirect" value="userInfo" />
+    </request-map>
+    <request-map uri="user_showCart">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="user_showCart"/>
+    </request-map>
+	<request-map uri="user_address">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="user_address"/>
+    </request-map>
+    <request-map uri="user_myorder">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="user_myorder"/>
+    </request-map>
+    <request-map uri="user_myorderdetails">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="user_myorderdetails"/>
+    </request-map>
+    <!-- 退款请求 -->
+    <request-map uri="user_makeReturn">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="requestreturn"/>
+    </request-map>
+    <request-map uri="requestReturn">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createReturnHeader"/>
+        <response name="success" type="request" value="setReturnItems"/>
+        <response name="error" type="view" value="user_myorderdetails"/>
+    </request-map>
+    <request-map uri="setReturnItems">
+        <security https="true" auth="true" direct-request="false"/>
+        <event type="service-multi" invoke="createReturnItem"/>
+        <response name="success" type="view" value="user_myorderdetails"/>
+        <response name="error" type="view" value="user_myorderdetails"/>
+    </request-map>
+    <!-- 用户的咨询 -->
+    <request-map uri="user_review">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="user_review"/>
+    </request-map>
+    <!-- 用户咨询的详情 -->
+    <request-map uri="user_reviewDetail">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="user_reviewDetail"/>
+    </request-map>
+    <request-map uri="user_EditUserLogin">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="user_EditUserLogin"/>
+    </request-map>
+    <!-- 申请退款-->
+    <request-map uri="user_refunds">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="user_refunds"/>
+    </request-map>
+    <request-map uri="user_refundsList">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="user_refundsList"/>
+    </request-map>
+    
+    <!-- 我的应用  物业缴费-->
+    <request-map uri="myPropertyPayment">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="myPropertyPayment"/>
+    </request-map>
+    
+    <!-- 我的应用  物业缴费 缴费信息-->
+    <request-map uri="myPropPay">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="myPropPay"/>
+    </request-map>
+    
+    <!-- 我的应用  物业缴费 缴费信息-->
+    <request-map uri="myPropPayToOk">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="myPropPayToOk"/>
+    </request-map>
+    
+    
+    <!-- 我的应用  物业缴费 Money-->
+    <request-map uri="myPropPayToOkToMoney">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="myPropPayToOkToMoney"/>
+    </request-map>
+    
+    <!-- 我的应用  物业缴费 Money-->
+    <request-map uri="myPropPayToOkToMoneyToOk">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="myPropPayToOkToMoneyToOk"/>
+    </request-map>
+    
+    <!-- 我的应用  预约挂号-->
+    <request-map uri="myAppointmentregistration">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="myAppointmentregistration"/>
+    </request-map>
+    <!-- 我的应用  预约挂号进入预约-->
+    <request-map uri="myAppreg">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="myAppreg"/>
+    </request-map>
+    
+    <!-- 我的应用  预约挂号进入个人信息-->
+    <request-map uri="myAppregToReservation">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="myAppregToReservation"/>
+    </request-map>
+    
+    <!-- 我的应用  预约挂号进入确认预约-->
+    <request-map uri="myAppregToResToOK">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="myAppregToResToOK"/>
+    </request-map>
+    
+    
+    <!-- 我的应用  预约挂号进入 缴费页面-->
+    <request-map uri="myAppregToResToOKToEnd">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="myAppregToResToOKToEnd"/>
+    </request-map>
+    
+    <request-map uri="user_Passwordprotection">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="user_Passwordprotection"/>
+    </request-map>
+    
+    <request-map uri="user_email">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="user_email"/>
+    </request-map>
+    
+    <request-map uri="ProfileUpdatePassword">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updatePassword"/>
+        <response name="success" type="view" value="user_EditUserLogin"/>
+        <response name="error" type="view" value="user_EditUserLogin"/>
+    </request-map>
+    <request-map uri="user_ViewProfile">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="user_ViewProfile" save-home-view="true"/>
+    </request-map>
+    <!-- 用户新建地址  update by lux  改为Json方式-->
+    <request-map uri="user_createPostalAddress">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="createPartyPostalAddress"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="user_updatePostalAddress">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updatePartyPostalAddress"/>
+        <response name="success" type="none" />
+        <response name="error" type="none" />
+    </request-map>
+    <!-- 用户新建邮箱地址 -->
+    <request-map uri="user_createPartyEmailAddress">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="createPartyEmailAddress"/>
+        <response name="success" type="view" value="user_email"/>
+        <response name="error" type="view" value="user_email"/>
+    </request-map>
+    <request-map uri="user_updatePartyEmailAddress">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updatePartyEmailAddress"/>
+        <response name="success" type="view" value="user_email"/>
+        <response name="error" type="view" value="user_email"/>
+    </request-map>
+    <request-map uri="seller_userupdatePartyEmailAddress">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updatePartyEmailAddress"/>
+        <response name="success" type="view" value="seller_userEmail"/>
+        <response name="error" type="view" value="seller_userEmail"/>
+    </request-map>
+    
+    <request-map uri="user_deleteContactMech">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="deletePartyContactMech"/>
+        <response name="success" type="view-home" value="user_listAddress"/>
+        <response name="error" type="view" value="user_listAddress"/>
+    </request-map>
+    <request-map uri="user_EditAddress">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="user_EditAddress"/>
+        <response name="error" type="view" value="user_EditAddress"/>
+    </request-map>
+    <request-map uri="user_listAddress">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="user_listAddress"/>
+        <response name="error" type="view" value="user_listAddress"/>
+    </request-map>
+
+	<!-- 购买历史 -->
+	<request-map uri="user_boughtStore">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="user_boughtStore" />
+	</request-map>
+
+	<request-map uri="user_boughtGoods">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="user_boughtGoods" />
+	</request-map>
+
+    <!-- 管理员功能 命名以mng_开头 -->
+    <request-map uri="managerMain">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="managerMain"/>
+    </request-map>
+    <request-map uri="mng_FindCategory">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="mng_FindCategory"/>
+    </request-map>
+    <request-map uri="mng_EditCategory">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="mng_EditCategory"/>
+    </request-map>
+    <request-map uri="mng_UploadCategoryImage">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mng_EditCategory"/>
+    </request-map>
+    <request-map uri="mng_UpdateProductCategory">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateProductCategory"/>
+        <response name="success" type="view" value="mng_FindCategory"/>
+        <response name="error" type="view" value="mng_EditCategory"/>
+    </request-map>
+    <request-map uri="mng_FindProduct">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="mng_FindProduct"/>
+    </request-map>
+    <!-- 订单 -->
+    <request-map uri="mng_ShowOrder">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mng_ShowOrder"/>
+    </request-map>
+    <!-- home page map setting -->
+    <request-map uri="mng_PageSetting">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mng_PageSetting"/>
+    </request-map>
+    <!-- create home page -->
+    <request-map uri="create_mng_Pages">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="create_mng_Pages"/>
+    </request-map>
+    
+     <request-map uri="uploadMessageImage">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="create_mng_Pages"/>
+    </request-map>
+    
+    	<!-- 修改广告 -->
+	<request-map uri="editPagemanage">
+		<security https="false" auth="true" />
+		<event type="service" invoke="editPagemanage" /> 
+		<!-- <event type="java" path="org.ofbiz.setfield.FieldtoPage" invoke="createPagemanage"/>-->
+		<response name="success" type="view" value="mng_PageSetting" />
+	</request-map>
+	
+	<request-map uri="uploadPagemanage">
+		<security https="false" auth="true" />
+		<event type="groovy" path="component://portal/webapp/portal/WEB-INF/actions/imageSet/uploadPagemanage.groovy" /> 
+		<response name="success" type="view" value="mng_PageSetting" />
+	</request-map>
+	
+		<!-- 删除广告 -->
+	<request-map uri="removePagemanage">
+		<security https="false" auth="true" />
+		<event type="service" invoke="removePagemanage" />
+		<response name="success" type="view" value="mng_PageSetting" />
+	</request-map>
+	
+    <!-- 添加广告 -->
+	<request-map uri="addPagemanage">
+        <security auth="false" https="false"/>
+        <event type="service" path="" invoke="addPagemanage"/>
+        <response name="success" type="view" value="mng_PageSetting"/>
+    </request-map>
+    
+    <!-- 公告设置  -->
+    <request-map uri="mng_announcementSetting">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mng_announcementSetting"/>
+    </request-map>
+    
+    <request-map uri="create_mng_Announcement">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="create_mng_Announcement"/>
+    </request-map>
+    
+    <request-map uri="release_mng_Announcement">
+        <security https="false" auth="true"/>
+        <event type="groovy" path="component://portal/webapp/portal/WEB-INF/actions/imageSet/GetPageSetterForRelease.groovy"/>
+        <response name="success" type="view" value="mng_announcementSetting"/>
+    </request-map>
+    
+    <request-map uri="seller_findMessageByOne">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="seller_findMessageByOne"/>
+    </request-map>
+    
+    <request-map uri="seller_findMessageByAll">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="seller_findMessageByAll"/>
+    </request-map>
+    
+    <request-map uri="user_findMessageByOne">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="user_findMessageByOne"/>
+    </request-map>
+    
+    <request-map uri="user_findMessageByAll">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="user_findMessageByAll"/>
+    </request-map>
+    
+      	<!-- 修改公告 -->
+	<request-map uri="editMessage">
+		<security https="false" auth="true" />
+		<event type="service" invoke="editMessage" /> 
+		<!-- <event type="java" path="org.ofbiz.setfield.FieldtoPage" invoke="createPagemanage"/>-->
+		<response name="success" type="view" value="mng_announcementSetting" />
+	</request-map>
+	
+		<!-- 删除公告 -->
+	<request-map uri="removeMessage">
+		<security https="false" auth="true" />
+		<event type="service" invoke="removeMessage" />
+		<response name="success" type="view" value="mng_announcementSetting" />
+	</request-map>
+	
+    <!-- 添加公告 -->
+	<request-map uri="addMessage">
+        <security auth="false" https="false"/>
+        <event type="service" path="" invoke="addMessage"/>
+        <response name="success" type="view" value="mng_announcementSetting"/>
+    </request-map>
+    
+    <request-map uri="mng_Home_pagesetting">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mng_Home_pagesetting"/>
+    </request-map>
+    
+    <request-map uri="createHomePage">
+        <security auth="false" https="false"/>
+        <event type="service" invoke="createHomePage"/>
+        <response name="success" type="view" value="mng_Home_pagesetting"/>
+    </request-map>
+    
+    <request-map uri="updateHomePage">
+		<security https="false" auth="false" />
+		<!--<event type="service" invoke="updateHomePage" /> -->
+	    <event type="groovy" path="component://portal/webapp/portal/WEB-INF/actions/imageSet/GetPageSetterForUpdate.groovy"/>
+		<response name="success" type="view" value="mng_Home_pagesetting" />
+	</request-map>
+    
+   	<!-- 账户设置 -->
+	<!-- 个人资料设置 -->
+	<request-map uri="merchantInfo">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="merchantInfo" />
+	</request-map>
+	<request-map uri="editEnterpriseQual">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="editEnterpriseQual" />
+	</request-map>
+	<request-map uri="saveEnterpriseQual">
+		<security https="false" auth="true" />
+		<event type="java" invoke="saveEnterpriseQual" path="org.ofbiz.product.store.StoreEvents"/>
+		<response name="success" type="request" value="json" />
+	</request-map>
+    
+    <!-- 产品三级分类页面 -->
+    <request-map uri="thirdCate">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="thirdCate"/>
+    </request-map>
+    
+    <!-- 产品三级分类页面 -->
+    <request-map uri="thirdCate">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="thirdCate"/>
+    </request-map>
+    
+    <request-map uri="ProductUomDropDownOnly">
+        <security auth="false" https="false"/>
+        <response name="success" type="view" value="ProductUomDropDownOnly" save-last-view="true"/>
+    </request-map>
+
+	<!-- 创建商户信息 -->
+	<request-map uri="createPersonInfo">
+		<security auth="true" https="false" />
+		<event type="service" invoke="createPersonInfo"></event>
+		<response name="success" type="view" value="merchantInfo" />
+	</request-map>
+
+	<!-- 修改商户信息 -->
+	<request-map uri="updatePersonInfo">
+		<security auth="true" https="false" />
+		<event type="service" invoke="updatePersonInfo"></event>
+		<response name="success" type="view" value="merchantInfo" />
+	</request-map>
+	
+	<!-- 医院挂号页面异步请求查询地区 -->
+    <request-map uri="search_geo_hol">
+        <security https="false" auth="false"/>
+        <event type="groovy" path="component://portal/webapp/portal/WEB-INF/actions/system/GetHospitalToGeo.groovy"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none" value="json"/>
+    </request-map>
+    
+    <!-- 物业缴费页面异步请求查询地区 -->
+    <request-map uri="search_pro_pay">
+        <security https="false" auth="false"/>
+        <event type="groovy" path="component://portal/webapp/portal/WEB-INF/actions/system/GetPropertyToPay.groovy"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none" value="json"/>
+    </request-map>
+    
+    <!--卖家  回复 -->
+    <request-map uri="subStoreProductAdvisory">
+        <security https="false" auth="false" />
+        <event type="service"  invoke="createCommunicationEvent"/>
+        <response name="success" type="view" value="subStoreProductAdvisory"/>
+    </request-map>    
+    
+    <!--买家  回复 -->
+    <request-map uri="subProductAdvisory">
+        <security https="false" auth="false" />
+        <event type="service"  invoke="createCommunicationEvent"/>
+        <response name="success" type="view" value="subProductAdvisory"/>
+    </request-map>  
+    <!--申请退款中间页面-->
+	<request-map uri="orderRemark">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="orderRemark" />
+	</request-map>
+    <!--订单列表支付订单-->
+	<request-map uri="user_payorder">
+		<security https="false" auth="true" />
+		<event type="java" path="org.ofbiz.ebiz.order.OrderEvents" invoke="prapareUserPayOrder"/>
+		<response name="success" type="request" value="callPayease" />
+		<response name="error" type="view" value="user_myorder" />
+	</request-map>
+	
+	
+	
+    <!-- 页面中下方注意  -->
+    <request-map uri="about_us">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="about_us"/>
+    </request-map>
+    <request-map uri="newbie_on_road">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="newbie_on_road"/>
+    </request-map>
+    <request-map uri="buyer_protection">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="buyer_protection"/>
+    </request-map>
+    <request-map uri="all_goods">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="all_goods"/>
+    </request-map>
+    <request-map uri="all_promotional_items">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="all_promotional_items"/>
+    </request-map>
+    <request-map uri="all_hot_search_keywords">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="all_hot_search_keywords"/>
+    </request-map>
+    <request-map uri="helps">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="helps"/>
+    </request-map>
+    <request-map uri="customer_service">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="customer_service"/>
+    </request-map>
+    <request-map uri="onweb_site">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="onweb_site"/>
+    </request-map>
+    <request-map uri="privacy_policy">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="privacy_policy"/>
+    </request-map>
+    <request-map uri="terms_use">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="terms_use"/>
+    </request-map>
+    <request-map uri="seller_platform">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="seller_platform"/>
+    </request-map>
+    
+    <!-- chenfei birt-->
+    <request-map uri="shoppingCartHistoryHTML">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="shoppingCartHistoryHTML"/>
+    </request-map>
+    
+    <request-map uri="shoppingCartHistoryPdf">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="shoppingCartHistoryPdf"/>
+    </request-map>
+    
+
+    <request-map uri="MySellerBuyerReport.xls">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://portal/webapp/portal/WEB-INF/actions/store/MySellerBuyerReport.groovy"/>
+        <response name="success" type="view" value="mySellerBuyerReportExcel"/>
+    </request-map>
+    <!--  商品销售量报表 -->
+    <request-map uri="MySalesVolumeGoodsReport.xls">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://portal/webapp/portal/WEB-INF/actions/store/MySalesVolumeGoodsReport.groovy"/>
+        <response name="success" type="view" value="MySalesVolumeGoodsReportEXCEL"/>
+    </request-map>
+    <!--  商品销售额报表 -->
+    <request-map uri="MySalesAmountGoodsReport.xls">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://portal/webapp/portal/WEB-INF/actions/store/MySalesAmountGoodsReport.groovy"/>
+        <response name="success" type="view" value="MySalesAmountGoodsReportEXCEL"/>
+    </request-map>
+
+    <request-map uri="shoppingCartHistory.xls">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="shoppingCartHistoryXls"/>
+    </request-map>
+
+    <request-map uri="shoppingCartOutHistoryHTML">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="shoppingCartOutHistoryHTML"/>
+    </request-map>
+    
+    <request-map uri="shoppingCartOutHistoryPdf">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="shoppingCartOutHistoryPdf"/>
+    </request-map>
+    
+    <request-map uri="shoppingCartOutHistory.xls">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="shoppingCartOutHistoryXls"/>
+    </request-map>
+    
+    <request-map uri="verifyEmailAddress">
+    	<security https="false" auth="false"/>
+    	<event type="simple" path="component://portal/script/org/ofbiz/ebiz/customer/CustomerEvents.xml" invoke="verifyEmailAddress"/>
+        <response name="error" type="view" value="verifyEmailError"/>
+        <response name="success" type="view" value="main"/>
+    </request-map>
+    <request-map uri="mySupplier">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mySupplier"/>
+    </request-map>
+    <request-map uri="myDxStore">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="myDxStore"/>
+    </request-map>
+    <request-map uri="mySupplierProtocol">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mySupplierProtocol"/>
+    </request-map>
+    <request-map uri="createDxSupplierProtocol">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="createDxSupplierProtocol"/>
+        <response name="success" type="request" value="mySupplier"/>
+    </request-map>
+    <request-map uri="updateDxSupplierProtocol">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="updateDxSupplierProtocol"/>
+        <response name="success" type="request" value="mySupplier"/>
+    </request-map>
+    <request-map uri="createOneDxProduct">
+        <security https="false" auth="true"/>
+         <event type="service"  invoke="createDxProduct"/>
+         <response name="success" type="request" value="tmall">
+        	<redirect-parameter name="productStoreId"/>
+        	<redirect-parameter name="dxStoreId"/>
+        </response>
+    </request-map>
+    <request-map uri="updateOneDxProduct">
+        <security https="false" auth="true"/>
+         <event type="service"  invoke="updateDxProduct"/>
+         <response name="success" type="request" value="tmall">
+        	<redirect-parameter name="productStoreId"/>
+        	<redirect-parameter name="dxStoreId"/>
+        </response>
+    </request-map>
+    <request-map uri="createDxProduct">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="createDxProduct"/>
+       <response name="success" type="request" value="createDxProductMutil" />
+    </request-map>
+    <request-map uri="createDxProductMutil">
+        <security https="true" auth="true"/>
+        <event type="service-multi" path="" invoke="createDxProduct"/>
+        <response name="success" type="request" value="tmall">
+        	<redirect-parameter name="productStoreId"/>
+        	<redirect-parameter name="dxStoreId"/>
+        </response>
+    </request-map>
+    <request-map uri="EditDxProduct">
+        <security https="false" auth="true"/>
+         <response name="success" type="view" value="EditDxProduct"/>
+    </request-map>
+    <request-map uri="updateDxProduct">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="updateDxProduct"/>
+       <response name="success" type="request" value="tmall">
+        	<redirect-parameter name="productStoreId"/>
+        	<redirect-parameter name="dxStoreId"/>
+        </response>
+    </request-map>
+    <request-map uri="FindCashBm">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindCashBm" />
+	</request-map>
+	
+	<request-map uri="EditCashBm">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditCashBm" />
+	</request-map>
+	
+	<request-map uri="createFinAccountLog">
+		<security https="false" auth="true" />
+		<event type="service" invoke="createFinAccountLog"></event>
+		<response name="success" type="request-redirect-noparam" value="FindCashBm" />
+	</request-map>
+	<request-map uri="updateFinAccountLog">
+		<security https="false" auth="true" />
+		<event type="service" invoke="updateFinAccountLog"></event>
+		<response name="success" type="request-redirect-noparam" value="FindAccountCm" />
+	</request-map>
+	<request-map uri="removeFinAccountLog">
+		<security https="false" auth="true" />
+		<event type="service" invoke="removeFinAccountLog"></event>
+		<response name="success" type="request-redirect-noparam" value="FindCashBm" />
+	</request-map>
+	<!-- 供应商资质管理 -->
+    <request-map uri="FindSupplierQualSm">
+        <security auth="true"/>
+        <response name="success" type="view" value="FindSupplierQualSm"/>
+    </request-map>
+    <request-map uri="EditSupplierQualSm">
+        <security auth="true" https="false"/>
+        <response name="success" type="view" value="EditSupplierQualSm"/>
+    </request-map>
+    <request-map uri="createSupplierQualSm">
+        <security auth="true" https="false"/>
+        <event type="service" invoke="createEnterpriseQual"/>
+         <response name="success" type="request-redirect-noparam" value="FindSupplierQualSm"/>
+        <response name="error" type="view" value="EditSupplierQualSm"/>
+    </request-map>
+    <request-map uri="updateSupplierQualSm">
+        <security auth="true" https="false"/>
+        <event type="service" invoke="updateEnterpriseQual"/>
+         <response name="success" type="request-redirect-noparam" value="FindSupplierQualSm"/>
+        <response name="error" type="view" value="EditSupplierQualSm"/>
+    </request-map>
+    <request-map uri="deleteSupplierQualSm">
+        <security auth="true" https="false"/>
+        <event type="service" invoke="deleteEnterpriseQual"/>
+         <response name="success" type="request-redirect-noparam" value="FindSupplierQualSm"/>
+        <response name="error" type="request-redirect-noparam" value="FindSupplierQualSm"/>
+    </request-map>
+    
+    <!-- 供应商资质管理 -->
+    <view-map name="FindSupplierQualSm" type="screen" page="component://portal/widget/SellerScreens.xml#FindSupplierQualSm"/>
+    <view-map name="EditSupplierQualSm" type="screen" page="component://portal/widget/SellerScreens.xml#EditSupplierQualSm"/>
+    
+    <view-map name="FindCashBm" type="screen" page="component://portal/widget/SellerScreens.xml#FindCashBm" />
+	<view-map name="EditCashBm" type="screen" page="component://portal/widget/SellerScreens.xml#EditCashBm" />
+    <view-map name="shoppingCartHistoryHTML" type="screen" page="component://portal/widget/SellerScreens.xml#shoppingCartHistoryHTML" />
+    <view-map name="shoppingCartOutHistoryHTML" type="screen" page="component://portal/widget/SellerScreens.xml#shoppingCartOutHistoryHTML" />
+                                                   
+    <view-map name="shoppingCartHistoryPdf" type="birt" page="component://portal/webapp/portal/seller/report/shoppingCartHistoryHTML.rptdesign" content-type="application/pdf"/>
+    <view-map name="shoppingCartHistoryXls" type="birt" page="component://portal/webapp/portal/seller/report/shoppingCartHistoryEXCEL.rptdesign" content-type="application/vnd.ms-excel"/>
+    <view-map name="shoppingCartOutHistoryPdf" type="birt" page="component://portal/webapp/portal/seller/report/shoppingCartOutHistoryHTML.rptdesign" content-type="application/pdf"/>
+    <view-map name="shoppingCartOutHistoryXls" type="birt" page="component://portal/webapp/portal/seller/report/shoppingCartOutHistoryEXCEL.rptdesign" content-type="application/vnd.ms-excel"/>
+    <view-map name="MySalesVolumeGoodsReportEXCEL" type="birt" page="component://portal/webapp/portal/seller/report/myProductVolum.rptdesign" content-type="application/vnd.ms-excel"/>
+    <view-map name="MySalesAmountGoodsReportEXCEL" type="birt" page="component://portal/webapp/portal/seller/report/myProductAcount.rptdesign" content-type="application/vnd.ms-excel"/>
+    <view-map name="mySellerBuyerReportExcel" type="birt" page="component://portal/webapp/portal/seller/report/myBuyerList.rptdesign" content-type="application/vnd.ms-excel"/>
+     <!-- chenfei birt  end-->
+    <!-- 退款请求 -->
+    <view-map name="findreturn" type="screen" page="component://portal/widget/SellerScreens.xml#OrderFindReturn"/>
+    <view-map name="returnhead" type="screen" page="component://portal/widget/SellerScreens.xml#OrderReturnHeader"/>
+    <!--卖家  回复 -->
+    <view-map name="subStoreProductAdvisory" type="screen" page="component://portal/widget/SellerScreens.xml#review" />
+    <!--买家  回复 -->
+    <view-map name="subProductAdvisory" type="screen" page="component://portal/widget/user/UserScreens.xml#userReview" />
+    
+    <!-- Product Category 's Ajax -->
+    <view-map name="productCategoryList" type="screen" page="component://portal/widget/CatalogScreens.xml#productCategoryList"/>
+    <!-- 卖家注册 -->
+    <view-map name="joinFree" type="screen" page="component://portal/widget/SellerScreens.xml#joinFree"/>
+
+    
+	<!-- View Mappings -->
+    <view-map name="error" page="/error/error.jsp"/>
+    <view-map name="main" type="screen" page="component://portal/widget/CommonScreens.xml#main"/>
+    <view-map name="buyerlogin" type="screen" page="component://portal/widget/CommonScreens.xml#buyerlogin"/>
+    <view-map name="login" type="screen" page="component://portal/widget/CommonScreens.xml#login"/>
+    <view-map name="newcustomer" type="screen" page="component://portal/widget/CustomerScreens.xml#newcustomer"/>
+    <view-map name="getPassword" type="screen" page="component://portal/widget/CustomerScreens.xml#getPassword"/>
+    <view-map name="keywordsearch" type="screen" page="component://portal/widget/CatalogScreens.xml#keywordsearch"/>
+    
+    <view-map name="orderstatus" type="screen" page="component://ecommerce/widget/OrderScreens.xml#orderstatus"/>
+    <view-map name="orderhistory" type="screen" page="component://ecommerce/widget/OrderScreens.xml#orderhistory"/>
+    
+    <view-map name="editShoppingList" type="screen" page="component://ecommerce/widget/ShoppingListScreens.xml#editShoppingList"/>
+    
+    <!-- PDFs  -->
+    <view-map name="OrderPDF" type="screenfop" page="component://order/widget/ordermgr/OrderPrintScreens.xml#OrderPDF" content-type="application/pdf" encoding="none"/>
+    <view-map name="InvoicePDF" type="screenfop" page="component://accounting/widget/AccountingPrintScreens.xml#InvoicePDF" content-type="application/pdf" encoding="none"/>
+    
+    <!--  -->
+    <view-map name="EditProductStore" type="screen" page="component://portal/widget/SellerScreens.xml#EditProductStore"/>
+    <view-map name="FindProduct" type="screen" page="component://portal/widget/SellerScreens.xml#FindProduct"/>
+    <view-map name="EditProduct" type="screen" page="component://portal/widget/SellerScreens.xml#EditProduct"/>
+    <view-map name="Hassold" type="screen" page="component://portal/widget/SellerScreens.xml#Hassold"/>
+    <view-map name="LookupProductCategory" type="screen" page="component://product/widget/catalog/LookupScreens.xml#LookupProductCategory"/>
+   	<!-- 个人商户 产品管理 -->
+     <view-map name="goodsMgnt" type="screen" page="component://portal/widget/SellerScreens.xml#goodsMgnt" />
+
+	<!-- 新增产品 -->
+	<view-map name="addNewGoods" type="screen" page="component://portal/widget/SellerScreens.xml#addNewGoods" />
+	<view-map name="addNewGoodsNext" type="screen" page="component://portal/widget/SellerScreens.xml#addNewGoodsNext" />
+	<!-- 产品管理组 -->
+	<view-map name="goodsGroupMgnt" type="screen" page="component://portal/widget/SellerScreens.xml#goodsGroupMgnt" />
+	<!-- 产品管理-待审核 -->
+	<view-map name="prodAudit" type="screen" page="component://portal/widget/SellerScreens.xml#prodAudit" />
+	<!-- 产品管理-审核未通过 -->
+	<view-map name="prodAuditFail" type="screen" page="component://portal/widget/SellerScreens.xml#prodAuditFail" />
+	<!-- 产品管理-商品下架 -->
+	<view-map name="prodDownShelf" type="screen" page="component://portal/widget/SellerScreens.xml#prodDownShelf" />
+	<!-- 关联产品模板 -->
+	<view-map name="goodsModule" type="screen" page="component://portal/widget/SellerScreens.xml#goodsModule" />
+	
+    <!-- 店铺后台设置页面 -->
+    <view-map name="modityPassword" type="screen" page="component://portal/widget/SellerScreens.xml#modifypassword" />
+    <view-map name="modityEmail" type="screen" page="component://portal/widget/SellerScreens.xml#modityEmail" />
+    <view-map name="modityMobilephone" type="screen" page="component://portal/widget/SellerScreens.xml#modityMobilephone" />
+    <view-map name="deliverAdreess" type="screen" page="component://portal/widget/SellerScreens.xml#deliverAdreess" />
+    <view-map name="returnAddress" type="screen" page="component://portal/widget/SellerScreens.xml#returnAddress" />
+    <view-map name="companyInfo" type="screen" page="component://portal/widget/SellerScreens.xml#companyInfo"/>
+    <view-map name="merchantsInfo" type="screen" page="component://portal/widget/SellerScreens.xml#merchantsInfo"/>
+    <view-map name="factorySetsup" type="screen" page="component://portal/widget/SellerScreens.xml#factorySetsup"/>
+    <view-map name="shortmessageService" type="screen" page="component://portal/widget/SellerScreens.xml#shortmessageService"/>
+    <view-map name="accountSets" type="screen" page="component://portal/widget/SellerScreens.xml#accountSets"/>
+    <view-map name="identityAuthentication" type="screen" page="component://portal/widget/SellerScreens.xml#identityAuthentication"/>
+    <view-map name="setMobilenum" type="screen" page="component://portal/widget/SellerScreens.xml#setMobilenum"/>
+    <!-- 商品详情页面  -->
+     <view-map name="showProductToOne" type="screen" page="component://portal/widget/CommonScreens.xml#showPro" />
+	<!-- Product -->
+	<view-map name="category" type="screen" page="component://portal/widget/CatalogScreens.xml#category"/>
+    <view-map name="product" type="screen" page="component://portal/widget/CatalogScreens.xml#product"/>
+    <!-- 店铺身份认证 -->
+    <view-map name="stor_certification" type="screen" page="component://portal/widget/SellerScreens.xml#stor_certification" />
+    <view-map name="stor_certificationTwo" type="screen" page="component://portal/widget/SellerScreens.xml#stor_certification2" />
+    <view-map name="stor_certification3" type="screen" page="component://portal/widget/SellerScreens.xml#stor_certification3" />
+    <view-map name="stor_certification4" type="screen" page="component://portal/widget/SellerScreens.xml#stor_certification4" />
+    <!-- 订单交易：全部订单  -->
+    <view-map name="appraisal" type="screen" page="component://portal/widget/SellerScreens.xml#appraisal" />
+    <view-map name="review" type="screen" page="component://portal/widget/SellerScreens.xml#review" />
+    <view-map name="reviewDetail" type="screen" page="component://portal/widget/SellerScreens.xml#reviewDetail" />
+    <view-map name="myorder" type="screen" page="component://portal/widget/SellerScreens.xml#myorder" />
+    <view-map name="myorderDeail" type="screen" page="component://portal/widget/SellerScreens.xml#showMyOrderDetails" />
+    <!-- 我的买家  -->
+    <view-map name="mySellerbuyer" type="screen" page="component://portal/widget/SellerScreens.xml#mySellerbuyer" />
+    
+    
+    <!-- 订单交易：纠纷订单  -->
+    <view-map name="disorder" type="screen" page="component://portal/widget/SellerScreens.xml#disorder" />
+
+    <!-- 订单交易：批量導入订单  -->
+    <view-map name="batchexportorders" type="screen" page="component://portal/widget/SellerScreens.xml#batchexportorders" />
+
+	<!-- 个人商户首页 -->
+    <view-map name="sellerIndex" type="screen" page="component://portal/widget/SellerScreens.xml#main" />
+    
+	<!-- 我的店铺首页  -->
+    <view-map name="sellerhome" type="screen" page="component://portal/widget/CommonScreens.xml#sellerhome" />
+    
+   
+    <!-- 订单交易：佣金返還  -->
+    <view-map name="rebate" type="screen" page="component://portal/widget/SellerScreens.xml#rebate" />
+
+    <!-- 订单交易：國際e郵寶  -->
+    <view-map name="internationalEPo" type="screen" page="component://portal/widget/SellerScreens.xml#internationalEPo" />
+
+    <!-- 订单交易：國際e郵寶  -->
+    <view-map name="warehouse" type="screen" page="component://portal/widget/SellerScreens.xml#warehouse" />
+
+    <!-- 订单交易：交易評價管理  -->
+    <view-map name="transmanagevaluation" type="screen" page="component://portal/widget/SellerScreens.xml#transmanagevaluation" />
+
+    <!-- 订单交易：產品評價管理  -->
+    <view-map name="productevaluamanage" type="screen" page="component://portal/widget/SellerScreens.xml#productevaluamanage" />
+
+    <!-- 订单交易：買家名單  -->
+    <view-map name="buyerslist" type="screen" page="component://portal/widget/SellerScreens.xml#buyerslist" />
+
+    <!-- 订单交易：買家黑名單  -->
+    <view-map name="blacklist" type="screen" page="component://portal/widget/SellerScreens.xml#blacklist" />
+<!-- 產品 -->
+	<!-- 设置店铺服务区域 -->
+	<view-map name="store_addressSets" type="screen" page="component://portal/widget/SellerScreens.xml#store_addressSet" />
+    <!-- 產品：商鋪信息  -->
+    <view-map name="store" type="screen" page="component://portal/widget/SellerScreens.xml#store" />
+
+    <!-- 產品：商鋪裝修 -->
+    <view-map name="shopdecoration" type="screen" page="component://portal/widget/SellerScreens.xml#shopdecoration" />
+
+    <!-- 產品：櫥窗管理-->
+    <view-map name="windowmanage" type="screen" page="component://portal/widget/SellerScreens.xml#windowmanage" />
+
+    <!-- 產品：商鋪類目-->
+    <view-map name="shopscategory" type="screen" page="component://portal/widget/SellerScreens.xml#shopscategory" />
+
+    <!-- 產品：備貨管理-->
+    <view-map name="stockmanage" type="screen" page="component://portal/widget/SellerScreens.xml#stockmanage" />
+
+    <!-- 產品：海外退貨服務設定-->
+    <view-map name="overseaservice" type="screen" page="component://portal/widget/SellerScreens.xml#overseaservice" />
+
+    <!-- 產品：產品相冊-->
+    <view-map name="ductphotoalbum" type="screen" page="component://portal/widget/SellerScreens.xml#ductphotoalbum" />
+
+    <!-- 產品：申訴管理-->
+    <view-map name="complaintmanage" type="screen" page="component://portal/widget/SellerScreens.xml#complaintmanage" />
+    
+    <!-- 產品：經營品牌-->
+    <view-map name="brandmanage" type="screen" page="component://portal/widget/SellerScreens.xml#brandmanage" />
+    <!-- 店铺加入购物车的商品 -->
+    <view-map name="buyCartGoods" type="screen" page="component://portal/widget/SellerScreens.xml#buyCartGoods" />
+    <!-- 店铺加入购物车的Out商品 -->
+    <view-map name="buyCartOutGoods" type="screen" page="component://portal/widget/SellerScreens.xml#buyCartOutGoods" />    
+    <!-- 店铺的畅销商品 -->
+    <view-map name="bestSellingGoods" type="screen" page="component://portal/widget/SellerScreens.xml#bestSellingGoods" />
+    <view-map name="salesVolumeGoods" type="screen" page="component://portal/widget/SellerScreens.xml#salesVolumeGoods" />
+    <view-map name="salesAmountGoods" type="screen" page="component://portal/widget/SellerScreens.xml#salesAmountGoods" />
+	<!-- 产品 添加品牌 -->
+	<view-map name="createBrandmanage" type="screen" page="component://portal/widget/SellerScreens.xml#createBrandmanage" />
+     <!-- 產品：屬性缺失產品-->
+    <view-map name="lackductattribute" type="screen" page="component://portal/widget/SellerScreens.xml#lackductattribute" />
+
+    <!-- 產品：違規待處理產品-->
+    <view-map name="lllegalductprocessed" type="screen" page="component://portal/widget/SellerScreens.xml#lllegalductprocessed" />
+
+    <!-- 產品：一鍵達搬家-->
+    <view-map name="keyupmove" type="screen" page="component://portal/widget/SellerScreens.xml#keyupmove" />
+
+    <!-- 產品：搬家記錄-->
+    <view-map name="movingrecords" type="screen" page="component://portal/widget/SellerScreens.xml#movingrecords" />
+    
+    <!-- 產品：運費模板管理-->
+    <view-map name="freightemplatemanage" type="screen" page="component://portal/widget/SellerScreens.xml#freightemplatemanage" />
+    
+    <!-- 消息 -->
+    <view-map name="sysMessage" type="screen" page="component://portal/widget/SellerScreens.xml#sysMessage" />
+    <view-map name="platformAnnouncement" type="screen" page="component://portal/widget/SellerScreens.xml#platformAnnouncement" />
+    <view-map name="bin" type="screen" page="component://portal/widget/SellerScreens.xml#bin" />
+    <view-map name="onlineMessage" type="screen" page="component://portal/widget/SellerScreens.xml#onlineMessage" />
+    <view-map name="historicalMessage" type="screen" page="component://portal/widget/SellerScreens.xml#historicalMessage" />
+    <view-map name="buyersMessage" type="screen" page="component://portal/widget/SellerScreens.xml#buyersMessage" />
+    
+        	     	                
+	    <!-- 商户管理 处罚管理详情 -->
+    <view-map name="punishmgnt" type="screen" page="component://portal/widget/SellerScreens.xml#punishmgnt" />
+    
+    <!-- 商户管理 商户评级详情 -->
+    <view-map name="ratedetail" type="screen" page="component://portal/widget/SellerScreens.xml#ratedetail" />	 
+    	
+         <!--精选优惠-->
+    <view-map name="commoditySpecialOffer" type="screen" page="component://portal/widget/SuperProductScreens.xml#commoditySpecialOffer" />
+      <!-- 每日优惠-->
+    <view-map name="commodityDailyOffer" type="screen" page="component://portal/widget/SuperProductScreens.xml#commodityDailyOffer" />
+      <!-- 周末优惠-->
+    <view-map name="commodityWeekendOffer" type="screen" page="component://portal/widget/SuperProductScreens.xml#commodityWeekendOffer" />
+    <!-- 全球速卖-->
+    <view-map name="globalSpeedSold" type="screen" page="component://portal/widget/SuperProductScreens.xml#globalSpeedSold" />
+    <!-- 热门产品-->
+    <view-map name="hotProducts" type="screen" page="component://portal/widget/SuperProductScreens.xml#hotProducts" />
+    
+    <!-- 商铺联系方式-->
+    <view-map name="sellerContactDetails" type="screen" page="component://portal/widget/SellerHomeScreens.xml#sellerContactDetails" />
+    <!-- 商店出售商品 -->
+    <view-map name="tmall" type="screen" page="component://portal/widget/SellerHomeScreens.xml#tmall" />
+	<!--开店铺-->
+     <view-map name="addShop" type="screen" page="component://portal/widget/SellerScreens.xml#store" />
+	<!-- 店铺送货方式 -->
+	<view-map name="EditProductStoreShipSetup" type="screen" page="component://portal/widget/SellerScreens.xml#EditProductStoreShipSetup" />
+	<!--运费管理-->
+	<view-map name="ShipCostConfig" type="screen" page="component://portal/widget/SellerScreens.xml#ShipCostConfig" />
+    
+    <!-- 商铺 管理产品组 -->
+     <view-map name="listSellerCatagory" type="screen" page="component://portal/widget/SellerScreens.xml#listSellerCatagory" />
+    <!-- 商铺 添加分类 -->
+     <view-map name="editStoreCatagory" type="screen" page="component://portal/widget/SellerScreens.xml#editStoreCatagory" />
+
+    <!-- 订单详情 -->
+    <view-map name="userSettlement" type="screen" page="component://portal/widget/OrderScreens.xml#userSettlement" />
+    <!-- 支付页面 -->
+    <view-map name="userPayment" type="screen" page="component://portal/widget/OrderScreens.xml#userPayment" />
+    <view-map name="paymentSuccess" type="screen" page="component://portal/widget/OrderScreens.xml#paymentSuccess" />
+    <view-map name="userShoppingCart" type="screen" page="component://portal/widget/OrderScreens.xml#userShoppingCart" />
+    <view-map name="payCheck" type="screen" page="component://portal/widget/OrderScreens.xml#payCheck" />
+    <!-- 假的支付页面 -->
+    <view-map name="zfd" type="screen" page="component://portal/widget/OrderScreens.xml#zfd" />
+    <view-map name="zfdd" type="screen" page="component://portal/widget/OrderScreens.xml#zfdd" />
+    <view-map name="zfddd" type="screen" page="component://portal/widget/OrderScreens.xml#zfddd" />
+    <view-map name="zfdddd" type="screen" page="component://portal/widget/OrderScreens.xml#zfdddd" />
+    <!-- 商户后台功能 -->
+
+    <view-map name="seller_EditUserLogin" type="screen" page="component://portal/widget/SellerScreens.xml#seller_EditUserLogin" />
+    <view-map name="seller_listAddress" type="screen" page="component://portal/widget/SellerScreens.xml#seller_listAddress"/>
+    <view-map name="seller_EditAddress" type="screen" page="component://portal/widget/SellerScreens.xml#seller_EditAddress"/>
+	<view-map name="seller_userEmail" type="screen" page="component://portal/widget/SellerScreens.xml#seller_userEmail" />
+    <view-map name="seller_listDeliveryAddress" type="screen" page="component://portal/widget/SellerScreens.xml#seller_listDeliveryAddress"/>
+    <view-map name="seller_EditDeliveryAddress" type="screen" page="component://portal/widget/SellerScreens.xml#seller_EditDeliveryAddress"/>
+    <view-map name="seller_listFacilityAddress" type="screen" page="component://portal/widget/SellerScreens.xml#seller_listFacilityAddress"/>
+    <view-map name="seller_EditFacilityAddress" type="screen" page="component://portal/widget/SellerScreens.xml#seller_EditFacilityAddress"/>
+    
+    <!-- 用户功能 命名以user_开头 -->
+    <view-map name="requestreturn" type="screen" page="component://portal/widget/user/UserScreens.xml#requestreturn"/>
+    <view-map name="userMain" type="screen" page="component://portal/widget/user/UserScreens.xml#main" />
+    <view-map name="userInfo" type="screen" page="component://portal/widget/user/UserScreens.xml#userInfo" />
+    <view-map name="user_myorder" type="screen" page="component://portal/widget/user/UserScreens.xml#showMyOrder" />
+    <view-map name="user_myorderdetails" type="screen" page="component://portal/widget/user/UserScreens.xml#showMyOrderDetails" />
+    <view-map name="user_review" type="screen" page="component://portal/widget/user/UserScreens.xml#userReview" />
+    <view-map name="user_reviewDetail" type="screen" page="component://portal/widget/user/UserScreens.xml#userReviewDetail" />
+    <view-map name="user_refunds" type="screen" page="component://portal/widget/user/UserScreens.xml#userRefunds" />
+    <view-map name="user_refundsList" type="screen" page="component://portal/widget/user/UserScreens.xml#userRefundsList" />
+    <view-map name="user_showCart" type="screen" page="component://portal/widget/user/UserScreens.xml#showCart" />
+    <view-map name="user_address" type="screen" page="component://portal/widget/UserScreens.xml#address" />
+    <view-map name="user_EditUserLogin" type="screen" page="component://portal/widget/user/UserScreens.xml#user_EditUserLogin" />
+    <view-map name="user_ViewProfile" type="screen" page="component://portal/widget/user/UserScreens.xml#user_ViewProfile"/>
+    <view-map name="user_boughtStore" type="screen" page="component://portal/widget/user/UserScreens.xml#user_boughtStore"/>
+    <view-map name="user_boughtGoods" type="screen" page="component://portal/widget/user/UserScreens.xml#user_boughtGoods"/>
+    <view-map name="user_listAddress" type="screen" page="component://portal/widget/user/UserScreens.xml#user_listAddress"/>
+    <view-map name="user_EditAddress" type="screen" page="component://portal/widget/user/UserScreens.xml#user_EditAddress"/>
+    <view-map name="myPropertyPayment" type="screen" page="component://portal/widget/user/UserScreens.xml#myPropertyPayment"/>
+    <view-map name="myPropPay" type="screen" page="component://portal/widget/user/UserScreens.xml#myPropPay"/>
+    <view-map name="myPropPayToOk" type="screen" page="component://portal/widget/user/UserScreens.xml#myPropPayToOk"/>
+    <view-map name="myPropPayToOkToMoney" type="screen" page="component://portal/widget/user/UserScreens.xml#myPropPayToOkToMoney"/>
+    <view-map name="myPropPayToOkToMoneyToOk" type="screen" page="component://portal/widget/user/UserScreens.xml#myPropPayToOkToMoneyToOk"/>
+   
+    
+    <view-map name="myAppointmentregistration" type="screen" page="component://portal/widget/user/UserScreens.xml#myAppointmentregistration"/>
+    <view-map name="myAppreg" type="screen" page="component://portal/widget/user/UserScreens.xml#myAppreg"/>
+    <view-map name="myAppregToReservation" type="screen" page="component://portal/widget/user/UserScreens.xml#myAppregToReservation"/>
+    <view-map name="myAppregToResToOK" type="screen" page="component://portal/widget/user/UserScreens.xml#myAppregToResToOK"/>
+    <view-map name="myAppregToResToOKToEnd" type="screen" page="component://portal/widget/user/UserScreens.xml#myAppregToResToOKToEnd"/>
+
+    <view-map name="user_Passwordprotection" type="screen" page="component://portal/widget/user/UserScreens.xml#user_Passwordprotection" />
+    <view-map name="user_email" type="screen" page="component://portal/widget/user/UserScreens.xml#user_email" />
+    <view-map name="user_email_seach" type="screen" page="component://portal/widget/user/UserScreens.xml#user_email_seach" />
+    
+    <!-- 用户功能 end -->
+
+    <!-- 管理员功能 命名以mgn_开头 -->
+    <view-map name="managerMain" type="screen" page="component://portal/widget/manager/ManagerScreens.xml#main" />
+    <view-map name="mng_FindCategory" type="screen" page="component://portal/widget/manager/ManagerScreens.xml#mng_FindCategory" />
+    <view-map name="mng_EditCategory" type="screen" page="component://portal/widget/manager/ManagerScreens.xml#mng_EditCategory" />
+    <view-map name="mng_FindProduct" type="screen" page="component://portal/widget/manager/ManagerScreens.xml#mng_FindProduct" />
+    <view-map name="mng_ShowOrder" type="screen" page="component://portal/widget/manager/ManagerScreens.xml#mng_showorder" />
+    <view-map name="mng_PageSetting" type="screen" page="component://portal/widget/manager/ManagerScreens.xml#mng_pagesetting" />
+    <view-map name="create_mng_Pages" type="screen" page="component://portal/widget/manager/ManagerScreens.xml#create_mng_Pages" />
+    <view-map name="mng_announcementSetting" type="screen" page="component://portal/widget/manager/ManagerScreens.xml#mng_announcementSetting" />
+    <view-map name="create_mng_Announcement" type="screen" page="component://portal/widget/manager/ManagerScreens.xml#create_mng_Announcement" />
+    <view-map name="seller_findMessageByOne" type="screen" page="component://portal/widget/SellerScreens.xml#seller_findMessageByOne" />
+    <view-map name="seller_findMessageByAll" type="screen" page="component://portal/widget/SellerScreens.xml#seller_findMessageByAll" />
+    <view-map name="user_findMessageByOne" type="screen" page="component://portal/widget/user/UserScreens.xml#user_findMessageByOne" />
+    <view-map name="user_findMessageByAll" type="screen" page="component://portal/widget/user/UserScreens.xml#user_findMessageByAll" />
+    
+        <view-map name="mng_Home_pagesetting" type="screen" page="component://portal/widget/manager/ManagerScreens.xml#mng_Home_pagesetting" />
+    <!-- 管理员功能 end -->
+    <!-- 首页中下方的注意 -->
+    <view-map name="about_us" type="screen" page="component://portal/widget/CommonScreens.xml#look_abouteus" />
+    <view-map name="newbie_on_road" type="screen" page="component://portal/widget/CommonScreens.xml#look_newbieonroad" />
+    <view-map name="buyer_protection" type="screen" page="component://portal/widget/CommonScreens.xml#look_buyerprotection" />
+    <view-map name="all_goods" type="screen" page="component://portal/widget/CommonScreens.xml#look_allgoods" />
+    <view-map name="all_promotional_items" type="screen" page="component://portal/widget/CommonScreens.xml#look_allpromotionalitems" />
+    <view-map name="all_hot_search_keywords" type="screen" page="component://portal/widget/CommonScreens.xml#look_allhotsearchkeywords" />
+    <view-map name="helps" type="screen" page="component://portal/widget/CommonScreens.xml#look_helps" />
+    <view-map name="customer_service" type="screen" page="component://portal/widget/CommonScreens.xml#look_customerservice" />
+    <view-map name="onweb_site" type="screen" page="component://portal/widget/CommonScreens.xml#look_onwebsite" />
+    <view-map name="privacy_policy" type="screen" page="component://portal/widget/CommonScreens.xml#look_privacypolicy" />
+    <view-map name="terms_use" type="screen" page="component://portal/widget/CommonScreens.xml#look_termsuse" />
+    <view-map name="seller_platform" type="screen" page="component://portal/widget/CommonScreens.xml#look_sellerplatform" />
+    
+     <!-- 产品三级分类页面 -->
+    <view-map name="thirdCate" type="screen" page="component://portal/widget/thirdCategoriesScreens.xml#main" />
+    <!-- 产品三级分类页面 end -->
+    
+   	<!-- 账户设置 -->
+	<!-- 个人资料设置 -->
+     <view-map name="merchantInfo" type="screen" page="component://portal/widget/SellerScreens.xml#merchantInfo" />
+     <view-map name="editEnterpriseQual" type="screen" page="component://portal/widget/SellerScreens.xml#editEnterpriseQual" />
+	
+	<view-map name="ProductUomDropDownOnly" type="screen" page="component://order/widget/ordermgr/OrderEntryCatalogScreens.xml#ProductUomDropDownOnly"/>
+	<!--申请退款中间页面-->	
+	<view-map name="orderRemark" type="screen" page="component://portal/widget/user/UserScreens.xml#orderRemark" />
+	<view-map name="mySupplier" type="screen" page="component://portal/widget/SellerScreens.xml#mySupplier" />
+	<view-map name="myDxStore" type="screen" page="component://portal/widget/SellerScreens.xml#myDxStore" />
+	<view-map name="mySupplierProtocol" type="screen" page="component://portal/widget/SellerScreens.xml#mySupplierProtocol" />
+	<view-map name="EditDxProduct" type="screen" page="component://portal/widget/SellerScreens.xml#EditDxProduct" />
+	
+</site-conf>

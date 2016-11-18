@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <description>Module Configuration File</description>
+    
+    <handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler"/>
+    <handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler"/>
+
+    <firstvisit></firstvisit>
+
+    <!-- Request Mappings -->
+    <request-map uri="view">
+        <security https="false" auth="false"/>
+        <response name="success" type="request" value="main"/>
+    </request-map>
+    <request-map uri="chain">
+        <event type="java" path="org.ofbiz.webapp.event.TestEvent" invoke="test"/>
+        <response name="success" type="request" value="/view"/>
+        <response name="error" type="view" value="error"/>
+    </request-map>
+
+    <request-map uri="main">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="main"/>
+    </request-map>
+
+
+    <!-- ================ Category Requests ================= -->
+    <request-map uri="FindCategory">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindCategory"/>
+    </request-map>
+    <request-map uri="FindCategoryTree">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindCategoryTree"/>
+    </request-map>
+    <request-map uri="EditCategory">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditCategory"/>
+    </request-map>
+    
+    <request-map uri="CategoryTreeEnCF">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="CategoryTreeEn"/>
+    </request-map>
+    
+    <!-- ================ Product Requests ================= -->
+    <request-map uri="FindProductEn">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindProductEn"/>
+    </request-map>
+     <request-map uri="FindProductDwz">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindProductDwz"/>
+    </request-map>
+    <request-map uri="EditProductEn">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditProductEn"/>
+    </request-map>
+    
+    
+     <!-- ================ ProductLab Requests ================= -->
+    <request-map uri="FindProductLab">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindProductLab"/>
+    </request-map>
+    <request-map uri="EditProductLab">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditProductLab"/>
+    </request-map>
+    <request-map uri="newAjaxProductLab">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="NewAjaxProductLab"/>
+    </request-map>
+    <request-map uri="showAjaxProductLabs">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="ShowAjaxProductLabs"/>
+    </request-map>
+    <request-map uri="createAjaxProductLab">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="createAjaxProductLab"/>
+       <response name="success" type="view" value="ShowAjaxProductLabs"></response>
+        <response name="error" type="request-redirect" value="FindProductLab"></response>
+    </request-map>
+    <request-map uri="createProductLab">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="createProductLab"/>
+       <response name="success" type="request-redirect" value="FindProductLab"></response>
+        <response name="error" type="request-redirect" value="FindProductLab"></response>
+    </request-map>
+    <request-map uri="updateProductLab">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateProductLab"/>
+       <response name="success" type="request-redirect" value="FindProductLab"></response>
+        <response name="error" type="request-redirect" value="FindProductLab"></response>
+    </request-map>
+    
+    <request-map uri="deleteProductLab">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="deleteProductLab"/>
+        <response name="success" type="request-redirect" value="FindProductLab"></response>
+        <response name="error" type="request-redirect" value="FindProductLab"></response>
+    </request-map>
+    
+	<!-- ================ Product Brand Requests ================= -->
+	<!--  
+	<request-map uri="FindProductBrand">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindProductBrand"/>
+    </request-map>
+    <request-map uri="EditProductBrand">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditProductBrand"/>
+    </request-map>
+    <request-map uri="createProductBrand">
+        <event type="java" path="org.ofbiz.ebiz.productbrand.ProductBrandEvents" invoke="createProductBrand"/>
+        <response name="success" type="request-redirect" value="FindProductBrand"></response>
+        <response name="error" type="view-last"></response>
+    </request-map>
+    <request-map uri="updateProductBrand">
+        <event type="java" path="org.ofbiz.ebiz.productbrand.ProductBrandEvents" invoke="updateProductBrand"/>
+        <response name="success" type="request-redirect" value="FindProductBrand"></response>
+        <response name="error" type="view-last"></response>
+    </request-map>
+    <request-map uri="deleteProductBrand">
+        <event type="service" path="" invoke="deleteProductBrand"/>
+        <response name="success" type="request-redirect" value="FindProductBrand"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    -->
+    <!-- 商品分类树：查找子树请求 -->
+    <request-map uri="getChild">
+        <security auth="true" https="false"/>
+        <event type="java" path="org.ofbiz.ebiz.product.ProductCategoryServices" invoke="getChildCategoryTree"/>
+        <response name="success" type="none"/>
+    </request-map>
+    <request-map uri="createProductCategoryTree">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="createProductCategoryTree"/>
+        <response name="success" type="request-redirect" value="CategoryTreeEn"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <request-map uri="updateProductCategory">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateProductCategoryTree"/>
+        <response name="success" type="request-redirect" value="CategoryTreeEn"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <request-map uri="deleteProductCategoryTree">
+        <event type="service" path="" invoke="deleteProductCategoryTree"/>
+        <response name="success" type="request-redirect" value="CategoryTreeEn"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <!-- 查找商品规格请求 
+    <request-map uri="FindProductFeatureCategoryCF">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindProductFeatureCategory"/>
+        <response name="error" type="view" value="FindProductFeatureCategory"/>
+    </request-map>
+    -->
+    <!-- 编辑商品规格请求 
+    <request-map uri="EditProductsFeatureCategory">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditProductsFeatureCategory"/>
+        <response name="error" type="view" value="EditProductsFeatureCategory"/>
+    </request-map>
+    -->
+    <!-- 新建商品规格请求 -->
+    <request-map uri="CreateFeatureCategory">
+    	<security https="false" auth="true"/>
+        <event type="service" invoke="createProductFeatureAndCategory"/>
+        <response name="success" type="request-redirect" value="EditProductsFeatureCategory"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <!-- 更新商品规格请求 -->
+    <request-map uri="UpdateFeatureCategory">
+    	<security https="false" auth="true"/>
+        <event type="service" invoke="updateProductFeatureAndCategory"/>
+        <response name="success" type="request-redirect" value="FindProductFeatureCategory"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <!-- 快速添加商品规格值请求 -->
+    <request-map uri="QuickAddProductFeatures">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="QuickAddProductFeatures"/>
+    </request-map>
+    <!-- 新建商品规格值请求 -->
+    <request-map uri="CreateFeature">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="CreateFeature"/>
+    </request-map>
+    <!-- 编辑商品规格值请求 -->
+    <request-map uri="EditFeature">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditFeature"/>
+    </request-map>
+     <!--  给商品分类设置属性组 -->
+    <request-map uri="setCategoryAttribute">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="setCategoryAttribute"/>
+        <response name="error" type="view" value="setCategoryAttribute"/>
+    </request-map>
+     <!--  给商品分类设置属性
+    <request-map uri="setCategoryRefTypeAttribute">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="setCategoryRefTypeAttribute"/>
+        <response name="error" type="view" value="setCategoryRefTypeAttribute"/>
+    </request-map>
+     -->
+
+
+    <request-map uri="setCategoryRefAttributeGroupMutil">
+        <security https="false" auth="true"/>
+        <event type="java" path="org.ofbiz.ebiz.product.ProductCategoryServices" invoke="setCategoryRefAttributeGroupMutil" />
+        <response name="success" type="request-redirect" value="CategoryTreeEn"/>
+        <response name="error" type="request-redirect" value="CategoryTreeEn"/>
+    </request-map>
+
+    
+    <!-- 创建商品规格值请求 -->
+    <request-map uri="createProductFeature">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="createProductFeature"/>
+        <response name="success" type="request-redirect" value="FindProductFeature"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <!-- 更新商品规格值请求 -->
+    <request-map uri="updateProductFeature">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateProductFeature"/>
+        <response name="success" type="request-redirect" value="FindProductFeature"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <!-- 批量更新商品规格值请求 -->
+    <request-map uri="UpdateProductFeatureInCategory">
+        <security https="false" auth="true"/>
+        <event type="service-multi" path="" invoke="updateProductFeature"/>
+        <response name="success" type="view" value="EditProductsFeatureCategory"/>
+        <response name="error" type="view" value="EditProductsFeatureCategory"/>
+    </request-map>
+    <!-- 批量添加商品规格值请求 -->
+    <request-map uri="BulkAddProductFeatures">
+        <security https="false" auth="true"/>
+        <event type="service-multi" path="" invoke="createProductFeature"/>
+        <response name="success" type="view" value="EditProductsFeatureCategory"/>
+        <response name="error" type="view" value="QuickAddProductFeatures"/>
+    </request-map>
+    <!-- 创建商品请求服务 -->
+    <request-map uri="createProductEn">
+        <security https="false" auth="true"/>
+        <event type="java" path="org.ofbiz.ebiz.product.ProductServices" invoke="createProduct"/>
+        <response name="success" type="request-redirect" value="EditProductEn"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <request-map uri="updateProductEn">
+       <!--  <security https="false" auth="true"/> -->
+        <event type="java" path="org.ofbiz.ebiz.product.ProductServices" invoke="updateProduct"/>
+        <response name="success" type="request-redirect" value="FindProductEn"/>
+        <response name="error" type="request-redirect" value="EditProductEn"/>
+    </request-map>
+    <request-map uri="deleteProductContentImage">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="deleteProductContentImage"/>
+        <response name="success" type="request-redirect" value="FindProduct"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <request-map uri="getFeatureCategoryByCategoryId">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="GetFeatureCategories"/>
+        <response name="error" type="view" value="GetFeatureCategories"/>
+    </request-map>
+    <request-map uri="uploadProductImage">
+        <event type="java" path="org.ofbiz.ebiz.product.ProductServices" invoke="uploadProductImage"/>
+         <response name="success" type="request" value="json"></response>
+        <response name="error" type="request" value="json"></response>
+    </request-map>
+    <request-map uri="uploadProductFeatureImage">
+        <event type="java" path="org.ofbiz.ebiz.product.ProductServices" invoke="uploadProductFeatureImage"/>
+         <response name="success" type="request" value="json"></response>
+        <response name="error" type="request" value="json"></response>
+    </request-map>
+    <request-map uri="LookupProductCategory"><security https="false" auth="true"/><response name="success" type="view" value="LookupProductCategory"/></request-map>
+    <request-map uri="FindProductAssoc"><security https="false" auth="true"/><response name="success" type="view" value="FindProductAssoc"/></request-map>
+    <request-map uri="FindProductConfig"><security https="false" auth="true"/><response name="success" type="view" value="FindProductConfig"/></request-map>
+    <request-map uri="FindProductCatrgoryMember"><security https="false" auth="true"/><response name="success" type="view" value="FindProductCatrgoryMember"/></request-map>
+    <request-map uri="FindProductType"><security https="false" auth="true"/><response name="success" type="view" value="FindProductType"/></request-map>
+    <request-map uri="EditProductType"><security https="false" auth="true"/><response name="success" type="view" value="EditProductType"/></request-map>
+    <request-map uri="createProductType">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="createShopProductType"/>
+        <response name="success" type="request" value="FindProductType"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <request-map uri="updateProductType">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateShopProductType"/>
+        <response name="success" type="request" value="FindProductType"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <!-- 
+    <request-map uri="FindTypeAttributeCF"><security https="false" auth="true"/><response name="success" type="view" value="FindTypeAttribute"/></request-map>
+    
+    <request-map uri="EditProductTypeAttribute"><security https="false" auth="true"/><response name="success" type="view" value="EditProductTypeAttribute"/></request-map>
+    
+    <request-map uri="createProductTypeAttr">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="createProductTypeAttr"/>
+        <response name="success" type="request-redirect" value="FindTypeAttribute"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    
+    <request-map uri="updateProductTypeAttr">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateProductTypeAttr"/>
+        <response name="success" type="request-redirect" value="FindTypeAttribute"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+     -->
+    <request-map uri="getProductBrandsAndAttr">
+        <security https="false" auth="true"/>
+        <event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/prod/get_brand_attribute.groovy"/>
+        <response name="success" type="none" value="json"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <!-- ================ Product Review Requests ================= -->
+    <request-map uri="pendingReviews">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="pendingReviews"/>
+    </request-map>
+    <request-map uri="showReplyProductReview">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="ShowReplyProductReview"/>
+    </request-map>
+    <request-map uri="updateProductReview">
+    	<security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateShopProductReview"/>
+        <response name="success" type="request-redirect" value="pendingReviews"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <request-map uri="EditProductReviewSetting">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditProductReviewSetting"/>
+    </request-map>
+    <request-map uri="updateProductReviewSetting">
+    	<security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateProductReviewSetting"/>
+        <response name="success" type="request-redirect" value="pendingReviews"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <!-- ================ Product Communication Requests ================= -->
+    <request-map uri="FindProductCommunications">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindProductCommunications"/>
+    </request-map>
+    <request-map uri="EditProductCommunicationSetting">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditProductCommunicationSetting"/>
+    </request-map>
+    <request-map uri="updateProductCommunicationSetting">
+    	<security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateProductCommunicationSetting"/>
+        <response name="success" type="request-redirect" value="FindProductCommunications"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <request-map uri="deleteProductCommunicationsAll">
+        <event type="service" invoke="deleteProductCommunicationsAll"/>
+        <response name="success" type="request-redirect" value="FindProductCommunications"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <request-map uri="deleteCommunication">
+        <event type="service" invoke="deleteProductCommunication"/>
+        <response name="success" type="view" value="DeleteReplyProductCommunication"/>
+        <response name="error" type="view" value="EditReplyProductCommunication"/>
+    </request-map>
+    <request-map uri="EditReplyProductCommunication">
+    	<security https="false" auth="true"/>
+        <response name="success" type="view" value="EditReplyProductCommunication"/>
+        <response name="error" type="view" value="EditReplyProductCommunication"/>
+    </request-map>
+    <request-map uri="createShopCommunicationEvent">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="createShopCommunicationEvent"/>
+        <response name="success" type="request-redirect" value="FindProductCommunications"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <request-map uri="setFeatureCategoryByCategory">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="setFeatureCategoryByCategory"/>
+        <response name="error" type="view" value="setFeatureCategoryByCategory"/>
+    </request-map>
+    <request-map uri="sortProduct">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="sortProduct"/>
+        <response name="error" type="view" value="sortProduct"/>
+    </request-map>
+    <request-map uri="updateProductSort">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updateProduct"/>
+        <response name="success" type="request-redirect" value="FindProduct"/>
+        <response name="error" type="request-redirect" value="FindProduct"/>
+    </request-map>
+    <!-- 查询商品是否与订单关联 -->
+    <request-map uri="findProductOrderAssoc">
+        <security https="false" auth="true"/>
+        <event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/prod/get_product_order_assoc.groovy"/>
+        <response name="success" type="request-redirect" value="FindProduct"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <!-- 查询子商品 -->
+    <request-map uri="getChildProducts">
+        <security https="false" auth="true"/>
+        <event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/prod/get_child_products.groovy"/>
+        <response name="success" type="none" value="json" />
+		<response name="error" type="request" value="json" />
+    </request-map>
+    <!-- 上下架 -->
+    <request-map uri="updateProductSaleable">
+        <event type="service" invoke="updateProductSaleable"/>
+        <response name="success" type="request-redirect" value="FindProduct"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <!-- 删除商品 -->
+    <request-map uri="deleteProductStatus">
+        <event type="service" invoke="deleteProductStatus"/>
+        <response name="success" type="request-redirect" value="FindProduct"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <!-- 还原商品 -->
+    <request-map uri="recoverProductStatus">
+        <event type="service" invoke="recoverProductStatus"/>
+        <response name="success" type="request-redirect" value="FindProduct"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <request-map uri="FindProductRecycle">
+    	<security https="false" auth="true"/>
+        <response name="success" type="view" value="FindProductRecycle"/>
+        <response name="error" type="view" value="FindProductRecycle"/>
+    </request-map>
+    <request-map uri="FindProductAdvanced">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindProductAdvanced"/>
+    </request-map>
+    <request-map uri="batchProduct">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="BatchProduct"/>
+    </request-map>
+    <request-map uri="createBatchProduct">
+        <event type="java" path="org.ofbiz.ebiz.product.ProductServices" invoke="importProductFromFile"/>
+        <response name="success" type="request" value="FindProduct"/>
+        <response name="error" type="view" value="FindProduct"/>
+    </request-map>
+    <!-- added by dongyc 20120607 -->
+    <request-map uri="EditFacilityGeoAssoc">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditFacilityGeoAssoc"/>
+    </request-map>
+    <!-- 添加仓储配置区域 -->
+    <request-map uri="createFacilityGeoAssoc">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="createFacilityGeoAssoc"/>
+        <response name="success" type="view" value="createFacilityGeoAssoc"/>
+        <response name="error" type="view" value="EditFacilityGeoAssoc"/>
+    </request-map>
+    <!-- 查看仓储配置区域 -->
+    <request-map uri="viewFacilityGeoAssoc">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="viewFacilityGeoAssoc"/>
+        <response name="success" type="view" value="viewFacilityGeoAssoc"/>
+        <response name="error" type="view" value="viewFacilityGeoAssoc"/>
+    </request-map>
+    <!-- 修改仓储配置区域 -->
+    <request-map uri="updateFacilityGeoAssoc">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updateFacilityGeoAssoc"/>
+        <response name="success" type="view" value="updateFacilityGeoAssoc"/>
+        <response name="error" type="view" value="updateFacilityGeoAssoc"/>
+    </request-map>
+    <!-- 删除仓储配置区域 -->
+    <request-map uri="deleteFacilityGeoAssoc">
+		<security https="false" auth="true" />
+		<event type="service" invoke="deleteFacilityGeoAssoc" />
+		<response name="success" type="view" value="deleteFacilityGeoAssoc" />
+		<response name="error" type="view" value="deleteFacilityGeoAssoc" />
+	</request-map>
+    <!-- added by dongyc 20120607 -->
+     <request-map uri="checkCategoryName">
+        <security https="false" auth="true"/>
+        <event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/prod/CheckCategoryName.groovy"/>
+        <response name="success" type="request-redirect" value="FindXXX"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <!--Type Attribute Group Entity-->
+	<request-map uri="FindTypeAttributeGroup">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindTypeAttributeGroup" />
+	</request-map>
+	<request-map uri="EditTypeAttribute">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditTypeAttribute" />
+	</request-map>
+	<request-map uri="createTypeAttributeGroup">
+		<security https="false" auth="true"/>
+	    <event type="service" invoke="createTypeAttributeGroup"/>
+	    <response name="success" type="request-redirect"  value="FindTypeAttributeGroup"/>
+	    <response name="error"  type="view-last"/>
+	</request-map>
+	<request-map uri="updateTypeAttributeGroup">
+	    <security https="false" auth="true"/>
+	    <event type="service" invoke="updateTypeAttributeGroup"/>
+	    <response name="success" type="request-redirect"  value="FindTypeAttributeGroup"/>
+	    <response name="error"  type="view-last"/>
+	</request-map>
+	<request-map uri="deleteTypeAttributeGroup">
+	    <security https="false" auth="true"/>
+	    <event type="service" invoke="deleteTypeAttributeGroup"/>
+	    <response name="success"  type="request-redirect"  value="FindTypeAttributeGroup"/>
+	    <response name="error"  type="request-redirect"  value="FindTypeAttributeGroup"/>
+	</request-map>
+	<!--批量删除Type Attribute Group Entity -->
+	<request-map uri="deleteAllTypeAttributeGroup">
+	    <security https="false" auth="true"/>
+	    <event type="service" invoke="deleteAllTypeAttributeGroup"/>
+	    <response name="success"  type="request-redirect"  value="FindTypeAttributeGroup"/>
+	    <response name="error"  type="request-redirect"  value="FindTypeAttributeGroup"/>
+	</request-map>
+	
+	<request-map uri="LookupTypeAttributeGroup">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="LookupTypeAttributeGroup" />
+	</request-map>
+	<!--Type Attribute Group Entity-view -->
+	<view-map name="FindTypeAttributeGroup" type="screen" 
+		page="component://manage/widget/ProdScreens.xml#FindTypeAttributeGroup" />
+	<view-map name="EditTypeAttribute" type="screen" 
+		page="component://manage/widget/ProdScreens.xml#EditTypeAttribute" />
+	<view-map name="LookupTypeAttributeGroup" type="screen" 
+		page="component://manage/widget/ProdScreens.xml#LookupTypeAttributeGroup"/>
+    
+    <!-- View Mappings -->
+    <view-map name="BatchProduct" type="screen" page="component://manage/widget/ProdScreens.xml#BatchProduct"/>
+    <view-map name="main" type="screen" page="component://itea/widget/iteamgr/CommonScreens.xml#main"/>
+	<!--  add by wangyg -->
+	<view-map name="CategoryTreeEn" type="screen" page="component://manage/widget/ProdScreens.xml#CategoryTreeEn"/>
+    <view-map name="FindCategoryTree" type="screen" page="component://manage/widget/ProdScreens.xml#FindCategoryTree"/>
+    <view-map name="FindCategory" type="screen" page="component://itea/widget/iteamgr/CategoryScreens.xml#FindCategoryTree"/>
+    <view-map name="EditCategory" type="screen" page="component://manage/widget/ProdScreens.xml#EditCategory"/>
+    <view-map name="FindProductEn" type="screen" page="component://manage/widget/ProdScreens.xml#FindProduct"/>
+    <view-map name="FindProductDwz" type="screen" page="component://manage/widget/ProdScreens.xml#FindProductDwz"/>
+    <view-map name="EditProductEn" type="screen" page="component://manage/widget/ProdScreens.xml#EditProduct"/>
+    <view-map name="EditProductDiv" type="screen" page="component://manage/widget/ProdScreens.xml#EditProductDiv"/>
+   	<view-map name="FindProductLab" type="screen" page="component://manage/widget/ProdScreens.xml#FindProductLab"/>
+    <view-map name="EditProductLab" type="screen" page="component://manage/widget/ProdScreens.xml#EditProductLab"/>
+    <view-map name="NewAjaxProductLab" type="screen" page="component://manage/widget/ProdScreens.xml#NewAjaxProductLab"/>
+    <view-map name="ShowAjaxProductLabs" type="screen" page="component://manage/widget/ProdScreens.xml#ShowAjaxProductLabs"/>
+    <!-- 商品品牌配置路径 -->
+    <view-map name="FindProductBrand" type="screen" page="component://manage/widget/ProdScreens.xml#FindProductBrand"/>
+    <view-map name="EditProductBrand" type="screen" page="component://manage/widget/ProdScreens.xml#EditProductBrand"/>
+    <!-- 商品规格配置路径 -->
+    <view-map name="FindProductFeatureCategory" type="screen" page="component://manage/widget/ProdScreens.xml#FindProductFeatureCategory"/>
+    <view-map name="EditProductsFeatureCategory" type="screen" page="component://manage/widget/ProdScreens.xml#EditProductsFeatureCategory"/>
+    <view-map name="QuickAddProductFeatures" type="screen" page="component://manage/widget/ProdScreens.xml#QuickAddProductFeatures"/>
+    <view-map name="CreateFeature" type="screen" page="component://manage/widget/ProdScreens.xml#CreateFeature"/>
+    <view-map name="EditFeature" type="screen" page="component://manage/widget/ProdScreens.xml#EditFeature"/>
+    <view-map name="setCategoryAttribute" type="screen" page="component://manage/widget/ProdScreens.xml#setCategoryAttribute"/>
+    <view-map name="setCategoryRefTypeAttribute" type="screen" page="component://manage/widget/ProdScreens.xml#setCategoryRefTypeAttribute"/>
+
+    <view-map name="GetFeatureCategories" type="screen" page="component://manage/widget/ProdScreens.xml#GetFeatureCategories"/>
+    <view-map name="LookupProductCategory" type="screen" page="component://product/widget/catalog/LookupScreens.xml#LookupProductCategory"/>
+    <view-map name="FindProductAssoc" type="screen" page="component://manage/widget/ProdScreens.xml#FindProductAssoc"/>
+    <view-map name="FindProductConfig" type="screen" page="component://manage/widget/ProdScreens.xml#FindProductConfig"/>
+    <view-map name="FindProductCatrgoryMember" type="screen" page="component://manage/widget/ProdScreens.xml#FindProductCatrgoryMember"/>
+    <view-map name="FindProductType" type="screen" page="component://manage/widget/ProdScreens.xml#FindProductType"/>
+    <view-map name="EditProductType" type="screen" page="component://manage/widget/ProdScreens.xml#EditProductType"/>
+    <view-map name="FindTypeAttribute" type="screen" page="component://manage/widget/ProdScreens.xml#FindTypeAttribute"/>
+    <view-map name="EditProductTypeAttribute" type="screen" page="component://manage/widget/ProdScreens.xml#EditProductTypeAttribute"/>
+    <view-map name="pendingReviews" type="screen" page="component://manage/widget/ProdScreens.xml#pendingReviews"/>
+    <view-map name="ShowReplyProductReview" type="screen" page="component://manage/widget/ProdScreens.xml#ShowReplyProductReview"/>
+    <view-map name="EditProductReviewSetting" type="screen" page="component://manage/widget/ProdScreens.xml#EditProductReviewSetting"/>
+    <view-map name="FindProductCommunications" type="screen" page="component://manage/widget/ProdScreens.xml#FindProductCommunications"/>
+    <view-map name="EditProductCommunicationSetting" type="screen" page="component://manage/widget/ProdScreens.xml#EditProductCommunicationSetting"/>
+    <view-map name="EditReplyProductCommunication" type="screen" page="component://manage/widget/ProdScreens.xml#EditReplyProductCommunication"/>
+    <view-map name="DeleteReplyProductCommunication" type="screen" page="component://manage/widget/ProdScreens.xml#DeleteReplyProductCommunication"/>
+    <view-map name="sortProduct" type="screen" page="component://manage/widget/ProdScreens.xml#sortProduct"/>
+    <view-map name="setFeatureCategoryByCategory" type="screen" page="component://manage/widget/ProdScreens.xml#setFeatureCategoryByCategory"/>
+    <view-map name="FindProductRecycle" type="screen" page="component://manage/widget/ProdScreens.xml#FindProductRecycle"/>
+    <view-map name="FindProductAdvanced" type="screen" page="component://manage/widget/ProdScreens.xml#FindProductAdvanced"/>
+    <view-map name="EditFacilityGeoAssoc" type="screen" page="component://manage/widget/ProdScreens.xml#EditFacilityGeoAssoc"/>
+     <view-map name="createFacilityGeoAssoc" type="screen" page="component://manage/widget/ProdScreens.xml#createFacilityGeoAssoc"/>
+    <view-map name="deleteFacilityGeoAssoc" type="screen" page="component://manage/widget/ProdScreens.xml#deleteFacilityGeoAssoc"/>
+    <view-map name="updateFacilityGeoAssoc" type="screen" page="component://manage/widget/ProdScreens.xml#updateFacilityGeoAssoc"/>
+    <view-map name="viewFacilityGeoAssoc" type="screen" page="component://manage/widget/ProdScreens.xml#viewFacilityGeoAssoc"/>
+    <!-- end of view mappings -->
+</site-conf>

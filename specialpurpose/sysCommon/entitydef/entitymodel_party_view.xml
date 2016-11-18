@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of an Open For Business Project Component</title>
+	<description>None</description>
+	<version>1.0</version>
+
+	<view-entity entity-name="PartyClassificationInfo"
+		package-name="com.yuanh.lims.party">
+		<description>委托方当事人分类信息查询实体</description>
+		<member-entity entity-alias="PCE" entity-name="PartyClassificationExt" />
+		<member-entity entity-alias="CG" entity-name="ClassificationGroup" />
+		<member-entity entity-alias="CV" entity-name="ClassificationValue" />
+
+		<alias-all entity-alias="PCE" />
+		<alias name="classificationTypeId" entity-alias="CG" />
+		<alias name="name" entity-alias="CG" />
+		<alias name="classificationGroupId" entity-alias="CG" />
+		<alias name="classificationValueDesc" entity-alias="CV" />
+
+		<view-link entity-alias="PCE" rel-entity-alias="CV">
+			<key-map field-name="classificationValueId" />
+		</view-link>
+		<view-link entity-alias="CV" rel-entity-alias="CG">
+			<key-map field-name="classificationGroupId" />
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="EntrustingParty" package-name="com.yuanh.lims.party">
+		<description>委托方信息查询实体</description>
+		<member-entity entity-alias="PTY" entity-name="Party" />
+		<member-entity entity-alias="PG" entity-name="PartyGroup" />
+		<member-entity entity-alias="PN" entity-name="PartyName" />
+
+		<alias name="partyId" entity-alias="PTY" />
+		<alias name="partyTypeId" entity-alias="PTY" />
+		<alias name="statusId" entity-alias="PTY" />
+		<alias name="barCode" entity-alias="PG" />
+		<alias name="ownershipId" entity-alias="PG" />
+		<alias name="groupName" entity-alias="PG" />
+		<alias name="pcId" entity-alias="PG" />
+		<alias name="customerCode" entity-alias="PG" />
+		<alias name="institutionDesc" entity-alias="PG" />
+		<alias name="scopeDesc" entity-alias="PG" />
+		<alias name="comments" entity-alias="PG" />
+        <alias name="partyPhase" entity-alias="PG" />
+        <alias name="isVip" entity-alias="PG" />
+        <alias name="salesMan" entity-alias="PG" />
+        <alias name="chargePerson" entity-alias="PG" />
+        <alias name="isInternalCustomer" entity-alias="PG" />
+		<alias name="remark" entity-alias="PG" />
+		<alias name="nameId" entity-alias="PN" />
+		<alias name="nameTypeId" entity-alias="PN" />
+		<alias name="name" entity-alias="PN" />
+		<alias name="fromDate" entity-alias="PN" />
+		<alias name="thruDate" entity-alias="PN" />
+
+		<view-link entity-alias="PTY" rel-entity-alias="PG">
+			<key-map field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="PTY" rel-entity-alias="PN">
+			<key-map field-name="partyId" />
+		</view-link>
+
+		<entity-condition>
+			<condition-list>
+				<condition-expr entity-alias="PN" field-name="nameTypeId"
+					value="OFFICIAL_NAME" />
+				<condition-expr entity-alias="PTY" field-name="statusId"
+					value="PARTY_ENABLED" />
+				<condition-expr entity-alias="PTY" field-name="partyTypeId"
+					value="CORPORATION" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+	<!-- 组织机构以及party -->
+	<view-entity entity-name="PartyGroupAndPartyAndRole"
+		package-name="org.ofbiz.party.party">
+		<description>
+		</description>
+		<member-entity entity-alias="P" entity-name="PartyGroup" />
+		<member-entity entity-alias="PY" entity-name="Party" />
+		<member-entity entity-alias="PR" entity-name="PartyRole" />
+		<alias-all entity-alias="P" />
+		<alias-all entity-alias="PY" />
+		<alias name="roleTypeId" entity-alias="PR" field="roleTypeId" />
+
+		<view-link entity-alias="P" rel-optional="false"
+			rel-entity-alias="PY">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="P" rel-optional="false"
+			rel-entity-alias="PR">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+	</view-entity>
+	<!-- 组织机构以及父机构信息 -->
+	<view-entity entity-name="PartyGroupAndParent"
+		package-name="org.ofbiz.party.party">
+		<description>
+		</description>
+		<member-entity entity-alias="P" entity-name="PartyGroup" />
+		<member-entity entity-alias="PY" entity-name="Party" />
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="PG" entity-name="PartyGroup" />
+		<member-entity entity-alias="PRL" entity-name="PartyRole" />
+		<alias-all entity-alias="P" />
+		<alias name="parentPartyId" entity-alias="PG" field="partyId" />
+		<alias name="partyTypeId" entity-alias="PY" field="partyTypeId" />
+		<alias name="statusId" entity-alias="PY" />
+		<alias name="parentGroupName" entity-alias="PG" field="groupName" />
+		<alias name="roleTypeId" entity-alias="PRL" field="roleTypeId" />
+		<alias name="partyRelationshipTypeId" entity-alias="PR" field="partyRelationshipTypeId" />
+		<alias name="partyIdFrom" entity-alias="PR" field="partyIdFrom" />
+			
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PR">
+			<key-map field-name="partyId" rel-field-name="partyIdTo" />
+		</view-link>
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PY">
+			<key-map field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PRL">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="PR" rel-optional="true"
+			rel-entity-alias="PG">
+			<key-map field-name="partyIdFrom" rel-field-name="partyId" />
+		</view-link>
+		<entity-condition>
+			<condition-expr field-name="partyTypeId" entity-alias="PY"
+				operator="equals" value="PARTY_GROUP" />
+			<order-by field-name="partyId" />
+		</entity-condition>
+	</view-entity>
+	<!-- 系统用户与组织机构信息 关系类型多样-职员、领导。 -->
+	<view-entity entity-name="PersonAndPartyGroup"
+		package-name="org.ofbiz.party.party">
+		<description>
+		</description>
+		<member-entity entity-alias="P" entity-name="Person" />
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="PG" entity-name="PartyGroup" />
+		<alias-all entity-alias="P" />
+		<alias-all entity-alias="PR" />
+		<alias name="parentPartyId" entity-alias="PG" field="partyId" />
+		<alias name="parentGroupName" entity-alias="PG" field="groupName" />
+		<alias name="partyIdFrom" entity-alias="PR" field="partyIdFrom" />
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="partyRelationshipTypeId" entity-alias="PR"
+			field="partyRelationshipTypeId" />
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PR">
+			<key-map field-name="partyId" rel-field-name="partyIdTo" />
+		</view-link>
+		<view-link entity-alias="PR" rel-optional="true"
+			rel-entity-alias="PG">
+			<key-map field-name="partyIdFrom" rel-field-name="partyId" />
+		</view-link>
+
+	</view-entity>
+   <!-- 委托方父子关系 -->
+	<view-entity entity-name="PartyGroupEntAndParent"
+		package-name="org.ofbiz.party.party">
+		<description>
+		</description>
+		<member-entity entity-alias="P" entity-name="PartyGroup" />
+		<member-entity entity-alias="PY" entity-name="Party" />
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="PG" entity-name="PartyGroup" />
+		<member-entity entity-alias="PRL" entity-name="PartyRole" />
+		<alias-all entity-alias="P" />
+		<alias name="parentPartyId" entity-alias="PG" field="partyId" />
+		<alias name="partyTypeId" entity-alias="PY" field="partyTypeId" />
+		<alias name="statusId" entity-alias="PY" />
+		<alias name="parentGroupName" entity-alias="PG" field="groupName" />
+		<alias name="roleTypeId" entity-alias="PRL" field="roleTypeId" />
+		<alias name="partyRelationshipTypeId" entity-alias="PR" field="partyRelationshipTypeId" />
+
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PR">
+			<key-map field-name="partyId" rel-field-name="partyIdTo" />
+		</view-link>
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PY">
+			<key-map field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PRL">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="PR" rel-optional="true"
+			rel-entity-alias="PG">
+			<key-map field-name="partyIdFrom" rel-field-name="partyId" />
+		</view-link>
+		<entity-condition>
+			<condition-expr field-name="partyTypeId" entity-alias="PY"
+				operator="equals" value="CORPORATION" />
+			<order-by field-name="partyId" />
+		</entity-condition>
+	</view-entity>
+
+	<!-- 系统用户与userLogin信息 -->
+	<view-entity entity-name="PersonAndUserLogin" package-name="org.ofbiz.party.party">
+		<description>
+		</description>
+		<member-entity entity-alias="P" entity-name="Person" />
+		<member-entity entity-alias="PR" entity-name="UserLogin" />
+		<alias-all entity-alias="P" />
+		<alias name="userLoginId" entity-alias="PR" />
+		<alias name="isSystem" entity-alias="PR" />
+		<alias name="enabled" entity-alias="PR" />
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PR">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+
+
+	</view-entity>
+	
+	<view-entity entity-name="PersonAndPartyGroupAndPartyRole"
+		package-name="org.ofbiz.party.party">
+		<description>
+		</description>
+		<member-entity entity-alias="P" entity-name="PersonAndPartyGroup" />
+		<member-entity entity-alias="PR" entity-name="PartyRole" />
+		<alias-all entity-alias="P" />
+		<alias name="roleTypeId" entity-alias="PR" field="roleTypeId" />
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PR">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+
+	</view-entity>
+
+	<!-- 系统用户与组织机构信息 -->
+	<view-entity entity-name="PersonAndPartyGroup2"
+		package-name="org.ofbiz.party.party">
+		<description>
+          </description>
+		<member-entity entity-alias="P" entity-name="Person" />
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="PG" entity-name="PartyGroup" />
+		<alias-all entity-alias="P" />
+		<alias-all entity-alias="PR" />
+		<alias name="parentPartyId" entity-alias="PG" field="partyId" />
+		<alias name="parentGroupName" entity-alias="PG" field="groupName" />
+		<view-link entity-alias="P" rel-optional="false"
+			rel-entity-alias="PR">
+			<key-map field-name="partyId" rel-field-name="partyIdTo" />
+		</view-link>
+		<view-link entity-alias="PR" rel-optional="false"
+			rel-entity-alias="PG">
+			<key-map field-name="partyIdFrom" rel-field-name="partyId" />
+		</view-link>
+
+	</view-entity>
+
+	<!-- 系统用户与userLogin信息 -->
+	<view-entity entity-name="PersonAndUserLogin" package-name="org.ofbiz.party.party">
+		<description>
+          </description>
+		<member-entity entity-alias="P" entity-name="Person" />
+		<member-entity entity-alias="PR" entity-name="UserLogin" />
+		<alias-all entity-alias="P" />
+		<alias name="userLoginId" entity-alias="PR" />
+		<alias name="isSystem" entity-alias="PR" />
+		<alias name="enabled" entity-alias="PR" />
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PR">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+
+
+	</view-entity>
+	<!-- 系统用户与userLogin、partyRole信息 -->
+	<view-entity entity-name="PersonAndUserLoginAndRole"
+		package-name="org.ofbiz.party.party">
+		<description>
+          </description>
+		<member-entity entity-alias="P" entity-name="Person" />
+		<member-entity entity-alias="PT" entity-name="Party" />
+		<member-entity entity-alias="U" entity-name="UserLogin" />
+		<member-entity entity-alias="PR" entity-name="PartyRole" />
+		<alias-all entity-alias="P" />
+		<alias name="userLoginId" entity-alias="U" />
+		<alias name="isSystem" entity-alias="U" />
+		<alias name="enabled" entity-alias="U" />
+		<alias name="statusId" entity-alias="PT" />
+		<alias name="departmentId" entity-alias="PR" field="partyId" />
+		<alias name="roleTypeId" entity-alias="PR" field="roleTypeId" />
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="U">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PR">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PT">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="PersonAndPartyGroupAndPartyRole"
+		package-name="org.ofbiz.party.party">
+		<description>
+          </description>
+		<member-entity entity-alias="P" entity-name="PersonAndPartyGroup" />
+		<member-entity entity-alias="PR" entity-name="PartyRole" />
+		<alias-all entity-alias="P" />
+		<alias name="roleTypeId" entity-alias="PR" field="roleTypeId" />
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PR">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+
+	</view-entity>
+	<!-- 带权限组 -->
+	<view-entity entity-name="PersonAndPartyGroupAndSecurityGroup"
+		package-name="org.ofbiz.party.party">
+		<description>
+          </description>
+		<member-entity entity-alias="P" entity-name="PersonAndPartyGroup" />
+		<member-entity entity-alias="UG" entity-name="UserLoginSecurityGroup" />
+		<member-entity entity-alias="UL" entity-name="UserLogin" />
+		<alias-all entity-alias="P" />
+		<alias name="groupId" entity-alias="UG" field="groupId" />
+		<alias name="userLoginId" entity-alias="UL" field="userLoginId" />
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="UL">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="UL" rel-optional="true"
+			rel-entity-alias="UG">
+			<key-map field-name="userLoginId" rel-field-name="userLoginId" />
+		</view-link>
+
+	</view-entity>
+	<view-entity entity-name="PartyGradeTypeAndInfo"
+		package-name="com.yuanh.lims.party">
+		<member-entity entity-alias="PG" entity-name="PartyGrade" />
+		<member-entity entity-alias="PGI" entity-name="PartyGradeInfo" />
+
+		<alias-all entity-alias="PGI" />
+		<alias name="gradeTypeId" entity-alias="PG" field="gradeTypeId" />
+		<alias name="description" entity-alias="PG" field="description" />
+
+		<view-link entity-alias="PGI" rel-entity-alias="PG">
+			<key-map field-name="gradeId" />
+		</view-link>
+	</view-entity>
+	
+	<view-entity entity-name="EntrustingPartyName" package-name="org.extErp.sysCommon.party">
+        <description>客户名称查询实体</description>
+        <member-entity entity-alias="PN" entity-name="PartyName" />
+        <member-entity entity-alias="PG" entity-name="PartyGroup" />
+        <member-entity entity-alias="PTY" entity-name="Party" />
+        
+        <alias-all entity-alias="PN">
+            <exclude field="nameTypeId"/>
+        </alias-all>
+        <alias name="groupName" entity-alias="PG" />
+
+        <view-link entity-alias="PN" rel-entity-alias="PG">
+            <key-map field-name="partyId" />
+        </view-link>
+        <view-link entity-alias="PG" rel-entity-alias="PTY">
+            <key-map field-name="partyId" />
+        </view-link>
+
+        <entity-condition>
+            <condition-list>
+                <condition-expr entity-alias="PN" field-name="nameTypeId" operator="in"
+                    value="OFFICIAL_NAME,ALIAS_NAME" />
+                <condition-expr entity-alias="PTY" field-name="statusId"
+                    value="PARTY_ENABLED" />
+                <condition-expr entity-alias="PTY" field-name="partyTypeId"
+                    value="CORPORATION" />
+            </condition-list>
+        </entity-condition>
+	</view-entity>
+	<!-- 系统用户与userLogin、partyRole信息 -->
+	<view-entity entity-name="UserLoginAndRole"
+		package-name="org.ofbiz.party.party">
+		<description>
+          </description>
+		<member-entity entity-alias="P" entity-name="Person" />
+		<member-entity entity-alias="PT" entity-name="Party" />
+		<member-entity entity-alias="U" entity-name="UserLogin" />
+		<member-entity entity-alias="PR" entity-name="PartyRole" />
+		<alias-all entity-alias="P" />
+		<alias name="userLoginId" entity-alias="U" />
+		<alias name="isSystem" entity-alias="U" />
+		<alias name="enabled" entity-alias="U" />
+		<alias name="statusId" entity-alias="PT" />
+		<alias name="departmentId" entity-alias="PR" field="partyId" />
+		<alias name="roleTypeId" entity-alias="PR" field="roleTypeId" />
+		<view-link entity-alias="P" rel-entity-alias="U">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PR">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="P" rel-optional="true"
+			rel-entity-alias="PT">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="enabled" entity-alias="U" operator="not-equals" value="N"/>
+				<condition-expr field-name="statusId" entity-alias="PT" operator="not-equals" value="PARTY_DISABLED"/>
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+	<view-entity entity-name="UserLoginAndPerson"
+		package-name="org.ofbiz.party.party">
+		<description>
+          </description>
+		<member-entity entity-alias="P" entity-name="Person" />
+		<member-entity entity-alias="PT" entity-name="Party" />
+		<member-entity entity-alias="U" entity-name="UserLogin" />
+		<alias-all entity-alias="P" />
+		<alias name="userLoginId" entity-alias="U" />
+		<alias name="isSystem" entity-alias="U" />
+		<alias name="enabled" entity-alias="U" />
+		<alias name="statusId" entity-alias="PT" />
+		<view-link entity-alias="U" rel-entity-alias="PT">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="U" rel-optional="true"
+			rel-entity-alias="P">
+			<key-map field-name="partyId" rel-field-name="partyId" />
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="enabled" entity-alias="U" operator="not-equals" value="N"/>
+				<condition-expr field-name="statusId" entity-alias="PT" operator="not-equals" value="PARTY_DISABLED"/>
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+</entitymodel>

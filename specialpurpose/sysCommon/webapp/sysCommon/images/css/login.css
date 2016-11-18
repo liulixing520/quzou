@@ -1,0 +1,42 @@
+/* CSS Document */
+body {
+	font-family:Arial,Verdana,'宋体';
+	font-size: 12px;
+	padding:0;
+	margin:0;
+	color: #000;
+	background: #317bc8 url(../images/login_bg.png) no-repeat center top;	
+}
+.login {
+	width: 808px;
+	height: 488px;
+	background: url(../images/login_bg01.png) no-repeat;
+	margin: 110px auto 0 auto;
+	position: relative;
+}
+.inputtext {
+	position: absolute;
+	left: 502px;
+	top: 236px;
+	width: 224px;	
+}
+.inputstyle {
+	margin: 0px;
+	padding: 0px;
+	height: 34px;
+	line-height: 34px;
+	text-indent: 8px;
+	font-size: 14px;
+	color: #92a4bf;
+	width: 224px;
+	border: none;
+	background: url(../images/input_bg.png) no-repeat;		
+}
+.copyright {
+	color: #FFF;
+	position: absolute;
+	left: 2px;
+	top: 450px;
+	width: 798px;
+	text-align: center;
+}

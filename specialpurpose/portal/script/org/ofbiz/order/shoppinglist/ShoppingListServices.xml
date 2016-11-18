@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods-v2.xsd">
+	<!--  -->
+	<simple-method method-name="createShoppingListGroup" short-description="Create a ShoppingListGroup" login-required="false">
+        <make-value value-field="newEntity" entity-name="ShoppingListGroup"/>
+        <set from-field="parameters.shoppingListGroupId" field="newEntity.shoppingListGroupId"/>
+
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <if-empty field="newEntity.shoppingListGroupId">
+        	<sequenced-id sequence-name="ShoppingListGroup" field="newEntity.shoppingListGroupId"/>
+        </if-empty>
+        <if-empty field="newEntity.fromDate">
+        	<now-timestamp field="newEntity.fromDate"/>
+        </if-empty>
+        <field-to-result field="newEntity.shoppingListGroupId" result-name="shoppingListGroupId"/>
+        <create-value value-field="newEntity"/>
+    </simple-method>
+    <simple-method method-name="updateShoppingListGroup" short-description="Update a ShoppingListGroup">
+
+        <entity-one entity-name="ShoppingListGroup" value-field="shoppingListGroup"/>
+        <set-nonpk-fields map="parameters" value-field="shoppingListGroup"/>
+        <if-empty field="shoppingListGroup.thruDate">
+        	<now-timestamp field="shoppingListGroup.thruDate"/>
+        </if-empty>
+        <store-value value-field="shoppingListGroup"/>
+    </simple-method>
+    <!--  -->
+    <simple-method method-name="createShoppingCartHistory" short-description="Create a ShoppingCartHistory" login-required="false">
+
+        <entity-one entity-name="Product" value-field="product"/>
+        <if-empty field="product">
+            <add-error> <fail-property property="ProductErrorProductNotFound" resource="ProductUiLabels"/> </add-error>
+            <check-errors/>
+        </if-empty>
+        <make-value value-field="newEntity" entity-name="ShoppingCartHistory"/>
+        <set from-field="parameters.shoppingCartHistoryId" field="newEntity.shoppingCartHistoryId"/>
+
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <if-empty field="newEntity.shoppingCartHistoryId">
+        	<sequenced-id sequence-name="ShoppingCartHistory" field="newEntity.shoppingCartHistoryId"/>
+        </if-empty>
+        <if-empty field="newEntity.fromDate">
+        	<now-timestamp field="newEntity.fromDate"/>
+        </if-empty>
+        <if-empty field="newEntity.statusId">
+        	<set field="newEntity.statusId" value="CART_CREATED"/>
+        </if-empty>
+        <field-to-result field="newEntity.shoppingCartHistoryId" result-name="shoppingCartHistoryId"/>
+        <create-value value-field="newEntity"/>
+    </simple-method>
+
+    <simple-method method-name="updateShoppingCartHistory" short-description="Update a ShoppingCartHistory">
+
+        <entity-one entity-name="ShoppingCartHistory" value-field="shoppingCartHistory"/>
+        <set-nonpk-fields map="parameters" value-field="shoppingCartHistory"/>
+        <if-empty field="shoppingCartHistory.thruDate">
+        	<now-timestamp field="shoppingCartHistory.thruDate"/>
+        </if-empty>
+        <store-value value-field="shoppingCartHistory"/>
+    </simple-method>
+
+
+</simple-methods>

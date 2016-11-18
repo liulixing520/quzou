@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of an Open For Business Project Component</title>
+	<description>None</description>
+	<version>1.0</version>
+
+	<!-- ========================================================= -->
+	<!-- ======================== Data Model ===================== -->
+	
+	 <!-- UserLogin 用户  扩展字段 -->
+	<extend-entity entity-name="Person">
+		<field name="ufmFilePath" type="name">
+			<description>电子签名</description>
+		</field>
+	</extend-entity>
+	<!-- 会员基本信息扩展-针对只有一个联系方式等 -->
+	<extend-entity entity-name="PostalAddress">
+      <field name="mobileExd" type="short-varchar"></field>
+      <field name="phoneAreaExd" type="short-varchar"></field>
+      <field name="phoneExd" type="short-varchar"></field>
+      <field name="genderExd" type="indicator"></field>
+      <field name="cityGeoId" type="id"></field>
+      <field name="emailExd" type="name"><description>邮箱</description></field>
+	</extend-entity>
+	<extend-entity entity-name="PartyGroup">
+       <field name="contactMechId" type="id"><description>联系地址Id</description></field>
+	</extend-entity>
+</entitymodel>

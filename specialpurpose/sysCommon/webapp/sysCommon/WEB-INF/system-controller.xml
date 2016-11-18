@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <description>Module Configuration File</description>
+    
+    <handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler"/>
+    <handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler"/>
+
+    <firstvisit></firstvisit>
+
+    <!-- Request Mappings -->
+    <request-map uri="view">
+        <security https="false" auth="false"/>
+        <response name="success" type="request" value="FindRole"/>
+    </request-map>
+    
+    <request-map uri="updateCommonEntity">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updateCommonEntity"/>
+        <response name="success" type="request" value="json" />
+    </request-map>
+    <!-- 系统管理：菜单、枚举、扩展属性。。 -->
+	<request-map uri="FindExtendAttribute">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindExtendAttribute" />
+	</request-map>
+	<request-map uri="EditExtendAttribute">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditExtendAttribute" />
+	</request-map>
+	<request-map uri="createExtendAttribute">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="createExtendAttribute"/>
+        <response name="success" type="request"  value="FindExtendAttribute"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <request-map uri="updateExtendAttribute">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updateExtendAttribute"/>
+        <response name="success" type="request"  value="FindExtendAttribute"/>
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map uri="deleteExtendAttribute">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="deleteExtendAttribute"/>
+        <response name="success" type="request"  value="FindExtendAttribute"/>
+        <response name="error" type="request" value="json" />
+    </request-map>
+	
+	<request-map uri="FindEnumerationType">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindEnumerationType" />
+	</request-map>
+	<request-map uri="EditEnumerationType">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditEnumerationType" />
+	</request-map>
+	<request-map uri="createEnumerationType">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="createEnumerationType"/>
+        <response name="success" type="request" value="FindEnumerationType" />
+        <response name="error" type="request-redirect-noparam" value="FindEnumerationType" />
+    </request-map>
+    <request-map uri="updateEnumerationType">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updateEnumerationType"/>
+        <response name="success" type="request" value="FindEnumerationType" />
+        <response name="error" type="request-redirect-noparam" value="FindEnumerationType" />
+    </request-map>
+    <request-map uri="deleteEnumerationType">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="deleteEnumerationType"/>
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    	<request-map uri="FindEnumeration">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindEnumeration" />
+	</request-map>
+	<request-map uri="EditEnumeration">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditEnumeration" />
+	</request-map>
+	<request-map uri="createEnumeration">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="createEnumeration"/>
+        <response name="success" type="request" value="FindEnumeration" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map uri="updateEnumeration">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updateEnumeration"/>
+        <response name="success" type="request" value="FindEnumeration" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map uri="deleteEnumeration">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="deleteEnumeration"/>
+        <response name="success" type="request-redirect"  value="FindEnumeration"/>
+        <response name="error" type="request" value="json" />
+    </request-map>
+	<request-map uri="LookupEnumerationType">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="LookupEnumerationType" />
+	</request-map>
+	
+	<request-map uri="FindMenuTree">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindMenuTree" />
+	</request-map>
+	<request-map uri="EditMenuTree">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditMenuTree" />
+	</request-map>
+	<request-map uri="createMenuTree">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="createMenuTree"/>
+        <response name="success" type="request" value="FindMenuTree" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map uri="updateMenuTree">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updateMenuTree"/>
+        <response name="success" type="request" value="FindMenuTree" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map uri="deleteMenuTree">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="deleteMenuTree"/>
+        <response name="success" type="request" value="FindMenuTree" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <!--OperLogs控制层 -->
+	<request-map uri="FindOperLogs">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindOperLogs" />
+	</request-map>
+	<request-map uri="EditOperLogs">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditOperLogs" />
+	</request-map>
+
+    <request-map uri="updateOperLogs">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updateOperLogs"/>
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map uri="deleteOperLogs">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="deleteOperLogs"/>
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <!--批量删除OperLogs -->
+    <request-map uri="deleteAllOperLogs">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="deleteAllOperLogs"/>
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+		<!--自定义表单-->
+	<request-map uri="FindDesignForm">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindDesignForm" />
+	</request-map>
+	<request-map uri="EditDesignForm">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditDesignForm" />
+	</request-map>
+	<request-map uri="createDesignForm">
+		<security https="false" auth="true"/>
+	    <event type="service" invoke="createDesignForm"/>
+	    <response name="success" type="request-redirect"  value="FindDesignForm"/>
+	    <response name="error"  type="view-last"/>
+	</request-map>
+	<request-map uri="updateDesignForm">
+	    <security https="false" auth="true"/>
+	    <event type="service" invoke="updateDesignForm"/>
+	    <response name="success" type="request-redirect"  value="FindDesignForm"/>
+	    <response name="error"  type="view-last"/>
+	</request-map>
+	<request-map uri="deleteDesignForm">
+	    <security https="false" auth="true"/>
+	    <event type="service" invoke="deleteDesignForm"/>
+	    <response name="success"  type="request-redirect"  value="FindDesignForm"/>
+	    <response name="error"  type="request-redirect"  value="FindDesignForm"/>
+	</request-map>
+	<!--批量删除自定义表单 -->
+	<request-map uri="deleteAllDesignForm">
+	    <security https="false" auth="true"/>
+	    <event type="service" invoke="deleteAllDesignForm"/>
+	    <response name="success"  type="request-redirect"  value="FindDesignForm"/>
+	    <response name="error"  type="request-redirect"  value="FindDesignForm"/>
+	</request-map>
+	<request-map uri="LookupDesignForm">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="LookupDesignForm" />
+	</request-map>
+	<request-map uri="EntityDesignForm">
+		<security https="false" auth="true" />
+		<event type="groovy" path="component://webtools/webapp/webtools/WEB-INF/actions/GetAllEntity.groovy" />
+		<response name="success" type="view" value="EntityDesignForm" />
+	</request-map>
+	<!--自定义表单-view -->
+	<view-map name="FindDesignForm" type="screen" 
+		page="component://sysCommon/widget/SystemScreens.xml#FindDesignForm" />
+	<view-map name="EditDesignForm" type="screen" 
+		page="component://sysCommon/widget/SystemScreens.xml#EditDesignForm" />
+	<view-map name="LookupDesignForm" type="screen" 
+		page="component://sysCommon/widget/SystemScreens.xml#LookupDesignForm"/>
+	<view-map name="EntityDesignForm" type="screen" 
+		page="component://sysCommon/widget/SystemScreens.xml#EntityDesignForm"/>
+	
+    <!-- View Mappings -->
+    <view-map name="FindExtendAttribute" type="screen" page="component://sysCommon/widget/SystemScreens.xml#FindExtendAttribute" />
+	<view-map name="EditExtendAttribute" type="screen" page="component://sysCommon/widget/SystemScreens.xml#EditExtendAttribute" />
+	
+   	<view-map name="FindEnumerationType" type="screen" page="component://sysCommon/widget/SystemScreens.xml#FindEnumerationType" />
+	<view-map name="EditEnumerationType" type="screen" page="component://sysCommon/widget/SystemScreens.xml#EditEnumerationType" />
+	<view-map name="FindEnumeration" type="screen" page="component://sysCommon/widget/SystemScreens.xml#FindEnumeration" />
+	<view-map name="EditEnumeration" type="screen" page="component://sysCommon/widget/SystemScreens.xml#EditEnumeration" />
+	<view-map name="LookupEnumerationType" type="screen" page="component://sysCommon/widget/SystemScreens.xml#LookupEnumerationType"/>
+	
+	<view-map name="FindMenuTree" type="screen" page="component://sysCommon/widget/SystemScreens.xml#FindMenuTree" />
+	<view-map name="EditMenuTree" type="screen" page="component://sysCommon/widget/SystemScreens.xml#EditMenuTree" />
+	<view-map name="FindOperLogs" type="screen" 
+		page="component://sysCommon/widget/SystemScreens.xml#FindOperLogs" />
+	<view-map name="EditOperLogs" type="screen" 
+		page="component://sysCommon/widget/SystemScreens.xml#EditOperLogs" />
+    <!-- end of view mappings -->
+</site-conf>

@@ -1,0 +1,43 @@
+@import url("base.css");
+/*右侧导航*/
+.wrap-bar{width:37px; padding-left:6px;height:100%;position:fixed;z-index:9999;right:0;top:0;-webkit-animation:wrapOut .1s .1s ease both;-moz-animation:wrapOut .1s .1s ease both;background:url(../images/common/icon_rightnava.png) repeat-y;}
+@-webkit-keyframes wrapOut{0%{-webkit-transform:translateX(43px)}100%{-webkit-transform:translateX(0)}}
+@-moz-keyframes wrapOut{0%{-moz-transform:translateX(43px)}100%{-moz-transform:translateX(0)}}
+@-o-keyframes wrapOut{0%{-o-transform:translateX(43px)}100%{-o-transform:translateX(0)}}
+@keyframes wrapOut{0%{transform:translateX(43px)}100%{transform:translateX(0)}}
+/*
+公共
+*/
+.col_f83976{ color:#f83976}
+.col_9e9e9e{ color:#9e9e9e}
+.col_c37a30{ color:#c37a30;}
+.col_4f361d{ color:#4f361d;}
+/*按钮*/
+.com_btn{ height:30px; border-radius:15px; border:1px solid #cfcac4; background-color:#fff; width:116px; line-height:30px; text-align:center; cursor:pointer; font-size:16px;}
+.com_btn_red{ background-color:#f83976; border-color:#f83976;}
+.com_btn a{ color:#4f361d;}
+.com_btn_red a{ color:#fff;}
+.com_btn:hover{ background-color:#f6f6f6;}
+.com_btn_red:hover{ background-color:#de2d64;}
+
+.avatar{ height:42px; width:100%; overflow:hidden;  border-bottom:1px solid #ebebeb; }
+.avatar img{  width:26px; height:26px;border-radius:13px;margin:8px 0 8px 6px;}
+.bus_management{ width:100%; font-size:14px; line-height:18px; padding:10px 0;border-bottom:1px solid #ebebeb;}
+.bus_management a{ color:#646464;}
+.app_down{border-top:1px solid #ebebeb; position:absolute; bottom:40px;}
+/*主导航*/
+.main_top{ height:42px; padding:30px 0 28px 0;}
+.search{ height:28px; margin:10px 0 0 34px;}
+.search .search_input{ border:0; width:185px; padding:2px 10px 0 30px; height:26px; background:url(../images/common/icon_sea.png) no-repeat; float:left;}
+.search_btn{ float:left; cursor:pointer; height:26px; width:64px; margin-left:10px; background-color:#e9e7e5; border:1px solid #d7d6d5; border-radius:13px;}
+
+.top_info{ font-size:14px; line-height:28px; color:#121212; margin-top:10px;}
+.top_info span{ padding:0 25px}
+
+.nav{ height:40px; line-height:40px;font-size:16px; width:100%; background-color:#2d2d2d;}
+.nav_ul{ width:780px; height:40px;}
+.nav_ul li{ width:110px; float:left; height:40px;  text-align:center;}
+.nav a{ color:#fff;}
+.nav_ul li.cur{ background-color:#f83976;}
+.nav_r{ width:220px; height:40px;}
+

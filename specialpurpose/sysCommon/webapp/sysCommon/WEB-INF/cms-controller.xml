@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+	<description>Module Configuration File</description>
+
+	<handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler" />
+	<handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler" />
+
+	<firstvisit></firstvisit>
+		<request-map uri="FindContentCategory">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindContentCategory" />
+	</request-map>
+	<request-map uri="EditContentCategory">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditContentCategory" />
+	</request-map>
+	<request-map uri="createContentCategory">
+		<event type="service" invoke="createContentCategory" />
+		<response name="success" type="request" value="FindContentCategory" />
+	</request-map>
+	<request-map uri="updateContentCategory">
+		<event type="service" invoke="updateContentCategory" />
+		<response name="success" type="request" value="FindContentCategory" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="delContentCategory">
+		<event type="service" invoke="deleteContentCategory" />
+		<response name="success" type="request" value="FindContentCategory" />
+	</request-map>
+	<request-map uri="delContentCategoryAll">
+		<event type="service" invoke="deleteContentCategoryAll" />
+		<response name="success" type="request" value="json" />
+	</request-map>
+	<request-map uri="FindAdvertise">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindAdvertise" />
+	</request-map>
+	<request-map uri="EditAdvertise">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditAdvertise" />
+	</request-map>
+	
+	<request-map uri="FindProductAdvisory">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindProductAdvisory" />
+	</request-map>
+	
+	<request-map uri="LoadAdvertiseBody">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="LoadAdvertiseBody" />
+	</request-map>
+	<request-map uri="createAdvertise">
+		<event type="java" path="org.ofbiz.itea.content.ContentEvents" invoke="createAdvertise" />
+		<response name="success" type="request" value="FindAdvertise" />
+		<response name="error" type="request" value="FindAdvertise" />
+	</request-map>
+	<request-map uri="updateAdvertise">
+		<event type="java" path="org.ofbiz.itea.content.ContentEvents" invoke="updateAdvertise" />
+		<response name="success" type="request" value="FindAdvertise" />
+		<response name="error" type="request" value="FindAdvertise" />
+	</request-map>
+	<request-map uri="deleteAdvertise">
+		<event type="service" invoke="deleteAdvertise" />
+		<response name="success" type="request" value="FindAdvertise" />
+		<response name="error" type="request" value="FindAdvertise" />
+	</request-map>
+	
+	<request-map uri="FindContent">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindContent" />
+	</request-map>
+	<request-map uri="EditContent">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditContent" />
+	</request-map>
+	<request-map uri="uploadImage">
+		<event type="java" path="org.extErp.sysCommon.cms.ContentServices" invoke="uploadImage" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="createContent">
+		<event type="java" path="org.extErp.sysCommon.cms.ContentServices" invoke="createContent" />
+		<response name="success" type="request" value="FindContent" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="updateCmsArticle">
+		<event type="java" path="org.extErp.sysCommon.cms.ContentServices" invoke="updateCmsArticle" />
+		<response name="success" type="request" value="FindContent" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="deleteContent">
+		<event type="service" invoke="deleteCmsArticle" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<view-map name="FindContent" type="screen" page="component://sysCommon/widget/CmsScreens.xml#FindCmsArticle" />
+	<view-map name="EditContent" type="screen" page="component://sysCommon/widget/CmsScreens.xml#EditCmsArticle" />
+	
+	<view-map name="FindContentCategory" type="screen" page="component://sysCommon/widget/CmsScreens.xml#FindContentCategory" />
+	<view-map name="EditContentCategory" type="screen" page="component://sysCommon/widget/CmsScreens.xml#EditContentCategory" />
+
+	<view-map name="FindAdvertise" type="screen" page="component://sysCommon/widget/CmsScreens.xml#FindAdvertise" />
+	<view-map name="EditAdvertise" type="screen" page="component://sysCommon/widget/CmsScreens.xml#EditAdvertise" />
+	<view-map name="FindProductAdvisory" type="screen" page="component://sysCommon/widget/CmsScreens.xml#FindProductAdvisory" />
+	
+	
+</site-conf>

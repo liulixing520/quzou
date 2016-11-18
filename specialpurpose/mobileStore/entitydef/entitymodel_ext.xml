@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of Manage Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+    
+   	<extend-entity entity-name="UserLogin">
+		<field name="bindMobile" type="id"><description>用户名绑定手机，可当登录名使用</description></field>
+	</extend-entity>
+</entitymodel>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+  <description>Document service definitions.</description>
+    <!--文档资源 -->
+  <service name="createSysDocSource" engine="java" default-entity-name="SysDocSource"
+    location="org.extErp.sysCommon.document.SysDocSourceServices" invoke="createSysDocSource" auth="true">
+    <description>Create SysDocSource-文档资源</description>
+    <auto-attributes include="pk" mode="OUT" />
+    <auto-attributes include="nonpk" mode="IN" optional="true" />
+  </service>
+  <service name="updateSysDocSource" engine="java" default-entity-name="SysDocSource"
+    location="org.extErp.sysCommon.document.SysDocSourceServices" invoke="updateSysDocSource" auth="true">
+    <description>Update SysDocSource-文档资源</description>
+    <auto-attributes include="pk" mode="INOUT" />
+    <auto-attributes include="nonpk" mode="IN" optional="true" />
+  </service>
+  <service name="deleteSysDocSource" engine="java" default-entity-name="SysDocSource"
+    location="org.extErp.sysCommon.document.SysDocSourceServices" invoke="deleteSysDocSource" auth="true">
+    <description>Delete SysDocSource-文档资源</description>
+    <auto-attributes mode="IN" include="pk" />
+  </service>
+	
+	<!--文档使用目的 -->
+  <service name="createSysDocPurpose" engine="java" default-entity-name="SysDocPurpose"
+    location="org.extErp.sysCommon.document.SysDocPurposeServices" invoke="createSysDocPurpose" auth="true">
+    <description>Create SysDocPurpose-文档使用目的</description>
+    <auto-attributes include="pk" mode="OUT" />
+    <auto-attributes include="nonpk" mode="IN" optional="true" />
+  </service>
+  <service name="updateSysDocPurpose" engine="java" default-entity-name="SysDocPurpose"
+    location="org.extErp.sysCommon.document.SysDocPurposeServices" invoke="updateSysDocPurpose" auth="true">
+    <description>Update SysDocPurpose-文档使用目的</description>
+    <auto-attributes include="pk" mode="INOUT" />
+    <auto-attributes include="nonpk" mode="IN" optional="true" />
+  </service>
+  <service name="deleteSysDocPurpose" engine="java" default-entity-name="SysDocPurpose"
+    location="org.extErp.sysCommon.document.SysDocPurposeServices" invoke="deleteSysDocPurpose" auth="true">
+    <description>Delete SysDocPurpose-文档使用目的</description>
+    <auto-attributes mode="IN" include="pk" />
+  </service>
+
+    <!--文档关联 -->
+  <service name="createSysDocRef" engine="java" default-entity-name="SysDocRef"
+    location="org.extErp.sysCommon.document.SysDocRefServices" invoke="createSysDocRef" auth="true">
+    <description>Create SysDocRef-文档关联</description>
+    <auto-attributes include="pk" mode="OUT" />
+    <auto-attributes include="nonpk" mode="IN" optional="true" />
+    <override name="sysDocSourceId" optional="false" />
+    <override name="sysDocPurposeId" optional="false" />
+    <override name="relatedIdValue" optional="false" />
+  </service>
+  <service name="reBuildSysDocRef" engine="java" default-entity-name="SysDocRef"
+    location="org.extErp.sysCommon.document.SysDocRefServices" invoke="reBuildSysDocRef" auth="true">
+    <description>rebuild SysDocRef-重建文档关联</description>
+    <auto-attributes include="pk" mode="OUT" />
+    <auto-attributes include="nonpk" mode="IN" optional="true" />
+    <override name="sysDocSourceId" optional="false" />
+    <override name="sysDocPurposeId" optional="false" />
+    <override name="relatedIdValue" optional="false" />
+  </service>
+  <service name="updateSysDocRef" engine="java" default-entity-name="SysDocRef"
+    location="org.extErp.sysCommon.document.SysDocRefServices" invoke="updateSysDocRef" auth="true">
+    <description>Update SysDocRef-文档关联</description>
+    <auto-attributes include="pk" mode="IN" />
+    <auto-attributes include="nonpk" mode="IN" optional="true" />
+  </service>
+  <service name="deleteSysDocRef" engine="java" default-entity-name="SysDocRef"
+    location="org.extErp.sysCommon.document.SysDocRefServices" invoke="deleteSysDocRef" auth="true">
+    <description>Delete SysDocRef-文档关联</description>
+    <auto-attributes mode="IN" include="pk" />
+  </service>
+  <service name="deactivateSysDocRef" engine="java" default-entity-name="SysDocRef"
+    location="org.extErp.sysCommon.document.SysDocRefServices" invoke="deactivateSysDocRef" auth="true">
+    <description>停用 SysDocRef-文档关联</description>
+    <auto-attributes mode="IN" include="pk" />
+  </service>
+  <service name="deactivateSysDocRefIfExists" engine="java" default-entity-name="SysDocRef"
+    location="org.extErp.sysCommon.document.SysDocRefServices" invoke="deactivateSysDocRefIfExists" auth="true">
+    <description>如果存在则停用 SysDocRef-文档关联</description>
+    <auto-attributes mode="IN" include="nonpk" optional="true" />
+  </service>
+  
+  <!-- 上传 重构  by WangYi-->
+  <service name="uploadAndCreateSysDocSource" engine="java" default-entity-name="SysDocSource"
+    location="org.extErp.sysCommon.document.SysDocSourceServices" invoke="uploadAndCreateSysDocSource" auth="true">
+    <description>上传单个文件并生成SysDocSource的服务</description>
+    <auto-attributes include="all" mode="IN" optional="true" />
+    <attribute name="folder" mode="IN" type="String" />
+    <attribute name="fileItem" mode="IN" type="org.apache.commons.fileupload.FileItem" />
+    <attribute name="sysDocSource" type="org.ofbiz.entity.GenericValue" mode="OUT" optional="true" />
+  </service>
+  
+ <!--上传图片的服务 -->
+ <service name="uploadedFileAliyun" engine="java" location="org.extErp.sysCommon.util.UtilFileUpload" invoke="uploadedFile" auth="false">
+	<description>uploadedFile</description>
+	<attribute name="uploadedFile" type="java.nio.ByteBuffer" mode="IN" optional="true" />
+	<attribute name="_uploadedFile_fileName" type="String" mode="IN" optional="true" />
+	<attribute name="_uploadedFile_contentType" type="String" mode="IN" optional="true" />
+	<attribute name="fileName" mode="OUT" type="String"></attribute>
+	<attribute name="filePath" mode="OUT" type="String"></attribute>
+ </service>
+</services>

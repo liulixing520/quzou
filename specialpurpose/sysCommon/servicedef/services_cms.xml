@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Project Manager service definitions.</description>
+	<service name="createContentCategory" default-entity-name="CmsCatalog" engine="java" location="org.extErp.sysCommon.cms.ContentServices" invoke="createContentCategory" auth="true">
+		<description>Create a CmsCommentType</description>
+		<auto-attributes include="pk" mode="OUT" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="updateContentCategory" default-entity-name="CmsCatalog" engine="java" location="org.extErp.sysCommon.cms.ContentServices" invoke="updateContentCategory" auth="true">
+		<description>Update a CmsCommentType</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="deleteContentCategory" default-entity-name="CmsCatalog" engine="java" location="org.extErp.sysCommon.cms.ContentServices" invoke="deleteContentCategory" auth="true">
+		<description>Delete a CmsCommentType</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+
+	</service>
+	<service name="deleteContentCategoryAll" default-entity-name="CmsCatalog" engine="java" location="org.extErp.sysCommon.cms.ContentServices" invoke="deleteContentCategoryAll" auth="true">
+		<description>Delete a CmsCommentType</description>
+
+		<attribute name="orderIndexs" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="createAdvertise" default-entity-name="CmsAdvertise" engine="java" location="org.extErp.sysCommon.cms.ContentServices" invoke="createAdvertise" auth="true">
+		<description>Create a Ad</description>
+		<auto-attributes include="pk" mode="OUT" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+		<override name="content" allow-html="any"></override>
+	</service>
+	<service name="createAdvertiseImg" default-entity-name="CmsAdvertiseImg" engine="java" location="org.extErp.sysCommon.cms.ContentServices" invoke="createAdvertiseImg" auth="true">
+		<description>Create a AdImg</description>
+		<auto-attributes include="pk" mode="OUT" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+		<override name="content" allow-html="any"></override>
+	</service>
+	<service name="updateAdvertise" default-entity-name="CmsAdvertise" engine="java" location="org.extErp.sysCommon.cms.ContentServices" invoke="updateAdvertise" auth="true">
+		<description>Update a AdType</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+		<override name="content" allow-html="any"></override>
+	</service>
+	<service name="updateAdvertiseImg" default-entity-name="CmsAdvertiseImg" engine="java" location="org.extErp.sysCommon.cms.ContentServices" invoke="updateAdvertiseImg" auth="true">
+		<description>Update a AdTypeImg</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+		<override name="content" allow-html="any"></override>
+	</service>
+
+	<service name="deleteAdvertise" default-entity-name="CmsAdvertise" engine="java" location="org.extErp.sysCommon.cms.ContentServices" invoke="deleteAdvertise" auth="true">
+		<description>Delete a Ad</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+	</service>
+	<service name="deleteAdvertiseImg" default-entity-name="CmsAdvertiseImg" engine="java" location="org.extErp.sysCommon.cms.ContentServices" invoke="deleteAdvertiseImg" auth="false">
+		<description>Delete a AdTypeImg</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+	</service>
+	
+</services>

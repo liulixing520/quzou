@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <description>Module Configuration File</description>
+    
+    <handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler"/>
+    <handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler"/>
+
+    <firstvisit></firstvisit>
+    <!-- 查找商品属性 -->
+	<request-map uri="FindTypeAttribute">
+		<security https="false" auth="false"/>
+		<response name="success" type="view" value="FindTypeAttribute"/>
+	</request-map>
+	<!-- 添加编辑商品属性 -->
+	<request-map uri="EditProductTypeAttribute">
+		<security https="false" auth="true"/>
+		<response name="success" type="view" value="EditProductTypeAttribute"/>
+	</request-map>
+	<!-- 保存产品属性 -->
+	<request-map uri="createProductTypeAttr">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="createProductTypeAttr"/>
+        <response name="success" type="request-redirect" value="FindTypeAttribute"/>
+        <response name="error" type="request-redirect" value="EditProductTypeAttribute"/>
+    </request-map>
+	<!-- 更新产品属性 -->
+	<request-map uri="updateProductTypeAttr">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateProductTypeAttr"/>
+        <response name="success" type="request-redirect" value="FindTypeAttribute"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+	<!-- 删除商品属性 -->
+	<request-map uri="DeleteProductTypeAttribute">
+    	<security https="false" auth="false"/>
+        <event type="groovy"
+			path="component://portal/webapp/portal/WEB-INF/actions/prod/DeleteProductTypeAttribute.groovy" />
+        <response name="success" type="request-redirect" value="FindTypeAttribute"/>
+    </request-map>
+    <!-- 查找商品规格请求 -->
+    <request-map uri="FindProductFeatureCategory">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindProductFeatureCategory"/>
+        <response name="error" type="view" value="FindProductFeatureCategory"/>
+    </request-map>
+    <!-- 编辑商品规格请求 -->
+    <request-map uri="EditProductsFeatureCategory">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditProductsFeatureCategory"/>
+        <response name="error" type="view" value="EditProductsFeatureCategory"/>
+    </request-map>
+    <!-- 新建商品规格请求 -->
+    <request-map uri="CreateFeatureCategory">
+    	<security https="false" auth="true"/>
+        <event type="service" invoke="createProductFeatureAndCategory"/>
+        <response name="success" type="request-redirect" value="FindProductFeatureCategory"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <!-- 更新商品规格请求 -->
+    <request-map uri="UpdateFeatureCategory">
+    	<security https="false" auth="true"/>
+        <event type="service" invoke="updateProductFeatureAndCategory"/>
+        <response name="success" type="request-redirect" value="FindProductFeatureCategory"/>
+        <response name="error" type="view-last"/>
+    </request-map>
+    <!-- 显示分类 -->
+    <request-map uri="CategoryTreeEn">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="CategoryTreeEn"/>
+    </request-map>
+    <!--  给商品分类设置属性 -->
+    <request-map uri="setCategoryRefTypeAttribute">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="setCategoryRefTypeAttribute"/>
+        <response name="error" type="view" value="setCategoryRefTypeAttribute"/>
+    </request-map>
+    <!-- 保存 设置分类属性 -->
+    <request-map uri="setCategoryRefTypeAttributeMutil">
+        <security https="false" auth="true"/>
+        <event type="java" path="org.ofbiz.ebiz.product.ProductCategoryServices" invoke="setCategoryRefTypeAttributeMutil" />
+        <response name="success" type="request-redirect" value="CategoryTreeEn"/>
+        <response name="error" type="request-redirect" value="CategoryTreeEn"/>
+    </request-map>
+    <!--  给商品分类设置特征 -->
+    <request-map uri="setCategoryFeature">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="setCategoryFeature"/>
+        <response name="error" type="view" value="setCategoryFeature"/>
+    </request-map>
+    <!-- 保存  给商品分类设置特征 -->
+    <request-map uri="setProductFeatureCategoryApplMutil">
+        <security https="false" auth="true"/>
+        <event type="java" path="org.ofbiz.ebiz.product.ProductCategoryServices" invoke="setProductFeatureCategoryApplMutil" />
+        <response name="success" type="request-redirect" value="CategoryTreeEn"/>
+        <response name="error" type="request-redirect" value="CategoryTreeEn"/>
+    </request-map>
+	<!-- View Mappings -->
+	<view-map name="setCategoryFeature" type="screen" page="component://manage/widget/ProductScreens.xml#setCategoryFeature"/>
+	<view-map name="setCategoryRefTypeAttribute" type="screen" page="component://manage/widget/ProductScreens.xml#setCategoryRefTypeAttribute"/>
+	<view-map name="CategoryTreeEn" type="screen" page="component://manage/widget/ProductScreens.xml#CategoryTreeEn"/>
+	<view-map name="EditProductsFeatureCategory" type="screen" page="component://manage/widget/ProductScreens.xml#EditProductsFeatureCategory"/>
+	<view-map name="FindProductFeatureCategory" type="screen" page="component://manage/widget/ProductScreens.xml#FindProductFeatureCategory"/>
+	<view-map name="FindTypeAttribute" type="screen" page="component://manage/widget/ProductScreens.xml#FindTypeAttribute"/>
+	<view-map name="EditProductTypeAttribute" type="screen" page="component://manage/widget/ProductScreens.xml#EditProductTypeAttribute"/>
+</site-conf>

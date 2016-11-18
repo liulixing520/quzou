@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
+   <!-- 系统菜单开始 -->
+   <property key="ContentModel">
+		<value xml:lang="en">ContentModel</value>
+		<value xml:lang="zh">内容管理</value>
+	</property>
+   <property key="CrmModel">
+		<value xml:lang="en">CrmModel</value>
+		<value xml:lang="zh">客户关系管理</value>
+	</property>
+	<property key="EquipmentModel">
+		<value xml:lang="en">EquipmentModel</value>
+		<value xml:lang="zh">设备管理</value>
+	</property>
+	<property key="QuoteModel">
+		<value xml:lang="en">QuoteModel</value>
+		<value xml:lang="zh">报价管理</value>
+	</property>
+	
+	
+	<property key="RoleMgr">
+		<value xml:lang="en">RoleMgr</value>
+		<value xml:lang="zh">角色管理</value>
+		<value xml:lang="zh_TW">角色管理</value>
+	</property>
+	<property key="ContentContentsMgr">
+		<value xml:lang="en">Contents</value>
+		<value xml:lang="zh">内容管理</value>
+		<value xml:lang="zh_TW">内容管理</value>
+	</property>
+	
+	<property key="SystemModel">
+		<value xml:lang="en">SystemModel</value>
+		<value xml:lang="zh">系统管理</value>
+		<value xml:lang="zh_TW">系统管理</value>
+	</property>
+	<property key="PermissionPermissionsMgr">
+		<value xml:lang="en">Permissions</value>
+		<value xml:lang="zh">权限管理</value>
+		<value xml:lang="zh_TW">权限管理</value>
+	</property>
+	
+	<property key="AdMgr">
+		<value xml:lang="en">AdMgr</value>
+		<value xml:lang="zh">广告管理</value>
+		<value xml:lang="zh_TW">广告管理</value>
+	</property>
+	<property key="AcMgr">
+		<value xml:lang="en">AcMgr</value>
+		<value xml:lang="zh">文件管理</value>
+		<value xml:lang="zh_TW">文件管理</value>
+	</property>
+	
+	<!-- 二级菜单结束 -->
+	<!-- 三级菜单 -->
+	
+	<property key="AcMgrList">
+		<value xml:lang="en">AcMgrList</value>
+		<value xml:lang="zh">文件列表</value>
+		<value xml:lang="zh_TW">文件列表</value>
+	</property>
+	<property key="AdMgrList">
+		<value xml:lang="en">AdMgrList</value>
+		<value xml:lang="zh">广告列表</value>
+		<value xml:lang="zh_TW">广告列表</value>
+	</property>
+	<property key="AcCategoryMgrList">
+		<value xml:lang="en">AcCategoryMgrList</value>
+		<value xml:lang="zh">文件分类列表</value>
+	</property>
+	<property key="AdMgrAdd">
+		<value xml:lang="en">AdMgrAdd</value>
+		<value xml:lang="zh">广告添加</value>
+		<value xml:lang="zh_TW">广告添加</value>
+	</property>
+	<property key="AcMgrAdd">
+		<value xml:lang="en">AcMgrAdd</value>
+		<value xml:lang="zh">文件添加</value>
+		<value xml:lang="zh_TW">文件添加</value>
+	</property>
+	<property key="AcCategoryAdd">
+		<value xml:lang="en">AcCategoryAdd</value>
+		<value xml:lang="zh">添加文件分类</value>
+	</property>
+	<property key="RoleMgrList">
+		<value xml:lang="en">SecurityGroup List</value>
+		<value xml:lang="zh">角色列表</value>
+	</property>
+	<property key="RoleMgrAdd">
+		<value xml:lang="en">SecurityGroup Add</value>
+		<value xml:lang="zh">添加角色</value>
+	</property>
+
+	
+	<!-- 三级菜单结束 -->
+	<!-- 系统菜单结束 -->
+	<!-- lims页面开始 -->
+	<property key="limsSystemName">
+		<value xml:lang="en">limsSystemName</value>
+		<value xml:lang="zh">系统名称</value>
+		<value xml:lang="zh_TW">系统名称</value>
+	</property>
+	<property key="limsManagerCenter">
+		<value xml:lang="en">limsManagerCenter</value>
+		<value xml:lang="zh">管理中心</value>
+		<value xml:lang="zh_TW">管理中心</value>
+	</property>
+	<property key="ModelMenu">
+		<value xml:lang="en">ModelMenu</value>
+		<value xml:lang="zh">功能菜单</value>
+		<value xml:lang="zh_TW">系统名称</value>
+	</property>
+	<!-- -->
+	<!-- 后台页面公用开始 -->
+	<property key="CommEdit">
+		<value xml:lang="en">CommEdit</value>
+		<value xml:lang="zh">编辑</value>
+		<value xml:lang="zh_TW">编辑</value>
+	</property>
+	<property key="CommonYes">
+		<value xml:lang="en">CommonYes</value>
+		<value xml:lang="zh">是</value>
+		<value xml:lang="zh_TW">编辑</value>
+	</property>
+	<property key="CommonFalse">
+		<value xml:lang="en">CommonFalse</value>
+		<value xml:lang="zh">否</value>
+		<value xml:lang="zh_TW">编辑</value>
+	</property>
+	<property key="CommList">
+		<value xml:lang="en">List</value>
+		<value xml:lang="zh">列表</value>
+		<value xml:lang="zh_TW">列表</value>
+	</property>
+	<property key="CommSelectAll">
+		<value xml:lang="en">CommSelectAll</value>
+		<value xml:lang="zh">全选</value>
+		<value xml:lang="zh_TW">全选</value>
+	</property>
+	<property key="CommSeq">
+		<value xml:lang="en">CommSeq</value>
+		<value xml:lang="zh">序号</value>
+		<value xml:lang="zh_TW">序号</value>
+	</property>
+	<property key="CommMgr">
+		<value xml:lang="en">mgr</value>
+		<value xml:lang="zh">管理</value>
+		<value xml:lang="zh_TW">管理</value>
+	</property>
+	<property key="CommSet">
+		<value xml:lang="en">set</value>
+		<value xml:lang="zh">设置</value>
+		<value xml:lang="zh_TW">设置</value>
+	</property>
+	<property key="CommAdd">
+		<value xml:lang="en">Add</value>
+		<value xml:lang="zh">增加</value>
+	</property>
+	<property key="CommDeleteAll">
+		<value xml:lang="en">CommDeleteAll</value>
+		<value xml:lang="zh">批量删除</value>
+	</property>
+	<property key="CommRecoverAll">
+		<value xml:lang="en">CommRecoverAll</value>
+		<value xml:lang="zh">批量还原</value>
+	</property>
+	<property key="CommonRecover">
+		<value xml:lang="en">CommonRecover</value>
+		<value xml:lang="zh">还原</value>
+	</property>
+
+
+	<property key="CommReset">
+		<value xml:lang="en">Comm Reset</value>
+		<value xml:lang="zh">重置</value>
+		<value xml:lang="zh_TW">重置</value>
+	</property>
+	<property key="CommOper">
+		<value xml:lang="en">CommOper</value>
+		<value xml:lang="zh">操作</value>
+		<value xml:lang="zh_TW">操作</value>
+	</property>
+	<property key="CommIsView">
+		<value xml:lang="en">CommIsView</value>
+		<value xml:lang="zh">是否显示</value>
+		<value xml:lang="zh_TW">是否显示</value>
+	</property>
+	<property key="CommpPageDisplayCount">
+		<value xml:lang="en">pageDisplayCount</value>
+		<value xml:lang="zh">每页显示记录条数</value>
+		<value xml:lang="zh_TW">每页显示记录条数</value>
+	</property>
+	<property key="CommpPageTotalNum">
+		<value xml:lang="en">CommpPageTotalNum</value>
+		<value xml:lang="zh">共</value>
+		<value xml:lang="zh_TW">共</value>
+	</property>
+	<property key="CommpPageTotalItem">
+		<value xml:lang="en">CommpPageTotalItem</value>
+		<value xml:lang="zh">条</value>
+		<value xml:lang="zh_TW">条</value>
+	</property>
+	<property key="CommpPageFirst">
+		<value xml:lang="en">CommpPageFirst</value>
+		<value xml:lang="zh">首页</value>
+		<value xml:lang="zh_TW">首页</value>
+	</property>
+	<property key="CommpPageEnd">
+		<value xml:lang="en">CommpPageEnd</value>
+		<value xml:lang="zh">末页</value>
+		<value xml:lang="zh_TW">末页</value>
+	</property>
+	<property key="CommpPageNext">
+		<value xml:lang="en">CommpPageNext</value>
+		<value xml:lang="zh">下一页</value>
+		<value xml:lang="zh_TW">下一页</value>
+	</property>
+	<property key="CommpPageBack">
+		<value xml:lang="en">CommpPageBack</value>
+		<value xml:lang="zh">上一页</value>
+		<value xml:lang="zh_TW">上一页</value>
+	</property>
+	<property key="CommpPageForword">
+		<value xml:lang="en">CommpPageForword</value>
+		<value xml:lang="zh">转到</value>
+		<value xml:lang="zh_TW">转到</value>
+	</property>
+	<property key="CommGoto">
+		<value xml:lang="en">Commp goto</value>
+		<value xml:lang="zh">跳转</value>
+		<value xml:lang="zh_TW">跳转</value>
+	</property>
+	<property key="CommpPageNow">
+		<value xml:lang="en">CommpPageNow</value>
+		<value xml:lang="zh">第</value>
+		<value xml:lang="zh_TW">第</value>
+	</property>
+	<property key="CommpPagePage">
+		<value xml:lang="en">pagePage</value>
+		<value xml:lang="zh">页</value>
+		<value xml:lang="zh_TW">页</value>
+	</property>
+	<!-- 后台页面公用结束 -->
+
+	<!-- 权限管理开始 -->
+
+	<property key="roleInfo">
+		<value xml:lang="en">roleInfo</value>
+		<value xml:lang="zh">角色信息</value>
+		<value xml:lang="zh_TW">角色信息</value>
+	</property>
+
+	<!-- 内容管理开始 -->
+	<property key="cmsContent">
+		<value xml:lang="en">Content</value>
+		<value xml:lang="zh">文件</value>
+	</property>
+	<property key="cmsContentInfo">
+		<value xml:lang="en">Content Info</value>
+		<value xml:lang="zh">文件信息</value>
+	</property>
+	<property key="cmsAdInfo">
+		<value xml:lang="en">ad Info</value>
+		<value xml:lang="zh">广告信息</value>
+	</property>
+	<property key="cmsCategoryInfo">
+		<value xml:lang="en">Category Info</value>
+		<value xml:lang="zh">文件分类信息</value>
+	</property>
+	<property key="cmsCategory">
+		<value xml:lang="en">Category</value>
+		<value xml:lang="zh">文件分类</value>
+	</property>
+	<property key="cmsTitle">
+		<value xml:lang="en">Title</value>
+		<value xml:lang="zh">标题</value>
+	</property>
+	<property key="cmsCatalogTypeId">
+		<value xml:lang="en">Catalog Type</value>
+		<value xml:lang="zh">文件栏目</value>
+	</property>
+	<property key="articleTypeId">
+		<value xml:lang="en">Article Type</value>
+		<value xml:lang="zh">文件类型</value>
+	</property>
+
+
+
+	<property key="FindCmsCatalog">
+		<value xml:lang="en">Find Catalog</value>
+		<value xml:lang="zh">分类查找</value>
+	</property>
+	<property key="EditCmsCatalog">
+		<value xml:lang="en">Edit Catalog</value>
+		<value xml:lang="zh">分类编辑</value>
+	</property>
+	<property key="FindCmsCatalog">
+		<value xml:lang="en">Find Catalog</value>
+		<value xml:lang="zh">分类查找</value>
+	</property>
+	<property key="PageTitleFindCmsCatalog">
+		<value xml:lang="en">Find Catalog Page</value>
+		<value xml:lang="zh">分类查找页面</value>
+	</property>
+	<property key="PageTitleEditCmsCatalog">
+		<value xml:lang="en">Edit Catalog Page</value>
+		<value xml:lang="zh">分类编辑页面</value>
+	</property>
+
+	<property key="cmsStatusId">
+		<value xml:lang="en">Status</value>
+		<value xml:lang="zh">状态</value>
+	</property>
+	<property key="cmsWebSiteId">
+		<value xml:lang="en">Web Site</value>
+		<value xml:lang="zh">站点</value>
+	</property>
+	<property key="cmsParentId">
+		<value xml:lang="en">Parent Catalog</value>
+		<value xml:lang="zh">上级分类名称</value>
+	</property>
+	<property key="cmsPath">
+		<value xml:lang="en">Path</value>
+		<value xml:lang="zh">栏目路径</value>
+	</property>
+	<property key="cmsCatalogName">
+		<value xml:lang="en">Catalog Name</value>
+		<value xml:lang="zh">分类名称</value>
+	</property>
+	<property key="cmsContent">
+		<value xml:lang="en">Content</value>
+		<value xml:lang="zh">内容</value>
+	</property>
+
+
+
+	<property key="cmsKeywords">
+		<value xml:lang="en">Keywords</value>
+		<value xml:lang="zh">关键字</value>
+	</property>
+	<property key="cmsDescription">
+		<value xml:lang="en">Description</value>
+		<value xml:lang="zh">描述</value>
+	</property>
+	<property key="cmsIsDisplay">
+		<value xml:lang="en">Is Display</value>
+		<value xml:lang="zh">是否显示</value>
+	</property>
+	<property key="AdName">
+		<value xml:lang="en">AdName</value>
+		<value xml:lang="zh">广告位名称</value>
+		<value xml:lang="zh_TW">广告位名称</value>
+	</property>
+	<property key="AdId">
+		<value xml:lang="en">AdId</value>
+		<value xml:lang="zh">广告标识</value>
+		<value xml:lang="zh_TW">广告标识</value>
+	</property>
+	<property key="AdAdd">
+		<value xml:lang="en">AdAdd</value>
+		<value xml:lang="zh">添加广告</value>
+		<value xml:lang="zh_TW">添加广告</value>
+	</property>
+	<property key="AdView">
+		<value xml:lang="en">AdView</value>
+		<value xml:lang="zh">广告预览</value>
+		<value xml:lang="zh_TW">广告预览</value>
+	</property>
+	<property key="AdTitle">
+		<value xml:lang="en">title</value>
+		<value xml:lang="zh">标题</value>
+		<value xml:lang="zh_TW">标题</value>
+	</property>
+	<property key="AdUrl">
+		<value xml:lang="en">AdUrl</value>
+		<value xml:lang="zh">链接地址</value>
+		<value xml:lang="zh_TW">链接地址</value>
+	</property>
+	<property key="AdPosition">
+		<value xml:lang="en">AD Position</value>
+		<value xml:lang="zh">广告位置</value>
+		<value xml:lang="zh_TW">广告位置</value>
+	</property>
+	<property key="AdType">
+		<value xml:lang="en">AD type</value>
+		<value xml:lang="zh">广告类型</value>
+		<value xml:lang="zh_TW">广告类型</value>
+	</property>
+	<property key="AdOrderNum">
+		<value xml:lang="en">AD Order Num</value>
+		<value xml:lang="zh">顺序号</value>
+		<value xml:lang="zh_TW">顺序号</value>
+	</property>
+	<property key="AdUploadImg">
+		<value xml:lang="en">AD upload img</value>
+		<value xml:lang="zh">上传图片</value>
+		<value xml:lang="zh_TW">上传图片</value>
+	</property>
+	<!-- 内容管理结束 -->
+	
+</resource>

@@ -1,0 +1,131 @@
+@charset "utf-8";
+/* CSS Document */
+.employee_search_box{
+	height:48px; margin:18px 0px; overflow:hidden; border:1px solid #dadada;
+}
+.add_employee{
+	width:83px; height:28px; display:inline-block; float:left; margin:9px 0 0 12px; background-color:#e1e1e1;
+	color:#878787; font-size:14px; text-align:center; line-height:28px; cursor:pointer;
+}
+.search_employee{
+	width:308px; height:20px; padding:0px 10px; overflow:hidden; border:1px solid #e1e1e1; background-color:#ffffff;
+	color:#afafaf; font-size:14px; line-height:20px; float:left; margin:9px 0 0 10px;
+}
+.search_employee_btn{
+	display:block; float:left; margin:9px 0 0 23px; width:90px; height:28px; text-align:center;  line-height:26px; color:#fff;
+	font-size:14px; background-color:#f83976; border:none; outline:none; cursor:pointer;
+}
+.search_employee_btn:hover{box-shadow:inset 0 5px 5px -5px rgba(0,0,0,0.4);}
+
+#employee{
+	background-color:#fff; padding:0px 30px; box-shadow:0 0  10px #ccc;
+}
+.employee_block{
+	overflow:hidden; padding-bottom:80px;
+}
+.employee_block h3{
+	height:49px; line-height:70px; border-bottom:1px solid #ccc; font-size:16px; color:#666; font-weight:normal; text-indent:18px;
+	display:block; position:relative; margin-bottom:20px;
+}
+
+.employee_block h1{
+	height:49px; line-height:70px;font-size:16px; color:#666; font-weight:normal; text-indent:18px;
+	display:block; margin-bottom:20px;background:url(../images/common/pencial.png) no-repeat left 29px;
+}
+
+.employee_block h3 em{
+	display:block; position:absolute; height:0px; border-bottom:1px solid #8e8e8e; width:118px; top:49px; left:0px;
+}
+.employee_info{
+	position:relative; width:100%;
+}
+.employee_info li{
+	height:30px; margin-top:20px; line-height:30px; font-size:14px; width:100%;
+}
+.employee_info li.addr{
+	height:70px;
+}
+.employee_info li .title,.employee_info li .title1,.employee_info li .title2{
+	display:inline-block; height:30px; width:100px; text-align:right; margin-right:15px;color:#acacac;
+}
+.employee_info li .title1{
+	width:77px; text-indent:28px; text-align:left;
+}
+.employee_info li .title2{
+	width:146px; text-indent:42px; text-align:left;
+}
+.employee_info li span{
+	display:inline-block; height:30px; margin-left:18px; color:#f83976;
+}
+.employee_info li .radio{
+	display:inline-block; height:30px; text-indent:49px; font-size:14px; color:#666;
+	background:url(../images/employee/radio.png) no-repeat 8px -35px; margin-right:30px; cursor:pointer;
+}
+.employee_info li .radio.cur{
+	background:url(../images/employee/radio.png) no-repeat 8px 5px;
+}
+.kingkong-input.name{
+	width:220px;
+}
+.kingkong-input.phone{
+	width:220px;
+}
+.kingkong-input.birth{
+	width:128px;
+}
+.kingkong-input.emergency{
+	width:188px;
+}
+.kingkong-input.constellation,.kingkong-input.blood{
+	width:88px; text-align:center;
+}
+.kingkong-input.id,.kingkong-input.shop,.kingkong-input.position,.kingkong-input.team,.kingkong-input.username,.kingkong-input.password,.kingkong-input.repassword{
+	width:300px;
+}
+.kingkong-input.city,.kingkong-input.area,.kingkong-input.road{
+	width:128px; margin-right:16px; text-align:center;
+}
+.kingkong-input.addr{
+	width:468px; margin:15px 0 0 119px;
+}
+.kingkong-input.emergency_phone{
+	width:188px;
+}
+.save_info{
+	height:32px; width:116px; line-height:32px; text-align:center; font-size:14px; color:#fff; background-color:#f83976;
+	border:none; border-radius:13px; margin:46px 0 0 118px; display:block;cursor:pointer;
+}
+.person_photo{
+	width:110px;height:110px;overflow:hidden; position:absolute; right:58px; top:20px;
+}
+.person_photo .pic{
+	width:110px; height:110px; border-radius:110px; overflow:hidden;
+}
+.person_photo .modify_photo{
+ padding-right:20px; display:inline-block;width:80px; text-align:center;
+	font-size:16px; color:#fff; background:url(../images/employee/modify.png) right center no-repeat; cursor:pointer;
+}
+.updateHeadImg{display:none;background-color: #000;border-radius: 50%;height: 110px;left: 0;line-height: 110px;opacity: 0.4;filter:alpha(opacity=40);position: absolute;text-align: center;top: 0;width: 110px;}
+.person_photo:hover .updateHeadImg{display:block;}
+
+/*设置头像*/
+.setStaffHead{padding:0 50px;}
+.curHeadImg{border:1px solid #d8d8d8;width:110px;height:110px;overflow:hidden;border-radius:50%;margin-top:20px;}
+.currentHead{width:300px;margin-left:30px;}
+.setNewHead{width:500px;}
+.selectImgRoute{margin:10px 0;}
+
+.AddSonBirthday{cursor:pointer;margin-left:10px;}
+.childrenName{width:60px;margin-right:5px;}
+
+.employeeHeadTab{width:100%;height:40px;line-height:40px;border-bottom:2px solid #ccc;padding-top:10px;font-size:16px;}
+.employeeHeadTab ul li{float:left;width:115px;text-align:center;cursor:pointer;}
+.employeeHeadTab ul li.current{border-bottom:2px solid #f83976;}
+.PhysiologyInfor{margin:10px 0;}
+.PhysiologyInfor textarea{width: 950px; height: 78px;}
+.employeeBtn{text-align:center;padding:10px 0 20px 0;}
+.employeeBtn .btn.mm{padding:5px 35px;}
+
+.jobDialogContent{z-index:9;position:absolute;top:50%;left:50%;width:320px;min-height:220px;margin:-110px 0 0 -160px; background-color:#fff;background:#fff; font-family:'微软雅黑';padding:0px 10px;}
+.jobDialog_title{ padding:20px 17px; color:#515151; font-size:16px;}
+.selectStaff{padding:20px;}

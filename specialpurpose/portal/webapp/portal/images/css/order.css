@@ -1,0 +1,1748 @@
+
+/*layout end*//*header start*/
+.header {
+    position: relative;
+    z-index: 102;
+    margin: 0 auto;
+    width: 990px;
+    height: 65px;
+    color: #666;
+}
+
+/*status start*/
+.status {
+    position: absolute;
+    z-index: 1;
+    top: 15px;
+    left: 0;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    list-style-type:none;
+    width: 100%;
+}
+
+.status li {
+    float: left;
+    width: 33.33%;
+    background: #ddd;
+    list-style:none;
+    margin-left:0px;
+}
+
+.steps-one .status-one {
+    color: #9e5001;
+    background: #f00 url(/img/status.png) no-repeat 100% 20px;
+}
+
+.steps-two .status-one {
+    color: #9e5001;
+    background: #ffedc1 url(/img/status.png) no-repeat 100% 20px;
+}
+
+.steps-two .status-two {
+    font-weight: 700;
+    color: #fff;
+    background: #f00 url(/img/status.png) no-repeat 100% 0;
+}
+
+/*status end*//*header end*//*cotent start*/
+.content {
+    color: #333;
+}
+
+.content h1 {
+    font-size: 12px;
+    font-weight: 100;
+    margin-bottom: 15px;
+}
+
+.content h1 strong {
+    font-size: 22px;
+    color: #e71;
+    line-height: 30px;
+}
+
+.content h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.note {
+    padding: 12px 0 12px 60px;
+    margin: 15px 0;
+    background: #f5fdf3 url(/img/paymentbg.png) no-repeat -450px -75px;
+    font-size: 16px;
+    font-weight: 700;
+    border: 1px solid #baeb9a;
+}
+
+.note-error {
+    padding: 12px 0 12px 60px;
+    margin: 15px 0;
+    background: #fff9e1 url(/img/paymentbg.png) no-repeat -450px -319px;
+    font-size: 16px;
+    font-weight: 700;
+    border: 1px solid #ffdb83;
+    color: #e71;
+}
+
+/*orderbox start*/
+.orderbox {
+    width: 100%;
+    border: 1px solid #ddd;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.orderbox td, .orderbox th {
+    padding: 10px 10px;
+    font-size: 12px;
+    border: 1px solid #bbb;
+    vertical-align: top;
+}
+
+.orderbox th {
+    padding: 7px 10px;
+    background: #eee;
+    font-weight: 700;
+    color: #666;
+    border: 1px solid #bbb;
+}
+
+.orderbox strong {
+    display: block;
+}
+
+.green {
+    color: #090;
+}
+
+.orderbox .alignleft {
+    text-align: left;
+}
+
+.orderbox p {
+    font-size: 12px;
+    color: #666;
+    line-height: 13px;
+}
+
+.pledge, .hrD, .return, .localico {
+    width: 14px;
+    height: 19px;
+    display: inline-block;
+    background: url(/img/paymentbg.png) no-repeat -148px 0;
+    margin-left: 5px;
+}
+
+.hrD {
+    background-position: -167px 0;
+}
+
+.return {
+    background-position: -186px 0;
+}
+
+.localico {
+    background-position: -21px -143px;
+}
+
+.orderbox a {
+    text-decoration: underline;
+}
+
+/*coupon start*/
+.enterlink {
+    text-decoration: underline;
+}
+
+.error {
+    text-align: left;
+    color: #f00;
+    font-size: 11px;
+    line-height: 13px;
+    padding: 2px 0 0 20px;
+    background: url(/img/paymentbg.png) no-repeat -484px 0;
+}
+
+.box-inner {
+    padding: 10px 15px;
+    font-size: 11px;
+}
+
+.cpricelist {
+    margin-bottom: 10px;
+}
+
+.cpricelist li {
+    width: 265px;
+    border-bottom: 1px solid #ddd;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.cpricelist li:hover, .cpricelist .active {
+    background: #e6efff;
+}
+
+.cpricelist .green {
+    float: left;
+    width: 75px;
+}
+
+.cpricelist span {
+    float: right;
+    padding-left: 10px;
+    text-align: right;
+}
+
+.enterbox {
+    text-align: left;
+}
+
+.enterbox .inputcoupon {
+    display: block;
+    width: 125px;
+    padding: 1px 0 1px 2px;
+    border: 1px solid #aaa;
+    color: #666;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.coupon-select {
+    position: relative;
+    background: #fff;
+    border-color: #bbb #999 #999 #bbb;
+    border-style: solid;
+    border-width: 1px;
+    height: 18px;
+    width: 125px;
+}
+
+.coupon-select .textcoupon {
+    cursor: pointer;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    padding: 0 0 0 5px;
+    border: 0;
+    width: 106px;
+    color: #999;
+    font-size: 11px;
+}
+
+.darrow, .harrow {
+    background: url(/img/paymentbg.png) no-repeat -431px -75px;
+    cursor: pointer;
+    height: 20px;
+    overflow: hidden;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    width: 19px;
+}
+
+.harrow {
+    background-position: -431px -95px;
+}
+
+.coupon-select .weightgreen {
+    font-weight: 700;
+    color: #090
+}
+
+/* popup frame start */
+.tLt, .tRi, .bLt, .bRi {
+    background: url(/img/popup-frame1.png) no-repeat;
+}
+
+.tMid, .bMid {
+    background: url(/img/popup-frame1.png) repeat-x;
+}
+
+.mLt, .mRi {
+    background: url(/img/popup-frame2.png) repeat-y;
+}
+
+.tLt {
+    padding-left: 55px;
+}
+
+.tMid {
+    height: 18px;
+    padding: 0;
+    background-position: 0 -185px;
+}
+
+.tRi {
+    padding-left: 55px;
+    background-position: 0 -28px;
+}
+
+.mMid {
+    heibackground: #fff;
+}
+
+.mRi {
+    background-position: -65px 0;
+}
+
+.bLt {
+    background-position: 0 -56px;
+}
+
+.bMid {
+    height: 33px;
+    background-position: 0 -142px;
+}
+
+.bRi {
+    background-position: 0 -99px;
+}
+
+.mMid-inner {
+    position: relative;
+    margin: -17px -42px -17px -43px;
+    zoom: 1;
+    background: #fff;
+}
+
+.popup-loading {
+    height: 31px;
+    width: 31px;
+    background: url(/img/loading.gif) no-repeat 50%;
+}
+
+.t-Tit {
+    position: relative;
+    padding-left: 15px;
+    line-height: 20px;
+    zoom: 1;
+}
+
+.t-Tit h4 {
+    padding-top: 5px;
+    font-weight: 700;
+}
+
+.t-Tit .close {
+    overflow: hidden;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    text-indent: -99999px;
+    background: url(/img/paymentbg.png) no-repeat -8px -150px;
+}
+
+.t-Tit .close:hover {
+    background-position: 0 -150px;
+}
+
+/* popup frame end */
+.tcoupBox {
+    position: absolute;
+    right: -13px;
+    top: 19px;
+    z-index: 99
+}
+
+.orderbox .tcoupBox td {
+    border: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.orderbox .tcoupBox .tLt {
+    padding-left: 55px;
+}
+
+.orderbox .tcoupBox .tRi {
+    padding-left: 55px;
+    background-position: 0 -28px;
+}
+
+/*coupon end*//*orderbox end*//*total start*/
+.visaban {
+    display: block;
+    width: 200px;
+    height: 50px;
+    float: left;
+    background: url(/img/paymentbg.png) no-repeat -104px -109px;
+}
+
+.visaban8 {
+    display: block;
+    width: 200px;
+    height: 50px;
+    float: left;
+    background: url(/img/b7.jpg) no-repeat;
+}
+
+.total {
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.bigsize {
+    display: block;
+    font-size: 16px;
+}
+
+.red {
+    color: #900;
+}
+
+.total a {
+    text-decoration: underline;
+}
+
+/*total end*//*method start*/
+.payment-method {
+    position: relative;
+    border: 1px solid #ddd;
+    background: #fff url(/img/tabline.png) repeat-y 0 0;
+}
+
+.method-tab {
+    float: left;
+    width: 189px;
+    height: 100%;
+}
+
+.method-tab ul {
+    padding: 20px 0 20px 10px;
+    height: 100%;
+}
+
+.method-tab li {
+    width: 144px;
+    height: 25px;
+    line-height: 25px;
+    padding: 12px 0 11px 33px;
+    background: url(/img/paymentbg.png) no-repeat -475px -170px;
+    font-weight: 700;
+    border: 1px solid #f1f1f1;
+    border-right: 0;
+    cursor: pointer;
+}
+
+.method-tab li:hover, .method-tab li.current {
+    width: 145px;
+    background: #fff url(/img/paymentbg.png) no-repeat -475px -218px;
+    border-color: #ddd;
+}
+
+.method-tab .dhpay {
+    padding: 5px 0 5px 33px;
+    height: 38px;
+    white-space: nowrap;
+}
+
+.method-tab .bank, .method-tab .banktransfer {
+    padding: 7px 0 6px 33px;
+    height: 35px;
+    line-height: 18px;
+}
+
+.method-tab .bank span, .method-tab .banktransfer span {
+    float: left;
+    margin-top: 5px;
+    height: 25px;
+}
+
+.method-tab .bank b, .method-tab .banktransfer b {
+    display: block;
+    line-height: 12px;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.method-tab li span {
+    float: left;
+    height: 25px;
+    width: 38px;
+    background: url(/img/paymethodbg.png) no-repeat;
+    line-height: 48px;
+    margin-right: 10px;
+}
+
+.method-tab .visa span {
+    background-position: 0 -70px;
+}
+
+.method-tab .mastercard span {
+    background-position: 0 -245px;
+}
+
+.method-tab .maestro span {
+    background-position: 0 -280px;
+}
+
+.method-tab .paypal span {
+    background-position: 0 -175px;
+}
+
+.method-tab .money span {
+    background-position: 0 -105px;
+}
+
+.method-tab .dhpay span {
+    background-position: 0 -140px;
+}
+
+.method-tab .bank span {
+    background-position: 0 -210px;
+}
+
+.method-tab .western span {
+    background-position: 0 0;
+}
+
+.method-tab .local span {
+    background-position: 0 -35px;
+}
+
+.method-tab .ideal span {
+    background-position: 0 -315px;
+}
+
+.method-tab .sofort span {
+    background-position: 0 -350px;
+}
+
+.method-tab .banktransfer span {
+    background-position: 0 -385px;
+}
+
+.method-tab .bpay span {
+    background-position: 0 -420px;
+}
+
+.method-tab .webmoney span {
+    background-position: 0 -455px;
+}
+
+.method-tab .poli span {
+    background-position: 0 -490px;
+}
+
+.method-tab .cartebleue span {
+    background-position: 0 -525px;
+}
+
+.method-tab .euro span {
+    background-position: 0 -560px;
+}
+
+.method-tab .systema4b span {
+    background-position: 0 -595px;
+}
+
+.method-tab .postepay span {
+    background-position: 0 -630px;
+}
+
+.method-tab .cartasi span {
+    background-position: 0 -665px;
+}
+
+.method-tab .giropay span {
+    background-position: 0 -700px;
+}
+
+.method-tab .przelewy24 span {
+    background-position: 0 -735px;
+}
+
+.method-tab .nordeasweden span {
+    background-position: 0 -770px;
+}
+
+.method-tab .laser span {
+    background-position: 0 -805px;
+}
+
+.method-tab .enets span {
+    background-position: 0 -840px;
+}
+
+.method-tab .raiffeisenbank span {
+    background-position: 0 -875px;
+}
+
+.method-tab .nordeafinland span {
+    background-position: 0 -770px;
+}
+
+.method-tab .americanexpress span {
+    background-position: 0 -910px;
+}
+
+.method-tab .masterpass span {
+    background-position: 0 -945px;
+}
+
+.method-tab .americanexpress em {
+    display: inline-block;
+    margin-top: -2px;
+    width: 70px;
+    height: 25px;
+    line-height: 14px;
+}
+
+.method-tab .dhpay {
+    position: relative;
+}
+
+.method-tab .dhpay b {
+    position: absolute;
+    top: 22px;
+    left: 33px;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.method-tab .dhpay b strong {
+    color: #900;
+}
+
+.method-tab li i {
+    font-size: 12px;
+    font-style: normal;
+    color: #090;
+}
+
+.method-con {
+    float: left;
+    width: 739px;
+    background: #fff;
+    padding: 30px 30px 30px 0;
+    margin-left: 30px;
+}
+
+.method-con a {
+    text-decoration: underline;
+}
+
+.method-con a.masterpass-link {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.method-con h3 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    line-height: 34px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.lefttext {
+    clear: both;
+    float: left;
+    width: 120px;
+    text-align: right;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.rtcon {
+    padding-bottom: 10px;
+    padding-left: 130px;
+}
+
+.grey {
+    font-size: 11px;
+    color: #999;
+}
+
+.onerror {
+    line-height: 16px;
+    padding: 0 0px;
+    color: #f00;
+    font-size: 11px;
+}
+
+.method-con .red {
+    color: #900;
+    font-size: 11px;
+}
+
+.method-con .lefttext .red {
+    color: #f00;
+}
+
+.fright {
+    float: right;
+}
+
+.alignright {
+    text-align: right;
+}
+
+.clearboth {
+    clear: both;
+}
+
+.clearboth .rtcon select {
+    height: 19px;
+}
+
+.darkred {
+    color: #900;
+}
+
+.orange {
+    color: #e71;
+}
+
+.marb10 {
+    margin-bottom: 10px;
+}
+
+.marb15 {
+    margin-bottom: 15px;
+}
+
+.marl10 {
+    margin-left: 10px;
+}
+
+.marl140 {
+    margin-left: 140px;
+}
+
+.paddingl161 {
+    padding-left: 161px;
+}
+
+.height1 {
+    height: 1px;
+}
+
+.height10 {
+    height: 10px;
+}
+
+.marr20 {
+    margin-right: 20px;
+}
+
+.notebox {
+    border: 1px solid #ffdb83;
+    background: #fff9e1;
+    padding: 10px 5px 10px 10px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.important-notice {
+    margin-bottom: 20px;
+    padding: 10px 5px 10px 30px;
+    color: #333;
+    border: 1px solid #ffdb83;
+    background: #fff9e1 url(/img/paymentbg.png) no-repeat -475px -374px;
+}
+
+.important-notice strong {
+    color: #e71;
+}
+
+.important-notice a {
+    white-space: nowrap;
+}
+
+.paypal-notice {
+    margin-top: 15px;
+    padding: 10px 15px;
+    line-height: 20px;
+    border: 1px solid #ddd;
+    background: #f8f8f8;
+    zoom: 1;
+}
+
+.paypal-notice .notice-info {
+    margin-bottom: 5px;
+}
+
+.paypal-notice .notice-info a {
+    text-decoration: underline;
+}
+
+.paypal-notice .telephoneinfo, .paypal-notice .customer-service {
+    display: none;
+}
+
+.vips-notice {
+    position: relative;
+    padding-right: 135px;
+}
+
+.vips-notice .telephoneinfo {
+    display: block;
+}
+
+.vips-notice .customer-service {
+    display: block;
+    position: absolute;
+    top: 36px;
+    right: 15px;
+    width: 106px;
+    height: 99px;
+    background: url(/img/chathelpicon.png) no-repeat;
+}
+
+.method-con h3 span {
+    display: inline-block;
+    height: 35px;
+    width: 165px;
+    background: url(/img/paymethodbg.png) no-repeat;
+    text-indent: -9999px;
+}
+
+#Visa h3 span {
+    background-position: -50px -70px;
+}
+
+#MasterCard h3 span {
+    background-position: -50px -245px;
+}
+
+#Maestro h3 span {
+    background-position: -50px -280px;
+}
+
+#PayPal h3 span {
+    background-position: -50px -175px;
+}
+
+#Money h3 span {
+    background-position: -50px -105px;
+}
+
+#Western h3 span {
+    background-position: -50px 0;
+}
+
+#Ideal h3 span {
+    background-position: -50px -315px;
+}
+
+#Sofort h3 span {
+    background-position: -50px -350px;
+}
+
+#Banktransfer h3 span {
+    background-position: -50px -385px;
+}
+
+#Bpay h3 span {
+    background-position: -50px -420px;
+}
+
+#Webmoney h3 span {
+    background-position: -50px -455px;
+}
+
+#Poli h3 span {
+    background-position: -50px -490px;
+}
+
+#Cartebleue h3 span {
+    background-position: -50px -525px;
+}
+
+#Euro h3 span {
+    background-position: -50px -560px;
+}
+
+#Systema4B h3 span {
+    background-position: -50px -595px;
+}
+
+#Postepay h3 span {
+    background-position: -50px -630px;
+}
+
+#CartaSi h3 span {
+    background-position: -50px -665px;
+}
+
+#Giropay h3 span {
+    background-position: -50px -700px;
+}
+
+#Przelewy24 h3 span {
+    background-position: -50px -735px;
+}
+
+#Nordeasweden h3 span {
+    background-position: -50px -770px;
+}
+
+#Laser h3 span {
+    background-position: -50px -805px;
+}
+
+#Enets h3 span {
+    background-position: -50px -840px;
+}
+
+#Raiffeisenbank h3 span {
+    background-position: -50px -875px;
+}
+
+#Nordeafinland h3 span {
+    background-position: -50px -770px;
+}
+
+#AE h3 span {
+    background-position: -50px -910px;
+}
+
+#MasterPass h3 span {
+    background-position: -50px -945px;
+}
+
+.bankico {
+    display: inline-block;
+    height: 34px;
+    background: url(/img/paymentbg.png) no-repeat 0 -75px;
+    text-indent: -9999px;
+}
+
+.westernico {
+    display: inline-block;
+    height: 34px;
+    width: 86px;
+    background: url(/img/paymethodbg.png) no-repeat -50px 2px;
+    text-indent: -9999px;
+}
+
+.method-con p {
+    line-height: 22px;
+}
+
+.method-con .inputs {
+    padding: 3px;
+    border: 1px solid #aaa;
+    vertical-align: top;
+}
+
+.important-notice p {
+    line-height: 18px;
+}
+
+.method-con .notetext {
+    line-height: 22px;
+}
+
+.method-con .notetext dt {
+    font-weight: 700;
+}
+
+.method-con .notetext dd {
+    padding-left: 10px;
+    background: url(/img/paymentbg.png) no-repeat -497px -129px;
+}
+
+.radiobox {
+    border: 1px solid #ddd;
+    background: #f8f8f8;
+    padding: 10px;
+    margin: 0 20px 20px;
+}
+
+.radiobox label {
+    font-weight: 700;
+}
+
+.innerradio {
+    padding-top: 10px;
+}
+
+.rightedit {
+    margin-top: -30px;
+    text-align: right;
+}
+
+.rightedit a {
+    margin-right: 5px;
+}
+
+.bankico {
+    width: 96px;
+    background-position: -297px -75px;
+}
+
+.numberbox {
+    position: relative;
+}
+
+.numberbox .numico {
+    position: absolute;
+    width: 104px;
+    height: 62px;
+    left: 370px;
+    _left: 240px;
+    top: -15px;
+    background: url(/img/paymentbg.png) no-repeat 0 -109px;
+}
+
+#MasterCard .numberbox .numico {
+    background-position: -47px -231px;
+}
+
+.yellobtn {
+    display: inline-block;
+    *display: inline;
+    margin-bottom: 10px;
+}
+
+.yellobtn .n-yellow-button {
+    padding: 8px 20px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.smallbtn {
+    display: table;
+    margin: auto;
+    text-align: center;
+}
+
+.smallbtn .n-yellow-button, .smallbtn2 .n-yellow-button {
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.greybutton-inside {
+    padding: 9px 23px;
+    text-align: center;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #aca899;
+    border: 1px solid #ccc;
+    box-shadow: 0 0;
+    background: #f1f1eb;
+    cursor: default
+}
+
+#Money .lefttext, #DHpay .lefttext {
+    width: 143px;
+}
+
+#Money .rtcon, #DHpay .rtcon {
+    padding-left: 153px;
+}
+
+.morewidth .lefttext {
+    width: 220px;
+}
+
+.morewidth .rtcon {
+    padding-left: 230px;
+}
+
+#DHpay .westernico, #DHpay .bankico {
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.font14 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.bank-orderinfo {
+    width: 699px;
+    margin: 0 0 15px 20px;
+    border: 1px solid #ddd;
+    color: #666;
+}
+
+.bank-orderinfo td {
+    padding: 6px 10px 7px;
+    border: 1px solid #ddd;
+}
+
+.bank-orderinfo .odd td {
+    background: #f8f8f8;
+}
+
+.bank-orderinfo strong {
+    color: #666;
+}
+
+.bank-orderinfo strong.orange {
+    color: #e71;
+}
+
+.bank-account {
+    font-weight: 700;
+    float: left;
+    padding: 7px 0 0 20px;
+}
+
+.bank-account .darkred {
+    font-size: 14px;
+}
+
+.bank-accountnote {
+    position: relative;
+    border: 1px solid #c4d7ff;
+    background: #f0f5ff url(/img/paymentbg.png) no-repeat -455px -252px;
+    padding: 6px 10px 6px 53px;
+    margin: 0 20px 15px 180px;
+    line-height: 22px;
+}
+
+.bank-accountnote .arrow {
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    _left: -63px;
+    width: 10px;
+    height: 13px;
+    background: url(/img/paymentbg.png) no-repeat -148px -20px;
+}
+
+.local-bankico {
+    display: inline-block;
+    *display: inline;
+    *float: left;
+    border: 1px solid #999;
+    padding: 6px 38px;
+    margin-right: 5px;
+}
+
+.local-bankico span {
+    display: block;
+    width: 64px;
+    height: 40px;
+    background: url(/img/paymentbg.png) no-repeat -409px -170px;
+}
+
+.rewriteinfo {
+    position: relative;
+}
+
+.rewriteinfo-note {
+    position: absolute;
+    top: -8px;
+    left: 150px;
+    _left: 30px;
+    border: 1px solid #c4d7ff;
+    background: #f0f5ff;
+    padding: 6px 10px 6px 10px;
+    margin: 0 20px 15px 180px;
+}
+
+.rewriteinfo-note .arrow {
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    width: 10px;
+    height: 13px;
+    background: url(/img/paymentbg.png) no-repeat -148px -20px;
+}
+
+.morewidth .rewriteinfo-note {
+    left: 250px;
+    _left: 30px;
+}
+
+.security-card-img span {
+    display: block;
+    width: 156px;
+    height: 109px;
+    background: url(/img/paymentbg.png) no-repeat 0 -242px;
+}
+
+#AE .security-card-img span {
+    background-position: -156px -242px;
+}
+
+.security-card-img b {
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    left: -7px;
+    display: block;
+    width: 8px;
+    height: 13px;
+    background: url(/img/paymentbg.png) no-repeat -175px -19px;
+}
+
+.contain-print strong {
+    font-size: 14px;
+}
+
+.contain-print input {
+    float: right;
+}
+
+
+.contain-print span {
+    float: left;
+}
+
+.payfororder-warp .yellobtn {
+    float: left;
+    margin-right: 20px;
+}
+
+
+.payfororder-remind b {
+    overflow: hidden;
+    position: absolute;
+    top: 13px;
+    left: -6px;
+    display: block;
+    width: 7px;
+    height: 12px;
+    background: url(/img/paymentbg.png) no-repeat -163px -19px;
+}
+
+.faq-paypal h4 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 700
+}
+
+.faq-paypal dl {
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    line-height: 20px;
+}
+
+.faq-paypal dt, .faq-paypal dd {
+    position: relative;
+    padding-left: 20px;
+    zoom: 1;
+}
+
+.faq-paypal dt {
+    margin-bottom: 5px;
+    font-weight: 700
+}
+
+.faq-paypal .payment-available li {
+    float: left;
+    width: 150px;
+}
+
+.method-con .view-more-faq {
+    padding-left: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    background: url(/img/paymentbg.png) no-repeat -220px -24px;
+}
+
+.footerTop ul {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    overflow: hidden;
+    height: 41px;
+}
+
+.footerTop li {
+    display: inline;
+    float: left;
+    margin: 0px 7px;
+    height: 31px;
+    background: url(/img/paymentbg.png) no-repeat;
+}
+
+.footerTop .master {
+    width: 31px;
+    background-position: -4px -170px;
+}
+
+.footerTop .visa {
+    width: 41px;
+    background-position: -41px -170px;
+}
+
+.footerTop .ae {
+    background-position: -291px -203px;
+    width: 48px;
+}
+
+.footerTop .master2 {
+    width: 31px;
+    background-position: -86px -170px;
+}
+
+.footerTop .boleto {
+    width: 51px;
+    background-position: -123px -170px;
+}
+
+.footerTop .peal {
+    width: 30px;
+    background-position: -180px -170px;
+}
+
+.footerTop .eps {
+    width: 40px;
+    background-position: -217px -170px;
+}
+
+.footerTop .ing {
+    width: 80px;
+    background-position: -262px -170px;
+}
+
+.footerTop .sofort {
+    width: 71px;
+    background-position: -1px -201px;
+}
+
+.footerTop .western {
+    width: 84px;
+    background-position: -211px -74px;
+}
+
+.footerTop .bank {
+    width: 51px;
+    margin-top: 3px;
+    background-position: -240px -205px;
+}
+
+.footerTop .ver {
+    position: relative;
+    width: 79px;
+    height: 41px;
+    background-position: -380px -210px;
+}
+
+.footerTop .ver a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 41px;
+    width: 79px;
+}
+
+.footerTop .pci {
+    position: relative;
+    height: 41px;
+    width: 75px;
+    margin-top: 0;
+    background-position: -165px -204px;
+}
+
+.footerTop .pci a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 41px;
+    width: 75px;
+}
+
+/*footer end*//*calendar start*/
+#calendarDiv table, #calendarDiv th, #calendarDiv td, #calendarDiv, #calendarDiv a {
+    font-size: 12px;
+    vertical-align: baseline;
+}
+
+#calendarDiv a {
+    cursor: pointer;
+}
+
+#calendarDiv a:hover {
+    text-decoration: none;
+}
+
+#calendar .calendarHeader {
+    background: #5B739F;
+    border-bottom: 1px solid #458;
+    color: #fff;
+}
+
+#calendar tr.weekDaysTitleRow td {
+    background: #7C8DA9;
+    color: #fff;
+}
+
+#calendar tr.weekDaysRow {
+    background: #E8EFF9;
+    color: #888;
+}
+
+#calendar td.weekDaysCell {
+    color: #888;
+    border: 1px solid #D3DFF7;
+}
+
+#calendar td.weekDaysCellOver {
+    background: #fff;
+    border: 1px solid #999;
+}
+
+#calendarDiv #linksTable td {
+    background: #5B739F;
+}
+
+table#linksTable a {
+    display: block;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 80%;
+    padding: 2px 5px;
+}
+
+table#linksTable a:hover {
+    background: #ddd;
+    color: #333;
+}
+
+.feebox th, .feebox td {
+    padding: 3px 0 3px 10px;
+    text-align: left;
+}
+
+.th-gray td {
+    background: #f8f8f8;
+}
+
+.th-gray th {
+    background: #eaeaea;
+}
+
+.pop .box-inner {
+    font-size: 12px;
+}
+
+.western-confirm span input {
+    width: 50px;
+}
+
+.dhpay-warp {
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    color: #666;
+    border: 1px solid #ddd;
+}
+
+.dhpay-warp .yellow {
+    color: #e71;
+}
+
+.dhpay-warp .dhpay-title {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    line-height: 32px;
+    font-size: 16px;
+    font-weight: 700;
+    background: url(assets/images/T1sGyVXmlfXXXXXXXX-14-23.gif) no-repeat center left;
+}
+
+.dhpay-warp .balance-data li {
+
+    margin-right: 50px;
+}
+
+.order-content {
+    width: 1200px;
+    margin: 0 auto;
+    min-height: 350px;
+}
+
+.dhpay-warp .balance-data .total-balance {
+    font-weight: 100;
+    display: block;
+    clear: both;
+    margin-bottom: 15px;
+}
+
+.dhpay-warp .dhpay-payment-notice a {
+    text-decoration: underline;
+}
+
+.dhpay-warp .dhpay-payment-notice, .choose-dhpay, .dhpay-warp .balance-data {
+    margin-bottom: 5px;
+}
+
+.choose-dhpay input {
+    vertical-align: middle;
+}
+
+.dhpay-warp .dhpay-confirm {
+    display: none;
+}
+
+.dhpay-warp .dhpay-confirm dl {
+    margin-bottom: 10px
+}
+
+.dhpay-warp .dhpay-confirm dt {
+    float: left;
+    padding-right: 5px;
+    width: 180px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.dhpay-warp .write-password input {
+    float: left;
+    margin-right: 5px;
+    padding: 1px 3px;
+}
+
+.dhpay-warp .dhpay-confirm dd {
+    float: left;
+}
+
+.dhpay-warp .error {
+    margin-top: 5px;
+}
+
+.dhpay-warp .confirm-button {
+    padding: 3px 0;
+    width: 75px;
+}
+
+.activate-remind .activate {
+    margin-top: 10px;
+    padding: 3px 5px;
+}
+
+.activate-warp dd input {
+    padding: 1px 3px;
+    width: 187px;
+}
+
+.password-warp dl {
+    margin-top: 10px;
+}
+
+.password-warp dt {
+    float: left;
+    padding-right: 5px;
+    width: 210px;
+    text-align: right;
+}
+
+.password-warp dd {
+    float: left;
+}
+
+.password-warp .error {
+    margin-top: 5px;
+}
+
+.password-level li {
+    float: left;
+    width: 65px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.security-question-notice strong {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #e71;
+}
+
+.security-question-warp dl {
+    padding-left: 90px;
+}
+
+.security-question-warp dt {
+    margin-top: 15px;
+    font-weight: 700;
+}
+
+.security-question-warp dd li {
+    padding-top: 10px;
+}
+
+.security-question-warp dd li span {
+    display: inline-block;
+    padding-right: 5px;
+    width: 120px;
+    text-align: right;
+}
+
+.activate-submit .activate-button {
+    padding: 3px 5px;
+}
+
+
+.payment-detail td {
+    padding: 10px 0px;
+}
+
+.payment-detail .property-name {
+    padding-right: 10px;
+    vertical-align: top;
+    text-align: right;
+    font-weight: 700;
+}
+
+.amount-remind em {
+    position: absolute;
+    top: -7px;
+    left: 25px;
+    overflow: hidden;
+    width: 12px;
+    height: 7px;
+    background: url(/img/paymentbg.png) no-repeat -148px -33px;
+}
+
+.account-number .orange, .account-number .n-yellow-button {
+    float: left;
+    line-height: 18px;
+}
+
+.account-number .n-yellow-button {
+    padding: 2px 5px;
+}
+
+.generate-tips em {
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    width: 10px;
+    height: 13px;
+    background: url(/img/paymentbg.png) no-repeat -148px -20px;
+}
+
+.billing-address strong {
+    margin-right: 10px;
+}
+
+.pay-text p strong {
+    padding-left: 5px;
+    color: #e71
+}
+
+.n-pay span {
+    font-weight: 100;
+    padding-right: 5px;
+}
+
+
+.pay-explain p {
+    font-size: 10px;
+    color: #666;
+}
+.pay-help b {
+    overflow: hidden;
+    position: absolute;
+    top: 13px;
+    left: -6px;
+    display: block;
+    width: 7px;
+    height: 12px;
+    background: url(/img/paymentbg.png) no-repeat -163px -19px;
+}
+
+.pay-roceed-box .pay-pop {
+    margin: 15px 0;
+}
+
+.pay-roceed-box .pay-pop p strong {
+    padding-left: 3px;
+    color: #e71;
+}
+
+.pay-btn .n-yellow-button, .pay-btn .n-grey-button {
+    padding: 6px 15px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+p{
+    margin: 0px;
+}
+
+<!-- -->
+.tab {
+    top: auto;
+    display: block;
+    float: left;
+    position: relative;
+    width: 200px;
+    padding: 0;
+}
+
+.tab li {
+    display: block;
+    cursor: pointer;
+    line-height: 35px;
+    margin-right: -1px;
+    border: 1px solid #ddd;
+    margin-left: 1px;
+    padding-left: 25px;
+    text-align: left;
+    background-color: #eee;
+}
+
+.tab li.current {
+    display: block;
+    color: #000;
+    background-color: #fff;
+    border-right: 0px solid #c5d0dc;
+    border-left: 2px solid #ff0000;
+    margin-left: 0px;
+}
+
+.show{
+    display: block;
+    float: left;
+    margin-top: 0px;
+    border: solid 1px;
+    border-color: #c5d0dc;
+    padding: 15px;
+    line-height: 25px;
+    width: 1000px;
+    min-height: 200px;
+}
+
+.hidden {
+    display: none;
+}
+
+.show table tr td{padding-top:15px;}
+.show table tr td.right{
+    text-align: right;
+}
+.show table tr td input{border:1px solid #ccc; height:35px; padding-left:5px; width:250px;}
+.show p{font-size:20px; font-weight:bold; color:#000; padding-left:25%; padding-top:10px;}
+.show p .summer{color:#ff0000;}
+.e_list{background: #ff7f00;
+    border: 1px solid #ff3300;
+    padding:12px 20px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    vertical-align: initial; cursor:pointer; margin:10px 0; clear: both;}
+.e_list:hover{color:#fff;}
+.c_list{background:#ff7f00; border:1px solid #ff3300; padding:8px 20px; color:#fff; font-size:14px; font-weight:bold; vertical-align: initial; margin-left:15px; float:right;}
+.c_list:hover{color:#fff;cursor: pointer;text-decoration: none;}
+.order_content_first {
+    width: 1000px;
+    height: 53px;
+}
+.order_content_first_left{ float:left; height:53px; line-height:37px; padding-left:70px; background-image:url(../../images/order_title1.jpg); background-repeat:no-repeat; font-size:20px;}
+.order_content_first_right{ float:right; display:inline; width:485px; height:29px; background-image:url(../../images/order_information.jpg); background-repeat:no-repeat; margin-top:6px; margin-right:10px;}
+.order_content_first_right_one{ float:left; width:130px; padding-left:31px; height:29px; line-height:31px; overflow:hidden; font-size:14px; color:#333333;}
+.order_content_first_right_two{ float:left; width:142px; padding-left:19px; height:29px; line-height:31px; overflow:hidden; font-size:14px; color:#ffffff;}

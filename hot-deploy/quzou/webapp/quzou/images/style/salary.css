@@ -1,0 +1,45 @@
+@charset "utf-8";
+/*薪酬添加*/
+.salaryGroupa{color:#999999;padding:0 10px;}
+.salarydetailInfor{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.salaryRuleTitle{font-size:16px;text-align:center;line-height:30px;height:30px;padding-top:10px;}
+.salarygroupHeader{width:100%;border-bottom:2px solid #e0e0e0;margin:15px 0 10px 0;height:30px;font-size:16px;}
+.salaryGroupName{float:left;width:100px;height:30px;line-height:30px;border-bottom:2px solid #f83976;margin-bottom:-3px;display:block;text-indent:20px;}
+
+/*薪酬设置*/
+.salarySetupMain{padding:20px;}
+.salarySetupClass li{float:left;width:80px;height:30px;line-height:30px;text-align:center;border-left:1px solid #e0e0e0;border-top:1px solid #e0e0e0;border-right:1px solid #e0e0e0;margin-right:5px;cursor:pointer;background-color:#ffffff;}
+.salarySetupClass li.salaryclassCurrent{border-left:2px solid #f83976;border-top:2px solid #f83976;border-right:2px solid #f83976;height:31px;margin-bottom:-2px;}
+.salarySetupClass li a{color:#69533c;display:block;}
+.salaryAddfile{background:url(../images/common/icon_add.png) no-repeat scroll center center rgba(0, 0, 0, 0);}
+.salarySetupInfor{border:2px solid #f83976;padding:10px 15px;}
+.salaryCommissionType{padding:0 15px;}
+.salaryTypeSelect{float:left;margin-right:20px;}
+.salaryTypeSelect input{vertical-align:middle;margin-right:6px;}
+.salaryGearSetInfor{border-left:1px solid #e0e0e0;padding-left:15px;width:430px;}
+.salaryGearSetInfor h3{font-size:16px;text-align:center;}
+.salaryGroupName-s{float:left;width:70px;height:30px;border-bottom:2px solid #f83976;margin-bottom:-3px;display:block;text-indent:5px;}
+.salary-marginL{margin-left:5px;}
+.salarySetDetailInfor{position:relative;}
+.salaryTypeAssessment{width:480px;}
+
+.salaryCashInfor1.opensright:before{left: 16px;}
+.salaryCashInfor1.opensright:after{left: 17px;}
+.salaryCashInfor2.opensright:before {left:58px;}
+.salaryCashInfor2.opensright:after {left: 59px;}
+.salaryCashInfor3.opensright:before{left: 115px;}
+.salaryCashInfor3.opensright:after{left: 116px;}
+.salaryCashInfor4.opensright:before {left:182px;}
+.salaryCashInfor4.opensright:after {left: 183px;}
+.salaryCashInfor5.opensright:before {left:238px;}
+.salaryCashInfor5.opensright:after {left: 239px;}
+.salaryCashInfor6.opensright:before {left:282px;}
+.salaryCashInfor6.opensright:after {left: 283px;}
+.salaryCashInfor7.opensright:before {left:328px;}
+.salaryCashInfor7.opensright:after {left: 329px;}
+
+.salaerJoincheck{text-align:center;}
+
+/*订单详情查看*/
+.rechargePaymentInfor{padding:0 30px;font-size:14px;}
+.rechargePaymentInfor ul li{float: left;height: 30px;line-height: 30px;width: 255px;}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<entity-engine-xml>
+
+    <PaymentMethodType description="Payease" paymentMethodTypeId="EXT_PAYEASE"/>
+	<PaymentGatewayConfigType paymentGatewayConfigTypeId="PAYEASE" hasTable="N" description="Payease Payment Gateway"/>
+    <PaymentGatewayConfig paymentGatewayConfigId="PAYEASE_CONFIG" paymentGatewayConfigTypeId="PAYEASE" description="Payease Config"/>
+    <PaymentGatewayPayease paymentGatewayConfigId="PAYEASE_CONFIG" merchantId="7854" moneyType="1" businessEmail="" apiUserName="payease7854" apiPassword="" apiSignature="test" apiEnvironment="" refundOperator="37055" notifyUrl="" 
+    returnUrl="http://210.73.90.29/portal/control/payeaseReturn" 
+    cancelReturnUrl="" imageUrl="" confirmTemplate="/order/emailconfirmation.ftl" 
+    redirectUrl="https://pay.yizhifubj.com/prs/e_user_payment.checkit" 
+    redirectBankUrl="https://pay.yizhifubj.com/customer/gb/pay_bank.jsp" 
+    shippingCallbackUrl="" requireConfirmedShipping="N"/>
+	<!-- returnUrl="https://localhost:8443/portal/control/payeaseReturn" 支付返回地址   本地测试-->
+	
+	<!-- 货物配送（物流公司） -->
+	<!-- 第三方支付 -->
+	<Agreement agreementId="AG8001" partyIdFrom="Company" partyIdTo="YANDEX" agreementTypeId="COMMISSION_AGREEMENT" description="Commission Agreement with DemoCustAgent"/>
+    <AgreementItem agreementId="AG8001" agreementItemSeqId="0001" agreementItemTypeId="AGREEMENT_COMMISSION" currencyUomId="USD" agreementText="Commission in USD"/>
+    <AgreementTerm agreementTermId="AT8001" termTypeId="FIN_COMM_VARIABLE" agreementId="AG8001" agreementItemSeqId="0001" invoiceItemTypeId="INV_FPROD_ITEM" termValue="1.000" termDays="30"/>
+	<!-- 平台自身 -->
+	<Agreement agreementId="AG8002" partyIdFrom="Company" partyIdTo="PAYEASE" agreementTypeId="COMMISSION_AGREEMENT" description="Commission Agreement with DemoCustAgent"/>
+    <AgreementItem agreementId="AG8002" agreementItemSeqId="0001" agreementItemTypeId="AGREEMENT_COMMISSION" currencyUomId="USD" agreementText="Commission in USD"/>
+    <AgreementTerm agreementTermId="AT8002" termTypeId="FIN_COMM_VARIABLE" agreementId="AG8002" agreementItemSeqId="0001" invoiceItemTypeId="INV_FPROD_ITEM" termValue="1.000" termDays="30"/>
+	<!-- 代理银行 -->
+	<Agreement agreementId="AG8003" partyIdFrom="Company" partyIdTo="BOC_SUIFENHE" agreementTypeId="COMMISSION_AGREEMENT" description="Commission Agreement with DemoCustAgent"/>
+    <AgreementItem agreementId="AG8003" agreementItemSeqId="0001" agreementItemTypeId="AGREEMENT_COMMISSION" currencyUomId="USD" agreementText="Commission in USD"/>
+    <AgreementTerm agreementTermId="AT8003" termTypeId="FIN_COMM_VARIABLE" agreementId="AG8003" agreementItemSeqId="0001" invoiceItemTypeId="INV_FPROD_ITEM" termValue="1.000" termDays="30"/>
+</entity-engine-xml>

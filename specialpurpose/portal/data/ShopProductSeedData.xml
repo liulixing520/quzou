@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	<SequenceValueItem seqName="ProductFeatureCategory" seqId="1000000"/>
+	<SequenceValueItem seqName="ProductFeature" seqId="5000000"/>
+    	<!-- SEO类型 -->
+	<ProductStoreContentType description="标题附加字"
+		hasTable="N" parentTypeId="" productStoreContentTypeId="TITLE_SUBSCRIPT" />
+	<ProductStoreContentType description="关键字"
+		hasTable="N" parentTypeId="" productStoreContentTypeId="META_KEYWORDS" />
+	<ProductStoreContentType description="描述"
+		hasTable="N" parentTypeId="" productStoreContentTypeId="META_DESCRIPTION" />
+	<ProductStoreContentType description="其他头部信息"
+		hasTable="N" parentTypeId="" productStoreContentTypeId="ANOTHER_HEAD_MSG" />
+
+	<!-- SEO类型值content初始化 -->
+	<Content contentId="SEO_TITLE_SUBSCRIPT" description="标题附加字" />
+	<Content contentId="SEO_META_KEYWORDS" description="关键字" />
+	<Content contentId="SEO_META_DESCRIPTION" description="描述" />
+	<Content contentId="SEO_ANOTHER_HEAD_MSG" description="其它头部信息" />
+	
+	<ContentPurposeType contentPurposeTypeId="IMGTP_PRDFT" description="规格图"/>
+	<ContentPurposeType contentPurposeTypeId="EB_PRODIMG_LIST" description="列表图"/>
+	<ContentPurposeType contentPurposeTypeId="EB_PRODIMG_CART" description="购物车图"/>
+	<ContentPurposeType contentPurposeTypeId="EB_PRODIMG_INFO" description="产品信息图"/>
+	<ContentPurposeType contentPurposeTypeId="EB_PRODIMG_HOT" description="热卖图"/>
+	<ContentPurposeType contentPurposeTypeId="EB_PRODIMG_LHOT" description="列表分类图"/>
+	<ContentPurposeType contentPurposeTypeId="EB_PRODIMG_SALE" description="详情页热卖排行图"/>
+	<!-- 基本类别数据-->
+	
+	
+</entity-engine-xml>    

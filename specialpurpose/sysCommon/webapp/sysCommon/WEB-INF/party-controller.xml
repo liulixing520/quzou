@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <description>Module Configuration File</description>
+    
+    <handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler"/>
+    <handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler"/>
+
+    <firstvisit></firstvisit>
+
+    <!-- Request Mappings -->
+    <request-map uri="view">
+        <security https="false" auth="false"/>
+        <response name="success" type="request" value="FindRole"/>
+    </request-map>
+    
+    <request-map track-serverhit="false" uri="LookupPartyName">
+	    <security https="false" auth="true" />
+	    <response name="success" type="view" value="LookupPartyName" />
+	</request-map>
+    <request-map track-serverhit="false" uri="LookupPerson">
+	    <security https="false" auth="true" />
+	    <response name="success" type="view" value="LookupPerson" />
+	</request-map>
+    <request-map track-serverhit="false" uri="LookupPartyGroup">
+	    <security https="false" auth="true" />
+	    <response name="success" type="view" value="LookupPartyGroup" />
+	</request-map>
+    <request-map track-serverhit="false" uri="LookupPersonMyDepartment">
+	    <security https="false" auth="true" />
+	    <response name="success" type="view" value="LookupPersonMyDepartment" />
+	</request-map>
+    <request-map track-serverhit="false" uri="LookupAllDepartment">
+	    <security https="false" auth="true" />
+	    <response name="success" type="view" value="LookupAllDepartment" />
+	</request-map>
+    <request-map track-serverhit="false" uri="LookupChildDepartment">
+	    <security https="false" auth="true" />
+	    <response name="success" type="view" value="LookupChildDepartment" />
+	</request-map>
+   <request-map track-serverhit="false" uri="LookupPersonByRole">
+    	<security https="false" auth="true" />
+    	<response name="success" type="view" value="LookupPersonByRole" />
+  </request-map>   
+    
+	<request-map track-serverhit="false" uri="FindPartyGroup">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindPartyGroup"/>
+    </request-map>
+	<request-map track-serverhit="false" uri="FindPartyGroupTree">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindPartyGroupTree"/>
+    </request-map>
+	<request-map track-serverhit="false" uri="ajaxGetPartyGroupTree">
+		<event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/party/ajaxGetPartyGroupTree.groovy" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map track-serverhit="false" uri="ajaxGetPartyGroup">
+		<event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/party/ajaxGetPartyGroup.groovy" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map track-serverhit="false" uri="ajaxGetPartyGroupTreeAll">
+		<event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/party/ajaxGetPartyGroupTreeAll.groovy" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+    <request-map uri="checkPartyGroupName">
+       <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/party/ajaxCheckPartyGroupName.groovy" />
+       <response name="success" type="request" value="json" />
+       <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map track-serverhit="false" uri="checkPartyGroupCode">
+       <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/party/ajaxCheckPartyGroupCode.groovy" />
+       <response name="success" type="request" value="json" />
+       <response name="error" type="request" value="json" />
+    </request-map>
+	<request-map track-serverhit="false" uri="selectPartyGroupTree">
+     	<security https="false" auth="true"/>
+		<response name="success" type="view" value="selectPartyGroupTree"/>
+    </request-map>
+	<request-map track-serverhit="false" uri="selectPerson">
+     	<security https="false" auth="true"/>
+		<response name="success" type="view" value="selectPerson"/>
+    </request-map>
+	<request-map track-serverhit="false" uri="selectPersonSecurityGroup">
+     	<security https="false" auth="true"/>
+		<response name="success" type="view" value="selectPersonSecurityGroup"/>
+    </request-map>
+	<request-map track-serverhit="false" uri="selectCheckallPerson">
+     	<security https="false" auth="true"/>
+		<response name="success" type="view" value="selectCheckallPerson"/>
+    </request-map>
+	<request-map track-serverhit="false" uri="selectCheckallPersonMutil">
+     	<security https="false" auth="true"/>
+		<response name="success" type="view" value="selectCheckallPersonMutil"/>
+    </request-map>
+	<request-map track-serverhit="false" uri="selectCheckallPartyGroup">
+     	<security https="false" auth="true"/>
+		<response name="success" type="view" value="selectCheckallPartyGroup"/>
+    </request-map>
+	<request-map uri="ajaxGetParty">
+		<event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/party/ajaxGetParty.groovy" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="ajaxGetUserLoginInfoByParty">
+		<event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/party/ajaxGetUserLoginInfoByParty.groovy" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+    <request-map uri="EditPartyGroup">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditPartyGroup"/>
+    </request-map>
+    <request-map uri="createPartyGroup">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="createPartyGroupExt"/>
+       <response name="success" type="request" value="FindPartyGroup"/>
+       <response name="error" type="request" value="FindPartyGroup"/>
+    </request-map>
+    <request-map uri="updatePartyGroup">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updatePartyGroupExt"/>
+       <response name="success" type="request" value="json"/>
+       <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="assignGroupLeader">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="assignGroupLeader"/>
+    </request-map>
+    <request-map uri="FindPerson">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindPerson"/>
+    </request-map>
+    <request-map uri="EditPersonName">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditPersonName"/>
+    </request-map>
+
+    <request-map uri="FindPermissionPerson">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindPermissionPerson"/>
+    </request-map>
+    <request-map uri="EditPerson">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditPerson"/>
+    </request-map>
+    <request-map uri="initUserLoginPassword">
+		<event type="service" path="" invoke="initUserLoginPassword"/>
+        <response name="success" type="request" value="FindPerson"/>
+       <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="EditPassword">
+     	<security https="false" auth="true"/>
+		<response name="success" type="view" value="EditPassword"/>
+    </request-map>
+    <request-map uri="updatePartyStatus">
+		<event type="service" path="" invoke="updatePartyStatus"/>
+        <response name="success" type="request" value="json"/>
+       <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="updateUserPartyStatus">
+		<event type="service" path="" invoke="updateUserPartyStatus"/>
+        <response name="success" type="request" value="json"/>
+       <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="assignGroupLeaderToGroup">
+		<event type="service" path="" invoke="assignGroupLeaderToGroup"/>
+        <response name="success" type="request" value="json"/>
+       <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="unAssignGroupLeaderToGroup">
+		<event type="service" path="" invoke="unAssignGroupLeaderToGroup"/>
+        <response name="success" type="request" value="json"/>
+       <response name="error" type="request" value="json"/>
+    </request-map>
+    
+    <request-map uri="createPerson">
+        <security https="false" auth="true"/>
+        <!-- <event type="service" path="" invoke="createPersonExt"/> -->
+       <event type="java" path="org.extErp.sysCommon.party.PartyEvents"  invoke="createPersonExt" />
+       <response name="success" type="request"  value="FindPerson"/>
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map uri="updatePerson">
+        <security https="false" auth="true"/>
+        <!-- <event type="service" path="" invoke="updatePersonExt"/> -->
+        <event type="java" path="org.extErp.sysCommon.party.PartyEvents"  invoke="updatePersonExt" />
+       <response name="success" type="request"  value="FindPerson"/>
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map uri="updatePassword">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updatePasswordExt"/>
+       <response name="success" type="request" value="json"/>
+       <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="disablePartyContactMechPurpose">
+        <description>删除一个当事人的一个联系方式目的</description>
+        <security https="false" auth="true" />
+        <event type="service" invoke="disablePartyContactMechPurpose" />
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map uri="disablePartyContactMechPurposeAndContactMech">
+        <description>删除一个当事人的一个联系方式目的,如果目的无用则一起删除</description>
+        <security https="false" auth="true" />
+        <event type="service" invoke="disablePartyContactMechPurposeAndContactMech" />
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map uri="disablePartyContactMech">
+        <description>删除一个人和联系方式的关联,包括关联的联系方式目的</description>
+        <security https="false" auth="true" />
+        <event type="service" invoke="disablePartyContactMech" />
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>   
+    <request-map uri="updatePersonName">
+        <description>更新人的姓名[nickname]</description>
+        <security https="false" auth="true" />
+        <event type="service" invoke="updatePersonName" />
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>  
+    <request-map uri="getContactPersonList">
+        <description>按照ID得到某种可用联系人的列表</description>
+        <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/party/getContactPersonList.groovy" />
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>  
+    <request-map uri="getCertNameList">
+        <description>按照ID得到某种可用联系人的列表</description>
+        <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/party/getCertNameList.groovy" />
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>  
+    <request-map uri="getAddressList">
+        <description>按照 当事人ID和联系方式目的得到联系方式的列表的结果json</description>
+        <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/party/getAddressList.groovy" />
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>  
+    <request-map uri="ajaxGetAgenceyList">
+        <description>按照ID得到委托方代理列表</description>
+        <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/party/ajaxGetAgenceyList.groovy" />
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>  
+     <!-- 修改密码暂存 -->
+	<request-map uri="modifyPasswordWin">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="modifyPasswordWin" />
+	</request-map>
+    <request-map uri="modifyCurrentUserPassword">
+		<security https="false" auth="true" />
+		<event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/party/modifyCurrentUserPassword.groovy"/>
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="LookupPartyAndUserLoginAndPerson"><security https="false" auth="true"/><response name="success" type="view" value="LookupPartyAndUserLoginAndPerson"/></request-map>
+    <request-map uri="LookupUserLoginAndPartyDetails"><security https="false" auth="true"/><response name="success" type="view" value="LookupUserLoginAndPartyDetails"/></request-map>
+      
+    <!-- View Mappings -->
+     
+     <view-map name="LookupPartyName" type="screen" page="component://party/widget/partymgr/LookupScreens.xml#LookupPartyName" />
+     <view-map name="LookupPerson" type="screen" page="component://sysCommon/widget/LookupScreens.xml#LookupPerson" />
+	 <view-map name="LookupPartyGroup" type="screen" page="component://sysCommon/widget/LookupScreens.xml#LookupPartyGroup" />
+	 <view-map name="LookupPersonMyDepartment" type="screen" page="component://sysCommon/widget/LookupScreens.xml#LookupPersonMyDepartment" />
+	 <view-map name="LookupAllDepartment" type="screen" page="component://sysCommon/widget/LookupScreens.xml#LookupAllDepartment" />
+	 <view-map name="LookupChildDepartment" type="screen" page="component://sysCommon/widget/LookupScreens.xml#LookupChildDepartment" />
+	 <view-map name="LookupCustomer" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#LookupCustomer" />
+	 <view-map name="LookupPersonByRole" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#LookupPersonByRole" />
+	 <view-map name="LookupUserLoginAndPartyDetails" type="screen" page="component://party/widget/partymgr/LookupScreens.xml#LookupUserLoginAndPartyDetails"/>
+	 <view-map name="LookupPartyAndUserLoginAndPerson" type="screen" page="component://party/widget/partymgr/LookupScreens.xml#LookupPartyAndUserLoginAndPerson"/>
+    
+     <view-map name="FindPartyGroup" type="screen" page="component://sysCommon/widget/PartyScreens.xml#FindPartyGroup"/>
+     <view-map name="FindPartyGroupTree" type="screen" page="component://sysCommon/widget/PartyScreens.xml#FindPartyGroupTree"/>
+     <view-map name="EditPartyGroup" type="screen" page="component://sysCommon/widget/PartyScreens.xml#EditPartyGroup"/>
+     <view-map name="FindPerson" type="screen" page="component://sysCommon/widget/PartyScreens.xml#FindPerson"/>
+     <view-map name="EditPersonName" type="screen" page="component://sysCommon/widget/PartyScreens.xml#EditPersonName"/>
+     <view-map name="EditPerson" type="screen" page="component://sysCommon/widget/PartyScreens.xml#EditPerson"/>
+     <view-map name="EditPassword" type="screen" page="component://sysCommon/widget/PartyScreens.xml#EditPassword"/>
+     <view-map name="FindPermissionPerson" type="screen" page="component://sysCommon/widget/PartyScreens.xml#FindPermissionPerson"/>
+     <view-map name="selectPartyGroupTree" type="screen" page="component://sysCommon/widget/PartyScreens.xml#selectPartyGroupTree"/>
+     <view-map name="selectPerson" type="screen" page="component://sysCommon/widget/PartyScreens.xml#selectPerson"/>
+     <view-map name="selectPersonSecurityGroup" type="screen" page="component://sysCommon/widget/PartyScreens.xml#selectPersonSecurityGroup"/>
+     <view-map name="selectCheckallPerson" type="screen" page="component://sysCommon/widget/PartyScreens.xml#selectCheckallPerson"/>
+     <view-map name="selectCheckallPersonMutil" type="screen" page="component://sysCommon/widget/PartyScreens.xml#selectCheckallPersonMutil"/>
+     <view-map name="selectCheckallPartyGroup" type="screen" page="component://sysCommon/widget/PartyScreens.xml#selectCheckallPartyGroup"/>
+     <view-map name="assignGroupLeader" type="screen" page="component://sysCommon/widget/PartyScreens.xml#assignGroupLeader"/>
+    <!-- 修改密码暂存 -->
+	<view-map name="modifyPasswordWin" type="screen" page="component://sysCommon/widget/PartyScreens.xml#modifyPasswordWin" />
+	<!-- end of view mappings -->
+</site-conf>

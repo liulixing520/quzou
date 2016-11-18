@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+权限组、权限、权限组绑定权限
+-->
+
+<entity-engine-xml>
+ 	<SecurityPermission permissionId="SecurityGroup_ADMIN" description="权限组全部权限" modelId="RoleMgr"/>
+ 	<SecurityPermission permissionId="SecurityGroup_ADD" description="权限组添加权限" modelId="RoleMgr"/>
+ 	<SecurityPermission permissionId="SecurityGroup_VIEW" description="权限组查看权限" modelId="RoleMgr"/>
+ 	<SecurityPermission permissionId="SecurityGroup_UPDATE" description="权限组修改权限" modelId="RoleMgr"/>
+ 	<SecurityPermission permissionId="SecurityGroup_DELETE" description="权限组删除权限" modelId="RoleMgr"/>
+ 	<SecurityGroupPermission groupId="FULLADMIN" permissionId="SecurityGroup_ADMIN"/><!-- 给FULLADMIN权限组赋予SecurityGroup全部权限 -->
+ 	<SecurityPermission permissionId="PartyGroup_ADMIN" description="组织机构全部权限" modelId="PartyGroupMgr"/>
+ 	<SecurityPermission permissionId="PartyGroup_ADD" description="组织机构添加权限" modelId="PartyGroupMgr"/>
+ 	<SecurityPermission permissionId="PartyGroup_VIEW" description="组织机构查看权限" modelId="PartyGroupMgr"/>
+ 	<SecurityPermission permissionId="PartyGroup_UPDATE" description="组织机构修改权限" modelId="PartyGroupMgr"/>
+ 	<SecurityPermission permissionId="PartyGroup_DELETE" description="组织机构删除权限" modelId="PartyGroupMgr"/>
+ 	<SecurityGroupPermission groupId="FULLADMIN" permissionId="PartyGroup_ADMIN"/><!-- 给FULLADMIN权限组赋予PartyGroup全部权限 -->
+ 	<SecurityPermission permissionId="Person_ADMIN" description="系统用户全部权限"  modelId="PersonMgr"/>
+ 	<SecurityPermission permissionId="Person_ADD" description="系统用户添加权限"  modelId="PersonMgr"/>
+ 	<SecurityPermission permissionId="Person_VIEW" description="系统用户查看权限"  modelId="PersonMgr"/>
+ 	<SecurityPermission permissionId="Person_UPDATE" description="系统用户修改权限"  modelId="PersonMgr"/>
+ 	<SecurityPermission permissionId="Person_DELETE" description="系统用户删除权限"  modelId="PersonMgr"/>
+ 	<SecurityGroupPermission groupId="FULLADMIN" permissionId="Person_ADMIN"/><!-- 给FULLADMIN权限组赋予Person全部权限 -->
+ 	<SecurityPermission permissionId="MenuTree_ADMIN" description="菜单全部权限" modelId="MenuTreeMgr"/>
+ 	<SecurityPermission permissionId="MenuTree_ADD" description="菜单全部权限" modelId="MenuTreeMgr"/>
+ 	<SecurityPermission permissionId="MenuTree_VIEW" description="菜单查看权限" modelId="MenuTreeMgr"/>
+ 	<SecurityPermission permissionId="MenuTree_UPDATE" description="菜单修改权限" modelId="MenuTreeMgr"/>
+ 	<SecurityPermission permissionId="MenuTree_DELETE" description="菜单删除权限" modelId="MenuTreeMgr"/>
+ 	<SecurityGroupPermission groupId="FULLADMIN" permissionId="MenuTree_ADMIN"/><!-- 给FULLADMIN权限组赋予MenuTree全部权限 -->
+ 	
+ 	<SecurityPermission permissionId="RoleType_ADMIN" description="RoleType全部权限"/>
+ 	<SecurityPermission permissionId="RoleType_ADD" description="RoleType添加权限"/>
+ 	<SecurityPermission permissionId="RoleType_VIEW" description="RoleType查看权限"/>
+ 	<SecurityPermission permissionId="RoleType_UPDATE" description="RoleType修改权限"/>
+ 	<SecurityPermission permissionId="RoleType_DELETE" description="RoleType删除权限"/>
+ 	<SecurityGroupPermission groupId="FULLADMIN" permissionId="RoleType_ADMIN"/><!-- 给FULLADMIN权限组赋予RoleType全部权限 -->
+ 	
+ 	<SecurityPermission permissionId="EnumerationType_ADMIN" description="数据字典类型全部权限" modelId="EnumerationMgr"/>
+ 	<SecurityPermission permissionId="EnumerationType_ADD" description="数据字典类型查看权限" modelId="EnumerationMgr"/>
+ 	<SecurityPermission permissionId="EnumerationType_VIEW" description="数据字典类型查看权限" modelId="EnumerationMgr"/>
+ 	<SecurityPermission permissionId="EnumerationType_UPDATE" description="数据字典类型修改权限" modelId="EnumerationMgr"/>
+ 	<SecurityPermission permissionId="EnumerationType_DELETE" description="数据字典类型删除权限" modelId="EnumerationMgr"/>
+ 	<SecurityGroupPermission groupId="FULLADMIN" permissionId="EnumerationType_ADMIN"/><!-- 给FULLADMIN权限组赋予EnumerationType全部权限 -->
+ 	<SecurityPermission permissionId="Enumeration_ADMIN" description="数据字典全部权限" modelId="EnumerationMgr"/>
+ 	<SecurityPermission permissionId="Enumeration_VIEW" description="数据字典查看权限" modelId="EnumerationMgr"/>
+ 	<SecurityPermission permissionId="Enumeration_UPDATE" description="数据字典修改权限" modelId="EnumerationMgr"/>
+ 	<SecurityPermission permissionId="Enumeration_DELETE" description="数据字典删除权限" modelId="EnumerationMgr"/>
+ 	<SecurityGroupPermission groupId="FULLADMIN" permissionId="Enumeration_ADMIN"/><!-- 给FULLADMIN权限组赋予Enumeration全部权限 -->
+ 	
+ 	<SecurityPermission permissionId="OperLogs_ADMIN" description="操作日志全部权限" modelId="OperLogsMgr" />
+ 	<SecurityPermission permissionId="OperLogs_VIEW" description="操作日志查看权限" modelId="OperLogsMgr"/>
+ 	<SecurityGroupPermission groupId="FULLADMIN" permissionId="OperLogs_ADMIN"/><!-- 给FULLADMIN权限组赋予OperLogs全部权限 -->
+ 	
+ 	<SecurityPermission permissionId="ExtendAttribute_ADMIN" description="扩展属性全部权限" modelId="ExtendAttributeMgr"/>
+    <SecurityPermission permissionId="ExtendAttribute_ADD" description="扩展属性增加权限" modelId="ExtendAttributeMgr"/>
+ 	<SecurityPermission permissionId="ExtendAttribute_VIEW" description="扩展属性查看权限" modelId="ExtendAttributeMgr"/>
+ 	<SecurityPermission permissionId="ExtendAttribute_UPDATE" description="扩展属性修改权限" modelId="ExtendAttributeMgr"/>
+ 	<SecurityPermission permissionId="ExtendAttribute_DELETE" description="扩展属性删除权限" modelId="ExtendAttributeMgr"/>
+ 	
+ 	<SecurityGroupPermission groupId="FULLADMIN" permissionId="ExtendAttribute_ADMIN"/><!-- 给FULLADMIN权限组赋予ExtendAttribute全部权限 -->
+ 	
+ 
+ 	<SecurityGroupPermission groupId="FLEXADMIN" permissionId="extErp_VIEW" />
+	<SecurityGroupPermission groupId="FULLADMIN" permissionId="extErp_ADMIN" />
+	<SecurityGroupPermission groupId="VIEWADMIN" permissionId="extErp_VIEW" />
+	<SecurityGroupPermission groupId="BIZADMIN" permissionId="extErp_VIEW" />
+
+	<SecurityPermission permissionId="LimsStudent_ADMIN" description="学生全部权限"  modelId="LimsStudentMgr"/>
+	<SecurityPermission permissionId="LimsStudent_ADD" description="学生增加权限" modelId="LimsStudentMgr"/>
+	<SecurityPermission permissionId="LimsStudent_VIEW" description="学生查看权限" modelId="LimsStudentMgr"/>
+	<SecurityPermission permissionId="LimsStudent_UPDATE" description="学生修改权限" modelId="LimsStudentMgr"/>
+	<SecurityPermission permissionId="LimsStudent_DELETE" description="学生删除权限" modelId="LimsStudentMgr"/>
+	<SecurityGroupPermission groupId="FULLADMIN" permissionId="LimsStudent_ADMIN"/>
+	
+	<SecurityPermission permissionId="LimsClass_ADMIN" description="班级全部权限"  modelId="LimsClassMgr"/>
+	<SecurityPermission permissionId="LimsClass_ADD" description="班级增加权限" modelId="LimsClassMgr"/>
+	<SecurityPermission permissionId="LimsClass_VIEW" description="班级查看权限" modelId="LimsClassMgr"/>
+	<SecurityPermission permissionId="LimsClass_UPDATE" description="班级修改权限" modelId="LimsClassMgr"/>
+	<SecurityPermission permissionId="LimsClass_DELETE" description="班级删除权限" modelId="LimsClassMgr"/>
+	<SecurityGroupPermission groupId="FULLADMIN" permissionId="LimsClass_ADMIN"/>
+	 	
+	<SecurityPermission permissionId="CarUseApply_ADMIN" description="用车申请全部权限"  modelId="WorkFlowMgr"/>
+	<SecurityPermission permissionId="CarUseApply_ADD" description="用车申请增加权限" modelId="WorkFlowMgr"/> 
+	<SecurityGroupPermission groupId="FULLADMIN" permissionId="CarUseApply_ADMIN"/>	
+	
+	<SecurityPermission permissionId="DesignForm_ADMIN" description="自定义表单全部权限"  modelId="DesignFormMgr"/>
+	<SecurityPermission permissionId="DesignForm_ADD" description="自定义表单增加权限" modelId="DesignFormMgr"/>
+	<SecurityPermission permissionId="DesignForm_VIEW" description="自定义表单查看权限" modelId="DesignFormMgr"/>
+	<SecurityPermission permissionId="DesignForm_UPDATE" description="自定义表单修改权限" modelId="DesignFormMgr"/>
+	<SecurityPermission permissionId="DesignForm_DELETE" description="自定义表单删除权限" modelId="DesignFormMgr"/>
+	<SecurityGroupPermission groupId="FULLADMIN" permissionId="DesignForm_ADMIN"/>
+	
+	
+	<SecurityPermission permissionId="RawTemplate_ADMIN" description="模版全部权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawTemplate_ADD" description="模版增加权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawTemplate_VIEW" description="模版查看权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawTemplate_UPDATE" description="模版修改权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawTemplate_DELETE" description="模版删除权限"  modelId="RawMgr"/>
+	<SecurityGroupPermission groupId="FULLADMIN" permissionId="RawTemplate_ADMIN"/><!-- 给FULLADMIN权限组赋予RawTemplate全部权限 -->
+	<SecurityPermission permissionId="RawTemplateGroup_ADMIN" description="模板组全部权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawTemplateGroup_ADD" description="模板组增加权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawTemplateGroup_VIEW" description="模板组查看权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawTemplateGroup_UPDATE" description="模板组修改权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawTemplateGroup_DELETE" description="模板组删除权限"  modelId="RawMgr"/>
+	<SecurityGroupPermission groupId="FULLADMIN" permissionId="RawTemplateGroup_ADMIN"/><!-- 给FULLADMIN权限组赋予RawTemplateGroup全部权限 -->
+	 	
+	<SecurityPermission permissionId="RawDimension_ADMIN" description="维度全部权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawDimension_ADD" description="维度增加权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawDimension_VIEW" description="维度查看权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawDimension_UPDATE" description="维度修改权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawDimension_DELETE" description="维度删除权限"  modelId="RawMgr"/>
+	<SecurityGroupPermission groupId="FULLADMIN" permissionId="RawDimension_ADMIN"/><!-- 给FULLADMIN权限组赋予RawDimension全部权限 -->
+	<SecurityPermission permissionId="RawDimensionPart_ADMIN" description="维度值全部权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawDimensionPart_ADD" description="维度值增加权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawDimensionPart_VIEW" description="维度值查看权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawDimensionPart_UPDATE" description="维度值修改权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawDimensionPart_DELETE" description="维度值删除权限"  modelId="RawMgr"/>
+	<SecurityGroupPermission groupId="FULLADMIN" permissionId="RawDimensionPart_ADMIN"/><!-- 给FULLADMIN权限组赋予RawDimensionPart全部权限 -->
+	 	
+	<SecurityPermission permissionId="RawMeasure_ADMIN" description="度量全部权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawMeasure_ADD" description="度量增加权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawMeasure_VIEW" description="度量查看权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawMeasure_UPDATE" description="度量修改权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawMeasure_DELETE" description="度量删除权限"  modelId="RawMgr"/>
+	<SecurityGroupPermission groupId="FULLADMIN" permissionId="RawMeasure_ADMIN"/><!-- 给FULLADMIN权限组赋予RawMeasure全部权限 -->
+	<SecurityPermission permissionId="RawDataRev_ADMIN" description="数据版本全部权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawDataRev_ADD" description="数据版本增加权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawDataRev_VIEW" description="数据版本查看权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawDataRev_UPDATE" description="数据版本修改权限"  modelId="RawMgr"/>
+	<SecurityPermission permissionId="RawDataRev_DELETE" description="数据版本删除权限"  modelId="RawMgr"/>
+	<SecurityGroupPermission groupId="FULLADMIN" permissionId="RawDataRev_ADMIN"/><!-- 给FULLADMIN权限组赋予RawDataRev全部权限 -->
+</entity-engine-xml>

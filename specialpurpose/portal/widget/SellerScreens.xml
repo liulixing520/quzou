@@ -1,0 +1,3320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+<!--	<screen name="product-decorator">
+		<section>
+			<actions>
+				<property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+				
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/js/jquery1.42.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/js/jquery.SuperSlide.2.1.1.js" global="true" />
+				
+				<set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/includes/sellerHeader.ftl" />
+				<set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/includes/sellerFooter.ftl" />
+			</actions>
+			<widgets>
+				<section>
+					<actions>
+                         <set field="productId" from-field="parameters.productId"/>
+                         <entity-one entity-name="Product" value-field="product"/>
+                     </actions>
+					<widgets>
+						<container style="top-warp"><platform-specific><html><html-template location="component://portal/webapp/portal/seller/includes/top.ftl"/></html></platform-specific></container>
+						
+						<container style="header"><platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific></container>
+						
+						&lt;!&ndash; render messages &ndash;&gt;
+                        <container id="portal-mainarea" style="${MainColumnStyle}">
+                        	<container id="body" style="layout clearfix">
+								<container id="div1" style="crumb"><label style="h1">您的当前位置：我的E岸通</label></container>
+		                        <container id="div2" style="col-main">
+		                        	<platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+		                        	<decorator-section-include name="body"/>
+		                        </container>
+								<container id="div3" style="col-left"><include-screen name="${leftbarScreenName}" location="component://portal/widget/SellerScreens.xml"/></container>
+								<container id="colRight" style="col-right"><include-screen name="${rightbarScreenName}" location="component://portal/widget/SellerScreens.xml"/></container>
+                            </container>
+                        </container>
+	                        
+						<container id="footer">
+							<platform-specific><html><html-template location="${footerTemplateLocation}" /></html></platform-specific>
+						</container>
+					</widgets>
+				</section>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="main">
+        <section>
+        	<actions>
+                <set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="mainLeftbar"/>
+                <set field="rightbarScreenName" value="mainRightbar"/>
+            </actions>
+            <widgets>
+            	<decorator-screen name="product-decorator">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://portal/webapp/portal/seller/main.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>-->
+
+	<screen name="product-decorator">
+		<section>
+			<actions>
+				<property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/style.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/ui-dialog.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/my_chunbo.css" global="true"/>
+               
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/style_002.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/dui.css" global="true"/>
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/z.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/jquery-1_002.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/jquery-1.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/my_chunbo.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/review.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/dialog-plus-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/dui.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/common_002.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/common_003.js" global="true" />
+
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                
+				<set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/header.ftl" />
+				<set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/footer.ftl" />
+			</actions>
+			<widgets>
+				<section>
+					<widgets>
+                          <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="body" >
+                                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/toplink.ftl"/></html></platform-specific>
+                                <platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific>
+                                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/includes/left.ftl"/></html></platform-specific>
+                                <container style="main-content">
+                                      <decorator-section-include name="body"/>
+                                </container>
+                            </container>
+					</widgets>
+				</section>
+			</widgets>
+		</section>
+	</screen>
+	
+	
+	<!-- 
+	<screen name="product-orderDecorator">
+		<section>
+			<actions>
+				<property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ui.jqgrid.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-extra.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery/jquery-2.1.1.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/bootstrap/3.2.0/js/bootstrap.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jqGrid/jquery.jqGrid.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jqGrid/i18n/grid.locale-en.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery-ui.custom.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery.ui.touch-punch.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.resize.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+				
+                <set field="initialLocaleComplete" type="String" value="${groovy:parameters?.userLogin?.lastLocale}" default-value="${groovy:locale.toString()}" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.datejs.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.jquery.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.validation.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.dateTime.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/asmselect/jquery.asmselect-1.0.4a-beta.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/datetimepicker/jquery-ui-timepicker-addon.min-1.4.3.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/jquery.maskedinput-1.3.1.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/ui/js/jquery-ui-1.10.3.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/jeditable/jquery.jeditable.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/jquery.validate.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/fjTimer/jquerytimer-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-migrate-1.2.1.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-1.10.2.min.js" global="true" />
+                <set field="layoutSettings.styleSheets[+0]" value="/images/jquery/plugins/asmselect/jquery.asmselect-1.0.4a-beta.css" global="true" />
+                
+                <set field="layoutSettings.javaScripts[]" value="/images/OpenLayers-2.13.1.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/selectall.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/fieldlookup.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/date/date.format-1.2.3-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/date/date.timezone-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/miscAjaxFunctions.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/selectMultipleRelatedValues.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/util.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/tomahawk/js/dropdown.js" global="true" />
+                
+				<set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/header.ftl" />
+				<set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/footer.ftl" />
+			</actions>
+			<widgets>
+				<section>
+					<widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="body" style="no-skin">
+                            <container id="navbar" style="navbar navbar-default">
+                                <platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific>
+                            </container>
+                            <container id="main-container" style="main-container container">
+                                <container id="sidebar" style="sidebar responsive">
+                                    <include-screen name="tradeleft" location="component://portal/widget/SellerScreens.xml"/>
+                                </container>
+
+                                <container style="main-content">
+                                    <container id="breadcrumbs" style="breadcrumbs">
+                                        <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/breadcrumbs.ftl"/></html></platform-specific>
+                                    </container>
+                                    <decorator-section-include name="body"/>
+                                </container>
+
+                                <container style="footer">
+                                    <platform-specific><html><html-template location="${footerTemplateLocation}" /></html></platform-specific>
+                                </container>
+                            </container>
+                        </container>
+					</widgets>
+				</section>
+			</widgets>
+		</section>
+	</screen> 
+	 -->
+	<screen name="product-decorator11">
+		<section>
+			<actions>
+				<property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ui.jqgrid.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/datepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap-timepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/daterangepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap-datetimepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-extra.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery/jquery-2.1.1.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/bootstrap/3.2.0/js/bootstrap.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jqGrid/jquery.jqGrid.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jqGrid/i18n/grid.locale-en.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery-ui.custom.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery.ui.touch-punch.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.resize.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-datepicker.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-timepicker.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/moment.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/daterangepicker.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-datetimepicker.min.js" global="true" />
+
+				<!-- Load available JS Language Files -->
+                <set field="initialLocaleComplete" type="String" value="${groovy:parameters?.userLogin?.lastLocale}" default-value="${groovy:locale.toString()}" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.datejs.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.jquery.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.validation.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.dateTime.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/asmselect/jquery.asmselect-1.0.4a-beta.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/datetimepicker/jquery-ui-timepicker-addon.min-1.4.3.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/jquery.maskedinput-1.3.1.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/ui/js/jquery-ui-1.10.3.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/jeditable/jquery.jeditable.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/jquery.validate.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/fjTimer/jquerytimer-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-migrate-1.2.1.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-1.10.2.min.js" global="true" />
+                <!-- jQuery CSSs -->
+                <set field="layoutSettings.styleSheets[+0]" value="/images/jquery/plugins/asmselect/jquery.asmselect-1.0.4a-beta.css" global="true" />
+                
+                <set field="layoutSettings.javaScripts[]" value="/images/OpenLayers-2.13.1.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/selectall.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/fieldlookup.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/date/date.format-1.2.3-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/date/date.timezone-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/miscAjaxFunctions.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/selectMultipleRelatedValues.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/util.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/tomahawk/js/dropdown.js" global="true" />
+
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                
+				<set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/header.ftl" />
+				<set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/footer.ftl" />
+			</actions>
+			<widgets>
+				<section>
+					<widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="body" style="no-skin">
+                            <container id="toplink">
+                                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/toplink.ftl"/></html></platform-specific>
+                            </container>
+                            <container id="navbar" style="navbar navbar-default">
+                                <platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific>
+                            </container>
+                            <container id="main-container" style="main-container container">
+                                <container id="sidebar" style="sidebar responsive">
+                                    <include-screen name="${left}" location="component://portal/widget/SellerScreens.xml"/>
+                                </container>
+
+                                <container style="main-content">
+                                    <container id="breadcrumbs" style="breadcrumbs">
+                                        <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/breadcrumbs.ftl"/></html></platform-specific>
+                                    </container>
+                                    <decorator-section-include name="body"/>
+                                </container>
+                                <container style="footer">
+                                    <platform-specific><html><html-template location="${footerTemplateLocation}" /></html></platform-specific>
+                                </container>
+                            </container>
+                        </container>
+					</widgets>
+				</section>
+			</widgets>
+		</section>
+	</screen>
+	
+	
+	<!-- <screen name="product-safeSetDecorator">
+		<section>
+			<actions>
+				<property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ui.jqgrid.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/datepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap-timepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/daterangepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap-datetimepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-extra.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery/jquery-2.1.1.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/bootstrap/3.2.0/js/bootstrap.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jqGrid/jquery.jqGrid.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jqGrid/i18n/grid.locale-en.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery-ui.custom.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery.ui.touch-punch.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.resize.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-datepicker.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-timepicker.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/moment.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/daterangepicker.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-datetimepicker.min.js" global="true" />
+
+				Load available JS Language Files
+                <set field="initialLocaleComplete" type="String" value="${groovy:parameters?.userLogin?.lastLocale}" default-value="${groovy:locale.toString()}" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.datejs.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.jquery.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.validation.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.dateTime.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/asmselect/jquery.asmselect-1.0.4a-beta.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/datetimepicker/jquery-ui-timepicker-addon.min-1.4.3.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/jquery.maskedinput-1.3.1.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/ui/js/jquery-ui-1.10.3.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/jeditable/jquery.jeditable.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/jquery.validate.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/fjTimer/jquerytimer-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-migrate-1.2.1.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-1.10.2.min.js" global="true" />
+                jQuery CSSs
+                <set field="layoutSettings.styleSheets[+0]" value="/images/jquery/plugins/asmselect/jquery.asmselect-1.0.4a-beta.css" global="true" />
+                
+                <set field="layoutSettings.javaScripts[]" value="/images/OpenLayers-2.13.1.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/selectall.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/fieldlookup.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/date/date.format-1.2.3-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/date/date.timezone-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/miscAjaxFunctions.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/selectMultipleRelatedValues.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/util.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/tomahawk/js/dropdown.js" global="true" />
+
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                
+				<set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/header.ftl" />
+				<set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/footer.ftl" />
+			</actions>
+			<widgets>
+				<section>
+					<widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="body" style="no-skin">
+                            <container id="toplink">
+                                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/toplink.ftl"/></html></platform-specific>
+                            </container>
+                            <container id="navbar" style="navbar navbar-default">
+                                <platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific>
+                            </container>
+                            <container id="main-container" style="main-container container">
+                                <container id="sidebar" style="sidebar responsive">
+                                    <include-screen name="safesetleft" location="component://portal/widget/SellerScreens.xml"/>
+                                </container>
+
+                                <container style="main-content">
+                                    <container id="breadcrumbs" style="breadcrumbs">
+                                        <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/breadcrumbs.ftl"/></html></platform-specific>
+                                    </container>
+                                    <decorator-section-include name="body"/>
+                                </container>
+
+                                <container style="footer">
+                                    <platform-specific><html><html-template location="${footerTemplateLocation}" /></html></platform-specific>
+                                </container>
+                            </container>
+                        </container>
+					</widgets>
+				</section>
+			</widgets>
+		</section>
+	</screen>
+	 -->
+	<!-- chenfei  报表  主修饰器 -->
+   <!--  <screen name="product-birtDecorator">
+		<section>
+			<actions>
+				<property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ui.jqgrid.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/datepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap-timepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/daterangepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap-datetimepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-extra.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery/jquery-2.1.1.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/bootstrap/3.2.0/js/bootstrap.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jqGrid/jquery.jqGrid.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jqGrid/i18n/grid.locale-en.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery-ui.custom.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery.ui.touch-punch.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.resize.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-datepicker.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-timepicker.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/moment.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/daterangepicker.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-datetimepicker.min.js" global="true" />
+
+				Load available JS Language Files
+                <set field="initialLocaleComplete" type="String" value="${groovy:parameters?.userLogin?.lastLocale}" default-value="${groovy:locale.toString()}" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.datejs.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.jquery.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.validation.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.dateTime.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/asmselect/jquery.asmselect-1.0.4a-beta.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/datetimepicker/jquery-ui-timepicker-addon.min-1.4.3.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/jquery.maskedinput-1.3.1.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/ui/js/jquery-ui-1.10.3.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/jeditable/jquery.jeditable.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/jquery.validate.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/fjTimer/jquerytimer-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-migrate-1.2.1.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-1.10.2.min.js" global="true" />
+                jQuery CSSs
+                <set field="layoutSettings.styleSheets[+0]" value="/images/jquery/plugins/asmselect/jquery.asmselect-1.0.4a-beta.css" global="true" />
+                
+                <set field="layoutSettings.javaScripts[]" value="/images/OpenLayers-2.13.1.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/selectall.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/fieldlookup.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/date/date.format-1.2.3-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/date/date.timezone-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/miscAjaxFunctions.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/selectMultipleRelatedValues.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/util.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/tomahawk/js/dropdown.js" global="true" />
+
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                
+				<set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/header.ftl" />
+				<set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/footer.ftl" />
+			</actions>
+			<widgets>
+				<section>
+					<widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="body" style="no-skin">
+                            <container id="toplink">
+                                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/toplink.ftl"/></html></platform-specific>
+                            </container>
+                            <container id="navbar" style="navbar navbar-default">
+                                <platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific>
+                            </container>
+                            <container id="main-container" style="main-container container">
+                                <container id="sidebar" style="sidebar responsive">
+                                    <include-screen name="birtsetleft" location="component://portal/widget/SellerScreens.xml"/>
+                                </container>
+
+                                <container style="main-content">
+                                    <container id="breadcrumbs" style="breadcrumbs">
+                                        <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/breadcrumbs.ftl"/></html></platform-specific>
+                                    </container>
+                                    <decorator-section-include name="body"/>
+                                </container>
+
+                                <container style="footer">
+                                    <platform-specific><html><html-template location="${footerTemplateLocation}" /></html></platform-specific>
+                                </container>
+                            </container>
+                        </container>
+					</widgets>
+				</section>
+			</widgets>
+		</section>
+	</screen> -->
+	
+	<screen name="ProductStore-Decorator">
+		<section>
+			<actions>
+				<property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ui.jqgrid.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/datepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap-timepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/daterangepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap-datetimepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-extra.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery/jquery-2.1.1.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/bootstrap/3.2.0/js/bootstrap.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jqGrid/jquery.jqGrid.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jqGrid/i18n/grid.locale-en.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery-ui.custom.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery.ui.touch-punch.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.resize.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-datepicker.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-timepicker.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/moment.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/daterangepicker.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-datetimepicker.min.js" global="true" />
+
+				<!-- Load available JS Language Files -->
+                <set field="initialLocaleComplete" type="String" value="${groovy:parameters?.userLogin?.lastLocale}" default-value="${groovy:locale.toString()}" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.datejs.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.jquery.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.validation.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.dateTime.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/asmselect/jquery.asmselect-1.0.4a-beta.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/datetimepicker/jquery-ui-timepicker-addon.min-1.4.3.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/jquery.maskedinput-1.3.1.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/ui/js/jquery-ui-1.10.3.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/jeditable/jquery.jeditable.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/jquery.validate.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/fjTimer/jquerytimer-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-migrate-1.2.1.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-1.10.2.min.js" global="true" />
+                <!-- jQuery CSSs -->
+                <set field="layoutSettings.styleSheets[+0]" value="/images/jquery/plugins/asmselect/jquery.asmselect-1.0.4a-beta.css" global="true" />
+                
+                <set field="layoutSettings.javaScripts[]" value="/images/OpenLayers-2.13.1.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/selectall.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/fieldlookup.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/date/date.format-1.2.3-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/date/date.timezone-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/miscAjaxFunctions.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/selectMultipleRelatedValues.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/util.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/tomahawk/js/dropdown.js" global="true" />
+
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                
+				<set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/header.ftl" />
+				<set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/footer.ftl" />
+			</actions>
+			<widgets>
+				<section>
+					<widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="body" style="no-skin">
+                            <container id="toplink">
+                                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/toplink.ftl"/></html></platform-specific>
+                            </container>
+                            <container id="navbar" style="navbar navbar-default">
+                                <platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific>
+                            </container>
+                            <container id="main-container" style="main-container container">
+                                <container id="sidebar" style="sidebar responsive">
+                                    <include-screen name="storesetleft" location="component://portal/widget/SellerScreens.xml"/>
+                                </container>
+
+                                <container style="main-content">
+                                    <container id="breadcrumbs" style="breadcrumbs">
+                                        <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/breadcrumbs.ftl"/></html></platform-specific>
+                                    </container>
+                                    <decorator-section-include name="body"/>
+                                </container>
+                                <container style="footer">
+                                    <platform-specific><html><html-template location="${footerTemplateLocation}" /></html></platform-specific>
+                                </container>
+                            </container>
+                        </container>
+					</widgets>
+				</section>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="main">
+        <section>
+            <widgets>
+            	<decorator-screen name="product-decorator">
+            		<decorator-section name="body">
+            			<platform-specific>
+            				<html><html-template location="component://portal/webapp/portal/seller/sellermain/main.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="left">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/left.ftl" /></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 企业注册（卖家注册） -->
+    <screen name="joinFree">
+        <section>
+        	<actions>
+        		<property-map map-name="uiLabelMap" resource="RegUiLabels" global="true"/>
+                <set field="titleProperty" value="PageTitleNewCustomer"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/NewSeller.groovy"/>
+                <entity-condition list="bankList" entity-name="PaymentInfoBank"></entity-condition>
+        	</actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/joinFree.ftl" /></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="tradeleft">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/tradeleft.ftl" /></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="accountsetleft">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://portal/webapp/portal/seller/sellermain/accountsetleft.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<!-- 物流 -->
+<screen name="logisticsleft">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://portal/webapp/portal/seller/sellermain/logisticsleft.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="safesetleft">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://portal/webapp/portal/seller/sellermain/safesetleft.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="storesetleft">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://portal/webapp/portal/seller/sellermain/storesetleft.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<!-- chenfei 报表 -->
+    <screen name="birtsetleft">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://portal/webapp/portal/seller/sellermain/birtsetleft.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+    <screen name="content">
+        <section>
+        	<actions>
+        		<!-- <script location="component://portal/webapp/portal/WEB-INF/actions/order/OrderCount.groovy"/> -->
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/seller/CountStoreOrders.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/imageSet/GetManagerMessage.groovy"/>
+        	</actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/content.ftl" /></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="mainLeftbar">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/includes/mainLeft.ftl" /></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+	
+    <screen name="mainRightbar">
+		<section>
+			<widgets>
+			<platform-specific><html><html-template location="component://portal/webapp/portal/seller/includes/mainRight.ftl" /></html></platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<!-- 订单结束后的评价 -->
+	<screen name="appraisal">
+    	<section>
+      		<actions>
+                <set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="orderLeftbar"/>
+                <!--
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/seller/FindOrders.groovy"/>  
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin5.css" global="true"/>
+                -->
+                <set field="left" value="tradeleft" />
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/transactions/appraisal.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    <!-- 客户咨询-->
+	<screen name="review">
+    	<section>
+      		<actions>
+                <!--  <set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="orderLeftbar"/> -->
+                <set field="NavigationLi" value="review"/>
+               <!--   <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/seller/FindOrders.groovy"/>-->
+                 
+               
+                <set field="left" value="tradeleft" />
+                 <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/> 
+                 <script location="component://portal/webapp/portal/WEB-INF/actions/seller/GetSellerCustRequest.groovy"/>             
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/transactions/review.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    <!-- 客户咨询详情 -->
+    <screen name="reviewDetail">
+    	<section>
+      		<actions>
+      		<set field="left" value="tradeleft" />
+                <script location="component://portal/webapp/portal/WEB-INF/actions/cart/GetCustRequestToDetailsToParty.groovy"/>                               
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/transactions/reviewDetail.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    <!-- 设置店铺服务区域 -->
+    <screen name="store_addressSet">
+    	<section>
+      		<actions>
+                <set field="titleProperty" value="PageTitleEditProductStore"/>
+                <set field="headerItem" value="store"/>
+                <set field="tabButtonItem" value="EditStoreCatagory"/>
+                <set field="labelTitleProperty" value="ProductStore"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/ShowAddressForStore.groovy"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin5.css" global="true"/>
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/sets/addressSets.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    <!-- 
+	<screen name="myorder">
+    	<section>
+      		<actions>
+                <set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="orderLeftbar"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/seller/FindOrders.groovy"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin5.css" global="true"/>
+                <set field="left" value="tradeleft" />
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/transactions/myorder.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+     -->
+    <!-- 退款请求 -->
+    <screen name="OrderFindReturn">
+        <section>
+            <actions>
+                 <set field="NavigationLi" value="findreturn"/>
+            	<set field="Navigation1" value="退款管理"/>
+                <set field="Navigation2" value="退款订单列表"/>
+            	<set field="MainColumnStyle" value="content"/>
+                <set field="left" value="tradeleft" />
+                <!--  
+                <set field="titleProperty" value="PageTitleFindReturn"/>
+                <set field="headerItem" value="return"/>
+                -->
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer"/>
+                <property-to-field resource="widget" property="widget.form.defaultViewSize" field="viewSizeDefaultValue"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="${viewSizeDefaultValue}"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<container style="content">
+                        <screenlet title="${uiLabelMap.PageTitleFindReturn}">
+                        <!-- 
+                            <container>
+                                <link style="buttontext" target="returnMain" text="${uiLabelMap.OrderCreateNewReturn}"/>
+                            </container>
+						 -->
+                        </screenlet>
+                     <!-- 
+                    		<include-form name="FindReturns" location="component://portal/widget/seller/ReturnForms.xml"/> -->
+                    		<include-form name="ListReturns" location="component://portal/widget/seller/ReturnForms.xml"/>
+                    		</container>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="OrderReturnHeader">
+        <section>
+            <actions>
+            	<set field="Navigation1" value="退款管理"/>
+                <set field="Navigation2" value="退款订单"/>
+                <set field="Navigation3" value="退款订单详情"/>
+            	<set field="MainColumnStyle" value="content"/>
+                <set field="left" value="tradeleft" />
+                <set field="titleProperty" value="PageTitleReturnHeader"/>
+                <set field="headerItem" value="return"/>
+                <set field="tabButtonItem" value="OrderReturnHeader"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/ordermgr-js/return.js" global="true"/>
+                <property-to-field field="defaultCurrencyUomId" resource="general" property="currency.uom.id.default" default="USD"/>
+                <script location="component://order/webapp/ordermgr/WEB-INF/actions/return/ReturnHeader.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <section>
+                            <widgets>
+                                <include-form name="EditReturn" location="component://portal/widget/seller/ReturnForms.xml"/>
+                            </widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+   	<screen name="showMyOrderDetails">
+    	<section>
+      		<actions>
+                <set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="orderLeftbar"/>
+				<!-- <script location="component://portal/webapp/portal/WEB-INF/actions/order/OrderStatus.groovy"/> -->
+				<set field="left" value="tradeleft" />
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    				<platform-specific><html><html-template location="component://portal/webapp/portal/seller/transactions/orderDetails.ftl"/></html></platform-specific>			
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <!-- 我的买家 -->
+    <screen name="mySellerbuyer">
+    	<section>
+    	<actions>
+    	     <set field="NavigationLi" value="mySellerbuyer"/>
+    	  <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+    	  <script location="component://portal/webapp/portal/WEB-INF/actions/store/MySellerBuyer.groovy"/>
+    	  <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+          <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+          <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+          <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+          <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+          <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+          <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+          <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin5.css" global="true"/>
+    	  <set field="Navigation1" value="我的买家"/>
+          <set field="Navigation2" value="买家名单"/>
+                <set field="left" value="birtsetleft" />
+    	</actions>
+    		<widgets>
+	    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/mybuyer/mySellerbuyer.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+   <!-- 个人验证 --> 
+   	<screen name="stor_certification">
+    	<section>
+    		<actions>
+    		     <set field="NavigationLi" value="stor_certification"/>
+                <set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="orderLeftbar"/>
+				<!--<script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/order/OrderHistory.groovy"/> -->
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/FindCertificationType.groovy"/>
+                <set field="left" value="safesetleft" />
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/sets/certification.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    <!-- 企业验证 -->
+    <screen name="stor_certification2">
+    	<section>
+    		<actions>
+                <set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="orderLeftbar"/>
+<!--                 <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/order/OrderHistory.groovy"/> -->
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/ToCertification.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/CertificationForPerson.groovy"/>
+                <set field="left" value="safesetleft" />
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/sets/certificationForCompany.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    <!-- 个体户验证 -->
+    <screen name="stor_certification3">
+    	<section>
+    		<actions>
+                <set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="orderLeftbar"/>
+<!--                 <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/order/OrderHistory.groovy"/> -->
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/ToCertification.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/CertificationForPerson.groovy"/>
+                <set field="left" value="safesetleft" />
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/sets/certificationForParty.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+        <!-- 个人验证 -->
+    <screen name="stor_certification4">
+    	<section>
+    		<actions>
+                <set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="orderLeftbar"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/ToCertification.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/CertificationForPerson.groovy"/>
+                <set field="left" value="safesetleft" />
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/sets/certificationForPerson.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="orderLeftbar">
+		<section>
+			<widgets>
+			<platform-specific><html><html-template location="component://portal/webapp/portal/seller/includes/orderLeft.ftl" /></html></platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="goodsMgnt">
+		<section>
+			<actions>
+                <set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="goodsLeftbar"/>
+                <set field="breadcrumb1" value="产品管理"/>
+                <!-- <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductMgnt.groovy"/> -->
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductMgntAudit.groovy"/>
+            </actions>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html><html-template location="component://portal/webapp/portal/seller/goods/goodsMgnt.ftl" /></html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+    <screen name="goodsLeftbar">
+		<section>
+			<widgets>
+				<platform-specific><html><html-template location="component://portal/webapp/portal/seller/includes/goodsLeft.ftl" /></html></platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+    <!-- 店铺 -->
+    <screen name="EditProductStore">
+       <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleEditProductStore"/>
+                <set field="headerItem" value="store"/>
+                <set field="tabButtonItem" value="EditProductStore"/>
+                <set field="labelTitleProperty" value="ProductStore"/>
+
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/EditProductStore.groovy"/>
+                <entity-one entity-name="ProductStore" value-field="productStore" auto-field-map="true"/>
+                <property-to-field field="defaultCurrencyUomId" resource="general" property="currency.uom.id.default" default="CNY"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+                        <platform-specific> 
+            				<html><html-template location="component://portal/webapp/portal/seller/store/EditProductStore.ftl"/></html>
+            			</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+       </section>
+    </screen>
+
+	<!-- 跳转到店铺送货方式页面 -->
+	<screen name="EditProductStoreShipSetup">
+		<section>
+			<actions>
+			    
+			     <set field="NavigationLi" value="EditProductStoreShipSetup"/>
+				<set field="titleProperty" value="PageTitleEditProductStoreShipSetup" />
+				<set field="headerItem" value="store" />
+				<set field="tabButtonItem" value="EditProductStoreShipSetup" />
+				<set field="labelTitleProperty" value="ProductProductStoreShipmentSettings" />
+
+				<set field="productStoreId" from-field="parameters.productStoreId" />
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+				<entity-one entity-name="ProductStore" value-field="productStore"
+					auto-field-map="true" />
+				<entity-condition entity-name="ProductStoreShipmentMethView"
+					list="storeShipMethods">
+					<condition-expr field-name="productStoreId"
+						from-field="productStoreId" />
+					<order-by field-name="sequenceNumber" />
+				</entity-condition>
+				<entity-one entity-name="ProductStoreShipmentMeth"
+					value-field="productStoreShipmentMeth" auto-field-map="true" />
+				<entity-condition entity-name="CarrierShipmentMethod"
+					list="carrierShipmentMethods">
+					<order-by field-name="sequenceNumber" />
+				</entity-condition>
+				<entity-condition entity-name="CustomMethod"
+					list="shipmentCustomMethods">
+					<condition-expr field-name="customMethodTypeId"
+						value="SHIP_EST" />
+					<order-by field-name="description" />
+				</entity-condition>
+	<set field="left" value="logisticsleft" />
+				
+			</actions>
+			<widgets>
+                <decorator-screen  name="product-decorator" location="component://portal/widget/SellerScreens.xml"> 
+                    <decorator-section name="body">
+                    	<container style="content my_order">
+						<screenlet title="${uiLabelMap.PageTitleEditProductStoreShipSetup}">
+							<include-form name="ListProductStoreShipmentMeths"
+								location="component://portal/widget/seller/ProductStoreForms.xml" />
+						</screenlet>
+						<section>
+							<condition>
+								<and>
+									<if-empty field="productStoreShipmentMeth" />
+									<if-empty field="parameters.addCarrierShipMeth" />
+								</and>
+							</condition>
+							<widgets>
+								
+								<screenlet title="${uiLabelMap.PageTitleAddProductStoreShipSetup}">
+									<platform-specific>
+										<html>
+											<html-template
+												location="component://portal/webapp/portal/seller/address/editLogistics.ftl" />
+										</html>
+									</platform-specific>
+								</screenlet>
+								
+							</widgets>
+<!-- 							<fail-widgets> -->
+<!-- 								<screenlet title="${uiLabelMap.PageTitleAddProductStoreShipSetup}"> -->
+<!-- 									<include-form name="EditProductStoreShipmentMeth" -->
+<!-- 										location="component://portal/widget/seller/ProductStoreForms.xml" /> -->
+<!-- 								</screenlet> -->
+<!-- 							</fail-widgets> -->
+						</section>
+						</container>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!--运费配置-->
+	<screen name="ShipCostConfig">
+		<section>
+			<actions>
+				<script location="component://portal/webapp/portal/WEB-INF/actions/store/ShipCostConfigPrapare.groovy"/>
+			</actions>
+			<widgets>
+                <decorator-screen name="product-decorator" >
+                    <decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/address/ShipCostConfig.ftl" />
+							</html>
+						</platform-specific>					
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!-- 跳转到店铺页面 -->
+    <screen name="addShop">
+       <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleEditProductStore"/>
+                <set field="headerItem" value="store"/>
+                <set field="tabButtonItem" value="EditProductStore"/>
+                <set field="labelTitleProperty" value="ProductStore"/>
+
+                <set field="productStoreId" from-field="parameters.productStoreId" />
+                <entity-one entity-name="ProductStore" value-field="productStore" auto-field-map="true"/>
+                <property-to-field field="defaultCurrencyUomId" resource="general" property="currency.uom.id.default" default="USD"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <screenlet title="${uiLabelMap.ProductProductStore}">
+                            <include-form name="EditProductStore" location="component://portal/widget/seller/ProductStoreForms.xml"/>
+                        </screenlet>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+       </section>
+    </screen>
+    
+    <screen name="FindProduct">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleFindProduct"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <widgets>
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindProduct" location="component://portal/widget/SellerProductForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListProducts" location="component://portal/widget/SellerProductForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                            </widgets>
+
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+         </section>
+    </screen>
+    <screen name="EditProduct">
+       <section>
+            <actions>
+            	<set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="goodsLeftbar"/>
+                <set field="titleProperty" value="PageTitleEditProductStore"/>
+                <set field="headerItem" value="store"/>
+                <set field="tabButtonItem" value="EditProductStore"/>
+                <set field="labelTitleProperty" value="ProductStore"/>
+
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <set field="productId" from-field="parameters.productId" global="true"/>
+                <entity-one entity-name="Product" value-field="product"/>
+                <set field="product" from-field="product" global="true"/>
+                <property-to-field field="defaultCurrencyUomId" resource="general" property="currency.uom.id.default" default="CNY"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+                        <platform-specific> 
+            				<html><html-template location="component://portal/webapp/portal/seller/product/EditProductIndex.ftl"/></html>
+            			</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+       </section>
+    </screen>
+    
+    <screen name="EditProductGoods">
+    	<section>
+    		<widgets>
+    			<platform-specific><html><html-template location="component://portal/webapp/portal/seller/product/EditProductGoods.ftl"/></html></platform-specific>
+    		</widgets>
+    	</section>
+    </screen>
+    <screen name="EditProductPrices">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleEditProductPrices"/>
+                <set field="tabButtonItem" value="EditProductPrices"/>
+                <set field="labelTitleProperty" value="ProductPrices"/>
+
+                <entity-and entity-name="ProductPrice" list="productPrices">
+                    <field-map field-name="productId" from-field="parameters.productId"/>
+                    <order-by field-name="productStoreGroupId"/>
+                    <order-by field-name="productPricePurposeId"/>
+                    <order-by field-name="productPriceTypeId"/>
+                    <order-by field-name="currencyUomId"/>
+                    <order-by field-name="fromDate"/>
+                </entity-and>
+
+                <property-to-field field="defaultCurrencyUomId" resource="general" property="currency.uom.id.default" default="USD"/>
+            </actions>
+            <widgets>
+                <screenlet title="${uiLabelMap.PageTitleEditProductPrices}">
+                    <include-form name="UpdateProductPrice" location="component://product/widget/catalog/ProductForms.xml"/>
+                </screenlet>
+                <screenlet title="${uiLabelMap.PageTitleAddProductPrices}">
+                    <label style="h3" text="${uiLabelMap.ProductPricesWarning}"/>
+                    <include-form name="AddProductPrice" location="component://product/widget/catalog/ProductForms.xml"/>
+                </screenlet>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="EditProductContent">
+    	<section>
+            <actions>
+                <set field="titleProperty" value="PageTitleEditProductContent"/>
+                <set field="tabButtonItem" value="EditProductContent"/>
+                <set field="labelTitleProperty" value="ProductContent"/>
+
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/productAdditionalView.js" global="true"/>
+
+                <set field="productId" from-field="parameters.productId"/>
+                <entity-one entity-name="Product" value-field="product"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/EditProductContent.groovy"/>
+            </actions>
+            <widgets>
+               <screenlet title="${uiLabelMap.PageTitleEditProductContent}">
+                   <include-form name="ListProductContentInfos" location="component://portal/widget/seller/ProductForms.xml"/>
+               </screenlet>
+               <!-- <screenlet title="${uiLabelMap.ProductCreateNewProductContent}">
+                   <include-form name="PrepareAddProductContentAssoc" location="component://portal/widget/seller/ProductForms.xml"/>
+               </screenlet>
+               <screenlet title="${uiLabelMap.ProductAddContentProduct}">
+                   <include-form name="AddProductContentAssoc" location="component://portal/widget/seller/ProductForms.xml"/>
+               </screenlet> -->
+               <screenlet title="${uiLabelMap.ProductOverrideSimpleFields}">
+                   <platform-specific>
+                       <html><html-template location="component://product/webapp/catalog/product/EditProductContent.ftl"/></html>
+                   </platform-specific>
+               </screenlet>
+               <screenlet title="${uiLabelMap.ProductAddAdditionalImages}">
+                   <platform-specific>
+                       <html><html-template location="component://product/webapp/catalog/product/AddAdditionalImages.ftl"/></html>
+                   </platform-specific>
+               </screenlet>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="EditProductCategories">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleEditProductCategories"/>
+                <set field="tabButtonItem" value="EditProductCategories"/>
+                <set field="labelTitleProperty" value="ProductCategoryMembers"/>
+
+                <entity-condition entity-name="ProductCategoryMember" list="productCategoryMembers">
+                    <condition-expr field-name="productId" from-field="parameters.productId"/>
+                    <order-by field-name="sequenceNum"/>
+                    <order-by field-name="productCategoryId"/>
+                </entity-condition>
+            </actions>
+            <widgets>
+                        <screenlet title="${uiLabelMap.PageTitleEditProductCategories}">
+                            <include-form name="UpdateProductCategoryMember" location="component://portal/widget/seller/ProductForms.xml"/>
+                        </screenlet>
+                        <screenlet title="${uiLabelMap.PageTitleAddProductCategories}">
+                            <include-form name="AddProductCategoryMember" location="component://portal/widget/seller/ProductForms.xml"/>
+                        </screenlet>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="ViewProductOrder">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleViewProductOrders"/>
+                <set field="tabButtonItem" value="viewProductOrder"/>
+                <set field="labelTitleProperty" value="OrderOrders"/>
+                <script location="component://order/webapp/ordermgr/WEB-INF/actions/order/FindOrders.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://product/webapp/catalog/product/ViewProductOrders.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+ <!-- 交易管理-已卖出的产品-->
+	<screen name="Hassold">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+						<decorator-section name="body">
+			    			<platform-specific>
+			    				<html><html-template location="component://portal/webapp/portal/seller/transaction/hassold.ftl"/></html>
+			    			</platform-specific>
+	    			    </decorator-section>
+	    	    </decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+<!-- 交易管理-已卖出的产品-三月前的订单-->
+   <screen name="recentThreeMonths">
+        <section>
+            <widgets>
+            <platform-specific>
+            <html><html-template location="component://portal/webapp/portal/seller/transaction/recentThreeMonths.ftl"/></html>
+            </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+    <!-- 产品-新增产品-->
+	<screen name="addNewGoods">
+		<section>
+			<actions>
+                <set field="MainColumnStyle" value="center"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/GetTopCategories.groovy"/>
+            </actions>
+			<widgets>
+				<decorator-screen name="product-decorator">
+						<decorator-section name="body">
+			    			<platform-specific>
+			    				<html><html-template location="component://portal/webapp/portal/seller/goods/addNewGoods.ftl"/></html>
+			    			</platform-specific>
+	    			    </decorator-section>
+	    	    </decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<!-- 产品新增下一步 -->
+	<screen name="addNewGoodsNext">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+						<decorator-section name="body">
+			    			<platform-specific>
+			    				<html><html-template location="component://portal/webapp/portal/seller/goods/addNewGoodsNext.ftl"/></html>
+			    			</platform-specific>
+	    			    </decorator-section>
+	    	    </decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<!-- 产品管理组 -->
+	<screen name="goodsGroupMgnt">
+        <section>
+            <widgets>
+            	<decorator-screen name="product-decorator">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://portal/webapp/portal/seller/goods/goodsGroupMgnt.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 产品管理-未审核-->
+	<screen name="prodAudit">
+        <section>
+        	<actions>
+        		<set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="goodsLeftbar"/>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductMgntAudit.groovy"/>
+            </actions>
+            <widgets>
+            	<decorator-screen name="product-decorator">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://portal/webapp/portal/seller/goods/prodAudit.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="productsummaryForList">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/goods/prodList.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 产品管理-审核未通过-->
+	<screen name="prodAuditFail">
+        <section>
+        	<actions>
+        		<set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="goodsLeftbar"/>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductMgntAudit.groovy"/>
+            </actions>
+            <widgets>
+            	<decorator-screen name="product-decorator">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://portal/webapp/portal/seller/goods/prodAuditFail.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 产品管理-商品下架-->
+	<screen name="prodDownShelf">
+        <section>
+        	<actions>
+        		<set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="goodsLeftbar"/>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductMgntAudit.groovy"/>
+            </actions>
+            <widgets>
+            	<decorator-screen name="product-decorator">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://portal/webapp/portal/seller/goods/prodDownShelf.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<!-- 关联产品模板-->
+	<screen name="goodsModule">
+        <section>
+            <widgets>
+            	<decorator-screen name="product-decorator">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://portal/webapp/portal/seller/goods/goodsModule.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>    
+    
+	<!-- 店铺后台设置页面 -->
+	<screen name="modifypassword">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/sets/mondifyPassword.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="shortmessageService">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/sets/messageService.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="setMobilenum">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/sets/setMobilenum.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="identityAuthentication">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/sets/identityAuthentication.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="modityEmail">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/sets/mondifyEmail.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+		<screen name="accountSets">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/sets/accountSets.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="modityMobilephone">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/sets/mondifyMobilephone.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="deliverAdreess">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/sets/deliverAdreess.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="companyInfo">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/sets/companyInfo.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="merchantsInfo">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/sets/merchantsInfo.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="factorySetsup">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/sets/factorySetsup.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="setsLeft">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://portal/webapp/portal/seller/includes/setsLeft.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="returnAddress">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/sets/returnAddress.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<!-- 个人商户首页 -->
+	<screen name="sellerIndex">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/sellerMain.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+    <screen name="disorder">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/transactions/disorder.ftl"/></html>
+		    			</platform-specific>
+		            </decorator-section>
+    	    </decorator-screen>			
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="batchexportorders">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/transactions/batchexportorders.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="rebate">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/transactions/rebate.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="internationalEPo">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/transactions/internationalEPo.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+    		</decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="warehouse">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/transactions/warehouse.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="transmanagevaluation">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/transactions/transmanagevaluation.ftl"/></html>
+		    			</platform-specific>
+		    	    </decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="productevaluamanage">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/transactions/productevaluamanage.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="buyerslist">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/transactions/buyerslist.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="blacklist">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/transactions/blacklist.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+
+	<!-- 商铺页面 -->
+	<screen name="store">
+		<section>
+		 <actions>
+		      <set field="NavigationLi" value="store"/>
+		     
+                <set field="titleProperty" value="PageTitleEditProductStore"/>
+                <set field="headerItem" value="store"/>
+                <set field="tabButtonItem" value="EditProductStore"/>
+                <set field="labelTitleProperty" value="ProductStore"/>
+
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/EditProductStore.groovy"/>
+                <entity-one entity-name="ProductStore" value-field="productStore" auto-field-map="true"/>
+                <property-to-field field="defaultCurrencyUomId" resource="general" property="currency.uom.id.default" default="CNY"/>
+                
+                <entity-condition list="bankList" entity-name="PaymentInfoBank"></entity-condition>
+                <set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/js/common.js" global="true" /> 
+            </actions>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://common/webcommon/includes/messages.ftl"/></html>
+                        </platform-specific>
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/goods/store.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+    
+     <screen name="shopdecoration">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/shopdecoration.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+     <screen name="windowmanage">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/windowmanage.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+     <screen name="shopscategory">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/shopscategory.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+     <screen name="stockmanage">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/stockmanage.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="overseaservice">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/overseaservice.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="ductphotoalbum">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/ductphotoalbum.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="complaintmanage">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/complaintmanage.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    <!-- 该店铺加入购物车的商品 -->
+    <screen name="buyCartGoods">
+    	<section>
+    		<actions>
+    		    
+    		     <set field="NavigationLi" value="buyCartGoods"/>
+                <!-- <script location="component://portal/webapp/portal/WEB-INF/actions/store/StoreBrandList.groovy"/> -->
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin5.css" global="true"/>
+                
+                <script location="component://portal/webapp/portal/WEB-INF/actions/seller/GetBuyCartGoods.groovy"/>
+                <set field="left" value="birtsetleft" />
+            </actions>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/buyCartGoods.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    
+    <!-- 该店铺加入购物车的商品 -->
+    <screen name="buyCartOutGoods">
+    	<section>
+    		<actions>
+    		     <set field="NavigationLi" value="buyCartOutGoods"/>
+                <!-- <script location="component://portal/webapp/portal/WEB-INF/actions/store/StoreBrandList.groovy"/> -->
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin5.css" global="true"/>
+                
+                <script location="component://portal/webapp/portal/WEB-INF/actions/seller/GetBuyCartOutGoods.groovy"/>
+                <set field="left" value="birtsetleft" />           
+            </actions>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/buyCartOutGoods.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="shoppingCartHistoryHTML">
+        <section>
+            <actions>
+                <set field="tabButtonItem" value="shoppingCartHistoryHTML"/>
+                <set field="left" value="birtsetleft" />
+            </actions>
+            <widgets>
+            <decorator-screen name="product-decorator"> 
+                    <decorator-section name="body">                   
+                                    <platform-specific>
+		    		             		<html><html-template location="component://birt/webapp/birt/birt/shoppingCartHistory.ftl"/></html>
+                                    </platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="shoppingCartOutHistoryHTML">
+        <section>
+            <actions>
+                <set field="tabButtonItem" value="shoppingCartHistoryHTML"/>
+                <set field="left" value="birtsetleft" />
+            </actions>
+            <widgets>
+            <decorator-screen name="product-decorator"> 
+                    <decorator-section name="body">                   
+                                    <platform-specific>
+		    		             		<html><html-template location="component://birt/webapp/birt/birt/shoppingCartOutHistory.ftl"/></html>
+                                    </platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+            </widgets>
+        </section>
+    </screen>    
+    
+    <!-- 该店铺畅销商品 -->
+    <screen name="bestSellingGoods">
+    	<section>
+    		<actions>
+                <!-- <script location="component://portal/webapp/portal/WEB-INF/actions/store/StoreBrandList.groovy"/> -->
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin5.css" global="true"/>
+                 <set field="left" value="birtsetleft" />
+            </actions>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/bestSellingGoods.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <!-- 该店铺销售量报表 -->
+    <screen name="salesVolumeGoods">
+    	<section>
+    		<actions>
+    		     <set field="NavigationLi" value="salesVolumeGoods"/>
+                <!-- <script location="component://portal/webapp/portal/WEB-INF/actions/store/StoreBrandList.groovy"/> -->
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+    	  		<script location="component://portal/webapp/portal/WEB-INF/actions/store/SalesVolumeGoods.groovy"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin5.css" global="true"/>
+                <set field="left" value="birtsetleft" />
+            </actions>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/salesVolumeGoods.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    <!-- 该店铺销售金额报表 -->
+    <screen name="salesAmountGoods">
+    	<section>
+    		<actions>
+    		     <set field="NavigationLi" value="salesAmountGoods"/>
+                <!-- <script location="component://portal/webapp/portal/WEB-INF/actions/store/StoreBrandList.groovy"/> -->
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+    	  		<script location="component://portal/webapp/portal/WEB-INF/actions/store/SalesAmountGoods.groovy"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin5.css" global="true"/>
+                <set field="left" value="birtsetleft" />
+            </actions>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/salesAmountGoods.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="brandmanage">
+    	<section>
+    		<actions>
+                <set field="NavigationLi" value="brandManageLi"/>
+                <set field="Navigation1" value="品牌管理"/>
+                <set field="Navigation2" value="经营品牌"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/StoreBrandList.groovy"/>
+            </actions>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/brandmanage.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="createBrandmanage">
+    	<section>
+    	
+    	<actions>
+                <set field="titleProperty" value="PageTitleEditProductStore"/>
+                <set field="headerItem" value="store"/>
+                <set field="tabButtonItem" value="EditProductStore"/>
+                <set field="labelTitleProperty" value="ProductStore"/>
+				
+				
+				<set field="productStoreBrandId" from-field="parameters.productStoreBrandId" />
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStoreBrand.groovy"/>
+                <entity-one entity-name="ProductStore" value-field="productStore" auto-field-map="true"/>
+                <entity-one entity-name="ProductStoreBrand" value-field="productStoreBrand" auto-field-map="true"/>
+                
+            </actions>
+    	
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/createBrandmanage.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="lackductattribute">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/lackductattribute.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="lllegalductprocessed">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/lllegalductprocessed.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="keyupmove">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/keyupmove.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="movingrecords">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/movingrecords.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="freightemplatemanage">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/goods/freightemplatemanage.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+<!-- 消息 -->
+ <screen name="sysMessage">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/message/sysMessage.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+ </screen>
+ <screen name="bin">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/message/bin.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+ </screen>
+  <screen name="messageLeft">
+    	<section>
+    		<widgets>
+		    	<platform-specific>
+		    		<html><html-template location="component://portal/webapp/portal/seller/includes/messageLeft.ftl"/></html>
+		    	</platform-specific>
+    		</widgets>
+    	</section>
+ </screen>
+ <screen name="historicalMessage">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/message/historicalMessage.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+ </screen>
+ <screen name="onlineMessage">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/message/onlineMessage.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+ </screen>
+ <screen name="platformAnnouncement">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/message/platformAnnouncement.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+ </screen>
+ <screen name="buyersMessage">
+    	<section>
+    		<widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/message/buyersMessage.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    	<!-- 商户管理 商户 处罚管理 -->
+	<screen name="punishmgnt">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/merchantmgnt/punishmgnt.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	  	<!-- 商户管理 商户评级详情 -->
+	<screen name="ratedetail">
+		<section>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/merchantmgnt/ratedetail.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+    <!-- 商户管理 管理产品组 -->
+    <screen name="listSellerCatagory">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/EditStoreCatagory.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/catagory/list.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="editStoreCatagory">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleEditProductStore"/>
+                <set field="headerItem" value="store"/>
+                <set field="tabButtonItem" value="EditStoreCatagory"/>
+                <set field="labelTitleProperty" value="ProductStore"/>
+
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/EditStoreCatagory.groovy"/>
+                <entity-one entity-name="ProductStore" value-field="productStore" auto-field-map="true"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/catagory/edit.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<!-- 账户设置 -->
+	<!-- 个人资料设置 -->
+	<screen name="merchantInfo">
+		<section>
+			<actions>
+ 				<set field="NavigationLi" value="merchantInfo"/>
+				<set field="partyId" from-field="userLogin.partyId" />
+				<script
+					location="component://portal/webapp/portal/WEB-INF/actions/customer/getPartyInfo.groovy" />
+				<set field="left" value="accountsetleft" />
+			</actions>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/accountsetting/merchantInfo.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="editEnterpriseQual">
+		<section>
+			<actions>
+				<entity-condition list="list" entity-name="EnterpriseQualType"/>
+				<entity-one value-field="entity" entity-name="EnterpriseQual"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/seller/accountsetting/editEnterpriseQual.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+    <screen name="seller_EditUserLogin">
+        <section>
+            <actions>
+                 <set field="NavigationLi" value="seller_EditUserLogin"/>
+                <set field="titleProperty" value="UserLoginUpdateSecuritySettings"/>
+                <set field="tabButtonItem" value="viewprofile"/>
+                <set field="labelTitleProperty" value="UserLoginUpdateSecuritySettings"/>
+                <set field="updateUserLoginSecurityURI" value="ProfileUpdateUserLoginSecurity"/>
+                <set field="updatePasswordURI" value="seller_ProfileUpdatePassword"/>
+                <set field="cancelPage" from-field="parameters.CANCEL_PAGE" default-value="sellerIndex"/>
+                <set field="partyId" from-field="parameters.partyId"/>
+                <set field="userLoginId" from-field="parameters.userLoginId"/>
+                <entity-one entity-name="UserLogin" value-field="editUserLogin"/>
+                
+                
+                <set field="Navigation1" value="安全设置"/>
+                <set field="Navigation2" value="修改密码"/>
+                <set field="left" value="safesetleft" />
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+<!--                        <container style="page-title">
+                            <label text="${uiLabelMap.UserLoginUpdateSecuritySettings} - ${parameters.partyId}"/>
+                        </container>-->
+                        <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+                        <screenlet>
+                            <include-form name="updatePassword" location="component://common/widget/SecurityForms.xml"/>
+                        </screenlet>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+   <!-- 这个是以前的发货地址新建修改连接--> 
+   <screen name="seller_EditDeliveryAddress">
+        <section>
+            <actions>
+                <script location="component://party/webapp/partymgr/WEB-INF/actions/party/EditContactMech.groovy"/>
+                <set field="left" value="accountsetleft" />
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/address/Deliveryedit.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 修改仓库发货地址 -->
+    <screen name="seller_EditFacilityAddress">
+        <section>
+            <actions>
+            <set field="left" value="logisticsleft" /> 
+                <set field="tabButtonItem" value="ViewContactMechs"/>
+                <script location="component://product/webapp/facility/WEB-INF/actions/facility/EditContactMech.groovy"/>
+                
+                <set field="dependentForm" value="editcontactmechform"/>
+                <set field="paramKey" value="countryGeoId"/>
+                <set field="mainId" value="countryGeoId"/>
+                <set field="dependentId" value="stateProvinceGeoId"/>
+                <!-- <set field="requestName" value="getAssociatedStateList"/> -->
+                <set field="responseName" value="stateList"/>
+                <set field="dependentKeyName" value="geoId"/>
+                <set field="descName" value="geoName"/>
+                <set field="selectedDependentOption" from-field="mechMap.postalAddress.stateProvinceGeoId" default-value="_none_"/> 
+                               
+                <entity-one entity-name="Facility" value-field="facility"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap"/>
+                <set field="title" value="${uiLabelMap.PageTitleNewFacilityContactMech}"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://common/webcommon/includes/setDependentDropdownValuesJs.ftl"/>
+                                <html-template location="component://portal/webapp/portal/seller/address/EditFacilityAddress.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="seller_EditAddress">
+        <section>
+            <actions>
+                <script location="component://party/webapp/partymgr/WEB-INF/actions/party/EditContactMech.groovy"/>
+                <set field="left" value="accountsetleft" />
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/address/edit.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="seller_listAddress">
+        <section>
+            <actions>
+                 <set field="NavigationLi" value="seller_listAddress"/>
+                <set field="partyId" from-field="parameters.partyId" default-value="${userLogin.partyId}"/>
+                <script location="component://party/webapp/partymgr/WEB-INF/actions/party/GetContactMechs.groovy"/>
+                <set field="left" value="logisticsleft" />
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/address/list.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 以前的店铺发货地址 -->
+      <screen name="seller_listDeliveryAddress">
+        <section>
+            <actions>
+                <set field="partyId" from-field="parameters.partyId" default-value="${userLogin.partyId}"/>
+                <script location="component://party/webapp/partymgr/WEB-INF/actions/party/GetContactMechs.groovy"/>
+                <set field="left" value="logisticsleft" />
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/address/Deliverylist.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- 仓库发货地址列表 -->
+    <screen name="seller_listFacilityAddress">
+        <section>
+            <actions>
+            	
+                 <set field="NavigationLi" value="seller_listFacilityAddress"/>
+                <set field="left" value="logisticsleft" /> 
+                <script location="component://party/webapp/partymgr/WEB-INF/actions/party/EditDeliveryAddress.groovy"/>
+                <set field="tabButtonItem" value="ViewContactMechs"/>
+                <script location="component://product/webapp/facility/WEB-INF/actions/facility/ViewContactMechs.groovy"/>
+                <set field="facilityId" from-field="parameters.facilityId"/>
+                <entity-one entity-name="Facility" value-field="facility"/>
+                <script location="component://party/webapp/partymgr/WEB-INF/actions/party/EditContactMech.groovy"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap"/>
+                <set field="title" value="${uiLabelMap.PageTitleViewFacilityContactMechanism}"/>
+                
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                         <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific> 
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/address/FacilityDeliverylist.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+    <screen name="seller_userEmail">
+        <section>
+            <actions>
+                 <set field="NavigationLi" value="seller_userEmail"/>
+                <set field="partyId" from-field="parameters.partyId" default-value="${userLogin.partyId}"/>
+                <script location="component://party/webapp/partymgr/WEB-INF/actions/party/GetContactMechs.groovy"/>
+                <set field="left" value="safesetleft" />
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/email/useremail.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="seller_findMessageByOne">
+        <section>
+        	<actions>
+        	    <set field="messageId" from-field="parameters.messageId" />
+                <script location="component://portal/webapp/portal/WEB-INF/actions/imageSet/GetManagerMessageByOne.groovy"/>
+        	</actions>
+            <widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/sellermain/findMessageByOne.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+        </section>
+    </screen>
+    
+    <screen name="seller_findMessageByAll">
+        <section>
+        	<actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/imageSet/GetManagerMessageByAll.groovy"/>
+        	</actions>
+            <widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/sellermain/findMessageByAll.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+        </section>
+    </screen>
+    <screen name="agentProductStore">
+        <section>
+        	<actions>
+        	    <set field="productStoreId" from-field="parameters.messageId" />
+                <script location="component://portal/webapp/portal/WEB-INF/actions/seller/GetAgentProductStore.groovy"/>
+        	</actions>
+            <widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/sellermain/agentProductStore.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+        </section>
+    </screen>
+    <screen name="agentProduct">
+        <section>
+        	<actions>
+        	    <set field="messageId" from-field="parameters.messageId" />
+<!--                <script location="component://portal/webapp/portal/WEB-INF/actions/imageSet/GetManagerMessageByOne.groovy"/>-->
+        	</actions>
+            <widgets>
+    		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/seller/sellermain/agentProduct.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+        </section>
+    </screen>
+   <screen name="mySupplier">
+        <section>
+            <actions>
+            	
+                <set field="parameters.noConditionFind" value="Y"/>
+<!--                <set field="parameters.sortField" value="${parameters.sortField}" default-value="-createdDate"/>-->
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX_1" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE_1" type="Integer" default-value="20"/>
+                <service service-name="performFindList" result-map="result">
+	                <field-map field-name="inputFields" from-field="parameters"/>
+	                <field-map field-name="entityName" value="ProductStore"/>
+	                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+	                <field-map field-name="viewIndex" from-field="viewIndex" />
+	                <field-map field-name="viewSize"  from-field="viewSize"/>
+	            </service>
+	            <set field="productStoreList" from-field="result.list"/>
+	            <set field="listSize" from-field="result.listSize"/>
+	            <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+	            <entity-and list="supperStoreList" entity-name="DxSupplierProtocolAndStore">
+            		<field-map field-name="dxStoreId" from-field="parameters.productStoreId"/>
+            	</entity-and>
+            </actions>
+            <widgets>
+            	 <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/sellermain/mySupplier.ftl" />
+							</html>
+						</platform-specific>
+	                </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="mySupplierProtocol">
+        <section>
+            <actions>
+            	<set field="dxStoreId" from-field="parameters.dxStoreId"/>
+                <set field="supplierStoreId" from-field="parameters.supplierStoreId"/>
+            	<entity-one value-field="entity" entity-name="DxSupplierProtocol">
+            		<field-map field-name="dxStoreId"/>
+            		<field-map field-name="supplierStoreId"/>
+            	</entity-one>
+            </actions>
+            <widgets>
+            	 <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/sellermain/mySupplierProtocol.ftl" />
+							</html>
+						</platform-specific>
+	                </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="EditDxProduct">
+        <section>
+            <actions>
+            	<set field="dxStoreId" from-field="parameters.dxStoreId"/>
+                <set field="supplierStoreId" from-field="parameters.supplierStoreId"/>
+                <set field="productId" from-field="parameters.productId"/>
+            	<entity-one value-field="dxProduct" entity-name="DxProduct">
+            		<field-map field-name="dxStoreId"/>
+            		<field-map field-name="supplierStoreId"/>
+            		<field-map field-name="productId"/>
+            	</entity-one>
+            	
+            	<entity-one entity-name="Product" value-field="product"/>
+                <set field="productTypeCategoryId" from-field="product.primaryProductCategoryId"/>
+                 <!-- 查产品对应的规格 -->
+                <script location="component://portal/webapp/portal/WEB-INF/actions/prod/get_feature_category.groovy"></script>
+                <!-- 查分类对应的规格 -->
+                <entity-condition list="productFeatureCategoryApplList" entity-name="ProductFeatureCategoryAppl">
+                	<condition-expr field-name="productCategoryId" from-field="productTypeCategoryId"/>
+                	<order-by field-name="productFeatureCategoryId"/>
+                </entity-condition>
+                <entity-condition list="specValueList" entity-name="ProductFeatureAndAppl" filter-by-date="true" >
+               		<condition-list>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+	                <order-by field-name="productFeatureCategoryId"/>
+                </entity-condition>
+                
+                <entity-condition list="priceList" entity-name="ProductPrice">
+                	<condition-list combine="or">
+	                	<condition-list combine="and">
+		                	<condition-expr field-name="productId" from-field="productId"/>
+		                	<condition-expr field-name="productPriceTypeId" value="DEFAULT_PRICE"/>
+		                	<condition-expr field-name="productPricePurposeId" value="PURCHASE"/>
+		                	<condition-expr field-name="productStoreGroupId" value="_NA_"/>
+        			        <condition-expr field-name="thruDate" value="" operator="equals"/>
+	                	</condition-list>
+	                	<condition-list combine="and">
+		                	<condition-expr field-name="productId" from-field="productId"/>
+		                	<condition-expr field-name="productPriceTypeId" value="DEFAULT_PRICE"/>
+		                	<condition-expr field-name="productPricePurposeId" value="PURCHASE"/>
+		                	<condition-expr field-name="productStoreGroupId" value="_NA_"/>
+		                	<condition-expr field-name="thruDate" value="${groovy:org.ofbiz.base.util.UtilDateTime.nowTimestamp()}" operator="greater"/>
+	                	</condition-list>
+                	</condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <set field="price" from-field="priceList[0].price"/>
+            </actions>
+            <widgets>
+            	 <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/sellermain/EditDxProduct.ftl" />
+							</html>
+						</platform-specific>
+	                </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="myDxStore">
+        <section>
+            <actions>
+            	
+                <set field="parameters.noConditionFind" value="Y"/>
+<!--                <set field="parameters.sortField" value="${parameters.sortField}" default-value="-createdDate"/>-->
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX_1" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE_1" type="Integer" default-value="20"/>
+                
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>  
+                <set field="supplierStoreId" from-field="productStoreId"  />
+                <service service-name="performFindList" result-map="result">
+	                <field-map field-name="inputFields" from-field="parameters"/>
+	                <field-map field-name="entityName" value="DxSupplierProtocolAndStore"/>
+	                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+	                <field-map field-name="viewIndex" from-field="viewIndex" />
+	                <field-map field-name="viewSize"  from-field="viewSize"/>
+	            </service>
+	            <set field="productStoreList" from-field="result.list"/>
+	            <set field="listSize" from-field="result.listSize"/>
+	            
+            </actions>
+            <widgets>
+            	 <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/sellermain/myDxStore.ftl" />
+							</html>
+						</platform-specific>
+	                </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     
+	<screen name="FindCashBm">
+		<section>
+			<actions>
+				<set field="parentItem" value="FinAccountMgrBm" />
+				<set field="headerItem" value="FindCashBm" />
+
+				<entity-and list="accountList" entity-name="FinAccount">
+					<field-map field-name="ownerPartyId" from-field="userLogin.partyId"/>
+					<field-map field-name="finAccountTypeId" value="FA_AMOUNT"/>
+				</entity-and>
+				
+				<set field="actualBalance" from-field="accountList[0].actualBalance" default-value="0"/>
+				<!--TODO ENTITY NAME、 SORT FIELD -->
+				<set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer" default-value="0" />
+				<set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="10" />
+
+				<set field="parameters.noConditionFind" default-value="Y" />
+				<set field="p_Ctx" from-field="parameters" />
+				<set field="p_Ctx.logType" value="cash" />
+				<set field="p_Ctx.partyId" from-field="userLogin.partyId" />
+				
+				<set field="sortField" value="-statusId"/>
+				
+				<service service-name="performFind" result-map="result">
+					<field-map field-name="inputFields" from-field="p_Ctx" />
+					<field-map field-name="entityName" value="FinAccountLog" />
+					<field-map field-name="orderBy" from-field="sortField" />
+					<field-map field-name="viewIndex" from-field="viewIndex" />
+					<field-map field-name="viewSize" from-field="viewSize" />
+				</service>
+				<set field="listIt" from-field="result.listIt" />
+				<set field="listSize" from-field="result.listSize" />
+				<!--
+				<entity-and list="entityList" entity-name="FinAccountLog">
+					<field-map field-name="logType" value="cash"/>
+					<field-map field-name="partyId" from-field="userLogin.partyId"/>
+					<field-map field-name="statusId" value="IM_PENDING"/>
+				</entity-and> -->
+			</actions>
+			<widgets>
+				<decorator-screen name="product-decorator" >
+                    <decorator-section name="body">
+                    	<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/sellermain/findCashBm.ftl" />
+							</html>
+						</platform-specific>
+	                </decorator-section>
+                </decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	
+	<screen name="EditCashBm">
+		<section>
+			<actions>
+				<set field="parentItem" value="FinAccountMgrBm" />
+				<set field="headerItem" value="FindCashBm" />
+				
+				<entity-and list="accountList" entity-name="FinAccount">
+					<field-map field-name="ownerPartyId" from-field="userLogin.partyId"/>
+					<field-map field-name="finAccountTypeId" value="FA_AMOUNT"/>
+				</entity-and>
+				
+				<set field="actualBalance" from-field="accountList[0].actualBalance" default-value="0"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/sellermain/editCashBm.ftl" />
+							</html>
+						</platform-specific>
+	                </decorator-section>
+                </decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+    <!--资质管理查询 -->
+    <screen name="FindSupplierQualSm">
+        <section>
+            <actions>
+                <set field="parentItem" value="InfoMgrSm" />
+                <set field="headerItem" value="FindSupplierQualSm" />
+                
+                <entity-condition list="relationList" entity-name="PartyRelationship" use-cache="true" filter-by-date="true">
+                    <condition-list>
+                        <condition-expr field-name="roleTypeIdFrom" value="INTERNAL_ORGANIZATIO" />
+                        <condition-expr field-name="partyIdTo" from-field="userLogin.partyId" />
+                        <condition-expr field-name="roleTypeIdTo" value="EMPLOYEE" />
+                    </condition-list>
+                </entity-condition>
+                <entity-one value-field="partyGroup" entity-name="PartyGroup" use-cache="true">
+                    <field-map field-name="partyId" from-field="relationList[0].partyIdFrom"/>
+                </entity-one>
+                <set field="partyId" from-field="partyGroup.partyId"/>
+                
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX_1" type="Integer" default-value="0" />
+                <set field="viewSize" from-field="parameters.VIEW_SIZE_1" type="Integer" default-value="10" />
+
+                <set field="parameters.noConditionFind" default-value="Y" />
+                <set field="p_Ctx" from-field="parameters" />
+                <set field="p_Ctx.partyId" from-field="partyId" />
+                <set field="sortField" from-field="parameters.sortField" default-value="-fromDate" />
+
+                <service service-name="performFind" result-map="result">
+                    <field-map field-name="inputFields" from-field="p_Ctx" />
+                    <field-map field-name="entityName" value="EnterpriseQual" />
+                    <field-map field-name="orderBy" from-field="sortField" />
+                    <field-map field-name="viewIndex" from-field="viewIndex" />
+                    <field-map field-name="viewSize" from-field="viewSize" />
+                    <field-map field-name="filterByDate" value="Y" />
+                </service>
+                <set field="listIt" from-field="result.listIt" />
+                
+                <set field="sellerQualType" value="QTPSupplier"/>
+            </actions>
+            <widgets>
+                <section>
+                    <condition><if-compare operator="equals" value="ENTERPRISE_SELLER" field="partyGroup.sellerType"/></condition>
+                    <actions><set field="sellerQualType" value="QTESupplier"/></actions>
+                    <widgets></widgets>
+                </section>
+                 <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/sellermain/supplierQual.ftl" />
+							</html>
+						</platform-specific>
+	                </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!--编辑资质管理 -->
+    <screen name="EditSupplierQualSm">
+        <section>
+            <actions>
+                <set field="parentItem" value="InfoMgrSm" />
+                <set field="headerItem" value="FindSupplierQualSm" />
+
+                <entity-condition list="relationList" entity-name="PartyRelationship" use-cache="true" filter-by-date="true">
+                    <condition-list>
+                        <condition-expr field-name="roleTypeIdFrom" value="INTERNAL_ORGANIZATIO" />
+                        <condition-expr field-name="partyIdTo" from-field="userLogin.partyId" />
+                        <condition-expr field-name="roleTypeIdTo" value="EMPLOYEE" />
+                    </condition-list>
+                </entity-condition>
+                <entity-one value-field="partyGroup" entity-name="PartyGroup" use-cache="true">
+                    <field-map field-name="partyId" from-field="relationList[0].partyIdFrom"/>
+                </entity-one>
+                <set field="partyId" from-field="partyGroup.partyId"/>
+                
+                <entity-one value-field="qualification" entity-name="EnterpriseQual">
+                    <field-map field-name="partyId" from-field="parameters.partyId" />
+                    <field-map field-name="partyQualTypeId" from-field="parameters.partyQualTypeId" />
+                    <field-map field-name="fromDate" from-field="parameters.fromDate" />
+                </entity-one>
+                
+                <set field="sellerQualType" value="QTPSupplier"/>
+            </actions>
+            <widgets>
+                <section>
+                    <condition><if-compare operator="equals" value="ENTERPRISE_SELLER" field="partyGroup.sellerType"/></condition>
+                    <actions><set field="sellerQualType" value="QTESupplier"/></actions>
+                    <widgets></widgets>
+                </section>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/sellermain/editSupplierQual.ftl" />
+							</html>
+						</platform-specific>
+	                </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+</screens>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+        
+        
+        
+    <!-- 精选优惠 /团购-->
+<!--    <screen name="">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/commoditySpecialOffer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen> -->
+      <screen name="commoditySpecialOffer">
+        <section>
+            <actions>
+           		<script location="component://portal/webapp/portal/WEB-INF/actions/home/SuperDeals.groovy"/>
+           </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                       <platform-specific>
+                           <html><html-template location="component://portal/webapp/portal/product/commoditySpecialOffer.ftl"/></html>
+                       </platform-specific>
+                    </decorator-section>
+                </decorator-screen>               
+            </widgets>
+        </section>
+    </screen>
+      <!-- 每日优惠-->
+<!--    <screen name="commodityDailyOffer">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/commodityDailyOffer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen> -->
+     <screen name="commodityDailyOffer">
+        <section>
+            <actions>           
+           </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                       <platform-specific>
+                           <html><html-template location="component://portal/webapp/portal/product/commodityDailyOffer.ftl"/></html>
+                       </platform-specific>
+                    </decorator-section>
+                </decorator-screen>               
+            </widgets>
+        </section>
+    </screen>
+    
+    
+    
+     <!-- 周末优惠-->
+<!--    <screen name="commodityWeekendOffer">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/commodityWeekendOffer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen> -->
+    
+<screen name="commodityWeekendOffer">
+        <section>
+            <actions> 
+           </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                       <platform-specific>
+                           <html><html-template location="component://portal/webapp/portal/product/commodityWeekendOffer.ftl"/></html>
+                       </platform-specific>
+                    </decorator-section>
+                </decorator-screen>               
+            </widgets>
+        </section>
+    </screen>
+    
+
+<!--    <screen name="globalSpeedSold">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/globalSpeedSold.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen> -->
+    
+    <screen name="globalSpeedSold">
+        <section>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                       <platform-specific>
+                           <html><html-template location="component://portal/webapp/portal/product/globalSpeedSold.ftl"/></html>
+                       </platform-specific>
+                    </decorator-section>
+                </decorator-screen>               
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- 根据分类的循环查找商品 -->
+    <screen name="showProductToCategory">
+        <section>
+           <actions>
+              <set field="newproducts" value="component://portal/widget/SuperProductScreens.xml#showProduct"/>
+               <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/ProductCategories.groovy"/>
+           </actions>
+            <widgets>
+                <platform-specific>
+                   <html><html-template location="component://portal/webapp/portal/product/showProductToCategory.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+    <screen name="showProduct">
+        <section>
+            <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+				 
+                <set field="productsummary1" value="component://portal/widget/SuperProductScreens.xml#productsummary1"/>
+				 
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="10"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/speedSoldProducts.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="productsummary1">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/CategoryToSecond.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/sSProducts.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- 查找全部分类 -->
+    <screen name="showCategoryTofor">
+        <section>
+           <actions>
+              <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/ProductCategories.groovy"/>
+           </actions>
+            <widgets>
+                       <platform-specific>
+                           <html><html-template location="component://portal/webapp/portal/product/showCategoryTofor.ftl"/></html>
+                       </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+      <!-- 热门产品-->
+<!--    <screen name="hotProducts">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/hotProducts.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen> -->
+    <screen name="hotProducts">
+        <section>
+            <actions> 
+           </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                       <platform-specific>
+                           <html><html-template location="component://portal/webapp/portal/product/hotProducts.ftl"/></html>
+                       </platform-specific>
+                    </decorator-section>
+                </decorator-screen>               
+            </widgets>
+        </section>
+    </screen>
+    
+</screens>

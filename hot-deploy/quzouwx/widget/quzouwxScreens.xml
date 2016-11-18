@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="main">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouwxCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/personCenter.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="personCenter">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/myTopInfo.groovy"></script>
+                <script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/getMyIntegral.groovy"></script>
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouwxCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/personCenter.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="setCenter">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/removeCache.groovy"></script>
+                <script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/myTopInfo.groovy"></script>
+                <entity-and list="customerList" entity-name="QzCustomer">
+                	<field-map field-name="openId" from-field="userInfo.openid"/>
+                </entity-and>
+                <set field="customer" from-field="customerList[0]"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouwxCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/setCenter.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="listCompetition">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/myTopInfo.groovy"></script>
+                <script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/myCompetitionList.groovy"></script>
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouwxCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/listCompetition.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="competitionDetail">
+        <section>
+            <actions>
+                <script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/myTopInfo.groovy"></script>
+               	<entity-one value-field="entity" entity-name="QzCompetition">
+                	<field-map field-name="cId" from-field="parameters.cId"/>
+                </entity-one>
+                <entity-and list="statisticsList" entity-name="QzStatistics">
+                	<field-map field-name="cId" from-field="parameters.cId"/>
+                	<field-map field-name="customerId" from-field="customer.partyId"/>
+               	</entity-and>
+               	
+               	<set field="statistics" from-field="statisticsList[0]"/>
+               	
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouwxCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/competitionDetail.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+ 	<screen name="personRanking">
+        <section>
+            <actions>
+                <script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/myTopInfo.groovy"></script>
+                <script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/personRanking.groovy"></script>
+                <entity-one value-field="entity" entity-name="QzCompetition">
+                	<field-map field-name="cId" from-field="parameters.cId"/>
+                </entity-one>
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouwxCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/personRanking.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+ 	<screen name="teamRanking">
+        <section>
+            <actions>
+                <script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/myTopInfo.groovy"></script>
+                <script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/teamRanking.groovy"></script>
+                <entity-one value-field="entity" entity-name="QzCompetition">
+                	<field-map field-name="cId" from-field="parameters.cId"/>
+                </entity-one>
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouwxCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/teamRanking.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+ 	<screen name="listTalentShow">
+        <section>
+            <actions>
+                <entity-and list="listIt" entity-name="QzTalentShow">
+                	<field-map field-name="isShow" value="1"/>
+                	<order-by field-name="-publishDate"/>
+                </entity-and>
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouwxCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/listTalentShow.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+ 	<screen name="talentDetail">
+        <section>
+            <actions>
+                <entity-one value-field="entity" entity-name="QzTalentShow">
+                	<field-map field-name="showId" from-field="parameters.showId"/>
+                </entity-one>
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouwxCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/talentDetail.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+ 	<screen name="customerLog">
+        <section>
+            <actions>
+            	<script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/myTopInfo.groovy"></script>
+            	<script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/getCustomerLog.groovy"></script>
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouwxCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/customerLog.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+ 	<screen name="quzouSecurity">
+        <section>
+            <actions>
+            	<entity-condition list="protectList" entity-name="QzProtect">
+            	</entity-condition>
+            	<set field="entity" from-field="protectList[0]"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouwxCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/quzouSecurity.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+ 	<screen name="listWebMsg">
+        <section>
+            <actions>
+            	<script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/myTopInfo.groovy"></script>
+            	<entity-and list="webMsgList" entity-name="QzWebMsg">
+            		<field-map field-name="customerId" from-field="customer.partyId"/>
+            		<order-by field-name="-createTime"/>
+            	</entity-and>
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouwxCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/listWebMsg.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+ 	<screen name="firstLogin">
+        <section>
+            <widgets>
+                <decorator-screen name="quzouwxNoFooterDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/firstLogin.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="listCompetitionJoined">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/myTopInfo.groovy"></script>
+                <script location="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/listCompetitionJoined.groovy"></script>
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouwxCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/listCompetitionJoined.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="downLoadApp">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouwxNoFooterDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzouwx/webapp/quzouwx/manager/downLoadApp.ftl"/>
+		                    </html>
+	                	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+</screens>

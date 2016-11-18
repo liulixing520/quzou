@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    
+    <MenuTree id="ManageModel" itemName="manage" urlLocation="" parentItemId="root"  rank="4" webSiteId="manage"/>
+    
+	<MenuTree id="OrderMgr" itemName="交易管理"  parentItemId="ManageModel" rank="2"/>
+	<MenuTree id="mng_ShowOrder" itemName="订单列表" urlLocation="mng_ShowOrder" parentItemId="OrderMgr" permission="mng_ShowOrder_ADMIN" rank="1"/>
+	<MenuTree id="FindMeasureType" itemName="退货单" urlLocation="FindMeasureType" parentItemId="OrderMgr" permission="mng_ShowOrder_ADMIN" rank="2"/>
+	<MenuTree id="dxProtcal" itemName="签约模板" urlLocation="dxProtcal" parentItemId="OrderMgr" permission="mng_ShowOrder_ADMIN" rank="3"/>
+	
+	<MenuTree id="ProductMgr" itemName="商品管理"  parentItemId="ManageModel" rank="1"/>
+	<MenuTree id="CategoryTreeEn" itemName="商品分类" urlLocation="CategoryTreeEn" parentItemId="ProductMgr" permission="mng_ShowOrder_ADMIN" rank="1"/>
+	<MenuTree id="FindTypeAttribute" itemName="商品属性" urlLocation="FindTypeAttribute" parentItemId="ProductMgr" permission="mng_ShowOrder_ADMIN" rank="1"/>
+	<MenuTree id="FindProductFeatureCategory" itemName="商品规格" urlLocation="FindProductFeatureCategory" parentItemId="ProductMgr" permission="mng_ShowOrder_ADMIN" rank="1"/>
+	
+	<MenuTree id="UserMgr" itemName="用户管理"  parentItemId="ManageModel" rank="3"/>
+	<MenuTree id="mng_sellerInfo" itemName="卖家信息" urlLocation="mng_sellerInfo" parentItemId="UserMgr" permission="mng_ShowOrder_ADMIN" rank="1"/>
+	<MenuTree id="mng_userInfo" itemName="用户列表" urlLocation="mng_userInfo" parentItemId="UserMgr" permission="mng_ShowOrder_ADMIN" rank="1"/>
+	<MenuTree id="FindCash" itemName="提现审核" urlLocation="FindCash" parentItemId="UserMgr" permission="mng_ShowOrder_ADMIN" rank="1"/>
+	
+	<MenuTree id="SiteMgr" itemName="网站管理"  parentItemId="ManageModel" rank="4"/>
+	<MenuTree id="mng_PageSetting" itemName="广告位管理" urlLocation="mng_PageSetting" parentItemId="SiteMgr" permission="mng_ShowOrder_ADMIN" rank="1"/>
+	<MenuTree id="mng_announcementSetting" itemName="公告管理" urlLocation="mng_announcementSetting" parentItemId="SiteMgr" permission="mng_ShowOrder_ADMIN" rank="1"/>
+	<MenuTree id="mng_Home_BestSellingProducts" itemName="畅销商品管理" urlLocation="mng_Home_BestSellingProducts" parentItemId="SiteMgr" permission="mng_ShowOrder_ADMIN" rank="1"/>
+	<MenuTree id="mng_Home_SuperDealsProducts" itemName="超级特卖管理" urlLocation="mng_Home_SuperDealsProducts" parentItemId="SiteMgr" permission="mng_ShowOrder_ADMIN" rank="1"/>
+	<MenuTree id="mng_Home_recommendSeller" itemName="推荐卖家管理" urlLocation="mng_Home_recommendSeller" parentItemId="SiteMgr" permission="mng_ShowOrder_ADMIN" rank="1"/>
+	<MenuTree id="mng_Home_recommendCategory" itemName="帮助品类管理" urlLocation="mng_Home_recommendCategory" parentItemId="SiteMgr" permission="mng_ShowOrder_ADMIN" rank="1"/>
+	
+	
+	<SecurityPermission permissionId="mng_ShowOrder_ADMIN" description="措施类别全部权限"  modelId="ManageModel"/>
+
+	<SecurityGroupPermission groupId="FULLADMIN" permissionId="mng_ShowOrder_ADMIN"/>
+	
+	
+
+   	
+</entity-engine-xml>

@@ -1,0 +1,226 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/*营业日报表*/
+.mt110{ height:38px;}
+.dialy_btn{ height:25px; border-radius:15px; border:1px solid #cfcac4;  width:66px; line-height:25px; text-align:center; cursor:pointer; font-size:14px; margin-right:20px; margin-top:5px;}
+.dialy_btn a{ color:#fff;}
+.dialy_btn:hover{ background-color:#de2d64;}
+.daily{ border:1px solid #e6e4e2; margin-top:10px; font-family:'微软雅黑'; font-size:14px; overflow:hidden; margin-bottom:30px; border-bottom:none;}
+.daily_tab{ width:1018px;}
+.daily_tab li{ float:left;}
+.daily_tab li a{ width:116px; text-align:center; height:38px; line-height:38px; float:left; background:#fff; border-right:1px solid #e6e4e2;  border-left:1px solid #e6e4e2; color:#333;}
+.daily_tab a:hover{ background:#f3f3f3;}
+.daily_tab .tab_hover{ background:#f3f3f3;}
+.tab_content{ width:1020px; color:#71625a;}
+.daily_title{ color:#4f361d; padding-left:10px;}
+.daily_content_title{ padding-left:10px; border-bottom:1px solid #e0e0e0;}
+.daily_content_title_beaty{ padding-right:18px; border-bottom:1px solid #e0e0e0; color:#4f361d;}
+.daily_content_title_01{ border-bottom:1px solid #e0e0e0;}
+.daily_nav li{ margin-right:10px; padding:0px 10px;}
+/*个人中心*/
+.accountBalanceInfor{width:300px;}
+/*账户初始化*/
+.account_ban{height:119px;position:relative;z-index:1000;}
+.account_ban img.accountBgImg{position:absolute;z-index:-1;}
+.account_ban_list{ width:935px; margin:0px auto; padding:20px 70px 0px 15px;}
+.account_ban_list dl dt{ width:105px; float:left;}
+.account_ban_list dl dt img{ border:4px solid #fff; border-radius:50px; height:74px; width:74px;background-color:#C6C6C6; }
+.account_ban_list dl dd{ float:right; width:830px; color:#ebebeb; font-size:16px; font-family:'微软雅黑'; line-height:33px; padding-top:7px;}
+.account_ban_list dl dd span{ padding-right:38px;}
+.account_total{ width:990px; padding:26px 15px 15px; background: #fff; font-family:'微软雅黑'; overflow:hidden; margin-top:15px;}
+*+html .account_total{ width:970px; padding:26px 15px 6px 35px; background: #fff; font-family:'微软雅黑'; overflow:hidden; margin-top:15px;}
+.account_total_left{ width:360px; float:left; color:#1e1e1e; font-size:14px;}
+.account_total_left li{ width:166px; float:left; line-height:28px; text-transform:uppercase;}
+.account_total_left li span{ font-family:Arial, Helvetica, sans-serif; font-size:26px; color:#323232;}
+.account_total_left li font{ font-size:18px;}
+.account_total_left li.account_total_left_01 span{ color:#baab9d;}
+.account_total_right{ width:600px; float:right; margin-top:15px;}
+.account_btn{ height:28px;/* border-radius:15px; border:1px solid #cfcac4;*/  width:86px; line-height:26px; text-align:center; cursor:pointer; font-size:14px;margin:0 5px;}
+.account_btn a{ color:#fff;height:28px;line-height:28px;width:87px;display:inline-block;}
+.account_btn:hover{ background-color:#de2d64;}
+.account_total_right a{/* margin-right:10px;*/display:block;}
+.account_bg{ background:none; border-top:1px solid #e8e6e6;}
+
+.AccountInforArrow{width:100%;text-align:center;}
+.AccountInforArrow b.iconfont{cursor:pointer;}
+
+.accoun_item1{ text-align:center; width:48px;  float:left;}
+.accoun_item2{ float:left; width:165px;text-align:center;}
+.accoun_item3{ text-align:center; width:180px; float:left;}
+.accoun_item4{ text-align:center; width:145px; float:left;}
+.accoun_item5{text-align:center; width:124px; float:left; display:inline-block;}
+.accoun_item50{text-align:center; width:140px; float:left; display:inline-block;}
+.accoun_item6{text-align:center; width:180px; float:left;}
+.accoun_item7{text-align:right; width:140px; float:left;}
+.accoun_item7 a{ color:#69533c; font-size:14px; padding-left:10px;}
+.accoun_item8{width:44px; }
+.accoun_item11{text-align:center; width:110px; float:left; display:inline-block;}
+.accoun_item12{width:75px; float:left; text-align:center; }
+.accoun_item13{text-align:center; width:107px; float:left; display:inline-block;}
+.accoun_item10{ width:220px;}
+.accoun_item1 em{ width:13px; height:13px; display:inline-block; margin-top:8px; border:1px solid #d8d8d8; background-color:#f7f7f7;}
+.font_style{ font-size:14px; color:#f83976;}
+.marginStyle{margin:0 5px;}
+.marginrightBorder{border-right:1px solid #ccc;}
+.shop_list_li0{height:40px;line-height:40px; background-color:#fff;border-top:1px solid #e8e6e6;}
+
+.promt_bg{z-index:1;position:absolute;left:0;top:0;width:100%;height:100%;background:#000;opacity:0.5;filter:alpha(opacity=50);-moz-opacity:0.5;}
+.promt_content{z-index:9;position:absolute;top:50%;left:50%;width:1020px;height:630px;margin:-315px 0 0 -510px; background-color:#fff;background:#fff; font-family:'微软雅黑';}
+.account_title{ width:986px; padding:20px 17px; color:#515151; font-size:16px;}
+.account_t{ width:1000px; background:#e8e6e6; height:32px; line-height:32px; color:#4f361d;}
+.account_t .account_t_item1{padding-left:20px;width:167px;}
+.account_t_item1{ width:187px; float:left;}
+.account_t_item2{ width:246px; float:left; text-align:center;}
+.account_t_item3{ width:246px; float:left; text-align:center; }
+.account_t_item4{ width:278px; float:left; text-align:center;}
+.account_t_item6{ width:208px; float:left; text-align:center;}
+.account_t_item11{ width:137px; float:left; padding-left:20px;}
+.account_t_vaild{ width:100px; float:left; padding-left:20px;}
+.account_t_drainMember{ width:80px; float:left; padding-left:20px;}
+.account_t_operation{ width:140px; float:left; padding-left:20px;}
+.account_t_operation{ width:140px; float:left; padding-left:20px;}
+.account_t_operationIncome{ width:120px; float:left; padding-left:20px;}
+.account_t_perCustomer{ width:105px; float:left; padding-left:20px;}
+.account_t_drainMember{ width:80px; float:left; padding-left:20px;}
+.account_t_guestSingle{ width:125px; float:left; padding-left:20px;}
+.accountPutWidth{width:190px;}
+
+.cash_title{ color:#71625a; height:38px; line-height:38px; border-bottom:1px solid #e8e6e6; background:#fafafa;/*width:1020px;*/}
+.accountcheckbox{display: inline-block;text-align: center;vertical-align: middle;width: 30px;}
+.account_list{ width:1020px;  height:33px; padding-top:8px; border-bottom:1px solid #e8e6e6;overflow:hidden;}
+.txt{ text-align:center !important; width:126px;}
+.delete_icon{ margin-left:10px; position:relative; top:5px;}
+.account_style{ font-size:14px;}
+.new_account{ font-size:14px;/*background:url(../images/common/icon_add.png) no-repeat 20px center;padding-left:30px;*/ }
+.new_account a{ color:#969696;}
+.new_account .btn{height:26px;margin:5px 10px 0 10px;}
+.account_order{  margin-top:10px;}
+.account_bg_01{ background:none;}
+.account_margin{ padding-left:20px;}
+.account_bottom{ padding:30px 30px 0px; width:960px;}
+.add_product{ background:url(../images/Images/add_product_icon.gif) no-repeat left center; line-height:24px; height:24px; padding-left:30px; color:#f83976; font-size:16px; display:inline-block; margin-right:40px;}
+.TreamentName{cursor:pointer;}
+.accountSubBtn{width:1000px;margin:50px auto 0;padding-bottom:50px;}
+.accountSubBtn .btn{width:968px;text-align:center;height:30px;line-height:30px;}
+
+/*账户充值*/
+.recharge_item1{ width:97px; float:left; text-align:center;}
+.recharge_item2{ width:220px; float:left; margin-right:132px; text-align:center;}
+.recharge_item3{ width:158px; float:left; text-align:center;}
+.recharge_item4{ width:178px; float:left; margin-right:56px; text-align:center;}
+.recharge_item5{ width:168px; float:left; text-align:center;}
+.recharge_input{ width:182px; height:28px; line-height:28px; border:1px solid #d8d8d8; background:#ededed; padding:5px 10px; color:#9e9e9e; font-size:16px; font-family:'微软雅黑'; margin-right:20px;}
+.recharge_style{ margin-top:30px;}
+/*会员积分*/
+.member_coins{ width:1018px; background:#fff; box-shadow:0 0  10px #ccc; overflow:hidden; font-family:'微软雅黑'; min-height:600px;}
+.member_coins_tab{ width:1018px; background:#f3f3f3; height:40px; line-height:40px; font-size:14px; border-bottom:1px solid #d8d8d8;}
+.member_coins_tab ul li{ width:116px; text-align:center; float:left; border-right:1px solid #d8d8d8;}
+.member_coins_tab ul li a{ color:#888;}
+.member_coins_tab ul li.tab_cur{ background:#fff;}
+.coins_change{ width:202px; height:42px; line-height:42px; margin-top:35px; border-radius:35px;}
+.coins_info{ width:958px; border-bottom:1px solid #d8d8d8; height:120px; line-height:120px; padding:0px 30px; font-size:20px;}
+.coins_box{ width:1018px;}
+.coins_time{ padding-left:20px;}
+.coins_number{ color:#69533c;}
+.coins_list{ font-size:14px; border-bottom:1px solid #d8d8d8;}
+.coins_list span{ font-size:22px; color:#777; }
+/*修改密码*/
+.setup_input{ border:1px solid #c8c8c8; height:28px;  line-height:28px;width:300px; padding:0px 10px; color:#909090; font-size:12px; margin-left:10px;}
+.setup{ margin:50px 0px 0px 60px; font-size:14px; color:#a0a0a0;}
+.setup_box{ border-bottom:1px solid #d8d8d8;}
+/*新建产品*/
+.add_product{ width:998px; border:1px solid #d8d8d8; background:#fff; min-height:660px; color:#7c7b7b; font-size:14px; font-family:'微软雅黑';padding:30px 0px;}
+.add_product0{ width:998px; box-shadow:0 0 10px #ccc; background:#fff; min-height:660px; color:#7c7b7b; font-size:14px; font-family:'微软雅黑';padding:30px 0px;}
+.product_input{ border:1px solid #c8c8c8; height:28px;  line-height:28px;width:170px; padding:0px 10px; color:#909090; margin-left:5px; background:#fcfcfc;}
+.product_input_01{ border:1px solid #c8c8c8; height:28px;  line-height:28px;width:427px; padding:0px 10px; color:#909090; margin-left:5px; background:#fcfcfc;}
+.product_textarea{ border:1px solid #c8c8c8; line-height:20px;width:427px; padding:0px 10px; color:#909090; margin-left:5px; height:77px; margin-top:10px; background:#fcfcfc;}
+.product_image{ line-height:50px;}
+.product_image a{ color:#7c7b7b;}
+.product_image span{ width:332px; height:144px; background:#fcfcfc; border:1px solid #c8c8c8; display:inline-block; }
+.add_product_hover{ width:130px; background:#f83976; display:inline-block; text-align:center;}
+.productTdText{text-align:right;}
+
+
+/*美容师日志*/
+.beauty_em{ padding-top:6px;}
+.beauty_item{ border-bottom:1px solid #e0e0e0;}
+.beauty_item em{ width:13px; height:13px; display:inline-block; margin-top:8px; border:1px solid #d8d8d8; background-color:#f7f7f7;}
+
+/*添加进货单*/
+.add_title{  border-bottom:1px solid #e0e0e0; color:#4f361d; font-size:14px;}
+.add_title_first{ padding-left:10px; border-bottom:1px solid #e0e0e0; color:#4f361d; font-size:14px;}
+.add_title a{ color:#4f361d;}
+.addList_bottom{ width:988px; background:#fff; border-bottom:1px solid #e0e0e0;  padding:10px 15px 80px; overflow:hidden;}
+.addList_item em{ width:13px; height:13px; display:inline-block; margin-top:8px; border:1px solid #d8d8d8; background-color:#f7f7f7;}
+.addList_item img{ position:relative; top:5px; left:10px;}
+.addList_page{ float:right; width:220px; margin-top:30px;}
+.addList_page a{ color:#606060; font-family:'微软雅黑'; margin-left:6px;}
+.addProduct_input{ width:988px; background:#f7f7f7; height:33px; padding:7px 15px 0px; border-top:1px solid #e0e0e0;}
+.addProduct_btn{ margin-left:25px;}
+.addOrder_btn{ margin-left:5px}
+.add_title_01{ border-bottom:1px solid #e0e0e0; font-size:14px;}
+.promt{ border:none; padding-bottom:10px;}
+.consume_title{ color:#4f361d; width:60px; overflow:hidden; display:inline;}
+.consume_title_01{ color:#4f361d; width:60px; overflow:hidden;}
+.consume_title_02{ color:#4f361d; width:56px; overflow:hidden;}
+.consume_title_03{ color:#4f361d; width:83px; overflow:hidden;}
+.consume_title_04{ color:#4f361d; width:89px; overflow:hidden;}
+.consume_title_05{ color:#4f361d; width:83px; overflow:hidden;}
+.consume_title_06{ color:#4f361d; width:60px; overflow:hidden;}
+.consume_title_07{ color:#4f361d; width:90px; overflow:hidden;}
+.consume_title_08{ color:#4f361d; width:38px; overflow:hidden;}
+.consume_title_09{ color:#4f361d; width:85px; overflow:hidden;}
+.goods_nav li{ float:left; height:40px;  text-align:center;}
+.goods_order_input{ width:177px; height:25px; line-height:25px; background:#e9e7e5; border-radius:30px; border:none; padding:0px 10px; position:relative; top:0px;}
+.goods_btn{ position:relative; top:6px; left:10px;}
+
+/*薪酬设置-添加员工*/
+.salaryAddStaff{z-index:9;position:absolute;top:50%;left:50%;width:1020px;height:500px;margin:-250px 0 0 -510px; background-color:#fff;background:#fff; font-family:'微软雅黑';padding:0px 10px;}
+.salaryAdd_title{ padding:20px 17px; color:#515151; font-size:16px;}
+.CustomerInforShow{padding:20px;height:60px;}
+.CustomerInforShow .photo{width:60px; height:60px; display:inline-block; float:left; margin-left:11px; position:relative;}
+.CustomerInforShow .photo > img{width:60px; height:60px; border-radius:60px;}
+.CustomerInforShow .photo em{display:block; width:18px; height:18px; position:absolute; top:2px; right:-11px;}
+.CustomerInforShow .photo em img{width:18px; height:18px;}
+.CustomerInforShow .Name, .CustomerInforShow .PhoneNumber{height:60px;line-height:60px;margin-left:20px;}
+
+/*报表查询*/
+.ReportMain{width:1000px;margin:0 auto;box-shadow:0 0  10px #ccc;padding:0 10px 30px 10px;background-color:#fff;}
+.monthlyReportTitle{padding-top:20px;border-bottom:1px solid #f83976;margin-bottom:25px;}
+.monthlyReportTitle ul li{float:left;height:30px;line-height:30px;padding:5px 4px;margin:0 4px -1px;background-color:#fff;}
+.monthlyReportTitle .mya{cursor:pointer;color:#999;display:block;}
+.monthlyReportTitle ul li.current{border-left:1px solid #f83976;border-top:1px solid #f83976;border-right:1px solid #f83976;}
+.monthlyReportTitle ul li.current a{color:#f83976;}
+.ReportFormTab th{height:25px;}
+.ReportFormTabSubLine-B{border-bottom:1px solid #999;}
+.ReportFormTabSubLine-R{border-right:1px solid #999;}
+.storefrontBox{height:35px;line-height:35px;/*background-color:#e8e6e6;*/font-size:14px;}
+.storefrontName{margin-left:10px;}
+.storefrontDate{margin-right:10px;}
+.reportFormDate{height:25px;line-height:25px;width:120px;color:#f83976;magin-left:10px;}
+.reportFormUl{font-size:14px;}
+.reportFormUl li{float:left;width:320px;height:30px;line-height:30px;}
+.reportFormUl li span{display:inline-block;}
+.reportFormUl .showTitle{width:150px}
+.reportFormUl .showNumber{width:150px;}
+.tab_header{text-align:center;background-color:#e8e6e6;color:#69533c;font-size:18px;font-family:'微软雅黑';font-weight:bold;padding:8px 0;}
+.BeauticianName{cursor:pointer;}
+.BeauticianReportDetail{z-index:9;position:absolute;top:50%;left:50%;width:1020px;min-height:500px;margin:-250px 0 0 -510px; background-color:#fff;background:#fff; font-family:'微软雅黑';padding:0px 10px;}
+.ReportDetail_title{ padding:20px 17px; color:#515151; font-size:16px;}
+.totalTr td{font-weight:bold;background-color:#fbf7e9;}
+.table .totalTr:hover td{background-color:#fbf7e9;}
+.storeSelect{height:25px;line-height:25px;padding:0 10px;}
+.storeSelect option{padding:0 10px;}
+.assignmentTitle{font-size:16px;color:#666666;margin:10px 0 0 10px;}
+/*消耗弹窗*/
+.xiaohaoDialog{z-index:9;position:absolute;top:50%;left:50%;width:600px;min-height:300px;margin:-150px 0 0 -300px;color:#515151;  background-color:#fff;background:#fff; font-family:'微软雅黑';padding:0px 10px 20px;}
+.xiaohaoDialog_title{ padding:20px 17px;font-size:16px;}
+.xiaohaoDialog .centerContent{padding:0 50px;}
+.xiaohaoDialog .sureConsume{font-size:14px;}
+.xiaohaoDialog .selectNum{margin:15px 0 0 60px;}
+.selectOperator{margin:15px 0 0 60px;}
+
+.table th.color_f5{background-color:#f5f5f5;}
+.table th.color_fdefee{background-color:#fdefee;}
+.table th.color_f2fcf9{background-color:#f2fcf9;}
+.table th.color_fffaf0{background-color:#fffaf0;}

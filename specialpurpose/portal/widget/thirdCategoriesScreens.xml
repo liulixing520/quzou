@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+    <screen name="third-categories-decorator">
+        <section>
+            <actions>
+                <property-map resource="PortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+                <property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="layoutSettings.shortcutIcon" value="/portal/images/TradeEase.ico" global="true"/>
+
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/js/jquery-1.11.1.js" global="true"/>
+
+                <script location="component://portal/widget/PortalSetup.groovy"/>
+
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/includes/header.ftl"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/includes/footer.ftl"/>
+            </actions>
+            <widgets>
+                <section>
+                    <actions>
+                        <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/ProductCategories.groovy"/>
+                    </actions>
+                    <widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="header"><platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific></container>
+
+                        <container id="body">
+                            <decorator-section-include name="body"/>
+                        </container>
+
+                        <container id="footer"><platform-specific><html><html-template location="${footerTemplateLocation}"/></html></platform-specific></container>
+                        <platform-specific><html><html-template location="component://common/webcommon/includes/closehtmlbody.ftl"/></html></platform-specific>
+                    </widgets>
+                </section>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="main">
+        <section>
+            <widgets>
+                <decorator-screen name="third-categories-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/categories/third/main.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+	<!-- 猜你喜欢 -->
+	<screen name="thirdPopular">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://portal/webapp/portal/categories/third/thirdPopular.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+ <screen name="thirdPopularList">
+        <section>
+                <actions>
+       		<script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+        </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/categories/third/thirdPopularList.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+    	<!-- 最近你看过 -->
+	<screen name="recentlySeen">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://portal/webapp/portal/categories/third/recentlySeen.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+ <screen name="recentlySeenList">
+        <section>
+                <actions>
+       		<script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+        </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/categories/third/recentlySeenList.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+</screens>

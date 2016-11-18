@@ -1,0 +1,399 @@
+@charset "utf-8";
+/* CSS Document */
+#refund{
+	/*overflow:hidden;*/ margin-top:18px;
+}
+.refund_nav li{
+ font-size:14px; color:#666; height:30px;line-height:30px; float:left;cursor:pointer;margin-right:20px;border:1px solid  #ccc;width:100px;text-align:center;
+}
+.refund_nav li.cur{
+	border:1px dashed #f83976;color:#f83976;
+}
+.refund_content{
+	/*overflow:hidden;*/
+}
+.refund_li{
+	/*overflow:hidden;*/ display:none;
+}
+.refund_li.cur{
+	display:block;
+}
+
+.general_account{
+	width:980px;background-color:#f7f7f7;
+}
+.general_account tr{
+	height:40px; border:1px solid #e8e6e6; border-top:none; font-size:14px;
+}
+.general_account .title{
+	background-color:#e8e6e6; height:30px; line-height:30px; width:100%; color:#69533c;border:1px solid #e8e6e6;
+}
+.general_account .title th{
+	text-align:center; font-size:12px;
+}
+.general_account .title .th1{
+	width:130px; text-align:left; text-indent:21px;
+}
+.general_account .title .th2{
+	width:170px;
+}
+.general_account .title .th3{
+	width:150px;
+}
+.general_account .title .th4{
+	width:90px;
+}
+.general_account .title .th5{
+	width:253px;
+}
+.general_account .title .th6{
+	width:204px;	
+}
+
+.general_account .account_title{
+	height:40px; background-color:#fff;
+}
+.general_account tr td{
+	text-align:center; color:#95826e;
+}
+
+.general_account tr td .transform{
+	width:173px; height:26px; border:1px solid #d8d8d8; margin:6px auto;
+}
+.general_account tr td .transform input{
+	width:126px; height:26px; border:none; float:left; background-color:#ffffff; padding:0px 5px; color:#95826e;
+}
+.general_account tr td .transform a{
+	width:36px; border-left:1px solid #d8d8d8; background-color:#ededed; text-align:center; line-height:26px; font-size:12px;
+	color:#95826e; display:inline-block; float:left; cursor:pointer;
+}
+
+.refuncdReasonPut{width:160px;}
+
+.accountlist{
+	width:155px; height:28px;
+}
+.selectList.accountlist dt{
+	height:26px;
+}
+.selectList.accountlist dt i{
+	top:10px;
+}
+.selectList.accountlist ul{
+	width:153px; text-align:left;
+}
+/* 账户筛选 */
+.screening{
+	background-color: #f7f7f7;border: 1px solid #d8d8d8;height: 36px;line-height: 36px; margin: 20px 0;padding: 0 10px;
+}
+.screen_btn{
+	float:right; width:76px; height:24px; text-align:center; line-height:24px; font-size:12px; color:#fff; display:inline-block;
+	background-color:#ea326c; cursor:pointer;
+}
+.screen_account{
+	width:978px; border:1px solid #e8e8e8; margin-bottom:100px;
+}
+.screen_account .title{
+	width:100%; height:30px; line-height:30px; background-color:#e8e8e8; color:#95826e;
+}
+.screen_account .title span{
+	text-align:left; display:inline-block; float:left; height:30px;
+}
+.screen_account .title span.sp1{
+	width:65px; padding-left:20px;
+}
+.screen_account .title span.sp2{
+	width:65px;
+}
+.screen_account .title span.sp3{
+	width:65px;
+}
+.screen_account .title span.sp4{
+	width:65px;
+}
+.screen_account .title span.sp5{
+	width:65px;
+}
+.screen_account .title span.sp6{
+	width:54px;
+}
+.screen_account .title span.sp7{
+	width:53px;
+}
+.screen_account .title span.sp8{
+	width:80px;
+}
+.screen_account .title span.sp9{
+	width:65px;
+}
+.screen_account .title span.sp10{
+	width:65px;
+}
+.screen_account .title span.sp11{
+	width:65px;
+}
+.screen_account .title span.sp12{
+	width:65px;
+}
+.screen_account .title span.sp13{
+	width:65px;
+}
+.screen_account .title span.sp14{
+	width:65px;
+}
+.screen_account .title span.sp15{
+	width:65px;
+}
+.screen_account .list{
+	overflow:auto; width:100%; max-height:380px; padding-bottom:10px; background-color:#fff;margin-top:0px;
+}
+.screen_account_list{
+	width:2150px;
+}
+.screen_account_list tr{
+	border-bottom:1px solid #e8e8e8; height:40px;
+}
+.screen_account_list tr:hover{
+	background-color:#f5f5f5;
+}
+.screen_account_list tr td{
+	text-align:center;
+}
+.screen_account_list .td1{ width:65px; text-align:left; text-indent:20px;}
+.screen_account_list .td2{ width:65px;}
+.screen_account_list .td3{ width:65px;}
+.screen_account_list .td4{ width:65px;}
+.screen_account_list .td5{ width:65px;}
+.screen_account_list .td6{ width:65px;}
+.screen_account_list .td7{ width:65px;}
+.screen_account_list .td8{ width:65px; text-align:left;}
+.screen_account_list .td9{ width:65px;}
+.screen_account_list .td10{ width:65px;}
+.screen_account_list .td11{ width:65px;}
+.screen_account_list .td12{ width:100px;}
+
+.return_count{
+	width:96px; height:24px; border:1px solid #d8d8d8; overflow:hidden; margin:0px auto;
+}
+.return_count a{
+	width:24px; height:24px; float:left; display:inline-block; text-align:center; line-height:24px; font-size:14px; color:#666;
+	border-right:1px solid #d8d8d8; cursor:pointer;
+}
+.return_count a.plus{
+	border-right:none; border-left:1px solid #d8d8d8;
+}
+.return_count input{
+	border:none; width:40px; float:left; height:24px; background-color:#f7f7f7; text-align:center; line-height:24px; font-size:14px; color:#666;
+}
+.screen_account_list .accountlist{
+	margin-left:10px;
+}
+.screen_account_list .td12 input{
+	width:130px; height:26px; background-color:#f5f5f5; text-align:left; padding:0px 4px; color:#666;
+}
+
+.gestores{
+	height:140px; padding:0px 42px;
+}
+.gestores em{
+	display:block; height:32px; line-height:32px; margin-top:20px; font-size:14px; color:#666;
+}
+.gestores_list{
+	height:32px;
+}
+.gestores_list .submit{
+	display:inline-block; float:right; width:116px; height:32px; text-align:center; line-height:32px; font-size:14px; color:#fff;
+	background-color:#ee5586; border-radius:15px; cursor:pointer;padding:0 10px;margin-right:10px;
+}
+.gestores_list .submit:hover{
+	background-color:#ea326c;
+}
+
+/* 个人中心 转账 */
+.mem_person_top{
+	height:38px; padding:10px 0 0px; border:1px solid #cdcdcd; background-color:#f3f3f3; margin:20px 0px;
+	position:relative;
+}
+.mem_person_top label{
+	display:inline-block; height:28px; float:left; margin:0px 12px; font-size:14px; color:#2e0332;width:120px;text-align:center;
+}
+.mem_person_top input{
+	width:675px; height:20px; padding:4px 10px; border:1px solid #cdcdcd; background-color:#fff; float:left;
+}
+.mem_person_top input:focus{
+	color:#000;
+	outline:none;
+	border:#f83976 1px solid;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(248, 57, 118, 0.6);
+}
+	
+.mem_person_top span.radio{
+	display:inline-block; float:left; margin-left:20px; padding-left:35px; background:url(../images/employee/radio.png) no-repeat left 2px;
+	height:28px; line-height:28px; color:#2e3032; font-size:14px;
+}
+.mem_person_top a{
+	display:inline-block; margin-left:20px; height:32px; line-height:32px; width:90px; text-align:center; font-size:14px; color:#fff;
+	background-color:#f83976; position:absolute; right:6px; top:8px; border-radius:15px; cursor:pointer;
+}
+.transferAccountsSelect{padding:5px 10px;width:220px;position:absolute;top:432px;left:119px;background-color:#fff;border:1px solid #dcdcdc;border-top:0 none;z-index:10;height:180px;overflow-y:auto;overflow-x:hidden;}
+.transferAccountsSelect.accountSelectList{box-shadow: 0 5px 5px #ccc;left:0px;top: 38px;z-index: 1001;width:326px;}
+.transferAccountsSelect.accountSelectList li{width:323px;}
+.transferAccountsSelect li{float:left;width:660px;;text-align:center;cursor:pointer;height:25px;line-height:25px;border:2px solid #fff;margin-top: 0px;}
+.transferAccountsSelect li:hover{border:2px solid #f83976; box-shadow:1px 5px 10px #ccc ;}
+.transferAccountsSelect li div{float:left;}
+.transferAccountsSelect .transfer_img{ width:67px; background:url(../images/Images/user_info_line.gif) no-repeat right top;}
+.transferAccountsSelect .transfer_img img{ width:50px; height:50px; border-radius:50%;}
+.transferAccountsSelect .transfer_name{ width:100%;}
+.transferAccountsSelect .transfer_name img{ position:relative; left:10px; top:2px;}
+.transferAccountsSelect .transfer_age{ width:100px;}
+.transferAccountsSelect .transfer_tel{ width:175px;}
+.transferAccountsSelect .transfer_lead{ width:186px;}
+
+
+.mem_transfer{
+	height:150px; background-color:#fff; border:1px solid #e8e6e6; position:relative;
+}
+.mem_transfer_icon{
+	width:49px; height:49px; position:absolute; left:50%; top:50%; margin:-25px 0 0 -25px;
+	background:url(../images/transfer/from_to.png) no-repeat;
+}
+.mem_transfer_people{
+	width:498px; height:150px; overflow:hidden; float:left;
+}
+.mem_transfer_people.to{
+	width:498px; height:150px; border-left:1px solid #e8e6e6; float:left;
+}
+.mem_transfer_people .photo{
+	width:72px; height:72px; padding:3px; background-color:#e5e5e5; border-radius:50px;
+	position:relative; float:left; margin:29px 0 0 60px;
+}
+.mem_transfer_people .photo img{
+	width:72px; height:72px; border-radius:50px;
+}
+.mem_transfer_people .photo em{
+	position:absolute; display:block; width:26px; height:26px;
+	top:-3px; right:-4px;
+}
+.mem_transfer_people .photo em.sex_girl{background:url(../images/common/lady.png) no-repeat;}
+.mem_transfer_people .photo em.sex_boy{background:url(../images/common/man.png) no-repeat;}
+.mem_transfer_people .info{
+	width:340px; float:left; margin:29px 0 0 14px;
+}
+.mem_transfer_people .info span{
+	display:block; color:#69533c; font-size:14px;
+}
+.mem_transfer_people .info .name{
+	float:left; height:36px; line-height:36px; font-size:16px; margin-right:30px;
+}
+.mem_transfer_people .info .phone{
+	height:36px; line-height:36px;
+}
+.mem_transfer_people .info .age,.mem_transfer_people .info .belong{
+	height:24px; line-height:24px;
+}
+.mem_transfer_people .info .age{
+	margin-top:8px;
+}
+
+.treatment{
+	overflow:hidden; margin-top:20px; margin-bottom:100px;
+}
+.treatment_table{
+	border:1px solid #e8e6e6; width:999px; font-size:14px;
+}
+.treatment_table tr{
+	border-bottom:1px solid #e8e6e6; height:40px;
+}
+.treatment_table .title{
+	height:30px; line-height:30px; background-color:#e8e6e6; border-bottom:none; font-size:12px;
+}
+.treatment_table .title th{
+	text-align:center;
+}
+.treatment_table .title .th1{
+	width:170px; text-indent:20px; text-align:left;
+}
+.treatment_table .title .th2{
+	width:114px;
+}
+.treatment_table .title .th3,.treatment_table .title .th5{
+	width:70px;
+}
+.treatment_table .title .th4{
+	width:82px;
+}
+.treatment_table .title .th6{
+	width:155px;
+}
+.treatment_table .title .th7{
+	width:180px;
+}
+.treatment_table .title .th8{
+	width:175px;
+}
+.treatment_table .treatment_title{
+	background-color:#fff;
+}
+.treatment_table  td{
+	text-align:center;
+}
+.treatment_table  td:first-child{
+	text-align:left; text-indent:20px;
+}
+.treatment_table .treatment_title td:first-child{
+	text-align:left; text-indent:15px;
+}
+.treatment_table .trans_times{
+	width:123px; height:26px; line-height:26px; text-align:center; border:1px solid #d8d8d8; background-color:#ededed;
+	font-size:14px; color:#69533c;
+}
+
+
+.transactor{
+	height:40px; display:inline-block; position:relative;
+}
+.transactor_input{
+	display:inline-block; height:38px; padding-right:47px; overflow:hidden; border:1px solid #d8d8d8; background-color:#ededed;
+	position:relative;
+}
+.transactor_input em{
+	display:inline-block; width:47px; height:38px; position:absolute; right:0px; top:0px; margin:0px;
+	cursor:pointer; background:url(../images/refund/em.png) no-repeat;
+}
+.transactor_input label{
+	width:94px; height:38px; line-height:38px; text-indent:10px; font-size:14px; color:#999; display:inline-block;
+}
+.transactor_input span{
+	display:inline-block; float:left; margin:6px 3px 0 6px; width:73px; height:24px; border:1px solid #d8d8d8; 
+	position:relative; padding-right:28px; text-align:center; font-size:14px; text-align:center; line-height:24px; color:#999;
+}
+.transactor_input span a{
+	display:block; width:27px; height:24px; border-left:1px solid #d8d8d8; position:absolute; right:0px; top:0px; cursor:pointer;
+}
+.transactor.cur .transactor_show{
+	display:block;
+}
+.transactor_show{
+	width:100%; overflow:hidden; position:absolute; left:0px; top:40px; display:none;
+}
+.transactor_show_box{
+	 border:1px solid #d8d8d8; overflow:hidden; background-color:#fff;
+}
+.transactor_search{
+	width:84%; margin:10px 5%; height:24px; line-height:30px; padding:0px 3%; font-size:14px; line-height:24px; color:#666; border-radius:4px; border:1px solid #d8d8d8;
+}
+.transactor_list{
+	width:100%; margin:0px auto; background-color:#fff; overflow:hidden; padding-bottom:10px;
+}
+.transactor_list li{
+	height:22px; line-height:22px; font-size:14px; color:#666; cursor:pointer; display:none; width:90%; padding:0px 5%;
+}
+.transactor_list li:hover{
+	background-color:#f5f5f5;
+}
+
+
+
+
+
+

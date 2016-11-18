@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <description>Module Configuration File</description>
+    
+    <handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler"/>
+    <handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler"/>
+
+    <firstvisit></firstvisit>
+   <request-map uri="img">
+        <security auth="false" https="false"/>
+        <event type="java" path="org.ofbiz.content.data.DataEvents" invoke="serveImage"/>
+        <response name="success" type="none"/>
+        <response name="error" type="view" value="main"/>
+  </request-map>
+  <!-- 系统平台 卖家审核请求 -->
+  <request-map uri="mng_sellerExamine">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mng_sellerExamine"/>
+  </request-map>
+  <!-- 修改卖家审核状态 -->
+  <request-map uri="mng_setSellerStatus">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updatePartySellerStatus" />
+        <response name="success" type="none"/>
+  </request-map>
+  <!-- 查看企业审核信息 -->
+  <request-map uri="stor_certification2">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="stor_certification2"/>
+  </request-map>
+  <!-- 查看个体户审核信息 -->
+  <request-map uri="stor_certification3">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="stor_certification3"/>
+  </request-map>
+  <!-- 查看个人卖家审核信息 -->
+  <request-map uri="stor_certification4">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="stor_certification4"/>
+  </request-map>
+	<!-- 卖家信息 -->
+	<request-map uri="mng_sellerInfo">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="mng_sellerInfo" />
+	</request-map>
+	<request-map uri="mng_userInfo">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="mng_userInfo" />
+	</request-map>
+	<!-- 查看卖家详情 -->
+	<request-map uri="mng_sellerInfoDetail1">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="mng_sellerInfoDetail1" />
+	</request-map>
+	<request-map uri="mng_sellerInfoDetail2">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="mng_sellerInfoDetail2" />
+	</request-map>
+	<request-map uri="mng_sellerInfoDetail3">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="mng_sellerInfoDetail3" />
+	</request-map>
+	<!--  订单详细 -->
+	<request-map uri="OrderDetail">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="OrderDetail" />
+	</request-map>
+	
+	<view-map name="OrderDetail" type="screen" page="component://manage/widget/OrderEnScreens.xml#OrderDetail" />
+  <!-- 系统平台 卖家审核请求 -->
+  <view-map name="mng_sellerExamine" type="screen" page="component://manage/widget/SystemScreens.xml#mng_sellerExamine" />
+  <view-map name="stor_certification2" type="screen" page="component://manage/widget/SystemScreens.xml#stor_certification2" />
+  <view-map name="stor_certification3" type="screen" page="component://manage/widget/SystemScreens.xml#stor_certification3" />
+  <view-map name="stor_certification4" type="screen" page="component://manage/widget/SystemScreens.xml#stor_certification4" />
+  <view-map name="mng_sellerInfo" type="screen" page="component://manage/widget/SystemScreens.xml#mng_sellerInfo" />
+  <view-map name="mng_userInfo" type="screen" page="component://manage/widget/SystemScreens.xml#mng_userInfo" />
+  <view-map name="mng_sellerInfoDetail1" type="screen" page="component://manage/widget/SystemScreens.xml#mng_sellerInfoDetail1" />
+  <view-map name="mng_sellerInfoDetail2" type="screen" page="component://manage/widget/SystemScreens.xml#mng_sellerInfoDetail2" />
+  <view-map name="mng_sellerInfoDetail3" type="screen" page="component://manage/widget/SystemScreens.xml#mng_sellerInfoDetail3" />
+  
+  
+</site-conf>

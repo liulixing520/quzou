@@ -1,0 +1,229 @@
+﻿.dispute-warp{ margin-bottom:10px; border-bottom:2px solid #f1f1f1;}
+.dispute-inner{ border:1px solid #ddd;}
+.dispute-flow{padding:10px 10px 15px; border:1px solid #fff; background:#f5f5f5;}
+.dispute-flow h3{ line-height:24px; font-size:14px; text-align:center;}
+.dispute-flow .prompt-letter{line-height:24px; text-align:center}
+/*20120614服务评价 star*/
+.dispute-flow-box{ height:32px; padding-top:5px; }
+.box-flrig{ position:relative; float:right; }
+.box-flrig .btnservice{ width:70px; }
+#toEvalService{position:absolute; top:-2px; right:-40px; width:280px;  }
+.eval-service{ position:absolute; top:0px; left:0px; z-index:5; padding:4px 20px 4px 10px; width:125px; height:18px; line-height:18px; color:#d97300; border:1px solid #efd392; background:#ffffe5; }
+.eval-service b{ position:absolute; top:4px; right:-6px; width:6px; height:11px; background:url(http://image.dhgate.com/dhs/mos/image/public/tip-right.png) no-repeat 0px 0px;}
+#toEvalServiceClose{overflow:hidden; position:absolute; top:5px; left:141px; z-index:9; height:11px; width:11px; background:url(http://image.dhgate.com/dhs/mos/image/public/common-bg.png) -11px -67px;}
+#toEvalServiceClose:hover{background:url(http://image.dhgate.com/dhs/mos/image/public/common-bg.png) -0px -67px;}
+.eval-shadow {position:absolute; top:1px; left:2px; z-index:1; height:28px; width:157px; background:#dddddd; opacity:0.7; filter:alpha(opacity=70);}
+/*20120614服务评价 end*/
+
+.dispute-steps{ margin-top:10px; height:60px;}
+.dispute-steps li{ float:left;width:65px; line-height:16px;text-align:center;vertical-align:middle; border:1px solid #d2d2d2; background:#fff;}
+.dispute-steps .col1{border:1px solid #db9d95; background:#ffe9e4;}
+.dispute-steps .col2,.dispute-steps .col4,.dispute-steps .col6,.dispute-steps .col8{width:20px; height:60px; border:none; background:url(http://image.dhgate.com/dhs/mos/image/public/greyhint.png) no-repeat 50% 50%;}
+.dispute-steps .col7{ padding:5px;width:392px; height:48px;}
+.dispute-steps .col7 ol{ display:none; margin-top:3px;}
+.dispute-steps .col7 li{width:86px; height:24px; line-height:24px; line-height:26px\0;#line-height:26px;_line-height:24px; border:1px solid #fdcc7f; color:#fe802d; vertical-align:middle}
+.dispute-steps .col7 .col7-2,.dispute-steps .col7 .col7-4,.dispute-steps .col7 .col7-6{ width:13px; height:27px; border:none; background:url(http://image.dhgate.com/dhs/mos/image/public/greyhint.png) no-repeat 50% 50%;}
+.dispute-steps .col1,.dispute-steps .col3,.dispute-steps .col5{ padding:13px 0;}
+.dispute-steps .col9,.step-zero .col7,.step-one .col7,.step-two .col7,.step-three-one .col7,.step-four-one .col7{ padding:21px 5px; height:16px;}
+.step-zero .col2,.step-one .col4,.step-two .col6,.step-three .col7 .col7-2,.step-three-one .col8,.step-four .col7 .col7-4,.step-five .col7 .col7-6,.step-six .col8{background:url(http://image.dhgate.com/dhs/mos/image/public/greenhint.png) no-repeat 50% 50%;}
+.step-one .col3,.step-two .col5,.step-three .col7,.step-three .col7-1,.step-four .col7,.step-four .col7-3,.step-five .col7,.step-five .col7-5,.step-six .col7,.step-six .col7-7,.step-seven .col9,.step-three-one .col7,.step-four-one .col9{border:1px solid #fdcc7f;background:#ffffe5;}
+.step-two .col3,.step-three .col3,.step-three .col5,.step-four .col3,.step-four .col5,.step-four .col7 .col7-1,.step-five .col3,.step-five .col5,.step-five .col7 .col7-1,.step-five .col7 .col7-3,.step-six .col3,.step-six .col5,.step-six .col7 .col7-1,
+.step-six .col7 .col7-1,.step-six .col7 .col7-3,.step-six .col7 .col7-5,.step-seven .col3,.step-seven .col5,.step-seven .col7 .col7-1,.step-seven .col7 .col7-1,.step-seven .col7 .col7-3,.step-seven .col7 .col7-5,.step-seven .col7 .col7-7,
+.step-three-one .col3,.step-three-one .col5,.step-four-one .col3,.step-four-one .col5,.step-four-one .col7,.step-seven .col7{color:#afafaf; border:1px solid #d2d2d2; background:#eaeaea;}
+.step-three .col7 ol,.step-four .col7 ol,.step-five .col7 ol,.step-six .col7 ol,.step-seven .col7 ol{ display:block;}
+
+.agree-project,.description-list,.disagree-project,.newadd-address,.confirm-address,.returns-information,.refer-evidence{ padding:10px 25px; line-height:24px; }
+.plate-topic{ margin-bottom:5px; font-weight:700;}
+.agree-project li{ float:left; margin:0 15px 5px 0; height:25px; line-height:25px;}
+
+.dispute-description{border-top:1px solid #e7e7e7; border-bottom:1px solid #e7e7e7;}
+.dispute-description .description-list{ position:relative; padding-bottom:35px; margin:1px 0; color:#000; background:#f8f8f8;}
+.description-list .col-r{ position:absolute; top:10px; right:10px; text-align:right;}
+.description-list .col-r span{ margin-left:15px;}
+.description-list .col-r b{ font-size:14px; color:#FC5602}
+.evidence-example{ color:#999;}
+.evidence-example .example-title{ float:left; width:36px;}
+.evidence-example .example-list{ float:left; width:700px;}
+
+.evidence-warp{ padding:10px 0; line-height:24px;}
+.input-remind{ color:#999;}
+.evidence-warp dt{ float:left; width:60px; padding-right:10px; text-align:right;}
+.evidence-over dt{ width:75px;}
+
+.evidence-warp dd{ float:left; width:620px;}
+.upload-evidence ul{ line-height:22px;}
+.upload-evidence li span{ margin-right:10px;}
+.describe-issue{ margin-top:10px;}
+.describe-issue textarea{ padding:5px; width:600px; height:100px;}
+.describe-issue strong{ color:#444;}
+.button-operate{ margin-top:10px;}
+.button-operate .greybutton2{ margin-left:30px;}
+
+.confirm-address dt{ margin-bottom:5px; font-weight:700 }
+.confirm-address dd{ position:relative; overflow:hidden; padding:10px 80px 10px 40px; border:1px solid #fff; zoom:1;}
+.confirm-address .selected{background:#f5f5f5;}
+.confirm-address .receive-address{ position:absolute; top:15px; left:15px;*top:12px;}
+.confirm-address .address-operate{display:none; position:absolute; top:10px; right:10px;}
+.confirm-address .selected .address-operate{display:block}
+.confirm-address strong{ margin-right:3px; white-space:nowrap}
+.confirm-address .detailed-address span{ margin-right:10px;}
+.confirm-address .address-info strong,.confirm-address .address-info p{ float:left;}
+.confirm-address .address-info p{ width:550px;}
+
+
+/*网关纠纷*/
+.about-chargeback{ padding:15px 25px; line-height:24px; border-bottom:1px solid #e7e7e7;}
+.refer-evidence .evidence-warp{ margin:0; padding:10px 0;}
+/*网关纠纷步骤*/
+.chargeback-steps{ margin-top:10px; height:60px;}
+.chargeback-steps li{ float:left;line-height:16px;text-align:center;vertical-align:middle; border:1px solid #d2d2d2; background:#fff;}
+.chargeback-steps .col1{width:85px; border:1px solid #db9d95; background:#ffe9e4;}
+.chargeback-steps .col3{width:75px;}
+.chargeback-steps .col5{width:200px;}
+.chargeback-steps .col7{ padding:5px 10px;width:190px; height:48px;}
+.chargeback-steps .col9{width:120px;}
+.chargeback-steps .col2,.chargeback-steps .col4,.chargeback-steps .col6,.chargeback-steps .col8{width:20px; height:60px; border:none; background:url(http://image.dhgate.com/dhs/mos/image/public/greyhint.png) no-repeat 50% 50%;}
+.chargeback-steps .col1,.chargeback-steps .col3{ padding:13px 0;}
+.chargeback-steps .col9,.chargeback-steps .col7,.chargeback-steps .col5{ padding:21px 0; height:16px;}
+.chargeback-zero .col2,.chargeback-one .col4,.chargeback-two .col6,.chargeback-three .col8{background:url(http://image.dhgate.com/dhs/mos/image/public/greenhint.png) no-repeat 50% 50%;}
+.chargeback-one .col3,.chargeback-two .col5,.chargeback-three .col7,.chargeback-four .col9{border:1px solid #fdcc7f;background:#ffffe5;}
+.chargeback-two .col3,.chargeback-three .col3,.chargeback-three .col5,.chargeback-four .col3,.chargeback-four .col5,.chargeback-four .col7{color:#afafaf; border:1px solid #d2d2d2; background:#eaeaea;}
+
+.select-project{ padding:15px 25px;}
+.select-project ul{ margin-top:10px; padding-left:30px;}
+.select-project li{ padding:3px 0;}
+.select-project li input{ margin-right:5px;}
+.select-project .payment-input{ margin:3px 0 0 20px;}
+.select-project .payment-input input{width:80px; padding:2px;}
+.select-project .payment-input span{vertical-align: middle;}
+.dispute-history{ padding:15px 25px;}
+.dispute-history h3{ margin-bottom:10px; font-size:14px;}
+
+.select-project-two{ padding:15px 0;}
+.select-project-two ul{ margin-top:10px; padding-left:30px;}
+.select-project-two li{ padding:3px 0;}
+.select-project-two li input{ margin-right:5px;}
+
+.dispute-history .notice-matter{color:#fb5501; line-height:24px;}
+.dispute-history .notice-matter span{ float:left; width:24px;}
+.dispute-history .notice-matter .notice-matter-list{ float:left; width:700px;}
+
+/*协议纠纷*/
+.refundment-agreement{ padding:0 10px 10px;}
+.refundment-agreement-list dt{ margin-bottom:5px;}
+.refundment-agreement-info{display:none;padding:0 0 15px 15px; line-height:24px; zoom:1;}
+.confirm-address2{_overflow:hidden; padding:10px 25px;_width:720px;border:1px solid #e3ebff; background:#f1f5ff;}
+.confirm-address2 dd{ position:relative; overflow:hidden; padding:10px 80px 10px 20px; zoom:1;}
+.confirm-address2 .receive-address{ position:absolute; top:15px; left:0px;*top:12px;}
+.confirm-address2 .address-operate{display:none; position:absolute; top:10px; right:10px;}
+.confirm-address2 .selected .address-operate{display:block}
+.confirm-address2 strong{ margin-right:3px; white-space:nowrap}
+.confirm-address2 .detailed-address span{ margin-right:10px;}
+.confirm-address2 .address-info strong,.confirm-address2 .address-info p{ float:left;}
+.confirm-address2 .address-info p{ width:540px;}
+.confirm-address2 .without-address{padding:10px; margin-bottom:5px;height:40px; line-height:40px; border:1px solid #e3ebff; background:#fff; text-align:center}
+.remark-your-information textarea{ margin:10px 0;padding:3px; width:560px; height:60px;}
+
+.agree-refund-warp .confirm-address{ padding:0 10px 20px;}
+.agree-refund-warp .confirm-address .address-info p{width:590px;}
+.agree-refund-warp .without-address2{ padding:10px;height:40px; line-height:40px; border:1px solid #fdcc7f; background:#ffffe5; text-align:center}
+
+.add-chinese-address{margin-top:20px;}
+.add-english-address{margin-top:20px;}
+.add-detail-address{ padding:10px 20px;}
+.add-detail-address dl{ padding:3px 0;line-height:22px;}
+.add-detail-address dt{ float:left; padding-right:5px; width:100px; text-align:right;}
+.add-detail-address dd input{ padding:2px 3px;}
+.add-detail-address dd span{ margin-left:10px;}
+.add-more-address{ text-align:right; padding:10px 10px 15px;}
+.add-more-address input{ width:120px; visibility:visible}
+.add-address-tips{display:inline-block; margin-left:10px; width:14px; height:14px; vertical-align:-2px; *vertical-align:middle; background:url(http://www.dhresource.com/dhs/mos/image/public/question.png) no-repeat 0 center;}
+#right table td .phone-number{ color:#333;}
+#right .rowline-table td span{ color:#333;}
+#right{_overflow:hidden;_width:788px;}
+/*协议纠纷详情页*/
+.refundment-detail-chart{ margin:10px 0;}
+.protocol-details{ margin-bottom:20px;}
+.protocol-details .search-info{ padding:10px; text-align:right;}
+.module-title .contact-seller{ float:right;}
+.module-title .contact-seller input{ width:80px;}
+
+/* 协议纠纷信息 */
+.operatelog{ padding:10px 10px 0;}
+.operatelog dt{position:relative;margin-bottom:10px;padding-left:20px;background:url(http://image.dhgate.com/dhs/mos/image/myorder/bg-disbute.png) no-repeat 0 0; zoom:1;}
+.operatelog dt .contact-seller{ position:absolute; top:0; right:0; padding-left:22px;background:url(http://image.dhgate.com/dhs/mos/image/public/tip-icon08.gif) no-repeat left center;}
+.operatelog dd{background:#f3f3f3;border:1px solid #ddd;margin:0 0px 15px 20px;padding:10px 15px;}
+.operatelog .apply-reason{margin-bottom:10px; font-weight:700; font-size:13px;}
+.operatelog-box{ margin-left:15px;}
+.operatelog-box p{ color:#555;}
+.operatelog-box .font-bold{ font-weight:700;color:#333;}
+.operatelog .greenname{color:#090;font-weight:700;}
+.operatelog .orangename{color:#fb5501;font-weight:700;}
+.operatelog .orangebox dt{background-position:0 -30px;}
+.operatelog .orangebox dd{background:#fff;}
+.morearrowico,.collapsearrowico{background:url(http://image.dhgate.com/dhs/mos/image/myorder/bg-disbute.png) no-repeat 100% -61px; background-position:100% -62px\0;#background-position:100% -62px;padding-right:10px;}
+.collapsearrowico{background-position:100% -91px; background-position:100% -92px\0;#background-position:100% -92px;}
+.operatelog dd .morearrowico,.operatelog dd .collapsearrowico{float:right;}
+.more-log-arrowico{ padding-right:16px;background:url(http://image.dhgate.com/dhs/mos/image/public/deploy-packup.png) no-repeat right 2px;}
+
+
+
+/*new add lht20121113 */
+/* 退货说明 & 温馨提示 */
+.returnstips .rs-tit{ float:left; width:63px;   }
+.returnstips .rs-content{ float:left; width:620px;  }
+.plu-gap{ margin:0 5px; }
+
+.addb{ font-weight:700;}
+
+/*图片垂直居中 开始*/
+.prolayout{  margin:0 auto;  width:54px; height:54px;  float:left;  table-layout:fixed;*display:block; overflow:hidden; border:1px solid #eeeeee;}
+.prolayout a,.prolayout span{   text-align:center;display:table-cell;vertical-align:middle;*display:block;*font-size:44px;*font-family:Arial; background:none repeat scroll 0 0 #FFFFFF;  width:54px; height:54px;   overflow:hidden; }
+.prolayout a img,.prolayout span img{ display:inline-block; max-width:54px; max-height:54px;  padding:0; margin:0; border:0;}
+.prolayout b.selecticon{ position:absolute; left:2px; top:2px; width:12px; height:12px; background:url(http://image.dhgate.com/dhs/mos/image/public/icon-01.png) 0 0 no-repeat; }
+/*图片垂直居中 结束*/
+.returnslisttable{ margin-bottom:20px; }
+.returnslisttable02{ margin:10px 0 20px 0;}
+#right .rowline-table td.progapimg{ padding:6px 30px;  }
+
+
+/* 提交协议 */
+.commitprotocolbox{ margin:10px 0; padding:0 10px; }
+.commitprotocolbox .commit_ptitle{ padding:10px 0; font-weight:700;  }
+.commitprotocolbox .commit_ptitle02{ padding:0px 0 10px 0; font-weight:700;  }
+#right .rowline-table td{ background-color:#fff; padding:6px 15px; }
+#right .tr-last td{ color:#010101; background-color:#f3f3f3;}
+.commitprotocolbox .commit_p01{ padding-bottom:10px; }
+#right table td.commit_fot{ color:#fc5600; }
+#right table td.commit_fot span{display:inline-block; vertical-align:top; color:#fc5600; text-align:left;}
+span.vertopleft{display:inline-block; vertical-align:top; text-align:left;}
+.commitprotocolbox .button-operate .greybutton2{ margin-left:10px; }
+.commitprotocolbox .button-operate .1greybutton2{ margin-left:100px; }
+
+.confirm-address3{ padding:0px 20px 10px 20px;border:1px solid #e3ebff; background:#f1f5ff;}
+.confirm-address3 dd{ position:relative; overflow:hidden; padding:10px 0px 10px 20px; zoom:1;}
+p.padbottom10{ padding-bottom:10px; }
+.confirm-address3 .receive-address{ position:absolute; top:15px; left:0px;*top:12px;}
+.confirm-address3 .address-operate{display:none; position:absolute; top:10px; right:10px;}
+.confirm-address3 .selected .address-operate{display:block}
+.confirm-address3 strong{ margin-right:3px; white-space:nowrap}
+.confirm-address3 .detailed-address span{ margin-right:10px;}
+.confirm-address3 .address-info strong,.confirm-address2 .address-info p{ float:left;}
+.confirm-address3 .address-info p{ width:540px;}
+.confirm-address3 .without-address{padding:10px; margin-bottom:5px;height:40px; line-height:40px; border:1px solid #e3ebff; background:#fff; text-align:center}
+.margin-left35{ margin-left:35px; }
+
+.confirm-address2{ position:relative; }
+.confirm-address2{ padding:10px 15px 10px 35px;border:1px solid #e3ebff; background:#f1f5ff;}
+.confirm-address2 dd{ position:relative; overflow:hidden; padding:10px 80px 10px 20px; zoom:1;}
+.confirm-address2 .receive-address{ position:absolute; top:15px; left:15px;*top:12px;}
+.confirm-address2 dd .receive-address{ left:0px; }
+.con-nobodtop{ margin-top:-2px; border-top:none 0; }
+
+.pop-order-info-t{ padding-right:17px; border:1px solid #e6e6e6; border-bottom:none 0; background:url(http://image.dhgate.com/dhs/mos/image/public/shadowline-bg.png) 0 100% repeat-x ;  }
+.pop-order-info-c{  padding-right:0px; max-height:208px; _height:208px; overflow:hidden;  overflow-y:auto; *+overflow-y:scroll;_overflow-y:scroll; border-top:1px solid #e6e6e6; border-right:1px solid #e6e6e6;  border-bottom:1px solid #e6e6e6;   }
+.pop-order-info-t .rowline-table{ border:0px; padding:6px 15px; }
+.pop-order-info-c .rowline-table{ overflow:hidden; border-top:0px; border-bottom:0px; border-right:none 0; margin-bottom:-1px;  }
+.pop-order-info-c  div{ width:100%; *+width:715px; _width:715px; overflow:hidden;}
+.m-mid .pop-order-info-t .rowline-table .shadow-bg td{ border-bottom:none 0; background:url(http://image.dhgate.com/dhs/mos/image/public/shadowline-bg.png) 0 100% repeat-x ;}
+.m-mid .pop-order-info-t .rowline-table .shadow-bg td.last{ border-right:none 0; }

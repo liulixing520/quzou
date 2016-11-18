@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of LIMS Component</title>
+	<description>None</description>
+	<version>1.0</version>
+
+	<entity entity-name="MenuTree" package-name="com.yuanh.admin"
+		title="Admin Tree Item Entity">
+		<field name="id" type="id-long-ne">
+			<description>节点标识</description>
+		</field>
+		<field name="itemName" type="name">
+			<description>节点名称， 其值为*.xml国际化文件里的Key </description>
+		</field>
+		<field name="urlLocation" type="description">
+			<description>管理分类条目的配置位置</description>
+		</field>
+		<field name="parentItemId" type="id-long-ne">
+			<description>父节点标识</description>
+		</field>
+		<field name="isInnerTab" type="indicator">
+			<!-- 对应枚举 COMMON_YN-->
+			<description>是否内部Tab页打开</description>
+		</field>
+		<field name="icon" type="id-long-ne">
+			<description>节点图标</description>
+		</field>
+		<field name="permission" type="id-long-ne">
+			<description>此节点需要的权限 ，格式：OrderExt_ADMIN</description>
+		</field>
+		<field name="rank" type="numeric">
+			<description>节点排序标识</description>
+		</field>
+		<field name="webSiteId" type="name">
+			<description>站点</description>
+		</field>
+		<prim-key field="id" />
+		<!-- <relation type="one" fk-name="TREE_ITEM_PARENT" title="PrimaryParentTree" 
+			rel-entity-name="limsMenu"> <key-map field-name="parentItemId" rel-field-name="id" 
+			/> </relation> -->
+	</entity>
+	<!-- SecurityPermission 扩展字段 -->
+	<extend-entity entity-name="SecurityPermission">
+		<field name="modelId" type="id-long">
+			<description>模块ID</description>
+		</field>
+		<relation type="one-nofk" rel-entity-name="MenuTree">
+			<key-map field-name="id" />
+		</relation>
+	</extend-entity>
+	<entity entity-name="OperLogs" package-name="com.yuanh.admin"
+		title="OperLogs">
+		<field name="logId" type="id-ne">
+			<description>日志ID</description>
+		</field>
+		<field name="userLoginId" type="id-ne">
+			<description>操作用户</description>
+		</field>
+		<field name="modelName" type="name">
+			<description>实体名称</description>
+		</field>
+		<field name="entityId" type="name">
+			<description>实体ID</description>
+		</field>
+		<field name="description" type="description">
+			<description>操作详细</description>
+		</field>
+		<prim-key field="logId" />
+	</entity>
+	
+
+	<!-- ClassificationGroup entity -->
+	<entity entity-name="ClassificationGroup" package-name="org.extErp.sysCommon.party"
+		title="自定义分类组">
+		<description>自定义分类组实体</description>
+		<field name="classificationGroupId" type="id-ne">
+			<description>分类组Id</description>
+		</field>
+		<field name="classificationTypeId" type="id">
+			<description>分类类型Id,定义好的枚举</description>
+		</field>
+		<field name="name" type="name">
+			<description>分类名称,比如:"区域"</description>
+		</field>
+		<field name="isUsed" type="indicator">
+			<description>是否使用</description>
+		</field>
+
+		<prim-key field="classificationGroupId" />
+	</entity>
+	<!-- ClassificationValue entity -->
+	<entity entity-name="ClassificationValue" package-name="org.extErp.sysCommon.party"
+		title="自定义分类可选值">
+		<description>自定义分类可选值实体</description>
+		<field name="classificationValueId" type="id-ne">
+			<description>分类值Id</description>
+		</field>
+		<field name="classificationGroupId" type="id">
+			<description>分类组Id</description>
+		</field>
+		<field name="classificationValueDesc" type="name">
+			<description>分类值</description>
+		</field>
+		<field name="isUsed" type="indicator">
+			<description>是否使用</description>
+		</field>
+
+		<prim-key field="classificationValueId" />
+
+		<relation type="one" fk-name="CLASS_VALUE_GROUP"
+			rel-entity-name="ClassificationGroup">
+			<key-map field-name="classificationGroupId" />
+		</relation>
+	</entity>
+
+	<!-- PartyName entity -->
+	<entity entity-name="PartyName" package-name="org.extErp.sysCommon.party"
+		title="机构名称">
+		<description>实体名称,可以是正式名称,别名等</description>
+		<field name="nameId" type="id-ne">
+			<description>名字Id</description>
+		</field>
+		<field name="partyId" type="id-ne">
+			<description>当事人Id</description>
+		</field>
+		<field name="nameTypeId" type="id-ne">
+			<description>名字类型Id,已定义的枚举</description>
+		</field>
+		<field name="name" type="name">
+			<description>名字</description>
+		</field>
+		<field name="fromDate" type="date-time">
+			<description>开始时间</description>
+		</field>
+		<field name="thruDate" type="date-time">
+			<description>结束时间</description>
+		</field>
+
+		<prim-key field="nameId" />
+
+		<relation type="one" fk-name="PTY_NAME" rel-entity-name="Party">
+			<key-map field-name="partyId" />
+		</relation>
+	</entity>
+	<!-- PartyClassificationExt entity -->
+	<entity entity-name="PartyClassificationExt" package-name="org.extErp.sysCommon.party"
+		title="当事人分类信息">
+		<description>当事人分类信息实体</description>
+		<field name="classificationId" type="id-ne">
+			<description>当事人分类信息标识Id</description>
+		</field>
+		<field name="partyId" type="id-ne">
+			<description>当事人Id</description>
+		</field>
+		<field name="classificationValueId" type="name">
+			<description>类型的值或者值Id</description>
+		</field>
+		<field name="selectableAttrValue" type="indicator">
+			<description>是否可选值</description>
+		</field>
+		<field name="fromDate" type="date-time">
+			<description>开始时间</description>
+		</field>
+		<field name="thruDate" type="date-time">
+			<description>结束时间</description>
+		</field>
+
+		<prim-key field="classificationId" />
+
+		<relation type="one" fk-name="PARTY_CLSF_PRTY"
+			rel-entity-name="Party">
+			<key-map field-name="partyId" />
+		</relation>
+	</entity>
+	<!-- PartyGroup 扩展字段 -->
+	<extend-entity entity-name="Person">
+		<field name="personSortNum" type="numeric">
+			<description>人员排序</description>
+		</field>
+		<field name="personSortDepartId" type="id-ne">
+			<description>排序所属部门ID</description>
+		</field>
+	</extend-entity>
+	<!-- PartyGroup 扩展字段 -->
+	<extend-entity entity-name="PartyGroup">
+		<field name="barCode" type="id-long">
+			<description>条形码[60字符长度]</description>
+		</field>
+		<field name="customerCode" type="id-long">
+			<description>客户编码[60字符长度]</description>
+		</field>
+		<field name="ownershipId" type="id">
+			<description>企业类型</description>
+		</field>
+		<field name="pcId" type="id">
+			<description>所属区域</description>
+		</field>
+		<field name="institutionDesc" type="very-long">
+			<description>机构情况描述</description>
+		</field>
+		<field name="scopeDesc" type="very-long">
+			<description>范围描述</description>
+		</field>
+		<field name="subProjectDesc" type="very-long">
+			<description>可分包检测项目</description>
+		</field>
+		<!-- add by wangyg -->
+		<field name="principalPartyId" type="id-ne">
+            <description>组织机构负责人</description>
+        </field>
+        <field name="salesMan" type="name">
+            <description>市场负责人</description>
+        </field>
+        <field name="chargePerson" type="name">
+            <description>收款负责人</description>
+        </field>
+        <field name="sortNum" type="numeric">
+			<description>排序</description>
+		</field>
+		<field name="partyPhase" type="id-ne">
+			<description>客户阶段</description>
+		</field>
+		<field name="remark" type="very-long">
+			<description>说明</description>
+		</field>
+        <field name="isVip" type="indicator">
+            <description>是否大客户[Y:N]</description>
+        </field>
+        <field name="isInternalCustomer" type="indicator">
+            <description>是否内部客户[Y:N](内部客户收费为 虚收,否则为实收)</description>
+        </field>
+		<!-- <relation type="one" fk-name="principal_person" rel-entity-name="Person"> 
+			<key-map field-name="partyId" /> </relation> -->
+		<relation rel-entity-name="Ownership" type="one">
+			<key-map field-name="ownershipId" />
+		</relation>
+		<relation rel-entity-name="ProvinceCity" type="one">
+			<key-map field-name="pcId" />
+		</relation>
+	</extend-entity>
+	<extend-entity entity-name="PartyGroup">
+		<field name="isVerification" type="indicator">
+            <description>是否已验证[Y:N]</description>
+        </field>
+	</extend-entity>
+	<!-- 委托方信用等级 entity -->
+	<entity entity-name="PartyGrade" package-name="org.extErp.sysCommon.party"
+		title="当事人等级">
+		<description>当事人等级实体</description>
+		<field name="gradeId" type="id-ne">
+			<description>等级标识ID</description>
+		</field>
+		<field name="gradeTypeId" type="id-ne">
+			<description>等级标识ID</description>
+		</field>
+		<field name="description" type="description">
+			<description>等级名称</description>
+		</field>
+
+		<prim-key field="gradeId" />
+	</entity>
+	<!-- 委托方等级信息实体 -->
+	<entity entity-name="PartyGradeInfo" package-name="org.extErp.sysCommon.party"
+		title="当事人等级信息">
+		<description>当事人等级信息实体</description>
+		<field name="partyId" type="id-ne">
+			<description>当事人Id</description>
+		</field>
+		<field name="gradeId" type="id-ne">
+			<description>等级标识ID</description>
+		</field>
+		<field name="fromDate" type="date-time">
+			<description>开始时间</description>
+		</field>
+		<field name="thruDate" type="date-time">
+			<description>结束时间</description>
+		</field>
+
+		<prim-key field="partyId" />
+		<prim-key field="gradeId" />
+		<prim-key field="fromDate" />
+
+		<relation type="one" fk-name="PARTY_GRADE" rel-entity-name="Party">
+			<key-map field-name="partyId" />
+		</relation>
+	</entity>
+	<!-- 企业所有权性质分类 -->
+	<entity entity-name="Ownership" package-name="org.extErp.sysCommon.party"
+		title="企业所有权">
+		<description>企业所有权性质分类实体</description>
+		<field name="ownershipId" type="id-ne">
+			<description>所有权标识ID</description>
+		</field>
+		<field name="description" type="description">
+			<description>所有权名称</description>
+		</field>
+
+		<prim-key field="ownershipId" />
+	</entity>
+	<!-- 委托方所属区域的实体定义 -->
+	<entity entity-name="ProvinceCity" package-name="org.ofbiz.lims.sysCommon"
+		title="委托方所属区域">
+		<description>委托方所属区域</description>
+		<field name="pcId" type="id-ne">
+			<description>区域标识ID</description>
+		</field>
+		<field name="pcName" type="name">
+			<description>区域名称</description>
+		</field>
+		<field name="pcCode" type="id">
+			<description>区域代码</description>
+		</field>
+		<field name="pcLevel" type="indicator">
+			<description>区域等级</description>
+		</field>
+		<field name="pcParentId" type="id">
+			<description>父区域标识ID</description>
+		</field>
+		<field name="pcPostalcode" type="very-short">
+			<description>区域邮编</description>
+		</field>
+		<field name="pcSortId" type="short-varchar">
+			<description>区域排序</description>
+		</field>
+		<field name="pcDeleteFlag" type="indicator">
+			<description>标记为删除</description>
+		</field>
+		<field name="pcMemo" type="comment">
+			<description>备注</description>
+		</field>
+
+		<prim-key field="pcId" />
+	</entity>
+	<!-- 扩展邮政地址定义,增加城市一级,构成省市县三级行政结构 -->
+	<extend-entity entity-name="PostalAddress">
+		<field name="cityGeoId" type="id">
+			<description>市</description>
+		</field>
+		<relation type="one" fk-name="POST_ADDR_CITY" title="City"
+			rel-entity-name="Geo">
+			<key-map field-name="cityGeoId" rel-field-name="geoId" />
+		</relation>
+	</extend-entity>
+
+
+	<!-- 扩展属性 -->
+	<entity entity-name="ExtendAttribute" package-name="org.extErp.sysCommon.common"
+		title="扩展属性">
+		<description>扩展属性实体</description>
+		<field name="extendAttributeId" type="id-long-ne">
+			<description>扩展属性ID</description>
+		</field>
+		<field name="extendAttributeName" type="name">
+			<description>属性名称</description>
+		</field>
+		<field name="extendAttributeType" type="id-long-ne">
+			<description>属性类型</description>
+		</field>
+		<field name="extendAttributeEnum" type="id-long-ne">
+			<description>属性枚举类型</description>
+		</field>
+		<field name="relEntityName" type="name">
+			<description>实体名称</description>
+		</field>
+		<field name="sortNo" type="numeric">
+			<description>排序</description>
+		</field>
+		<prim-key field="extendAttributeId" />
+
+		<relation type="one" fk-name="extend_enum_type" title="枚举类型"
+			rel-entity-name="EnumerationType">
+			<key-map field-name="extendAttributeEnum" rel-field-name="enumTypeId" />
+		</relation>
+	</entity>
+	<!-- 扩展属性数据存储 -->
+	<entity entity-name="ExtendAttributeValue" package-name="org.extErp.sysCommon.common"
+		title="扩展属性数据存储">
+		<description>扩展属性数据存储实体</description>
+		<field name="extendAttributeId" type="id-long-ne">
+			<description>扩展属性ID</description>
+		</field>
+
+		<field name="relEntityName" type="name">
+			<description>实体名称</description>
+		</field>
+		<field name="relEntityId" type="id-long-ne">
+			<description>业务实体ID</description>
+		</field>
+		<field name="extendAttributeValue" type="comment">
+			<description>数据值</description>
+		</field>
+		<prim-key field="extendAttributeId" />
+		<prim-key field="relEntityName" />
+		<prim-key field="relEntityId" />
+	</entity>
+	<!-- 自定义表单-->
+	<entity entity-name="DesignForm" package-name="org.extErp.sysCommon.common"
+		title="自定义表单">
+		<description>自定义表单</description>
+		<field name="designFormId" type="id-long-ne">
+			<description>ID</description>
+		</field>
+		<field name="designFormName" type="name">
+			<description>表单名称</description>
+		</field>
+		<field name="designFormType" type="id-long-ne">
+			<description>表单类型</description>
+		</field>
+		<field name="designFormEnum" type="id-long-ne">
+			<description>属性枚举类型</description>
+		</field>
+		<field name="relEntityName" type="name">
+			<description>实体名称</description>
+		</field>
+		<field name="sortNo" type="numeric">
+			<description>排序</description>
+		</field>
+		<field name="xmlMap" type="very-long">
+			<description>xmlMap</description>
+		</field>
+		<prim-key field="designFormId" />
+
+	</entity>
+	<!-- 编号生成管理 -->
+	<entity entity-name="SysSerialNumber" package-name="com.yuanh.task"
+		title="编号规则">
+		<description>编号规则</description>
+		<field name="sysSnId" type="id"></field>
+		<field name="snName" type="id-long-ne"></field>
+		<field name="snId" type="numeric"></field>
+		<field name="snDeptId" type="id"></field>
+		<prim-key field="sysSnId" />
+	</entity>
+	<!-- 消息管理 -->
+	<entity entity-name="LimsMessage" package-name="com.yuanh.task"
+		title="消息提醒">
+		<description>消息提醒</description>
+		<field name="messageId" type="id"></field>
+		<field name="messageName" type="name">
+			<description>消息名称</description>
+		</field>
+		<field name="messageContent" type="long-varchar">
+			<description>消息内容</description>
+		</field>
+		<field name="messageType" type="name">
+			<description>消息类别</description>
+		</field>
+		<field name="messageChain" type="name">
+			<description>消息链接</description>
+		</field>
+		<field name="messageState" type="id">
+			<description>消息状态</description>
+		</field>
+		<field name="messageSender" type="name">
+			<description>消息发送人</description>
+		</field>
+		<field name="messageReceive" type="name">
+			<description>消息接收人</description>
+		</field>
+		<prim-key field="messageId" />
+	</entity>
+</entitymodel>

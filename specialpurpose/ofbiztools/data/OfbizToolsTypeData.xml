@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    
+    <!-- 安全组类型 -->
+    <EnumerationType  description="安全组类型" enumTypeId="SEC_GRP_TYPE" hasTable="N" />
+    <Enumeration description="管理安全组" enumCode="MNGMNT" enumId="SGT_MNGMNT" sequenceId="01" enumTypeId="SEC_GRP_TYPE"/>
+    <Enumeration description="原始安全组" enumCode="ORIGIN" enumId="SGT_ORIGIN" sequenceId="02" enumTypeId="SEC_GRP_TYPE"/>
+    <Enumeration description="职员安全组" enumCode="EMPLOYEE" enumId="SGT_EMPLOYEE" sequenceId="03" enumTypeId="SEC_GRP_TYPE"/>
+    <Enumeration description="顾客安全组" enumCode="CUSTOMER" enumId="SGT_CUSTOMER" sequenceId="04" enumTypeId="SEC_GRP_TYPE"/>
+    <Enumeration description="游客安全组" enumCode="GUEST" enumId="SGT_GUEST" sequenceId="05" enumTypeId="SEC_GRP_TYPE"/>
+
+    <!-- 权限类型 -->
+    <EnumerationType  description="权限类型" enumTypeId="SEC_PERM_TYPE" hasTable="N" />
+    <Enumeration description="购物操作权限" enumCode="PURCHASE" enumId="SPT_PURCHASE" sequenceId="01" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="安全管理权限" enumCode="SECURITY" enumId="SPT_SECURITY" sequenceId="02" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="导航配置权限" enumCode="NAV" enumId="SPT_NAV" sequenceId="03" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="会员管理权限" enumCode="PARTY" enumId="SPT_PARTY" sequenceId="04" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="分类管理权限" enumCode="CATEGORY" enumId="SPT_CATEGORY" sequenceId="05" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="目录配置权限" enumCode="CATALOG" enumId="SPT_CATALOG" sequenceId="06" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="产品配置权限" enumCode="PRODUCT" enumId="SPT_PRODUCT" sequenceId="07" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="促销配置权限" enumCode="PROMO" enumId="SPT_PROMO" sequenceId="08" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="订单配置权限" enumCode="ORDER" enumId="SPT_ORDER" sequenceId="09" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="商店配置权限" enumCode="STORE" enumId="SPT_STORE" sequenceId="10" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="职员配置权限" enumCode="EMPLOYEE" enumId="SPT_EMPLOYEE" sequenceId="11" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="积分配置权限" enumCode="RWDPNT" enumId="SPT_RWDPNT" sequenceId="12" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="广告配置权限" enumCode="ADVTMT" enumId="SPT_ADVTMT" sequenceId="13" enumTypeId="SEC_PERM_TYPE"/>
+
+    <Enumeration description="平台管理" enumCode="YTCM" enumId="SPT_YTCM" sequenceId="21" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="供应商中心" enumCode="YTSM" enumId="SPT_YTSM" sequenceId="22" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="采购商中心" enumCode="YTBM" enumId="SPT_YTBM" sequenceId="23" enumTypeId="SEC_PERM_TYPE"/>
+    <Enumeration description="平台电子商城" enumCode="YTEC" enumId="SPT_YTEC" sequenceId="24" enumTypeId="SEC_PERM_TYPE"/>
+
+    <!-- 产品商店状态类型及状态 -->
+    <StatusType statusTypeId="STORE_STATUS" description="Product Store Status" parentTypeId="" hasTable="N"/>
+    <StatusItem statusId="STORE_PREPARING" description="筹备中" statusCode="PREPARING" sequenceId="01" statusTypeId="STORE_STATUS"/> <!-- 商店在筹备 -->
+    <StatusItem statusId="STORE_OPENING" description="已开业" statusCode="OPENING" sequenceId="02" statusTypeId="STORE_STATUS"/> <!-- 商店已开业 -->
+    <StatusItem statusId="STORE_CLOSED" description="已歇业" statusCode="CLOSED" sequenceId="03" statusTypeId="STORE_STATUS"/> <!-- 商店已歇业 -->
+    <StatusItem statusId="STORE_LOCKED" description="被冻结" statusCode="LOCKED" sequenceId="04" statusTypeId="STORE_STATUS"/> <!-- 商店被冻结 -->
+    <StatusItem statusId="STORE_CANCELLED" description="已注销" statusCode="CANCELLED" sequenceId="05" statusTypeId="STORE_STATUS"/> <!-- 商店已注销 -->
+	
+	
+	<EnumerationType  description="佣金设置" enumTypeId="AMOUNT_YJ_TYPE" hasTable="N" />
+    <Enumeration description="1" enumCode="1" enumId="AMOUNT_YJ" sequenceId="01" enumTypeId="AMOUNT_YJ_TYPE"/>
+	
+	
+    <PaymentGateway baseId="NT"  typeId="platform" partnerId="80808020130746811" 
+     paymentReturnUrl="http://127.0.0.1/control/returnNtUrl"
+     paymentReturnErrorUrl="http://127.0.0.1/control/returnErrorUrl" 
+     paymentNotifyUrl = "http://127.0.0.1/control/returnNtNotifyUrl"
+     paymentUrl="https://payment.chinapay.com/pay/TransGet" 
+     currencyType="156" gatewayType="0001" description="20070129"  />
+	
+	<PaymentGateway baseId="Alipay"  typeId="platform"
+	paymentUrl="https://mapi.alipay.com/gateway.do?" 
+	paymentReturnUrl="http://127.0.0.1/control/returnAliUrl"  
+	paymentNotifyUrl = "http://127.0.0.1/control/returnAliUrl"
+	paymentReturnErrorUrl="http://127.0.0.1/control/paymentReturnError" 
+	currencyType="RMB" gatewayType="01" paymentTimeout="60" paymentLang="utf-8" paymentEncodeType="MD5" 
+	paymentRetEncodeType="17"  partnerId="208881219215043011" sellerUserLoginId="yt_dzsw@163.com" 
+	paymentMerKey="9awwhsps3a26xe6axrvchfom3cmbe2rt" 
+	paymentRetType="0"  paymentRetSts="" logo="bank/alipay.jpg"  description="支付宝"
+	/>
+	
+	<!-- 中金支付 -->
+	<PaymentGateway baseId="ZJpay"  typeId="platform"
+	paymentUrl="" 
+	paymentUrl2="https://www.china-clearing.com/Gateway/InterfaceII" 
+	paymentReturnUrl="http://127.0.0.1/control/returnZJUrl"  
+	paymentNotifyUrl = "http://127.0.0.1/control/returnTBZJUrl"
+	paymentReturnErrorUrl="http://127.0.0.1/control/paymentReturnError" 
+	paymentReturnOtherUrl1="http://127.0.0.1/ytsm/control/returnAuthUrl"
+	paymentReturnOtherUrl2="http://127.0.0.1/ytsm/control/returnQuoteUrl"
+	currencyType="RMB" gatewayType="01" paymentTimeout="60" paymentLang="utf-8" paymentEncodeType="0001" 
+	paymentRetEncodeType="1111"  partnerId="00142111" paymentMerKey=""
+	 logo=""  description="中金支付"
+	/>
+	
+	
+	
+	
+	<PaymentInfoBank baseId="PSBC" logo="bank/psbc.jpg"  bankName="中国邮政储蓄银行" />
+	<PaymentInfoBank baseId="ICBC" logo="bank/ICBC.jpg"  bankName="工商银行"/>
+	<PaymentInfoBank baseId="ABC" logo="bank/ABOC.jpg"  bankName="中国农业银行"/>
+	<PaymentInfoBank baseId="BOC" logo="bank/boc.jpg"  bankName="中国银行" />
+	<PaymentInfoBank baseId="CCB" logo="bank/CCB.jpg"  bankName="建设银行"/>
+	<PaymentInfoBank baseId="COMM" logo="bank/BOCM.jpg"  bankName="交通银行"/>
+    <PaymentInfoBank baseId="CITIC" logo="bank/Citic.jpg"  bankName="中信银行" />
+	<PaymentInfoBank baseId="CEB" logo="bank/CEB.jpg"  bankName="光大银行" />
+	<PaymentInfoBank baseId="HXB" logo="bank/hxb.jpg"  bankName="中国华夏银行" />
+	<PaymentInfoBank baseId="CMBC" logo="bank/cmbc.jpg"  bankName="民生银行" />
+	<PaymentInfoBank baseId="GDB" logo="bank/gdb.jpg"  bankName="广东发展银行" />
+    <PaymentInfoBank baseId="SZPAB" logo="bank/pingan.jpg"  bankName="平安银行" />
+	<PaymentInfoBank baseId="CMB" logo="bank/CMB.jpg"  bankName="招商银行"/>
+	<PaymentInfoBank baseId="CIB" logo="bank/CIB.jpg"  bankName="兴业银行" />
+	<PaymentInfoBank baseId="SPDB" logo="bank/SPD.jpg"  bankName="上海浦发银行" />
+	<PaymentInfoBank baseId="BOB" logo="bank/bankofbeijing.jpg"  bankName="北京银行" />
+	<PaymentInfoBank baseId="BOWZ" logo="bank/bowz.jpg"  bankName="温州银行" />
+    <PaymentInfoBank baseId="BOS" logo="bank/bankofshanghai.jpg"  bankName="上海银行" />
+    <PaymentInfoBank baseId="HCCB" logo="bank/hzbank.jpg"  bankName="杭州银行" />
+    <PaymentInfoBank baseId="NBCB" logo="bank/nbcb.jpg"  bankName="宁波银行" />
+	
+	
+	<!-- 
+		<PaymentInfoBank baseId="NBCB" logo="bank/nbcb.jpg"  bankName="河北银行" />
+	<PaymentInfoBank baseId="NBCB" logo="bank/nbcb.jpg"  bankName="南京银行" />
+	<PaymentInfoBank baseId="NBCB" logo="bank/nbcb.jpg"  bankName="青岛银行" />
+	<PaymentInfoBank baseId="NBCB" logo="bank/nbcb.jpg"  bankName="天津银行" />
+	 -->
+	
+	<PayToBank payId="ZJpay" bankId="ABC" bankCode="103"/>
+	<PayToBank payId="ZJpay" bankId="CCB" bankCode="105"/>
+	<PayToBank payId="ZJpay" bankId="CIB" bankCode="309"/>
+	<PayToBank payId="ZJpay" bankId="CMB" bankCode="308"/>
+	<PayToBank payId="ZJpay" bankId="CMBC" bankCode="305"/>
+	<PayToBank payId="ZJpay" bankId="HXB" bankCode="304"/>
+	<PayToBank payId="ZJpay" bankId="ICBC" bankCode="102"/>
+	<PayToBank payId="ZJpay" bankId="BOC" bankCode="104"/>
+	<PayToBank payId="ZJpay" bankId="COMM" bankCode="301"/>
+	<PayToBank payId="ZJpay" bankId="SPDB" bankCode="310"/>
+	<PayToBank payId="ZJpay" bankId="PSBC" bankCode="100"/>
+	<PayToBank payId="ZJpay" bankId="BOB" bankCode="403"/>
+	<PayToBank payId="ZJpay" bankId="CEB" bankCode="303"/>
+	<PayToBank payId="ZJpay" bankId="BOWZ" bankCode="412"/>
+	<PayToBank payId="ZJpay" bankId="CITIC" bankCode="302"/>
+	<PayToBank payId="ZJpay" bankId="GDB" bankCode="306"/>
+	<PayToBank payId="ZJpay" bankId="SZPAB" bankCode="307"/>
+	<PayToBank payId="ZJpay" bankId="BOS" bankCode="401"/>
+	<PayToBank payId="ZJpay" bankId="HCCB" bankCode="423"/>
+	<PayToBank payId="ZJpay" bankId="NBCB" bankCode="408"/>
+	
+	
+	
+	<EnumerationType  description="排序类型" enumTypeId="SORT_TYPE" hasTable="N" />
+    <Enumeration description="供应商推荐" enumCode="SUPPLIER_RECOMM" enumId="SUPPLIER" sequenceId="01" enumTypeId="SORT_TYPE"/>
+    <Enumeration description="供应商排序" enumCode="SUPPLIER_SORT" enumId="SUPPLIER" sequenceId="01" enumTypeId="SORT_TYPE"/>
+    <Enumeration description="产品销售排行" enumCode="PRODUCT_SALE" enumId="PRODUCT_SALE" sequenceId="02" enumTypeId="SORT_TYPE"/>
+    <Enumeration description="产品推荐排行" enumCode="PRODUCT_RECOMM" enumId="PRODUCT_RECOMM" sequenceId="03" enumTypeId="SORT_TYPE"/>
+	
+	
+	
+	
+	
+    
+    
+    <ProductContentType description="文字" hasTable="N" parentTypeId="" productContentTypeId="DESCRIPTION"/>
+    <ProductContentType description="图片" hasTable="N" parentTypeId="" productContentTypeId="ALTERNATIVE_URL"/>
+    <ProductContentType description="图文混合" hasTable="N" parentTypeId="" productContentTypeId="LONG_DESCRIPTION"/>
+    
+    <FinAccountType description="现金账户" finAccountTypeId="FA_AMOUNT"
+     hasTable="N" replenishEnumId="FARP_MANUAL" isRefundable="Y" parentTypeId="DEPOSIT_ACCOUNT"/>
+     
+     <FinAccountType description="认证账户" finAccountTypeId="RZ_AMOUNT"
+     hasTable="N" replenishEnumId="FARP_MANUAL" isRefundable="Y" parentTypeId="DEPOSIT_ACCOUNT"/>
+     
+     <FinAccountType description="入围账户" finAccountTypeId="RW_AMOUNT"
+     hasTable="N" replenishEnumId="FARP_MANUAL" isRefundable="Y" parentTypeId="DEPOSIT_ACCOUNT"/>
+     
+     
+</entity-engine-xml>

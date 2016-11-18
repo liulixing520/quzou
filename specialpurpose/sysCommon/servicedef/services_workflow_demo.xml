@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>Component Services</description>
+	<vendor>OFBiz</vendor>
+	<version>1.0</version>
+ 	<!-- 用车申请 -->	
+    <service name="createCarUseApplyRegister" engine="simple" default-entity-name="CarUseApplyRegister"
+             location="component://sysCommon/script/WorkFlowDemoServices.xml" invoke="createCarUseApplyRegister" auth="true">
+        <description>Create CarUseApplyRegister-车辆申请</description>
+        <auto-attributes include="pk" mode="OUT" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+     <service name="updateCarUseApplyRegister" engine="simple" default-entity-name="CarUseApplyRegister"
+             location="component://sysCommon/script/WorkFlowDemoServices.xml" invoke="updateCarUseApplyRegister" auth="true">
+        <description>Update CarUseApplyRegister-车辆申请</description>
+        <auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+    <service name="deleteCarUseApplyRegister" engine="simple" default-entity-name="CarUseApplyRegister"
+             location="component://sysCommon/script/WorkFlowDemoServices.xml" invoke="deleteCarUseApplyRegister" auth="true">
+        <description>Delete CarUseApplyRegister-车辆申请</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+    </service>
+   
+    <!-- 用车申请工作流 name对应启动按钮的传参workflowProcessServices-->
+   	<service name="useCarWorkFlowSimple" engine="ofbiz-workflow" debug="true" require-new-transaction="true" 
+           location="com.work.office.app.useCar" invoke="useCarWorkFlow">
+       <description>申请用车流程</description>
+       <attribute name="nextActive" type="String" mode="IN" optional="true"/>
+       <attribute name="areaId" type="String" mode="IN" optional="true"/>
+       <attribute name="entityName" type="String" mode="IN" optional="true"/>
+       <attribute name="entityIdName" type="String" mode="IN" optional="true"/>
+       <attribute name="entityIdValue" type="String" mode="IN" optional="true"/>
+       <attribute name="packageId" type="String" mode="IN" optional="true"/>
+	</service>
+	<service name="saveExaminCarUseApplyRegister" engine="simple" default-entity-name="CarUseApplyRegister"
+             location="component://sysCommon/script/WorkFlowDemoServices.xml" invoke="saveExaminCarUseApplyRegister" auth="true">
+        <description>CarUseApplyRegister下一步</description>
+        <auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="workEffortId" type="String" mode="IN" optional="true"/>
+		<attribute name="entityIdValue" type="String" mode="IN" optional="true"/>
+		<attribute name="LeadCensure" type="String" mode="IN" optional="true"/>
+		<attribute name="returnActivity" type="String" mode="IN" optional="true"/>
+    </service>
+</services>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <MenuTree id="root" itemName="root" urlLocation="root" parentItemId=""/>
+    <MenuTree id="SystemModel" itemName="系统管理" urlLocation="" parentItemId="root"  rank="1"  webSiteId="sysCommon"/>
+    
+	
+	
+    <MenuTree id="RoleMgr" itemName="权限组管理" icon="icon-xtgl-qxzgl" urlLocation="" parentItemId="SystemModel"/>
+    <MenuTree id="RoleMgrAdd" itemName="权限组添加" urlLocation="EditSecurityGroup" parentItemId="RoleMgr" permission="SecurityGroup_ADD"/>
+    <MenuTree id="RoleMgrList" itemName="权限组列表" urlLocation="FindSecurityGroup" parentItemId="RoleMgr"  permission="SecurityGroup_VIEW"/>
+    
+    <MenuTree id="PartyGroupMgr" itemName="组织机构管理"  icon="icon-xtgl-zzjggl" urlLocation="" parentItemId="SystemModel"/>
+    <MenuTree id="PartyGroupMgrTree" itemName="组织机构" urlLocation="FindPartyGroupTree" parentItemId="PartyGroupMgr"  permission="PartyGroup_VIEW"/>
+    
+    <MenuTree id="PersonMgr" itemName="系统用户管理" icon="icon-xtgl-xtyhgl" urlLocation="" parentItemId="SystemModel"/>
+    <MenuTree id="PersonMgrAdd" itemName="系统用户添加" urlLocation="EditPerson" parentItemId="PersonMgr" permission="PartyGroup_VIEW"/>
+    <MenuTree id="PersonMgrList" itemName="系统用户列表" urlLocation="FindPerson" parentItemId="PersonMgr" permission="PartyGroup_VIEW"/>
+	
+ 	<MenuTree id="EnumerationMgr" itemName="数据字典管理" icon="icon-xtgl-sjzdgl" urlLocation="" parentItemId="SystemModel"/>
+	<MenuTree id="EditEnumerationType" itemName="枚举添加" urlLocation="EditEnumerationType" parentItemId="EnumerationMgr" permission="EnumerationType_CREATE"/>
+    <MenuTree id="FindEnumerationType" itemName="枚举列表" urlLocation="FindEnumerationType" parentItemId="EnumerationMgr" permission="EnumerationType_VIEW"/>
+	<MenuTree id="EditEnumeration" itemName="枚举项添加" urlLocation="EditEnumeration" parentItemId="EnumerationMgr" permission="Enumeration_CREATE"/>
+    <MenuTree id="FindEnumeration" itemName="枚举项列表" urlLocation="FindEnumeration" parentItemId="EnumerationMgr" permission="Enumeration_VIEW"/>
+ 
+ 	
+ 	<MenuTree id="OperLogsMgr" itemName="日志管理" icon="icon-xtgl-rzgl" urlLocation="" parentItemId="SystemModel"/>
+	<MenuTree id="FindOperLogs" itemName="日志查看" urlLocation="FindOperLogs" parentItemId="OperLogsMgr" permission="OperLogs_VIEW"/>
+   
+ 	
+ 	<MenuTree id="MenuTreeMgr" itemName="菜单管理" icon="icon-xtgl-cdgl" urlLocation="" parentItemId="SystemModel"/>
+ 	<MenuTree id="EditMenuTree" itemName="菜单添加" urlLocation="EditMenuTree" parentItemId="MenuTreeMgr" permission="MenuTree_CREATE"/>
+    <MenuTree id="FindMenuTree" itemName="菜单列表" urlLocation="FindMenuTree" parentItemId="MenuTreeMgr" permission="MenuTree_VIEW"/> 	
+ 	
+	<!-- 
+	<MenuTree id="ExtendAttributeMgr" itemName="扩展属性管理" icon="icon-xtgl-kzsxgl" urlLocation="" parentItemId="SystemModel"/>
+	<MenuTree id="EditExtendAttribute" itemName="扩展属性添加" urlLocation="EditExtendAttribute" parentItemId="ExtendAttributeMgr" permission="ExtendAttribute_ADD"/>
+    <MenuTree id="FindExtendAttribute" itemName="扩展属性列表" urlLocation="FindExtendAttribute" parentItemId="ExtendAttributeMgr" permission="ExtendAttribute_VIEW"/>
+	<MenuTree id="DesignFormMgr" itemName="自定义表单管理"  parentItemId="SystemModel" rank="1"/>
+	<MenuTree id="EditDesignForm" itemName="自定义表单添加" urlLocation="EditDesignForm" parentItemId="DesignFormMgr" permission="DesignForm_ADD" rank="1"/>
+	<MenuTree id="FindDesignForm" itemName="自定义表单列表" urlLocation="FindDesignForm?designFormType=ckedit" parentItemId="DesignFormMgr" permission="DesignForm_VIEW" rank="2"/>
+	<MenuTree id="EditStandDesignForm" itemName="自定义规则表单" urlLocation="entityCreate?userOper=Y" parentItemId="DesignFormMgr" permission="DesignForm_VIEW" rank="3"/>
+	<MenuTree id="FindStandDesignForm" itemName="规则表单列表" urlLocation="FindDesignForm?designFormType=stand" parentItemId="DesignFormMgr" permission="DesignForm_VIEW" rank="4"/>
+		
+	<MenuTree id="LimsStudentMgr" itemName="学生管理"  parentItemId="SystemModel" rank="1"/>
+	<MenuTree id="EditLimsStudent" itemName="学生添加" urlLocation="EditLimsStudent" parentItemId="LimsStudentMgr" permission="LimsStudent_ADD" rank="1"/>
+	<MenuTree id="EditLimsStudentFtl" itemName="学生添加Ftl" urlLocation="EditLimsStudentFtl" parentItemId="LimsStudentMgr" permission="LimsStudent_ADD" rank="1"/>
+	<MenuTree id="FindLimsStudent" itemName="学生列表" urlLocation="FindLimsStudent" parentItemId="LimsStudentMgr" permission="LimsStudent_VIEW" rank="2"/>
+	<MenuTree id="FindLimsStudentFtl" itemName="学生列表Ftl" urlLocation="FindLimsStudentFtl" parentItemId="LimsStudentMgr" permission="LimsStudent_VIEW" rank="2"/>
+	<MenuTree id="FindLimsStudentGrid" itemName="学生列表Grid" urlLocation="FindLimsStudentGrid" parentItemId="LimsStudentMgr" permission="LimsStudent_VIEW" rank="2"/>
+	<MenuTree id="FindLimsEgrid" itemName="班级列表Egrid" urlLocation="FindLimsEgrid" parentItemId="LimsStudentMgr" permission="LimsStudent_VIEW" rank="8"/>
+	<MenuTree id="FindLimsClass" itemName="班级列表" urlLocation="FindLimsClass" parentItemId="LimsStudentMgr" permission="LimsStudent_VIEW" rank="8"/>
+	<MenuTree id="EditLimsClass" itemName="班级添加附件" urlLocation="EditLimsClass" parentItemId="LimsStudentMgr" permission="LimsStudent_VIEW" rank="9"/>
+	<MenuTree id="EditLimsClassFtl" itemName="班级添加附件Ftl" urlLocation="EditLimsClassFtl" parentItemId="LimsStudentMgr" permission="LimsStudent_VIEW" rank="9"/>
+	<MenuTree id="EditLimsClassAndStudent" itemName="主从编辑" urlLocation="EditLimsClassAndStudent" parentItemId="LimsStudentMgr" permission="LimsStudent_VIEW" rank="9"/>
+
+	<MenuTree id="WorkFlowMgr" itemName="流程管理"  parentItemId="SystemModel" rank="10"/>
+	<MenuTree id="readxpdl" itemName="流程导入" urlLocation="readxpdl" parentItemId="WorkFlowMgr" permission="LimsStudent_ADD" rank="1"/>
+	<MenuTree id="workflowMonitor" itemName="流程列表" urlLocation="FindWorkFlow" parentItemId="WorkFlowMgr" permission="LimsStudent_VIEW" rank="2"/>
+	<MenuTree id="EditCarUseApplyRegister" itemName="车辆申请添加" urlLocation="EditCarUseApplyRegister" parentItemId="WorkFlowMgr" permission="LimsStudent_VIEW"/>
+    <MenuTree id="FindCarUseApplyRegister" itemName="车辆申请列表" urlLocation="FindCarUseApplyRegister" parentItemId="WorkFlowMgr" permission="LimsStudent_VIEW"/>
+    <MenuTree id="ExamineCarUseApplyList" itemName="用车审批" urlLocation="ExamineCarUseApplyList" parentItemId="WorkFlowMgr" permission="LimsStudent_VIEW"/>
+	 -->
+	<!-- 
+	<MenuTree id="RoleTypeMgr" itemName="角色管理" icon="icon-bgrimm-xtgl-jsgl" urlLocation="" parentItemId="SystemModel" rank="30"/>
+    <MenuTree id="EditRoleType" itemName="角色添加" urlLocation="EditRoleType" parentItemId="RoleTypeMgr" permission="RoleType_ADD" rank="2"/>
+    <MenuTree id="FindRoleType" itemName="角色列表" urlLocation="FindRoleType" parentItemId="RoleTypeMgr" permission="RoleType_VIEW" rank="1"/>
+	
+	<MenuTree id="RawMgr" itemName="原始记录管理" icon="icon-zygl-ysjlgl" urlLocation="" parentItemId="SystemModel"  rank="3"/>
+ 	<MenuTree id="FindRawTheme" itemName="模板列表" urlLocation="FindRawTemplate" parentItemId="RawMgr" rank="5" permission="RawTemplateGroup_VIEW"/>
+	<MenuTree id="FindRawTemplateGroup" itemName="模板组列表" urlLocation="FindRawTemplateGroup" rank="1" parentItemId="RawMgr" permission="RawTemplateGroup_VIEW"/>
+	<MenuTree id="FindRawDimension" itemName="维度列表" urlLocation="FindRawDimension" parentItemId="RawMgr" rank="3" permission="RawDimension_VIEW"/> 	
+	<MenuTree id="FindRawDimensionPart" itemName="维度值列表" urlLocation="FindRawDimensionPart" parentItemId="RawMgr" rank="4" permission="RawDimensionPart_VIEW"/>
+	<MenuTree id="FindRawMeasure" itemName="度量列表" urlLocation="FindRawMeasure" parentItemId="RawMgr" rank="2" permission="RawMeasure_VIEW"/>
+	<MenuTree id="FindRawDataRev" itemName="数据版本" urlLocation="FindRawDataRev" parentItemId="RawMgr" permission="RawDataRev_VIEW"/>
+	<MenuTree id="RawStatics" itemName="统计查询" urlLocation="RawStatics" parentItemId="RawMgr" rank="6" permission="RawMeasure_VIEW"/>
+	<MenuTree id="RawReport" itemName="统计报表" urlLocation="RawReport" parentItemId="RawMgr" rank="7" permission="RawMeasure_VIEW"/>
+	-->
+	
+	
+	<!-- <MenuTree id="ContentModel" itemName="内容管理" urlLocation="ContentModel" parentItemId="root"  permission="RoleMgr" rank='10'/> -->
+   <!--  <MenuTree id="AcMgr" itemName="内容管理" urlLocation="AcMgrList" parentItemId="SystemModel" />
+    <MenuTree id="AcCategoryAdd" itemName="内容分类添加" urlLocation="EditContentCategory" permission="RoleMgr" parentItemId="AcMgr"/>
+    <MenuTree id="AcCategoryMgrList" itemName="内容分类列表" urlLocation="FindContentCategory" permission="RoleMgr" parentItemId="AcMgr"/>
+    <MenuTree id="AcMgrAdd" itemName="内容添加" urlLocation="EditContent" permission="RoleMgr" parentItemId="AcMgr"/>
+    <MenuTree id="AcMgrList" itemName="内容列表" urlLocation="FindContent" permission="RoleMgr" parentItemId="AcMgr"/> -->
+    
+    <!-- <MenuTree id="AdMgr" itemName="广告管理" urlLocation="AdMgr" parentItemId="SystemModel" />
+    <MenuTree id="AdMgrAdd" itemName="广告添加" urlLocation="EditAdvertise" permission="RoleMgr" parentItemId="AdMgr"/>
+    <MenuTree id="AdMgrList" itemName="广告列表" urlLocation="FindAdvertise" permission="RoleMgr" parentItemId="AdMgr"/> -->
+    
+    <MenuTree id="AcMgr" itemName="内容管理" icon="icon-xtgl-qxzgl" urlLocation="" parentItemId="SystemModel"/>
+    <MenuTree id="AcCategoryAdd" itemName="内容分类添加" urlLocation="EditContentCategory" parentItemId="AcMgr" permission="SecurityGroup_ADD"/>
+    <MenuTree id="AcCategoryMgrList" itemName="内容分类列表" urlLocation="FindContentCategory" parentItemId="AcMgr"  permission="SecurityGroup_VIEW"/>
+    <MenuTree id="AcMgrAdd" itemName="内容添加" urlLocation="EditContent" permission="SecurityGroup_VIEW" parentItemId="AcMgr"/>
+    <MenuTree id="AcMgrList" itemName="内容列表" urlLocation="FindContent" permission="SecurityGroup_VIEW" parentItemId="AcMgr"/>
+   
+    <MenuTree id="AdMgr" itemName="广告管理" icon="icon-xtgl-qxzgl" urlLocation="" parentItemId="SystemModel"/>
+    <MenuTree id="AdMgrAdd" itemName="广告添加" urlLocation="EditAdvertise" parentItemId="AdMgr" permission="SecurityGroup_ADD"/>
+    <MenuTree id="AdMgrList" itemName="广告列表" urlLocation="FindAdvertise" parentItemId="AdMgr"  permission="SecurityGroup_VIEW"/>
+    
+
+    
+    
+</entity-engine-xml>
+
+
+
+
+
+

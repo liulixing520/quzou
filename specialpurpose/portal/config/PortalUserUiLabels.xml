@@ -1,0 +1,1139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<property key="PortalUserBelongsStore">
+		<value xml:lang="zh">所属店铺</value>
+		<value xml:lang="en">Belongs Store</value>
+		<value xml:lang="ru">Владелец магазина</value>
+	</property>
+	<property key="PortalUserOrder">
+		<value xml:lang="zh">我的订单</value>
+		<value xml:lang="en">My Order</value>
+		<value xml:lang="ru">Мой заказ</value>
+	</property>
+	<property key="PortalUserAdvisory">
+		<value xml:lang="zh">我的咨询</value>
+		<value xml:lang="en">Advisory</value>
+		<value xml:lang="ru">консультативный</value>
+	</property>
+	<property key="PortalUserTransaction">
+		<value xml:lang="zh">交易管理</value>
+		<value xml:lang="en">Transaction</value>
+		<value xml:lang="ru">сделка</value>
+	</property>
+	<property key="PortalUserMyCar">
+		<value xml:lang="zh">购物车</value>
+		<value xml:lang="en">Cart</value>
+		<value xml:lang="ru">Моя корзина</value>
+	</property>
+	<property key="PortalUserShoppingHistory">
+		<value xml:lang="zh">购买历史</value>
+		<value xml:lang="en">Shopping History</value>
+		<value xml:lang="ru">История покупок</value>
+	</property>
+	<property key="PortalUserPersonalCenter">
+		<value xml:lang="zh">个人中心</value>
+		<value xml:lang="en">Personal Center</value>
+		<value xml:lang="ru">Личная центр</value>
+	</property>
+	<property key="PortalUserAccountCenter">
+		<value xml:lang="zh">账户中心</value>
+		<value xml:lang="en">Account</value>
+		<value xml:lang="ru">Счет</value>
+	</property>
+	<property key="PortalUserAddressManage">
+		<value xml:lang="zh">地址管理</value>
+		<value xml:lang="en">Address</value>
+		<value xml:lang="ru">адрес</value>
+	</property>
+	<property key="PortalUserSendAddress">
+		<value xml:lang="zh">收货地址管理</value>
+		<value xml:lang="en">Send Address</value>
+		<value xml:lang="ru">отправить адрес</value>
+	</property>
+	<property key="PortalUserSecuritySettings">
+		<value xml:lang="zh">安全设置</value>
+		<value xml:lang="en">Security Settings</value>
+		<value xml:lang="ru">Настройки безопасности</value>
+	</property>
+	<property key="PortalUserModifyMailbox">
+		<value xml:lang="zh">修改邮箱</value>
+		<value xml:lang="en">Modify Mailbox</value>
+		<value xml:lang="ru">Редактировать Почта</value>
+	</property>
+	<property key="PortalUserSecretSecurity">
+		<value xml:lang="zh">密保问题设置</value>
+		<value xml:lang="en">Secret Security</value>
+		<value xml:lang="ru">Секрет безопасности</value>
+	</property>
+	<property key="PortalUserPersonalInfo">
+		<value xml:lang="zh">个人信息</value>
+		<value xml:lang="en">Personal Information</value>
+		<value xml:lang="ru">личная информация</value>
+	</property>
+	<property key="PortalUserModityHead">
+		<value xml:lang="zh">修改头像</value>
+		<value xml:lang="en">Modity Head Portrait</value>
+		<value xml:lang="ru">Изменить аватар</value>
+	</property>
+	<property key="PortalUserModityPersonalInfo">
+		<value xml:lang="zh">修改个人信息</value>
+		<value xml:lang="en">Modify Personal Information</value>
+		<value xml:lang="ru">Изменить личной информации</value>
+	</property>
+	<!-- 订单页面 -->
+	<property key="PortalUserAllOrders">
+		<value xml:lang="zh">全部</value>
+		<value xml:lang="en">All Orders</value>
+		<value xml:lang="ru">Все заказы</value>
+	</property>
+	<property key="PortalUserPendingPayment">
+		<value xml:lang="zh">待付款</value>
+		<value xml:lang="en">Pending Payment</value>
+		<value xml:lang="ru">Ожидает оплаты</value>
+	</property>
+	<property key="PortalUserBeAcknowledged">
+		<value xml:lang="zh">处理中</value>
+		<value xml:lang="en">Be Acknowledged</value>
+		<value xml:lang="ru">Будьте признал</value>
+	</property>
+	<property key="PortalUserBeShipped">
+		<value xml:lang="zh">待发货</value>
+		<value xml:lang="en">Be Shipped</value>
+		<value xml:lang="ru">погружены</value>
+	</property>
+	<property key="PortalUserShipmentsIn">
+		<value xml:lang="zh">已发货</value>
+		<value xml:lang="en">Shipments In</value>
+		<value xml:lang="ru">Отгрузки в</value>
+	</property>
+	<property key="PortalUserCompleted">
+		<value xml:lang="zh">已完成</value>
+		<value xml:lang="en">Completed</value>
+		<value xml:lang="ru">Завершен</value>
+	</property>
+	<property key="PortalUserRefunded">
+		<value xml:lang="zh">已退款</value>
+		<value xml:lang="en">Refunded</value>
+		<value xml:lang="ru">возмещенный</value>
+	</property>
+	<property key="PortalUserCancelled">
+		<value xml:lang="zh">已取消</value>
+		<value xml:lang="en">Cancelled</value>
+		<value xml:lang="ru">Отменено</value>
+	</property>
+	<property key="PortalUserQuXiao">
+		<value xml:lang="zh">取消</value>
+		<value xml:lang="en">Cancel</value>
+		<value xml:lang="ru">отменен</value>
+	</property>
+	<property key="PortalUserCheckOut">
+		<value xml:lang="zh">查看</value>
+		<value xml:lang="en">To See</value>
+		<value xml:lang="ru">Проверьте</value>
+	</property>
+	<property key="PortalUserSearchOptions">
+		<value xml:lang="zh">搜索选项</value>
+		<value xml:lang="en">Search Options</value>
+		<value xml:lang="ru">Опции поиска</value>
+	</property>
+	<property key="PortalUserViewDetails">
+		<value xml:lang="zh">查看详情</value>
+		<value xml:lang="en">View Detail</value>
+		<value xml:lang="ru">Посмотреть детали</value>
+	</property>
+	<property key="PortalUserHasReceipt">
+		<value xml:lang="zh">已收货</value>
+		<value xml:lang="en">Has Receipt</value>
+		<value xml:lang="ru">Имеет Получение</value>
+	</property>
+	<property key="PortalUserDelete">
+		<value xml:lang="zh">删除</value>
+		<value xml:lang="en">Delete</value>
+		<value xml:lang="ru">удалять</value>
+	</property>
+	<property key="PortalUserTrackingNumer">
+		<value xml:lang="zh">快递单号</value>
+		<value xml:lang="en">Tracking Numer</value>
+		<value xml:lang="ru">Отслеживание Спальных</value>
+	</property>
+	<property key="PortalUserStartTime">
+		<value xml:lang="zh">起始时间</value>
+		<value xml:lang="en">Start Time</value>
+		<value xml:lang="ru">время начала</value>
+	</property>
+	<property key="PortalUserEndTime">
+		<value xml:lang="zh">终止时间</value>
+		<value xml:lang="en">End Time</value>
+		<value xml:lang="ru">время окончания</value>
+	</property>
+	<property key="PortalUserInquiry">
+		<value xml:lang="zh">查询</value>
+		<value xml:lang="en">Inquiry</value>
+		<value xml:lang="ru">дознание</value>
+	</property>
+	<property key="PortalUserOfConcern">
+		<value xml:lang="zh">需要关注</value>
+		<value xml:lang="en">Of Concern</value>
+		<value xml:lang="ru">Из концерна</value>
+	</property>
+	<property key="PortalUserNews">
+		<value xml:lang="zh">新闻</value>
+		<value xml:lang="en">News</value>
+		<value xml:lang="ru">новости</value>
+	</property>
+	<property key="PortalUserTypes">
+		<value xml:lang="zh">类型</value>
+		<value xml:lang="en">Types</value>
+		<value xml:lang="ru">Типы</value>
+	</property>
+	<property key="PortalUserQuantity">
+		<value xml:lang="zh">数量</value>
+		<value xml:lang="en">Quantity</value>
+		<value xml:lang="ru">количество</value>
+	</property>
+	<property key="PortalUserNewOrders">
+		<value xml:lang="zh">今日新订单</value>
+		<value xml:lang="en">New Orders</value>
+		<value xml:lang="ru">новые заказы</value>
+	</property>
+	<property key="PortalUserLastConnected">
+		<value xml:lang="zh">上次登录时间</value>
+		<value xml:lang="en">Last Connected</value>
+		<value xml:lang="ru">Последнее связи</value>
+	</property>
+	<property key="PortalUserLatestAnnouncement">
+		<value xml:lang="zh">最新公告</value>
+		<value xml:lang="en">Latest Announcement</value>
+		<value xml:lang="ru">Последние Объявление</value>
+	</property>
+	<property key="PortalUserTopQuestions">
+		<value xml:lang="zh">热门问题</value>
+		<value xml:lang="en">Top Questions</value>
+		<value xml:lang="ru">Топ Вопросы</value>
+	</property>
+	<property key="PortalUserMore">
+		<value xml:lang="zh">更多</value>
+		<value xml:lang="en">More</value>
+		<value xml:lang="ru">более</value>
+	</property>
+	<!-- 订单详情 -->
+	<property key="PortalUserOrderNumber">
+		<value xml:lang="zh">订单编号</value>
+		<value xml:lang="en">Order Number</value>
+		<value xml:lang="ru">номер заказа</value>
+	</property>
+	<property key="PortalUserState">
+		<value xml:lang="zh">状态</value>
+		<value xml:lang="en">State</value>
+		<value xml:lang="ru">состояние</value>
+	</property>
+	<property key="PortalUserOrderInformation">
+		<value xml:lang="zh">订单信息</value>
+		<value xml:lang="en">Order Information</value>
+		<value xml:lang="ru">Данные по заказа</value>
+	</property>
+	<property key="PortalUserSubmitOrder">
+		<value xml:lang="zh">提交订单</value>
+		<value xml:lang="en">Submit Order</value>
+		<value xml:lang="ru">Отправить заказ</value>
+	</property>
+	<property key="PortalUserSuccessfulPayment">
+		<value xml:lang="zh">付款成功</value>
+		<value xml:lang="en">Successful Payment</value>
+		<value xml:lang="ru">Успешное оплаты</value>
+	</property>
+	<property key="PortalUserCommodityOutLibrary">
+		<value xml:lang="zh">商品出库</value>
+		<value xml:lang="en">Commodity Out Library</value>
+		<value xml:lang="ru">Библиотека товара</value>
+	</property>
+	<property key="PortalUserReceiptWait">
+		<value xml:lang="zh">等待收货</value>
+		<value xml:lang="en">Receipt Wait</value>
+		<value xml:lang="ru">Библиотека товара</value>
+	</property>
+	<property key="PortalUserConsigneeInformation">
+		<value xml:lang="zh">收货人信息</value>
+		<value xml:lang="en">Consignee Information</value>
+		<value xml:lang="ru">грузополучатель информация</value>
+	</property>
+	<property key="PortalUserConsignee">
+		<value xml:lang="zh">收 货 人</value>
+		<value xml:lang="en">Consignee</value>
+		<value xml:lang="ru">грузополучатель</value>
+	</property>
+	<property key="PortalUserAddress">
+		<value xml:lang="zh">地 址</value>
+		<value xml:lang="en">Address</value>
+		<value xml:lang="ru">адреса</value>
+	</property>
+	<property key="PortalUserMobileNumber">
+		<value xml:lang="zh">手机号码</value>
+		<value xml:lang="en">Mobile Number</value>
+		<value xml:lang="ru">номер мобильного</value>
+	</property>
+	<property key="PortalUserEmail">
+		<value xml:lang="zh">电子邮件</value>
+		<value xml:lang="en">E-mail</value>
+		<value xml:lang="ru">Электронная почта</value>
+	</property>
+	<property key="PortalUserPaymentAndDeliveryMethods">
+		<value xml:lang="zh">支付及配送方式</value>
+		<value xml:lang="en">Payment And Delivery Methods</value>
+		<value xml:lang="ru">Оплата и доставка методы</value>
+	</property>
+	<property key="PortalUserPayment">
+		<value xml:lang="zh">支付方式</value>
+		<value xml:lang="en">Methods Of Payment</value>
+		<value xml:lang="ru">Способ платежа</value>
+	</property>
+	<property key="PortalUserShippingCharges">
+		<value xml:lang="zh">运 费</value>
+		<value xml:lang="en">Shipping Charges</value>
+		<value xml:lang="ru">расходы по доставке</value>
+	</property>
+	<property key="PortalUserDeliveryDate">
+		<value xml:lang="zh">送货日期</value>
+		<value xml:lang="en">Delivery Date</value>
+		<value xml:lang="ru">Дата доставки</value>
+	</property>
+	<property key="PortalUserRemark">
+		<value xml:lang="zh">备注</value>
+		<value xml:lang="en">Remark</value>
+		<value xml:lang="ru">замечание</value>
+	</property>
+	<property key="PortalUserProductListing">
+		<value xml:lang="zh">商品清单</value>
+		<value xml:lang="en">Product Listing</value>
+		<value xml:lang="ru">Список продукции</value>
+	</property>
+	<property key="PortalUserProductNumber">
+		<value xml:lang="zh">商品编号</value>
+		<value xml:lang="en">Product Number</value>
+		<value xml:lang="ru">Количество товаров</value>
+	</property>
+	<property key="PortalUserMoreProductImage">
+		<value xml:lang="zh">商品图片</value>
+		<value xml:lang="en">Product Image</value>
+		<value xml:lang="ru">более</value>
+	</property>
+	<property key="PortalUserProductName">
+		<value xml:lang="zh">商品名称</value>
+		<value xml:lang="en">Product Name</value>
+		<value xml:lang="ru">Наименование</value>
+	</property>
+	<property key="PortalUserSalesPrice">
+		<value xml:lang="zh">销售价</value>
+		<value xml:lang="en">Sales Price</value>
+		<value xml:lang="ru">Цена продажи</value>
+	</property>
+	<property key="PortalUserIntegralValue">
+		<value xml:lang="zh">积分值</value>
+		<value xml:lang="en">Integral Value</value>
+		<value xml:lang="ru">Интеграл величина</value>
+	</property>
+	<property key="PortalUserProductsNumber">
+		<value xml:lang="zh">商品数量</value>
+		<value xml:lang="en">Number of Products</value>
+		<value xml:lang="ru">Количество продуктов</value>
+	</property>
+	<property key="PortalUserInventoryStatus">
+		<value xml:lang="zh">库存状态</value>
+		<value xml:lang="en">Inventory Status</value>
+		<value xml:lang="ru">Состояние запасов</value>
+	</property>
+	<property key="PortalUserHaveGoods">
+		<value xml:lang="zh">有货</value>
+		<value xml:lang="en">Have goods</value>
+		<value xml:lang="ru">Есть товары</value>
+	</property>
+	<property key="PortalUserGoodsAmount">
+		<value xml:lang="zh">总商品金额</value>
+		<value xml:lang="en">Goods Amount</value>
+		<value xml:lang="ru">количество товаров</value>
+	</property>
+	<property key="PortalUserShippingCosts">
+		<value xml:lang="zh">运费</value>
+		<value xml:lang="en">Shipping Costs</value>
+		<value xml:lang="ru">грузовой</value>
+	</property>
+	<property key="PortalUserTotalPayable">
+		<value xml:lang="zh">应付总额</value>
+		<value xml:lang="en">Total Payable</value>
+		<value xml:lang="ru">Всего к оплате</value>
+	</property>
+	<property key="PortalUserModifyMailbox">
+		<value xml:lang="zh">修改邮箱</value>
+		<value xml:lang="en">Modify Mailbox</value>
+		<value xml:lang="ru">Изменить почтовый ящик</value>
+	</property>
+	<property key="PortalUserAddressManagement">
+		<value xml:lang="zh">收货地址管理</value>
+		<value xml:lang="en">Shipping Address Management</value>
+		<value xml:lang="ru">Управление Адрес для доставки</value>
+	</property>
+	<property key="deliveryaddress">
+		<value xml:lang="zh">您还没有收货地址，请新建地址</value>
+		<value xml:lang="en">You have no delivery address, please create a
+			new address</value>
+		<value xml:lang="ru">Вы также не адрес доставки , пожалуйста, новый
+			адрес</value>
+	</property>
+	<property key="PortalUserAddressList">
+		<value xml:lang="zh">地址列表</value>
+		<value xml:lang="en">Address List</value>
+		<value xml:lang="ru">Список адресов</value>
+	</property>
+	<property key="PortalUserCarStore">
+		<value xml:lang="zh">店铺</value>
+		<value xml:lang="en">Store</value>
+		<value xml:lang="ru">Хранить</value>
+	</property>
+	<property key="PortalUserCarProduct">
+		<value xml:lang="zh">商品</value>
+		<value xml:lang="en">Commodity</value>
+		<value xml:lang="ru">товара</value>
+	</property>
+	<property key="PortalUserCarPicture">
+		<value xml:lang="zh">图片</value>
+		<value xml:lang="en">Picture</value>
+		<value xml:lang="ru">картина</value>
+	</property>
+	<property key="PortalUserCarUnitPrice">
+		<value xml:lang="zh">单价</value>
+		<value xml:lang="en">Unit Price</value>
+		<value xml:lang="ru">цена единицы</value>
+	</property>
+	<property key="PortalUserCarQuantity">
+		<value xml:lang="zh">数量</value>
+		<value xml:lang="en">Quantity</value>
+		<value xml:lang="ru">величина</value>
+	</property>
+	<property key="PortalUserCarTotalPrice">
+		<value xml:lang="zh">总价</value>
+		<value xml:lang="en">Total Price</value>
+		<value xml:lang="ru">общая цена</value>
+	</property>
+	<property key="PortalUserCarOperating">
+		<value xml:lang="zh">操作</value>
+		<value xml:lang="en">Operating</value>
+		<value xml:lang="ru">операционная</value>
+	</property>
+	<property key="PortalUserCarNumber">
+		<value xml:lang="zh">个</value>
+		<value xml:lang="en">
+		</value>
+		<value xml:lang="ru">
+		</value>
+	</property>
+	<property key="PortalUserCarContinueShopping">
+		<value xml:lang="zh">继续购物</value>
+		<value xml:lang="en">Continue Shopping</value>
+		<value xml:lang="ru">Продолжить покупки</value>
+	</property>
+	<property key="PortalUserCarDeleteAll">
+		<value xml:lang="zh">删除所有</value>
+		<value xml:lang="en">Delete All</value>
+		<value xml:lang="ru">Удалить все</value>
+	</property>
+	<property key="PortalUserCarRecalculated">
+		<value xml:lang="zh">重新计算</value>
+		<value xml:lang="en">Recalculated</value>
+		<value xml:lang="ru">снова вычислять</value>
+	</property>
+	<property key="PortalUserCarRollup">
+		<value xml:lang="zh">汇总</value>
+		<value xml:lang="en">Rollup</value>
+		<value xml:lang="ru">накопительный пакет</value>
+	</property>
+	<property key="PortalUserCarItemsSubTotal">
+		<value xml:lang="zh">项目小计</value>
+		<value xml:lang="en">Items SubTotal</value>
+		<value xml:lang="ru">Всего по позициям</value>
+	</property>
+	<property key="PortalUserCarShippingCosts">
+		<value xml:lang="zh">运输成本</value>
+		<value xml:lang="en">Shipping Costs</value>
+		<value xml:lang="ru">Стоимость пеерсылки</value>
+	</property>
+	<property key="PortalUserCarWholesaleDiscount">
+		<value xml:lang="zh">批发折扣</value>
+		<value xml:lang="en">Wholesale Discount</value>
+		<value xml:lang="ru">Оптовая скидка</value>
+	</property>
+	<property key="PortalUserCarTotal">
+		<value xml:lang="zh">总计</value>
+		<value xml:lang="en">Total</value>
+		<value xml:lang="ru">полная</value>
+	</property>
+	<property key="PortalUserCarCheckout">
+		<value xml:lang="zh">进行结账</value>
+		<value xml:lang="en">Checkout</value>
+		<value xml:lang="ru">Оформить заказ</value>
+	</property>
+	<property key="PortalUserCarShoppingCartEmpty">
+		<value xml:lang="zh">购物车没有商品</value>
+		<value xml:lang="en">Shopping cart is empty</value>
+		<value xml:lang="ru">Вашей корзине еще ничего</value>
+	</property>
+	<property key="PortalUserCarBackHome">
+		<value xml:lang="zh">返回主页，继续购物</value>
+		<value xml:lang="en">Back home, continue shopping</value>
+		<value xml:lang="ru">Вернувшись домой, продолжить покупки</value>
+	</property>
+	<property key="PortalUserPayProductDetails">
+		<value xml:lang="zh">商品详情</value>
+		<value xml:lang="en">Product Details</value>
+		<value xml:lang="ru">Детали Продукты</value>
+	</property>
+	<property key="PortalUserPayLogistics">
+		<value xml:lang="zh">物流</value>
+		<value xml:lang="en">Logistics</value>
+		<value xml:lang="ru">логистика</value>
+	</property>
+	<property key="PortalUserPaySellersAdjustment">
+		<value xml:lang="zh">卖方调整</value>
+		<value xml:lang="en">Sellers Adjustment</value>
+		<value xml:lang="ru">регулировка продавцов</value>
+	</property>
+	<property key="PortalUserPayCoupon">
+		<value xml:lang="zh">优惠劵</value>
+		<value xml:lang="en">Coupon</value>
+		<value xml:lang="ru">Скидочный</value>
+	</property>
+	<property key="PortalUserPayShipmentMethod">
+		<value xml:lang="zh">货运方式</value>
+		<value xml:lang="en">Shipment Method</value>
+		<value xml:lang="ru">Способ доставки</value>
+	</property>
+	<property key="PortalUserPaySubtotals">
+		<value xml:lang="zh">小计</value>
+		<value xml:lang="en">Subtotals</value>
+		<value xml:lang="ru">подытоги</value>
+	</property>
+	<property key="PortalUserPayShippingCharge">
+		<value xml:lang="zh">运费</value>
+		<value xml:lang="en">Shipping Charge</value>
+		<value xml:lang="ru">платежи за доставку</value>
+	</property>
+	<property key="PortalUserPayShipAddress">
+		<value xml:lang="zh">收货地址</value>
+		<value xml:lang="en">Ship To Address</value>
+		<value xml:lang="ru">адрес доставки</value>
+	</property>
+	<property key="PortalUserPayPlaceOrders">
+		<value xml:lang="zh">下订单</value>
+		<value xml:lang="en">Place Orders</value>
+		<value xml:lang="ru">Место заказы</value>
+	</property>
+	<property key="PortalUserPayPaidOrders">
+		<value xml:lang="zh">支付订单</value>
+		<value xml:lang="en">Paid Orders</value>
+		<value xml:lang="ru">оплаченных заказов</value>
+	</property>
+	<property key="PortalUserPayPaymentSuccess">
+		<value xml:lang="zh">支付成功</value>
+		<value xml:lang="en">Payment Success</value>
+		<value xml:lang="ru">Успех Оплата</value>
+	</property>
+	<property key="PortalUserPayItemSubtotals">
+		<value xml:lang="zh">项目小计</value>
+		<value xml:lang="en">Item Subtotals</value>
+		<value xml:lang="ru">Пункт Итого</value>
+	</property>
+	<property key="PortalUserPayContinuedPayment">
+		<value xml:lang="zh">继续付款</value>
+		<value xml:lang="en">Continued Payment</value>
+		<value xml:lang="ru">Дальнейшее оплата</value>
+	</property>
+	<property key="PortalUserPayEditor">
+		<value xml:lang="zh">编辑</value>
+		<value xml:lang="en">editor</value>
+		<value xml:lang="ru">редактор</value>
+	</property>
+	<property key="PortalUserPayYouNeedPay">
+		<value xml:lang="zh">你需要支付</value>
+		<value xml:lang="en">You need to pay</value>
+		<value xml:lang="ru">Вам нужно оплатить</value>
+	</property>
+	<property key="PortalUserPayCardNo">
+		<value xml:lang="zh">卡号</value>
+		<value xml:lang="en">Card No.</value>
+		<value xml:lang="ru">номер карты</value>
+	</property>
+	<property key="PortalUserPayValidDate">
+		<value xml:lang="zh">有效日期</value>
+		<value xml:lang="en">Valid Date</value>
+		<value xml:lang="ru">Дата вступления</value>
+	</property>
+	<property key="PortalUserPayVerifyCode">
+		<value xml:lang="zh">附加码</value>
+		<value xml:lang="en">VerifyCode</value>
+		<value xml:lang="ru">VerifyCode</value>
+	</property>
+	<property key="PortalUserPayBillingAddress">
+		<value xml:lang="zh">账单地址</value>
+		<value xml:lang="en">Billing Address</value>
+		<value xml:lang="ru">Платежный адрес</value>
+	</property>
+	<property key="PortalUserPayContactPerson">
+		<value xml:lang="zh">联系人</value>
+		<value xml:lang="en">Contact Person</value>
+		<value xml:lang="ru">Контактное лицо</value>
+	</property>
+	<property key="PortalUserPayZipCode">
+		<value xml:lang="zh">邮编</value>
+		<value xml:lang="en">Zip Code</value>
+		<value xml:lang="ru">почтовый индекс</value>
+	</property>
+	<property key="PortalUserPayTelephone">
+		<value xml:lang="zh">联系电话</value>
+		<value xml:lang="en">Telephone</value>
+		<value xml:lang="ru">телефон</value>
+	</property>
+	<property key="PortalUserPayAddress">
+		<value xml:lang="zh">联系地址</value>
+		<value xml:lang="en">Address</value>
+		<value xml:lang="ru">адрес</value>
+	</property>
+	<property key="PortalUserPayConfirmPayment">
+		<value xml:lang="zh">确认支付</value>
+		<value xml:lang="en">Confirm Payment</value>
+		<value xml:lang="ru">Подтвердите платеж</value>
+	</property>
+
+	<property key="PortalDetailsCf">
+		<value xml:lang="zh">商品细节 </value>
+		<value xml:lang="en">Product Details</value>
+		<value xml:lang="ru">Подробнее</value>
+	</property>
+	<property key="PortalItemSepcCf">
+		<value xml:lang="zh">商品属性 </value>
+		<value xml:lang="en">Item specifics</value>
+		<value xml:lang="ru">Подробнее</value>
+	</property>
+	
+	<property key="ProductDescriptionCf">
+		<value xml:lang="zh">商品简介 </value>
+		<value xml:lang="en">Product Description</value>
+		<value xml:lang="ru">Описание Продукта</value>
+	</property>
+	
+	<property key="PortalDescriptionCf">
+		<value xml:lang="zh">商品描述  </value>
+		<value xml:lang="en">Product Description</value>
+		<value xml:lang="ru">описание продукта</value>
+	</property>
+
+	<property key="PortalSellersCf">
+		<value xml:lang="zh">其他卖家 </value>
+		<value xml:lang="en">Other sellers</value>
+		<value xml:lang="ru">Другие продавцы</value>
+	</property>
+
+	<property key="PortalWatchedCf">
+		<value xml:lang="zh">其他人还看了</value>
+		<value xml:lang="en">Other people also watched</value>
+		<value xml:lang="ru">Другие люди также смотрели</value>
+	</property>
+
+	<property key="PortalBuyNowCf">
+		<value xml:lang="zh">现在购买</value>
+		<value xml:lang="en">Buy It Now</value>
+		<value xml:lang="ru">Купи это сейчас</value>
+	</property>
+
+	<property key="PortalAddtoCartCf">
+		<value xml:lang="zh">加入购物车</value>
+		<value xml:lang="en">Add to Cart</value>
+		<value xml:lang="ru">Добавить в корзину</value>
+	</property>
+
+	<property key="PortalShareCf">
+		<value xml:lang="zh">分享</value>
+		<value xml:lang="en">share</value>
+		<value xml:lang="ru">Поделись</value>
+	</property>
+
+	<property key="PortalBuyerProtectionCf">
+		<value xml:lang="zh">买家保护</value>
+		<value xml:lang="en">Buyer Protection</value>
+		<value xml:lang="ru">защиты Покупателей</value>
+	</property>
+
+	<property key="PortalAfullrefundCf">
+		<value xml:lang="zh">全额退款</value>
+		<value xml:lang="en">A full refund</value>
+		<value xml:lang="ru">Полный возврат</value>
+	</property>
+
+	<property key="PortalRefundorKeepCf">
+		<value xml:lang="zh">部分退款</value>
+		<value xml:lang="en">Partial refund</value>
+		<value xml:lang="ru">Частичное возмещение</value>
+	</property>
+
+	<property key="PortalIfyourOrderCf">
+		<value xml:lang="zh">收不到商品，可全额退款。</value>
+		<value xml:lang="en">Not receive the goods, a full refund.</value>
+		<value xml:lang="ru">Не получить товар, полный возврат средств.</value>
+	</property>
+
+	<property key="PortalItemsDescribedKeepCf">
+		<value xml:lang="zh">商品与描述不符合，可部分退款并保留商品。</value>
+		<value xml:lang="en">Does not comply with the description of goods can be a partial refund and keep the merchandise.</value>
+		<value xml:lang="ru">Не соответствует описанию товаров может быть частичное возмещение и держать товар.</value>
+	</property>
+
+	<property key="PortalSellerCf">
+		<value xml:lang="zh">卖家信息</value>
+		<value xml:lang="en">Seller</value>
+		<value xml:lang="ru">продавец</value>
+	</property>
+
+	<property key="SellerCf">
+		<value xml:lang="zh">卖家</value>
+		<value xml:lang="en">Seller</value>
+		<value xml:lang="ru">продавец</value>
+	</property>
+	
+	<property key="PortalPaymentMethodCf">
+		<value xml:lang="zh">付款方法</value>
+		<value xml:lang="en">Payment Method</value>
+		<value xml:lang="ru">Способ оплаты</value>
+	</property>
+	<property key="PortalPayment">
+		<value xml:lang="zh">付款</value>
+		<value xml:lang="en">Payment</value>
+		<value xml:lang="ru">Способ</value>
+	</property>
+	<property key="PortalPaymentApplyRefund">
+		<value xml:lang="zh">申请退款</value>
+		<value xml:lang="en">Apply Refund</value>
+		<value xml:lang="ru">возврата денег</value>
+	</property>
+	<property key="PortalPaymentCancellationRequest">
+		<value xml:lang="zh">取消申请</value>
+		<value xml:lang="en">Cancellation Request</value>
+		<value xml:lang="ru">Аннулирование</value>
+	</property>
+
+	<property key="PortalAllEshoreProtectCf">
+		<value xml:lang="zh">所有支付方式都是安全的，并且受到商城“服务承诺”的保护.</value>
+		<value xml:lang="en">All payment methods are safe, and by the E shore
+			"service commitment" to protect.</value>
+		<value xml:lang="ru">Все способы оплаты являются безопасными, а также
+			E берег "сервис приверженности" для защиты.</value>
+	</property>
+
+	<property key="PortalWatchOutCf">
+		<value xml:lang="zh">注意：</value>
+		<value xml:lang="en">Watch out</value>
+		<value xml:lang="ru">осторожно</value>
+	</property>
+
+	<property key="PortalOrdersPassCf">
+		<value xml:lang="zh">下单时你的款项是支付给了商城而不是卖家，只有在你确认已经收到商品以后商城才会放款给卖家。而且卖家不会得到你的任何支付细节信息</value>
+		<value xml:lang="en">Orders when your payment is made to the E shore
+			pass rather than the seller only after you have received confirmation
+			of goods E shore lenders will pass to the seller. And the seller will
+			not get any of your payment details</value>
+		<value xml:lang="ru">Заказы, когда ваша компенсация сделана по
+			электронной берега пройти, а не продавцу только после того, как
+			получили подтверждение товаров E береговых кредиторов перейдет к
+			продавцу. И продавец не получить любой из ваших платежных реквизитов</value>
+	</property>
+
+	<property key="PortalReturnProuductCf">
+		<value xml:lang="zh">退货规则：</value>
+		<value xml:lang="en">Return Prouduct：</value>
+		<value xml:lang="ru">Возвращение политики:</value>
+	</property>
+
+	<property key="PortalOrdersYourPaymentCf">
+		<value xml:lang="zh">商品与描述不符合可以退货，但运费由买家承担；买家也可以选择保留商品并获得部分退款。</value>
+		<value xml:lang="en">Orders when your payment is made to the E shore
+			pass rather than the seller only after you have received confirmation
+			of goods E shore lenders will pass to the seller. And the seller will
+			not get any of your payment details.</value>
+		<value xml:lang="ru">Не соответствует описанию товаров может быть
+			возвращен, но перевозка оплачивается покупателем; покупатели могут
+			также выбрать, чтобы сохранить товар и получить частичное возмещение.</value>
+	</property>
+
+	<property key="PortalTheSellerPromisesCf">
+		<value xml:lang="zh">卖方承诺:</value>
+		<value xml:lang="en">The seller promises:</value>
+		<value xml:lang="ru">ПРОДАВЕЦ обещания:</value>
+	</property>
+
+	<property key="PortalDeliveryontimeCf">
+		<value xml:lang="zh">准时送货</value>
+		<value xml:lang="en">Delivery on time</value>
+		<value xml:lang="ru">Доставка по времени</value>
+	</property>
+
+	<property key="PortalDaysCf">
+		<value xml:lang="zh">天</value>
+		<value xml:lang="en">days</value>
+		<value xml:lang="ru">день</value>
+	</property>
+
+	<property key="PortalMonthsCf">
+		<value xml:lang="zh">个</value>
+		<value xml:lang="en">Months</value>
+		<value xml:lang="ru">месяцы</value>
+	</property>
+
+	<property key="PortalPriceCf">
+		<value xml:lang="zh">价            格</value>
+		<value xml:lang="en">Price</value>
+		<value xml:lang="ru">цена</value>
+	</property>
+
+	<property key="PortalQuantityCf">
+		<value xml:lang="zh">数            量</value>
+		<value xml:lang="en">Quantity</value>
+		<value xml:lang="ru">количество</value>
+	</property>
+
+	<property key="PortalGlobalSpeedSoldTypeCf">
+		<value xml:lang="zh">类别</value>
+		<value xml:lang="en">Category</value>
+		<value xml:lang="ru">категории </value>
+	</property>
+	<!-- cfcfcfcfcf -->
+	<property key="PortalGoods111Cf">
+		<value xml:lang="zh">最佳匹配</value>
+		<value xml:lang="en">Best Match</value>
+		<value xml:lang="ru">Лучший матч</value>
+	</property>
+
+	<property key="PortalGoods222Cf">
+		<value xml:lang="zh">销量</value>
+		<value xml:lang="en">Sales</value>
+		<value xml:lang="ru">продажа</value>
+	</property>
+
+	<property key="PortalGoods333Cf">
+		<value xml:lang="zh">上架时间</value>
+		<value xml:lang="en">Added time</value>
+		<value xml:lang="ru">Добавил время </value>
+	</property>
+
+	<property key="PortalGoods444Cf">
+		<value xml:lang="zh">相关搜索</value>
+		<value xml:lang="en">Related Searches</value>
+		<value xml:lang="ru">Популярные запросы </value>
+	</property>
+
+	<property key="PortalGoods555Cf">
+		<value xml:lang="zh">类目 </value>
+		<value xml:lang="en">Category</value>
+		<value xml:lang="ru">категория</value>
+	</property>
+
+	<property key="PortalGoods666Cf">
+		<value xml:lang="zh">税率</value>
+		<value xml:lang="en">Tax rate</value>
+		<value xml:lang="ru">ставка налога</value>
+	</property>
+
+	<property key="PortalGoods777Cf">
+		<value xml:lang="zh">运费</value>
+		<value xml:lang="en">Freight</value>
+		<value xml:lang="ru">грузовой</value>
+	</property>
+
+	<property key="PortalFavoriteCf">
+		<value xml:lang="zh">收藏商品</value>
+		<value xml:lang="en">Favorite</value>
+		<value xml:lang="ru">любимый</value>
+	</property>
+
+	<property key="FavoriteProductCf">
+		<value xml:lang="zh">收藏的商品</value>
+		<value xml:lang="en">Favorite Product</value>
+		<value xml:lang="ru">любимый продукт</value>
+	</property>
+
+	<property key="ShopFavoritesCf">
+		<value xml:lang="zh">收藏的店铺</value>
+		<value xml:lang="en">Shop Favorites</value>
+		<value xml:lang="ru">Любимые магазины</value>
+	</property>
+
+	<property key="ConfirmCollectionCf">
+		<value xml:lang="zh">确认收藏</value>
+		<value xml:lang="en">Confirm Collection</value>
+		<value xml:lang="ru">Подтвердите Коллекция</value>
+	</property>
+
+	<property key="UnsubscribeCf">
+		<value xml:lang="zh">取消收藏</value>
+		<value xml:lang="en">Unsubscribe</value>
+		<value xml:lang="ru">Отказаться от подписки</value>
+	</property>
+
+	<property key="SerialnumberCf">
+		<value xml:lang="zh">店铺名称</value>
+		<value xml:lang="en">Store Name</value>
+		<value xml:lang="ru">Сохранение имени</value>
+	</property>
+
+	<property key="ProductNameCf">
+		<value xml:lang="zh">商品名称</value>
+		<value xml:lang="en">Product Name</value>
+		<value xml:lang="ru">Наименование</value>
+	</property>
+
+	<property key="HascollectionsCf">
+		<value xml:lang="zh">已收藏</value>
+		<value xml:lang="en">Has collections</value>
+		<value xml:lang="ru">Имеет коллекции</value>
+	</property>
+
+	<property key="ProductAdvisoryCf">
+		<value xml:lang="zh">产品咨询</value>
+		<value xml:lang="en">Product Advisory</value>
+		<value xml:lang="ru">Консультативный товаров</value>
+	</property>
+
+
+	<property key="MyapplicationCf">
+		<value xml:lang="zh">我的应用</value>
+		<value xml:lang="en">My application</value>
+		<value xml:lang="ru">Мое приложение</value>
+	</property>
+
+	<property key="PropertyPaymentCf">
+		<value xml:lang="zh">物业缴费</value>
+		<value xml:lang="en">Property Payment</value>
+		<value xml:lang="ru">имущественного взноса</value>
+	</property>
+
+	<property key="AppointmentregistrationCf">
+		<value xml:lang="zh">预约挂号</value>
+		<value xml:lang="en">Appointment registration</value>
+		<value xml:lang="ru">регистрация Назначение</value>
+	</property>
+
+	<property key="PortalUserRefundsApplication">
+		<value xml:lang="zh"> 退款申请 </value>
+		<value xml:lang="en"> Refunds Application </value>
+		<value xml:lang="ru"> Возврат Применение </value>
+	</property>
+
+	<property key="PortalUserMyRefunds">
+		<value xml:lang="zh"> 我的退款 </value>
+		<value xml:lang="en"> My Refunds </value>
+		<value xml:lang="ru"> Мои возвраты </value>
+	</property>
+
+	<property key="PortalUserRefundsReasons">
+		<value xml:lang="zh"> 申请原因 </value>
+		<value xml:lang="en"> Reasons </value>
+		<value xml:lang="ru"> Причины </value>
+	</property>
+
+	<property key="PortalUserRefundsSubmit">
+		<value xml:lang="zh"> 提交退款申请 </value>
+		<value xml:lang="en"> Submit </value>
+		<value xml:lang="ru"> представлять </value>
+	</property>
+
+	<property key="PartsInventoryStatusCf">
+		<value xml:lang="zh">件     (库存</value>
+		<value xml:lang="en">Item (In stock</value>
+		<value xml:lang="ru">пункт (в наличии</value>
+	</property>
+
+	<property key="ItemCf">
+		<value xml:lang="zh">件</value>
+		<value xml:lang="en">Item</value>
+		<value xml:lang="ru">пункт</value>
+	</property>
+
+	<property key="FavoriteSellersCf">
+		<value xml:lang="zh">收藏卖家</value>
+		<value xml:lang="en">Favorite Sellers</value>
+		<value xml:lang="ru">Любимые Продавцы</value>
+	</property>
+
+	<property key="StoreNameCf">
+		<value xml:lang="zh">店铺名称</value>
+		<value xml:lang="en">Store Name</value>
+		<value xml:lang="ru">Сохранение имени</value>
+	</property>
+
+	<property key="WelcomeStoreCf">
+		<value xml:lang="zh">欢迎您来咨询商品！</value>
+		<value xml:lang="en">You are welcome to consult merchandise!</value>
+		<value xml:lang="ru">Вы можете проконсультироваться товары!</value>
+	</property>
+
+	<property key="DateCf">
+		<value xml:lang="zh">日期</value>
+		<value xml:lang="en">Date</value>
+		<value xml:lang="ru">дата</value>
+	</property>
+
+	<property key="ShopNameCf">
+		<value xml:lang="zh">店铺名</value>
+		<value xml:lang="en">Shop name</value>
+		<value xml:lang="ru">Интернет-магазин</value>
+	</property>
+
+	<property key="QuestionDateCf">
+		<value xml:lang="zh">提问日期</value>
+		<value xml:lang="en">Question Date</value>
+		<value xml:lang="ru">Вопрос Дата</value>
+	</property>
+
+	<property key="ContentCf">
+		<value xml:lang="zh">内容</value>
+		<value xml:lang="en">Content</value>
+		<value xml:lang="ru">содержание</value>
+	</property>
+
+
+	<property key="OperatingCf">
+		<value xml:lang="zh">操作</value>
+		<value xml:lang="en">Operating</value>
+		<value xml:lang="ru">операционная</value>
+	</property>
+
+	<property key="CheckWithTheOperatingCf">
+		<value xml:lang="zh">查看与操作</value>
+		<value xml:lang="en">Check with the operating</value>
+		<value xml:lang="ru">Проверьте с эксплуатации</value>
+	</property>
+
+	<property key="BuyerInquiryCf">
+		<value xml:lang="zh">买家询问</value>
+		<value xml:lang="en">Buyer inquiry</value>
+		<value xml:lang="ru">Покупатель запрос</value>
+	</property>
+
+	<property key="SellersAnswerCf">
+		<value xml:lang="zh">卖家回答</value>
+		<value xml:lang="en">Sellers answer</value>
+		<value xml:lang="ru">Продавцы ответить</value>
+	</property>
+
+	<property key="BuyersQuestionCf">
+		<value xml:lang="zh">买家提问</value>
+		<value xml:lang="en">Buyers Question</value>
+		<value xml:lang="ru">Покупатели Вопрос</value>
+	</property>
+
+	<property key="TimeCf">
+		<value xml:lang="zh">时间</value>
+		<value xml:lang="en">Time</value>
+		<value xml:lang="ru">время</value>
+	</property>
+
+	<property key="QuestionCf">
+		<value xml:lang="zh">提问</value>
+		<value xml:lang="en">Question</value>
+		<value xml:lang="ru">вопрос</value>
+	</property>
+
+	<property key="AdvisorycontentlistCf">
+		<value xml:lang="zh">用户咨询内容列表</value>
+		<value xml:lang="en">Advisory content list</value>
+		<value xml:lang="ru">Консультативный списке содержимого</value>
+	</property>
+
+	<property key="TransactionCf">
+		<value xml:lang="zh">交易</value>
+		<value xml:lang="en">Transaction</value>
+		<value xml:lang="ru">сделка</value>
+	</property>
+
+	<property key="AdvisoryCf">
+		<value xml:lang="zh">用戶咨询</value>
+		<value xml:lang="en">Advisory</value>
+		<value xml:lang="ru">консультативный</value>
+	</property>
+
+	<property key="UserconsultationdetailsCf">
+		<value xml:lang="zh">用戶咨询详情</value>
+		<value xml:lang="en">User consultation details</value>
+		<value xml:lang="ru">Детали консультаций с пользователями</value>
+	</property>
+
+	<property key="DeliverytimecostCf">
+		<value xml:lang="zh">送货时间 | 费用</value>
+		<value xml:lang="en">Delivery time | cost</value>
+		<value xml:lang="ru">Время доставки и стоимость</value>
+	</property>
+	
+	<property key="PaymentCf">
+		<value xml:lang="zh">支付方式 </value>
+		<value xml:lang="en">Payment</value>
+		<value xml:lang="ru">оплата</value>
+	</property>
+	
+	<property key="BuyerReviewsCf">
+		<value xml:lang="zh">买家评论 </value>
+		<value xml:lang="en">Buyer Reviews</value>
+		<value xml:lang="ru">Покупатель Отзывы</value>
+	</property>
+	
+	<property key="PortalBestSellingCf">
+		<value xml:lang="zh">此卖家畅销商品</value>
+		<value xml:lang="en">This seller selling merchandise</value>
+		<value xml:lang="ru">Этот продавец продает товар</value>
+	</property>
+	
+	<property key="PortalHotNewCf">
+		<value xml:lang="zh">此卖家新品上架</value>
+		<value xml:lang="en">This seller Newly Listed</value>
+		<value xml:lang="ru">Этот продавец Недавно в списке</value>
+	</property>
+	
+	<property key="RecommendedsellerCf">
+		<value xml:lang="zh">将卖家推荐给朋友</value>
+		<value xml:lang="en">The seller Tell a Friend</value>
+		<value xml:lang="ru">Продавец Рассказать другу</value>
+	</property>
+	
+	<property key="AccessSellerStoreCf">
+		<value xml:lang="zh">访问卖家店铺</value>
+		<value xml:lang="en">Access Seller's Store</value>
+		<value xml:lang="ru">Доступа к магазину продавца</value>
+	</property>
+	
+	<property key="FreeShippingCf">
+		<value xml:lang="zh">免运费</value>
+		<value xml:lang="en">Free Shipping</value>
+		<value xml:lang="ru">Бесплатная Доставка</value>
+	</property>
+	
+	<property key="SuccessInquiryCf">
+		<value xml:lang="zh">咨询成功！</value>
+		<value xml:lang="en">Success inquiry！</value>
+		<value xml:lang="ru">Успех запрос!</value>
+	</property>
+	
+	<!-- <property key="PortalUserPayContinuedPayment"> <value xml:lang="zh">确认订单</value> 
+		<value xml:lang="en">Confirm Order</value> <value xml:lang="ru">Дальнейшее 
+		оплата</value> </property> <property key="EcommerceSupportServices"> <value 
+		xml:lang="zh">支持服务</value> <value xml:lang="en">Support services</value> 
+		<value xml:lang="ru">Служба поддержки</value> </property> <property key="EcommerceTrademarkOwnersReport"> 
+		<value xml:lang="zh">商标所有者报告</value> <value xml:lang="en">Trademark Owners 
+		Report</value> <value xml:lang="ru">Отчет о владельце торговой марки</value> 
+		</property> <property key="EcommerceShoppingGuide"> <value xml:lang="zh">购物指南</value> 
+		<value xml:lang="en">Shopping Guide</value> <value xml:lang="ru">Руководство 
+		покупки</value> </property> <property key="EcommerceRegisterAndLogin"> <value 
+		xml:lang="zh">注册登录</value> <value xml:lang="en">Login Register</value> <value 
+		xml:lang="ru">Для входа в систему регистрации</value> </property> <property 
+		key="EcommerceDeliveryMethods"> <value xml:lang="zh">配送方式</value> <value 
+		xml:lang="en">Delivery Methods</value> <value xml:lang="ru">Доставка способ</value> 
+		</property> <property key="EcommerceAfterSaleService"> <value xml:lang="zh">售后服务</value> 
+		<value xml:lang="en">After-sale Service</value> <value xml:lang="ru">Послепродажное 
+		обслуживание</value> </property> <property key="EcommerceMethodsOfPayment"> 
+		<value xml:lang="zh">支付方式</value> <value xml:lang="en">Methods Of Payment</value> 
+		<value xml:lang="ru">Способ платежа</value> </property> -->
+</resource>

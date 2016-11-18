@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of Manage Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+    
+    <!-- 首页广告 -->
+	<entity entity-name="PageSetting" package-name="org.ofbiz.page.pagesetting"
+		title="Page Setting Company Entity">
+		<description>广告位设置表</description>
+		<field name="pageSettingId" type="id-ne"></field>
+		<field name="advertisingZName" type="name"></field>
+		<field name="advertisingYName" type="name"></field>
+		<field name="advertisingEName" type="name"></field>
+		<field name="describePage" type="description"></field>
+		<field name="fontName" type="name"></field>
+		<field name="describeFont" type="description"></field>
+		<field name="pageLogoImage" type="url"></field>
+		<field name="pageJumpImage" type="url"></field>
+		<field name="startTime" type="date-time"></field>
+		<field name="failureTime" type="date-time"></field>
+		<field name="gradingType" type="name"><description>哪一级的页面</description></field>
+		<field name="advertisingPosition" type="name"><description>位置</description></field>
+		<field name="gradingChildTwoType" type="name"><description>下属分级的那层</description></field>
+	    <field name="status" type="name"></field>
+		
+		<prim-key field="pageSettingId" />
+	</entity>
+	
+	   	<!-- 公告设置表 -->
+	<entity entity-name="MessageSet" package-name="org.ofbiz.page.pagesetting"
+		title="Message Setting Company Entity">
+		<description>公告设置表</description>
+		<field name="messageId" type="id-ne"></field>
+		<field name="messageTitle" type="name"></field>
+		<field name="messageContent" type="description"></field>
+		<field name="startTime" type="date-time"></field>
+		<field name="failureTime" type="date-time"></field>
+	    <field name="status" type="name"><description>公告显示/不显示 标记.</description></field>
+	    <field name="releases" type="name"><description>公告发布/不显示 发布.</description></field>
+		
+		<prim-key field="messageId" />
+	</entity>
+	<!-- 帮助分类 -->
+	<entity entity-name="HelpClassification" package-name="org.ofbiz.page.pagesetting"
+		title="HelpClassification Company Entity">
+		<description>help class ification</description>
+		<field name="helpClassId" type="id-ne"></field>
+		<field name="classificationName" type="name"><description>分类名称</description></field>
+		<field name="classificationShow" type="name"><description>站点下方显示</description></field>
+		<field name="classificationDelete" type="name"><description>删除状态</description></field>
+		<prim-key field="helpClassId" />
+	</entity>
+	<!-- 帮助信息 -->
+	<entity entity-name="HelpInformation" package-name="org.ofbiz.page.pagesetting"
+		title="HelpInformation Company Entity">
+		<description>help information</description>
+		<field name="helpPageInfoId" type="id-ne"></field>
+		<field name="helpClassId" type="id-ne"></field>
+		<field name="helpTitleName" type="name"><description>分类名称.</description></field>
+		<field name="longHelpInfo" type="very-long"><description>信息内容.</description></field>
+		<field name="helpStatus" type="name"><description>删除信息/显示.</description></field>
+		<prim-key field="helpPageInfoId" />
+		<relation type="one" fk-name="HELP_INFORMATIONS" rel-entity-name="HelpClassification">
+	        <key-map field-name="helpClassId"/>
+	    </relation>
+	</entity>
+	
+	<!-- 页面推荐卖家 -->
+	<entity entity-name="RecommendedSeller" package-name="org.ofbiz.page.pagesetting"
+		title="RecommendedSeller Company Entity">
+		<description>information</description>
+		<field name="recommendedSellerId" type="id-ne"></field>
+		<field name="productStoreId" type="name"><description>推荐卖家ID.</description></field>
+		<field name="status" type="name"><description>删除信息/显示.</description></field>
+		<prim-key field="recommendedSellerId" />
+	</entity>
+	
+	<!-- 页面推荐品类 -->
+	<entity entity-name="RecommendedCategory" package-name="org.ofbiz.page.pagesetting"
+		title="RecommendedCategory Company Entity">
+		<description>information</description>
+		<field name="recommendedCategoryId" type="id-ne"></field>
+		<field name="productCategoryId" type="name"><description>推荐品类ID.</description></field>
+		<field name="status" type="name"><description>删除信息/显示.</description></field>
+		<prim-key field="recommendedCategoryId" />
+	</entity>
+	
+
+
+</entitymodel>

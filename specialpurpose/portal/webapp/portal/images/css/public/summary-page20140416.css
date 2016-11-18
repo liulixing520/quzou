@@ -1,0 +1,103 @@
+.col-main-warp{float:left;margin:0 240px 0 160px;width:550px;_display:inline}
+/*col-main-warp*/
+.dashed-line{overflow:hidden;height:0px;border-bottom:1px dashed #bdcdda;}
+.main-title{overflow:hidden;padding: 0 10px;height:26px;border-bottom:1px solid #e7e7e7;border-top:1px solid #fff;background:#f3f3f3}
+.main-title h2{line-height:26px;font-size:14px;}
+.main-title h2 .time{font-size:12px;font-weight:normal}
+.seller-center,.info-cue,.need-attent{padding:10px 10px 10px 20px;line-height:26px;}
+.data-analyse{padding:10px 10px 10px 30px;line-height:26px;}
+.seller-information{position:relative;margin-bottom:10px;padding:1px;border:1px solid #d0dfeb;}
+.main-titledata{overflow:hidden;padding: 0 10px;height:26px;border-bottom:1px solid #e7e7e7;border-top:1px solid #fff;background:#f3f3f3 }
+.main-titledata h2{float:left;line-height:26px;font-size:14px;}
+.main-titledata .more{float:right;line-height: 26px;}
+.main-boxdata{padding: 10px 10px 10px 10px;line-height: 26px;margin-bottom:10px;}
+.main-boxdata .marginb10{margin-bottom:10px;}
+/*.seller-information .aposlink{position:absolute;top:15px;right:17px;}*/
+.seller-information .greybutton1{position:absolute;top:10px;right:10px;}
+.seller-center{background:#eff8ff;}
+.info-cue{background:#f5fbff;}
+.info-cue li{line-height:18px;padding:3px 0;}
+.info-authenticn{padding:8px 10px 8px 20px;border-bottom:1px solid #e5eff6;margin-bottom:1px;}
+.info-authenticn li{line-height:18px;}
+.seller-type dt,.seller-type dd,.grade-info,.seller-grade{float:left;}
+.seller-type dd{margin-right:15px;padding-right:15px;background:url(http://image.dhgate.com/dhs/mos/image/summary/icon-bg.png) no-repeat right -80px;}
+.seller-type .last{margin-right:0px;background:none}
+.seller-type a{color:#444;text-decoration:underline;}
+.seller-type a:hover{color:#900;text-decoration:underline;}
+.seller-grade{display:inline-block;margin:6px 5px 0px 0;width:97px;height:14px;cursor:pointer;background:url(http://image.dhgate.com/dhs/mos/image/summary/bg.png) no-repeat 0 -52px;}
+.seller-grade span{float:left;height:14px;width:80%;background:url(http://image.dhgate.com/dhs/mos/image/summary/bg.png) no-repeat 0 -38px;}
+/* seller-percentage */
+.seller-percentage span{margin-right:2px;}
+.seller-percentage span em{font-weight: normal;font-weight:400;color:#f50;padding:0 5px;}
+.seller-center .ruleMsg span{margin:0 5px;}
+.validate-fail{color:#FB5501;}
+.need-attent dt{float:left;width:65px;}
+.need-attent dd{float:left;width:452px;color:#ababab;}
+.order-form li,.my-product li{overflow:hidden;float:left;width:150px;height:26px;line-height:26px;}
+.overseas-need li{position:relative;}
+.overseas-need li a{position:absolute;left:10px;top:0;}
+.overseas-need li span{position:relative;float:right;padding-left:20px;background:#fff;}
+/*lht 20130913 data
+.data-analyse{margin-bottom:10px;}
+.my-exposure{overflow:hidden;float:left;width:250px;text-align:center}
+.buyer-distribute{overflow:hidden;float:right;width:250px;text-align:center}*/
+.seller-problem ul,.overseas-need ul{padding:10px 15px 10px 20px;}
+.seller-problem li,.overseas-need li,.notice-infor li{overflow:hidden;padding-left:10px;height:24px;line-height:24px;background:url(http://image.dhgate.com/dhs/mos/image/summary/icon-bg.png) no-repeat -3px -21px;}
+.seller-problem li{float:left;margin-right:6px;width:150px;}
+/*新手上路*/
+.newseller-remind{padding:4px;margin-bottom:10px;border:1px solid #f2e9d5;background:#fff9e1;}
+.remind-con{border:1px solid #f7eedb;background:#ffffff;}
+.notice-infor{padding:10px 15px;border-top:1px solid #edead6;background:#fefdf5;}
+.flow-title{position:relative;padding:0 10px;height:30px;border-bottom:1px solid #f3f3f3;}
+.flow-title h3{position:absolute;top:5px;left:10px;font-size:14px;}
+.flow-title h3 span{font-size:12px;font-weight:normal;}
+.step-pic{padding:10px 0;}
+.newseller-remind-close{overflow:hidden;position:absolute;top:10px;right:10px;height:11px;width:11px;background:url(http://image.dhgate.com/dhs/mos/image/summary/bg.png) -11px -67px;}
+.newseller-remind-close:hover{background:url(http://image.dhgate.com/dhs/mos/image/summary/bg.png) -0px -67px;}
+/*右下角弹出窗口*/
+#messagePop{display:none;position:fixed;bottom:0;right:0;_position:absolute;_top: expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight);width:320px;border:1px solid #d6d5d5;}
+.message-title{position:relative;height:24px;}
+.message-title h3{position:absolute;top:0px;left:5px;font-weight:normal;color:#000000;}
+.message-title .message-close{overflow:hidden;position:absolute;top:5px;right:5px;height:10px;width:10px;background:url(http://image.dhgate.com/dhs/mos/image/summary/bg.png) 0px -7px;}
+.message-con{padding:6px;border-top:1px solid #f3f3f3;background:#ededed;}
+.message-main{padding:10px 15px 15px;line-height:20px;border:1px solid #e9e9e9;background:#ffffff;}
+.message-main h4{margin-bottom:5px;color:#fb5501;text-align:center;}
+/*一键达身份认证 提示层 开始*/
+.my-product li.totipposbox {overflow:visible;position:relative;}
+.totipposbox{position:relative;}
+.totipposbox-service{position:absolute;top:28px;right:-68px;width:238px;}
+.eval-service{position:absolute;top:0px;right:0px;z-index:5;padding:10px 10px 10px 10px;height:32px;width:218px;line-height:18px;color:#444444;border:1px solid #efd392;background:#ffffe5;}
+.eval-service b{position:absolute;top:-6px;right:110px;width:11px;height:6px;background:url(http://image.dhgate.com/dhs/mos/image/public/tip-top.png) no-repeat 0px 0px;}
+.atipsclose{position:absolute;bottom:5px;right:10px;color:#3366cc;}
+.atipsclose:hover{color:#900;}
+.xtipsClose{overflow:hidden;position:absolute;top:5px;right:5px;z-index:9;height:11px;width:11px;background:url(http://image.dhgate.com/dhs/mos/image/public/common-bg.png) -11px -67px;}
+.xtipsClose:hover{background:url(http://image.dhgate.com/dhs/mos/image/public/common-bg.png) -0px -67px;}
+.eval-shadow {position:absolute;top:2px;left:2px;z-index:1;height:54px;width:238px;background:#dddddd;opacity:0.7;filter:alpha(opacity=70);}
+/*一键达身份认证 提示层 结束*/
+/*佣金返还*/
+.commission-warp{margin-bottom:10px;padding:10px;border:1px solid #e6e6e6;border-top-width:3px;background:#f6f6f6;}
+.commission-warp h2{margin-bottom:10px;font-weight:700;color:#000;}
+.commission-warp strong,.commission-warp p span{color:#fb5501;white-space:nowrap;}
+.commission-warp p{margin-bottom:15px;}
+.commission-warp p a{text-decoration:underline;white-space:nowrap;}
+.commission-warp .bigyellow-button{font-size:12px;font-weight:normal;}
+.commission-warp .bigyellow-button span{width:148px;text-align:center;}
+/*招行贷款弹层*/
+.loan-checkbox{margin-right:5px; vertical-align:middle;}
+#popMask{position:absolute; z-index:9998; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.5; filter:alpha(opacity=50);}
+#popMaskIframe{position:absolute; top:0; left:0; border:0; z-index:-1; opacity:0; filter:alpha(opacity=0)}
+.pop-up-wrap{position:fixed!important; _position:absolute; z-index:9999; zoom:1;}
+.loan-pop{padding:5px 0 0 140px; background:url(http://www.dhresource.com/dhs/mos/image/summary/tang.png) no-repeat;}
+.loan-tip{position:relative; margin-bottom:15px;}
+.loan-tip-con{position:relative; padding:10px 15px; border:1px solid #efd392; background:#ffffe5; z-index:2;}
+.loan-tip-title{margin-bottom:5px; font-weight:700; color:#000;}
+.loan-tip-sum{margin-right:5px; font-size:16px; color:#f60;}
+.loan-tip-arrow{position:absolute; top:35px; left:-5px; display:inline-block; width:6px; height:11px; background:url(http://www.dhresource.com/dhs/mos/image/public/seller-arrow.png) no-repeat 0 -24px; z-index:3;}
+.loan-tip-shadow{position:absolute; top:2px; left:2px; _left:-15px; width:298px; height:87px; background:#e5e5e5; z-index:1;}
+.loan-tip-list{margin-bottom:25px; font-family:\5b8b\4f53; line-height:22px;}
+.loan-pop-button{float:right;}
+
+/*xn20140324*/
+.market-resource{line-height:26px;padding:10px 10px 10px 20px;}
+.market-resource li{float:left; width:auto; margin-right:35px;}
+.market-resource li .number-link{padding:0;}

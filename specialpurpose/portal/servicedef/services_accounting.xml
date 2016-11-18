@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Accounting Services</description>
+    <vendor>OFBiz</vendor>
+    <version>1.0</version>
+
+
+	<!-- Commission -->
+	<service name="createEbizCommissionInvoices" engine="java"
+        location="org.ofbiz.accounting.invoice.EbizInvoiceServices" invoke="createCommissionInvoices">
+        <description>
+            Create commission invoice for the list of sales invoices.  
+            Returns a List of Maps, one for each invoice created containing: 
+                commissionInvoiceId: the invoiceId of the invoice created 
+                salesRepresentative: the invoice partyIdFrom 
+        </description>
+        <attribute name="partyIds" type="List" mode="IN" optional="true"/>
+        <attribute name="invoiceIds" type="List" mode="IN" optional="false"/>
+        <attribute name="invoiceItemTypeId" type="String" mode="IN" optional="false" default-value="INV_FPROD_ITEM"/>
+        <attribute name="invoicesCreated" type="List" mode="OUT" optional="true"/>
+    </service>
+ 
+ 	<service name="getCommissionForParty" engine="java"
+                location="org.ofbiz.accounting.agreement.EbizAgreementServices" invoke="getCommissionForParty" auth="true">
+        <description>Get commission receiving parties and amounts for a party. &lt;br/&gt;
+            amount input is for the entire quantity. &lt;br/&gt;&lt;br/&gt;
+            Returns a List of Maps each containing &lt;br/&gt;
+            partyIdFrom     String  commission paying party &lt;br/&gt;
+            partyIdTo       String  commission receiving party &lt;br/&gt;
+            commission      BigDecimal  Commission &lt;br/&gt;
+            days            Long    term days &lt;br/&gt;
+            currencyUomId   String  Currency &lt;br/&gt;
+            If no quantity is specified, defaults to one (1).
+        </description>
+        <permission-service service-name="acctgCommissionPermissionCheck" main-action="VIEW"/>
+        <attribute name="partyIdFrom" type="String" mode="IN" optional="true"/>
+        <attribute name="partyIdTo" type="String" mode="IN" optional="false"/>
+        <attribute name="invoiceId" type="String" mode="IN" optional="true"/>
+        <attribute name="invoiceItemSeqId" type="String" mode="IN" optional="true"/>
+        <attribute name="invoiceItemTypeId" type="String" mode="IN" optional="false"/>
+        <attribute name="amount" type="BigDecimal" mode="IN" optional="false"/>
+        <attribute name="quantity" type="BigDecimal" mode="IN" optional="true"/>
+        <attribute name="commissions" type="List" mode="OUT" optional="false"/>
+    </service>
+    
+    <!-- Payment -->
+    
+    <!-- Refund -->
+    <service name="payeaseRefundAckSubmit" engine="java"
+                location="org.ofbiz.accounting.thirdparty.payease.PayeaseServices" invoke="refundAckSubmit" auth="true">
+        <description>提交退款申请</description>
+        <attribute name="productStoreId" type="String" mode="IN" optional="false"/>
+        <attribute name="v_mid" type="String" mode="IN" optional="false"/>
+        <attribute name="v_oid" type="String" mode="IN" optional="false"/>
+        <attribute name="v_refamount" type="String" mode="IN" optional="false"/>
+        <attribute name="v_refreason" type="String" mode="IN" optional="true"/>
+        <attribute name="v_refoprt" type="String" mode="IN" optional="true"/>
+        <attribute name="v_mac" type="String" mode="IN" optional="true"/>
+        <attribute name="content" type="String" mode="OUT" optional="true"/>
+        <attribute name="xmlContent" type="String" mode="OUT" optional="true"/>
+        <attribute name="refmessage" type="Map" mode="OUT" optional="true"/>
+    </service>
+    <service name="payeaseRefundAckOidList" engine="java"
+                location="org.ofbiz.accounting.thirdparty.payease.PayeaseServices" invoke="refundAckOidList" auth="true">
+        <description>退款订单查询</description>
+        <attribute name="productStoreId" type="String" mode="IN" optional="false"/>
+        <attribute name="v_mid" type="String" mode="IN" optional="false"/>
+        <attribute name="v_oid" type="String" mode="IN" optional="false"/>
+        <attribute name="v_version" type="String" mode="IN" optional="false" default-value="1.1"/>
+        <attribute name="v_mac" type="String" mode="IN" optional="true"/>
+        <attribute name="content" type="String" mode="OUT" optional="true"/>
+        <attribute name="xmlContent" type="String" mode="OUT" optional="true"/>
+        <attribute name="messagehead" type="Map" mode="OUT" optional="true"/>
+        <attribute name="refundList" type="List" mode="OUT" optional="true"/>
+    </service>
+    <service name="payeaseRefundAckDayList" engine="java"
+                location="org.ofbiz.accounting.thirdparty.payease.PayeaseServices" invoke="refundAckDayList" auth="true">
+        <description>退款日期查询</description>
+        <attribute name="productStoreId" type="String" mode="IN" optional="false"/>
+        <attribute name="v_mid" type="String" mode="IN" optional="false"/>
+        <attribute name="v_ymd" type="String" mode="IN" optional="false"/>
+        <attribute name="v_version" type="String" mode="IN" optional="false" default-value="1.1"/>
+        <attribute name="v_mac" type="String" mode="IN" optional="true"/>
+        <attribute name="content" type="String" mode="OUT" optional="true"/>
+        <attribute name="xmlContent" type="String" mode="OUT" optional="true"/>
+        <attribute name="messagehead" type="Map" mode="OUT" optional="true"/>
+        <attribute name="refundList" type="List" mode="OUT" optional="true"/>
+    </service>
+    <service name="payeaseOrderAckOidList" engine="java"
+                location="org.ofbiz.accounting.thirdparty.payease.PayeaseServices" invoke="orderAckOidList" auth="true">
+        <description>单笔订单查询</description>
+        <attribute name="productStoreId" type="String" mode="IN" optional="false"/>
+        <attribute name="v_mid" type="String" mode="IN" optional="false"/>
+        <attribute name="v_oid" type="String" mode="IN" optional="false"/>
+        <attribute name="v_version" type="String" mode="IN" optional="false" default-value="1.1"/>
+        <attribute name="v_mac" type="String" mode="IN" optional="true"/>
+        <attribute name="content" type="String" mode="OUT" optional="true"/>
+        <attribute name="xmlContent" type="String" mode="OUT" optional="true"/>
+        <attribute name="messagehead" type="Map" mode="OUT" optional="true"/>
+        <attribute name="orderList" type="List" mode="OUT" optional="true"/>
+    </service>
+    	<service name="createFinAccountLog" auth="true" default-entity-name="FinAccountLog" engine="simple" invoke="createFinAccountLog" 
+    	location="component://portal/script/org/ofbiz/accounting/payment/PaymentServices.xml">
+		<description>提现申请</description>
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+		<auto-attributes mode="OUT" include="pk" optional="true"></auto-attributes>
+	</service>
+	
+	<service name="updateFinAccountLog" auth="true" default-entity-name="FinAccountLog" engine="simple" invoke="updateFinAccountLog" 
+	location="component://portal/script/org/ofbiz/accounting/payment/PaymentServices.xml">
+		<description>提现批准</description>
+		<attribute name="newStatusId" mode="IN" type="String" optional="true"></attribute>
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+		<auto-attributes mode="INOUT" include="pk" optional="true"></auto-attributes>
+	</service>
+	
+	<service name="removeFinAccountLog" auth="true" default-entity-name="FinAccountLog" engine="simple" invoke="removeFinAccountLog" 
+	location="component://portal/script/org/ofbiz/accounting/payment/PaymentServices.xml">
+		<description></description>
+		<auto-attributes mode="IN" include="pk" optional="false"></auto-attributes>
+	</service>
+ </services>

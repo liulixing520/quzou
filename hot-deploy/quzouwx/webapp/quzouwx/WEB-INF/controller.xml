@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- The controller elements that are common to all OFBiz components
+         can be found in the following xml file. A component can override the
+         elements found in the common-controller.xml file. -->
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+    <include location="component://quzou/webapp/quzou/WEB-INF/controller.xml"/>
+
+    <description>quzouwx Component Site Configuration File</description>
+
+    <!-- Events to run on every request before security (chains exempt) -->
+    <!--
+    <preprocessor>
+    </preprocessor>
+    -->
+
+    <!-- Request Mappings -->
+    <request-map uri="main">
+    	<security https="false" auth="false"/><response name="success" type="view" value="main"/>
+   	</request-map>
+   	<request-map uri="checkLogin" edit="false">
+        <description>Verify a user is logged in.</description>
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.quzouwx.WechatServices" invoke="checkLogin"/>
+        <response name="success" type="none"/>
+	    <response name="error" type="none" />
+    </request-map>
+	<!-- 个人中心 -->
+    <request-map uri="personCenter">
+    	<security https="false" auth="true"/>
+      	<event type="groovy" path="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/checkInSystem.groovy"/>  
+    	<response name="success" type="view" value="personCenter"/>
+    	<response name="error" type="view" value="firstLogin"/>
+   	</request-map>
+	<!--赛事列表 -->
+    <request-map uri="listCompetition">
+    	<security https="false" auth="true"/>
+     	<event type="groovy" path="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/checkInSystem.groovy"/> 
+    	<response name="success" type="view" value="listCompetition"/>
+    	<response name="error" type="view" value="firstLogin"/>
+   	</request-map>
+	<!--赛事详情 -->
+    <request-map uri="competitionDetail">
+    	<security https="false" auth="true"/>
+    	<response name="success" type="view" value="competitionDetail"/>
+   	</request-map>
+	<!--设置中心-->
+    <request-map uri="setCenter">
+    	<security https="false" auth="true"/>
+    	<response name="success" type="view" value="setCenter"/>
+   	</request-map>
+	<!-- 修改个人中心 -->
+    <request-map uri="updateSetCustomer">
+    	<security https="false" auth="false"/>
+    	<event type="service" invoke="updateSetCustomer"/>
+    	<response name="success" type="request-redirect" value="setCenter"/>
+   	</request-map>
+	<!--个人排行榜-->
+    <request-map uri="personRanking">
+    	<security https="false" auth="true"/>
+    	<response name="success" type="view" value="personRanking"/>
+   	</request-map>
+	<!--团队排行榜-->
+    <request-map uri="teamRanking">
+    	<security https="false" auth="true"/>
+    	<response name="success" type="view" value="teamRanking"/>
+   	</request-map>
+	<!--点赞 -->
+    <request-map uri="createRelation">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="createRelation"></event>
+    	<response name="success" type="request" value="json"/>
+    	<response name="error" type="request" value="json"/>
+   	</request-map>
+	<!--达人秀列表-->
+    <request-map uri="listTalentShow">
+    	<security https="false" auth="true"/>
+    	<event type="groovy" path="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/checkInSystem.groovy"/>
+    	<response name="success" type="view" value="listTalentShow"/>
+    	<response name="error" type="view" value="firstLogin"/>
+   	</request-map>
+	<!--达人秀详情-->
+    <request-map uri="talentDetail">
+    	<security https="false" auth="false"/>
+    	<response name="success" type="view" value="talentDetail"/>
+   	</request-map>
+	<!--查看趣走日志-->
+    <request-map uri="customerLog">
+    	<security https="false" auth="true"/>
+    	<response name="success" type="view" value="customerLog"/>
+   	</request-map>
+	<!--趣走保障-->
+    <request-map uri="quzouSecurity">
+    	<security https="false" auth="true"/>
+      	<event type="groovy" path="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/checkInSystem.groovy"/>
+    	<response name="success" type="view" value="quzouSecurity"/>
+    	<response name="error" type="view" value="firstLogin"/>
+   	</request-map>
+	<!--站内消息-->
+    <request-map uri="listWebMsg">
+    	<security https="false" auth="true"/>
+    	<event type="groovy" path="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/checkInSystem.groovy"/>
+    	<response name="success" type="view" value="listWebMsg"/>
+    	<response name="error" type="view" value="firstLogin"/>
+   	</request-map>
+	<!--第一次进入-->
+    <request-map uri="firstLogin">
+    	<security https="false" auth="false"/>
+    	<response name="success" type="view" value="firstLogin"/>
+   	</request-map>
+	<!--绑定用户-->
+    <request-map uri="bandingPartyId">
+    	<security https="false" auth="false"/>
+    	<event type="groovy" path="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/bandingPartyId.groovy"/>
+    	<response name="success" type="request" value="json"/>
+   	</request-map>
+   	<!--直接进入系统-->
+    <request-map uri="goInSystem">
+    	<security https="false" auth="false"/>
+    	<event type="groovy" path="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/goInSystem.groovy"/>
+    	<response name="success" type="request" value="json"/>
+   	</request-map>
+   	<!--清除缓存成功-->
+    <request-map uri="removeCache">
+    	<security https="false" auth="false"/>
+    	<event type="groovy" path="component://quzouwx/webapp/quzouwx/WEB-INF/actions/quzouwx/removeCache.groovy"/>
+    	<response name="success" type="request" value="json"/>
+   	</request-map>
+   	<!--我参加的活动-->
+    <request-map uri="listCompetitionJoined">
+    	<security https="false" auth="true"/>
+    	<response name="success" type="view" value="listCompetitionJoined"/>
+   	</request-map>
+   	<!--下载app-->
+    <request-map uri="downLoadApp">
+    	<security https="false" auth="false"/>
+    	<response name="success" type="view" value="downLoadApp"/>
+   	</request-map>
+    <!-- View Mappings -->
+    <view-map name="main" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#main"/>
+    <view-map name="personCenter" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#personCenter"/>
+    <view-map name="listCompetition" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#listCompetition"/>
+    <view-map name="competitionDetail" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#competitionDetail"/>
+    <view-map name="setCenter" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#setCenter"/>
+    <view-map name="personRanking" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#personRanking"/>
+    <view-map name="teamRanking" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#teamRanking"/>
+    <view-map name="listTalentShow" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#listTalentShow"/>
+    <view-map name="talentDetail" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#talentDetail"/>
+    <view-map name="customerLog" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#customerLog"/>
+    <view-map name="quzouSecurity" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#quzouSecurity"/>
+    <view-map name="listWebMsg" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#listWebMsg"/>
+    <view-map name="firstLogin" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#firstLogin"/>
+    <view-map name="listCompetitionJoined" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#listCompetitionJoined"/>
+    <view-map name="downLoadApp" type="screen" page="component://quzouwx/widget/quzouwxScreens.xml#downLoadApp"/>
+    
+</site-conf>

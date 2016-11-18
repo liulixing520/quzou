@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>     
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods-v2.xsd">
+	<!-- TODO:wangyg 添加店铺初始信息 -->
+	<simple-method method-name="createSellerProductStore" short-description="Create a Product Store">
+        
+        <!-- call the service with the system account to get around security constraints for this special create -->
+        <entity-one entity-name="UserLogin" value-field="systemUserLogin" auto-field-map="false">
+            <field-map field-name="userLoginId" value="system"/>
+        </entity-one>
+        
+        <set-service-fields service-name="createFacility" map="parameters" to-map="createFacilityCtx"/>
+        <set field="createFacilityCtx.facilityTypeId" value="Warehouse"/>
+        <set field="createFacilityCtx.facilityName" from-field="parameters.storeName"/>
+        <set field="createFacilityCtx.ownerPartyId" from-field="userLogin.partyId"/>
+        <set field="createFacilityCtx.userLogin" from-field="systemUserLogin"/>
+        <call-service service-name="createFacility" in-map-name="createFacilityCtx">
+            <result-to-field result-name="facilityId" field="parameters.inventoryFacilityId"/>
+        </call-service>
+        
+        <set-service-fields service-name="createProductStore" map="parameters" to-map="callServiceCtx"/>
+        <set field="callServiceCtx.payToPartyId" from-field="userLogin.partyId"/>
+        <set field="callServiceCtx.userLogin" from-field="systemUserLogin"/>
+        <set field="callServiceCtx.autoSaveCart" value="Y"/>
+        <log level="info" message="Call service createProductStore, callServiceCtx=${parameters}"/>
+        <call-service service-name="createProductStore" in-map-name="callServiceCtx">
+            <result-to-field result-name="productStoreId" field="parameters.productStoreId"/>
+            <result-to-result result-name="productStoreId"/>
+        </call-service>
+        <make-value value-field="newEntity" entity-name="ProductStoreRole"/>
+        <set field="newEntity.productStoreId" from-field="parameters.productStoreId"/>
+		<set field="newEntity.partyId" from-field="userLogin.partyId"/> 
+		<set field="newEntity.roleTypeId" value="OWNER"/>
+        <if-empty field="newEntity.fromDate">
+            <now-timestamp field="newEntity.fromDate"/>
+        </if-empty>
+        <create-value value-field="newEntity"/>
+        
+		<!-- 添加默认货运方式 EMS，PYSHIP，KDSHIP -->
+		<make-value value-field="pssm" entity-name="ProductStoreShipmentMeth" />
+		<sequenced-id field="pssm.productStoreShipMethId" sequence-name="ProductStoreShipmentMeth"></sequenced-id>
+		<set field="pssm.productStoreId" from-field="parameters.productStoreId"></set>
+		<set field="pssm.shipmentMethodTypeId" value="STANDARD"></set>
+		<set field="pssm.roleTypeId" value="CARRIER"></set>
+		<set field="pssm.serviceName" value="calculateShipCost"></set>
+		<set field="pssm.partyId" value="EMS"></set>
+		<create-value value-field="pssm"></create-value>
+		
+		<make-value value-field="pssm1" entity-name="ProductStoreShipmentMeth" />
+		<sequenced-id field="pssm1.productStoreShipMethId" sequence-name="ProductStoreShipmentMeth"></sequenced-id>
+		<set field="pssm1.productStoreId" from-field="parameters.productStoreId"></set>
+		<set field="pssm1.shipmentMethodTypeId" value="STANDARD"></set>
+		<set field="pssm1.roleTypeId" value="CARRIER"></set>
+		<set field="pssm1.serviceName" value="calculateShipCost"></set>
+		<set field="pssm1.partyId" value="PYSHIP"></set>
+		<create-value value-field="pssm1"></create-value>
+		
+		<make-value value-field="pssm2" entity-name="ProductStoreShipmentMeth" />
+		<sequenced-id field="pssm2.productStoreShipMethId" sequence-name="ProductStoreShipmentMeth"></sequenced-id>
+		<set field="pssm2.productStoreId" from-field="parameters.productStoreId"></set>
+		<set field="pssm2.shipmentMethodTypeId" value="STANDARD"></set>
+		<set field="pssm2.serviceName" value="calculateShipCost"></set>
+		<set field="pssm2.roleTypeId" value="CARRIER"></set>
+		<set field="pssm2.partyId" value="KDSHIP"></set>
+		<create-value value-field="pssm2"></create-value>
+		<!-- 添加代人 角色 代销使用 -->
+		<make-value value-field="newEntity" entity-name="PartyRole"/>
+		<set field="newEntity.partyId" from-field="userLogin.partyId"/> 
+		<set field="newEntity.roleTypeId" value="AGENT"/>
+        <create-value value-field="newEntity"/>
+    </simple-method>
+
+	<simple-method method-name="updateSellerProductStore" short-description="Update a Product Store">
+		<set-service-fields service-name="updateProductStore" map="parameters" to-map="callServiceCtx" />
+		<!-- call the service with the system account to get around security constraints 
+			for this special create -->
+		<entity-one entity-name="UserLogin" value-field="systemUserLogin" auto-field-map="false">
+			<field-map field-name="userLoginId" value="system" />
+		</entity-one>
+		<set field="callServiceCtx.userLogin" from-field="systemUserLogin"/>
+			
+		<make-value value-field="lookupPKMap" entity-name="ProductStoreCompany"/>
+		<set from-field="parameters.productStoreId" field="lookupPKMap.productStoreId"/>
+		
+		<log level="info" message="parameters.productStoreId=${parameters.productStoreId},  lookupPKMap.productStoreId=${lookupPKMap.productStoreId}" />
+	
+        <find-by-primary-key entity-name="ProductStoreCompany" map="lookupPKMap" value-field="store"/>
+        
+        <if-empty field="store">
+	        <make-value value-field="newPSCEntity" entity-name="ProductStoreCompany"/>
+	        <set-pk-fields map="parameters" value-field="newPSCEntity"/>
+	        <set-nonpk-fields map="parameters" value-field="newPSCEntity"/>
+	        <log level="info" message="-------------------createProductStoreCompany"/>
+	        <create-value value-field="newPSCEntity"/>
+        </if-empty>
+        <if-not-empty field="store">
+            <log level="info" message="==================" />
+	        <set-nonpk-fields map="parameters" value-field="store"/>
+			<store-value value-field="store" />
+			
+        </if-not-empty>
+		
+		<log level="info" message="Call service updateProductStore, parameters=${parameters}" />
+	
+		<find-by-primary-key entity-name="ProductStore" map="lookupPKMap" value-field="productStore"/>
+		
+		<if-empty field="productStore.inventoryFacilityId">
+			<set-service-fields service-name="createFacility" map="parameters" to-map="createFacilityCtx"/>
+	        <set field="createFacilityCtx.facilityTypeId" value="Warehouse"/>
+	        <set field="createFacilityCtx.facilityName" from-field="parameters.storeName"/>
+	        <set field="createFacilityCtx.ownerPartyId" from-field="userLogin.partyId"/>
+	        <set field="createFacilityCtx.userLogin" from-field="systemUserLogin"/>
+	        <call-service service-name="createFacility" in-map-name="createFacilityCtx">
+	            <result-to-field result-name="facilityId" field="parameters.inventoryFacilityId"/>
+	        </call-service>
+	        <set field="callServiceCtx.inventoryFacilityId" from-field="parameters.inventoryFacilityId"/>
+        </if-empty>
+		
+		<call-service service-name="updateProductStore" in-map-name="callServiceCtx">
+			<result-to-field result-name="productStoreId" field="parameters.productStoreId" />
+		</call-service>
+			
+	</simple-method>
+    
+	<!-- ================================================================ -->
+    <!-- WebSiteProductStore Services -->
+    <!-- ================================================================ -->
+	<simple-method method-name="addProductStoreToWebSite" short-description="Add ProductStore to WebSite">
+        <make-value value-field="newEntity" entity-name="WebSiteProductStore"/>
+        <set-pk-fields map="parameters" value-field="newEntity"/>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+
+        <if-empty field="newEntity.fromDate">
+            <now-timestamp field="newEntity.fromDate"/>
+        </if-empty>
+
+        <create-value value-field="newEntity"/>
+    </simple-method>
+    <simple-method method-name="updateProductStoreToWebSite" short-description="Update ProductStore to WebSite Application">
+
+        <make-value value-field="lookupPKMap" entity-name="WebSiteProductStore"/>
+        <set-pk-fields map="parameters" value-field="lookupPKMap"/>
+        <find-by-primary-key entity-name="WebSiteProductStore" map="lookupPKMap" value-field="lookedUpValue"/>
+        <set-nonpk-fields map="parameters" value-field="lookedUpValue"/>
+        <store-value value-field="lookedUpValue"/>
+    </simple-method>
+    <simple-method method-name="removeProductStoreFromWebSite" short-description="Remove ProductStore From WebSite">
+
+        <make-value value-field="lookupPKMap" entity-name="WebSiteProductStore"/>
+        <set-pk-fields map="parameters" value-field="lookupPKMap"/>
+        <find-by-primary-key entity-name="WebSiteProductStore" map="lookupPKMap" value-field="lookedUpValue"/>
+        <remove-value value-field="lookedUpValue"/>
+    </simple-method>
+    
+    <!-- ================================================================ -->
+    <!-- ProductProductStore Services -->
+    <!-- ================================================================ -->
+
+    <simple-method method-name="addProductToProductStore" short-description="Add Product to ProductStore">
+        <!-- note that the security semantics require the user to have the general admin permission,
+            or the role limited permission and association with the category, not the product -->
+            <!--
+        <set value="addProductToCategory" field="callingMethodName"/>
+        <set value="CREATE" field="checkAction"/>
+        <call-simple-method method-name="checkCategoryRelatedPermission"/>
+        <check-errors/>
+        -->
+        <make-value value-field="newEntity" entity-name="ProductProductStore"/>
+        <set-pk-fields map="parameters" value-field="newEntity"/>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+
+        <if-empty field="newEntity.fromDate">
+            <now-timestamp field="newEntity.fromDate"/>
+        </if-empty>
+
+        <create-value value-field="newEntity"/>
+    </simple-method>
+
+    <simple-method method-name="addProductToProductStores" short-description="Add Product to Multiple ProductStores">
+        <if-instance-of field="parameters.stores" class="java.util.List">
+            <iterate entry="store" list="parameters.stores">
+                <!-- note that the security semantics require the user to have the general admin permission,
+                    or the role limited permission and association with the category, not the product -->
+                <!--
+                <set field="productCategoryIdToCheck" from-field="category"/>
+                <set field="callingMethodName" value="addProductToCategories"/>
+                <set field="checkAction" value="CREATE"/>
+                <call-simple-method method-name="checkCategoryRelatedPermission"/>
+                <check-errors/>
+                 -->
+
+                <make-value value-field="newEntity" entity-name="ProductProductStore"/>
+                <set field="newEntity.productStoreId" from-field="store"/>
+                <set-pk-fields map="parameters" value-field="newEntity"/>
+                <set-nonpk-fields map="parameters" value-field="newEntity"/>
+
+                <if-empty field="newEntity.fromDate">
+                    <now-timestamp field="newEntity.fromDate"/>
+                </if-empty>
+
+                <create-value value-field="newEntity"/>
+            </iterate>
+            <else>
+                <!-- note that the security semantics require the user to have the general admin permission,
+                    or the role limited permission and association with the category, not the product -->
+                <set from-field="parameters.stores" field="productStoreIdToCheck"/>
+                <set field="callingMethodName" value="addProductToProductStores"/>
+                <set field="checkAction" value="CREATE"/>
+                <call-simple-method method-name="checkCategoryRelatedPermission"/>
+                <check-errors/>
+
+                <make-value value-field="newEntity" entity-name="ProductProductStore"/>
+                <set field="newEntity.productStoreId" from-field="parameters.stores"/>
+                <set-pk-fields map="parameters" value-field="newEntity"/>
+                <set-nonpk-fields map="parameters" value-field="newEntity"/>
+
+                <if-empty field="newEntity.fromDate">
+                    <now-timestamp field="newEntity.fromDate"/>
+                </if-empty>
+
+                <create-value value-field="newEntity"/>
+            </else>
+        </if-instance-of>
+    </simple-method>
+
+    <simple-method method-name="updateProductToProductStore" short-description="Update Product to ProductStore Application">
+        <!-- note that the security semantics require the user to have the general admin permission,
+            or the role limited permission and association with the category, not the product -->
+        <!--
+        <set value="updateProductToCategory" field="callingMethodName"/>
+        <set value="UPDATE" field="checkAction"/>
+        <call-simple-method method-name="checkCategoryRelatedPermission"/>
+        <check-errors/>
+         -->
+
+        <make-value value-field="lookupPKMap" entity-name="ProductProductStore"/>
+        <set-pk-fields map="parameters" value-field="lookupPKMap"/>
+        <find-by-primary-key entity-name="ProductProductStore" map="lookupPKMap" value-field="lookedUpValue"/>
+        <set-nonpk-fields map="parameters" value-field="lookedUpValue"/>
+        <store-value value-field="lookedUpValue"/>
+    </simple-method>
+    <simple-method method-name="removeProductFromProductStore" short-description="Remove Product From ProductStore">
+        <!-- note that the security semantics require the user to have the general admin permission,
+            or the role limited permission and association with the category, not the product -->
+        <!--
+        <set value="removeProductFromCategory" field="callingMethodName"/>
+        <set value="DELETE" field="checkAction"/>
+        <call-simple-method method-name="checkCategoryRelatedPermission"/>
+        <check-errors/>
+         -->
+
+        <!-- If the associated category was the primary category for the product, clear that field -->
+        <entity-one entity-name="Product" value-field="product" auto-field-map="true"/>
+        <if-compare-field field="product.primaryProductStoreId" to-field="parameters.productStoreId" operator="equals">
+            <clear-field field="product.primaryProductStoreId"/>
+            <store-value value-field="product"/>
+        </if-compare-field>
+
+        <make-value value-field="lookupPKMap" entity-name="ProductProductStore"/>
+        <set-pk-fields map="parameters" value-field="lookupPKMap"/>
+        <find-by-primary-key entity-name="ProductCategoryMember" map="lookupPKMap" value-field="lookedUpValue"/>
+        <remove-value value-field="lookedUpValue"/>
+    </simple-method>
+
+	<!-- ProductStoreCategoryRollup -->
+	<simple-method method-name="addProductCategoryToStoreCategory" short-description="Add ProductCategory to StoreCategory">
+
+        <make-value value-field="newEntity" entity-name="ProductStoreCategoryRollup"/>
+        <set-pk-fields map="parameters" value-field="newEntity"/>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+
+        <if-empty field="newEntity.fromDate">
+            <now-timestamp field="newEntity.fromDate"/>
+        </if-empty>
+
+        <create-value value-field="newEntity"/>
+    </simple-method>
+    <simple-method method-name="addProductCategoryToStoreCategories" short-description="Add ProductCategory to Categories">
+        <if-instance-of field="parameters.categories" class="java.util.List">
+            <iterate entry="category" list="parameters.categories">
+
+                <make-value value-field="newEntity" entity-name="ProductStoreCategoryRollup"/>
+                <set field="newEntity.parentProductCategoryId" from-field="category"/>
+                <set-pk-fields map="parameters" value-field="newEntity"/>
+                <set-nonpk-fields map="parameters" value-field="newEntity"/>
+
+                <if-empty field="newEntity.fromDate">
+                    <now-timestamp field="newEntity.fromDate"/>
+                </if-empty>
+
+                <create-value value-field="newEntity"/>
+            </iterate>
+            <else>
+
+                <make-value value-field="newEntity" entity-name="ProductStoreCategoryRollup"/>
+                <set field="newEntity.parentProductCategoryId" from-field="parameters.categories"/>
+                <set-pk-fields map="parameters" value-field="newEntity"/>
+                <set-nonpk-fields map="parameters" value-field="newEntity"/>
+
+                <if-empty field="newEntity.fromDate">
+                    <now-timestamp field="newEntity.fromDate"/>
+                </if-empty>
+
+                <create-value value-field="newEntity"/>
+            </else>
+        </if-instance-of>
+    </simple-method>
+    <simple-method method-name="updateProductCategoryToStoreCategory" short-description="Update ProductCategory to Category Application">
+        <make-value value-field="lookupPKMap" entity-name="ProductStoreCategoryRollup"/>
+        <set-pk-fields map="parameters" value-field="lookupPKMap"/>
+        <find-by-primary-key entity-name="ProductCategoryRollup" map="lookupPKMap" value-field="lookedUpValue"/>
+        <set-nonpk-fields map="parameters" value-field="lookedUpValue"/>
+        <store-value value-field="lookedUpValue"/>
+        <field-to-result field="parameters.productCategoryId" result-name="productCategoryId"/>
+    </simple-method>
+    <simple-method method-name="removeProductCategoryFromStoreCategory" short-description="Remove ProductCategory From Category">
+        <make-value value-field="lookupPKMap" entity-name="ProductStoreCategoryRollup"/>
+        <set-pk-fields map="parameters" value-field="lookupPKMap"/>
+        <find-by-primary-key entity-name="ProductCategoryRollup" map="lookupPKMap" value-field="lookedUpValue"/>
+        <remove-value value-field="lookedUpValue"/>
+    </simple-method>
+
+    <simple-method method-name="createStoreCatagory" short-description="createStoreCatagory">
+        <!-- Create Parent ProductCategory -->
+        <log level="info" message="Call service createProduct, callServiceCtx=${parameters.categoryName}"/>
+        <log level="info" message="Call service createProduct, callServiceCtx=${parameters.primaryParentCategoryId}"/>
+        <set field="createPrimaryProductCategoryCtx.categoryName" value="${parameters.categoryName}"/>
+        <set field="createPrimaryProductCategoryCtx.productStoreId" value="${parameters.productStoreId}"/>
+        <set field="createPrimaryProductCategoryCtx.primaryParentCategoryId" value="${parameters.primaryParentCategoryId}"/>
+        <set field="createPrimaryProductCategoryCtx.productCategoryTypeId" value="CATALOG_CATEGORY"/>
+        <call-service service-name="createProductCategory" in-map-name="createPrimaryProductCategoryCtx">
+            <result-to-field result-name="productCategoryId" field="parameters.productCategoryId"/>
+        </call-service>
+
+        <if-not-empty field="parameters.primaryParentCategoryId">
+            <make-value value-field="newEntity" entity-name="ProductCategoryRollup"/>
+            <set field="newEntity.parentProductCategoryId" value="${parameters.primaryParentCategoryId}"/>
+            <set field="newEntity.productCategoryId" from-field="parameters.productCategoryId"/>
+            <if-empty field="newEntity.fromDate">
+                <now-timestamp field="nowTimestamp"/>
+                <set from-field="nowTimestamp" field="newEntity.fromDate"/>
+            </if-empty>
+            <create-value value-field="newEntity"/>
+        </if-not-empty>
+
+        <log level="info" message="Call service createProduct, callServiceCtx=${parameters.primaryParentCategoryId}"/>
+
+        <set field="addProductCategoryToStoreCategoryCtx.parentProductCategoryId" from-field="parameters.primaryParentCategoryId"/>
+        <if-empty field="parameters.primaryParentCategoryId">
+            <set field="addProductCategoryToStoreCategoryCtx.parentProductCategoryId" value="_NA_"/>
+        </if-empty>
+
+        <set field="addProductCategoryToStoreCategoryCtx.productStoreId" value="${parameters.productStoreId}"/>
+        <set field="addProductCategoryToStoreCategoryCtx.productCategoryId" from-field="parameters.productCategoryId"/>
+        <set field="addProductCategoryToStoreCategoryCtx.prodCatalogCategoryTypeId" value="PCCT_BROWSE_ROOT"/>
+        <call-service service-name="addProductCategoryToStoreCategory" in-map-name="addProductCategoryToStoreCategoryCtx">
+            <result-to-field result-name="productCategoryId" field="parameters.productCategoryId"/>
+        </call-service>
+    </simple-method>
+
+
+	<!-- 删除产品组 -->
+	<simple-method method-name="removeProductCatagory"
+		short-description="Remove Product Catagory Method">
+		<check-errors />
+		<log level="info" message="删除方法===============${parameters}" />
+
+
+		<make-value entity-name="ProductStoreCategoryRollup"
+			value-field="categoryRUp" />
+
+
+		<set field="categoryRUp.productCategoryId" from-field="parameters.productCategoryId" />
+		<set field="categoryRUp.productStoreId" from-field="parameters.productStoreId" />
+		<!-- 条件查询 -->
+		<find-by-and list="categoryList" map="categoryRUp"
+			entity-name="ProductStoreCategoryRollup" />
+			
+			<log level="info" message="categoryList====${categoryRUp}" />
+		<iterate entry="categoryMap" list="categoryList">
+			<!-- 如果不为空 -->
+			<if-not-empty field="categoryMap">
+				<!-- 声明变量 查找是否有下级分类 -->
+				<make-value entity-name="ProductStoreCategoryRollup"
+					value-field="categoryRUpTwo" />
+				<set field="categoryRUpTwo.parentProductCategoryId" from-field="parameters.productCategoryId" />
+				<set field="categoryRUpTwo.productStoreId" from-field="parameters.productStoreId" />
+
+				<find-by-and list="categoryListTwo" map="categoryRUpTwo"
+					entity-name="ProductStoreCategoryRollup" />
+					<log level="info" message="11111111111111111=${categoryRUpTwo}" />
+				
+					<log level="info" message="categoryMapTwo===${categoryMapTwo}" />
+					<log level="info"
+						message="parameters.productCategoryId=====${parameters.productCategoryId}" />
+
+					<if-empty field="categoryListTwo">
+						<make-value entity-name="ProductStoreCategoryRollup"
+							value-field="category" map="categoryMap" />
+						<now-timestamp field="category.thruDate" />
+						<store-value value-field="category" />
+						
+						<make-value value-field="lookupPKMap" entity-name="ProductCategory" />
+						<set-pk-fields map="parameters" value-field="lookupPKMap" />
+						<find-by-primary-key entity-name="ProductCategory"
+							map="lookupPKMap" value-field="lookedUpValue" />
+						<now-timestamp field="lookedUpValue.thruTime" />
+						<store-value value-field="lookedUpValue" />
+
+					</if-empty>
+			</if-not-empty>
+		</iterate>
+	</simple-method>
+
+	<!-- 添加送货方式 -->
+	<simple-method method-name="createProductStoreDelivery"
+		short-description="Create Product Store Carrier Shipment Method">
+		<!-- <check-permission permission="CATALOG" action="_CREATE"> -->
+		<fail-property resource="ProductUiLabels"
+			property="ProductCatalogCreatePermissionError" />
+		<!-- </check-permission> -->
+		<check-errors />
+
+		<make-value value-field="newEntity" entity-name="ProductStoreShipmentMeth" />
+		<set-nonpk-fields map="parameters" value-field="newEntity" />
+		<!--@WuHK加服务名字-->
+		<set field="newEntity.serviceName" value="calculateShipCost"/>
+		<sequenced-id sequence-name="ProductStoreShipmentMeth"
+			field="newEntity.productStoreShipMethId" />
+
+		<create-value value-field="newEntity" />
+	</simple-method>
+
+	<!-- 修改送货方式 -->
+	<simple-method method-name="updateProductStoreShipMeth"
+		short-description="Update Product Store Carrier Shipment Method">
+<!-- 		<check-permission permission="CATALOG" action="_UPDATE"> -->
+			<fail-property resource="ProductUiLabels"
+				property="ProductCatalogUpdatePermissionError" />
+<!-- 		</check-permission> -->
+		<check-errors />
+
+		<make-value value-field="lookupKeyValue" entity-name="ProductStoreShipmentMeth" />
+		<set-pk-fields map="parameters" value-field="lookupKeyValue" />
+		<find-by-primary-key entity-name="ProductStoreShipmentMeth"
+			map="lookupKeyValue" value-field="lookedUpValue" />
+		<set-nonpk-fields map="parameters" value-field="lookedUpValue" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+
+	<!-- 删除送货方式 -->
+	<simple-method method-name="removeProductStoreShipMeth"
+		short-description="Remove Product Store Carrier Shipment Method">
+<!-- 		<check-permission permission="CATALOG" action="_DELETE"> -->
+			<fail-property resource="ProductUiLabels"
+				property="ProductCatalogDeletePermissionError" />
+<!-- 		</check-permission> -->
+		<check-errors />
+
+		<make-value value-field="lookupPKMap" entity-name="ProductStoreShipmentMeth" />
+		<set-pk-fields map="parameters" value-field="lookupPKMap" />
+		<find-by-primary-key entity-name="ProductStoreShipmentMeth"
+			map="lookupPKMap" value-field="lookedUpValue" />
+		<remove-value value-field="lookedUpValue" />
+	</simple-method>
+
+
+	<!-- 添加经营品牌 -->
+	<simple-method method-name="createProductStoreBrandmanage"
+		short-description="创建经营品牌的方法">
+		<check-errors />
+
+		<log level="info" message="parameters=${parameters}" />
+
+
+		<make-value value-field="newEntity" entity-name="ProductStoreBrand" />
+		<!-- <set-nonpk-fields map="parameters" value-field="newEntity" /> -->
+
+		<sequenced-id sequence-name="ProductStoreBrand"
+			field="newEntity.productStoreBrandId" />
+
+		<set from-field="parameters.productStoreId" field="newEntity.productStoreId" />
+		<set from-field="parameters.brandName" field="newEntity.brandName" />
+		<set from-field="parameters.brandAlias" field="newEntity.brandAlias" />
+		<set from-field="parameters.brandIntroduction" field="newEntity.brandIntroduction" />
+		<set from-field="parameters.brandLogoImage" field="newEntity.brandLogoImage" />
+		<set from-field="parameters.effectTime" field="newEntity.effectTime" />
+		<set from-field="parameters.failureTime" field="newEntity.failureTime" />
+		<set field="newEntity.status" value="0" />
+		<create-value value-field="newEntity" />
+	</simple-method>
+	
+	
+	<!-- 修改经营品牌 -->
+	<simple-method method-name="editProductStoreBrandmanage"
+		short-description="修改经营品牌的方法">
+		<check-errors />
+
+		<log level="info" message="parameters=${parameters}" />
+
+
+		<!-- <set-nonpk-fields map="parameters" value-field="newEntity" /> -->
+
+		<make-value value-field="lookupKeyValue" entity-name="ProductStoreBrand" />
+		<set-pk-fields map="parameters" value-field="lookupKeyValue" />
+		<find-by-primary-key entity-name="ProductStoreBrand"
+			map="lookupKeyValue" value-field="lookedUpValue" />
+		<set-nonpk-fields map="parameters" value-field="lookedUpValue" />
+		<set field="lookedUpValue.status" value="0" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	
+		<!-- 删除品牌 -->
+	<simple-method method-name="removeProductStoreBrand"
+		short-description="Remove Product Store Carrier Shipment Method">
+		<check-errors />
+		<log level="info" message="删除方法===================" />
+
+		<make-value value-field="lookupPKMap" entity-name="ProductStoreBrand" />
+		<set-pk-fields map="parameters" value-field="lookupPKMap" />
+		<find-by-primary-key entity-name="ProductStoreBrand"
+			map="lookupPKMap" value-field="lookedUpValue" />
+		
+		<set field="lookedUpValue.status" value="1" />	
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+
+</simple-methods>

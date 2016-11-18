@@ -1,0 +1,92 @@
+table {
+	border-collapse:collapse;
+}
+table td {
+	font-size: 12px;
+	border: 1px solid #ddd;
+}
+.td_title {
+	background: url(../images/frame/mainFrame_bg01.png) repeat-x;
+	height: 29px;
+	line-height: 29px;
+	text-indent: 12px;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+.td_yuanhbg {
+	background: url(../images/frame/mainFrame_bg02.png) no-repeat right bottom;
+}
+.td_text {
+	padding: 8px 8px 8px 12px;
+	line-height: 28px;
+	color: #666;
+}
+ul,li {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;	
+}
+.navFrame {
+	height: 35px;
+	line-height: 35px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF;
+}
+.navFrame ul li {
+	display: block;
+	float: left;
+	width: 119px;
+	text-align: center;
+	background: url(../images/frame/nav_line.png) no-repeat right center;
+}
+.navFrame ul li.hover {
+	background: url(../images/frame/nav_hover.png) no-repeat center center;
+}
+.navFrame ul li a {
+	color: #FFF;
+	text-decoration: none;
+}
+.navFrame ul li a:hover {
+	color: #FFF;
+	text-decoration: underline;
+}
+.topFrame {
+	height: 60px;	
+}
+.topFrame .logo {
+	height: 60px;
+	width: 318px;
+	float: left;
+	background: url(../images/frame/logo.png) no-repeat;
+}
+.topFrame .user {
+	height: 44px;
+	float: right;
+	padding-top: 16px;
+	padding-right: 10px;
+	color: #FFF;
+}
+.topFrame .user a.zx {
+	display: block;
+	height: 27px;
+	width: 70px;
+	background: url(../images/frame/frame/zx.png) no-repeat;	
+}
+.topFrame .user a.zx:hover {
+	background: url(../images/frame/zxh.png) no-repeat;	
+}
+.topFrame .user a.xgmm {
+	display: block;
+	height: 27px;
+	width: 86px;
+	background: url(../images/frame/xgmm.png) no-repeat;	
+}
+.topFrame .user a.xgmm:hover {
+	background: url(../images/frame/xgmmh.png) no-repeat;	
+}
+.bottomFrame {
+	height: 26px;
+	line-height: 26px;
+	text-align: center;	
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entity-engine-xml>
+	<Content contentId="HOMESLIDE001" contentTypeId="DOCUMENT" contentName="首页幻灯图片组" description=""/>
+	<WebSiteContent webSiteId="WebStore" contentId="HOMESLIDE001" webSiteContentTypeId="HOME_SLIDE_IMGS" fromDate="2001-01-01 00:00:00"/>
+	<Content contentId="banneren005" contentTypeId="DOCUMENT" contentName="../images/banneren005.jpg" description="/portal/products/C001003/C001003001"/>
+	<Content contentId="banneren004" contentTypeId="DOCUMENT" contentName="../images/banneren004.jpg" description="/portal/products/C008/C008001"/>
+	<Content contentId="banneren003" contentTypeId="DOCUMENT" contentName="../images/banneren003.jpg" description="/portal/products/C002002/C002002011"/>
+	<Content contentId="banneren002" contentTypeId="DOCUMENT" contentName="../images/banneren002.jpg" description="/portal/products/C005003/C005003004"/>
+	<Content contentId="banneren001" contentTypeId="DOCUMENT" contentName="../images/banne-en01r.jpg" description="/portal/products/C002001/C002001009"/>
+	<ContentAssoc contentId="HOMESLIDE001" contentIdTo="banneren005" contentAssocTypeId="GRAPH_LINK" fromDate="2004-03-01 15:57:50.322" sequenceNum="1" createdDate="2004-03-01 15:58:29.832" createdByUserLogin="admin" lastModifiedDate="2004-03-01 15:58:29.832" lastModifiedByUserLogin="admin" lastUpdatedStamp="2004-03-01 15:58:29.843" lastUpdatedTxStamp="2004-03-01 15:58:29.843" createdStamp="2004-03-01 15:58:29.843" createdTxStamp="2004-03-01 15:58:29.843"/>
+	<ContentAssoc contentId="HOMESLIDE001" contentIdTo="banneren004" contentAssocTypeId="GRAPH_LINK" fromDate="2004-03-01 15:57:50.322" sequenceNum="4" createdDate="2004-03-01 15:58:29.832" createdByUserLogin="admin" lastModifiedDate="2004-03-01 15:58:29.832" lastModifiedByUserLogin="admin" lastUpdatedStamp="2004-03-01 15:58:29.843" lastUpdatedTxStamp="2004-03-01 15:58:29.843" createdStamp="2004-03-01 15:58:29.843" createdTxStamp="2004-03-01 15:58:29.843"/>
+	<ContentAssoc contentId="HOMESLIDE001" contentIdTo="banneren003" contentAssocTypeId="GRAPH_LINK" fromDate="2004-03-01 15:57:50.322" sequenceNum="3" createdDate="2004-03-01 15:58:29.832" createdByUserLogin="admin" lastModifiedDate="2004-03-01 15:58:29.832" lastModifiedByUserLogin="admin" lastUpdatedStamp="2004-03-01 15:58:29.843" lastUpdatedTxStamp="2004-03-01 15:58:29.843" createdStamp="2004-03-01 15:58:29.843" createdTxStamp="2004-03-01 15:58:29.843"/>
+	<ContentAssoc contentId="HOMESLIDE001" contentIdTo="banneren002" contentAssocTypeId="GRAPH_LINK" fromDate="2004-03-01 15:57:50.322" sequenceNum="2" createdDate="2004-03-01 15:58:29.832" createdByUserLogin="admin" lastModifiedDate="2004-03-01 15:58:29.832" lastModifiedByUserLogin="admin" lastUpdatedStamp="2004-03-01 15:58:29.843" lastUpdatedTxStamp="2004-03-01 15:58:29.843" createdStamp="2004-03-01 15:58:29.843" createdTxStamp="2004-03-01 15:58:29.843"/>
+	<ContentAssoc contentId="HOMESLIDE001" contentIdTo="banneren001" contentAssocTypeId="GRAPH_LINK" fromDate="2004-03-01 15:57:50.322" sequenceNum="5" createdDate="2004-03-01 15:58:29.832" createdByUserLogin="admin" lastModifiedDate="2004-03-01 15:58:29.832" lastModifiedByUserLogin="admin" lastUpdatedStamp="2004-03-01 15:58:29.843" lastUpdatedTxStamp="2004-03-01 15:58:29.843" createdStamp="2004-03-01 15:58:29.843" createdTxStamp="2004-03-01 15:58:29.843"/>
+</entity-engine-xml>

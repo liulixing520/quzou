@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
+		<!--模板组 -->
+		<form name="FindRawTemplateGroup" type="single"  style="pageForm" default-table-style="searchContent" target="FindRawTemplateGroup" default-entity-name="RawTemplateGroup">
+				<field name="templateGroupName" widget-style="required" title="模板组名称" position="1">
+					<text-find hide-options="true" />	
+				</field>
+		</form>
+		<form name="ListRawTemplateGroup" type="list" list-name="listIt" group-columns="false"   paginate-target="FindRawTemplateGroup"
+	       default-entity-name="RawTemplateGroup" paginate-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+			<actions>
+				<set field="sortField" from-field="parameters.sortField" default-value="-templateGroupId"/>
+				<service service-name="performFind" result-map="result" result-map-list="listIt">
+					<field-map field-name="inputFields" from-field="pCtx" />
+					<field-map field-name="entityName" value="RawTemplateGroup" />
+					<field-map field-name="orderBy" from-field="sortField" />
+					<field-map field-name="viewIndex" from-field="viewIndex" />
+					<field-map field-name="viewSize" from-field="viewSize" />
+				</service>
+			</actions>
+			<field name="ids" etc="width=30px" widget-area-style="groupAll" id-name="groupAll" title=" ">
+				<check>
+					<option key="${templateGroupId}"  description=" "/>
+				</check>
+			</field>
+			<field name="CommSeq" etc="width=35px" sort-field="true" title="序号">
+				<display description="${itemIndex+1+viewSize*viewIndex}" ></display>
+			</field>
+			
+			<field name="templateGroupName" sort-field="true" title="模板组名称" >
+				<display />
+			</field>
+			<field name="test2" sort-field="true" title="原始记录word" >
+             	<hyperlink target="${groovy:org.extErp.sysCommon.document.DocumentUtils.getDocUrlByPurpose(request, &quot;RawTemplateGroup&quot;,templateGroupId)}" target-window="_blank" target-type="plain" description="下载" />
+        	</field>
+			
+			<field name="sortNo" sort-field="true" title="顺序" >
+				<display />
+			</field>
+			<field name="enabled" sort-field="true" title="是否可用">
+				<display-entity entity-name="Enumeration"
+					key-field-name="enumId" description="${description}" />
+			</field>
+			<field name="editDim" etc="width=60px" title="编辑维度" use-when="${groovy:security.hasEntityPermission(&quot;RawTemplateGroup&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnEdit">
+				<hyperlink also-hidden="false" target-type="plain"  description="编辑维度" target="edataDimension" target-window="dialog">
+					<parameter param-name="templateGroupId"/>
+				</hyperlink>
+			</field>
+				
+			<field name="editMeas" etc="width=60px" title="编辑度量" use-when="${groovy:security.hasEntityPermission(&quot;RawTemplateGroup&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnEdit">
+				<hyperlink also-hidden="false" target-type="plain"  description="编辑度量" target="edataMeasure" target-window="dialog">
+					<parameter param-name="templateGroupId"/>
+				</hyperlink>
+			</field>	
+				
+			<field name="preView" etc="width=35px" title="预览" use-when="${groovy:security.hasEntityPermission(&quot;RawTemplateGroup&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnView">
+				<hyperlink also-hidden="false" target-type="plain"  description="预览模板组" target="EditRawTemplateDataAll">
+					<parameter param-name="templateGroupId" />
+					<parameter param-name="oper" value="view"/>
+				</hyperlink>
+			</field>				
+			<field name="edit" etc="width=35px" title="编辑" use-when="${groovy:security.hasEntityPermission(&quot;RawTemplateGroup&quot;, &quot;_UPDATE&quot;, session);}" widget-style="btnEdit">
+				<hyperlink also-hidden="false" target-type="plain"  description="编辑模板组" target="EditRawTemplateGroup">
+					<parameter param-name="templateGroupId" />
+				</hyperlink>
+			</field>
+			<field name="export" etc="width=35px" title="导出excel" use-when="${groovy:security.hasEntityPermission(&quot;RawTemplateGroup&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnExcel">
+				<hyperlink also-hidden="false" target-type="plain" description="导出excel" target-window="_blank" target="ExportRawTemplateGroup">
+					<parameter param-name="templateGroupId" />
+				</hyperlink>
+			</field>
+		</form>
+		
+		<!--模板 -->
+		<form name="FindRawTemplate" type="single"  style="pageForm" default-table-style="searchContent" target="FindRawTemplate" default-entity-name="RawTemplate">
+			<field name="templateName" widget-style="" title="模板名称" position="1">
+					<text-find hide-options="true" />	
+				</field>
+			<field name="templateGroupId" widget-style="easyui-combobox" title="模板组名称" position="7">
+					<drop-down text-size="30"> 
+						<option key="" description=" "/>
+						<entity-options description="${templateGroupName}" entity-name="RawTemplateGroup"  key-field-name="templateGroupId">
+							<entity-constraint name="enabled" operator="not-equals" value="N"/>
+						</entity-options>
+					</drop-down>
+				</field>	
+		</form>
+		<form name="ListRawTemplate" type="list" list-name="listIt" group-columns="false"   paginate-target="FindRawTemplate"
+	       default-entity-name="RawTemplate" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+			<actions>
+				<service service-name="performFind" result-map="result" result-map-list="listIt">
+					<field-map field-name="inputFields" from-field="pCtx" />
+					<field-map field-name="entityName" value="RawTemplate" />
+					<field-map field-name="orderBy" from-field="parameters.sortField" />
+					<field-map field-name="viewIndex" from-field="viewIndex" />
+					<field-map field-name="viewSize" from-field="viewSize" />
+				</service>
+			</actions>
+			<field name="ids" etc="width=30" widget-area-style="groupAll" id-name="groupAll" title=" ">
+				<check>
+					<option key="${templateId}"  description=" "/>
+				</check>
+			</field>
+			<field name="CommSeq" etc="width=35" sort-field="true" title="序号">
+				<display description="${itemIndex+1+viewSize*viewIndex}" ></display>
+			</field>
+			
+			<field name="templateName" sort-field="true" title="模板名称" >
+				<display />
+			</field>
+			<field name="templateGroupId" sort-field="true" title="模板组名称">
+				<display-entity entity-name="RawTemplateGroup" key-field-name="templateGroupId" description="${templateGroupName}" />
+			</field>
+			<field name="dimCountNum"  sort-field="true" title="维度数" >
+				<display />
+			</field>
+			<!-- <field name="excelPath" etc="width=150" sort-field="true" title="excel路径" >
+				<display />
+			</field> -->
+			<field name="sortNo"  sort-field="true" title="顺序" >
+				<display />
+			</field>
+			<field name="startCellNum"  sort-field="true" title="默认起始列" >
+				<display />
+			</field>
+			<field name="startRowNum"  sort-field="true" title="默认起始行" >
+				<display />
+			</field>
+			
+			<field name="preView" etc="width=35" title="预览" use-when="${groovy:security.hasEntityPermission(&quot;RawTemplate&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnView">
+				<hyperlink also-hidden="false" target-type="plain"  description="预览模板" target="PreViewRawTemplate">
+					<parameter param-name="templateId" />
+					<parameter param-name="oper" value="view"/>
+				</hyperlink>
+			</field>		
+			<field name="view" etc="width=35" title="查看" use-when="${groovy:security.hasEntityPermission(&quot;RawTemplate&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnView">
+				<hyperlink also-hidden="false" target-type="plain"  description="查看模板" target="EditRawTemplate">
+					<parameter param-name="templateId" />
+					<parameter param-name="oper" value="view"/>
+				</hyperlink>
+			</field>		
+			<field name="edit" etc="width=35" title="编辑" use-when="${groovy:security.hasEntityPermission(&quot;RawTemplate&quot;, &quot;_UPDATE&quot;, session);}" widget-style="btnEdit">
+				<hyperlink also-hidden="false" target-type="plain"  description="编辑模板" target="EditRawTemplate">
+					<parameter param-name="templateId" />
+				</hyperlink>
+			</field>
+			<field name="delete" etc="width=35" title="删除" use-when="${groovy:security.hasEntityPermission(&quot;RawTemplate&quot;, &quot;_DELETE&quot;, session);}" widget-style="btnDel">
+				<hyperlink also-hidden="false" target-type="plain" description="删除" target="deleteRawTemplate">
+					<parameter param-name="templateId" />
+				</hyperlink>
+			</field>
+		</form>
+		
+		
+		<!--维度 -->
+		<form name="FindRawDimension" type="single"  style="pageForm" default-table-style="searchContent" target="FindRawDimension" default-entity-name="RawDimension">
+				<field name="dimensionName" widget-style="" title="维度名称" position="1">
+					<text-find hide-options="true" />	
+				</field>
+				<field name="templateGroupId" widget-style="easyui-combobox" title="模板组名称" position="7">
+					<drop-down text-size="30"> 
+						<option key="" description=" "/>
+						<entity-options description="${templateGroupName}" entity-name="RawTemplateGroup"  key-field-name="templateGroupId">
+							<entity-constraint name="enabled" operator="not-equals" value="N"/>
+						</entity-options>
+					</drop-down>
+				</field>
+		</form>
+		<form name="ListRawDimension" type="list" list-name="listIt" group-columns="false"   paginate-target="FindRawDimension"
+	       default-entity-name="RawDimension" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+			<actions>
+				<service service-name="performFind" result-map="result" result-map-list="listIt">
+					<field-map field-name="inputFields" from-field="pCtx" />
+					<field-map field-name="entityName" value="RawDimension" />
+					<field-map field-name="orderBy" from-field="parameters.sortField" />
+					<field-map field-name="viewIndex" from-field="viewIndex" />
+					<field-map field-name="viewSize" from-field="viewSize" />
+				</service>
+			</actions>
+			<field name="ids" etc="width=30px" widget-area-style="groupAll" id-name="groupAll" title=" ">
+				<check>
+					<option key="${dimensionId}"  description=" "/>
+				</check>
+			</field>
+			<field name="CommSeq" etc="width=35px" sort-field="true" title="序号">
+				<display description="${itemIndex+1+viewSize*viewIndex}" ></display>
+			</field>
+			
+			<field name="dimensionName" sort-field="true" title="维度名称" >
+				<display />
+			</field>
+			<field name="dimensionCode" sort-field="true" title="维度编码" >
+				<display />
+			</field>
+			<!-- 
+			<field name="uomId" etc="width=100"  title="单位">
+				<display-entity entity-name="Uom" key-field-name="uomId" description="${uomId}" />
+			</field>
+			
+			<field name="parentDimensionId" sort-field="true" title="父维度ID" >
+				<display />
+			</field>
+			 -->
+			<field name="sortNo" sort-field="true" title="顺序" >
+				<display />
+			</field>
+			<field name="hasChild" sort-field="true" title="是否有子节点">
+				<display-entity entity-name="Enumeration" cache="true" key-field-name="enumId" description="${description}" />
+			</field>
+			<field name="templateGroupId" sort-field="true" title="模板组名称">
+				<display-entity entity-name="RawTemplateGroup" key-field-name="templateGroupId" description="${templateGroupName}" />
+			</field>
+			<field name="view" etc="width=35px" title="查看" use-when="${groovy:security.hasEntityPermission(&quot;RawDimension&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnView">
+				<hyperlink also-hidden="false" target-type="plain" description="查看维度" target="EditRawDimension">
+					<parameter param-name="dimensionId" />
+					<parameter param-name="oper" value="view"/>
+				</hyperlink>
+			</field>		
+			<field name="edit" etc="width=35px" title="编辑" use-when="${groovy:security.hasEntityPermission(&quot;RawDimension&quot;, &quot;_UPDATE&quot;, session);}" widget-style="btnEdit">
+				<hyperlink also-hidden="false" target-type="plain" description="编辑维度" target="EditRawDimension">
+					<parameter param-name="dimensionId" />
+				</hyperlink>
+			</field>
+
+			<field name="editMeas" etc="width=80px" title="编辑维度值" use-when="${groovy:security.hasEntityPermission(&quot;RawTemplateGroup&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnEdit">
+				<hyperlink also-hidden="false" target-type="plain"  description="编辑维度值" target="javascript:edataDimensionPart('${dimensionId}')">
+				</hyperlink>
+			</field>
+			
+			
+			<field name="delete" etc="width=35px" title="删除" use-when="${groovy:security.hasEntityPermission(&quot;RawDimension&quot;, &quot;_DELETE&quot;, session);}" widget-style="btnDel">
+				<hyperlink also-hidden="false"  target-type="plain" description="删除" target="deleteRawDimension">
+					<parameter param-name="dimensionId" />
+				</hyperlink>
+			</field>
+		</form>
+		<form name="EditRawDimension" id="${groovy:(entity==null)?&quot;CreateRawDimension&quot;:&quot;EditRawDimension&quot;}" type='single' style="single_table" default-table-style="basic-table" target-type="plain" target="updateRawDimension"  default-map-name="entity" default-entity-name="RawDimension">
+			<alt-target use-when="entity==null" target="createRawDimension" />
+			<field name="dimensionId">
+				<hidden />
+			</field>
+			<field name="navTabId">
+				<hidden value="FindRawDimension" />
+			</field>
+			<field name="callbackType">
+				<hidden value="closeCurrent" />
+			</field>
+				<field name="dimensionName" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="维度名称" >
+					<text  disabled="true"/>
+				</field>
+				<field name="dimensionName" use-when="${groovy:oper==null}" widget-style="" title="维度名称">
+					<text  />
+				</field>
+				<field name="dimensionCode" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="维度编码" >
+					<text  disabled="true"/>
+				</field>
+				<field name="dimensionCode" use-when="${groovy:oper==null}" widget-style="" title="维度编码">
+					<text  />
+				</field>
+	  			    	
+	
+				<field name="uomId"   widget-style="" title="单位">
+					<drop-down text-size="30" allow-empty="true"> 
+						<entity-options description="${uomId}" entity-name="Uom"  key-field-name="uomId"></entity-options>
+					</drop-down>
+				</field>
+				<!-- 
+				<field name="parentDimensionId" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="父维度ID" >
+					<text  disabled="true"/>
+				</field>
+				<field name="parentDimensionId" use-when="${groovy:oper==null}" widget-style="" title="父维度ID">
+					<text  />
+				</field>
+				 -->
+				<field name="sortNo" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style=" number" title="顺序">
+					<text disabled="true"/>
+				</field>
+				<field name="sortNo"  use-when="${groovy:oper==null}"  widget-style=" number" title="顺序">
+					<text />
+				</field>		
+				<field name="hasChild" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="是否有子节点" >
+					<text  disabled="true"/>
+				</field>
+				<field name="hasChild" widget-style="" title="是否有子节点">
+					<drop-down allow-empty="true">
+						<entity-options entity-name="Enumeration" cache="true" description="${description}" key-field-name="enumId">
+							<entity-constraint name="enumTypeId" operator="equals" value="COMMON_YN" />
+							<entity-order-by field-name="enumId" />
+						</entity-options>
+					</drop-down>
+				</field>
+	  			    	
+	
+				<field name="templateGroupId"   widget-style="" title="模板组名称">
+					<drop-down text-size="30"> 
+						<entity-options description="${templateGroupName}" entity-name="RawTemplateGroup"  key-field-name="templateGroupId">
+							<entity-constraint name="enabled" operator="not-equals" value="N"/>
+						</entity-options>
+					</drop-down>
+				</field>
+		</form>
+			<!--维度值 -->
+		<form name="FindRawDimensionPart" type="single"  style="pageForm" default-table-style="searchContent" target="FindRawDimensionPart" default-entity-name="RawDimensionPart">
+				<field name="dimensionPartName" widget-style="" title="维度值" position="1">
+					<text-find hide-options="true" />	
+				</field>
+				<field name="dimensionId" widget-style="easyui-combobox" title="维度名称" position="4">
+					<drop-down text-size="30"> 
+						<option key="" description=" "/>
+						<entity-options description="${dimensionName}" entity-name="RawDimension"  key-field-name="dimensionId"></entity-options>
+					</drop-down>
+				</field>
+		</form>
+		<form name="ListRawDimensionPart" type="list" list-name="listIt" group-columns="false"   paginate-target="FindRawDimensionPart"
+	       default-entity-name="RawDimensionPart" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+			<actions>
+				<service service-name="performFind" result-map="result" result-map-list="listIt">
+					<field-map field-name="inputFields" from-field="pCtx" />
+					<field-map field-name="entityName" value="RawDimensionPart" />
+					<field-map field-name="orderBy" from-field="parameters.sortField" />
+					<field-map field-name="viewIndex" from-field="viewIndex" />
+					<field-map field-name="viewSize" from-field="viewSize" />
+				</service>
+			</actions>
+			<field name="ids" etc="width=30" widget-area-style="groupAll" id-name="groupAll" title=" ">
+				<check>
+					<option key="${dimensionPartId}"  description=" "/>
+				</check>
+			</field>
+			<field name="CommSeq" etc="width=35" sort-field="true" title="序号">
+				<display description="${itemIndex+1+viewSize*viewIndex}" ></display>
+			</field>
+			
+			<field name="dimensionPartName" sort-field="true" title="维度值" >
+				<display />
+			</field>
+			<field name="dimensionId" sort-field="true" title="维度名称">
+				<display-entity entity-name="RawDimension" key-field-name="dimensionId" description="${dimensionName}" />
+			</field>
+			<field name="dimensionPartCode"  sort-field="true" title="维度编码" >
+				<display />
+			</field>
+			<field name="sortNo" sort-field="true" title="顺序" >
+				<display />
+			</field>
+			
+			<field name="view" etc="width=35" title="查看" use-when="${groovy:security.hasEntityPermission(&quot;RawDimensionPart&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnView">
+				<hyperlink also-hidden="false" target-type="plain" description="查看维度值" target="EditRawDimensionPart">
+					<parameter param-name="dimensionPartId" />
+					<parameter param-name="oper" value="view"/>
+				</hyperlink>
+			</field>		
+			<field name="edit" etc="width=35" title="编辑" use-when="${groovy:security.hasEntityPermission(&quot;RawDimensionPart&quot;, &quot;_UPDATE&quot;, session);}" widget-style="btnEdit">
+				<hyperlink also-hidden="false" target-type="plain" description="编辑维度值" target="EditRawDimensionPart">
+					<parameter param-name="dimensionPartId" />
+				</hyperlink>
+			</field>
+			<field name="delete" etc="width=35" title="删除" use-when="${groovy:security.hasEntityPermission(&quot;RawDimensionPart&quot;, &quot;_DELETE&quot;, session);}" widget-style="btnDel">
+				<hyperlink also-hidden="false"  target-type="plain" description="删除" target="deleteRawDimensionPart">
+					<parameter param-name="dimensionPartId" />
+				</hyperlink>
+			</field>
+		</form>
+		<form name="EditRawDimensionPart" id="${groovy:(entity==null)?&quot;CreateRawDimensionPart&quot;:&quot;EditRawDimensionPart&quot;}" type='single' style="single_table" default-table-style="basic-table" target-type="plain" target="updateRawDimensionPart"  default-map-name="entity" default-entity-name="RawDimensionPart">
+			<alt-target use-when="entity==null" target="createRawDimensionPart" />
+			<field name="dimensionPartId">
+				<hidden />
+			</field>
+			<field name="navTabId">
+				<hidden value="FindRawDimensionPart" />
+			</field>
+			<field name="callbackType">
+				<hidden value="closeCurrent" />
+			</field>
+				<field name="dimensionPartName" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="维度名称" >
+					<text  disabled="true"/>
+				</field>
+				<field name="dimensionPartName" use-when="${groovy:oper==null}" widget-style="" title="维度值">
+					<text  />
+				</field>
+				<field name="dimensionPartCode" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="维度编码" >
+					<text  disabled="true"/>
+				</field>
+				<field name="dimensionPartCode" use-when="${groovy:oper==null}" widget-style="" title="维度编码">
+					<text  />
+				</field>
+				<field name="sortNo" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="顺序" >
+					<text  disabled="true"/>
+				</field>
+				<field name="sortNo" use-when="${groovy:oper==null}" widget-style="" title="顺序">
+					<text  />
+				</field>
+	  			    	
+	
+				<field name="dimensionId"   widget-style="" title="维度名称">
+					<drop-down text-size="30"> 
+						<entity-options description="${dimensionName}" entity-name="RawDimension"  key-field-name="dimensionId"></entity-options>
+					</drop-down>
+				</field>
+		</form>
+				<!--度量 -->
+		<form name="FindRawMeasure" type="single"  style="pageForm" default-table-style="searchContent" target="FindRawMeasure" default-entity-name="RawMeasure">
+				<field name="measureName" widget-style="" title="度量名称" position="1">
+					<text-find hide-options="true" />	
+				</field>
+				<field name="templateGroupId" widget-style="easyui-combobox" title="模板组名称" position="7">
+					<drop-down text-size="30"> 
+						<option key="" description=" "/>
+						<entity-options description="${templateGroupName}" entity-name="RawTemplateGroup"  key-field-name="templateGroupId">
+							<entity-constraint name="enabled" operator="not-equals" value="N"/>
+						</entity-options>
+					</drop-down>
+				</field>
+		</form>
+		<form name="ListRawMeasure" type="list" list-name="listIt" group-columns="false"   paginate-target="FindRawMeasure"
+	       default-entity-name="RawMeasure" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+			<actions>
+				<service service-name="performFind" result-map="result" result-map-list="listIt">
+					<field-map field-name="inputFields" from-field="pCtx" />
+					<field-map field-name="entityName" value="RawMeasure" />
+					<field-map field-name="filterByDate" value="Y"/>
+					<field-map field-name="orderBy" from-field="parameters.sortField" />
+					<field-map field-name="viewIndex" from-field="viewIndex" />
+					<field-map field-name="viewSize" from-field="viewSize" />
+				</service>
+			</actions>
+			<field name="ids" etc="width=30px" widget-area-style="groupAll" id-name="groupAll" title=" ">
+				<check>
+					<option key="${measureId}"  description=" "/>
+				</check>
+			</field>
+			<field name="CommSeq" etc="width=35px" sort-field="true" title="序号">
+				<display description="${itemIndex+1+viewSize*viewIndex}" ></display>
+			</field>
+			
+			<field name="measureName" sort-field="true" title="度量名称" >
+				<display />
+			</field>
+			<field name="templateGroupId" sort-field="true" title="模板组名称">
+				<display-entity entity-name="RawTemplateGroup" key-field-name="templateGroupId" description="${templateGroupName}" />
+			</field>
+			<!--<field name="measureCode" etc="width=300" sort-field="true" title="度量编码" >
+				<display />
+			</field>-->
+			<field name="uomId" sort-field="true" title="单位">
+				<display-entity entity-name="Uom" key-field-name="uomId" description="${uomId}" />
+			</field>
+			<!-- <field name="parentMeasureId" sort-field="true" title="父度量ID" >
+				<display />
+			</field> -->
+			<field name="sortNo" sort-field="true" title="顺序" >
+				<display />
+			</field>
+			<!-- <field name="hasChild"  title="是否有子节点">
+				<display-entity entity-name="Enumeration" cache="true" key-field-name="enumId" description="${description}" />
+			</field> -->
+			
+			<field name="view" etc="width=35px" title="查看" use-when="${groovy:security.hasEntityPermission(&quot;RawMeasure&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnView">
+				<hyperlink also-hidden="false" target-type="plain" description="查看度量" target="EditRawMeasure">
+					<parameter param-name="measureId" />
+					<parameter param-name="oper" value="view"/>
+				</hyperlink>
+			</field>		
+			<field name="edit" etc="width=35px" title="编辑" use-when="${groovy:security.hasEntityPermission(&quot;RawMeasure&quot;, &quot;_UPDATE&quot;, session);}" widget-style="btnEdit">
+				<hyperlink also-hidden="false" target-type="plain" description="编辑度量" target="EditRawMeasure">
+					<parameter param-name="measureId" />
+				</hyperlink>
+			</field>
+			<field name="delete" etc="width=35px" title="删除" use-when="${groovy:security.hasEntityPermission(&quot;RawMeasure&quot;, &quot;_DELETE&quot;, session);}" widget-style="btnDel">
+				<hyperlink also-hidden="false"  target-type="plain" description="删除" target="deleteRawMeasure">
+					<parameter param-name="measureId" />
+				</hyperlink>
+			</field>
+		</form>
+		<form name="EditRawMeasure" id="${groovy:(entity==null)?&quot;CreateRawMeasure&quot;:&quot;EditRawMeasure&quot;}" type='single' style="single_table" default-table-style="basic-table" target-type="plain" target="updateRawMeasure"  default-map-name="entity" default-entity-name="RawMeasure">
+			<alt-target use-when="entity==null" target="createRawMeasure" />
+			<field name="measureId">
+				<hidden />
+			</field>
+			<field name="navTabId">
+				<hidden value="FindRawMeasure" />
+			</field>
+			<field name="callbackType">
+				<hidden value="closeCurrent" />
+			</field>
+				<field name="measureName" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="度量名称" >
+					<text  disabled="true"/>
+				</field>
+				<field name="measureName" use-when="${groovy:oper==null}" widget-style="" title="度量名称">
+					<text  />
+				</field>
+				<field name="measureCode" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="度量编码" >
+					<text  disabled="true"/>
+				</field>
+				<field name="measureCode" use-when="${groovy:oper==null}" widget-style="" title="度量编码">
+					<text  />
+				</field>
+	  			    	
+	
+				<field name="uomId"   widget-style="" title="单位">
+					<drop-down text-size="30" allow-empty="true"> 
+						<entity-options description="${uomId}" entity-name="Uom"  key-field-name="uomId"></entity-options>
+					</drop-down>
+				</field>
+				<!-- 
+				<field name="parentMeasureId" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="父度量ID" >
+					<text  disabled="true"/>
+				</field>
+				<field name="parentMeasureId" use-when="${groovy:oper==null}" widget-style="" title="父度量ID">
+					<text  />
+				</field>
+				 -->
+				<field name="sortNo" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style=" number" title="顺序">
+					<text disabled="true"/>
+				</field>
+				<field name="sortNo"  use-when="${groovy:oper==null}"  widget-style=" number" title="顺序">
+					<text />
+				</field>		
+				<field name="hasChild" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="是否有子节点" >
+					<text  disabled="true"/>
+				</field>
+				<field name="hasChild" widget-style="" title="是否有子节点">
+					<drop-down allow-empty="true">
+						<entity-options entity-name="Enumeration" cache="true" description="${description}" key-field-name="enumId">
+							<entity-constraint name="enumTypeId" operator="equals" value="COMMON_YN" />
+							<entity-order-by field-name="enumId" />
+						</entity-options>
+					</drop-down>
+				</field>
+	  			    	
+	
+				<field name="templateGroupId"   widget-style="" title="模板组名称">
+					<drop-down text-size="30"> 
+						<entity-options description="${templateGroupName}" entity-name="RawTemplateGroup"  key-field-name="templateGroupId">
+							<entity-constraint name="enabled" operator="not-equals" value="N"/>
+						</entity-options>
+					</drop-down>
+				</field>
+		</form>
+			<!--数据版本 -->
+		<form name="FindRawDataRev" type="single"  style="pageForm" default-table-style="searchContent" target="FindRawDataRev" default-entity-name="RawDataRev">
+				<field name="templateGroupId" widget-style="" title="模板组名称" position="1">
+					<drop-down text-size="30" allow-empty="true"> 
+						<entity-options description="${templateGroupName}" entity-name="RawTemplateGroup"  key-field-name="templateGroupId">
+							<entity-constraint name="enabled" operator="not-equals" value="N"/>
+						</entity-options>
+					</drop-down>
+				</field>
+		</form>
+		<form name="ListRawDataRev" type="list" list-name="listIt" group-columns="false"   paginate-target="FindRawDataRev"
+	       default-entity-name="RawDataRev" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+			<actions>
+				<service service-name="performFind" result-map="result" result-map-list="listIt">
+					<field-map field-name="inputFields" from-field="pCtx" />
+					<field-map field-name="entityName" value="RawDataRev" />
+					<field-map field-name="orderBy" from-field="parameters.sortField"/>
+					<field-map field-name="viewIndex" from-field="viewIndex" />
+					<field-map field-name="viewSize" from-field="viewSize" />
+				</service>
+			</actions>
+			<field name="ids" etc="width=30px" widget-area-style="groupAll" id-name="groupAll" title=" ">
+				<check>
+					<option key="${revId}"  description=" "/>
+				</check>
+			</field>
+			<field name="CommSeq" etc="width=35px" title="序号">
+				<display description="${itemIndex+1+viewSize*viewIndex}" ></display>
+			</field>
+			<field name="revId" sort-field="true" title="版本号" >
+				<display />
+			</field>
+			<field name="templateGroupId" sort-field="true" title="模板组名称">
+				<display-entity entity-name="RawTemplateGroup" key-field-name="templateGroupId" description="${templateGroupName}" />
+			</field>
+			<field name="importType" sort-field="true" title="入库方式" >
+				<display />
+			</field>
+			<field name="operUserLoginId" sort-field="true" title="操作者" >
+				<display />
+			</field>
+			<field name="createdStamp" sort-field="true" title="操作时间" >
+				<display type="date-time"/>
+			</field>
+	
+			<field name="viewData" etc="width=60px" title="查看数据" use-when="${groovy:security.hasEntityPermission(&quot;RawDataRev&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnView">
+				<hyperlink also-hidden="false" target-type="plain" description="查看数据" target="EditRawTemplateDataAll">
+					<parameter param-name="revId" />
+					<parameter param-name="oper" value="view"/>
+				</hyperlink>
+			</field>		
+			<field name="edit" etc="width=35px" title="编辑" use-when="${groovy:security.hasEntityPermission(&quot;RawDataRev&quot;, &quot;_UPDATE&quot;, session);}" widget-style="btnEdit">
+				<hyperlink also-hidden="false" target-type="plain" description="编辑数据" target="EditRawDataRev">
+					<parameter param-name="revId" />
+				</hyperlink>
+			</field>
+			<field name="delete" etc="width=35px" title="删除" use-when="${groovy:security.hasEntityPermission(&quot;RawDataRev&quot;, &quot;_DELETE&quot;, session);}" widget-style="btnDel">
+				<hyperlink also-hidden="false"  target-type="plain" description="删除" target="deleteRawDataRev">
+					<parameter param-name="revId" />
+				</hyperlink>
+			</field>
+		</form>
+		<form name="EditRawDataRev" id="${groovy:(entity==null)?&quot;CreateRawDataRev&quot;:&quot;EditRawDataRev&quot;}" type='single' style="single_table" default-table-style="single_table_style" target-type="plain" target="updateRawDataRev"  default-map-name="entity" default-entity-name="RawDataRev">
+			<alt-target use-when="entity==null" target="createRawDataRev" />
+			<field name="revId">
+				<hidden />
+			</field>
+			<field name="navTabId">
+				<hidden value="FindRawDataRev" />
+			</field>
+			<field name="callbackType">
+				<hidden value="closeCurrent" />
+			</field>
+	  			    	
+	
+				<field name="templateGroupId"   widget-style="" title="模板组名称">
+					<drop-down text-size="30"> 
+						<entity-options description="${templateGroupName}" entity-name="RawTemplateGroup"  key-field-name="templateGroupId">
+							<entity-constraint name="enabled" operator="not-equals" value="N"/>
+						</entity-options>
+					</drop-down>
+				</field>
+				<field name="operUserLoginId" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="操作ID" >
+					<text  disabled="true"/>
+				</field>
+				<field name="operUserLoginId" use-when="${groovy:oper==null}" widget-style="" title="操作ID">
+					<text  />
+				</field>
+		</form>
+				
+</forms>

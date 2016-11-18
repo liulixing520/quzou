@@ -1,0 +1,174 @@
+TABLE.fb_result {
+	border-left:1px solid #6387BE;
+	border-top:1px solid #6387BE;
+	border-right:1px solid #6387BE;
+	border-bottom:1px solid #6387BE;
+}
+
+.fb_result_title {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 14px;
+	COLOR: #FFFFFF;
+	FONT-FAMILY: "宋体";
+	HEIGHT: 22px;
+	cursor:default;
+	background-color: #6387BE;
+	text-indent: 10px;
+	border-left:0px solid #6387BE;
+	border-top:0px solid #6387BE;
+	border-right:0px solid #6387BE;
+	border-bottom:0px solid #6387BE;
+}
+
+.fb_result_head {
+	FONT-SIZE: 12px;
+	BACKGROUND: #C6E0F8;
+	COLOR: buttonfacetext;
+	FONT-FAMILY: "宋体";
+	cursor:default;
+	text-align: center;
+	text-decoration: none;
+	HEIGHT: 20px;
+	border-right:1px solid #6387BE;
+	border-bottom:1px solid #6387BE;
+}
+
+.fb_result_content {
+	FONT-SIZE: 12px;
+	BACKGROUND: menu;
+	FONT-FAMILY: "宋体";
+	HEIGHT: 20px;
+	text-decoration: none;
+	border-bottom:1px solid #6387BE;
+}
+
+.fb_result_content_ {
+	FONT-SIZE: 12px;
+	BACKGROUND: #EDF4FC;
+	FONT-FAMILY: "宋体";
+	HEIGHT: 20px;
+	text-decoration: none;
+	border-bottom:1px solid #6387BE;
+}
+
+.fb_result_onmouseover {
+	FONT-SIZE: 12px;
+	BACKGROUND: #FF9966;
+	color:#000000;
+	FONT-FAMILY: "宋体";
+	HEIGHT: 20px;
+	text-decoration: none;
+	border-bottom:1px solid #6387BE;
+}
+
+.fb_result_bottom {
+	FONT-SIZE: 12px;
+	BACKGROUND: #C6E0F8;
+	COLOR: buttonfacetext;
+	FONT-FAMILY: "宋体";
+	text-align: right;
+	HEIGHT: 25px;
+	cursor:default;
+	text-decoration: none;
+	text-indent: 3px;
+	border-right:1px solid #6387BE;
+	border-bottom:1px solid #6387BE;
+}
+
+.fb_result_divide {
+	FONT-SIZE: 12px;
+	BACKGROUND: #EFEFEF;
+	FONT-FAMILY: "宋体";
+	HEIGHT: 20px;
+	text-decoration: none;
+	border-bottom:1px solid #6387BE;
+}
+
+TABLE.fb_add {
+	border-left:1px solid #6387BE;
+	border-top:1px solid #6387BE;
+	border-right:1px solid #6387BE;
+	border-bottom:1px solid #6387BE;
+}
+
+.fb_add_title {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 14px;
+	COLOR: highlighttext;
+	FONT-FAMILY: "宋体";
+	HEIGHT: 22px;
+	cursor:default;
+	background-color: #6387BE;
+	text-indent: 10px;
+	border-left:0px solid #6387BE;
+	border-top:0px solid #6387BE;
+	border-right:0px solid #6387BE;
+	border-bottom:1px solid #6387BE;
+}
+
+.fb_add_head {
+	FONT-SIZE: 12px;
+	BACKGROUND: menu;
+	COLOR: buttonfacetext;
+	FONT-FAMILY: "宋体";
+	text-align: right;
+	text-decoration: none;
+	text-indent: 3px;
+	cursor:default;
+	HEIGHT: 20px;
+	border-right:0px solid #6387BE;
+	border-bottom:0px solid #6387BE;
+}
+
+.fb_add_content {
+	FONT-SIZE: 12px;
+	BACKGROUND: #FFFFFF;
+	FONT-FAMILY: "宋体";
+	HEIGHT: 20px;
+	text-decoration: none;
+	border-bottom:1px solid menu;
+}
+
+.fb_add_bottom {
+	FONT-SIZE: 12px;
+	BACKGROUND: #FFFFFF;
+	COLOR: buttonfacetext;
+	FONT-FAMILY: "宋体";
+	text-align: right;
+	HEIGHT: 30px;
+	cursor:default;
+	text-decoration: none;
+	text-indent: 3px;
+	border-right:0px solid #6387BE;
+	border-bottom:0px solid #6387BE;
+}
+
+.frame_w {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #D4D0C8;
+	border-right-color: #404040;
+	border-bottom-color: #404040;
+	border-left-color: #D4D0C8;
+}
+.frame_l {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #FFFFFF;
+	border-right-color: #808080;
+	border-bottom-color: #808080;
+	border-left-color: #FFFFFF;
+	background-color: #6387BE;
+}

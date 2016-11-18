@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of ebiz Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+
+	
+	<extend-entity entity-name="ShoppingList">
+		<field name="dxStoreId" type="id"><description>代销店铺Id</description></field>
+	</extend-entity>
+	<extend-entity entity-name="OrderHeader">
+		<field name="dxStoreId" type="id"><description>代销店铺Id</description></field>
+	</extend-entity>
+	<extend-entity entity-name="OrderItem">
+		<field name="dxSupplierPrice" type="currency-amount"><description>代销供应商价格</description></field>
+	</extend-entity>
+	<extend-entity entity-name="Product">
+		<field name="primaryProductStoreId" type="id"><description>The primary store ; it should be one of the productStoreId already setup in ProductProductStore</description></field>
+		<field name="prodStatusId" type="id"><description>产品状态标识PROD_CREATED,PROD_RELEASED</description></field>
+		<relation type="one-nofk" rel-entity-name="ProductStore">
+        	<key-map field-name="primaryProductStoreId" rel-field-name="productStoreId"/>
+      	</relation>
+	</extend-entity>
+	
+	<extend-entity entity-name="ProductCategory">
+		<field name="productStoreId" type="id"><description>The primary store ; it should be one of the productStoreId already setup in ProductProductStore</description></field>
+		<field name="thruDate" type="date-time"><description>失效时间</description></field>
+		<field name="showInHome" type="indicator"><description>标记分类是否在网站前台页面显示</description></field>
+		<relation type="one-nofk" rel-entity-name="ProductStore">
+        	<key-map field-name="productStoreId" rel-field-name="productStoreId"/>
+      	</relation>
+	</extend-entity>
+
+
+	<!-- 商户信息表 -->
+	<extend-entity entity-name="Person">
+		<field name="cellPhone" type="name" ><description>手机号码</description></field>
+	</extend-entity>
+    
+    <extend-entity entity-name="Party">
+		<field name="sellerStatusId" type="id"><description>卖家状态标识SELLER_CREATED,SELLER_ACCEPTED,SELLER_DECLINED</description></field>
+		<field name="begDate" type="date-time"><description>卖家提交认证请求时间</description></field>
+		<field name="examineDate" type="date-time"><description>管理员操作卖家认证请求时间</description></field>
+	</extend-entity>
+	
+	<!-- 客户区域geo -->
+	<extend-entity entity-name="Person">
+		<field name="geoId" type="id"><description>卖家所在区域</description></field>
+		<relation type="one-nofk" rel-entity-name="ChinaGeo">
+        	<key-map field-name="geoId" rel-field-name="geoId"/>
+      	</relation>
+	</extend-entity>
+	
+	<extend-entity entity-name="PartyGroup">
+		<field name="barCode" type="id"></field>
+	</extend-entity>
+	<extend-entity entity-name="ShoppingList">
+		<field name="shoppingListGroupId" type="name"></field>
+	</extend-entity>
+	<extend-entity entity-name="ShoppingListItem">
+		<field name="shoppingCartHistoryId" type="id"></field>
+	</extend-entity>
+	<extend-entity entity-name="ProductStore">
+		<field name="companyName" type="name"></field>
+		<field name="businessType" type="name"></field>
+		<field name="createTime" type="date-time"></field>
+		<field name="registeredAddress" type="name"></field>
+		<field name="scaleCompany" type="name"></field>
+		<field name="shopsKeywords" type="name"></field>
+		<field name="productKeywords" type="name"></field>
+		<field name="productStoreLogo" type="url"></field>
+		<field name="productStoreBanner" type="url"></field>
+		<field name="sellerTyp" type="id"><description>商户类型</description></field>
+		<field name="bankCode" type="name"><description>银行账号</description></field>
+		<field name="bankId" type="name"><description>开户行</description></field>
+		<field name="bankUserName" type="name"><description>银行收款人</description></field>
+		<field name="bankAddress" type="name"><description>开户行所在地</description></field>
+		<field name="bankProvince" type="name"><description>开户行所在省份</description></field>
+		<field name="bankCity" type="name"><description>开户行所在城市</description></field>
+		
+		
+	</extend-entity>
+</entitymodel>

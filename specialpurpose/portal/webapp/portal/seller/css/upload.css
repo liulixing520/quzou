@@ -1,0 +1,73 @@
+.uploadifyQueueItem {
+    background-color: #F5F5F5;
+    border: 2px solid #E5E5E5;
+    font: 11px Verdana, Geneva, sans-serif;
+    margin-top: 5px;
+    padding: 10px;
+    width: 140px;
+}
+.uploadifyError {
+    background-color: #FDE5DD !important;
+    border: 2px solid #FBCBBC !important;
+}
+.uploadifyQueueItem .cancel {
+	float: right;
+}
+.uploadifyQueue .completed {
+	background-color: #E5E5E5;
+}
+.uploadifyProgress {
+	background-color: #E5E5E5;
+	margin-top: 10px;
+	width: 100%;
+}
+.uploadifyProgressBar {
+	background-color: #0099FF;
+	height: 3px;
+	width: 1px;
+}
+.cancel {
+	display:none;
+}
+.selectBtn{
+	float:left;
+	width:140px;
+}
+.selectQuery{
+	float:left;
+}
+.selectBtnContainer{
+	padding-left:25px;
+}
+.pic_files{
+	display:none;
+}
+.loadingImg {
+	float:left;
+	display:none;
+}
+#mdrequestBg{
+	display:none;
+	position: fixed;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: #000;
+	opacity: 0.7;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+	-moz-opacity: 0.7;
+	z-index:999;
+}
+#mdrequest{
+	width:480px;
+	left:80px;
+	top:20px;
+	position:absolute;
+	display:none;
+}
+#mdrequestContenter{
+	position:relative;
+	z-index:1000;
+}

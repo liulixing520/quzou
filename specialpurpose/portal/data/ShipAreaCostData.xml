@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-engine-xml>
+	<Geo geoId="EMS_AREAS" geoTypeId="GROUP" geoName="EMS - Available Areas" geoCode="EMS_AREAS" abbreviation="EMS_AREAS"/> 
+    <Geo geoId="EMS01" geoTypeId="GROUP" geoName="EMS area 1" geoCode="EMS01" abbreviation="EMS01"/> 
+	<GeoAssoc geoId="CN-81" geoIdTo="EMS01" geoAssocTypeId="GROUP_MEMBER"/><!-- 香港 --> 
+	<GeoAssoc geoId="CN-82" geoIdTo="EMS01" geoAssocTypeId="GROUP_MEMBER"/><!-- 澳门 -->
+	<GeoAssoc geoId="CN-71" geoIdTo="EMS01" geoAssocTypeId="GROUP_MEMBER"/><!-- 台湾 -->
+    
+	<Geo geoId="EMS02" geoTypeId="GROUP" geoName="EMS area 2" geoCode="EMS02" abbreviation="EMS02"/> 
+	<GeoAssoc geoId="" geoIdTo="EMS02" geoAssocTypeId="GROUP_MEMBER"/><!-- 朝鲜 -->
+	<GeoAssoc geoId="" geoIdTo="EMS02" geoAssocTypeId="GROUP_MEMBER"/><!-- 韩国 -->
+	<GeoAssoc geoId="" geoIdTo="EMS02" geoAssocTypeId="GROUP_MEMBER"/><!-- 日本 -->
+
+    <Geo geoId="EMS03" geoTypeId="GROUP" geoName="EMS area 3" geoCode="EMS03" abbreviation="EMS03"/> 
+	<GeoAssoc geoId="" geoIdTo="EMS03" geoAssocTypeId="GROUP_MEMBER"/><!-- 菲律宾 -->
+	<GeoAssoc geoId="" geoIdTo="EMS03" geoAssocTypeId="GROUP_MEMBER"/><!-- 柬埔寨 -->
+	<GeoAssoc geoId="" geoIdTo="EMS03" geoAssocTypeId="GROUP_MEMBER"/><!-- 马来西亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS03" geoAssocTypeId="GROUP_MEMBER"/><!-- 蒙古 -->
+	<GeoAssoc geoId="" geoIdTo="EMS03" geoAssocTypeId="GROUP_MEMBER"/><!-- 泰国 -->
+	<GeoAssoc geoId="" geoIdTo="EMS03" geoAssocTypeId="GROUP_MEMBER"/><!-- 新加坡 -->
+	<GeoAssoc geoId="" geoIdTo="EMS03" geoAssocTypeId="GROUP_MEMBER"/><!-- 印度尼西亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS03" geoAssocTypeId="GROUP_MEMBER"/><!-- 越南 -->
+
+    <Geo geoId="EMS04" geoTypeId="GROUP" geoName="EMS area 4" geoCode="EMS04" abbreviation="EMS04"/> 
+	<GeoAssoc geoId="" geoIdTo="EMS04" geoAssocTypeId="GROUP_MEMBER"/><!-- 澳大利亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS04" geoAssocTypeId="GROUP_MEMBER"/><!-- 巴布亚新几内亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS04" geoAssocTypeId="GROUP_MEMBER"/><!-- 新西兰 -->
+
+    <Geo geoId="EMS05" geoTypeId="GROUP" geoName="EMS area 5" geoCode="EMS05" abbreviation="EMS05"/> 
+	<GeoAssoc geoId="" geoIdTo="EMS05" geoAssocTypeId="GROUP_MEMBER"/><!-- 美国 -->
+
+    <Geo geoId="EMS06" geoTypeId="GROUP" geoName="EMS area 6" geoCode="EMS06" abbreviation="EMS06"/> 
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 爱尔兰 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 奥地利 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 比利时 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 丹麦 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 德国 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 法国 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 芬兰 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 加拿大 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 卢森堡 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 马耳他 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 挪威 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 葡萄牙 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 瑞典 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 瑞士 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 西班牙 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 希腊 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 意大利 -->
+	<GeoAssoc geoId="" geoIdTo="EMS06" geoAssocTypeId="GROUP_MEMBER"/><!-- 英国 -->
+
+    <Geo geoId="EMS07" geoTypeId="GROUP" geoName="EMS area 7" geoCode="EMS07" abbreviation="EMS07"/> 
+	<GeoAssoc geoId="" geoIdTo="EMS07" geoAssocTypeId="GROUP_MEMBER"/><!-- 巴基斯坦 -->
+	<GeoAssoc geoId="" geoIdTo="EMS07" geoAssocTypeId="GROUP_MEMBER"/><!-- 老挝 -->
+	<GeoAssoc geoId="" geoIdTo="EMS07" geoAssocTypeId="GROUP_MEMBER"/><!-- 孟加拉国 -->
+	<GeoAssoc geoId="" geoIdTo="EMS07" geoAssocTypeId="GROUP_MEMBER"/><!-- 尼泊尔 -->
+	<GeoAssoc geoId="" geoIdTo="EMS07" geoAssocTypeId="GROUP_MEMBER"/><!-- 斯里兰卡 -->
+	<GeoAssoc geoId="" geoIdTo="EMS07" geoAssocTypeId="GROUP_MEMBER"/><!-- 土耳其 -->
+	<GeoAssoc geoId="" geoIdTo="EMS07" geoAssocTypeId="GROUP_MEMBER"/><!-- 印度 -->
+
+    <Geo geoId="EMS08" geoTypeId="GROUP" geoName="EMS area 8" geoCode="EMS08" abbreviation="EMS08"/> 
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 阿根廷 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 阿联酋 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 巴拿马 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 巴西 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 白俄罗斯 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 波兰 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 俄罗斯 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 哥伦比亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 古巴 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 圭亚那 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 捷克 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 秘鲁 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 墨西哥 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 乌克兰 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 匈牙利 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 以色列 -->
+	<GeoAssoc geoId="" geoIdTo="EMS08" geoAssocTypeId="GROUP_MEMBER"/><!-- 约旦 -->
+
+    <Geo geoId="EMS09" geoTypeId="GROUP" geoName="EMS area 9" geoCode="EMS09" abbreviation="EMS09"/> 
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 阿曼 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 埃及 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 埃塞俄比亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 爱沙尼亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 巴林 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 保加利亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 博茨瓦纳 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 布基纳法索 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 刚果（布） -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 刚果（金） -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 哈萨克斯坦 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 吉布提 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 几内亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 加纳 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 加蓬 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 卡塔尔 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 开曼群岛 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 科特迪瓦 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 科威特 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 克罗地亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 肯尼亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 拉脱维亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 卢旺达 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 罗马尼亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 马达加斯加 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 马里 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 摩洛哥 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 莫桑比克 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 尼日尔 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 尼日利亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 塞内加尔 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 塞浦路斯 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 沙特阿拉伯 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 突尼斯 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 乌干达 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 叙利亚 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 伊朗 -->
+	<GeoAssoc geoId="" geoIdTo="EMS09" geoAssocTypeId="GROUP_MEMBER"/><!-- 乍得 -->
+
+	<GeoAssoc geoId="EMS01" geoIdTo="EMS_AREAS" geoAssocTypeId="GROUP_MEMBER"/> 
+	<GeoAssoc geoId="EMS02" geoIdTo="EMS_AREAS" geoAssocTypeId="GROUP_MEMBER"/> 
+	<GeoAssoc geoId="EMS03" geoIdTo="EMS_AREAS" geoAssocTypeId="GROUP_MEMBER"/> 
+	<GeoAssoc geoId="EMS04" geoIdTo="EMS_AREAS" geoAssocTypeId="GROUP_MEMBER"/> 
+	<GeoAssoc geoId="EMS05" geoIdTo="EMS_AREAS" geoAssocTypeId="GROUP_MEMBER"/> 
+	<GeoAssoc geoId="EMS06" geoIdTo="EMS_AREAS" geoAssocTypeId="GROUP_MEMBER"/> 
+	<GeoAssoc geoId="EMS07" geoIdTo="EMS_AREAS" geoAssocTypeId="GROUP_MEMBER"/> 
+	<GeoAssoc geoId="EMS08" geoIdTo="EMS_AREAS" geoAssocTypeId="GROUP_MEMBER"/> 
+	<GeoAssoc geoId="EMS09" geoIdTo="EMS_AREAS" geoAssocTypeId="GROUP_MEMBER"/>
+	
+	
+</entity-engine-xml>

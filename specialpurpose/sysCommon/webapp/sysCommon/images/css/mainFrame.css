@@ -1,0 +1,40 @@
+/* CSS Document */
+html {
+	SCROLLBAR-FACE-COLOR: #93B1C2; /*立体滚动条的颜色*/
+	SCROLLBAR-HIGHLIGHT-COLOR: #93B1C2; /*滚动条空白部分的颜色*/
+	SCROLLBAR-SHADOW-COLOR: #93B1C2; /*立体滚动条阴影的颜色*/
+	SCROLLBAR-3DLIGHT-COLOR: #93B1C2; /*立体滚动条亮边的颜色*/
+	SCROLLBAR-ARROW-COLOR: #375263; /*三角箭头的颜色*/
+	SCROLLBAR-TRACK-COLOR: #f3f3f3; /*立体滚动条背景颜色*/
+	SCROLLBAR-DARKSHADOW-COLOR: #fff;  /*立体滚动条强阴影的颜色*/	
+}
+body {
+	font-family: Arial, Verdana, '瀹嬩綋'; 
+	font-size: 12px;
+	color: #333;
+	padding: 10px;
+	margin: 0;
+}
+table {
+	border-collapse:collapse;
+}
+table td {
+	font-size: 12px;
+	border: 1px solid #ddd;
+}
+.td_title {
+	background: url(../images/frame/mainFrame_bg01.png) repeat-x;
+	height: 29px;
+	line-height: 29px;
+	text-indent: 12px;
+	font-size: 12px;
+	font-family: "寰蒋闆呴粦";
+}
+.td_yuanhbg {
+	background: url(../images/frame/mainFrame_bg02.png) no-repeat right bottom;
+}
+.td_text {
+	padding: 8px 8px 8px 12px;
+	line-height: 28px;
+	color: #666;
+}

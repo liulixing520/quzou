@@ -1,0 +1,165 @@
+/* public */
+html {color: #33495f; font: 14px/1.5 "Lucida Grande", "Lucida Sans Unicode", Helvetica,"Microsoft YaHei","微软雅黑","MicrosoftJhengHei","华文细黑","STHeiti";}
+body, ul, li, ol, p, dl, dd, h1, h2, h3, h4, h5, h6, img, iframe, form, div { margin: 0; padding: 0; list-style-type: none; border: 0; }
+input,select{font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica,"Microsoft YaHei","微软雅黑","MicrosoftJhengHei","华文细黑","STHeiti";}
+h1, h2, h3, h4, h5, h6,strong{font-weight: normal;}
+input { padding: 5; margin: 2; }
+table{border-collapse:collapse;}
+a{text-decoration: none;color: #33495f;}
+a:hover{text-decoration:underline;}
+.clearfix{zoom: 1;}
+.clearfix:after{clear:both;content:" ";display:block;font-size:0;height:0;visibility:hidden;}
+.w_1080{width: 1080px;margin: 0 auto;}
+
+body{min-width: 1080px;background-color: #fff;}
+/* header */
+.header{z-index: 1008;position: relative;padding-top: 96px;}
+.header_top{border-bottom: 1px solid #ededed;width: 100%;position: fixed;z-index:1005;top: 0;background-color: #fff;}
+.header_mini .header_top{position: absolute;}
+.header_top .header_top_inner{width: 1080px;margin: 0 auto;height: 95px;position: relative;z-index: 10;}
+.header_top .header_top_inner .header_logo{width: 190px;height: 76px;position: absolute;left:13px;top: 10px;}
+.header_top .header_top_inner .header_logo img{display: block;width: 190px;height: 76px;}
+
+.header_top .header_top_inner .header_logo_right{line-height: 30px;position: absolute;left: 224px;top: 33px;font-size: 14px;color:#2bbc69;overflow: hidden;}
+.header_top .header_top_inner .header_logo_right span{height: 3px;width: 3px;line-height: 0;font-size: 0;background: #2bbc69;vertical-align: middle;display: inline-block;margin: 0 4px;}
+
+.search_box{border:1px solid #e4e4e4;height: 17px;width: 308px;position: absolute;left:330px; top:26px;border-radius: 3px;padding: 13px 10px 13px;}
+.search_box .text{font-size: 13px;height: 17px;line-height: 17px;border:none;outline: none;width: 275px;font-family: "Microsoft YaHei";color: #999;}
+.search_box .btn{display: block;width: 43px;height: 43px;position: absolute;right: 0;top: 0;background: url(http://static.chunboimg.com/images/chunbo_icon2x.png) -183px 5px no-repeat;border:0;outline: none;text-indent: -9999px;cursor: pointer;}
+
+.header_top_right{position: absolute;right: 0;height: 45px;top: 25px;width: 430px;}
+.header_top_right .header_cart{float: right;width: 150px;height: 45px;position: relative;margin-left: 10px;}
+.header_top_right .header_cart .cart_a{padding-left: 42px;height: 45px;line-height: 45px;width: 108px;background:#2bbc69;display: block;color: #fff;position: relative;font-size: 16px;border-radius: 4px;}
+.header_top_right .header_cart .cart_a:hover{opacity: .8;text-decoration: none;}
+.header_top_right .header_cart .cart_a .icon{background:url(http://static.chunboimg.com/images/chunbo_icon2x.png) -110px -98px no-repeat;position: absolute;left: 14px;top:14px;display: block;width: 25px;height: 25px;}
+.header_top_right .header_cart .cart_a .num{display: block;width: 23px;height: 23px;background: #e75f44;text-align: center;line-height: 23px;font-size: 12px;color: #fff;border-radius: 20px;position: absolute;right: 5px;top: -10px;}
+.header_top_right .header_cart .cart_slide{width: 316px;border:1px solid #c3c8cc;position: absolute;right: 0;top: 55px;border-radius: 2px;box-shadow: 1px 1px 3px #ddd,-1px 1px 3px #ddd;background: #fff;z-index: 12;}
+.header_top_right .header_cart .cart_slide_title{height: 44px;line-height: 44px;width: 290px;margin: 0 auto;font-size: 16px;font-weight: normal;color: #374a61;}
+.header_top_right .header_cart .cart_shop_list li{height: 65px;border-top: 1px solid #ededed;width: 290px;margin: 0 auto;position: relative;}
+.header_top_right .header_cart .cart_shop_list .pic,.header_top_right .header_cart .cart_shop_list .pic img{display: block;width: 50px;height: 50px;}
+.header_top_right .header_cart .cart_shop_list .pic{position: absolute;left: 7px;top: 7px;}
+.header_top_right .header_cart .cart_shop_list .name{height: 20px;line-height: 20px;width: 170px;white-space: nowrap;text-overflow: ellipsis;position: absolute;left: 74px;top:13px;overflow: hidden;}
+.header_top_right .header_cart .cart_shop_list .name a{color: #374a61;}
+.header_top_right .header_cart .cart_shop_list .num{position: absolute;left: 74px;top: 33px;line-height: 20px;}
+.header_top_right .header_cart .cart_shop_list .num b{color: #4dc781;font-weight: normal;font-size: 14px;margin-right: 7px;}
+.header_top_right .header_cart .cart_shop_list .num span{color: #b0b0b0;}
+.header_top_right .header_cart .delete{background:url(http://static.chunboimg.com/images/chunbo_icon2x.png) -139px -1px no-repeat;position: absolute;right: 3px;top: 18px;display: block;width: 30px;height: 30px;}
+.header_top_right .header_cart .cart_bottom{background-color: #f2f2f2;height: 45px;line-height: 45px;padding: 10px 10px 10px 25px;}
+.header_top_right .header_cart .cart_bottom .goto_cart{float: right;height: 45px;line-height: 45px;width: 126px;text-align: center;background-color: #e75f44;color: #fff;font-size: 16px;border-radius: 4px;}
+.header_top_right .header_cart .cart_bottom .goto_cart:hover{text-decoration: none;opacity: .8;}
+.header_top_right .header_cart .cart_bottom .goto_cart:active{text-decoration: none;opacity: 1;background-color: #d2482c;}
+.header_top_right .header_cart .cart_bottom .price{color: #45596d;}
+.header_top_right .header_cart .cart_bottom .price span{color: #e75f44;font-weight: bold;font-size: 20px;margin-left: 5px;position: relative;top: 3px;font-family: arial;}
+.header_top_right .header_message{float: right;font-size: 14px;}
+.header_top_right .header_message .header_login{float: left;height: 45px;line-height: 45px;color: #999;}
+.header_top_right .header_message .header_login a{color: #2bbc69;}
+.header_top_right .header_message .header_login span{color: #ccc;padding: 0 10px;}
+.header_top_right .header_message .header_login a.c_9{color: #999;}
+.header_top_right .header_message .header_myhome{float: left;width: 77px;position: relative;}
+.header_top_right .header_message .header_myhome .myhome_a{height: 45px;width: 77px;display: block;color: #2bbc69;line-height: 45px;position: relative;}
+.header_top_right .header_message .header_myhome .myhome_a span{display: block;width: 0px;height: 0px;font-size:0;line-height:0;position: absolute;left: 60px;top: 20px;border:5px solid #fff;border-color: #2bbc69 transparent transparent;}
+.header_top_right .header_message .myhome_slide{width: 120px;border:1px solid #c3c8cc;position: absolute;right: 0;top: 37px;border-radius: 2px;box-shadow: 1px 1px 3px #ddd,-1px 1px 3px #ddd;background: #fff;z-index: 8;}
+.header_top_right .header_message .myhome_slide li{border-bottom: 1px solid #c3c8cc;}
+.header_top_right .header_message .myhome_slide li:last-child{border-bottom: 0;}
+.header_top_right .header_message .myhome_slide li a{height: 36px;line-height: 36px;display: block;padding-left: 27px;color: #717171;}
+.header_top_right .header_message .myhome_slide li a:hover{background-color: #f7f7f7;text-decoration: none;}
+.header_top_right .header_message .myhome_tip{border:1px solid #2bbc69;background: #fff;border-radius: 3px;width: 176px;line-height: 18px;padding: 6px 30px 8px 10px;font-size:12px;position: absolute;left: -80px;z-index: 5;}
+.header_top_right .header_message .myhome_tip .close{color: #2bbc69;font-weight: bold;position: absolute;right: 6px;top: 6px;font-size: 14px;}
+.header_top_right .header_message .myhome_tip .close:hover{text-decoration: none;}
+.header_top_right .header_message .myhome_tip .myhome_tip_sj,.header_top_right .header_message .myhome_tip .myhome_tip_sj span{height:0;width: 0;font-size: 0;border:8px solid #eceef0;display: block;position: absolute;border-width: 0px 6px 6px 6px;}
+.header_top_right .header_message .myhome_tip .myhome_tip_sj{border-color: transparent transparent #2bbc69 transparent;top: -6px;left: 101px;}
+.header_top_right .header_message .myhome_tip .myhome_tip_sj span{left: -6px;top: 1px;border-color:transparent transparent #fff transparent;}
+.header_top_right .header_message .myhome_tip .c_green{color: #2bbc69;}
+
+.header_nav{border-bottom: 1px solid #ededed;width: 100%;position: relative;height: 50px;}
+.header_nav .header_nav_inner{width: 1080px;margin: 0 auto;height: 50px;position: relative;}
+.header_nav .header_nav_inner .nav_all{float: left;height: 50px;width: 160px;}
+.header_nav .header_nav_inner .nav_all .nav_all_a,.header_nav .header_nav_inner .nav_all .nav_all_a:hover{display: block;height: 50px;width: 130px;padding-left: 18px;position: relative;font-size: 16px;color: #33495f;line-height: 50px;text-decoration: none;}
+.header_nav .header_nav_inner .nav_all .nav_all_a span{position: absolute;left: 120px;top: 22px;height: 0;width: 0;line-height: 0;font-size: 0;border:6px solid #fff;border-color: #33495f #fff #fff;}
+.header_nav .header_nav_inner .nav_all .nav_all_slide{border:1px solid #e4e4e4;width: 158px;position: absolute;top:50px;left:0;background-color: #fff;display: none;height: 450px;border-top: 0;}
+.header_nav .header_nav_inner .nav_all .nav_all_slide li{height: 41px;}
+.header_nav .header_nav_inner .nav_all .nav_all_slide li .nav_all_lia{height: 40px;margin: 0 auto;width: 90px;padding-left: 30px;line-height: 40px;display: block;color: #354b60;font-size: 14px;border-top: 1px solid #d4d4d4;position: relative;}
+.header_nav .header_nav_inner .nav_all .nav_all_slide li.hover .nav_all_lia,.header_nav .header_nav_inner .nav_all .nav_all_slide li .nav_all_lia:hover{color: #2bbc69;text-decoration: none;}
+.header_nav .header_nav_inner .nav_all .nav_all_slide li .nav_all_lia span{background:url(http://static.chunboimg.com/images/chunbo_icon2x.png) -275px -99px no-repeat;display: block;width: 12px;height: 12px;position: absolute;left: 109px;top: 15px;}
+.header_nav .header_nav_inner .nav_all .nav_all_slide li .nav_all_lia img{display: block;width: 20px;height: 20px;position: absolute;left: 3px;top: 9px;}
+.header_nav .header_nav_inner .nav_all .nav_all_lislide{display: none;position: absolute;left: 158px;top:0px;width: 560px;height: 437px;background-color: #fff;border:1px solid #e4e4e4;padding: 6px 0;}
+.header_nav .header_nav_inner .nav_all .nav_all_lislide .nav_all_lislide_inner{padding-left: 30px;height: 420px;padding-top: 17px;}
+.header_nav .header_nav_inner .nav_all .nav_all_lislide dl{margin-bottom: 12px;position: relative;z-index: 7;}
+.header_nav .header_nav_inner .nav_all .nav_all_lislide dl,.header_nav .header_nav_inner .nav_all .nav_all_lislide dd{zoom: 1;}
+.header_nav .header_nav_inner .nav_all .nav_all_lislide dl:after,.header_nav .header_nav_inner .nav_all .nav_all_lislide dd:after{clear:both;content:" ";display:block;font-size:0;height:0;visibility:hidden;}
+.header_nav .header_nav_inner .nav_all .nav_all_lislide dd{width: 400px;float: left;}
+.header_nav .header_nav_inner .nav_all .nav_all_lislide dl dt {width: 90px;float: left;line-height: 22px;font-size: 13px;color: #2bbc69;overflow: hidden;height: 22px;}
+.header_nav .header_nav_inner .nav_all .nav_all_lislide dl dt a{font-size: 13px;color: #2bbc69;}
+.header_nav .header_nav_inner .nav_all .nav_all_lislide dd a,.header_nav .header_nav_inner .nav_all .nav_all_lislide dd a:hover {color: #33495f;padding-right: 8px;white-space: nowrap;background: url(http://static.chunboimg.com/images/line_bg.png) right center no-repeat;margin-right: 8px;float: left;line-height: 22px;font-size: 13px;}
+.header_nav .header_nav_inner .nav_all .nav_all_lislide dd a:last-child,.header_nav .header_nav_inner .nav_all .nav_all_lislide dd a:last-child:hover{background: none;}
+.header_nav .header_nav_inner .nav_all .nav_all_lislide .last_pic{position: absolute;left: 15px;bottom: 2px;}
+.header_nav .header_nav_inner .nav_all .nav_all_lislide .last_pic img{display: block;}
+.header_nav .header_nav_inner .header_nav_list{float: left;width: 890px;padding-left: 30px;}
+.header_nav .header_nav_inner .header_nav_list li{float: left;line-height: 50px;}
+.header_nav .header_nav_inner .header_nav_list li:after,.header_nav .header_nav_inner .header_nav_list:before{content: "|";float: left;display: block;line-height: 50px;}
+.header_nav .header_nav_inner .header_nav_list li a{display: block;float: left;height: 50px;font-size: 16px;color: #33495f;line-height: 50px;padding: 0 42px;}
+.header_nav .header_nav_inner .header_nav_list li a:hover,.header_nav .header_nav_inner .header_nav_list li.cur a{color: #2bbc69;text-decoration: none;}
+.header_nav .header_nav_inner .header_nav_list li.img_li{margin-right: 0;float: right;padding-top: 11px;line-height: 28px;z-index: 2;}
+.header_nav .header_nav_inner .header_nav_list li.img_li:after{content: '';display: none;line-height: 0;}
+.header_nav .header_nav_inner .header_nav_list li.img_li a:hover,.header_nav .header_nav_inner .header_nav_list li.img_li a{border:0;height: 27px;line-height: 28px;background:#e94d3c url(http://static.chunboimg.com/images/shuany.png) right center no-repeat;font-size: 13px;color: #fff;padding: 0 28px 0 18px;border-radius: 1px;}
+.header_nav .header_nav_inner .header_nav_list li.img_li span{line-height: 28px;color:#e94d3c;margin-right: 20px;}
+
+/* add by qiancheng*/
+.header_nav .header_nav_inner .header_nav_list li.link_li{float:right;margin:0 20px;}
+.header_nav .header_nav_inner .header_nav_list li.link_li:after{content:" ";}
+.header_nav .header_nav_inner .header_nav_list li.link_li a{padding:0;color:#2bbc69;font-size:13px;font-weight:700;}
+.header_nav .header_nav_inner .header_nav_list li.link_li a:hover{text-decoration:underline;}
+
+
+.footer{width: 100%;min-width: 1080px;background-color: #31485e;}
+.footer .footer_inner{width: 1000px;margin: 0 auto;position: relative;background-color: #31485e;padding: 35px 40px 15px;}
+.footer .footer_logo{position: absolute;left: 40px;top: 35px;}
+.footer .footer_list{padding-left: 170px;padding-bottom: 30px;border-bottom:1px solid #3e607c;}
+.footer .footer_list li{float: left;width: 95px;}
+.footer .footer_list li.last_li{width: 155px;}
+.footer .footer_list li.guanzhu{width: 177px;}
+.footer .footer_list li.guanzhu span{display: inline-block;width: 35px;height: 35px;vertical-align: middle;background:url(http://static.chunboimg.com/images/chunbo_icon2x.png) -275px -99px no-repeat;margin-right: 5px;}
+.footer .footer_list li.guanzhu .iphone{background-position: -197px -144px;}
+.footer .footer_list li.guanzhu .andoird{background-position: -246px -144px;}
+.footer .footer_list li.guanzhu .weibo{background-position: -297px -144px;}
+.footer .footer_list li.guanzhu dd a,.footer .footer_list li.guanzhu dd{line-height: 44px;color: #91afc6;}
+.footer .footer_list li.erweima{width: 111px;}
+.footer .footer_list li.erweima dt{font-size: 13px;margin-bottom: 16px;}
+.footer .footer_list dt{color: #91afc6;font-size: 14px;margin-bottom: 9px;}
+.footer .footer_list dd a,.footer .footer_list dd{color: #fff;line-height: 28px;}
+
+.footer .copy_right{line-height: 26px;text-align: center;color: #91afc6;padding-top: 10px;}
+.footer .copy_right a{color: #91afc6;}
+.footer_mini .footer_inner{padding: 19px 40px 30px;}
+
+.footer .footer-callcenter{position:absolute;left:40px;top:110px;color:#fff;font-size:18px;}
+.footer .footer-callcenter small{display:block;font-size:12px;margin:3px 0 0 2px;}
+
+/* backtop */
+#toTop{position:fixed;bottom:10px;right:10px;width:100px;height:80px;background:url(http://static.chunboimg.com/images/p00.gif) no-repeat;display:none;z-index: 2000;}
+a#toTop:hover{background-image:url(http://static.chunboimg.com/images/p01.gif);}
+#toTop i{width:66px;height:24px;position:absolute;top:30px;right:0;background:url(http://static.chunboimg.com/images/tips.gif) no-repeat;display:none;}
+a#toTop:hover i{display:block;}
+
+
+.sub{color:#999;font-size:12px;vertical-align:middle;}
+.i-txticon-red{display:inline-block;*display:inline;*zoom:1;background:#E75F44;color:#fff;height:16px;line-height:16px;vertical-align:top;font-style:normal;padding:2px 7px;border-radius:3px;margin:0 3px;font-size:12px;font-weight:normal;}
+
+a.img{position:relative;overflow:hidden;}
+a.img i.add-cart{position:absolute;width:90px;height:22px;line-height:22px;color:#fff;background:#2bbc69 url(http://static.chunboimg.com/images/i-add-cart.gif) 5px center no-repeat;font-style:normal;font-size:12px;border-radius: 3px;left:50%;margin:0 0 0 -45px;bottom:-30px;text-indent:24px;text-align:left;opacity:0;font-family:arial,sans-serif;}
+a.img i.add-cart-ys{background:#2bbc69 url(http://static.chunboimg.com/images/i-add-cart-ys.png) 11px center no-repeat;text-indent:30px;}
+a.img:hover{cursor:pointer;text-decoration:none;}
+
+
+
+.detail-gift{position:relative;border-bottom: 1px solid #ededed;padding:0 6px 13px;margin-bottom: 13px;}
+.detail-gift:after{clear:both;content:" ";display:block;font-size:0;height:0;visibility:hidden;}
+.detail-gift img{width:32px;line-height:32px;vertical-align:middle;border:1px solid #ccc;margin-right:5px;}
+.detail-gift .i-txticon-red{vertical-align:middle;}
+.detail-gift .count{float:right;margin:6px 0 0;border:none;}
+
+.loading-m{background-image:url(http://static.chunboimg.com/images/loading-m.gif);background-repeat:no-repeat;background-position:50% 50%;}
+.loading-txt{text-align:center;position:absolute;top:50%;left:50%;width:200px;margin:25px 0 0 -100px;color:#999;display:none;}
+.loading-m .loading-txt{display:block;}
+
+

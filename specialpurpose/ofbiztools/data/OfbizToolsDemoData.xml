@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+    <!--////////////////////////////// YT ProductStore Config Begin ///////////////////////////////-->
+    <!--Party: partyId="CompanyYt" -->
+    <Party partyId="CompanyYt" partyTypeId="PARTY_GROUP" statusId="PARTY_ENABLED" createdDate="2014-11-22 00:02:43.729" lastModifiedDate="2014-11-22 00:02:43.729"/>
+    <PartyStatus partyId="CompanyYt" statusDate="2014-11-22 00:02:43.729" statusId="PARTY_ENABLED"/>
+    <PartyGroup groupName="云彩购平台运维主管" partyId="CompanyYt" sellerType="ENTERPRISE_SELLER" approveStatusId="USER_APPROVED"/>
+    <PartyRole partyId="CompanyYt" roleTypeId="_NA_"/>
+    <PartyRole partyId="CompanyYt" roleTypeId="OWNER"/>
+    <PartyRole partyId="CompanyYt" roleTypeId="ORGANIZATION_ROLE"/>
+    <PartyRole partyId="CompanyYt" roleTypeId="INTERNAL_ORGANIZATIO"/>
+	<PartyRole partyId="CompanyYt" roleTypeId="SHIP_FROM_VENDOR"/>
+    <!--PostalAddress -->
+    <PartyRole partyId="CompanyYt" roleTypeId="BILL_FROM_VENDOR"/>
+    <PartyRole partyId="CompanyYt" roleTypeId="BILL_TO_CUSTOMER"/>
+    <ContactMech contactMechId="ytPostalAddr" contactMechTypeId="POSTAL_ADDRESS"/>
+    <PostalAddress contactMechId="ytPostalAddr" toName="上海门店" address1="上海徐汇区" city="上海" phoneNumber="13585668341" mobilePhone="021-34633525"
+                   countryGeoId="CHN" stateProvinceGeoId="CN-31" cityGeoId="310100" countyGeoId="310104" postalCode="210001"/>
+    <PartyContactMech partyId="CompanyYt" roleTypeId="ORGANIZATION_ROLE" contactMechId="ytPostalAddr" fromDate="2001-05-13 00:00:00.000" allowSolicitation="Y"/>
+    <PartyContactMechPurpose partyId="CompanyYt" contactMechId="ytPostalAddr" contactMechPurposeTypeId="BILLING_LOCATION" fromDate="2001-05-13 00:00:00.000"/>
+    <PartyContactMechPurpose partyId="CompanyYt" contactMechId="ytPostalAddr" contactMechPurposeTypeId="SHIPPING_LOCATION" fromDate="2001-05-13 00:00:00.000"/>
+
+    <!--adminyt-->
+    <Party partyId="adminyt" partyTypeId="PERSON" statusId="PARTY_ENABLED" createdDate="2014-11-22 00:02:43.729" lastModifiedDate="2014-11-22 00:02:43.729"/>
+    <PartyStatus partyId="adminyt" statusDate="2014-11-22 00:02:43.729" statusId="PARTY_ENABLED"/>
+    <Person partyId="adminyt" firstName="主管" lastName="云"/>
+    <PartyRole partyId="adminyt" roleTypeId="OWNER"/>
+    <PartyRole partyId="adminyt" roleTypeId="EMPLOYEE"/>
+    <PartyRelationship partyIdFrom="CompanyYt" roleTypeIdFrom="INTERNAL_ORGANIZATIO" partyIdTo="adminyt" roleTypeIdTo="OWNER" fromDate="2014-11-22 00:02:43.637"/>
+    <PartyRelationship partyIdFrom="CompanyYt" roleTypeIdFrom="INTERNAL_ORGANIZATIO" partyIdTo="adminyt" roleTypeIdTo="EMPLOYEE" fromDate="2014-11-22 00:02:43.637"/>
+    <!--adminyt: ofbiz-->
+    <UserLogin userLoginId="adminyt" partyId="adminyt" currentPassword="{SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a" requirePasswordChange="N"/>
+    <UserLoginSecurityGroup fromDate="2014-11-22 00:00:00.000" groupId="YtsmManagement" userLoginId="adminyt"/>
+    <UserLoginSecurityGroup fromDate="2014-11-22 00:00:00.000" groupId="FULLADMIN" userLoginId="adminyt"/>
+    <UserPreference userLoginId="adminyt" userPrefGroupTypeId="GLOBAL_PREFERENCES" userPrefTypeId="VISUAL_THEME" userPrefValue="OFC_BUSINESS"/>
+
+    <!--WebStoreWarehouse: ownerPartyId="CompanyYt"-->
+    <Facility facilityId="WebStoreWarehouse" facilityTypeId="WAREHOUSE" facilityName="云彩购平台仓库" description="专供云彩购平台的仓库"
+              ownerPartyId="CompanyYt" defaultInventoryItemTypeId="NON_SERIAL_INV_ITEM" defaultWeightUomId="WT_lb" defaultDaysToShip="25" geoPointId="9000"/>
+
+    <!--Facility:TelecomNumber-->
+    <ContactMech contactMechId="ytFacilityTel" contactMechTypeId="TELECOM_NUMBER"/>
+    <TelecomNumber contactMechId="ytFacilityTel" contactNumber="021-34633525"/>
+    <FacilityContactMech facilityId="WebStoreWarehouse" contactMechId="ytFacilityTel" fromDate="2001-05-13 12:00:00.0"/>
+    <!--Facility:PostalAddress-->
+    <ContactMech contactMechId="ytFacilityAddr" contactMechTypeId="POSTAL_ADDRESS"/>
+    <PostalAddress contactMechId="ytFacilityAddr" toName="云彩购平台" attnName="" address1="上海徐汇区北京路" city="上海" postalCode="200001" countryGeoId="CHN" stateProvinceGeoId="CN-31"/>
+    <FacilityContactMech facilityId="WebStoreWarehouse" contactMechId="ytFacilityAddr" fromDate="2001-05-13 12:00:00.0"/>
+    <FacilityContactMechPurpose facilityId="WebStoreWarehouse" contactMechId="ytFacilityAddr" contactMechPurposeTypeId="PUR_RET_LOCATION" fromDate="2004-07-26 16:49:50.161"/>
+    <FacilityContactMechPurpose facilityId="WebStoreWarehouse" contactMechId="ytFacilityAddr" contactMechPurposeTypeId="GENERAL_LOCATION" fromDate="2004-07-26 16:49:54.497"/>
+    <FacilityContactMechPurpose facilityId="WebStoreWarehouse" contactMechId="ytFacilityAddr" contactMechPurposeTypeId="PAYMENT_LOCATION" fromDate="2004-07-26 16:49:58.747"/>
+    <FacilityContactMechPurpose facilityId="WebStoreWarehouse" contactMechId="ytFacilityAddr" contactMechPurposeTypeId="BILLING_LOCATION" fromDate="2004-07-26 16:50:05.459"/>
+    <FacilityContactMechPurpose facilityId="WebStoreWarehouse" contactMechId="ytFacilityAddr" contactMechPurposeTypeId="SHIP_ORIG_LOCATION" fromDate="2004-07-26 16:50:09.65"/>
+    <FacilityContactMechPurpose facilityId="WebStoreWarehouse" contactMechId="ytFacilityAddr" contactMechPurposeTypeId="SHIPPING_LOCATION" fromDate="2004-07-26 16:50:13.755"/>
+
+    <!--ytMall: payToPartyId="CompanyYt"-->
+    <ProductStore productStoreId="ytMall" storeName="云彩购平台" companyName="云南投资电子商务有限公司" title="云彩购平台"
+                  subtitle="将打造电子购物新风尚" payToPartyId="CompanyYt" daysToCancelNonPay="30" prorateShipping="Y" prorateTaxes="Y"
+                  inventoryFacilityId="WebStoreWarehouse" oneInventoryFacility="Y" checkInventory="Y" reserveInventory="Y" balanceResOnOrderCreation="Y" reserveOrderEnumId="INVRO_FIFO_REC" requireInventory="N"
+                  defaultLocaleString="zh_CN" defaultCurrencyUomId="CNY" defaultSalesChannelEnumId="WEB_SALES_CHANNEL" allowPassword="Y" explodeOrderItems="N" retryFailedAuths="Y" reqReturnInventoryReceive="N"
+                  headerApprovedStatus="ORDER_APPROVED" itemApprovedStatus="ITEM_APPROVED" digitalItemApprovedStatus="ITEM_APPROVED" headerDeclinedStatus="ORDER_REJECTED"
+                  itemDeclinedStatus="ITEM_REJECTED" headerCancelStatus="ORDER_CANCELLED" itemCancelStatus="ITEM_CANCELLED" orderNumberPrefix="YT"
+                  authDeclinedMessage="您当前的支付方式出现故障, 请尝试其他支付方式, 或联系客服"
+                  authFraudMessage="您的订单已被拒绝, 因为您的账户因涉嫌欺诈, 已被系统禁用"
+                  authErrorMessage="处理支付发生异常, 我们将继续处理, 并通过电子邮件通知您"
+                  storeCreditValidDays="90" storeCreditAccountEnumId="FIN_ACCOUNT"
+                  visualThemeId="EC_DEFAULT" prodSearchExcludeVariants="Y" autoApproveInvoice="Y" shipIfCaptureFails="Y" autoApproveOrder="Y" showOutOfStockProducts="Y"
+                  />
+    <ProductStoreRole fromDate="2014-11-22 00:02:43.637" partyId="CompanyYt" productStoreId="ytMall" roleTypeId="OWNER"/>
+
+    <ProdCatalog prodCatalogId="ytRootCatalog" catalogName="云彩购平台根目录" useQuickAdd="Y"/>
+    <ProductStoreCatalog productStoreId="ytMall" prodCatalogId="ytRootCatalog" fromDate="2014-11-21 00:00:00.000"/>
+    
+    <PartyRole partyId="admin" roleTypeId="OWNER"/>
+    <WebSite webSiteId="ytSite" siteName="CMS 云彩购平台" productStoreId="ytMall" allowProductStoreChange="Y"/>
+    <!--////////////////////////////// YT ProductStore Config End ///////////////////////////////-->
+
+
+<!-- 数据字典顶级类型 -->
+    <EnumerationType description="商城管理数据字典类型" enumTypeId="EnumTypeYtCm" hasTable="N" parentTypeId=""/>
+    <Enumeration description="商城原始安全组设定" enumCode="YtcmOrigin" enumId="SYSTEM_AUTH_SET" sequenceId="01" enumTypeId="EnumTypeYtCm"/>
+    <!-- 安全组 -->
+    <SecurityGroup groupId="YtcmOrigin"         description="平台原始安全组" groupTypeEnumId="SGT_ORIGIN" ownerProductStoreId="ytMall"/>
+    <SecurityGroup groupId="YtcmManagement"     description="平台管理安全组" groupTypeEnumId="SGT_MNGMNT" ownerProductStoreId="ytMall"/>
+    <SecurityGroup groupId="YtsmManagement"     description="卖家管理安全组" groupTypeEnumId="SGT_MNGMNT" ownerProductStoreId="ytMall"/>
+    <SecurityGroup groupId="YtbmManagement"     description="买家管理安全组" groupTypeEnumId="SGT_MNGMNT" ownerProductStoreId="ytMall"/>
+    <SecurityGroup groupId="YtecPurchaseCust"   description="平台顾客购物安全组" groupTypeEnumId="SGT_MNGMNT" ownerProductStoreId="ytMall"/>
+
+
+
+    <!--PaymentMethod-->
+    <PaymentMethodType paymentMethodTypeId="EXT_ALIPAY" defaultGlAccountId="122000" description="支付宝"/>
+    <PaymentMethodType paymentMethodTypeId="EXT_NETPAY" defaultGlAccountId="122000" description="银联支付"/>
+    <PaymentMethodType paymentMethodTypeId="EXT_ZJPAY" defaultGlAccountId="122000" description="中金支付"/>
+
+    <!--PaymentMethod for ytMall -->
+    <ProductStorePaymentSetting productStoreId="ytMall" paymentMethodTypeId="EXT_OFFLINE" paymentServiceTypeEnumId="PRDS_PAY_EXTERNAL" paymentService="" paymentCustomMethodId=""/>
+    <ProductStorePaymentSetting productStoreId="ytMall" paymentMethodTypeId="EXT_COD" paymentServiceTypeEnumId="PRDS_PAY_EXTERNAL" paymentService="" paymentCustomMethodId=""/>
+    <ProductStorePaymentSetting productStoreId="ytMall" paymentMethodTypeId="EXT_ALIPAY" paymentServiceTypeEnumId="PRDS_PAY_EXTERNAL" paymentService="" paymentCustomMethodId=""/>
+	<ProductStorePaymentSetting productStoreId="ytMall" paymentMethodTypeId="EXT_NETPAY" paymentServiceTypeEnumId="PRDS_PAY_EXTERNAL" paymentService="" paymentCustomMethodId=""/>
+
+	<ProductStorePaymentSetting productStoreId="ytMall" paymentMethodTypeId="EXT_ZJPAY" paymentServiceTypeEnumId="PRDS_PAY_EXTERNAL" paymentService="" paymentCustomMethodId=""/>
+
+
+    <!--Shipment-->
+    
+    <ShipmentMethodType description="快递" shipmentMethodTypeId="EXPRESS"/>
+	
+	<!-- 
+	<ShipmentMethodType description="无需运送" shipmentMethodTypeId="STANDARD"/>
+	<ShipmentMethodType description="NO_SHIPPING" shipmentMethodTypeId="NO_SHIPPING"/>
+	<ShipmentMethodType shipmentMethodTypeId="NO_SHIPPING" description="货到付款"/>
+    <ShipmentMethodType shipmentMethodTypeId="STANDARD" description="离线支付"/>
+	 -->
+	
+    <Party partyId="SHUNFENG" partyTypeId="PARTY_GROUP"/>
+    <PartyGroup partyId="SHUNFENG" groupName="顺丰"/>
+    <PartyRole partyId="SHUNFENG" roleTypeId="CARRIER"/>
+    <CarrierShipmentMethod partyId="SHUNFENG" roleTypeId="CARRIER" shipmentMethodTypeId="EXPRESS" sequenceNumber="1"/>
+
+    <Party partyId="YUANTONG" partyTypeId="PARTY_GROUP"/>
+    <PartyGroup partyId="YUANTONG" groupName="圆通"/>
+    <PartyRole partyId="YUANTONG" roleTypeId="CARRIER"/>
+    <CarrierShipmentMethod partyId="YUANTONG" roleTypeId="CARRIER" shipmentMethodTypeId="EXPRESS" sequenceNumber="2"/>
+
+    <Party partyId="SHENTONG" partyTypeId="PARTY_GROUP"/>
+    <PartyGroup partyId="SHENTONG" groupName="申通"/>
+    <PartyRole partyId="SHENTONG" roleTypeId="CARRIER"/>
+    <CarrierShipmentMethod partyId="SHENTONG" roleTypeId="CARRIER" shipmentMethodTypeId="EXPRESS" sequenceNumber="3"/>
+
+    <Party partyId="YUNDA" partyTypeId="PARTY_GROUP"/>
+    <PartyGroup partyId="YUNDA" groupName="韵达"/>
+    <PartyRole partyId="YUNDA" roleTypeId="CARRIER"/>
+    <CarrierShipmentMethod partyId="YUNDA" roleTypeId="CARRIER" shipmentMethodTypeId="EXPRESS" sequenceNumber="4"/>
+
+    	
+
+	<!-- 
+	<PartyRole partyId="Company" roleTypeId="CARRIER"/>
+    <PartyRole partyId="_NA_" roleTypeId="CARRIER"/>
+    <CarrierShipmentMethod partyId="_NA_" roleTypeId="CARRIER" shipmentMethodTypeId="NO_SHIPPING" sequenceNumber="8"/>
+	
+	<Party partyId="LIXIAN" partyTypeId="PARTY_GROUP"/>
+    <PartyGroup partyId="LIXIAN" groupName="离线支付"/>
+    <PartyRole partyId="LIXIAN" roleTypeId="CARRIER"/>
+    <CarrierShipmentMethod partyId="LIXIAN" roleTypeId="CARRIER" shipmentMethodTypeId="STANDARD" sequenceNumber="5"/>
+	 -->	
+	
+    <ProductStoreShipmentMeth productStoreShipMethId="9001" productStoreId="ytMall" partyId="SHUNFENG" includeNoChargeItems="Y" allowUspsAddr="N" requireUspsAddr="N" roleTypeId="CARRIER" shipmentMethodTypeId="EXPRESS" sequenceNumber="3"/>
+    <ProductStoreShipmentMeth productStoreShipMethId="9002" productStoreId="ytMall" partyId="YUANTONG" includeNoChargeItems="Y" allowUspsAddr="N" requireUspsAddr="N" roleTypeId="CARRIER" shipmentMethodTypeId="EXPRESS" sequenceNumber="2"/>
+    <ProductStoreShipmentMeth productStoreShipMethId="9003" productStoreId="ytMall" partyId="SHENTONG" includeNoChargeItems="Y" allowUspsAddr="N" requireUspsAddr="N" roleTypeId="CARRIER" shipmentMethodTypeId="EXPRESS" sequenceNumber="1"/>
+    <ProductStoreShipmentMeth productStoreShipMethId="9004" productStoreId="ytMall" partyId="YUNDA" includeNoChargeItems="Y" allowUspsAddr="Y" requireUspsAddr="N" roleTypeId="CARRIER" shipmentMethodTypeId="EXPRESS" sequenceNumber="5"/>
+
+
+
+    <!--////////////////////////////// YT ProductStore default admin Begin ///////////////////////////////-->
+    <PartyRole partyId="admin" roleTypeId="EMPLOYEE"/>
+    <PartyRelationship fromDate="2014-11-22 00:02:43.637" partyIdFrom="CompanyYt" partyIdTo="admin" roleTypeIdFrom="INTERNAL_ORGANIZATIO" roleTypeIdTo="EMPLOYEE"/>
+    <UserPreference userLoginId="admin" userPrefGroupTypeId="GLOBAL_PREFERENCES" userPrefTypeId="VISUAL_THEME" userPrefValue="OFC_BUSINESS"/>
+    <!--////////////////////////////// YT ProductStore default admin End ///////////////////////////////-->
+
+
+
+	<UserLogin userLoginId="18706775430" partyId="admin" currentPassword="{SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a" requirePasswordChange="N"/>
+    <UserLoginSecurityGroup fromDate="2014-11-22 00:00:00.000" groupId="FULLADMIN" userLoginId="18706775430"/>
+	<!-- <UserPreference userPrefTypeId="VISUAL_THEME" userPrefGroupTypeId="GLOBAL_PREFERENCES" userPrefValue="OFC_BUSINESS" userLoginId="18706775430"/> -->
+</entity-engine-xml>

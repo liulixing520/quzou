@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	<screen name="CommonAlipayDecorator">
+		<section>
+			<widgets>
+				<decorator-screen name="main-decorator" location="component://OFBizAlipay/widget/CommonScreens.xml">
+					<decorator-section name="body">
+						<section>
+							<widgets>
+								<section>
+									<widgets>
+									</widgets>
+								</section>
+								<decorator-section-include name="body" />
+							</widgets>
+							<fail-widgets>
+								<label style="head3">ffffffff</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="login">
+		<section>
+			<widgets>
+				<decorator-screen name="CommonAlipayDecorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://common/webcommon/login.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="main">
+		<section>
+			<actions>
+				<set field="headerItem" value="main" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonAlipayDecorator">
+					<decorator-section name="body">
+						<section>
+							<widgets>
+								<platform-specific>
+									<html>
+										<html-template location="component://OFBizAlipay/webapp/alipay/templates/main.ftl" />
+									</html>
+								</platform-specific>
+							</widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="alipay_notify">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonAlipayDecorator">
+					<decorator-section name="body">
+						<section>
+							<widgets>
+								<platform-specific>
+									<html>
+										<html-template location="component://OFBizAlipay/webapp/alipay/templates/alipay_notify.ftl" />
+									</html>
+								</platform-specific>
+							</widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="alipay_return">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonAlipayDecorator">
+					<decorator-section name="body">
+						<section>
+							<widgets>
+								<platform-specific>
+									<html>
+										<html-template location="component://OFBizAlipay/webapp/alipay/templates/alipay_return.ftl" />
+									</html>
+								</platform-specific>
+							</widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+</screens>

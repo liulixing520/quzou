@@ -1,0 +1,153 @@
+﻿.rtab-warp ul.tabW li a span{width:100px;}
+.acc-star{margin-right:5px; font-family:\5b8b\4f53; color:#f00; font-weight:normal;}
+.acc-float{float:right;}
+.acc-text1{color:#999;}
+.acc-text2{color:#36c;}
+.acc-text3{color:#f60;}
+.acc-text4{color:#1b9b1b;}
+.acc-m1{margin-right:10px;}
+.acc-m2{margin-right:5px;}
+.acc-m3{margin-left:5px;}
+.acc-input{padding:3px 2px; vertical-align:middle;}
+.acc-select{padding:2px 0; vertical-align:middle;}
+.acc-radio{margin-right:5px; vertical-align:middle;}
+.acc-t-color1{color:#fc5501;}
+.acc-t-color5{color:#f00;}
+.acc-t-color7{color:#ababab;}
+/*左侧 开始*/
+.account-pop-wrap{position:relative; display:inline-block; *display:inline; *zoom:1;}
+.account-pop-button{display:inline-block; width:14px; height:14px; cursor:pointer; vertical-align:-2px; *vertical-align:middle; background:url(http://www.dhresource.com/dhs/mos/image/public/question.png) no-repeat 0 0;}
+.freeze-cause-pop{position:absolute; top:22px; left:-33px; z-index:999;}
+.freeze-cause-pop iframe{display:none; _display:block; position:absolute; top:0; left:0; width:175px; height:55px; z-index:-2; border:0; filter:alpha(opacity="0"); opacity:0;}
+.freeze-pop-inner{padding:5px 20px 5px 10px; width:170px; text-align:left; border:1px solid #efd392; background:#ffffe5;}
+.freeze-pop-arrow{position:absolute; top:-5px; left:35px; overflow:hidden; display:block; width:11px; height:6px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/seller-arrow.png) no-repeat 0 -48px;}
+.capital-account{margin-bottom:10px; line-height:20px; border:1px solid #e6e6e6;}
+.capital-number{padding:5px 0 10px 10px;}
+.capital-table tr td{text-align:right; line-height:24px;}
+.capital-table tr td.number{padding-left:10px;}
+.capital-table tr td.number2{padding-left:5px; font-size:11px;}
+.capital-button{margin-right:10px; padding-top:8px; text-align:center;}
+.capital-add-border{margin-bottom:10px; padding-bottom:10px; border-bottom:1px solid #e6e6e6;}
+.capital-rest{display:inline-block; padding-left:5px; font-size:11px;}
+.capital-test{padding:5px 10px; border-top:1px solid #e6e6e6; background:#ffffe5;}
+.capital-freeze{margin-bottom:5px; line-height:18px;}
+.capital-graybtn{overflow:hidden; display:inline-block; padding-left:10px; height:23px; line-height:23px; color:#444; text-decoration:none; background:url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) no-repeat 0 0;}
+@-moz-document url-prefix(){.capital-graybtn{ line-height:21px; }}
+.capital-graybtn span{display:inline-block; padding-right:10px; height:23px; cursor:pointer; background:url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) no-repeat right 0;}
+.capital-graybtn:hover{color:#000; text-decoration:none; background-position:0 -23px;}
+.capital-graybtn:hover span{background-position:right -23px;}
+.unclickbtn{cursor:default;}
+.unclickbtn span{color:#ababab; cursor:default;}
+.unclickbtn:hover{background-position:0 0;}
+.unclickbtn:hover span{color:#ababab; cursor:default; background-position:right 0;}
+/*左侧 结束*/
+/*提示信息 开始*/
+.acc-all-tip{display:inline-block;}
+.acc-common-tip{margin-bottom:20px; padding:7px 10px;border:1px solid #b3d0e9; background:#d9edfe;}
+.acc-error-tip{display:inline-block; margin-left:6px; color:#f00;}
+.acc-upload-tip{display:inline-block; margin:10px 0 20px; color:#999;}
+.acc-tip-icon{display:inline-block; margin-right:5px; width:16px; height:16px; vertical-align:middle;}
+.acc-common{background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -39px -75px;}
+.acc-error{background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -39px -156px;}
+.acc-right{background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -39px -173px;}
+.acc-upload{background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -39px -75px;}
+.acc-public-error{display:inline-block; margin-left:6px; color:#f00;}
+.type1{padding-left:20px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -39px -190px;}
+.acc-public-right{display:inline-block; margin-left:6px; width:16px; height:16px; vertical-align:middle; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -39px -173px;}
+/*提示信息 结束*/
+.acc-set-wrap{position:relative; padding:0 10px;}
+/*添加账户按钮 开始*/
+.acc-add-button,.acc-not-add{display:block; padding-top:60px; width:235px; height:100px; text-align:center; border:1px dashed #b3d0e9; background:#eee;}
+.acc-add-button:hover{color:#36c; text-decoration:none; background:#daedfe;}
+.acc-not-add{color:#ccc; border:1px dashed #ccc; background:#f6f6f6;}
+.acc-not-con{display:inline-block; text-align:center;}
+.acc-add-con{display:inline-block; text-align:center; cursor:pointer;}
+.acc-add-con b,.acc-not-con b{display:inline-block; width:24px; height:23px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat 0 0;}
+.acc-not-con b{background-position:-31px -395px;}
+.acc-add-con span,.acc-not-con span{display:block; padding-top:10px;}
+/*添加账户按钮 结束*/
+.acc-set-list{margin-bottom:10px; line-height:28px;}
+.acc-set-list dt{float:left; width:140px; text-align:right; font-weight:700;}
+.acc-set-list dd{position:relative; margin-left:145px;}
+.acc-foreign-list{margin-bottom:15px;}
+.acc-foreign-list dt{float:left; width:300px; text-align:right; font-weight:700; line-height:16px;}
+.acc-foreign-list dt p{font-weight:normal;}
+.acc-foreign-list dd{position:relative; margin-left:310px; line-height:28px;}
+.acc-w1{width:125px;}
+.acc-w2{width:106px;}
+.acc-w4{width:95px;}
+.acc-button-wrap{margin-top:30px; padding-left:145px;}
+.acc-set-card{width:235px; height:160px; border:1px dashed #b3cfe7; background:#eee;}
+.acc-card-title{padding:10px 10px 0; height:45px; line-height:20px;}
+.acc-card-logo{display:inline-block; height:20px;}
+.zs{padding-left:25px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -35px -219px;}
+.hf{padding-left:43px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -18px -93px;}
+.gs{padding-left:25px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -35px -240px;}
+.ms{padding-left:25px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -35px -303px;}
+.jt{padding-left:25px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -35px -282px;}
+.ny{padding-left:25px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -35px -324px;}
+.zg{padding-left:25px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -35px -261px;}
+.yz{padding-left:25px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -35px -345px;}
+.gf{padding-left:28px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -32px -366px;}
+.gd{padding-left:49px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -11px -114px;}
+.pa{padding-left:59px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -1px -136px;}
+.acc-card-send{margin-bottom:5px; padding:6px 10px; text-align:center; background:#cdcdcd;}
+.acc-card-info{padding:0 10px;}
+.acc-card-operate{padding:0 10px; margin-top:35px;}
+.acc-card-operate input{margin-right:5px;}
+.acc-success-wrap{position:relative;}
+.acc-success-card{position:relative; width:235px; height:160px; border:1px solid #b3d0e9; background:#fff; z-index:2;}
+.acc-success-shadow{position:absolute; top:3px; left:13px; _left:3px; width:235px; height:160px; background:#e5e5e5; z-index:1;}
+.acc-success-title{padding:10px; height:30px; line-height:20px; background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) repeat-x -50px -24px;}
+.acc-success-main{padding:6px 10px; text-align:center; border-top:1px solid #61ba62; border-bottom:1px solid #61ba62; background:#e2f7d6;}
+.acc-success-view{margin-top:47px; padding:0 10px;}
+.acc-card-error,.acc-card-common{margin-bottom:5px; padding:6px 10px; text-align:center; border-top:1px solid #ff8878; border-bottom:1px solid #ff8878; background:#fee9e4;}
+.acc-card-common{border-top:1px solid #b3d0e9; border-bottom:1px solid #b3d0e9; background:#d9edfe;}
+.acc-view-protocol{padding:10px 0 0 145px;}
+.acc-bank-info{margin:40px 0; padding:10px; border-top:1px solid #e0e0e0;}
+.acc-bank-info p{margin-bottom:10px; font-weight:700;}
+.acc-bank-list dt{float:left; width:20px;}
+.acc-bank-list dd{margin-left:20px; padding-bottom:8px;}
+.acc-p1{padding-left:310px;}
+.acc-number-box{position:absolute; top:25px; left:0; padding:0 10px; display:inline-block; height:28px; min-width:270px; line-height:28px; color:#fb7403; font-size:18px; border:1px solid #2d8dcf; background:#fffbe5;}
+/*弹层里的 开始*/
+#accountMask{position:absolute; z-index:9998; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.5; filter:alpha(opacity=50);}
+#accountMaskIframe{position:absolute; top:0; left:0; border:0; z-index:-1; opacity:0; filter:alpha(opacity=0)}
+.acc-pop-wrap{position:fixed !important; _position:absolute; z-index:9999; zoom:1;}
+.acc-w3{width:40px;}
+.acc-pop-save,.acc-pop-list,.acc-foreign-save{margin-bottom:10px;}
+.acc-pop-save dt{float:left; width:130px; text-align:right; font-weight:700;}
+.acc-pop-save dd{margin-left:135px;}
+.acc-pop-list dt{float:left; width:110px; text-align:right;}
+.acc-pop-list dd{margin-left:115px;}
+.acc-pop-list dd select{padding:2px; width:300px;}
+.acc-pop-list ul{padding:10px 0 20px;}
+.acc-pop-list ul li{float:left; width:150px;}
+.acc-foreign-save dt{float:left; width:270px; text-align:right; font-weight:700;}
+.acc-foreign-save dt p{font-weight:normal;}
+.acc-foreign-save dd{margin-left:275px; line-height:20px;}
+.acc-pop-card{margin-top:5px; display:table; *display:block; table-layout:fixed; width:145px; height:90px; vertical-align:middle;}
+.acc-pop-card span{overflow:hidden; display:table-cell; *display:inline-block; width:145px; height:90px; *font-family:Arial; *font-size:80px; vertical-align:middle;}
+.acc-pop-card img{max-width:145px; max-height:90px; vertical-align:middle;}
+.acc-mark-wrap{position:relative;margin-left:10px;display:inline-block;*display:inline;*zoom:1;vertical-align:-4px;*vertical-align:-2px;_vertical-align:-4px;}
+.acc-mark-button{display:inline-block;width:15px;height:15px;cursor:pointer;background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -40px 0;}
+.acc-mark-pop{position:absolute;top:22px;left:-50px;z-index:10;}
+.acc-mark-inner{position:relative;padding:10px;width:200px;font-size:12px;font-weight:normal;border:1px solid #b7b7b7;background:#f8f8f8;z-index:2;}
+.acc-mark-arrow{position:absolute;top:-5px;left:52px;width:11px;height:6px;background:url(http://www.dhresource.com/dhs/mos/image/capital-account/set-bg.png) no-repeat -26px 0; z-index:3;}
+.acc-mark-shadow{position:absolute; top:2px; left:2px; width:222px; height:58px; background:#e5e5e5;z-index:1;}
+.acc-pop-check{padding-bottom:20px;line-height:24px;}
+.acc-pop-check dt{font-weight:700;}
+.acc-pop-check dd{text-indent:2em;}
+.acc-pop-check dd span,.acc-pop-check dd strong{margin:0 5px;}
+.acc-count-down{padding-bottom:10px; text-align:center; color:#666;}
+.acc-count-down b{margin-right:5px; font-weight:700; color:#f00;}
+/*弹层里的 结束*/
+/*上传控件 开始*/
+.selectBtnContainer{padding:0;}
+.selectBtn{float:none;}
+.selectQuery{float:none;}
+.uploadifyQueueItem{width:121px;}
+.uploadifyQueueItem .fileName{display:block; height:26px; overflow:hidden;}
+.uploadifyError .fileName{display:block; height:13px; overflow:hidden;}
+/*上传控件 结束*/
+.page-topic .return-link{position:absolute; top:10px; right:10px;}

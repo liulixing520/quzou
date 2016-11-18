@@ -1,0 +1,365 @@
+.skin-4 {
+    background-color: #fff
+}
+
+.skin-4 .navbar {
+    background: #ff0000
+}
+
+.skin-4 .navbar-header{
+    width: 200px
+}
+.skin-4 .user-info{
+    line-height:34px;
+}
+
+.skin-4 .navbar .navbar-nav > li:first-child{
+    border-width: 0 0
+}
+
+.skin-4 .navbar .navbar-nav > li{
+    border: 0
+}
+
+.skin-4 .ace-nav > li > a{
+    background-color: transparent
+}
+
+.skin-4 .breadcrumbs {
+    position: relative;
+    z-index: auto;
+    border-bottom: 0px;
+    background-color: #ffffff;
+    min-height: 41px;
+    line-height: 40px
+}
+
+.skin-4 .breadcrumb{
+    margin-left: 0px
+}
+
+.skin-4 .nav>a, .nav>a:focus, .nav>a:hover{
+    background:transparent
+}
+
+.skin-4 .nav-list > li .submenu > li:before{
+    border: 0
+}
+.skin-4 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+    background:transparent
+}
+.skin-4 .nav-list > li{
+    border-width: 0 0 0
+}
+.skin-4 .nav-list > li .submenu{
+    border-top: 0px solid;
+    border-bottom: 0px
+}
+.skin-4 .nav-list > li:last-child{
+    border-bottom-width: 0
+}
+.skin-4 .nav-list > li .submenu:before{
+    border: 0
+}
+.skin-4 .nav-list > li .submenu > li{
+    border: 0
+}
+.skin-4 .nav-list > li .submenu > li > a{
+    border-top-width: 0
+}
+
+.skin-4 .user-photo{
+    margin: -4px 8px 0 0;
+    border-radius: 100%;
+    border: 2px solid #FFF;
+    max-width: 40px
+}
+
+.skin-4 .product-picture{
+    margin: -4px -4px -4px -4px;
+    border: 2px solid #FFF;
+    min-width: 100px;
+    min-height: 100px;
+    width: 90%;
+    height: 90%;
+    align-content: center
+}
+
+.product-well ul{
+    margin-left: 0px;
+    list-style: disc
+}
+
+.product-well li{
+    background-color:#fff;
+    border:1px solid #e8e8e8;
+    float: left;
+    height: 260px;
+    margin-right: 5px;
+    margin-left: 0px;
+    margin-bottom: 5px;
+    position: relative;
+    width: 180px;
+    list-style: none
+}
+.product-well li a{
+    display:block;
+    padding: 5px;
+    text-decoration: none
+}
+
+.product-well .bs-pro-img {
+    height: 170px;
+    width: 170px;
+}
+.product-well .bs-pro-name {
+    color: #010101;
+    height:20px;
+    margin-top: 10px;
+    margin-bottom:0;
+    text-align:center;
+    overflow: hidden;
+}
+.product-well .bs-pro-piece {
+    color: #999;
+    margin-top: 5px;
+    height:35px; line-height:19px; overflow:hidden;
+}
+.product-well .bs-pro-piece strong {
+    color: #9b0000;
+    padding-left: 5px;
+}
+
+
+/* ------------------------- */
+/*      Screenlet Style      */
+/* ------------------------- */
+
+.screenlet {
+    height: auto !important;
+    overflow: auto;
+    padding-bottom:0px
+}
+.h1, .h2, .h3, h1, h2, h3{
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
+.screenlet-body {
+    background-color: #FFFFFF;
+    height: auto !important;
+    height: 1%;
+    padding: 0.4em;
+    padding-bottom:0px;
+}
+
+.screenlet-body div {
+    margin: 0.8em 0.1em
+}
+.screenlet-body h3{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* Special Screenlet style for locale and timezone window */
+.lists.screenlet {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 1em;
+}
+
+.lists.screenlet .basic-table tr td {
+    text-align: center;
+}
+
+.lists.screenlet .basic-table tr td a {
+    display: block;
+}
+
+/* No padding screenlet decorator */
+.no-padding {
+    padding: 0;
+    border: none;
+}
+
+/*.no-padding .h1,
+.no-padding .h2,
+.no-padding .h3,
+.no-paddingr h1,
+.no-padding h2,
+.no-padding h3 {
+    padding: 0.7em;
+}*/
+
+
+.page-title {
+    color:#557996;
+    margin-bottom:0.5em;
+    font-size:1.6em;
+    font-weight:bold;
+}
+/* ----------------------------------- */
+/*      Screenlet Title Bar Style      */
+/* ----------------------------------- */
+
+.screenlet-title-bar {
+    color: #3eeeee;
+    height: 1%; /* IE fix */
+    min-height: 1.5em;
+    padding:0.8em 0.2em;
+    border-bottom: 1px solid #CCC
+}
+
+.screenlet-title-bar .h1,
+.screenlet-title-bar .h2,
+.screenlet-title-bar .h3,
+.screenlet-title-bar h1,
+.screenlet-title-bar h2,
+.screenlet-title-bar h3 {
+    background: none;
+    color: #666;
+    text-shadow: 1px 1px 0 #fff; /* Setting must be in px */
+}
+
+.screenlet-title-bar ul {
+    display: inline; /* IE Fix */
+}
+
+.screenlet-title-bar ul li {
+    background: none;
+    border-left: 0.1em solid #dedede;
+    color: #222;
+    float: right;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0.1em 0.5em 0.2em 0.5em;
+}
+
+.screenlet-title-bar ul .h1,
+.screenlet-title-bar ul .h2,
+.screenlet-title-bar ul .h3 {
+    border-left: none;
+    float: left;
+}
+
+.screenlet-title-bar h1,
+.screenlet-title-bar .h1 {
+    font-size: 1.6em;
+}
+
+.screenlet-title-bar h2,
+.screenlet-title-bar .h2 {
+    font-size: 1.3em;
+}
+
+.screenlet-title-bar h3,
+.screenlet-title-bar .h3 {
+    font-size: 1.1em;
+}
+
+.screenlet-title-bar .h3 a {
+    color: #222;
+    display: inline;
+}
+
+.screenlet-title-bar ul a {
+    color: #222;
+    display: block;
+}
+
+.screenlet-title-bar ul a:visited {
+    color: #222;
+}
+
+.screenlet-title-bar ul a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.screenlet-title-bar ul .disabled {
+    color: #CCCCCC;
+}
+
+.screenlet-title-bar ul .collapsed,
+.screenlet-title-bar ul .collapsed:hover {
+    background: url(/images/expand.gif) no-repeat center center;
+    min-height: 1.1em;
+    min-width: 1.1em;
+}
+
+.screenlet-title-bar ul .expanded,
+.screenlet-title-bar ul .expanded:hover {
+    background: url(/images/collapse.gif) no-repeat center center;
+    min-height: 1.1em;
+    min-width: 1.1em;
+}
+
+.screenlet-title-bar ul .collapsed a,
+.screenlet-title-bar ul .expanded a {
+    /* IE fix */
+    cursor: default;
+}
+
+.button-bar {
+    padding-left: 185px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.button-bar a {
+    text-decoration: none;
+}
+
+.smallSubmit{
+    font-size: 15px;
+    background: #eee;
+    font-weight:400;
+    color: #000;
+    border: 1px solid #ccc;
+    padding: 3px 14px;
+    text-align: center;
+}
+.smallSubmit:hover {
+    background: #6fb3e0;
+    color: #fff;
+    border: 1px solid #6fb3e0
+}
+
+.basic-table tr td{padding-top:15px;}
+.basic-table tr td .smallSubmit{font-size:15px; background:#eee; color:#000; border:1px solid #ccc; padding:3px 14px;}
+.basic-table tr td .smallSubmit:hover{background:#6fb3e0; color:#fff; border:1px solid #6fb3e0;}
+.label{background:none !important; color:#666 !important; text-align:right; padding-right:10px; width:180px; font-size:14px; line-height:35px;}
+.label span{text-align:right; line-height:30px;}
+
+.address-well ul{
+    margin-left: 0px;
+    list-style: disc
+}
+
+.address-well li{
+    background-color:#fff;
+    border:1px solid #e8e8e8;
+    float: left;
+    min-height: 200px;
+    margin-right: 15px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+    position: relative;
+    width: 200px;
+    list-style: none
+}
+.address-well li a{
+    display:block;
+    padding: 5px;
+    text-decoration: none
+}
+.address-well .addImg{
+    width:180px;
+    height:180px
+}
+
+.address-well .address{
+    margin: 20px;
+    font-style: normal;
+    min-height: 125px;
+}

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <property key="YtEcApplication">
+        <value xml:lang="en">Ec Application</value>
+        <value xml:lang="zh">云彩购平台</value>
+    </property>
+    <property key="YtEcCompanyName">
+        <value xml:lang="en">OFBiz: YtEc</value>
+    </property>
+    <property key="YtEcCompanySubtitle">
+        <value xml:lang="en">Part of the Open For Business Family of Open Source Software</value>
+        <value xml:lang="it">Un modulo della famiglia di software open source Open For Business</value>
+        <value xml:lang="zh">开源软件OFBiz的组成部分</value>
+    </property>
+    <property key="YtEcViewPermissionError">
+        <value xml:lang="en">You are not allowed to view this page.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+
+    <property key="PersonalRegisterBuyer">
+        <value xml:lang="en">Personal Buyer</value>
+        <value xml:lang="zh">采购商个人注册</value>
+    </property>
+
+    <property key="EnterpriseRegisterBuyer">
+        <value xml:lang="en">Enterprise Seller</value>
+        <value xml:lang="zh">采购商企业注册</value>
+    </property>
+
+    <!--卖卖双方注册页面-->
+    <property key="PersonalRegisterSeller">
+        <value xml:lang="en">Personal Seller</value>
+        <value xml:lang="zh">供应商个人注册</value>
+    </property>
+
+    <property key="EnterPriseRegisterSeller">
+        <value xml:lang="en">EnterPrise Seller</value>
+        <value xml:lang="zh">供应商企业注册</value>
+    </property>
+
+    <property key="UserName">
+        <value xml:lang="en">User Name</value>
+        <value xml:lang="zh">用户名</value>
+    </property>
+
+    <property key="EnterpriseUserName">
+        <value xml:lang="en">Enterprise username</value>
+        <value xml:lang="zh">企业登录名</value>
+    </property>
+    <property key="UserNameTip">
+        <value xml:lang="en">User Name Tip</value>
+        <value xml:lang="zh">一旦注册成功不能修改</value>
+    </property>
+
+    <property key="Password">
+        <value xml:lang="en">Password</value>
+        <value xml:lang="zh">密码</value>
+    </property>
+
+    <property key="RegisterRequired">
+        <value xml:lang="en">Required</value>
+        <value xml:lang="zh">此项为必填项</value>
+    </property>
+
+    <property key="PasswordVerify">
+        <value xml:lang="en">PasswordVerify</value>
+        <value xml:lang="zh">确认密码</value>
+    </property>
+
+    <property key="RegisterAgreement">
+        <value xml:lang="en">Register Agreement</value>
+        <value xml:lang="zh">《平台服务条款》</value>
+    </property>
+
+    <property key="RegisterNow">
+        <value xml:lang="en">Register Now</value>
+        <value xml:lang="zh">立即注册</value>
+    </property>
+
+    <property key="GroupName">
+        <value xml:lang="en">GroupName</value>
+        <value xml:lang="zh">公司名</value>
+    </property>
+    
+    <property key="GroupNameTip">
+        <value xml:lang="en">Tip</value>
+        <value xml:lang="zh">请填写正确的公司名</value>
+    </property>
+
+    <property key="BusinessLicenseCode">
+        <value xml:lang="en">Business License Code</value>
+        <value xml:lang="zh">营业执照号</value>
+    </property>
+
+    <property key="BusinessLicenseCodeTip">
+        <value xml:lang="en">Tip</value>
+        <value xml:lang="zh">请填写正确的营业执照号</value>
+    </property>
+
+    <property key="TaxpayerNo">
+        <value xml:lang="en">Taxpayer No</value>
+        <value xml:lang="zh">税务登记证号</value>
+    </property>
+
+    <property key="TaxpayerNoTip">
+        <value xml:lang="en">Tip</value>
+        <value xml:lang="zh">请填写正确的税务登记证号</value>
+    </property>
+
+    <property key="OrganizationCode">
+        <value xml:lang="en">Organization Code</value>
+        <value xml:lang="zh">组织机构代码</value>
+    </property>
+
+    <property key="OrganizationCodeTip">
+        <value xml:lang="en">Tip</value>
+        <value xml:lang="zh">请填写正确的组织机构代码</value>
+    </property>
+
+    <property key="AccountLicenseNo">
+        <value xml:lang="en">Account Opening License No</value>
+        <value xml:lang="zh">银行开户许可号</value>
+    </property>
+
+    <property key="AccountLicenseNoTip">
+        <value xml:lang="en">Tip</value>
+        <value xml:lang="zh">请填写正确的银行开户许可号</value>
+    </property>
+
+    <property key="LegalRepresentativeId">
+        <value xml:lang="en">Legal Representative ID Code</value>
+        <value xml:lang="zh">法人代表身份证号</value>
+    </property>
+
+    <property key="LegalRepresentativeIdTip">
+        <value xml:lang="en">Tip</value>
+        <value xml:lang="zh">请填写正确的法人代表身份证号</value>
+    </property>
+
+    <property key="VerifyCode">
+        <value xml:lang="en">Verify Code</value>
+        <value xml:lang="zh">验证码</value>
+    </property>
+
+    <property key="MobilePhone">
+        <value xml:lang="en">Mobile Phone</value>
+        <value xml:lang="zh">手机号码</value>
+    </property>
+
+    <property key="GetVerifyCode">
+        <value xml:lang="en">Get Verify Code</value>
+        <value xml:lang="zh">获取验证码</value>
+    </property>
+
+    <property key="PhoneVerifyCode">
+        <value xml:lang="en">Phone Verify Code</value>
+        <value xml:lang="zh">手机验证码</value>
+    </property>
+
+    <property key="MobilePhoneVerifyTip">
+        <value xml:lang="en">Please input right mobile phone number</value>
+        <value xml:lang="zh">请输入正确的手机号码！</value>
+    </property>
+    <property key="SendMessageSuccess">
+        <value xml:lang="en">Send Message Success</value>
+        <value xml:lang="zh">短信发送成功！</value>
+    </property>
+
+    <property key="SendMessageFailed">
+        <value xml:lang="en">Send Message Failed</value>
+        <value xml:lang="zh">短信发送失败！</value>
+    </property>
+
+    <property key="UserNameErrorMessage">
+        <value xml:lang="en">user name must be required </value>
+        <value xml:lang="zh">该项为必填项,只能包括英文字母和数字,且用户名长度必须大于等于6</value>
+    </property>
+
+    <property key="PasswordErrorMessage">
+        <value xml:lang="en">password must be required </value>
+        <value xml:lang="zh">该项为必填项,且密码长度必须大于等于4</value>
+    </property>
+
+    <property key="PhoneCodeErrorMessage">
+        <value xml:lang="en">password must be required </value>
+        <value xml:lang="zh">该项为必填项,请查看并输入手机验证码</value>
+    </property>
+
+    <property key="UserNameSuggest">
+        <value xml:lang="en">user name must contain number or char</value>
+        <value xml:lang="zh">由字符和数字组成,长度为6－25位</value>
+    </property>
+
+    <property key="PasswordVerifyTip">
+        <value xml:lang="en">PasswordVerifyTip</value>
+        <value xml:lang="zh">且和密码相同</value>
+    </property>
+
+    <property key="PhoneNumberCheck">
+        <value xml:lang="en">Please input right phone number</value>
+        <value xml:lang="zh">请输入正确的手机号</value>
+    </property>
+
+    <property key="PersonRegisterLineOne">
+        <value xml:lang="en">TODO</value>
+        <value xml:lang="zh">个人帐户适合于无营业执照的买家在本网站注册</value>
+    </property>
+
+    <property key="RegisterLineTwo">
+        <value xml:lang="en">TODO</value>
+        <value xml:lang="zh">注册成功后:</value>
+    </property>
+
+    <property key="RegisterLineThree">
+        <value xml:lang="en">TODO</value>
+        <value xml:lang="zh">    1、该帐户为买家帐户 , 可以进行采购。</value>
+    </property>
+
+    <property key="SellerRegisterLineThree">
+        <value xml:lang="en">TODO</value>
+        <value xml:lang="zh">    1、该帐户为卖家帐户 , 可以进行销售。</value>
+    </property>
+
+    <property key="RegisterLineFour">
+        <value xml:lang="en">TODO</value>
+        <value xml:lang="zh">    2、可以使用和购买本网站为企业提供的服务,</value>
+    </property>
+
+    <property key="RegisterLineFive">
+        <value xml:lang="en">TODO</value>
+        <value xml:lang="zh">       助你获得更多商业机会。</value>
+    </property>
+
+    <property key="PersonRegisterLineSix">
+        <value xml:lang="en">TODO</value>
+        <value xml:lang="zh">    如您为企业买家, 拥有营业执照。请切换成企业注册。</value>
+    </property>
+
+    <property key="EnterpriseRegisterLineOne">
+        <value xml:lang="en">TODO</value>
+        <value xml:lang="zh">    企业帐户适合于拥有营业执照的企业在本网站注册</value>
+    </property>
+
+    <property key="EnterpriseRegisterLineSix">
+        <value xml:lang="en">TODO</value>
+        <value xml:lang="zh">    如您为个人买家, 无营业执照。请切换成个人注册。</value>
+    </property>
+
+    <property key="Email">
+        <value xml:lang="en">email</value>
+        <value xml:lang="zh">邮箱</value>
+    </property>
+
+    <property key="EmailSuggest">
+        <value xml:lang="en">EmailSuggest</value>
+        <value xml:lang="zh">请填写常用邮箱地址</value>
+    </property>
+
+    <property key="EmailError">
+        <value xml:lang="en">EmailError</value>
+        <value xml:lang="zh">请填写正确的邮箱地址，例:example@example.com</value>
+    </property>
+    
+    <property key="PartyEmailAddressSuccessfullyUpdated">
+        <value xml:lang="en">Email Address successfully updated.</value>
+        <value xml:lang="zh">已成功更新邮件地址。</value>
+    </property>
+    
+    <property key="PARTYEMAILADDRESSSUCCESSFULLYUPDATED">
+        <value xml:lang="en">Email Address successfully updated.</value>
+        <value xml:lang="zh">已成功更新邮件地址。</value>
+    </property>
+</resource>

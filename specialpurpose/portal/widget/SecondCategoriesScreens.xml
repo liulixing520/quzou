@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+         
+    <screen name="second-categories-decorator">
+        <section>
+            <actions>
+                <property-map resource="PortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                <set field="layoutSettings.shortcutIcon" value="/portal/images/TradeEase.ico" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/categories/second/css/header.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/categories/second/css/footer.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/categories/second/css/header-all.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/categories/second/css/common-nohead.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/categories/second/css/cate-toplink.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/categories/second/css/go-top-ws.css" global="true"/>
+
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/js/jquery-1.11.1.js" global="true"/>
+
+                <script location="component://portal/widget/PortalSetup.groovy"/>
+
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/includes/header.ftl"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/includes/footer.ftl"/>
+            </actions>
+            <widgets>
+                <section>
+                    <actions>
+                        <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/ProductCategories.groovy"/>
+                    </actions>
+                    <widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="header"><platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific></container>
+
+                        <container id="body">
+                            <decorator-section-include name="body"/>
+                        </container>
+
+                        <container id="footer"><platform-specific><html><html-template location="${footerTemplateLocation}"/></html></platform-specific></container>
+                        <platform-specific><html><html-template location="component://common/webcommon/includes/closehtmlbody.ftl"/></html></platform-specific>
+                    </widgets>
+                </section>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="main">
+        <section>
+           <!-- chenfei -->
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>               
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/GetChildCategories.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="second-categories-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/categories/second/main.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="banner2">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/banner2.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="brand">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/brand.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="recommended">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <!-- 店铺的  新品上架 -->
+                <set field="parameters.sortByReverse" value="true" type="Boolean"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>   
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/recommended.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+
+
+    <screen name="gallery">
+        <section>
+             <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+               
+               <!-- solr 查询 二级分类下的三级分类   -->
+                <set field="parameters.sortByReverse" value="true" type="Boolean"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>  
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/gallery.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="gallerytoFor">
+        <section>
+             <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+               <!-- 店铺的    三级分类  汽车电子产品  -->
+                <set field="parameters.sortByReverse" value="true" type="Boolean"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>  
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/CategoryToSecond.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/galleryTofor.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+
+    <screen name="hotCategories">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/hotCategories.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="allCategories">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/allCategories.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+                
+    <screen name="categories">
+        <section>
+             <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>  
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/CategoryToSecond.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/categories.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="bestSelling">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                 <!-- 店铺的   畅销产品  -->
+                <set field="parameters.sortByReverse" value="true" type="Boolean"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>  
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/bestSelling.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="topSeller">
+        <section>
+        	<actions>
+        	    <set field="parameters.productCategoryId" value="HOT_SALES"/>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/store/recommendProductStore.groovy"/>
+        	</actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/topSeller.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+	<screen name="OneSeller">
+        <section>
+             <actions>
+        	    <set field="optStore" value="${optStore}" />
+        	</actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/oneSeller.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="hotSearch">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/hotSearch.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="promotion">
+        <section>
+            <actions>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+        	</actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/promotion.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+</screens>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods.xsd">
+
+    <!--学生 -->
+    <simple-method method-name="createLimsStudent" short-description="Create LimsStudent">
+    	<log level="info" message="*****${parameters.studentName}***"></log>
+        <make-value entity-name="LimsStudent" value-field="newEntity"/>
+   	    <if-empty field="parameters.studentId">
+        	<sequenced-id sequence-name="LimsStudent" field="newEntity.studentId"/>
+        	 <else>
+                <set field="newEntity.studentId" from-field="parameters.studentId"/>
+            </else>
+		</if-empty>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <field-to-result field="newEntity.studentId" result-name="studentId"/>
+        <create-value value-field="newEntity"/>
+        <check-errors/>
+    </simple-method>
+    <simple-method method-name="updateLimsStudent" short-description="Update LimsStudent">
+        <entity-one entity-name="LimsStudent" value-field="lookedUpValue"/>
+        <set-nonpk-fields value-field="lookedUpValue" map="parameters"/>
+        <store-value value-field="lookedUpValue"/>
+    </simple-method>
+    <simple-method method-name="deleteLimsStudent" short-description="Delete LimsStudent">
+        <now-timestamp field="nowTimestamp"/>
+        <set field="parameters.thruDate" from-field="nowTimestamp"/>
+        <set-service-fields service-name="updateLimsStudent" to-map="thisCtx" map="parameters"/>
+        <call-service service-name="updateLimsStudent" in-map-name="thisCtx"/>
+    </simple-method>
+    <simple-method method-name="deleteAllLimsStudent" short-description="Delete select LimsStudent">
+        <call-bsh><![CDATA[
+               ids = org.ofbiz.base.util.StringUtil.split(parameters.get("ids"),",");
+               parameters.put("ids", ids);
+        ]]></call-bsh>
+        <if-not-empty field="parameters.ids">
+       		<iterate entry="thisId" list="parameters.ids">
+			<set from-field="thisId" field="thisMap.studentId" />
+	        <call-service service-name="deleteLimsStudent" in-map-name="thisMap"></call-service>
+			</iterate>
+		</if-not-empty>	
+    </simple-method>
+    <simple-method method-name="createOrUpdateLimsStudent" short-description="Create LimsStudent">
+   	    <if-empty field="parameters.studentId">
+        		<set-service-fields service-name="createLimsStudent" to-map="thisCtx" map="parameters"/>
+        		<call-service service-name="createLimsStudent" in-map-name="thisCtx"/>
+			<else>
+				<set-service-fields service-name="updateLimsStudent" to-map="thisCtx" map="parameters"/>
+        		<call-service service-name="updateLimsStudent" in-map-name="thisCtx"/>
+			</else>
+		</if-empty>
+        <check-errors/>
+    </simple-method>
+    
+	<!--班级 -->
+       <simple-method method-name="createLimsClass" short-description="Create LimsClass">
+        <make-value entity-name="LimsClass" value-field="newEntity"/>
+   	    <if-empty field="parameters.classId">
+        	<sequenced-id sequence-name="LimsClass" field="newEntity.classId"/>
+        	 <else>
+                <set field="newEntity.classId" from-field="parameters.classId"/>
+            </else>
+		</if-empty>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <field-to-result field="newEntity.classId" result-name="classId"/>
+        <create-value value-field="newEntity"/>
+        <check-errors/>
+    </simple-method>
+    <simple-method method-name="updateLimsClass" short-description="Update LimsClass">
+        <entity-one entity-name="LimsClass" value-field="lookedUpValue"/>
+        <set-nonpk-fields value-field="lookedUpValue" map="parameters"/>
+        <store-value value-field="lookedUpValue"/>
+    </simple-method>
+    <simple-method method-name="deleteLimsClass" short-description="Delete LimsClass">
+        <now-timestamp field="nowTimestamp"/>
+        <set field="parameters.thruDate" from-field="nowTimestamp"/>
+        <set-service-fields service-name="updateLimsClass" to-map="thisCtx" map="parameters"/>
+        <call-service service-name="updateLimsClass" in-map-name="thisCtx"/>
+    </simple-method>
+    <simple-method method-name="deleteAllLimsClass" short-description="Delete select LimsClass">
+        <call-bsh><![CDATA[
+               ids = org.ofbiz.base.util.StringUtil.split(parameters.get("ids"),",");
+               parameters.put("ids", ids);
+        ]]></call-bsh>
+        <if-not-empty field="parameters.ids">
+       		<iterate entry="thisId" list="parameters.ids">
+			<set from-field="thisId" field="thisMap.classId" />
+	        <call-service service-name="deleteLimsClass" in-map-name="thisMap"></call-service>
+			</iterate>
+		</if-not-empty>	
+    </simple-method>
+	
+</simple-methods>

@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+    <screen name="seller-main-decorator">
+        <section>
+            <actions>
+                <property-map resource="PortalUiLabels" map-name="uiLabelMap" global="true"/>
+
+                <set field="layoutSettings.shortcutIcon" value="/portal/images/TradeEase.ico" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/css/header.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/css/footer.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/js/jquery-1.11.1.js" global="true"/>
+
+                <script location="component://portal/widget/PortalSetup.groovy"/>
+
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/includes/header.ftl"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/includes/footer.ftl"/>
+            </actions>
+            <widgets>
+                <section>
+                    <actions>
+                        <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/ProductCategories.groovy"/>
+                    </actions>
+                    <widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="header"><platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific></container>
+
+                        <container id="body">
+                            <decorator-section-include name="body"/>
+                        </container>
+
+                        <container id="footer"><platform-specific><html><html-template location="${footerTemplateLocation}"/></html></platform-specific></container>
+                        <platform-specific><html><html-template location="component://common/webcommon/includes/closehtmlbody.ftl"/></html></platform-specific>
+                    </widgets>
+                </section>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="switchable">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/sellerhome/switchable.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="shopinfo">
+        <section>
+        	<actions>
+        		<entity-one entity-name="ProductStore" value-field="sellerProductStore" auto-field-map="true"/>
+        	</actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/sellerhome/shopinfo.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="shopnav">
+        <section>
+       		 <actions>
+       		 <property-map resource="PortalUiLabels" map-name="uiLabelMap" global="true"/>
+       		 <!--  -->
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/store/ProductStoreTopCategories.groovy"/>
+                <!--<entity-one entity-name="ProductStore" value-field="productStore" auto-field-map="true"/>-->
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/sellerhome/shopnav.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="crumb">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/sellerhome/crumb.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="newArrival">
+        <section>
+        	<actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="parameters.productStoreId" from-field="productStoreId"/>
+                <set field="parameters.SEARCH_CATEGORY_ID" value="all"/>
+                <set field="parameters.orderByName" value="lastModifiedDate"/>
+                <set field="parameters.sortByReverse" value="true" type="Boolean"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="8"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/sellerhome/newArrival.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="contactInfo">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/sellerhome/contactInfo.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="productSub">
+        <section>
+        	<actions>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/store/ProductStoreTopCategories.groovy"/>
+        	</actions>
+            <widgets>
+                <platform-specific>
+                  <!-- 暂时注掉  <html><html-template location="component://portal/webapp/portal/seller/sellerhome/productSub.ftl"/></html> -->
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="hotAndNew1">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/sellerhome/hotAndNew1.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="hotAndNew">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/home/weeklyBestsellings.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/sellerhome/hotAndNew.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="recommend">
+        <section>
+        	<actions>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/catalog/SellerCategories.groovy"/>
+        	</actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/sellerhome/recommend.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="shopheader">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/sellerhome/shopheader.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="shopsub">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/sellerhome/shopsub.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+<screen name="contactInformation">
+        <section>
+         <actions>
+                <set field="titleProperty" value="PageTitleEditProductStore"/>
+                <set field="headerItem" value="store"/>
+                <set field="tabButtonItem" value="EditProductStore"/>
+                <set field="labelTitleProperty" value="ProductStore"/>
+
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/EditProductStore.groovy"/>
+                <entity-one entity-name="ProductStore" value-field="productStore" auto-field-map="true"/>
+                <property-to-field field="defaultCurrencyUomId" resource="general" property="currency.uom.id.default" default="CNY"/>
+                <!-- 退货地址 -->
+                <script location="component://party/webapp/partymgr/WEB-INF/actions/party/GetContactMechs.groovy"/>
+            </actions>
+            <widgets>
+           	 	<platform-specific>
+                            <html><html-template location="component://common/webcommon/includes/messages.ftl"/></html>
+                 </platform-specific>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/sellerhome/contactInformation.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+</screen>
+    
+    
+    <screen name="shopmain">
+        <section>
+        	<actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="parameters.productStoreId" from-field="productStoreId"/>
+                <set field="parameters.SEARCH_CATEGORY_ID" value="all"/>
+                <set field="parameters.orderByName" value="lastModifiedDate"/>
+                <set field="parameters.sortByReverse" value="true" type="Boolean"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="15"/>
+                <set  field="fyproductStoreId" from-field="parameters.productStoreId"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/sellerhome/shopmain.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+<!-- 联系方式 -->
+    <screen name="sellerContactDetails">
+        <section>
+        	<actions>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+        	</actions>
+            <widgets>
+                <decorator-screen name="seller-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/seller/sellerhome/contactDetails.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+ <!-- 退货地址 -->
+<screen name="returnaddress">
+        <section>
+            <actions>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="postalAddressTemplateSuffix" value=".ftl"/>
+                <set field="addressTemplatePath" value="${sys:getProperty('ofbiz.home')}/applications/party/webapp/partymgr/party/contactmechtemplates/"/>
+                <script location="component://party/webapp/partymgr/WEB-INF/actions/party/GetPostalAddressTemplate.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html>
+                    <html-template location="component://portal/webapp/portal/seller/sellerhome/returnaddress.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+ <!-- 商铺出售的商品-->
+<screen name="tmall">
+        <section>
+        <actions>
+               <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+        <!-- <set  field="productCategoryId" from-field="parameters.productCategoryId"/>  写下面这个是为了忽略类别查出所有商品-->
+       			<property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="parameters.productStoreId" from-field="productStoreId"/>
+                <set field="parameters.SEARCH_CATEGORY_ID" value="all"/>
+                <set field="parameters.orderByName" value="lastModifiedDate"/>
+                <set field="parameters.sortByReverse" value="true" type="Boolean"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="12"/>
+                <set  field="fyproductStoreId" from-field="parameters.productStoreId"/>
+                <!-- 获取代销商品 -->
+                <entity-and list="dxProductList" entity-name="DxProductAndProduct">
+                	<field-map field-name="dxStoreId" from-field="productStoreId"/>
+                	<field-map field-name="isVariant" value="N"/>
+                </entity-and>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+        </actions>
+            <widgets>
+                <decorator-screen name="seller-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/seller/sellerhome/tmall.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+     <!-- 商铺出售的商品列表-->
+<screen name="sellerProductList">
+        <section>
+            <actions>
+               <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+				 
+                <set field="productsummaryScreen" value="component://portal/widget/CommonScreens.xml#productsummary"/>
+				 
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="8"/>
+                <set field="parameters.SEARCH_CATEGORY_ID" from-field="requestAttributes.productCategoryId"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/FindCategory.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+             <widgets>
+           	 	<platform-specific>
+                            <html><html-template location="component://common/webcommon/includes/messages.ftl"/></html>
+                 </platform-specific>
+                <platform-specific>
+                     <html><html-template location="component://portal/webapp/portal/seller/sellerhome/sellerProductList.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+
+
+	<screen name="sellerCategory">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/sellerCategory.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellerhome/sellerCategory.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+	<screen name="sellerProductSummary">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellerhome/sellerProductSummary.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+	
+	<screen name="newArrivalProductSummary">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellerhome/newArrivalProductSummary.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+</screens>

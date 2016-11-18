@@ -1,0 +1,126 @@
+BODY {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana, "ËÎÌו"
+}
+TD {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana, "ËÎÌו"
+}
+BODY {
+	MARGIN: 10px auto; BACKGROUND-COLOR: #fff
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #f00; TEXT-DECORATION: none
+}
+.txt_wr A:link {
+	COLOR: #f3dae0; TEXT-DECORATION: none
+}
+.txt_wr A:visited {
+	COLOR: #f3dae0; TEXT-DECORATION: none
+}
+.txt_wr A:hover {
+	COLOR: #fc0; TEXT-DECORATION: none
+}
+.txt_w {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+.txt_w A:link {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+.txt_w A:visited {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+.txt_w A:hover {
+	COLOR: #ff0; TEXT-DECORATION: none
+}
+.txt_b {
+	COLOR: #3b3b3b; TEXT-DECORATION: none
+}
+.txt_b A:link {
+	COLOR: #3b3b3b; TEXT-DECORATION: none
+}
+.txt_b A:visited {
+	COLOR: #3b3b3b; TEXT-DECORATION: none
+}
+.txt_b A:hover {
+	COLOR: #900; TEXT-DECORATION: none
+}
+.txt_ga {
+	COLOR: #6d6d6d; TEXT-DECORATION: none
+}
+.txt_ga A:link {
+	COLOR: #6d6d6d; TEXT-DECORATION: none
+}
+.txt_ga A:visited {
+	COLOR: #6d6d6d; TEXT-DECORATION: none
+}
+.txt_ga A:hover {
+	COLOR: #900; TEXT-DECORATION: none
+}
+.txt_r {
+	COLOR: #900; TEXT-DECORATION: none
+}
+.txt_r A:link {
+	COLOR: #900; TEXT-DECORATION: none
+}
+.txt_r A:visited {
+	COLOR: #900; TEXT-DECORATION: none
+}
+.txt_r A:hover {
+	COLOR: #900; TEXT-DECORATION: none
+}
+.txt_14 {
+	FONT-SIZE: 14px; COLOR: #666; TEXT-DECORATION: none
+}
+.txt_14 A:link {
+	FONT-SIZE: 14px; COLOR: #666; TEXT-DECORATION: none
+}
+.txt_14 A:visited {
+	FONT-SIZE: 14px; COLOR: #666; TEXT-DECORATION: none
+}
+.txt_14 A:hover {
+	FONT-SIZE: 14px; COLOR: #f00; TEXT-DECORATION: none
+}
+.txt_14_r {
+	FONT-SIZE: 14px; COLOR: #900
+}
+.txt_14_r A:link {
+	FONT-SIZE: 14px; COLOR: #900
+}
+.txt_14_r A:visited {
+	FONT-SIZE: 14px; COLOR: #900
+}
+.txt_14_r A:hover {
+	FONT-SIZE: 14px; COLOR: #900
+}
+.txt_rr {
+	COLOR: #f00; TEXT-DECORATION: none
+}
+.txt_rr A:link {
+	COLOR: #f00; TEXT-DECORATION: none
+}
+.txt_rr A:visited {
+	COLOR: #f00; TEXT-DECORATION: none
+}
+.txt_rr A:hover {
+	COLOR: #f00; TEXT-DECORATION: none
+}
+.txt_br {
+	COLOR: #b17d0c; TEXT-DECORATION: none
+}
+.txt_br A:link {
+	COLOR: #b17d0c; TEXT-DECORATION: none
+}
+.txt_br A:visited {
+	COLOR: #b17d0c; TEXT-DECORATION: none
+}
+.txt_br A:hover {
+	COLOR: #f00; TEXT-DECORATION: none
+}
+.input_a {
+	BORDER-TOP: #7f9db9 1px solid; HEIGHT: 18px; BORDER-RIGHT: #7f9db9 1px solid; BORDER-BOTTOM: #7f9db9 1px solid; BORDER-LEFT: #7f9db9 1px solid; WIDTH: 120px
+}

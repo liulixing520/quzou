@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	<!--指标 -->
+	<screen name="FindRawIndex">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="parameters.sortField" default-value="-indexId"/>
+				<set field="viewIndex" from-field="parameters.VIEW_INDEX_1" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE_1" type="Integer" default-value="20"/>
+                <service service-name="performFindList" result-map="result">
+	                <field-map field-name="inputFields" from-field="parameters"/>
+	                <field-map field-name="entityName" value="RawIndex"/>
+	                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+	                <field-map field-name="viewIndex" from-field="viewIndex" />
+	                <field-map field-name="viewSize"  from-field="viewSize"/>
+	            </service>
+	            <set field="RawIndexList" from-field="result.list"/>
+	            <set field="listSize" from-field="result.listSize"/>
+	            <entity-condition list="parentIndexList" entity-name="RawIndex">
+					<condition-list>
+						<condition-expr field-name="hasChild" value="Y"/>
+					</condition-list>
+					<order-by field-name="sortNo"/>
+				</entity-condition>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://sysCommon/webapp/sysCommon/Raw/RawIndex_list.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditRawIndex">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="indexId" from-field="parameters.indexId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="RawIndex" value-field="entity" />
+				<entity-condition list="UomList" entity-name="Uom"></entity-condition>
+				<entity-condition list="parentIndexList" entity-name="RawIndex">
+					<condition-list>
+						<condition-expr field-name="hasChild" value="Y"/>
+					</condition-list>
+					<order-by field-name="sortNo"/>
+				</entity-condition>
+				<set field="currentForm" value="${groovy:(entity==null)?&quot;CreateRawIndex&quot;:&quot;EditRawIndex&quot;}"/>  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/RawIndex_edit.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+		<!--模板 -->
+	<screen name="FindRawTheme">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="viewIndex" from-field="parameters.VIEW_INDEX_1" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE_1" type="Integer" default-value="20"/>
+                <service service-name="performFindList" result-map="result">
+	                <field-map field-name="inputFields" from-field="parameters"/>
+	                <field-map field-name="entityName" value="RawTheme"/>
+	                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+	                <field-map field-name="viewIndex" from-field="viewIndex" />
+	                <field-map field-name="viewSize"  from-field="viewSize"/>
+	            </service>
+	            <set field="RawThemeList" from-field="result.list"/>
+	            <set field="listSize" from-field="result.listSize"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://sysCommon/webapp/sysCommon/Raw/RawTheme_list.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditRawTheme">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="themeId" from-field="parameters.themeId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="RawTheme" value-field="entity" />
+				<entity-condition list="RawCellList" entity-name="RawIndex">
+					<condition-list>
+						<condition-expr field-name="indexLocation" value="cell"/>
+					</condition-list>	
+					<order-by field-name="parentIndexId"/>
+					<order-by field-name="sortNo"/>
+				</entity-condition>
+				<entity-condition list="RawRowList" entity-name="RawIndex">
+					<condition-list>
+						<condition-expr field-name="indexLocation" value="row"/>
+					</condition-list>
+					<order-by field-name="parentIndexId"/>
+					<order-by field-name="sortNo"/>
+				</entity-condition>
+				<entity-condition list="rawCrosstabList" entity-name="RawCrosstab">
+					<condition-list>
+						<condition-expr field-name="themeId" from-field="themeId"/>
+					</condition-list>
+				</entity-condition>
+				<entity-condition list="parentIndexList" entity-name="RawIndex">
+					<condition-list>
+						<condition-expr field-name="hasChild" value="Y"/>
+					</condition-list>
+					<order-by field-name="sortNo"/>
+				</entity-condition>
+				<set field="currentForm" value="${groovy:(entity==null)?&quot;CreateRawTheme&quot;:&quot;EditRawTheme&quot;}"/>  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/RawTheme_edit.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="UploadRawThemeData">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-condition list="RawThemeList" entity-name="RawTheme">
+					<order-by field-name="themeId"/>
+				</entity-condition>
+	
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/RawThemeData_upload.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditRawThemeData">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="oper" from-field="parameters.oper" />
+				<set field="themeId" from-field="parameters.themeId" />
+				<set field="oper" from-field="parameters.oper" />
+				
+				<entity-one entity-name="RawTheme" value-field="entity" />
+				
+				<entity-condition list="rawCrosstabList" entity-name="RawCrosstab">
+					<condition-list>
+						<condition-expr field-name="themeId" from-field="themeId"/>
+					</condition-list>
+				</entity-condition>
+				
+				<entity-condition list="rawCrosstabDataIndexList" entity-name="RawCrosstabDataAndIndex">
+					<condition-list>
+						<condition-expr field-name="themeId" from-field="themeId"/>
+					</condition-list>
+				</entity-condition>
+
+				<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/raw/getRawData.groovy"></script>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/RawThemeData_edit.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<!-- ##############采集系统################  -->
+	<screen name="FindRawTemplate">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="viewIndex" from-field="parameters.VIEW_INDEX_1" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE_1" type="Integer" default-value="20"/>
+                <service service-name="performFindList" result-map="result">
+	                <field-map field-name="inputFields" from-field="parameters"/>
+	                <field-map field-name="entityName" value="RawTemplate"/>
+	                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+	                <field-map field-name="viewIndex" from-field="viewIndex" />
+	                <field-map field-name="viewSize"  from-field="viewSize"/>
+	            </service>
+	            <set field="RawTemplateList" from-field="result.list"/>
+	            <set field="listSize" from-field="result.listSize"/>
+	            <entity-condition list="templateGroupList" entity-name="RawTemplateGroup">
+					<order-by field-name="sortNo"/>
+				</entity-condition>
+				<set field="operationButton[]" value="增加模板|icon-add|AddRawTemplate|href|RawTemplate_ADD" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindRawTemplate" 
+									location="component://sysCommon/widget/RawForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListRawTemplate" 
+									location="component://sysCommon/widget/RawForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="AddRawTemplate">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="templateId" from-field="parameters.templateId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="RawTemplate" value-field="entity" />
+				
+				<entity-condition list="rawTemplateGroupist" entity-name="RawTemplateGroup">
+					<condition-expr field-name="enabled" operator="not-equals" value="N"/>
+				</entity-condition>
+				
+				<set field="currentForm" value="${groovy:(entity==null)?&quot;CreateRawTemplate&quot;:&quot;EditRawTemplate&quot;}"/>  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/RawTemplate_add.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditRawTemplate">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="templateId" from-field="parameters.templateId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="RawTemplate" value-field="entity" />
+				
+				<entity-condition list="rawTemplateGroupist" entity-name="RawTemplateGroup">
+					
+				</entity-condition>
+				
+				<entity-condition list="rawMeasureList" entity-name="RawMeasure">
+					<condition-list>
+						<condition-expr field-name="templateGroupId" from-field="entity.templateGroupId"/>
+					</condition-list>
+				</entity-condition>
+				<entity-condition list="refmeasureList" entity-name="RawTemplateRefmeasure">
+					<condition-list>
+						<condition-expr field-name="templateId" from-field="templateId"/>
+					</condition-list>
+				</entity-condition>
+				
+				<set field="currentForm" value="${groovy:(entity==null)?&quot;CreateRawTemplate&quot;:&quot;EditRawTemplate&quot;}"/>  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/RawTemplate_edit.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditRawTemplateData3">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="oper" from-field="parameters.oper" />
+				<set field="templateId" from-field="parameters.templateId" />
+				<set field="revId" from-field="parameters.revId" />
+				<set field="oper" from-field="parameters.oper" />
+				
+				<entity-one entity-name="RawTemplate" value-field="entity" />
+				
+				<entity-condition list="rawCrossList" entity-name="RawCrossConfig">
+					<condition-list>
+						<condition-expr field-name="templateId" from-field="templateId"/>
+					</condition-list>
+				</entity-condition>
+				
+				<entity-condition list="rawCrosstabDataIndexList" entity-name="RawCrossDataAndConfig">
+					<condition-list>
+						<condition-expr field-name="templateId" from-field="templateId"/>
+					</condition-list>
+				</entity-condition>
+
+				<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/raw/getRawCrossData3.groovy"></script>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/RawTemplateData_edit3.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditRawTemplateData">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="oper" from-field="parameters.oper" />
+				<set field="templateId" from-field="parameters.templateId" />
+				<set field="revId" from-field="parameters.revId" />
+				<set field="oper" from-field="parameters.oper" />
+				
+				<entity-one entity-name="RawTemplate" value-field="entity" />
+				
+				<entity-condition list="rawCrossList" entity-name="RawCrossConfig">
+					<condition-list>
+						<condition-expr field-name="templateId" from-field="templateId"/>
+					</condition-list>
+					<order-by field-name="rowNum"/>
+				</entity-condition>
+				<entity-condition list="rawTemplateRefdimList" entity-name="RawTemplateRefdimAndDim">
+					<condition-list>
+						<condition-expr field-name="templateId" from-field="templateId"/>
+					</condition-list>
+				</entity-condition>
+				
+				<entity-condition list="rawCrosstabDataIndexList" entity-name="RawCrossDataAndConfig">
+					<condition-list>
+						<condition-expr field-name="templateId" from-field="templateId"/>
+						<condition-expr field-name="revId" from-field="revId"/>
+					</condition-list>
+				</entity-condition>
+
+				<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/raw/getRawCrossData.groovy"></script>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html><html-template location="component://sysCommon/webapp/sysCommon/raw/RawTemplateData_edit.ftl"/></html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditRawTemplateDataAll">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="oper" from-field="parameters.oper" />
+<!-- 				<set field="layoutSettings.userJs[]" value="/images/uploadify/scripts/jquery.uploadify.v2.1.0.js" global="true"/> -->
+<!-- 				<set field="layoutSettings.userJs[]" value="/images/uploadify/scripts/swfobject.js" global="true"/> -->
+<!-- 				<set field="layoutSettings.styleSheets[]" value="/images/uploadify/css/uploadify.css" global="true"/> -->
+				<set field="revId" from-field="parameters.revId" />
+				<set field="templateGroupId" from-field="parameters.templateGroupId" />
+				<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/raw/getRawRevByDeteBill.groovy"></script>
+				<entity-condition list="RawTemplateList" entity-name="RawTemplate">
+					<condition-list>
+						<condition-expr field-name="templateGroupId" from-field="templateGroupId"/>
+					</condition-list>
+				</entity-condition>
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/RawTemplateData_edit_all.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+		<!--模板组 -->
+	<screen name="FindRawTemplateGroup">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="operationButton[]" value="增加模板组|icon-add|EditRawTemplateGroup|href|RawTemplateGroup_ADD" />
+				<set field="operationButton[]" value="启用|ext-icon-qy|updateRawTemplateGroupEnabled?enabled=Y###navTabId=sysCommon/control/FindRawTemplateGroup|operSelected-确定启用吗|RawTemplateGroup_UPDATE" />
+				<set field="operationButton[]" value="禁用|ext-icon-jy|updateRawTemplateGroupEnabled?enabled=N###navTabId=sysCommon/control/FindRawTemplateGroup|operSelected-确定禁用吗|RawTemplateGroup_UPDATE" />
+				<set field="layoutSettings.userJs[]" value="/sysCommon/images/js/raw.js" global="true"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindRawTemplateGroup" 
+									location="component://sysCommon/widget/RawForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListRawTemplateGroup" 
+									location="component://sysCommon/widget/RawForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="EditRawTemplateGroup">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="templateGroupId" from-field="parameters.templateGroupId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="RawTemplateGroup" value-field="entity" />
+				<set field="currentForm" value="${groovy:(entity==null)?&quot;CreateRawTemplateGroup&quot;:&quot;EditRawTemplateGroup&quot;}"/>  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/RawTemplateGroup_edit.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+		<!--维度 -->
+	<screen name="FindRawDimension">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="operationButton[]" value="增加维度|icon-add|EditRawDimension|href|RawDimension_ADD" />
+				<set field="operationButton[]" value="批量删除|icon-remove|deleteAllRawDimension|removeSelected|RawDimension_DELETE" />
+				<set field="layoutSettings.userJs[]" value="/sysCommon/images/js/raw.js" global="true"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindRawDimension" 
+									location="component://sysCommon/widget/RawForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListRawDimension" 
+									location="component://sysCommon/widget/RawForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditRawDimension">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="dimensionId" from-field="parameters.dimensionId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="RawDimension" value-field="entity" />
+				<set field="currentForm" value="${groovy:(entity==null)?&quot;CreateRawDimension&quot;:&quot;EditRawDimension&quot;}"/>  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+					<decorator-screen name="DetailScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="detail-options">
+							<screenlet title="">
+								<include-form name="EditRawDimension" 
+									location="component://sysCommon/widget/RawForms.xml" />
+						    </screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+		<!--维度值 -->
+	<screen name="FindRawDimensionPart">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="operationButton[]" value="增加维度值|icon-add|EditRawDimensionPart|href|RawDimensionPart_ADD" />
+				<set field="operationButton[]" value="批量删除|icon-remove|deleteAllRawDimensionPart|removeSelected|RawDimensionPart_DELETE" />
+			
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindRawDimensionPart" 
+									location="component://sysCommon/widget/RawForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListRawDimensionPart" 
+									location="component://sysCommon/widget/RawForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditRawDimensionPart">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="dimensionPartId" from-field="parameters.dimensionPartId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="RawDimensionPart" value-field="entity" />
+				<set field="currentForm" value="${groovy:(entity==null)?&quot;CreateRawDimensionPart&quot;:&quot;EditRawDimensionPart&quot;}"/>  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+					<decorator-screen name="DetailScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="detail-options">
+							<screenlet title="">
+								<include-form name="EditRawDimensionPart" 
+									location="component://sysCommon/widget/RawForms.xml" />
+						    </screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+		<!--度量 -->
+	<screen name="FindRawMeasure">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="operationButton[]" value="增加度量|icon-add|EditRawMeasure|href|RawMeasure_ADD" />
+				<set field="operationButton[]" value="批量删除|icon-remove|deleteAllRawMeasure|removeSelected|RawMeasure_DELETE" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindRawMeasure" 
+									location="component://sysCommon/widget/RawForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListRawMeasure" 
+									location="component://sysCommon/widget/RawForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditRawMeasure">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="measureId" from-field="parameters.measureId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="RawMeasure" value-field="entity" />
+				<set field="currentForm" value="${groovy:(entity==null)?&quot;CreateRawMeasure&quot;:&quot;EditRawMeasure&quot;}"/>  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+					<decorator-screen name="DetailScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="detail-options">
+							<screenlet title="">
+								<include-form name="EditRawMeasure" 
+									location="component://sysCommon/widget/RawForms.xml" />
+						    </screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+		<!--数据版本 -->
+	<screen name="FindRawDataRev">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="parameters.sortField" default-value="-createdStamp"/>
+<!-- 				<set field="operationButton[]" value="增加|icon-add|EditRawDataRev|href|RawDataRev_ADD" /> -->
+				<set field="operationButton[]" value="批量删除|icon-remove|deleteAllRawDataRev|removeSelected|RawDataRev_DELETE" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindRawDataRev" 
+									location="component://sysCommon/widget/RawForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListRawDataRev" 
+									location="component://sysCommon/widget/RawForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditRawDataRev">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="revId" from-field="parameters.revId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="RawDataRev" value-field="entity" />
+				<set field="currentForm" value="${groovy:(entity==null)?&quot;CreateRawDataRev&quot;:&quot;EditRawDataRev&quot;}"/>  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+					<decorator-screen name="DetailScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="detail-options">
+							<screenlet title="">
+								<include-form name="EditRawDataRev" 
+									location="component://sysCommon/widget/RawForms.xml" />
+						    </screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="RawStatics">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-condition list="rawTemplateist" entity-name="RawTemplate">
+				</entity-condition>
+				<entity-condition list="rawTemplateGroupist" entity-name="RawTemplateGroup">
+				</entity-condition>
+				<!-- <set field="currentForm" value="${groovy:(entity==null)?&quot;CreateRawMeasure&quot;:&quot;EditRawMeasure&quot;}"/> -->  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/RawStatics.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="RawReport">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-condition list="rawTemplateist" entity-name="RawTemplate">
+				</entity-condition>
+				<entity-condition list="rawTemplateGroupist" entity-name="RawTemplateGroup">
+				</entity-condition>
+				<!-- <set field="currentForm" value="${groovy:(entity==null)?&quot;CreateRawMeasure&quot;:&quot;EditRawMeasure&quot;}"/> -->  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/RawReport.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="StaticsRawData">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="oper" from-field="parameters.oper" />
+				<set field="templateGroupId" from-field="parameters.templateGroupId" />
+				
+				
+				<entity-condition list="rawCrossList" entity-name="RawCrossConfig">
+					<condition-list>
+						<condition-expr field-name="templateId" from-field="templateId"/>
+					</condition-list>
+					<order-by field-name="rowNum"/>
+				</entity-condition>
+				<entity-condition list="rawTemplateRefdimList" entity-name="RawTemplateRefdimAndDim">
+					<condition-list>
+						<condition-expr field-name="templateId" from-field="templateId"/>
+					</condition-list>
+				</entity-condition>
+				
+				<entity-condition list="rawCrosstabDataIndexList" entity-name="RawCrossDataAndConfig">
+					<condition-list>
+						<condition-expr field-name="templateId" from-field="templateId"/>
+						<condition-expr field-name="revId" from-field="revId"/>
+					</condition-list>
+				</entity-condition>
+
+				<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/raw/getRawCrossData.groovy"></script>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html><html-template location="component://sysCommon/webapp/sysCommon/raw/RawTemplateData_edit.ftl"/></html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="selectTemplateGroup">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+
+				<entity-condition list="rawTemplateGroupList" entity-name="RawTemplateGroup">
+					<condition-expr field-name="enabled" operator="not-equals" value="N"/>
+				</entity-condition>
+			</actions>
+			<widgets>
+				<decorator-screen name="jeasy-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/RawTemplateGroup_select.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="edataDimension">
+		<section>
+			<actions>
+				<set field="layoutSettings.userJs[]" value="/sysCommon/images/jquery-easyui-1.3.3/plugins/jquery.edatagrid.js" global="true"/>				
+			</actions>
+			<widgets>
+				<decorator-screen name="jeasy-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/edata_dimension.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="edataMeasure">
+		<section>
+			<actions>
+				<set field="layoutSettings.userJs[]" value="/sysCommon/images/jquery-easyui-1.3.3/plugins/jquery.edatagrid.js" global="true"/>				
+			</actions>
+			<widgets>
+				<decorator-screen name="jeasy-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/edata_measure.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="edataDimensionPart">
+		<section>
+			<actions>
+				<set field="layoutSettings.userJs[]" value="/sysCommon/images/jquery-easyui-1.3.3/plugins/jquery.edatagrid.js" global="true"/>				
+			</actions>
+			<widgets>
+				<decorator-screen name="jeasy-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/raw/edata_dimensionPart.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	
+</screens>

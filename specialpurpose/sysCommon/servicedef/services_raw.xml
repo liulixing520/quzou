@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE file distributed with this work for additional information regarding copyright ownership. The ASF licenses this file to you under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and
+		limitations under the License.
+	-->
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>原始记录</description>
+		<!--指标 
+	    <service name="createRawIndex" engine="java" default-entity-name="RawIndex"
+	     		location="org.extErp.sysCommon.raw.RawServices" invoke="createRawIndex" auth="true">
+	        <description>Create RawIndex-指标</description>
+	        <auto-attributes include="pk" mode="OUT" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	     <service name="updateRawIndex" engine="java" default-entity-name="RawIndex"
+	             location="org.extErp.sysCommon.raw.RawServices" invoke="updateRawIndex" auth="true">
+	        <description>Update RawIndex-指标</description>
+	        <auto-attributes include="pk" mode="IN" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	    <service name="deleteRawIndex" engine="java" default-entity-name="RawIndex"
+	             location="org.extErp.sysCommon.raw.RawServices" invoke="deleteRawIndex" auth="true">
+	        <description>Delete RawIndex-指标</description>
+	        <auto-attributes mode="IN" include="pk" optional="false"/>
+	    </service>
+    	-->
+		<!--模板 
+	    <service name="createRawTheme" engine="java" default-entity-name="RawTheme"
+	     		location="org.extErp.sysCommon.raw.RawServices" invoke="createRawTheme" auth="true">
+	        <description>Create RawTheme-模板</description>
+	        <auto-attributes include="pk" mode="OUT" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+			<attribute name="rowMap" type="Map" mode="IN" string-map-prefix="row_" optional="true"/>
+			<attribute name="cellMap" type="Map" mode="IN" string-map-prefix="cell_" optional="true"/>
+			<attribute name="excelMap" type="Map" mode="IN" string-map-prefix="excel_" optional="true"/>
+			<attribute name="cellDynMap" type="Map" mode="IN" string-map-prefix="cellDyn_" optional="true"/>
+			<attribute name="cellNumDynMap" type="Map" mode="IN" string-map-prefix="cellNumDyn_" optional="true"/>
+	    </service>
+	    
+	     <service name="updateRawTheme" engine="java" default-entity-name="RawTheme"
+	             location="org.extErp.sysCommon.raw.RawServices" invoke="updateRawTheme" auth="true">
+	        <description>Update RawTheme-模板</description>
+	        <auto-attributes include="pk" mode="IN" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+			<attribute name="rowMap" type="Map" mode="IN" string-map-prefix="row_" optional="true"/>
+			<attribute name="cellMap" type="Map" mode="IN" string-map-prefix="cell_" optional="true"/>
+			<attribute name="excelMap" type="Map" mode="IN" string-map-prefix="excel_" optional="true"/>
+			<attribute name="cellDynMap" type="Map" mode="IN" string-map-prefix="cellDyn_" optional="true"/>
+			<attribute name="cellNumDynMap" type="Map" mode="IN" string-map-prefix="cellNumDyn_" optional="true"/>
+	    </service>
+	    <service name="deleteRawTheme" engine="java" default-entity-name="RawTheme"
+	             location="org.extErp.sysCommon.raw.RawServices" invoke="deleteRawTheme" auth="true">
+	        <description>Delete RawTheme-模板</description>
+	        <auto-attributes mode="IN" include="pk" optional="false"/>
+	    </service>
+	    -->
+    	<!-- 交叉表配置 
+    	 <service name="createRawCrosstab" engine="java" default-entity-name="RawCrosstab"
+	     		location="org.extErp.sysCommon.raw.RawServices" invoke="createRawCrosstab" auth="true">
+	        <description>Create RawCrosstab-模板</description>
+	        <attribute name="themeId" type="String" mode="IN" optional="false"/>
+	        <attribute name="rowIndexId" type="String" mode="IN" optional="false"/>
+	        <attribute name="cellIndexId" type="String" mode="IN" optional="false"/>
+	        <attribute name="excelGrid" type="String" mode="IN" optional="true"/>
+	    </service>
+
+	    <service name="deleteRawCrosstab" engine="java" default-entity-name="RawCrosstab"
+	             location="org.extErp.sysCommon.raw.RawServices" invoke="deleteRawCrosstab" auth="true">
+	        <description>Delete RawCrosstab-模板</description>
+	        <auto-attributes mode="IN" include="pk" optional="false"/>
+	    </service>
+	    -->
+	    <!-- 一维动态表配置 
+    	 <service name="createRawOneDynamic" engine="java" default-entity-name="RawOneDynamic"
+	     		location="org.extErp.sysCommon.raw.RawServices" invoke="createRawOneDynamic" auth="true">
+	        <description>Create RawOneDynamic-模板</description>
+	        <attribute name="themeId" type="String" mode="IN" optional="false"/>
+	        <attribute name="cellNum" type="String" mode="IN" optional="false"/>
+	        <attribute name="cellIndexId" type="String" mode="IN" optional="false"/>
+	    </service>
+
+	    <service name="deleteRawOneDynamic" engine="java" default-entity-name="RawOneDynamic"
+	             location="org.extErp.sysCommon.raw.RawServices" invoke="deleteRawOneDynamic" auth="true">
+	        <description>Delete RawOneDynamic-模板</description>
+	        <auto-attributes mode="IN" include="pk" optional="false"/>
+	        <attribute name="" mode="IN" type="Map"></attribute>
+	    </service>
+	    -->
+	    <!-- ##############采集系统################  -->
+	    <service name="createRawTemplate" engine="java" default-entity-name="RawTemplate"
+	     		location="org.extErp.sysCommon.raw.RawServices" invoke="createRawTemplate" auth="true">
+	        <description>Create RawTemplate-模板</description>
+	        <auto-attributes include="pk" mode="OUT" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+			<attribute name="dimensionId" type="List" mode="IN"  optional="true"/>
+			<attribute name="measureId" type="List" mode="IN"  optional="true"/>
+<!-- 			<attribute name="dim1Map" type="Map" mode="IN" string-map-prefix="dim1_" optional="true"/> -->
+<!-- 			<attribute name="dim2Map" type="Map" mode="IN" string-map-prefix="dim2_" optional="true"/> -->
+<!-- 			<attribute name="dim3Map" type="Map" mode="IN" string-map-prefix="dim3_" optional="true"/> -->
+			<attribute name="dimPartMap" type="Map" mode="IN" string-map-prefix="dimensionPartId_" optional="true"/>
+			<attribute name="dimMap" type="Map" mode="IN" string-map-prefix="dim_" optional="true"/>
+			<attribute name="cellMap" type="Map" mode="IN" string-map-prefix="cell_" optional="true"/>
+			<attribute name="excelMap" type="Map" mode="IN" string-map-prefix="excel_" optional="true"/>
+	    </service>
+	    
+	     <service name="updateRawTemplate" engine="java" default-entity-name="RawTemplate"
+	             location="org.extErp.sysCommon.raw.RawServices" invoke="updateRawTemplate" auth="true">
+	        <description>Update RawTemplate-模板</description>
+	        <auto-attributes include="pk" mode="IN" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+			<attribute name="dim1Map" type="Map" mode="IN" string-map-prefix="dim1_" optional="true"/>
+			<attribute name="dim2Map" type="Map" mode="IN" string-map-prefix="dim2_" optional="true"/>
+			<attribute name="dim3Map" type="Map" mode="IN" string-map-prefix="dim3_" optional="true"/>
+			<attribute name="cellMap" type="Map" mode="IN" string-map-prefix="cell_" optional="true"/>
+			<attribute name="excelMap" type="Map" mode="IN" string-map-prefix="excel_" optional="true"/>
+	    </service>
+	    	<!--模板组 -->
+	    <service name="createRawTemplateGroup"  engine="simple" default-entity-name="RawTemplateGroup"
+	             location="component://sysCommon/script/RawServices.xml" invoke="createRawTemplateGroup" auth="true">
+	        <description>Create TemplateGroup-模板组</description>
+	        <auto-attributes include="pk" mode="INOUT" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	     <service name="updateRawTemplateGroup" engine="simple" default-entity-name="RawTemplateGroup"
+	             location="component://sysCommon/script/RawServices.xml" invoke="updateRawTemplateGroup" auth="true">
+	        <description>update TemplateGroup-模板组</description>
+	        <auto-attributes include="pk" mode="IN" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	     <service name="updateRawTemplateGroupEnabled" engine="simple" default-entity-name="RawTemplateGroup"
+	             location="component://sysCommon/script/RawServices.xml" invoke="updateRawTemplateGroupEnabled" auth="true">
+	        <description>update TemplateGroup-模板组是否可用</description>
+	        <attribute name="ids" mode="IN" type="String"   optional="true"></attribute>
+			<attribute name="enabled" mode="IN" type="String"   optional="true"></attribute>
+	    </service>
+	    <service name="deleteRawTemplateGroup" engine="java" default-entity-name="RawTemplateGroup"
+	             location="org.extErp.sysCommon.raw.RawTemplateGroupServices" invoke="deleteRawTemplateGroup" auth="true">
+	        <description>Delete RawTemplateGroup-模板组</description>
+	        <auto-attributes mode="IN" include="pk" optional="false"/>
+	    </service>
+    	<!--维度 -->
+		<service name="createRawDimension" engine="simple" default-entity-name="RawDimension"
+	             location="component://sysCommon/script/RawServices.xml" invoke="createRawDimension" auth="true">
+	        <description>Create RawDimension-维度</description>
+	        <auto-attributes include="pk" mode="OUT" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	     <service name="updateRawDimension" engine="simple" default-entity-name="RawDimension"
+	             location="component://sysCommon/script/RawServices.xml" invoke="updateRawDimension" auth="true">
+	        <description>Update RawDimension-维度</description>
+	        <auto-attributes include="pk" mode="IN" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	    <service name="deleteRawDimension" engine="simple" default-entity-name="RawDimension"
+	             location="component://sysCommon/script/RawServices.xml" invoke="deleteRawDimension" auth="true">
+	        <description>Delete RawDimension-维度</description>
+	        <auto-attributes mode="IN" include="pk" optional="false"/>
+	    </service>
+	    <service name="deleteAllRawDimension" engine="simple" default-entity-name="RawDimension"
+	             location="component://sysCommon/script/RawServices.xml" invoke="deleteAllRawDimension" auth="true">
+	        <description>Delete RawDimension-维度</description>
+	        <attribute name="ids"  mode="IN" type="String" optional="false"/>
+	    </service>
+    	<!--维度值 -->
+		<service name="createRawDimensionPart" engine="simple" default-entity-name="RawDimensionPart"
+	             location="component://sysCommon/script/RawServices.xml" invoke="createRawDimensionPart" auth="true">
+	        <description>Create RawDimensionPart-维度值</description>
+	        <auto-attributes include="pk" mode="OUT" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	     <service name="updateRawDimensionPart" engine="simple" default-entity-name="RawDimensionPart"
+	             location="component://sysCommon/script/RawServices.xml" invoke="updateRawDimensionPart" auth="true">
+	        <description>Update RawDimensionPart-维度值</description>
+	        <auto-attributes include="pk" mode="IN" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	    <service name="deleteRawDimensionPart" engine="simple" default-entity-name="RawDimensionPart"
+	             location="component://sysCommon/script/RawServices.xml" invoke="deleteRawDimensionPart" auth="true">
+	        <description>Delete RawDimensionPart-维度值</description>
+	        <auto-attributes mode="IN" include="pk" optional="false"/>
+	    </service>
+	    <service name="deleteAllRawDimensionPart" engine="simple" default-entity-name="RawDimensionPart"
+	             location="component://sysCommon/script/RawServices.xml" invoke="deleteAllRawDimensionPart" auth="true">
+	        <description>Delete RawDimensionPart-维度值</description>
+	        <attribute name="ids"  mode="IN" type="String" optional="false"/>
+	    </service>
+    	<!--度量 -->
+		<service name="createRawMeasure" engine="simple" default-entity-name="RawMeasure"
+	             location="component://sysCommon/script/RawServices.xml" invoke="createRawMeasure" auth="true">
+	        <description>Create RawMeasure-度量</description>
+	        <auto-attributes include="pk" mode="OUT" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	     <service name="updateRawMeasure" engine="simple" default-entity-name="RawMeasure"
+	             location="component://sysCommon/script/RawServices.xml" invoke="updateRawMeasure" auth="true">
+	        <description>Update RawMeasure-度量</description>
+	        <auto-attributes include="pk" mode="IN" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	    <service name="deleteRawMeasure" engine="simple" default-entity-name="RawMeasure"
+	             location="component://sysCommon/script/RawServices.xml" invoke="deleteRawMeasure" auth="true">
+	        <description>Delete RawMeasure-度量</description>
+	        <auto-attributes mode="IN" include="pk" optional="false"/>
+	    </service>
+	    <service name="deleteAllRawMeasure" engine="simple" default-entity-name="RawMeasure"
+	             location="component://sysCommon/script/RawServices.xml" invoke="deleteAllRawMeasure" auth="true">
+	        <description>Delete RawMeasure-度量</description>
+	        <attribute name="ids"  mode="IN" type="String" optional="false"/>
+	    </service>
+    	<!--数据版本 -->
+		<service name="createRawDataRev" engine="simple" default-entity-name="RawDataRev"
+	             location="component://sysCommon/script/RawServices.xml" invoke="createRawDataRev" auth="true">
+	        <description>Create RawDataRev-数据版本</description>
+	        <auto-attributes include="pk" mode="OUT" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	     <service name="updateRawDataRev" engine="simple" default-entity-name="RawDataRev"
+	             location="component://sysCommon/script/RawServices.xml" invoke="updateRawDataRev" auth="true">
+	        <description>Update RawDataRev-数据版本</description>
+	        <auto-attributes include="pk" mode="IN" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	    <service name="deleteRawDataRev" engine="simple" default-entity-name="RawDataRev"
+	             location="component://sysCommon/script/RawServices.xml" invoke="deleteRawDataRev" auth="true">
+	        <description>Delete RawDataRev-数据版本</description>
+	        <auto-attributes mode="IN" include="pk" optional="false"/>
+	    </service>
+	    <service name="deleteAllRawDataRev" engine="simple" default-entity-name="RawDataRev"
+	             location="component://sysCommon/script/RawServices.xml" invoke="deleteAllRawDataRev" auth="true">
+	        <description>Delete RawDataRev-数据版本</description>
+	        <attribute name="ids"  mode="IN" type="String" optional="false"/>
+	    </service>
+    
+</services>

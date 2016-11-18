@@ -1,0 +1,174 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+form {
+    border: 0;
+    margin: 0;
+    text-align: left;
+}
+
+form label {
+    font-size: 11px;
+    color: #5d5644;
+    margin-top: 5px;
+    text-transform:uppercase;
+}
+
+form a img {
+    float:none;
+    margin:0px 5px 10px 5px;
+}
+
+form tbody {
+  border:none;
+}
+form tbody tr {
+  border:0px;
+}
+
+input[type="radio"],input[type="checkbox"] {
+  font-size: 1.1em;
+  margin: 5px 5px 10px 0px;
+}
+
+/* input[type="text"],input[type="password"] {
+    background:#fbfbfb;
+    border: #ccc solid 1px;
+    font-weight:normal;
+    font-size: 1.1em;
+    margin:5px 0px;
+    padding:2px 4px;
+} */
+input,textarea{
+vertical-align: middle;
+outline: none;
+}
+input[type="text"],input[type="password"] ,textarea{
+	line-height: 24px;
+	padding: 0px 4px;
+	-webkit-box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	border-top: 1px solid #999999;
+	border-right: 1px solid #e1e1e1;
+	border-bottom: 1px solid #e1e1e1;
+	border-left: 1px solid #999999;
+}
+
+
+input[type="text"]:hover ,input[type="password"]:hover ,textarea:hover{
+	-webkit-transition: box-shadow linear 0.2s;
+	-moz-transition: box-shadow linear 0.2s;
+	-ms-transition: box-shadow linear 0.2s;
+	-o-transition: box-shadow linear 0.2s;
+	transition: box-shadow linear 0.2s;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+	-moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+	border: 1px solid #74b9ef;
+}
+
+/* input[type="text"]:disabled {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	background-color: #f6f6f6;
+}
+
+input[type="text"]:disabled:hover {
+	-webkit-transition: none;
+	-moz-transition: none;
+	-ms-transition: none;
+	-o-transition: none;
+	transition: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-top: 1px solid #999999;
+	border-right: 1px solid #e1e1e1;
+	border-bottom: 1px solid #e1e1e1;
+	border-left: 1px solid #999999;
+	background-color: #f6f6f6;
+} */
+
+
+input[type="submit"],input[type="button"],input[type="reset"] {
+  background:url();
+  border: #ddd solid 2px;
+  color: #ffffff;
+ /*  background-color: #2780e3;
+  border-color: #2780e3; */
+   background-color: #015289;
+  border-color: #015289; 
+  
+  line-height:1.8em;
+  margin:5px 5px 2px 0px;
+  padding:2px 10px;
+  text-transform:uppercase;
+}
+
+input[type="submit"]:hover,
+input[type="button"],
+input[type="reset"] {
+/*   color: #1c334d; */
+  color: #ffffff;
+  background-color: #1967be;
+  border-color: #1862b5;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+input[type="file"] {
+  font-size: 1.1em;
+  height: 1.9em; /* force ctrl to scale with text */
+  background-color: #ffffff;
+  border: #ddd solid 2px;
+    color: #444;
+}
+
+select {
+  background-color: #fbfbfb;
+  border: #ccc solid 1px;
+  font-size: 1.1em;
+  height: 1.6em; /* force ctrl to scale with text */
+  margin:5px 0px 2px 0px;
+}
+
+select[multiple="multiple"] {
+    height: 5em;
+}
+
+/* textarea {
+  border: #ddd solid 2px;
+  font-weight:bold;
+  font-size: 1.1em;
+  margin:5px 5px 5px 5px;
+  padding:2px 4px;
+} */
+
+input:focus,.contentarea textarea:focus {
+  /* border: 1px solid #6E2723; */
+}
+
+input.focused, textarea.focused {
+  border: 1px solid #6E2723;
+}

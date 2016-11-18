@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods.xsd">
+
+	<simple-method method-name="createRoleType"
+		short-description="Create RoleType">
+		<make-value entity-name="RoleType" value-field="newEntity" />
+		<if-empty field="parameters.roleTypeId">
+			<sequenced-id sequence-name="RoleType" field="newEntity.roleTypeId" />
+		</if-empty>
+
+		<set-pk-fields map="parameters" value-field="newEntity" />
+		<set-nonpk-fields map="parameters" value-field="newEntity" />
+		<field-to-result field="newEntity.roleTypeId"
+			result-name="roleTypeId" />
+		<create-value value-field="newEntity" />
+
+
+		<check-errors />
+	</simple-method>
+	<simple-method method-name="updateRoleType"
+		short-description="Update RoleType">
+		<entity-one entity-name="RoleType" value-field="lookedUpValue" />
+		<set-nonpk-fields value-field="lookedUpValue" map="parameters" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	<simple-method method-name="deleteRoleType"
+		short-description="Delete RoleType">
+		<entity-one entity-name="RoleType" value-field="RoleType" />
+		<remove-value value-field="RoleType" />
+	</simple-method>
+
+
+	<simple-method method-name ="updateSecurityGroupEnabled" short-description= "Enable/Unable Lab">
+               <call-bsh><![CDATA[
+               ids = org.ofbiz.base.util.StringUtil.split(parameters.get("ids"),",");
+               parameters.put("ids", ids);
+        ]]></call-bsh>
+        <if-not-empty field= "parameters.ids" >
+               <iterate entry= "thisId" list = "parameters.ids">
+                   <make-value value-field ="newEntity" entity-name ="SecurityGroup" />
+                   <set from-field ="thisId" field= "newEntity.groupId"/>
+                   <set from-field ="parameters.enabled" field ="newEntity.enabled" />
+                   <field-to-list field= "newEntity" list = "newEntityList"/>
+               </iterate>
+               <store-list list= "newEntityList" />
+               </if-not-empty>
+        </simple-method>
+
+</simple-methods>

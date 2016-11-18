@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods.xsd">
+	<!--模板组 -->
+	<simple-method method-name="createRawTemplateGroup"
+		short-description="Create RawTemplateGroup">
+		<make-value entity-name="RawTemplateGroup" value-field="newEntity" />
+		<if-empty field="parameters.templateGroupId">
+			<sequenced-id sequence-name="RawTemplateGroup" field="newEntity.templateGroupId" />
+		</if-empty>
+
+		<set-pk-fields map="parameters" value-field="newEntity" />
+		<set-nonpk-fields map="parameters" value-field="newEntity" />
+		<field-to-result field="newEntity.templateGroupId"
+			result-name="templateGroupId" />
+		<create-value value-field="newEntity" />
+
+
+		<check-errors />
+	</simple-method>
+	<simple-method method-name="updateRawTemplateGroup"
+		short-description="Update RawTemplateGroup">
+		<entity-one entity-name="RawTemplateGroup" value-field="lookedUpValue" />
+		<set-nonpk-fields value-field="lookedUpValue" map="parameters" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	<simple-method method-name="updateRawTemplateGroupEnabled"
+		short-description="updateRawTemplateGroupEnabled">
+		<call-bsh><![CDATA[
+               ids = org.ofbiz.base.util.StringUtil.split(parameters.get("ids"),",");
+               parameters.put("ids", ids);
+        ]]></call-bsh>
+		<if-not-empty field="parameters.ids">
+			<iterate entry="thisId" list="parameters.ids">
+				<make-value value-field="newEntity" entity-name="RawTemplateGroup"/>
+	            <set from-field="thisId" field="newEntity.templateGroupId"/>
+	            <set from-field="parameters.enabled" field="newEntity.enabled"/>
+	            <field-to-list field="newEntity" list="newEntityList"/>
+			</iterate>
+			 <store-list list="newEntityList"/>
+		</if-not-empty>
+	</simple-method>
+	<simple-method method-name="deleteRawTemplateGroup"
+		short-description="Delete RawTemplateGroup">
+		<entity-one entity-name="RawTemplateGroup" value-field="RawTemplateGroup" />
+		<remove-value value-field="RawTemplateGroup" />
+	</simple-method>
+	<!--维度 -->
+	<simple-method method-name="createRawDimension"
+		short-description="Create RawDimension">
+		<if-empty field="parameters.dimensionName">
+			<add-error>
+				<fail-message message="维度名称不能为空！"/>
+			</add-error>
+		</if-empty>
+		<make-value entity-name="RawDimension" value-field="newEntity" />
+		<if-empty field="parameters.dimensionId">
+			<sequenced-id sequence-name="RawDimension" field="newEntity.dimensionId" />
+		</if-empty>
+
+		<set-pk-fields map="parameters" value-field="newEntity" />
+		<set-nonpk-fields map="parameters" value-field="newEntity" />
+		<field-to-result field="newEntity.dimensionId"
+			result-name="dimensionId" />
+		<create-value value-field="newEntity" />
+
+
+		<check-errors />
+	</simple-method>
+	<simple-method method-name="updateRawDimension"
+		short-description="Update RawDimension">
+		<entity-one entity-name="RawDimension" value-field="lookedUpValue" />
+		<set-nonpk-fields value-field="lookedUpValue" map="parameters" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	<simple-method method-name="deleteRawDimension"
+		short-description="Delete RawDimension">
+		<entity-one entity-name="RawDimension" value-field="RawDimension" />
+		<remove-value value-field="RawDimension" />
+	</simple-method>
+	<simple-method method-name="deleteAllRawDimension"
+		short-description="Delete select RawDimension">
+		<call-bsh><![CDATA[
+               ids = org.ofbiz.base.util.StringUtil.split(parameters.get("ids"),",");
+               parameters.put("ids", ids);
+        ]]></call-bsh>
+		<if-not-empty field="parameters.ids">
+			<iterate entry="thisId" list="parameters.ids">
+				<set from-field="thisId" field="thisMap.dimensionId" />
+				<call-service service-name="deleteRawDimension"
+					in-map-name="thisMap"></call-service>
+			</iterate>
+		</if-not-empty>
+	</simple-method>
+
+	<!--维度值 -->
+	<simple-method method-name="createRawDimensionPart"
+		short-description="Create RawDimensionPart">
+		<if-empty field="parameters.dimensionPartName">
+			<add-error>
+				<fail-message message="维度值不能为空！"/>
+			</add-error>
+		</if-empty>
+		<make-value entity-name="RawDimensionPart" value-field="newEntity" />
+		<if-empty field="parameters.dimensionPartId">
+			<sequenced-id sequence-name="RawDimensionPart" field="newEntity.dimensionPartId" />
+		</if-empty>
+
+		<set-pk-fields map="parameters" value-field="newEntity" />
+		<set-nonpk-fields map="parameters" value-field="newEntity" />
+		<field-to-result field="newEntity.dimensionPartId"
+			result-name="dimensionPartId" />
+		<create-value value-field="newEntity" />
+
+
+		<check-errors />
+	</simple-method>
+	<simple-method method-name="updateRawDimensionPart"
+		short-description="Update RawDimensionPart">
+		<entity-one entity-name="RawDimensionPart" value-field="lookedUpValue" />
+		<set-nonpk-fields value-field="lookedUpValue" map="parameters" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	<simple-method method-name="deleteRawDimensionPart"
+		short-description="Delete RawDimensionPart">
+		<entity-one entity-name="RawDimensionPart" value-field="RawDimensionPart" />
+		<remove-value value-field="RawDimensionPart" />
+	</simple-method>
+	<simple-method method-name="deleteAllRawDimensionPart"
+		short-description="Delete select RawDimensionPart">
+		<call-bsh><![CDATA[
+               ids = org.ofbiz.base.util.StringUtil.split(parameters.get("ids"),",");
+               parameters.put("ids", ids);
+        ]]></call-bsh>
+		<if-not-empty field="parameters.ids">
+			<iterate entry="thisId" list="parameters.ids">
+				<set from-field="thisId" field="thisMap.dimensionPartId" />
+				<call-service service-name="deleteRawDimensionPart"
+					in-map-name="thisMap"></call-service>
+			</iterate>
+		</if-not-empty>
+	</simple-method>
+	<!--度量 -->
+	<simple-method method-name="createRawMeasure"
+		short-description="Create RawMeasure">
+		<if-empty field="parameters.measureName">
+			<add-error>
+				<fail-message message="度量名称不能为空"/>
+			</add-error>
+		</if-empty>
+		<make-value entity-name="RawMeasure" value-field="newEntity" />
+		<if-empty field="parameters.measureId">
+			<sequenced-id sequence-name="RawMeasure" field="newEntity.measureId" />
+		</if-empty>
+
+		<set-pk-fields map="parameters" value-field="newEntity" />
+		<set-nonpk-fields map="parameters" value-field="newEntity" />
+		<field-to-result field="newEntity.measureId"
+			result-name="measureId" />
+		<create-value value-field="newEntity" />
+
+
+		<check-errors />
+	</simple-method>
+	<simple-method method-name="updateRawMeasure"
+		short-description="Update RawMeasure">
+		<entity-one entity-name="RawMeasure" value-field="lookedUpValue" />
+		<set-nonpk-fields value-field="lookedUpValue" map="parameters" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	<simple-method method-name="deleteRawMeasure"
+		short-description="Delete RawMeasure">
+        <now-timestamp field="nowTimestamp"/>
+        <set field="parameters.thruDate" from-field="nowTimestamp"/>
+        <set-service-fields service-name="updateRawMeasure" to-map="thisCtx" map="parameters"/>
+        <call-service service-name="updateRawMeasure" in-map-name="thisCtx"/>
+	</simple-method>
+	<simple-method method-name="deleteAllRawMeasure"
+		short-description="Delete select RawMeasure">
+		<call-bsh><![CDATA[
+               ids = org.ofbiz.base.util.StringUtil.split(parameters.get("ids"),",");
+               parameters.put("ids", ids);
+        ]]></call-bsh>
+		<if-not-empty field="parameters.ids">
+			<iterate entry="thisId" list="parameters.ids">
+				<set from-field="thisId" field="thisMap.measureId" />
+				<call-service service-name="deleteRawMeasure"
+					in-map-name="thisMap"></call-service>
+			</iterate>
+		</if-not-empty>
+	</simple-method>
+	<!--数据版本 -->
+	<simple-method method-name="createRawDataRev"
+		short-description="Create RawDataRev">
+		<make-value entity-name="RawDataRev" value-field="newEntity" />
+		<if-empty field="parameters.revId">
+			<sequenced-id sequence-name="RawDataRev" field="newEntity.revId" />
+		</if-empty>
+
+		<set-pk-fields map="parameters" value-field="newEntity" />
+		<set-nonpk-fields map="parameters" value-field="newEntity" />
+		<field-to-result field="newEntity.revId" result-name="revId" />
+		<create-value value-field="newEntity" />
+
+
+		<check-errors />
+	</simple-method>
+	<simple-method method-name="updateRawDataRev"
+		short-description="Update RawDataRev">
+		<entity-one entity-name="RawDataRev" value-field="lookedUpValue" />
+		<set-nonpk-fields value-field="lookedUpValue" map="parameters" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	<simple-method method-name="deleteRawDataRev"
+		short-description="Delete RawDataRev">
+		<entity-one entity-name="RawDataRev" value-field="RawDataRev" />
+		<!-- <remove-value value-field="RawDataRev" /> -->
+		<set field="RawDataRev.enabled" value="N"/>
+		<store-value value-field="RawDataRev"/>
+	</simple-method>
+	<simple-method method-name="deleteAllRawDataRev"
+		short-description="Delete select RawDataRev">
+		<call-bsh><![CDATA[
+               ids = org.ofbiz.base.util.StringUtil.split(parameters.get("ids"),",");
+               parameters.put("ids", ids);
+        ]]></call-bsh>
+		<if-not-empty field="parameters.ids">
+			<iterate entry="thisId" list="parameters.ids">
+				<set from-field="thisId" field="thisMap.revId" />
+				<call-service service-name="deleteRawDataRev"
+					in-map-name="thisMap"></call-service>
+			</iterate>
+		</if-not-empty>
+	</simple-method>
+
+</simple-methods>

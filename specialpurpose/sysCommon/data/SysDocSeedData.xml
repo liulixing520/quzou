@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<entity-engine-xml>
+	<!-- Sys Doc Purpose Data -->
+
+	<SysDocPurpose sysDocPurposeId="DCT" entiyName="DetectionCertificateTemp"
+		relatedDetailId="cerTempId" description="证书模板" mimeTypeId="application/msword"  inApp="Y" appName="sysCommon" path="" />
+	<SysDocPurpose sysDocPurposeId="Norm" entiyName="Norm"
+		relatedDetailId="normId" description="检定规程" mimeTypeId="application/msword" path="" />
+	<SysDocPurpose sysDocPurposeId="RawTemplateGroup" entiyName="RawTemplateGroup"
+		relatedDetailId="templateGroupId" description="模板组" mimeTypeId="application/msword" appName="sysCommon" inApp="Y" path="" />
+	<SysDocPurpose sysDocPurposeId="DetectionCertificate" entiyName="DetectionCertificate"
+		relatedDetailId="detectionCertificateId" description="检定证书" mimeTypeId="application/msword" inApp="Y" path="" />
+	<SysDocPurpose sysDocPurposeId="RawWord" entiyName="DetectionBill"
+		relatedDetailId="detectionBillId" description="原始记录" mimeTypeId="application/msword" inApp="Y" path="" />
+	<SysDocPurpose sysDocPurposeId="Device" entiyName="Device"
+		relatedDetailId="deviceId" description="计量设备" mimeTypeId="application/msword" inApp="Y" path="" />
+	<SysDocPurpose sysDocPurposeId="LimsClass" entiyName="LimsClass"
+		relatedDetailId="classId" description="班级" mimeTypeId="application/msword"  inApp="Y" appName="sysCommon" path="" />
+		
+</entity-engine-xml>

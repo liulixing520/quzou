@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	<screen name="user-main-decorator">
+        <section>
+            <actions>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="SecurityUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/style.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/ui-dialog.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/my_chunbo.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/dui.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/style_002.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/checkout.css" global="true"/>
+                
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/z.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/jquery-1_002.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/jquery-1.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/my_chunbo.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/review.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/dialog-plus-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/dui.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/my_chunbo.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/info.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/portal/images/green/jquery-1.8.3.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/sysCommon/images/My97DatePicker/WdatePicker.js" global="true" />
+
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/user/includes/header.ftl" />
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/user/includes/footer.ftl" />
+                <script location="component://portal/webapp/portal/WEB-INF/actions/cart/ShowCartMap.groovy"/>
+            </actions>
+            <widgets>
+                <section>
+                    <widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="body" >
+                                <platform-specific><html><html-template location="component://portal/webapp/portal/user/includes/toplink.ftl"/></html></platform-specific>
+                                <platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific>
+                                <platform-specific><html><html-template location="component://portal/webapp/portal/user/includes/left.ftl"/></html></platform-specific>
+                                <container style="main-content">
+                                      <decorator-section-include name="body"/>
+                                </container>
+                            </container>
+                    </widgets>
+                </section>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 
+    <screen name="user-main-decorator">
+        <section>
+            <actions>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="SecurityUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-extra.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery/jquery-1.11.1.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/bootstrap/3.2.0/js/bootstrap.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery-ui.custom.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery.ui.touch-punch.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.resize.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/user/includes/header.ftl" />
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/user/includes/footer.ftl" />
+            </actions>
+            <widgets>
+                <section>
+                    <widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="body" style="skin-4">
+                            <container id="toplink">
+                                <platform-specific><html><html-template location="component://portal/webapp/portal/user/includes/toplink.ftl"/></html></platform-specific>
+                            </container>
+                            <container id="navbar" style="navbar navbar-default">
+                                <platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific>
+                            </container>
+                            <container id="main-container" style="main-container container">
+                                <container id="sidebar" style="sidebar responsive">
+                                   <include-screen name="${left}" location="component://portal/widget/user/UserScreens.xml"/>
+                                </container>
+                                <container style="main-content">
+                                    <container id="breadcrumbs" style="breadcrumbs">
+                                        <platform-specific><html><html-template location="component://portal/webapp/portal/user/includes/breadcrumbs.ftl"/></html></platform-specific>
+                                    </container>
+                                    <container style="page-content">
+                                        <container style="page-content-area">
+                                            <container style="row">
+                                                <container style="col-xs-12">
+                                                    <decorator-section-include name="body"/>
+                                                </container>
+                                            </container>
+                                        </container>
+                                    </container>
+                                </container>
+                            </container>
+                        </container>
+                    </widgets>
+                </section>
+            </widgets>
+        </section>
+    </screen>
+ -->
+    <screen name="left">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/user/includes/left.ftl" /></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="account_left">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/user/includes/account_left.ftl" /></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="address_left">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/user/includes/address_left.ftl" /></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="favorite_left">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/user/includes/favorite_left.ftl" /></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="main">
+        <section>
+            <actions>
+                <set field="left" value="left" />
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/user/main.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="content">
+        <section>
+        	<actions>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/order/OrderCount.groovy"/>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/imageSet/GetManagerMessage.groovy"/>
+        	</actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/user/content.ftl" /></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="showCart">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/cart/ShowCartMap.groovy"/>
+			  <set field="Navigation1" value="${uiLabelMap.PortalUserMyCar}" />
+                <set field="left" value="left" />
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/user/order/showCart.ftl"/></html>
+                         </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="userInfo">
+        <section>
+            <actions>
+               <script location="component://portal/webapp/portal/WEB-INF/actions/customer/getPartyInfo.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/user/userInfo.ftl"/></html>
+                         </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- 用户的咨询 -->
+    <screen name="userReview">
+        <section>
+           	<actions>
+                <set field="NavigationLi" value="userAdvisoryLi"/>
+                <set field="Navigation1" value="${uiLabelMap.PortalUserTransaction}"/>
+                <set field="Navigation2" value="${uiLabelMap.PortalUserAdvisory}"/>
+                
+                <script location="component://portal/webapp/portal/WEB-INF/actions/cart/GetCustRequest.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/user/review/review.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 客户咨询详情 -->
+    <screen name="userReviewDetail">
+    	<section>
+      		<actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/cart/GetCustRequestToDetails.groovy"/>               
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="user-main-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/user/review/reviewDetail.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    <screen name="showMyOrder">
+        <section>
+           	<actions>
+                <set field="NavigationLi" value="userOrderLi"/>
+                <set field="Navigation1" value="${uiLabelMap.PortalUserTransaction}"/>
+                <set field="Navigation2" value="${uiLabelMap.PortalUserOrder}"/>
+                <set field="left" value="left" />
+                <set field="statusId" from-field="parameters.statusId" default-value="all"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin5.css" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/order/MyOrderHistory.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/user/order/allOrder.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="orderRemark">
+        <section>
+            <actions>
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/user/order/orderRemark.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	
+    <screen name="showMyOrderDetails">
+        <section>
+           	<actions>
+                <set field="NavigationLi" value="userOrderLi"/>
+                <set field="Navigation1" value="${uiLabelMap.PortalUserTransaction}"/>
+                <set field="Navigation2" value="${uiLabelMap.PortalUserOrder}"/>
+                <set field="left" value="left" />
+                <script location="component://portal/webapp/portal/WEB-INF/actions/order/OrderStatus.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/user/order/orderDetails.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 退款请求 -->
+	<screen name="requestreturn">
+        <section>
+            <actions>
+               <!--  <set field="rightbarScreenName" value="rightbar"/> -->
+                <set field="MainColumnStyle" value="rightonly"/>
+
+                <set field="titleProperty" value="PageTitleRequestReturn"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/order/RequestReturn.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/user/order/requestreturn.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="user_EditUserLogin">
+        <section>
+            <actions>
+                <set field="titleProperty" value="UserLoginUpdateSecuritySettings"/>
+                <set field="tabButtonItem" value="viewprofile"/>
+                <set field="labelTitleProperty" value="UserLoginUpdateSecuritySettings"/>
+                <set field="updateUserLoginSecurityURI" value="ProfileUpdateUserLoginSecurity"/>
+                <set field="updatePasswordURI" value="ProfileUpdatePassword"/>
+                <set field="cancelPage" from-field="parameters.CANCEL_PAGE" default-value="userMain"/>
+                <set field="partyId" from-field="parameters.partyId"/>
+                <set field="userLoginId" from-field="parameters.userLoginId"/>
+                <entity-one entity-name="UserLogin" value-field="editUserLogin"/>
+                <set field="Navigation1" value="${uiLabelMap.PortalUserAccountCenter}" />
+                <set field="Navigation1" value="${uiLabelMap.PartyChangePassword}" />
+                <set field="NavigationLi" value="userChangePasswordLi" />
+                <set field="left" value="account_left" />
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                    	<container style="content">
+                    		<screenlet title="修改密码">
+		                        <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+		                        <screenlet>
+		                            <include-form name="updatePassword" location="component://common/widget/SecurityForms.xml"/>
+		                        </screenlet>
+	                    	</screenlet>    
+	                    </container>    
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 密保设置 -->
+    <screen name="user_Passwordprotection">
+        <section>
+        <actions>
+            <property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+            <set field="Navigation1" value="${uiLabelMap.PortalUserSecretSecurity}" />
+            <set field="left" value="left" />
+        </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/user/buyhistory/Passwordprotection.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 邮箱设置 -->
+    <screen name="user_email">
+        <section> 
+        	<actions>
+                <set field="partyId" from-field="parameters.partyId" default-value="${userLogin.partyId}"/>
+                <script location="component://party/webapp/partymgr/WEB-INF/actions/party/GetContactMechs.groovy"/>
+                <property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="Navigation1" value="${uiLabelMap.PortalUserAccountCenter}" />
+                <set field="Navigation2" value="${uiLabelMap.PortalUserModifyMailbox}" />
+                <set field="NavigationLi" value="userChangeMailLi" />
+                <set field="left" value="account_left" />
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                    <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+                        <platform-specific>
+                            <html>
+                               <html-template location="component://portal/webapp/portal/user/email/useremail.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+	<!-- 购买历史 -->
+	<screen name="user_boughtGoods">
+		<section>
+			<actions>
+              <property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+			  <set field="Navigation1" value="${uiLabelMap.PortalUserShoppingHistory}" />
+                <set field="left" value="left" />
+			</actions>
+			<widgets>
+				<decorator-screen name="user-main-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/user/buyhistory/user_boughtGoods.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="user_boughtStore">
+		<section>
+			<actions>
+                <set field="left" value="left" />
+			</actions>
+			<widgets>
+				<decorator-screen name="user-main-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://portal/webapp/portal/user/buyhistory/user_boughtStore.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+    <screen name="user_EditAddress">
+        <section>
+            <actions>
+                <script location="component://party/webapp/partymgr/WEB-INF/actions/party/EditContactMech.groovy"/>
+                <set field="left" value="address_left" />
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/user/address/edit.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="user_listAddress">
+        <section>
+            <actions>
+                <set field="partyId" from-field="parameters.partyId" default-value="${userLogin.partyId}"/>
+                <script location="component://party/webapp/partymgr/WEB-INF/actions/party/GetContactMechs.groovy"/>
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/order.js" global="true" />
+                <property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="Navigation1" value="${uiLabelMap.PortalUserAddressManage}" />
+                <set field="Navigation2" value="${uiLabelMap.PortalUserSendAddress}" />
+                <set field="NavigationLi" value="userSendAddressLi"/>
+                <set field="left" value="address_left" />
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/user/address/list.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+
+    <!-- 用户申请退款-->
+    <screen name="userRefunds">
+        <section>
+            <actions>
+                <set field="NavigationLi" value="userRefundsLi"/>
+                <set field="Navigation1" value="${uiLabelMap.PortalUserTransaction}"/>
+                <set field="Navigation2" value="${uiLabelMap.PortalUserRefunds}"/>
+                <set field="left" value="left"></set>
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/user/refunds/refunds.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="userRefundsList">
+        <section>
+            <actions>
+                <set field="NavigationLi" value="userRefundsListLi"/>
+                <set field="Navigation1" value="${uiLabelMap.PortalUserTransaction}"/>
+                <set field="Navigation2" value="${uiLabelMap.PortalUserMyRefunds}"/>
+                <set field="left" value="left"></set>
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/user/refunds/refundsList.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="user_findMessageByOne">
+        <section>
+        	<actions>
+        	    <set field="messageId" from-field="parameters.messageId" />
+                <script location="component://portal/webapp/portal/WEB-INF/actions/imageSet/GetManagerMessageByOne.groovy"/>
+        	</actions>
+            <widgets>
+    		<decorator-screen name="user-main-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/user/usermain/findMessageByOne.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+        </section>
+    </screen>
+    
+    <screen name="user_findMessageByAll">
+        <section>
+        	<actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/imageSet/GetManagerMessageByAll.groovy"/>
+        	</actions>
+            <widgets>
+    		<decorator-screen name="user-main-decorator">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/user/usermain/findMessageByAll.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+        </section>
+    </screen>
+
+    <screen name="user_myFavorite">
+        <section>
+            <actions>
+                <set field="NavigationLi" value="userFavoriteLi"/>
+                <set field="Navigation1" value="${uiLabelMap.PortalFavoriteCf}"/>
+                <set field="Navigation2" value="${uiLabelMap.FavoriteProductCf}"/>
+                <set field="left" value="favorite_left"></set>
+                <set field="MainColumnStyle" value="center"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/customer/getFavoriteProduct.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/user/favorite/allFavoriteProduct.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="user_myShopFavorites">
+        <section>
+            <actions>
+                <set field="MainColumnStyle" value="center"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/customer/getFavoriteStore.groovy"/>
+                <set field="NavigationLi" value="userStoreFavoriteLi"/>
+                <set field="Navigation1" value="${uiLabelMap.PortalFavoriteCf}"/>
+                <set field="Navigation2" value="${uiLabelMap.ShopFavoritesCf}"/>
+                <set field="left" value="favorite_left"></set>
+            </actions>
+            <widgets>
+                <decorator-screen name="user-main-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/user/favorite/allShopFavorites.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+</screens>
+
+
+
+
+
+
+

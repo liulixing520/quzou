@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+	<description>Module Configuration File</description>
+
+	<handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler" />
+	<handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler" />
+
+	<firstvisit></firstvisit>
+
+	<!-- Request Mappings -->
+	<request-map uri="view">
+		<security https="false" auth="false" />
+		<response name="success" type="request" value="FindContent" />
+	</request-map>
+
+	<request-map uri="FindCmsArticle">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindCmsArticle" />
+	</request-map>
+	<request-map uri="EditCmsArticle">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditCmsArticle" />
+	</request-map>
+	<request-map uri="uploadImage">
+		<event type="java" path="org.extErp.sysCommon.content.CmsArticleEvents" invoke="uploadImage" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="createCmsArticle">
+		<event type="java" path="org.extErp.sysCommon.content.CmsArticleEvents" invoke="createCmsArticle" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="updateCmsArticle">
+		<event type="java" path="org.extErp.sysCommon.content.CmsArticleEvents" invoke="updateCmsArticle" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="deleteCmsArticle">
+		<event type="service" invoke="deleteCmsArticle" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+
+	<request-map uri="FindAd">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindAd" />
+	</request-map>
+	<request-map uri="EditAd">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditAd" />
+	</request-map>
+
+	<request-map uri="FindCmsCatalog">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindCmsCatalog" />
+	</request-map>
+	<request-map uri="FindCmsCatalogAdvanced">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindCmsCatalogAdvanced" />
+	</request-map>
+	
+	<request-map uri="EditCmsCatalog">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditCmsCatalog" />
+	</request-map>
+	<request-map uri="createCmsCatalog">
+		<event type="service" invoke="createCmsCatalog" />
+		<response name="success" type="request" value="json" />
+	</request-map>
+	<request-map uri="updateCmsCatalog">
+		<event type="service" invoke="updateCmsCatalog" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="delCmsCatalog">
+		<event type="service" invoke="deleteCmsCatalog" />
+		<response name="success" type="request" value="json" />
+	</request-map>
+	<request-map uri="delCmsCatalogAll">
+		<event type="service" invoke="deleteCmsCatalogAll" />
+		<response name="success" type="request" value="json" />
+	</request-map>
+	<request-map uri="FindAdvertise">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindAdvertise" />
+	</request-map>
+	<request-map uri="EditAdvertise">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditAdvertise" />
+	</request-map>
+	<request-map uri="LoadAdvertiseBody">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="LoadAdvertiseBody" />
+	</request-map>
+	<request-map uri="createAdvertise">
+		<event type="java" path="org.extErp.sysCommon.content.CmsArticleEvents" invoke="createAdvertise" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="updateAdvertise">
+		<event type="java" path="org.extErp.sysCommon.content.CmsArticleEvents" invoke="updateAdvertise" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="deleteAdvertise">
+		<event type="service" invoke="deleteAdvertise" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="FindAp">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindAP" />
+	</request-map>
+	<request-map uri="FindAr">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindAr" />
+	</request-map>
+	<request-map uri="paymentOverview">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="paymentOverview" />
+	</request-map>
+	
+	<request-map uri="changeWebSite">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="changeWebSite" />
+	</request-map>
+	
+	
+	<request-map uri="LookupCmsCatalog">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="LookupCmsCatalog" />
+	</request-map>
+	<request-map uri="LookupCmsWebSite">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="LookupCmsWebSite" />
+	</request-map>
+	<!-- View Mappings -->
+	<view-map name="FindCmsArticle" type="screen" page="component://sysCommon/widget/ContentScreens.xml#FindCmsArticle" />
+	<view-map name="EditCmsArticle" type="screen" page="component://sysCommon/widget/ContentScreens.xml#EditCmsArticle" />
+	<view-map name="FindCmsCatalog" type="screen" page="component://sysCommon/widget/ContentScreens.xml#FindCmsCatalog" />
+	<view-map name="FindCmsCatalogAdvanced" type="screen" page="component://sysCommon/widget/ContentScreens.xml#FindCmsCatalogAdvanced" />
+	<view-map name="EditCmsCatalog" type="screen" page="component://sysCommon/widget/ContentScreens.xml#EditCmsCatalog" />
+	
+	<view-map name="FindAdvertise" type="screen" page="component://sysCommon/widget/ContentScreens.xml#FindAdvertise" />
+	<view-map name="EditAdvertise" type="screen" page="component://sysCommon/widget/ContentScreens.xml#EditAdvertise" />
+	<view-map name="LoadAdvertiseBody" type="screen" page="component://sysCommon/widget/ContentScreens.xml#LoadAdvertiseBody" />
+	<view-map name="paymentOverview" type="screen" page="component://sysCommon/widget/OrderScreens.xml#PaymentOverview" />
+	<view-map name="changeWebSite" type="screen" page="component://sysCommon/widget/ContentScreens.xml#changeWebSite"/>
+	<view-map name="LookupCmsCatalog" type="screen" page="component://sysCommon/widget/ContentScreens.xml#LookupCmsCatalog"/>
+	<view-map name="LookupCmsWebSite" type="screen" page="component://sysCommon/widget/ContentScreens.xml#LookupCmsWebSite"/>
+	<!-- end of view mappings -->
+</site-conf>

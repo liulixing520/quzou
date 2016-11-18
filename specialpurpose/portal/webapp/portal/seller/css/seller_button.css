@@ -1,0 +1,40 @@
+﻿select{font-size:12px;}
+#right button span.button1_ri{color:#fff;}
+#right button span.button2_ri{color:#000;}
+#right button span.disbtn_ri{color:#4d4d4d;}
+button{overflow:visible; padding:0;margin:0; border:0; background:none; text-indent:inherit; vertical-align:middle; cursor:pointer; font-size:12px;}
+.button1_lt,.button1_ri,.button2_lt,.button2_ri,.disbtn_lt,.disbtn_ri,.button3_lt,.button3_ri,.button4_lt,.button4_ri,.button5_lt,.button5_ri,.button6_lt,.button6_ri,.button7_lt,.button7_ri,.button8_lt,.button8_ri,.button9_lt,.button9_ri,.button10_lt,.button10_ri{display:block; white-space:nowrap; height:22px; line-height:22px;}
+.button1_lt,.button2_lt,.disbtn_lt,.button3_lt,.button4_lt,.button5_lt,.button6_lt,.button7_lt,.button8_lt,.button9_lt,.button10_lt{padding-left:6px;}
+.button1_ri,.button2_ri,.disbtn_ri,.disbtn_ri,.button3_ri,.button4_ri,.button5_ri,.button6_ri,.button7_ri,.button8_ri,.button9_ri,.button10_ri{padding:0 15px 0 10px;}
+.button1_lt{background:url(http://image.dhgate.com/2008/web20/seller/img/syi/syi_button.gif) top left;}
+.button1_ri{background:url(http://image.dhgate.com/2008/web20/seller/img/syi/syi_button.gif) top right;}
+.button2_lt{background:url(http://image.dhgate.com/2008/web20/seller/img/syi/syi_h_button.gif) top left;}
+.button2_ri{background:url(http://image.dhgate.com/2008/web20/seller/img/syi/syi_h_button.gif) top right;}
+.button3_lt{background:url(http://image.dhgate.com/2008/web20/seller/img/inquiry_template_button.gif) top left;}
+.button3_ri{background:url(http://image.dhgate.com/2008/web20/seller/img/inquiry_template_button.gif) top right;}
+.button3_lt,.button3_ri{height:29px; line-height:29px;}
+.button4_lt{background:url(http://image.dhgate.com/2008/web20/seller/img/movetools-bg3.gif) top left;}
+.button4_ri{background:url(http://image.dhgate.com/2008/web20/seller/img/movetools-bg3.gif) top right;}
+.button5_lt{background:url(http://image.dhgate.com/2008/web20/seller/img/movetools-bg7.gif) top left;}
+.button5_ri{background:url(http://image.dhgate.com/2008/web20/seller/img/movetools-bg7.gif) top right;}
+.button4_lt,.button4_ri,.button5_lt,.button5_ri,.button7_lt,.button7_ri{height:22px; line-height:22px;}
+.button6_lt{background:url(http://image.dhgate.com/2008/web20/seller/img/product-button.gif) top left;}
+.button6_ri{background:url(http://image.dhgate.com/2008/web20/seller/img/product-button.gif) top right;}
+.button6_lt,.button6_ri{height:24px; line-height:24px;}
+.button7_lt{background:url(http://image.dhgate.com/2008/web20/seller/img/product-button-1.gif) top left;}
+.button7_ri{background:url(http://image.dhgate.com/2008/web20/seller/img/product-button-1.gif) top right;}
+.button8_lt{background:url(http://image.dhgate.com/2008/web20/seller/img/syi/syi_button_1.gif) top left;}
+.button8_ri{background:url(http://image.dhgate.com/2008/web20/seller/img/syi/syi_button_1.gif) top right;}
+.button9_lt{background:url(http://image.dhgate.com/seller/helpcenter2010/img/but.png) top left;}
+.button9_ri{background:url(http://image.dhgate.com/seller/helpcenter2010/img/but.png) top right;}
+.button10_lt{background:url(http://image.dhgate.com/dhs/mob/img/liuyan/liuyan-button.gif) top left;}
+.button10_ri{background:url(http://image.dhgate.com/dhs/mob/img/liuyan/liuyan-button.gif) top right;}
+.button10_lt,.button10_ri{height:24px; line-height:24px;}
+.disbtn_lt{background:url(http://image.dhgate.com/2008/web20/seller/img/syi/syi_disable_btn.gif) top left;}
+.disbtn_ri{background:url(http://image.dhgate.com/2008/web20/seller/img/syi/syi_disable_btn.gif) top right;}
+#content .a_button, #content .a_button span, #content .b_button, #content .b_button span{overflow:hidden; display:inline-block; height:25px; line-height:25px; font-size:12px; color:#000; text-decoration:none; cursor:pointer;}
+#content .a_button, #content .b_button{padding-left:11px; vertical-align:middle; text-decoration:none; background:url(http://image.dhgate.com/2008/web20/seller/img/bank_button.gif) no-repeat left top;}
+#content .a_button:hover, #content .b_button:hover{text-decoration:none;}
+#content .a_button span, #content .b_button span{padding-right:11px; background:url(http://image.dhgate.com/2008/web20/seller/img/bank_button.gif) no-repeat right top;}
+#content .b_button{background:url(http://image.dhgate.com/2008/web20/seller/img/movetools-bg2.gif) no-repeat left top;}
+#content .b_button span{background:url(http://image.dhgate.com/2008/web20/seller/img/movetools-bg2.gif) no-repeat right top;}

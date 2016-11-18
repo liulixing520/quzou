@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    
+   
+   <!-- 产品 -->     
+      
+   <Product productId="cp-10002" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00012" isApproval="Y"
+    productName="传真机KX-FP7009CN" internalName="传真机KX-FP7009CN" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10003" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00012" isApproval="Y"
+    productName="理光C3502彩色复合机" internalName="理光C3502彩色复合机" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10004" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00012" isApproval="Y"
+    productName="惠普DV4-5A02 笔记本电脑" internalName="惠普DV4-5A02 笔记本电脑" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10005" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00022" isApproval="Y"
+    productName="报价牌" internalName="报价牌" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10006" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00025" isApproval="Y"
+    productName="房间门牌" internalName="房间门牌" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10007" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00023" isApproval="Y"
+    productName="门牌" internalName="门牌" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10008" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00031" isApproval="Y"
+    productName="亿丰毛巾" internalName="亿丰毛巾" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10009" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00041" isApproval="Y"
+    productName="送衣车" internalName="送衣车" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10010" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00041" isApproval="Y"
+    productName="手推行李车" internalName="手推行李车" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10011" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00051" isApproval="Y"
+    productName="液晶电视46L1300C" internalName="液晶电视46L1300C" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10012" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00054" isApproval="Y"
+    productName="冰箱DB3506" internalName="冰箱DB3506" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10013" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00056" isApproval="Y"
+    productName="冷热毛巾柜 MPR15B-2LR" internalName="冷热毛巾柜 MPR15B-2LR" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10014" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00057" isApproval="Y"
+    productName="恒温红酒柜CWC-450AJP168" internalName="恒温红酒柜CWC-450AJP168" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10015" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00058" isApproval="Y"
+    productName="跑步机 NETL14711" internalName="跑步机 NETL14711" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10016" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00061" isApproval="Y"
+    productName="亚峰阳光地毯清洁剂" internalName="亚峰阳光地毯清洁剂" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10017" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00071" isApproval="Y"
+    productName="圆珠笔" internalName="圆珠笔" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10018" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00091" isApproval="Y"
+    productName="电钻" internalName="电钻" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   
+   <SupplierProduct productId="cp-10002" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="300" currencyUomId="CNY"  supplierProductId="cp-10002" canDropShip=""/>
+   <SupplierProduct productId="cp-10003" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="800" currencyUomId="CNY"  supplierProductId="cp-10003" canDropShip=""/>
+   <SupplierProduct productId="cp-10004" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="888" currencyUomId="CNY"  supplierProductId="cp-10004" canDropShip=""/>
+   <SupplierProduct productId="cp-10005" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="555" currencyUomId="CNY"  supplierProductId="cp-10005" canDropShip=""/>
+   <SupplierProduct productId="cp-10006" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="666" currencyUomId="CNY"  supplierProductId="cp-10006" canDropShip=""/>
+   <SupplierProduct productId="cp-10007" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="888" currencyUomId="CNY"  supplierProductId="cp-10007" canDropShip=""/>
+   <SupplierProduct productId="cp-10008" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="125" currencyUomId="CNY"  supplierProductId="cp-10008" canDropShip=""/>
+   <SupplierProduct productId="cp-10009" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="335" currencyUomId="CNY"  supplierProductId="cp-10009" canDropShip=""/>
+   <SupplierProduct productId="cp-10010" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="3000" currencyUomId="CNY"  supplierProductId="cp-10010" canDropShip=""/>
+   <SupplierProduct productId="cp-10011" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="1999" currencyUomId="CNY"  supplierProductId="cp-10011" canDropShip=""/>
+   <SupplierProduct productId="cp-10012" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="1399" currencyUomId="CNY"  supplierProductId="cp-10012" canDropShip=""/>
+   <SupplierProduct productId="cp-10013" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="1199" currencyUomId="CNY"  supplierProductId="cp-10013" canDropShip=""/>
+   <SupplierProduct productId="cp-10014" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="1299" currencyUomId="CNY"  supplierProductId="cp-10014" canDropShip=""/>
+   <SupplierProduct productId="cp-10015" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="1580" currencyUomId="CNY"  supplierProductId="cp-10015" canDropShip=""/>
+   <SupplierProduct productId="cp-10016" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="3399" currencyUomId="CNY"  supplierProductId="cp-10016" canDropShip=""/>
+   <SupplierProduct productId="cp-10017" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="5000" currencyUomId="CNY"  supplierProductId="cp-10017" canDropShip=""/>
+   <SupplierProduct productId="cp-10018" partyId="1000" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="800" currencyUomId="CNY"  supplierProductId="cp-10018" canDropShip=""/>
+   
+
+   <ProductCategoryMember productId="cp-10002" productCategoryId="YUNTOU00012" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10003" productCategoryId="YUNTOU00012" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10004" productCategoryId="YUNTOU00012" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10005" productCategoryId="YUNTOU00022" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10006" productCategoryId="YUNTOU00025" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10007" productCategoryId="YUNTOU00023" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10008" productCategoryId="YUNTOU00031" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10009" productCategoryId="YUNTOU00041" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10010" productCategoryId="YUNTOU00041" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10011" productCategoryId="YUNTOU00051" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10012" productCategoryId="YUNTOU00054" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10013" productCategoryId="YUNTOU00056" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10014" productCategoryId="YUNTOU00057" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10015" productCategoryId="YUNTOU00058" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10016" productCategoryId="YUNTOU00061" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10017" productCategoryId="YUNTOU00071" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10018" productCategoryId="YUNTOU00091" fromDate="2001-05-13 12:00:00.000"/>
+   <!-- 价格   标价和默认价格 -->
+   
+   <ProductPrice productId="cp-10002" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="300" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10002" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="500" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10003" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="800" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10003" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="1000" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10004" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="999" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10004" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="1500" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10005" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="888" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10005" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="1200" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10006" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="555" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10006" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="700" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10007" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="666" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10007" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="700" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10008" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="888" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10008" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="1300" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10009" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="125" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10009" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="222" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10010" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="335" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10010" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="480" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10011" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="3000" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10011" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="4000" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10012" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="1999" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10012" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="2500" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10013" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="1399" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10013" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="1500" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10014" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="1299" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10014" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="1500" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10015" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="1580" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10015" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="2000" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10016" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="3399" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10016" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="4000" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10017" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="5000" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10017" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="5800" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10018" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="800" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10018" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="999" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+  
+   
+   <!-- 产品所属系列 -->
+   
+   <ProductFeatureAppl productId="cp-10002" productFeatureId="fe-10004" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:26:02.399" lastUpdatedStamp="2014-12-14 19:26:02.399" lastUpdatedTxStamp="2014-12-14 19:26:02.399" createdStamp="2014-12-14 19:26:02.399" createdTxStamp="2014-12-14 19:26:02.399"/>
+    <ProductFeatureAppl productId="cp-10002" productFeatureId="fe-10010" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:25:58.015" lastUpdatedStamp="2014-12-14 19:25:58.015" lastUpdatedTxStamp="2014-12-14 19:25:58.015" createdStamp="2014-12-14 19:25:58.015" createdTxStamp="2014-12-14 19:25:58.015"/>
+    <ProductFeatureAppl productId="cp-10002" productFeatureId="fe-10013" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:26:08.167" lastUpdatedStamp="2014-12-14 19:26:08.167" lastUpdatedTxStamp="2014-12-14 19:26:08.158" createdStamp="2014-12-14 19:26:08.167" createdTxStamp="2014-12-14 19:26:08.158"/>
+    <ProductFeatureAppl productId="cp-10003" productFeatureId="fe-10003" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:25:45.507" lastUpdatedStamp="2014-12-14 19:25:45.507" lastUpdatedTxStamp="2014-12-14 19:25:45.507" createdStamp="2014-12-14 19:25:45.507" createdTxStamp="2014-12-14 19:25:45.507"/>
+    <ProductFeatureAppl productId="cp-10003" productFeatureId="fe-10007" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:25:40.67" lastUpdatedStamp="2014-12-14 19:25:40.67" lastUpdatedTxStamp="2014-12-14 19:25:40.661" createdStamp="2014-12-14 19:25:40.67" createdTxStamp="2014-12-14 19:25:40.661"/>
+    <ProductFeatureAppl productId="cp-10003" productFeatureId="fe-10014" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:25:50.439" lastUpdatedStamp="2014-12-14 19:25:50.439" lastUpdatedTxStamp="2014-12-14 19:25:50.438" createdStamp="2014-12-14 19:25:50.439" createdTxStamp="2014-12-14 19:25:50.438"/>
+    <ProductFeatureAppl productId="cp-10004" productFeatureId="fe-10000" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:25:30.311" lastUpdatedStamp="2014-12-14 19:25:30.311" lastUpdatedTxStamp="2014-12-14 19:25:30.311" createdStamp="2014-12-14 19:25:30.311" createdTxStamp="2014-12-14 19:25:30.311"/>
+    <ProductFeatureAppl productId="cp-10004" productFeatureId="fe-10007" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:25:26.207" lastUpdatedStamp="2014-12-14 19:25:26.207" lastUpdatedTxStamp="2014-12-14 19:25:26.207" createdStamp="2014-12-14 19:25:26.207" createdTxStamp="2014-12-14 19:25:26.207"/>
+    <ProductFeatureAppl productId="cp-10004" productFeatureId="fe-10012" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:25:33.806" lastUpdatedStamp="2014-12-14 19:25:33.806" lastUpdatedTxStamp="2014-12-14 19:25:33.805" createdStamp="2014-12-14 19:25:33.806" createdTxStamp="2014-12-14 19:25:33.805"/>
+    <ProductFeatureAppl productId="cp-10005" productFeatureId="fe-10160" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:25:20.258" lastUpdatedStamp="2014-12-14 19:25:20.258" lastUpdatedTxStamp="2014-12-14 19:25:20.258" createdStamp="2014-12-14 19:25:20.258" createdTxStamp="2014-12-14 19:25:20.258"/>
+    <ProductFeatureAppl productId="cp-10007" productFeatureId="fe-10157" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:24:58.099" lastUpdatedStamp="2014-12-14 19:24:58.099" lastUpdatedTxStamp="2014-12-14 19:24:58.099" createdStamp="2014-12-14 19:24:58.099" createdTxStamp="2014-12-14 19:24:58.099"/>
+    <ProductFeatureAppl productId="cp-10007" productFeatureId="fe-10158" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:25:08.57" lastUpdatedStamp="2014-12-14 19:25:08.57" lastUpdatedTxStamp="2014-12-14 19:25:08.569" createdStamp="2014-12-14 19:25:08.57" createdTxStamp="2014-12-14 19:25:08.569"/>
+    <ProductFeatureAppl productId="cp-10008" productFeatureId="fe-10068" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:24:50.937" lastUpdatedStamp="2014-12-14 19:24:50.937" lastUpdatedTxStamp="2014-12-14 19:24:50.936" createdStamp="2014-12-14 19:24:50.937" createdTxStamp="2014-12-14 19:24:50.936"/>
+    <ProductFeatureAppl productId="cp-10009" productFeatureId="fe-10037" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:24:37.155" lastUpdatedStamp="2014-12-14 19:24:37.155" lastUpdatedTxStamp="2014-12-14 19:24:37.155" createdStamp="2014-12-14 19:24:37.155" createdTxStamp="2014-12-14 19:24:37.155"/>
+    <ProductFeatureAppl productId="cp-10009" productFeatureId="fe-10040" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:24:40.484" lastUpdatedStamp="2014-12-14 19:24:40.484" lastUpdatedTxStamp="2014-12-14 19:24:40.484" createdStamp="2014-12-14 19:24:40.484" createdTxStamp="2014-12-14 19:24:40.484"/>
+    <ProductFeatureAppl productId="cp-10009" productFeatureId="fe-10041" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:24:43.783" lastUpdatedStamp="2014-12-14 19:24:43.783" lastUpdatedTxStamp="2014-12-14 19:24:43.782" createdStamp="2014-12-14 19:24:43.783" createdTxStamp="2014-12-14 19:24:43.782"/>
+    <ProductFeatureAppl productId="cp-10010" productFeatureId="fe-10037" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:24:25.867" lastUpdatedStamp="2014-12-14 19:24:25.867" lastUpdatedTxStamp="2014-12-14 19:24:25.867" createdStamp="2014-12-14 19:24:25.867" createdTxStamp="2014-12-14 19:24:25.867"/>
+    <ProductFeatureAppl productId="cp-10010" productFeatureId="fe-10038" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:24:21.892" lastUpdatedStamp="2014-12-14 19:24:21.892" lastUpdatedTxStamp="2014-12-14 19:24:21.891" createdStamp="2014-12-14 19:24:21.892" createdTxStamp="2014-12-14 19:24:21.891"/>
+    <ProductFeatureAppl productId="cp-10010" productFeatureId="fe-10041" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:24:29.754" lastUpdatedStamp="2014-12-14 19:24:29.754" lastUpdatedTxStamp="2014-12-14 19:24:29.753" createdStamp="2014-12-14 19:24:29.754" createdTxStamp="2014-12-14 19:24:29.753"/>
+    <ProductFeatureAppl productId="cp-10011" productFeatureId="fe-10124" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:24:10.515" lastUpdatedStamp="2014-12-14 19:24:10.515" lastUpdatedTxStamp="2014-12-14 19:24:10.515" createdStamp="2014-12-14 19:24:10.515" createdTxStamp="2014-12-14 19:24:10.515"/>
+    <ProductFeatureAppl productId="cp-10011" productFeatureId="fe-10128" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:24:15.674" lastUpdatedStamp="2014-12-14 19:24:15.674" lastUpdatedTxStamp="2014-12-14 19:24:15.674" createdStamp="2014-12-14 19:24:15.674" createdTxStamp="2014-12-14 19:24:15.674"/>
+    <ProductFeatureAppl productId="cp-10012" productFeatureId="fe-10102" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:23:55.932" lastUpdatedStamp="2014-12-14 19:23:55.932" lastUpdatedTxStamp="2014-12-14 19:23:55.923" createdStamp="2014-12-14 19:23:55.932" createdTxStamp="2014-12-14 19:23:55.923"/>
+    <ProductFeatureAppl productId="cp-10012" productFeatureId="fe-10105" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:24:02.44" lastUpdatedStamp="2014-12-14 19:24:02.44" lastUpdatedTxStamp="2014-12-14 19:24:02.439" createdStamp="2014-12-14 19:24:02.44" createdTxStamp="2014-12-14 19:24:02.439"/>
+    <ProductFeatureAppl productId="cp-10012" productFeatureId="fe-10107" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:23:59.554" lastUpdatedStamp="2014-12-14 19:23:59.554" lastUpdatedTxStamp="2014-12-14 19:23:59.553" createdStamp="2014-12-14 19:23:59.554" createdTxStamp="2014-12-14 19:23:59.553"/>
+    <ProductFeatureAppl productId="cp-10012" productFeatureId="fe-10108" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:23:52.751" lastUpdatedStamp="2014-12-14 19:23:52.751" lastUpdatedTxStamp="2014-12-14 19:23:52.75" createdStamp="2014-12-14 19:23:52.751" createdTxStamp="2014-12-14 19:23:52.75"/>
+    <ProductFeatureAppl productId="cp-10013" productFeatureId="fe-10115" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:23:45.906" lastUpdatedStamp="2014-12-14 19:23:45.906" lastUpdatedTxStamp="2014-12-14 19:23:45.906" createdStamp="2014-12-14 19:23:45.906" createdTxStamp="2014-12-14 19:23:45.906"/>
+    <ProductFeatureAppl productId="cp-10014" productFeatureId="fe-10144" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:23:39.694" lastUpdatedStamp="2014-12-14 19:23:39.694" lastUpdatedTxStamp="2014-12-14 19:23:39.693" createdStamp="2014-12-14 19:23:39.694" createdTxStamp="2014-12-14 19:23:39.693"/>
+    <ProductFeatureAppl productId="cp-10015" productFeatureId="fe-10146" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:23:33.319" lastUpdatedStamp="2014-12-14 19:23:33.319" lastUpdatedTxStamp="2014-12-14 19:23:33.31" createdStamp="2014-12-14 19:23:33.319" createdTxStamp="2014-12-14 19:23:33.31"/>
+    <ProductFeatureAppl productId="cp-10016" productFeatureId="fe-10099" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:23:21.95" lastUpdatedStamp="2014-12-14 19:23:21.95" lastUpdatedTxStamp="2014-12-14 19:23:21.949" createdStamp="2014-12-14 19:23:21.95" createdTxStamp="2014-12-14 19:23:21.949"/>
+    <ProductFeatureAppl productId="cp-10017" productFeatureId="fe-10078" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:23:12.786" lastUpdatedStamp="2014-12-14 19:23:12.787" lastUpdatedTxStamp="2014-12-14 19:23:12.786" createdStamp="2014-12-14 19:23:12.787" createdTxStamp="2014-12-14 19:23:12.786"/>
+    <ProductFeatureAppl productId="cp-10017" productFeatureId="fe-10080" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:23:09.086" lastUpdatedStamp="2014-12-14 19:23:09.086" lastUpdatedTxStamp="2014-12-14 19:23:09.078" createdStamp="2014-12-14 19:23:09.086" createdTxStamp="2014-12-14 19:23:09.078"/>
+    <ProductFeatureAppl productId="cp-10018" productFeatureId="fe-10050" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:22:49.669" lastUpdatedStamp="2014-12-14 19:22:49.669" lastUpdatedTxStamp="2014-12-14 19:22:49.665" createdStamp="2014-12-14 19:22:49.669" createdTxStamp="2014-12-14 19:22:49.665"/>
+    <ProductFeatureAppl productId="cp-10018" productFeatureId="fe-10051" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:22:58.662" lastUpdatedStamp="2014-12-14 19:22:58.662" lastUpdatedTxStamp="2014-12-14 19:22:58.641" createdStamp="2014-12-14 19:22:58.662" createdTxStamp="2014-12-14 19:22:58.641"/>
+    <ProductFeatureAppl productId="cp-10018" productFeatureId="fe-10052" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:22:53.8" lastUpdatedStamp="2014-12-14 19:22:53.801" lastUpdatedTxStamp="2014-12-14 19:22:53.799" createdStamp="2014-12-14 19:22:53.801" createdTxStamp="2014-12-14 19:22:53.799"/>
+    
+    
+    
+    <InventoryItem facilityId="F1001" inventoryItemId="3001" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10002" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3001" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3002" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10003" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3002" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3003" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10004" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3003" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3004" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10005" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3004" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3005" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10006" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3005" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3006" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10007" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3006" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3007" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10008" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3007" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3008" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10009" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3008" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3009" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10010" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3009" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3010" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10011" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3010" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    
+    
+    <InventoryItem facilityId="F1001" inventoryItemId="3011" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10012" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3011" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3012" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10013" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3012" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3013" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10014" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3013" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3014" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10015" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3014" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3015" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10016" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3015" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3016" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10017" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3016" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1001" inventoryItemId="3017" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10018" ownerPartyId="1000" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3017" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    
+    
+    
+    
+    <!-- 店铺2的产品 -->
+   <Product productId="cp-10022" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00012" isApproval="Y"
+    productName="立式饮水机MYR927S-W" internalName="立式饮水机MYR927S-W" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10023" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00012" isApproval="Y"
+    productName="双线无绳电话HWD9888TSD" internalName="双线无绳电话HWD9888TSD" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10024" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00012" isApproval="Y"
+    productName="联想 笔记本电脑" internalName="联想 笔记本电脑" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <Product productId="cp-10025" productTypeId="FINISHED_GOOD" primaryProductCategoryId="YUNTOU00022" isApproval="Y"
+    productName="留座牌" internalName="留座牌" longDescription="" taxable="N" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" 
+     createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   
+   <SupplierProduct productId="cp-10022" partyId="1002" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="300" currencyUomId="CNY"  supplierProductId="cp-10022" canDropShip=""/>
+   <SupplierProduct productId="cp-10023" partyId="1002" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="800" currencyUomId="CNY"  supplierProductId="cp-10023" canDropShip=""/>
+   <SupplierProduct productId="cp-10024" partyId="1002" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="999" currencyUomId="CNY"  supplierProductId="cp-10024" canDropShip=""/>
+   <SupplierProduct productId="cp-10025" partyId="1002" availableFromDate="2001-05-13 12:00:00.0" minimumOrderQuantity="0"
+   lastPrice="888" currencyUomId="CNY"  supplierProductId="cp-10025" canDropShip=""/>
+   
+   
+   <ProductCategoryMember productId="cp-10022" productCategoryId="YUNTOU00012" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10023" productCategoryId="YUNTOU00012" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10024" productCategoryId="YUNTOU00012" fromDate="2001-05-13 12:00:00.000"/>
+   <ProductCategoryMember productId="cp-10025" productCategoryId="YUNTOU00022" fromDate="2001-05-13 12:00:00.000"/>
+   <!-- 价格   标价和默认价格 -->
+   
+   <ProductPrice productId="cp-10022" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="300" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10022" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="500" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10023" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="800" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10023" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="1002" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10024" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="999" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10024" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="1500" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10025" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="888" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   <ProductPrice productId="cp-10025" productPricePurposeId="PURCHASE" productPriceTypeId="LIST_PRICE" currencyUomId="CNY" productStoreGroupId="_NA_" fromDate="2001-05-13 12:00:00.0" price="1200" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+   
+   <!-- 产品所属系列 -->
+   
+    <ProductFeatureAppl productId="cp-10022" productFeatureId="fe-10004" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:26:02.399" lastUpdatedStamp="2014-12-14 19:26:02.399" lastUpdatedTxStamp="2014-12-14 19:26:02.399" createdStamp="2014-12-14 19:26:02.399" createdTxStamp="2014-12-14 19:26:02.399"/>
+    <ProductFeatureAppl productId="cp-10023" productFeatureId="fe-10003" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:25:45.507" lastUpdatedStamp="2014-12-14 19:25:45.507" lastUpdatedTxStamp="2014-12-14 19:25:45.507" createdStamp="2014-12-14 19:25:45.507" createdTxStamp="2014-12-14 19:25:45.507"/>
+    <ProductFeatureAppl productId="cp-10023" productFeatureId="fe-10014" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:25:50.439" lastUpdatedStamp="2014-12-14 19:25:50.439" lastUpdatedTxStamp="2014-12-14 19:25:50.438" createdStamp="2014-12-14 19:25:50.439" createdTxStamp="2014-12-14 19:25:50.438"/>
+    <ProductFeatureAppl productId="cp-10024" productFeatureId="fe-10000" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:25:30.311" lastUpdatedStamp="2014-12-14 19:25:30.311" lastUpdatedTxStamp="2014-12-14 19:25:30.311" createdStamp="2014-12-14 19:25:30.311" createdTxStamp="2014-12-14 19:25:30.311"/>
+    <ProductFeatureAppl productId="cp-10024" productFeatureId="fe-10012" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:25:33.806" lastUpdatedStamp="2014-12-14 19:25:33.806" lastUpdatedTxStamp="2014-12-14 19:25:33.805" createdStamp="2014-12-14 19:25:33.806" createdTxStamp="2014-12-14 19:25:33.805"/>
+    <ProductFeatureAppl productId="cp-10025" productFeatureId="fe-10160" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2014-12-14 19:25:20.258" lastUpdatedStamp="2014-12-14 19:25:20.258" lastUpdatedTxStamp="2014-12-14 19:25:20.258" createdStamp="2014-12-14 19:25:20.258" createdTxStamp="2014-12-14 19:25:20.258"/>
+   
+    
+    
+    <InventoryItem facilityId="F1002" inventoryItemId="3101" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10022" ownerPartyId="1002" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3101" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1002" inventoryItemId="3102" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10023" ownerPartyId="1002" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3102" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1002" inventoryItemId="3103" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10024" ownerPartyId="1002" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3103" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    <InventoryItem facilityId="F1002" inventoryItemId="3104" inventoryItemTypeId="NON_SERIAL_INV_ITEM" datetimeReceived="2008-08-01 08:00:00.000" productId="cp-10025" ownerPartyId="1002" currencyUomId="CNY" unitCost="200"/>
+    <InventoryItemDetail inventoryItemId="3104" inventoryItemDetailSeqId="0001" effectiveDate="2001-05-13 12:00:00.0" availableToPromiseDiff="8" quantityOnHandDiff="8" accountingQuantityDiff="8"/>
+    
+</entity-engine-xml>

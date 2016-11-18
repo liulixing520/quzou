@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="RESOURCES_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="RESOURCES_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="RESOURCES_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="RESOURCES_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="RESOURCES_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="RESOURCES_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="RESOURCES_ADMIN"/>
+</entity-engine-xml>

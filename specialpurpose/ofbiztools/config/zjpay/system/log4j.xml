@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" threshold="all">
+    <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}] [%c] [%C] [%p] %m%n" />
+        </layout>
+    </appender>
+    <appender name="fileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/logs/CFCA/Payment/InstitutionSimulator/paymentsys.log" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}] [%c] [%C] [%p] %m%n" />
+        </layout>
+    </appender>
+    <appender name="smsAppender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/logs/CFCA/Payment/InstitutionSimulator/sms.log" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[%d{yyyy-MM-dd HH:mm:ss SSS}] [%c] [%C] [%p] [%5t] %m%n" />
+        </layout>
+    </appender>
+    <logger name="system" additivity="false">
+        <level class="org.apache.log4j.Level" value="info" />
+        <appender-ref ref="consoleAppender" />
+        <appender-ref ref="fileAppender" />
+    </logger>
+    <logger name="dao" additivity="false">
+        <level class="org.apache.log4j.Level" value="info" />
+        <appender-ref ref="consoleAppender" />
+        <appender-ref ref="fileAppender" />
+    </logger>
+    <root>
+        <priority value="info" />
+        <appender-ref ref="consoleAppender" />
+        <appender-ref ref="fileAppender" />
+        <appender-ref ref="smsAppender" />
+    </root>
+</log4j:configuration>

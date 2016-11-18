@@ -1,0 +1,543 @@
+body{background:#fff;font:12px/1.5 tahoma,arial,\5b8b\4f53;color:#333333;-webkit-text-size-adjust:none;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}
+button,input,select,textarea{font:100% tahoma,arial,\5b8b\4f53;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:bold}
+em{font-style:normal;}
+ul,ol{list-style:none;}
+fieldset,img{border:0;}
+input{vertical-align:middle;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+table{border-collapse:collapse;border-spacing:0;}
+a{color:#3366cc;text-decoration:none;outline:none}
+a:hover{color:#900;text-decoration:underline;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{*zoom:1;}
+/*一些通用的样式*/
+.write-error{display:inline-block;padding-left:20px;color:#fe000c;background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon03.gif) no-repeat left center;}
+.write-right{display:inline-block;padding-left:20px;background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon04.gif) no-repeat left center;}
+.color-f00{color:#f00;}
+.color-999{color:#999;}
+.money-color{color:#9e0003;}
+.prompt-letter{color:#fb5501;}/*特殊字体颜色橘色*/
+.zline10{overflow:hidden;height:10px;width:100%;}
+.b-zline10{overflow:hidden;height:10px;border-top:1px solid #e7e7e7;}/*右侧尾部一像素边框的10像素高的空DIV*/
+.align-center{text-align:center;}/*文本居中排列*/
+.align-left{text-align:left;}/*文本居左排列*/
+.align-right{text-align:right;}/*文本居右排列*/
+.under-line{text-decoration:underline;}/*链接有下划线*/
+.marginlr5{ margin-left:5px; margin-right:5px; }
+/*布局*/
+.col-main{float:left;width:100%;min-height: 1px;}
+.col-left{position:relative;float:left;margin-left:-100%;width:150px;}
+.col-main-warp{float:left;margin-left:160px;width:790px;_display:inline}
+.col-right{float:left;margin-left:-230px;width:230px;}
+.header,.content,.footer{margin:0 auto;width:950px;}
+/*链接按钮*/
+/*链接按钮*/
+.greybutton1,.yellowbutton1{display:inline-block;overflow:hidden;padding-left:10px;height:23px;line-height:22px;line-height:24px\0;*line-height:24px;_line-height:22px;text-decoration:none;background:url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) no-repeat 0 0px;}
+.greybutton1:hover,.yellowbutton1:hover{text-decoration:none;background-position:0 -23px;}
+.greybutton1 span,.yellowbutton1 span{display:block;padding-right:10px;color:#444;background:url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) no-repeat right 0px;cursor:pointer;}
+.greybutton1:hover span,.yellowbutton1:hover span{color:#000;background-position:right -23px;}
+.yellowbutton1{background-position:0 -96px;}
+.yellowbutton1 span{color:#b25706;background-position:right -96px;}
+.yellowbutton1:hover{background-position:0 -119px;}
+.yellowbutton1:hover span{color:#763800;background-position:right -119px;}
+.greybutton2,.yellowbutton2{display:inline-block;overflow:hidden;padding-left:10px;height:25px;line-height:24px;line-height:26px\0;*line-height:28px;_line-height:24px;text-decoration:none;background:url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) no-repeat 0 -71px;}
+.greybutton2:hover,.yellowbutton2:hover{text-decoration:none;background-position:0 -71px;}
+.greybutton2 span,.yellowbutton2 span{display:block;padding-right:10px;color:#444;background:url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) no-repeat right -71px;cursor:pointer;}
+.greybutton2:hover span,.yellowbutton2:hover span{color:#000;background-position:right -71px;}
+.yellowbutton2{background-position:0 -142px;}
+.yellowbutton2:hover{background-position:0 -167px;}
+.yellowbutton2 span{color:#b25706;background-position:right -142px;}
+.yellowbutton2:hover span{color:#763800;background-position:right -167px;}
+/*input链接按钮 开始*/
+.tourBtn,.yellowBtn{vertical-align:middle;overflow:hidden;display:inline-block;height:23px;padding:0 0 0 1px;margin-right:9px;background:url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) repeat-x 0 0;}
+.yellowBtn{height:23px;background:url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) repeat-x 0 -96px;}
+.tourBtn a,.tourBtn input,.yellowBtn a,.yellowBtn input{display:block;height:23px;padding:0 10px 0 9px;border:none;background:url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) repeat-x 100% 0px;text-decoration:none;text-align:center;color:#444444;font:12px/23px Arial, Helvetica, sans-serif;cursor:pointer;overflow:hidden;*vertical-align:middle;float:left}
+.tourBtn input,.yellowBtn input{*+height:24px;_line-height:24px;}
+.yellowBtn a,.yellowBtn input{height:23px;font-size:12px;line-height:23px;background-position:right -96px;}
+.tourBtn:hover a,.tourBtn:hover input{color:#000;background-position:right -23px;}
+.tourBtn a,.tourBtn input,.yellowBtn a,.yellowBtn input{padding:0 8px 3px 7px;padding:2px 10px 1px 9px\0;*padding:1px 10px 2px 9px;}
+.tourBtn input,.yellowBtn input{height:23px;overflow:visible;text-indent:inherit;*vertical-align:middle;}
+:root .tourBtn input{padding-top:1px\9;}
+:root .yellowBtn input{padding-top:1px\9;}
+.tourBtn input,.yellowBtn input{padding-top:0px\0;}
+.yellowBtn a,.yellowBtn input{color:#B25706;}
+.tourBtn:hover,.yellowBtn:hover{text-decoration:none;cursor:pointer;color:#000;}
+.tourBtn:hover a,.tourBtn:hover input,.yellowBtn:hover a,.yellowBtn:hover input{background-position:100% -23px;text-decoration:none;color:#000;}
+.yellowBtn:hover a,.yellowBtn:hover input{color:#763800;background-position:100% -119px;}
+.commonBtn{height:23px;margin-right:4px;overflow:hidden;display: inline-block}
+.commonBtn a,.commonBtn input{border:0;display:block;height:21px;padding:0 10px 0px 9px;color:#444;background:url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) repeat-x 0 -96px;text-decoration:none;text-align:center;color:#333;font:bold 12px/22px Arial, Helvetica, sans-serif;cursor:pointer;overflow:hidden;display:inline-block;*vertical-align:middle;float:left;text-decoration:none;color:#333;}
+.commonBtn input{overflow:visible;text-indent:inherit;}
+.commonBtn:hover{text-decoration:none;color:#333;}
+/*input链接按钮 结束*/
+/*按钮不可点击背景变灰*/
+.unclickbutton1,.unclickbutton2{display:inline-block;overflow:hidden;padding-left:10px;height:23px;line-height:22px;line-height:26px\0;*line-height:26px;_line-height:22px;background:url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) no-repeat 0 -217px;}
+.unclickbutton1 span,.unclickbutton2 span{display:block;padding-right:10px;color:#a7a191;background:url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) no-repeat right -217px;}
+.unclickbutton2{height:25px;line-height:25px;line-height:26px\0;*line-height:28px;_line-height:24px; background-position:0 -240px;}
+.unclickbutton2 span{background-position:right -240px;}
+/*按钮等待loading*/
+.loading-button{display:inline-block;padding-left:10px;height:25px;background:url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) no-repeat 0 -192px;}
+.loading-button img{float:left;margin:4px 5px 0 0;}
+.loading-matter{float:left;padding:3px 10px 3px 0;height:19px;line-height:21px\0;*line-height:21px;_line-height:19px;background:url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) no-repeat right -192px;}
+/*height35px按钮样式*/
+.bigyellow-button,.biggrey-button,.bigunclick-button{overflow:hidden;display:inline-block;padding-left:5px;height:35px;font-size:14px;font-weight:700; vertical-align:middle; background:url(http://www.dhresource.com/dhs/mos/image/public/bigbutton.png) no-repeat 0 0;}
+.bigyellow-button span,.bigyellow-button input,.biggrey-button span,.biggrey-button input,.bigunclick-button span,.bigunclick-button input{float:left;padding:7px 30px 8px 25px;padding-top:8px\0;line-height:20px;color:#b25706;background:url(http://www.dhresource.com/dhs/mos/image/public/bigbutton.png) no-repeat right 0;cursor:pointer;}
+.bigyellow-button:hover{text-decoration:none;background-position:0 -35px;}
+.bigyellow-button:hover span,.bigyellow-button:hover input{text-decoration:none;color:#763800;background-position:right -35px;}
+.biggrey-button{text-decoration:none;background-position:0 -70px;}
+.biggrey-button span,.biggrey-button input{text-decoration:none;color:#444;background-position:right -70px;}
+.biggrey-button:hover{text-decoration:none;background-position:0 -105px;}
+.biggrey-button:hover span,.biggrey-button:hover input{text-decoration:none;color:#000;background-position:right -105px;}
+
+.bigyellow-button:hover input,.biggrey-button input,.bigyellow-button input,.bigunclick-button input{ *overflow:visible;  border:none;font-size:14px;font-weight:700;}
+
+.bigload-button{overflow:hidden;display:inline-block;padding-left:20px;height:35px;font-size:14px;font-weight:700;background:url(http://www.dhresource.com/dhs/mos/image/public/bigbutton.png) no-repeat 0 -140px;}
+.bigload-button img{float:left;margin:9px 5px 0 0;}
+.bigload-button span{float:left;padding:7px 20px 8px 0;padding-top:8px\0;line-height:20px;color:#666;background:url(http://www.dhresource.com/dhs/mos/image/public/bigbutton.png) no-repeat right -140px;}
+.bigunclick-button,.bigunclick-button:hover{ background-position:0 -140px;}
+.bigunclick-button span,.bigunclick-button input,.bigunclick-button:hover input{ color:#999;background-position:right -140px; cursor:default;}
+/*头部样式*/
+.top-warp{height:26px;border-bottom:1px solid #e1e1e1;background:#f1f1f1;}
+.top-inner{position:relative;z-index:999;margin:0 auto;width:950px;}
+.top-inner a{color:#606060;text-decoration:none;}
+.top-inner a:hover,.top-inner .number-link:hover{color:#900;text-decoration:underline;}
+.top-ri{float:right;height:26px;}
+.return-oldpage{float:right;margin-top:2px;padding:1px 6px;line-height:18px;border:1px solid #d6d6d6;background:#ffffff;}
+.return-oldpage a{color:#fb5501;}
+.top-nav{float:left;}
+.top-nav li{float:left;padding:0 8px;height:26px;line-height:26px;#line-height:28px;_line-height:25px;line-height:28px\0;background:url(http://www.dhresource.com/dhs/mos/image/public/icon-bg.png) no-repeat 0 8px;}
+.login-state{float:left;padding-right:8px;line-height:26px;#line-height:26px;_line-height:25px;line-height:27px\0;}
+.top-nav .combination{position:relative;z-index:99;padding:0;width:72px;}
+.combination dd{display:none;}
+.top-inner a.red{color:#900;}
+.combination dt span{display:block;overflow:hidden;padding:0px 8px 0 10px;width:54px;height:22px;color:#606060;background:url(http://www.dhresource.com/dhs/mos/image/public/icon-bg.png) no-repeat 61px -103px;}
+.combination .seller-channel{overflow:hidden;width:160px;height:120px;}
+.combination .seller-channel .column{float:left;margin:3px 0;width:80px;height:110px;line-height:24px;}
+.m-hover dt {position:absolute;top:0;left:0;z-index:9;border:1px solid #a8a8a8;border-bottom:none;background:#ffffff;}
+.m-hover dt span{padding:0px 6px 0 9px;width:59px;height:24px;line-height:24px;line-height:26px\0;*line-height:25px;_line-height:22px;color:#000000;background:url(http://www.dhresource.com/dhs/mos/image/public/icon-bg.png) no-repeat 60px -120px;}
+.m-hover dd{display:block;position:absolute;z-index:8;top:24px;left:0px;padding:3px 0 6px;width:74px;border:1px solid #a8a8a8;background:#ffffff;}
+.m-hover dd a{display:block;padding-left:9px;line-height:22px}
+/*联系客服新加*/
+.top-nav .help-w{width:51px;}
+.top-nav .help-w dt span{width:35px; background-position:38px -103px;}
+/*联系客服新加*/
+#newsletter{padding:0 0 0 20px;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) no-repeat -383px -114px;}
+#customServiceMessage{padding:0 0 0 20px;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) no-repeat -383px -142px;}
+.header{position:relative;height:96px;z-index:99;}
+.header h1 a{overflow:hidden;width:356px;height:50px;}
+/*后台地图提示语*/
+.backstage-sitemap{position:relative;}
+#mapRemind {position:absolute;top:28px;right:-25px;width:100px;}
+.map-remind{position:absolute;top:0px;right:0px;z-index:5;padding:5px 20px 5px 10px;width:100px;height:33px;line-height:18px;color:#d97300;border:1px solid #efd392;background:#feffe5;}
+.map-remind #iKnow{position:absolute;bottom:3px;right:5px;color:#3366cc;cursor:pointer;}
+.map-remind #iKnow:hover{color:#900;}
+.map-remind b{position:absolute;top:-6px;right:53px;width:11px;height:6px;background:url(http://www.dhresource.com/dhs/mos/image/public/bg.png) no-repeat -13px -6px;}
+#mapRemindClose{overflow:hidden;position:absolute;top:5px;right:5px;z-index:9;height:11px;width:11px;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) -11px -67px;}
+#mapRemindClose:hover{background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) -0px -67px;}
+.map-shadow {position:absolute;top:2px;left:-30px;z-index:1;height:45px;width:132px;background:#dddddd;opacity:0.7;filter:alpha(opacity=70);}
+.nav-container{position:absolute;bottom:0;_bottom:-2px;left:0;}
+.nav-container .left-line,.nav-container .right-line{overflow:hidden;position:absolute;top:0;height:35px;width:1px;background:url(http://www.dhresource.com/dhs/mos/image/public/two-line.png);}
+.nav-container .left-line{left:0;}
+.nav-container .right-line{right:0;}
+.nav{padding:0 0 3px 11px;width:939px;height:32px;background:url(http://www.dhresource.com/dhs/mos/image/public/nav-bg.png) repeat-x 0 0;}
+.nav li{position:relative;float:left;height:32px;line-height:32px;background:url(http://www.dhresource.com/dhs/mos/image/public/nav-li.png) no-repeat right 7px;}
+.nav li.current{margin-left:-1px;margin-right:1px;border:1px solid #cd7a1c;border-bottom:none;}
+.nav li.last{background:none}
+.nav li .nav-item{float:left;display:inline-block;position:relative;z-index:100000;padding:1px 19px;height:31px;line-height:32px;line-height:34px\0;#line-height:34px;_line-height:32px;font-size:14px;font-weight:700;font-family:tahoma,arial,\5b8b\4f53;color:#333333;text-decoration:none;}
+.nav li .nav-item:hover{text-decoration:none}
+.nav li .nav-item sup{line-height:12px;}
+.nav li.current .nav-item{padding:0px 18px;line-height:30px;border-top:1px solid #ffc78b;color:#ffffff;text-decoration:none;background:url(http://www.dhresource.com/dhs/mos/image/public/nav-current.png) repeat-x;}
+.nav li.current .nav-item:hover{color:#ffffff;} 
+.nav li .nav-directory{display:none;}
+.nav li.mHover{margin:0;margin:0 1px 0 -1px!important;border:1px solid #e0891d;border-bottom:none;}
+.nav li.mHover .nav-item{padding:0px 17px 0 19px;line-height:30px;border-top:1px solid #ffc380;color:#fff;background:#ffa642;}
+.nav li .nav-directory{display:none;position:absolute;top:31px;left:-1px;z-index:99999;padding:10px 1px;border:1px solid #e0891d;background:#ffffff;}
+.nav li a.first{_padding-right:20px;}
+/*navlist 分两列*/
+.nav li .two-col{height:120px;width:240px;}
+.nav li .nav-directory .column{overflow:hidden;float:left;width:120px;height:120px;}
+.nav li .nav-directory a{display:block;padding:5px 26px 5px 20px;padding:7px 26px 3px 20px\0;#padding:7px 26px 3px 20px;_padding:5px 26px 5px 20px;line-height:14px;color:#333333;text-decoration:none;white-space:nowrap;}
+.nav li .nav-directory a:hover{text-decoration:none}
+.nav li .nav-directory.two-col a { padding-left: 8px; padding-right: 16px;}
+.nav li.last .nav-directory a{ padding:5px 20px;padding:7px 20px 3px\0;#padding:7px 20px 3px;_padding:5px 20px;  }
+.nav .naviframe{position:absolute;z-index:-1;top:-1px;left:-1px;width:100%;height:100%;border:0;filter:alpha(opacity="0");opacity:0;}
+/*面包屑*/
+.crumb{position:relative;padding:10px;height:18px;}
+.crumb a{color:#3366cc;text-decoration:none;}
+.crumb a:hover{color:#900;text-decoration:underline;}
+.crumb span{font-family: Comic Sans MS;color: #C4C4C4;margin:0 5px;}
+.crumb .increment-serve{position:absolute;top:10px;right:10px;}
+.crumb .top-survey{position:absolute;top:7px;right:10px;line-height:24px;line-height:28px\0;*line-height:28px;_line-height:24px;}
+.crumb .survey-entrance{display:inline-block;padding-left:25px;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) no-repeat -378px -10px;}
+.common-box{margin-bottom:10px;border:1px solid #e6e6e6;}
+.number-link,.top-inner a.number-link{padding:0 5px;font-weight:bold;color:#fb5501;}
+/*col-left*/
+.catalog{_float:left;_width:148px;position:relative;clear:both;margin-bottom:10px;border:1px solid #f6d184;}
+.h-title,.h-title1{overflow:hidden;padding:0 10px;height:26px;line-height:26px;line-height:30px\0;#line-height:30px;_line-height:26px;border-top:1px solid #fff;background:#fff9e1;}
+.h-title1{background:#f3f3f3;border-bottom:1px solid #e6e6e6;}
+.h-title h3,.h-title1 h3,.survey h3{float:left;font-weight:normal;color:#000000;}
+.h-title{border-bottom:1px solid #f6d184;}
+.h-title .setup,.h-title1 .more{float:right;}
+.catalog-list{border-bottom:1px solid #f6d184;}
+.catalog-list ul{padding:5px 0px;}
+.catalog-list a{display:block;overflow:hidden;padding-left:20px;height:24px;line-height:24px;color:#444444;text-decoration:none}
+.catalog-list a:hover{color:#fb5501;text-decoration:none;}
+.perdue-show a,.perdue-hide a{display:block;overflow:hidden;position:relative;border-top:1px solid #ffffff;width:100%;height:6px;cursor:pointer;text-align:center;background:#fff9e1;}
+.perdue-show a:hover,.perdue-hide a:hover{background:url(http://www.dhresource.com/dhs/mos/image/public/icon-bg.png) repeat-x 0 -146px;}
+.perdue-show b,.perdue-hide b{display:inline-block;margin-top:1px;width:6px;height:3px;background:url(http://www.dhresource.com/dhs/mos/image/public/icon-bg.png) no-repeat 0 -45px;}
+.perdue-hide b{background:url(http://www.dhresource.com/dhs/mos/image/public/icon-bg.png) no-repeat 0 -52px;}
+.dhgatewx{margin:10px 0;padding:10px;border:1px solid #d7d7d7;}
+.dhgatewx-icon{margin-top:10px;text-align:center;}
+/*二级导航 start*/
+.h-title2{position:relative;float:left\0;width:148px;height:27px;cursor:pointer;border-bottom:1px solid #dadada;}
+.h-title2 h2{overflow:hidden;padding:0 10px;height:26px;line-height:26px;line-height:30px\0;*line-height:30px;_line-height:26px;font-weight:normal;color:#000;border-top:1px solid #ffffff;background:#f0f0f0;}
+.h-title2 h2 a sup{line-height:12px;}
+.h-title2 h2.current{color:#000;background:#e9e9e9;}
+.t-mouseover{border-bottom:1px solid #b6b6b6;}
+.t-mouseover h2{background:#dddddd;}
+.h-title2 h2 a{display:block;color:#000;}
+.h-title2 h2 a:hover{color:#000;text-decoration:none;}
+.t-current h2 a{color:#fff;text-decoration:none;}
+.t-current h2 a:hover{color:#fff;}
+.t-current{border-bottom:1px solid #6e6e6e;}
+.t-current h2{font-weight:700;color:#fff;border-top:1px solid #929292;background:#929292;}
+.h-title2 h2.shrink { text-indent: -999em; background:url(http://www.dhresource.com/dhs/mos/image/public/GoogleShoppings1.jpg) no-repeat; }
+.t-mouseover h2.shrink { background:url(http://www.dhresource.com/dhs/mos/image/public/GoogleShoppings2.jpg) no-repeat; }
+.t-current h2.shrink { background:url(http://www.dhresource.com/dhs/mos/image/public/GoogleShoppings3.jpg) no-repeat; }
+.h-title2 b,.t-current b{overflow:hidden;position:absolute;top:8px;right:10px;width:11px;height:11px;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) no-repeat -38px -5px;}
+.t-current b{background-position:-60px -5px;}
+.h-title2 b.menu-show{background-position:-27px -5px;}
+.t-current b.menu-show{background-position:-49px -5px;}
+.second-menu{float:left;margin-bottom:10px;border:1px solid #b1b1b1;}
+.second-menu dl{display:none;float:left\0;padding:5px 0;width:148px;line-height:26px;border-top:1px solid #f1f1f1;border-bottom:1px solid #f1f1f1;}
+.second-menu dl a{color:#333;text-decoration:none;}
+.second-menu dt a{display:block;overflow:hidden;padding-left:20px;height:26px;}
+.second-menu dt a:hover{text-decoration:none;color:#fb5501;background:url(http://www.dhresource.com/dhs/mos/image/public/bg.png) no-repeat -387px -70px;background-position:-387px -71px\0;*background-position:-387px -71px;_background-position:-387px -70px;}
+.second-menu dt a.current,.second-menu dt a.current:hover{line-height:28px\0;*line-height:28px;text-decoration:none;color:#fb5501;background:#fff9e1 url(http://www.dhresource.com/dhs/mos/image/public/bg.png) no-repeat -387px -70px;background-position:-387px -71px\0;*background-position:-387px -71px;_background-position:-387px -70px;}
+.second-menu dd{padding-left:17px;}
+/*.second-menu dd ul{padding-left:18px;background:url(http://www.dhresource.com/dhs/mos/image/public/sitemap-bg.png) no-repeat 0 bottom;}
+.second-menu dd ul li{height:22px;line-height:22px;}
+.second-menu li a.current,.second-menu li a.current:hover{text-decoration:none;color:#ff7800;}
+.second-menu dd ul a:hover{color:#000000;text-decoration:none;}*/
+/*二级导航 end*/
+.service{overflow:hidden;padding:8px 6px 0 8px;height:100%;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) no-repeat 0 -78px;}
+.customer-service{display:block;width:136px;height:50px;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) no-repeat -150px -78px;}
+.translate{display:block;margin:7px 0 14px;width:136px;height:42px;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) no-repeat -150px -128px;}
+.epat{display:block;margin:2px 0 7px;width:136px;height:42px;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) no-repeat -150px -170px;}
+.download-box{margin-bottom:10px;border:1px solid #d7d7d7;border-top-color:#e6e6e6;}
+.download{padding:10px 5px 10px 20px;}
+.download li{padding-left:15px;height:24px;line-height:24px;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) no-repeat -391px -40px;background-position:-391px -42px\0;}
+.download li span{margin-right:5px;}
+.download li.downloadtwoline{height:auto; line-height:20px; background-position: -391px -41px; }
+
+/*提前放款入口 开始*/
+.advance-loan{margin-bottom:10px; border:1px solid #d7d7d7;}
+.advance-loan a{display:block; width:148px; height:58px; background:url(http://www.dhresource.com/dhs/mos/image/public/loan-bg.png) no-repeat;}
+/*提前放款入口 结束*/
+
+.fill-in{margin:10px auto 0px;text-align:center;}
+.survey-info{padding:5px 14px 10px;}
+.help-contact{margin-bottom:10px; border:1px solid #d7d7d7;}
+.help-contact a{display:inline-block; width:148px; height:58px; background:url(http://www.dhresource.com/dhs/mos/image/public/help-contact.gif) no-repeat;}
+/*设置弹出层*/
+.catalog-pop{display:none;position:absolute;top:-1px;left:159px;width:615px;height:513px;}
+.catalog-pop-main{overflow:hidden;position:absolute;top:0;left:0;z-index:9;width:610px;height:511px;border:1px solid #efd392;background:#fff;}
+.option-info{position:relative;margin:1px 0;padding:10px;line-height:24px;background:#fff9e1;}
+.option-info .catalog-pop-close{overflow:hidden;position:absolute;top:10px;right:10px;height:11px;width:11px;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) -11px -67px;}
+.option-info .catalog-pop-close:hover{background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) -0px -67px;}
+.option-info h3{font-size:14px;}
+.option-remind p{float:left;padding:0 10px;border:1px solid #FFF9E1;}
+.option-remind p.caution{border: 1px solid #FFCC80;background:#ffffff;}
+.option-remind p b{font-size:14px;color:#ff7800;}
+.clear-option{float:left;margin-top:2px;padding-left:10px;width:200px;}
+.clear-option a{float:left;margin-right:10px}
+.set-option{margin-top:1px;padding:10px 0;text-align:center;background:#FFF9E1;}
+.set-option .yellowbutton2{margin-right:10px;} 
+.all-option{padding:20px 0px 20px 25px;height:350px;overflow-x:hidden;overflow-y:scroll;border-top:1px solid #efd392;border-bottom:1px solid #efd392;background:#fffdf7;}
+.option-col{overflow:hidden;float:left;margin-right:10px;width:175px;}
+.option-col h4{font-size:14px;}
+.option-col dl{margin-bottom:15px;}
+.option-col dt{line-height:24px;}
+.option-col ul{padding-left:20px;background:url(http://www.dhresource.com/dhs/mos/image/public/sitemap-bg.png) no-repeat 6px bottom;}
+.option-col li{overflow:hidden;height:22px;line-height:22px;}
+.option-col label{margin:0 5px 0 4px;}
+.catalog-pop-shadow{position:absolute;top:5px;left:3px;z-index:1;height:511px;width:612px;background:#dddddd;opacity:0.7;filter:alpha(opacity=70);}
+.catalog-pop-sharp{position:absolute;top:8px;left:-8px;z-index:10;height:15px;width:9px;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) no-repeat 0px -19px;}
+/*尾部样式*/
+.footer{margin:10px auto;padding-top:15px;line-height:22px;text-align:center;border-top:1px solid #d7d7d7;}
+.user-experience{margin-bottom:10px}
+.user-experience span{display:inline-block;padding-left:25px;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) no-repeat -378px -12px;}
+.site-links a{margin:0 5px;color:#444444;}
+.site-links a:hover{color:#900;}
+/*20111026 NewPage luhongtao*/
+/*分页样式  开始 */
+.commonpage{overflow:hidden;margin-top:10px;height:100%;color:#444;line-height:22px;padding:3px 10px 3px 10px ;background-color:#ebebeb;position:relative;}
+.commonpage *{vertical-align:middle;}
+.commonpage .pageleft{overflow:hidden;display:inline-block;position:absolute;left:10px;top:1px;height:22px;line-height:22px;vertical-align:middle;}
+.commonpage .pageleft span{line-height:26px;}
+.commonpage .pageright{float:right;}
+.commonpage .pageright span{margin-left:5px;}
+.commonpage .pageright .nextpage span{margin:0;}
+.commonpage .pageright span.buttonpage{margin-left:8px;}
+.commonpage .pageright span.gotopage{margin-left:10px;line-height:20px;}
+.commonpage .pageright span.disablebtn span{margin-left:0;}
+.commonpage .pageright a span{margin-left:0;_width:45px;height:14px;_display:inline-block;}
+.commonpage .pageright a{display:inline-block;margin-left:5px;min-width:14px;text-align:center;_width:14px;padding:2px 5px 2px 5px;height:16px;line-height:16px;border:1px solid #aeaeae;color:#444;background-color:#fff;}
+.commonpage .pageright b{display:inline-block;margin-left:5px;min-width:14px;text-align:center;_width:14px;height:16px;line-height:16px;padding: 3px 6px 3px 5px;font-weight:bold;color:#fff;background-color:#9b9b9b;}
+.commonpage .pageright a:hover{padding:2px 5px;border:1px solid #aeaeae;color:#900;text-decoration:none;background-color:#e8e9eb;}
+.commonpage .pageright span.disablebtn{display:inline-block;padding:2px 5px 2px 5px;height:16px;line-height:16px;border:1px solid #aeaeae;color:#ababab;text-decoration:none;background-color:#fff;}
+.commonpage .pageright .inputtext{height:20px;margin:0 5px;padding:0 2px;border:1px solid #aeaeae;line-height:18px;width:25px;}
+.buttonpage{overflow:hidden;display:inline-block;height:23px;padding-left:5px;margin-left:8px;vertical-align: middle;cursor:pointer;background: url(http://www.dhresource.com/dhs/mos/image/sail/buttonpage.png) no-repeat scroll 0 0 transparent;}
+.buttonpage input{display:block;height:23px;color:#444444;padding-right: 5px;border:none;font:12px/22px Arial, Helvetica, sans-serif;cursor:pointer;background: url(http://www.dhresource.com/dhs/mos/image/sail/buttonpage.png) no-repeat scroll right -23px transparent;}
+.buttonpage input{height:21px !important;*+height:23px;_line-height:24px;}
+/* 分页重写 开始  *考虑后期删除* */
+#right .commonpage .pageright span{margin-left:5px;}
+#right .commonpage .pageright span.buttonpage{margin-left:8px;}
+#right .commonpage .pageright span.gotopage{margin-left:10px;line-height:20px;}
+#right .commonpage .pageright span.disablebtn span{margin-left:0;}
+#right .commonpage .pageright a span{margin-left:0;_width:45px;height:14px;_display:inline-block;}
+#right .commonpage .pageright a{display:inline-block;margin-left:5px;min-width:14px;text-align:center;_width:14px;padding:2px 5px 2px 5px;height:16px;line-height:16px;border:1px solid #aeaeae;color:#444;background-color:#fff;}
+#right .commonpage .pageright a:hover{padding:2px 5px;border:1px solid #aeaeae;color:#900;text-decoration:none;background-color:#e8e9eb;}
+#right .commonpage .pageright b{display:inline-block;margin-left:5px;height:16px;line-height:16px;padding: 3px 6px 3px 5px;color:#fff;background-color:#9b9b9b;}
+#right .commonpage .pageright span.disablebtn{display:inline-block;padding:2px 5px 2px 5px;height:16px;line-height:16px;border:1px solid #aeaeae;color:#ababab;text-decoration:none;background-color:#fff;}
+/* 分页重写 结束 */
+
+/*分页样式  空白间隙去除 开始 */
+#right .commonpage .pageright span{ display:inline-block; font-size:0; }
+#right .commonpage .pageright span *{ font-size:12px; }
+#right .commonpage .pageright span span{ font-size:12px; }
+#right .commonpage .pageright span.gotopage{ font-size:12px; }
+/*分页样式  空白间隙去除 结束 */
+
+/*分页样式  结束 */
+/*提示标样式 开始*/
+.tips-common{padding-bottom:5px;}
+.tips-common span{display:block;padding:4px 10px 6px 40px;*padding:5px 10px 5px 40px;line-height:22px;border:1px solid #e4db92;color:#444;}
+.tips-common .tips-information{border:1px solid #c0d6e0;background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon01.gif) #ebf2f6 15px 8px no-repeat;} /*信息提示*/
+.tips-common .tips-warning{border:1px solid #fdcc7f;background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon02.gif) #fefad5 15px 8px no-repeat;} /*警告提示*/
+.tips-common .tips-error{border:1px solid #fac5c8;background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon03.gif) #fde8e9 15px 8px no-repeat;} /*错误提示*/
+.tips-common .tips-correct{border:1px solid #aee9a3;background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon04.gif) #e4fed5 15px 8px no-repeat;} /*正确提示*/
+.tips-common .tips-warmtip{border:1px solid #fdcc7f;background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon05.gif) #fefad5 15px 8px no-repeat;} /*温馨提示*/
+.tips-common .tips-editing{border:1px solid #fdcc7f;background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon06.gif) #fefad5 15px 8px no-repeat;} /*编辑提示*/
+.ptp-information,.ptp-warning,.ptp-error,.ptp-correct,.ptp-warmtip,.ptp-editing{display:inline-block;padding:4px 10px 6px 20px;*padding:5px 10px 5px 20px;line-height:22px;color:#444;}
+.ptp-information{background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon01.gif) 0px 8px no-repeat;}/*普通信息提示*/
+.ptp-warning{background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon02.gif) 0px 8px no-repeat;} /*普通警告提示*/
+.ptp-error{background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon03.gif) 0px 8px no-repeat;} /*普通错误提示*/
+.ptp-correct{background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon04.gif) 0px 8px no-repeat;} /*普通正确提示*/
+.ptp-warmtip{background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon05.gif) 0px 8px no-repeat;} /*普通温馨提示*/
+.ptp-editing{background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon06.gif) 0px 8px no-repeat;} /*普通编辑提示*/
+.without-remind{margin:5px 0;padding:10px;height:40px;line-height:40px;border:1px solid #fdcc7f;background:#ffffe5;color:#fb5501;text-align:center}/*没有内容提示添加*/
+.tipstion{position:relative;}
+.tipstion .tips-correct{height:100%;}
+.tips-common .tipsclose{overflow:hidden;position:absolute;top:11px;right:10px;width:13px;height:13px;background:url(http://www.dhresource.com/dhs/mos/image/public/pop-close.png) no-repeat;}
+.tips-common .tipsclose:hover{background-position:0 -13px;}
+/*提示标样式 结束*/
+/*页面主题样式*/
+.page-topic{position:relative;padding:10px;margin-bottom:15px;border-bottom:2px solid #b6b6b6;zoom:1;}
+.page-topic h2{float:left;line-height:16px;font-size:14px;color:#000;}
+/*右侧tab切换样式 */
+.rtab-warp{position:relative;margin:15px 0 10px;padding:0 10px 0 11px;height:29px;border-bottom:1px solid #ccc;}
+.rtab-warp ul{float:left;_border-left:solid 1px #e6e6e6;background:#f3f3f3;}
+.rtab-warp ul li{float:left;margin-left:-1px;font-weight:700;border:1px solid #e6e6e6;border-bottom:none;}
+.rtab-warp ul li a{color:#444;}
+.rtab-warp ul li a:hover{color:#444;text-decoration:none;}
+.rtab-warp ul li span{display:inline-block;padding:0 15px;height:27px;line-height:26px;line-height:28px\0;text-align:center;border-top:1px solid #fff;cursor:pointer;}
+.rtab-warp ul li.libg,.rtab-warp ul li.current{position:relative;z-index:2;margin-bottom:-1px;border-top:2px solid #fca35b;border-left:1px solid #cdcdcd;border-right:1px solid #cdcdcd;}
+.rtab-warp ul li.libg span,.rtab-warp ul li.current span{background:#fff;cursor:default;line-height:24px;line-height:26px\0;}
+.rtab-warp .question{position:absolute;bottom:6px;right:10px;padding-left:18px;line-height:18px;background:url(http://www.dhresource.com/dhs/mos/image/public/question.png) no-repeat 0 2px;}
+.rtab-warp .alink{position:absolute;bottom:6px;right:10px;padding-left:18px;line-height:18px;}
+/*tab切换新增 （店铺项目关闭 添加按钮）开始*/
+.rtab-warp ul li{ position:relative; }
+.rtab-warp ul li.current span{ float:left;}
+.rtab-warp ul li span.edittab{ float:left; display:inline-block; margin-left:-5px; padding:0 15px 0 0; height:27px; }
+.rtab-warp ul li span.edittab span{ display:inline-block; margin-top:5px; padding:0;  width:14px; height:14px; vertical-align:middle; background:url(http://www.dhresource.com/dhs/mos/image/public/edittab.png) 0 1px no-repeat; cursor:pointer;  }
+.rtab-warp ul li span.delettab{ position:absolute; right:0px; top:-1px; border:0; padding:0; margin:0; width:12px; height:12px; background:url(http://www.dhresource.com/dhs/mos/image/public/closetab.png) 0 0 no-repeat; }
+.rtab-warp ul li.current span.delettab{ top:-2px; }
+.rtab-warp ul li.addtab{ margin-bottom:-1px; border:1px dashed #e6e6e6; background-color:#ffffff; }
+.rtab-warp ul li.addtab a.icon-addtab{ display:inline-block; width:78px; height:28px; vertical-align:middle; background:url(http://www.dhresource.com/dhs/mos/image/public/addtab.png) 50% 50% no-repeat; }
+/*tab切换新增 （店铺项目关闭 添加按钮）结束*/
+
+/*页面提示问题模块样式 */
+.question-warp{overflow:hidden;clear:both;margin-top:15px;padding:0 10px 15px 10px;}
+.question-warp h3{float:left;}
+.question-warp .question{float:right;padding-left:18px;background:url(http://www.dhresource.com/dhs/mos/image/public/question.png) no-repeat 0 2px;}
+/*页面操作信息提示 */
+.page-operate-tip{position:relative;margin:10px 0;padding:0 10px;zoom:1;}
+.page-operate-tip .leftcol-tip{float:left;line-height:24px;color:#000;}
+.page-operate-tip .rightcol-tip{margin-left:60px;padding-right:50px;line-height:24px;}
+.page-operate-tip .rightcol-tip a{white-space:nowrap;}
+.page-operate-tip .deploy,.page-operate-tip .packup{position:absolute;top:3px;right:10px;padding-right:16px;background:url(http://www.dhresource.com/dhs/mos/image/public/deploy-packup.png) no-repeat ;}
+.page-operate-tip .packup{background-position:right -12px;background-position:right -14px\0;#background-position:right -14px;_background-position:right -12px;}
+.page-operate-tip .deploy{background-position:right 4px;background-position:right 2px\0;#background-position:right 2px;_background-position:right 4px;}
+/*无边框无列项分割线table样式*/
+#right .without-border-table{width:100%;}
+#right .without-border-table td{padding:6px 10px;line-height:18px;text-align:center;border-bottom:1px solid #e6e6e6;}
+#right .without-border-table .align-left{text-align:left;}
+#right .without-border-table .align-right{text-align:right;}
+/*无列项分割线table样式*/
+#right .rowline-table{width:100%;border:1px solid #e6e6e6;border-bottom:none;}
+#right .rowline-table td{padding:6px 10px;line-height:18px;text-align:center;border-bottom:1px solid #e6e6e6;vertical-align:top;}
+#right .tr-first td{color:#010101;background:#f3f3f3 url(http://www.dhresource.com/dhs/mos/image/public/fborder.png) repeat-x;}
+#right .shadow-bg td{background:url(http://www.dhresource.com/dhs/mos/image/public/shadowline-bg.png) repeat-x;}
+#right .rowline-table .align-left{text-align:left;}
+#right .rowline-table .align-right{text-align:right;}
+/*模块标题栏*/
+.module-title,.module-title1{margin-bottom:5px;padding:5px 10px;color:#000;border-top:1px solid #e5e5e5;border-bottom:1px solid #dadada;background:#f3f3f3 url(http://www.dhresource.com/dhs/mos/image/public/fborder.png) repeat-x;}
+.module-title1{margin-bottom:0px;}
+/*调研入口添加20120508*/
+.studybox{padding-top:20px;padding-bottom:10px;}
+.studybox .studyicon{padding:0 0 0 20px;background:url(http://www.dhresource.com/dhs/mos/image/public/studyicon.png) 0 50% no-repeat;}
+.studypad{padding-left:10px;padding-top:0px;}
+/* tip弹层运费页面  lht20121101 add*/
+.tipstion .tiparrow-posbox{display:none;position:absolute;top:-18px;left:110px;background-color:#e5e5e5;z-index:999;}
+.tipstion .tiparrow-box{padding:7px 20px 6px 8px;position:relative;top:-2px;left:-2px;border:solid 1px #efd491;background-color:#ffffe5;width:267px;color:#444;text-align:left;}
+.tipstion .tiparrow-box a.ikonw{float:right;margin-left:10px;cursor:pointer;}
+.tipstion .tiparrow-t,.tipstion .tiparrow-r,.tipstion .tiparrow-b,.tipstion .tiparrow-l{position:absolute;width:9px;height:6px;background:url(http://www.dhresource.com/dhs/mos/image/public/tiparrow01.png) 0 0 no-repeat;}
+.tipstion .tiparrow-t{top:-6px;left:10px;width:11px;height:6px;background-position:0 0;}
+.tipstion .tiparrow-r{top:5px;right:-6px;width:6px;height:11px;background-position:-5px 0;}
+.tipstion .tiparrow-b{bottom:-6px;left:10px;width:11px;height:6px;background-position:0 -5px;}
+.tipstion .tiparrow-l{top:5px;left:-6px;width:6px;height:11px;background-position:0 0;}
+.tipstion .tiparrow-iknow{position:absolute;bottom:3px;right:5px;color:#3366cc;cursor:pointer;}
+.tipstion .tiparrow-iknow:hover{color:#900;}
+.tipstion .tiparrow-close{overflow:hidden;position:absolute;top:5px;right:5px;z-index:9;height:11px;width:11px;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) -11px -67px;}
+.tipstion .tiparrow-close:hover{background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) -0px -67px;}
+
+.questionhelp{margin-left:5px;padding-left:18px;line-height:18px;vertical-align:middle;background:url(http://www.dhresource.com/dhs/mos/image/public/question.png) no-repeat 0 0px }
+/* e保通  lht201211007 add*/
+/* seller端服务图标 public lht20121115add */
+.pro-a-ser-01,.pro-a-ser-02,.pro-a-ser-03,.pro-a-ser-04{float:left;display:block;margin-right:5px;margin-top:5px;width:14px;height:16px;background:url(http://www.dhresource.com/2008/web20/seller/img/seller-icon.gif) 0 -118px no-repeat;}
+.pro-a-ser-02{background-position:-19px -118px;}
+.pro-a-ser-03{background-position:-152px -118px;}
+.pro-a-ser-04{background-position:-57px -118px;}
+/*图片垂直居中 开始*/
+.prolayout{margin:0 auto;float:left;display:table; table-layout:fixed;*display:block; width:54px;height:54px; overflow:hidden; background:#fff; border:solid 1px #eee; }
+.prolayout a,.prolayout span{display:table-cell; *display:inline-block;width:54px; height:54px; overflow:hidden;text-align:center; vertical-align:middle;*font-size:46px; *font-family:Arial;}
+.prolayout a img,.prolayout span img{ max-width:54px;max-height:54px; }
+.prolayout b.selecticon{position:absolute;left:2px;top:2px;width:12px;height:12px;background:url(http://www.dhresource.com/dhs/mos/image/public/icon-01.png) 0 0 no-repeat;}
+/*图片垂直居中 结束*/
+/*弹层运费选择城市滚动条20130122add*/
+.shippingyscroll{height:200px;overflow-x:hidden;overflow-y:scroll;}
+/*运费广告位*/
+.t-ad-space{margin-bottom:10px; width:788px; height:50px;}
+
+/*新增loadding图标 lht20131211 */
+.noshade-pop-loading{display:inline-block;margin-right:10px;vertical-align:middle;width:32px;height:32px;background:url("http://www.dhresource.com/seller/images/index/loading.gif") no-repeat 0 0;}
+
+/*一键修改弹层 product内的  lht20131218 add start*/
+/* 一键按钮容器 */
+.rtab-warp .propbox{ position:relative; float:right; padding-top:3px; }
+/* 一键修改项目弹层样式 lht20131031 */
+.marginright20{margin-right:20px;}
+.addwid40{width:40px; }
+.addwid60{ width:60px; }
+.addwid100{width:100px;}
+.addwid130{width:130px;}
+
+.amodifiedpop{}
+/* tab切换效果 */
+.poptab-warp{position:relative;margin:1px 1px 0px;padding:5px 40px 0 40px;height:34px;border-bottom:1px solid #ccc; background-color:#f3f3f3;}
+.poptab-warp ul{float:left; background:#f3f3f3;}
+.poptab-warp ul li{float:left; margin-right:25px; font-weight:700;border-bottom:none;}
+.poptab-warp ul li:hover{ background-color:#e0e0e0; }
+.poptab-warp ul li a{color:#444;}
+.poptab-warp ul li a:hover{color:#444;text-decoration:none;}
+.poptab-warp ul li span{display:inline-block;padding:0 25px;height:32px;line-height:31px;line-height:33px\0;text-align:center;border-top:1px solid #f3f3f3;cursor:pointer;}
+.poptab-warp ul li.current{position:relative;z-index:2;margin-bottom:-1px;border-top:2px solid #fca35b;border-left:1px solid #cdcdcd;border-right:1px solid #cdcdcd;}
+.poptab-warp ul li.current span{background:#fff;cursor:default;line-height:29px;line-height:31px\0;}
+
+
+/* 黄色感叹号提示信息效果 */
+.tripmarkmessage{display:block; margin-left:10px; margin-top:10px; padding:0px 0px 0px 25px; line-height:18px; text-align:left; color:#ff5500; background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon02.gif) 0 0 no-repeat;  }
+
+/* 对齐效果 */
+.padcontenttxt{ display:block; margin-left:18px; margin-top:0px; margin-bottom:15px;  }
+/* 删除效果 */
+.removebtn{ display:inline-block; margin-right:10px; width:13px; height:13px; vertical-align:middle; background:url(http://www.dhresource.com/dhs/mos/image/public/remove01.png)  0 0 no-repeat; }
+.removebtn:hover{ background-position:0 -30px;  }
+
+/* 添加价格区间 */
+.addpricerangebg{ display:inline-block; padding:0 2px 2px;  }
+.addpricerangebg:hover{ color:#fff; text-decoration:none; background-color:#3366cc; }
+
+
+
+.amodifiedpop .amodifiedcontextlist{ padding:10px;position:relative; }
+
+.amodifiedcontextlist .mainlayout{position:relative; margin:15px 0 10px 110px;clear:both; min-width:auto;}
+.amodifiedcontextlist .ml-title{position:absolute;width:110px;left:-110px;top:0;text-align:right;color:#000000;}
+
+/* 向右调节整体布局 start */
+.amodifiedcontextlist.amflayout2 .mainlayout{ margin-left:150px; }
+.amodifiedcontextlist.amflayout2 .ml-title{ width:150px; left:-150px; }
+.amodifiedcontextlist.amflayout2 .tripmarkmessage{  }
+/* 向右调节整体布局 end */
+
+.amodifiedcontextlist .mainlayout .amcontext p{ margin-bottom:10px; }
+.amcontext .radiobtnlabel{ display:inline-block;  margin:0 10px 0 5px;  }
+.amcontext .radiobtnlabel2{ display:inline-block; width:55px;  margin:0 0px 0 5px;  }
+.amcontext .radiobtnlabelnotxt{ display:inline-block; width:110px; margin:0 10px 0 5px; }
+.amcontext input,.amcontext label,.amcontext select{ vertical-align:middle;  }
+
+.amcontext input.am-text{overflow:hidden;padding:2px 0 2px 5px;color:#444;vertical-align:middle;}
+.amodifiedpop .ambtncenter{padding:10px 20px 20px; text-align:center;}
+.amodifiedpop .amerror{ display:inline-block; padding:2px 10px 4px 10px; line-height:16px; text-align:left; color:#f00; border:1px solid #ff8878; background-color:#ffe9e4;   }
+
+.amodifiedpop .amtxt{ position:relative; padding:40px 20px 40px 220px; }
+.amodifiedpop .amtxt .amtxticon,.amodifiedpop .amtxt .amloadding,.amodifiedpop .amtxt .ammarkmessage,.amodifiedpop .amtxt .ammiddleright,.amodifiedpop .amtxt .ammiddleerror{ position:absolute; left:170px; _left:-50px; top:40px; width:35px; height:35px; background:url(http://www.dhresource.com/dhs/mos/image/public/middle-right.png) 0 0  no-repeat; }
+.amodifiedpop .amtxt .amloadding{ background:url(http://www.dhresource.com/dhs/mos/image/public/loading.gif) 0 0  no-repeat; }
+.amodifiedpop .amtxt .ammiddleright{ background:url(http://www.dhresource.com/dhs/mos/image/public/middle-right.png) 0 0  no-repeat; }
+.amodifiedpop .amtxt .ammiddleerror{ background:url(http://www.dhresource.com/dhs/mos/image/public/middle-error.png) 0 0  no-repeat; }
+.amodifiedpop .amtxt .ammarkmessage{ background:url(http://www.dhresource.com/dhs/mos/image/public/middle-warn.png) 0 0  no-repeat; }
+.amodifiedpop .amtxt .h2title{ margin-bottom:10px;font-size:14px; color:#333; }
+.amodifiedpop .amtxt .h2title span.colorf50{ color:#ff5500; }
+
+.amodifiedpop .amtxt .tipmsgbox{ }
+.amodifiedpop .amtxt .tipmsgbox .tipmsgtitle{ display:inline-block; vertical-align:top; }
+.amodifiedpop .amtxt .tipmsgbox .tipmsgcontxt{ display:inline-block; width:450px; }
+.ipt-errborder{border: 1px solid red;}
+/*一键修改弹层 product内的  lht20131218 add end*/
+
+/*返回顶部样式 20140102 lht add start*/
+#returnTopBox{ display:none;overflow:hidden;position:fixed!important;position:absolute;width:31px;height:31px;z-index:99999;bottom:20px;right:26px;z-index:1000;}
+#returnTopBox .returntopbox{ display:block;width:31px;height:31px;cursor:pointer;background:url(http://www.dhresource.com/dhs/mos/image/syi/new/spritesbg.png) #000 0px -213px no-repeat;}
+*html #returnTopBox{position:absolute;top:expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight-10); }
+#returnTopBox .hover,
+#returnTopBox .returntopbox:hover{background-position:-34px -213px;}
+/*返回顶部样式 20140102 lht add end*/
+
+/*201409 yy add start*/
+/*站内信设置 开始*/
+.message-menu{position:relative;}
+.set-message-icon{position:absolute; top:0; right:25px; padding:6px 0 0 3px; width:17px; height:21px; cursor:pointer;}
+.set-message-icon span{display:block; width:14px; height:14px; background:url(http://www.dhresource.com/dhs/mos/image/inbox/set-message-bg.png) no-repeat 0 0;}
+.set-message-pop{position:absolute; z-index:9999;}
+.set-message-main{margin:0 10px 20px; padding-bottom:5px; border-bottom:1px solid #ddd; z-index:999;}
+.set-message-title{margin-bottom:15px;}
+.set-message-title dt{float:left; width:105px; text-align:right; line-height:34px; font-size:14px; font-weight:700;}
+.set-message-title dd{margin-left:115px;}
+.set-message-tip{padding:7px 10px 7px 35px; border:1px solid #c0d6e0; background:#ebf2f6 url(http://www.dhresource.com/dhs/mos/image/public/tip-icon01.gif) no-repeat 15px center; *background-position:15px 8px;}
+.set-message-view{display:inline-block; margin-left:10px; padding-left:18px; background:url(http://www.dhresource.com/dhs/mos/image/public/question.png) no-repeat 0 center; *background-position:0 1px;}
+.set-message-list{margin-bottom:10px;}
+.set-message-list dt{float:left; width:105px; text-align:right;}
+.set-message-list dd{margin-left:115px; padding-bottom:8px;}
+.set-message-checkbox,.set-message-radio{vertical-align:-2px;}
+.set-message-time{width:105px;}
+.set-message-button{position:relative; margin-top:20px; text-align:center;}
+.set-message-button .loading-button img{margin-top:5px;}
+.set-message-button .loading-matter{color:#999;}
+.set-message-result{position:absolute; top:2px; left:145px; color:#f00;}
+#popMask{position:absolute; z-index:9998; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.5; filter:alpha(opacity=50);}
+#popMaskIframe{position:absolute; top:0; left:0; border:0; z-index:-1; opacity:0; filter:alpha(opacity=0)}
+/*站内信设置 结束*/
+/*站内信提醒 开始*/
+.message-remind-pop{position:fixed; right:1px; bottom:0; _position:absolute; width:280px; border:1px solid #d6d5d5; z-index:999;}
+.message-remind-inner{padding:6px; border-top:1px solid #f3f3f3; background:#ededed;}
+.message-remind-title{padding:0 5px; height:24px; font-weight:normal; color:#000;}
+.message-remind-con{display:table; *position:relative; padding:20px 15px 15px; width:236px; height:78px; border:1px solid #e9e9e9; background:#fff;}
+.message-remind-con ul{display:table-cell; width:236px; vertical-align:middle; *position:absolute; *top:50%;}
+.message-remind-con ul li{*position:relative; *top:-50%; padding-bottom:8px; width:236px;}
+.message-remind-close{position:absolute; top:12px; right:11px; display:block; width:10px; height:10px; background:url(http://www.dhresource.com/dhs/mos/image/summary/bg.png) no-repeat 0 -7px;}
+/*站内信提醒 结束*/
+/*201409 yy add end*/

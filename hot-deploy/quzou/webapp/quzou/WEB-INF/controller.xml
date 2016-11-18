@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- The controller elements that are common to all OFBiz components
+         can be found in the following xml file. A component can override the
+         elements found in the common-controller.xml file. -->
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+
+    <description>quzou Component Site Configuration File</description>
+
+    <!-- Events to run on every request before security (chains exempt) -->
+    <!--
+    <preprocessor>
+    </preprocessor>
+    -->
+    <!-- Events to run on every request after all other processing (chains exempt) -->
+    <!--
+    <postprocessor>
+        <event name="test" type="java" path="org.ofbiz.webapp.event.TestEvent" invoke="test"/>
+    </postprocessor>
+    -->
+
+    <!-- Request Mappings -->
+    <request-map uri="main">
+    	<security https="false" auth="true"/>
+   		<response name="success" type="view" value="main"/>
+   	</request-map>
+    <request-map uri="login">
+    	<security https="false" auth="true"/>
+   		<response name="success" type="view" value="login"/>
+   	</request-map>
+   	 <request-map uri="checkLogin" edit="false">
+        <description>Verify a user is logged in.</description>
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="checkLogin"/>
+        <response name="success" type="view" value="main"/>
+        <response name="error" type="view" value="login"/>
+    </request-map>
+    <request-map uri="logout">
+        <security https="false" auth="true"/>
+        <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="logout"/>
+        <response name="success" type="request-redirect" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+	<!--计步器导入列表 -->
+    <request-map uri="customerLogList">
+    	<security https="false" auth="true"/>
+   		<response name="success" type="view" value="customerLogList"/>
+   	</request-map>
+	<!--客户信息列表 -->
+    <request-map uri="customerList">
+    	<security https="false" auth="true"/>
+   		<response name="success" type="view" value="customerList"/>
+   	</request-map>
+	<!-- 新建会员 -->
+    <request-map uri="addCustomer">
+    	<security https="false" auth="true"/>
+   		<response name="success" type="view" value="addCustomer"/>
+   	</request-map>
+	<!-- 创建会员 -->
+    <request-map uri="createQzCustomer">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="createQzCustomer"/>
+   		<response name="success" type="request-redirect-noparam" value="customerList" />
+   	</request-map>
+   	<!--修改会员 -->
+    <request-map uri="updateQzCustomer">
+    	<security https="false" auth="false"/>
+    	<event type="service" invoke="updateQzCustomer"/>
+		<response name="success" type="request-redirect-noparam" value="customerList" />
+   	</request-map>
+   	<!-- 检查用户名是否存在且返回租户id -->
+    <request-map uri="checkUserLoginId">
+        <security https="false" auth="false" />
+        <event type="service" invoke="checkUserLoginId"/>
+        <response name="success" type="request" value="json"/>
+    </request-map>
+   	<!-- 检查计步器号是否存在 -->
+    <request-map uri="checkCardId">
+        <security https="false" auth="false" />
+        <event type="service" invoke="checkCardId"/>
+        <response name="success" type="request" value="json"/>
+    </request-map>
+	<!--精彩赛事列表	 -->
+    <request-map uri="competitionList">
+    	<security https="false" auth="true"/>
+   		<response name="success" type="view" value="competitionList"/>
+   	</request-map>
+	<!--新增编辑赛事 -->
+    <request-map uri="addCompetition">
+    	<security https="false" auth="true"/>
+   		<response name="success" type="view" value="addCompetition"/>
+   	</request-map>
+	<!--新增赛事 -->
+    <request-map uri="createCompetition">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="createQzCompetition"/>
+		<response name="success" type="request-redirect-noparam" value="competitionList" />
+   	</request-map>
+	<!--修改赛事 -->
+    <request-map uri="updateCompetition">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="updateQzCompetition"/>
+		<response name="success" type="request-redirect-noparam" value="competitionList" />
+   	</request-map>
+	<!--ajax修改赛事 -->
+    <request-map uri="ajaxUpdateCompetition">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="updateBatchCompetition"/>
+		<response name="success" type="request" value="json" />
+   	</request-map>
+	<!--团队管理-->
+    <request-map uri="companyAndDeptList">
+    	<security https="false" auth="true"/>
+   		<response name="success" type="view" value="companyAndDeptList"/>
+   	</request-map>
+	<!--新增团队-->
+    <request-map uri="createCompanyAndDept">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="createCompanyAndDept"></event>
+   		<response name="success" type="request-redirect" value="addDept" >
+   			<redirect-parameter name="deptId"/>
+   		</response>
+   	</request-map>
+	<!-- 跳转上传附件 -->
+   	<request-map uri="uploadDialog">
+    	<security https="false" auth="true"/>
+		<response name="success" type="view" value="uploadDialog" />
+   	</request-map>
+	<!-- 上传附件 -->
+   	<request-map uri="uploadExcel">
+    	<security https="false" auth="true"/>
+		<event type="java" path="org.ofbiz.quzou.util.UploadExcel" invoke="uploadExcel" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+   	</request-map>
+   	
+ 	<request-map uri="uploaderUe">
+	<event type="java" path="org.extErp.sysCommon.upload.CKEditorUploadServlet" invoke="uploaderUe"/>
+	  <response name="success" type="none"></response>
+	  <response name="error" type="none" />
+	</request-map>
+	<!-- 新建达人秀 -->
+   	<request-map uri="addTalentShow">
+    	<security https="false" auth="true"/>
+		<response name="success" type="view" value="addTalentShow" />
+   	</request-map>
+	<!-- 达人秀列表 -->
+   	<request-map uri="talentShowList">
+    	<security https="false" auth="true"/>
+		<response name="success" type="view" value="talentShowList" />
+   	</request-map>
+	<!-- 创建达人秀 -->
+   	<request-map uri="createTalentShow">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="createTalentShow"/>
+		<response name="success" type="request-redirect-noparam" value="talentShowList" />
+   	</request-map>
+	<!-- 修改达人秀 -->
+   	<request-map uri="updateTalentShow">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="updateTalentShow"/>
+		<response name="success" type="request-redirect-noparam" value="talentShowList" />
+   	</request-map>
+   	<!--ajax修改达人秀 -->
+    <request-map uri="ajaxUpdateTalentShow">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="updateBatchTalentShow"/>
+		<response name="success" type="request" value="json" />
+   	</request-map>
+	<!-- 补录数据 -->
+   	<request-map uri="collectionDialog">
+    	<security https="false" auth="true"/>
+		<response name="success" type="view" value="collectionDialog" />
+   	</request-map>
+	<!--创建补录数据 -->
+   	<request-map uri="createQzCustomerLog">
+    	<security https="false" auth="true"/>
+		<event type="service" invoke="createQzCustomerLogService"/>
+		<response name="success" type="request-redirect" value="addCustomer" >
+			<redirect-parameter name="customerId"/>
+		</response>
+   	</request-map>
+   	<!-- 创建团队 -->
+   	<request-map uri="addDept">
+    	<security https="false" auth="true"/>
+		<response name="success" type="view" value="addDept" />
+   	</request-map>
+   	<!-- 获取赛事的团队 -->
+   	<request-map uri="getDeptList">
+    	<security https="false" auth="true"/>
+		<response name="success" type="view" value="getDeptList" />
+   	</request-map>
+   	<!-- 导出赛事成绩-->
+   	<request-map uri="exportCompetition">
+    	<security https="false" auth="false"/>
+    	<event type="java" path="org.ofbiz.quzou.QzCompetitionEvents" invoke="exportCompetition" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+   	</request-map>
+   	<!-- 设置会员状态-->
+   	<request-map uri="setPartysStatus">
+    	<security https="false" auth="false"/>
+    	<event type="service" invoke="setPartysStatus"/>
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+   	</request-map>
+   	<!-- 修改健走日志-->
+   	<request-map uri="addCustomerLog">
+    	<security https="false" auth="true"/>
+    	<response name="success" type="view" value="addCustomerLog"/>
+   	</request-map>
+   	<!-- 修改健走日志action-->
+   	<request-map uri="updateQzCustomerLog">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="updateQzCustomerLog"/>
+    	<response name="success" type="request-redirect" value="customerLogList"/>
+   	</request-map>
+   	<!-- 删除团队-->
+   	<request-map uri="deletCompanyAndDept">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="deletCompanyAndDept"/>
+    	<response name="success" type="none" />
+   	</request-map>
+   	<!-- 进入团队跟会员页面-->
+   	<request-map uri="deptAndCustomerList">
+    	<security https="false" auth="true"/>
+    	<response name="success" type="view" value="deptAndCustomerList" />
+   	</request-map>
+   	<!-- 进入团队增加会员页面-->
+   	<request-map uri="addDeptCustomerDialog">
+    	<security https="false" auth="true"/>
+    	<response name="success" type="view" value="addDeptCustomerDialog" />
+   	</request-map>
+   	<!-- 删除团队中的人-->
+   	<request-map uri="deleteFromDept">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="deleteFromDept"/>
+    	<response name="success" type="none"/>
+   	</request-map>
+   	<!-- 查询赛事中的人-->
+   	<request-map uri="viewCustomers">
+    	<security https="false" auth="true"/>
+    	<response name="success" type="view" value="viewCustomers"/>
+   	</request-map>
+   	<!-- 删除健走日志-->
+   	<request-map uri="deletCustomerLog">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="deleteAllQzCustomerLog"/>
+    	<response name="success" type="none" />
+   	</request-map>
+   	<!-- 添加团队成员-->
+   	<request-map uri="createPersonAndDept">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="createPersonAndDept"/>
+    	<response name="success" type="request-redirect" value="deptAndCustomerList">
+    		<redirect-parameter name="deptId"/>
+    	</response>
+   	</request-map>
+   	<!-- 解绑用户-->
+   	<request-map uri="unbundling">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="unbundling"/>
+    	<response name="success" type="none" />
+   	</request-map>
+   	<!-- 新增权限组-->
+   	<request-map uri="addSecurityGroup">
+    	<security https="false" auth="true"/>
+    	<response name="success" type="view" value="addSecurityGroup" />
+   	</request-map>
+   	<!-- 权限组-->
+   	<request-map uri="securityGroup">
+    	<security https="false" auth="true"/>
+    	<response name="success" type="view" value="securityGroup" />
+   	</request-map>
+   	<!-- 导出赛事选择日期-->
+   	<request-map uri="exportCompetitionDialog">
+    	<security https="false" auth="true"/>
+    	<response name="success" type="view" value="exportCompetitionDialog" />
+   	</request-map>
+   	<!-- 分配权限-->
+   	<request-map uri="createUserSecurityGroup">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="createUserSecurityGroup"></event>
+    	<response name="success" type="request-redirect-noparam" value="securityGroup" />
+   	</request-map>
+   	<!-- 删除权限-->
+   	<request-map uri="delSecurityGroup">
+    	<security https="false" auth="true"/>
+    	<event type="service" invoke="delSecurityGroup"></event>
+    	<response name="success" type="request-redirect-noparam" value="securityGroup" />
+   	</request-map>
+   	<!-- 导出日志-->
+   	<request-map uri="exportLog">
+    	<security https="false" auth="true"/>
+    	<event type="java" path="org.ofbiz.quzou.QzCompetitionEvents" invoke="exportLog" />
+    	<response name="success" type="none" />
+    	<response name="error" type="none" />
+   	</request-map>
+   	
+   	
+
+   	
+    <!-- View Mappings -->
+    <view-map name="main" type="screen" page="component://quzou/widget/quzouScreens.xml#customerList"/>
+ 	<view-map name="login" type="screen" page="component://quzou/widget/CommonScreens.xml#login"/>    
+ 	<view-map name="customerLogList" type="screen" page="component://quzou/widget/quzouScreens.xml#customerLogList"/>    
+ 	<view-map name="customerList" type="screen" page="component://quzou/widget/quzouScreens.xml#customerList"/>    
+ 	<view-map name="addCustomer" type="screen" page="component://quzou/widget/quzouScreens.xml#addCustomer"/>    
+ 	<view-map name="competitionList" type="screen" page="component://quzou/widget/quzouScreens.xml#competitionList"/>    
+ 	<view-map name="addCompetition" type="screen" page="component://quzou/widget/quzouScreens.xml#addCompetition"/>    
+ 	<view-map name="uploadDialog" type="screen" page="component://quzou/widget/quzouScreens.xml#uploadDialog"/>   
+ 	<view-map name="companyAndDeptList" type="screen" page="component://quzou/widget/quzouScreens.xml#companyAndDeptList"/>   
+ 	<view-map name="addTalentShow" type="screen" page="component://quzou/widget/quzouScreens.xml#addTalentShow"/>   
+ 	<view-map name="talentShowList" type="screen" page="component://quzou/widget/quzouScreens.xml#talentShowList"/>   
+ 	<view-map name="collectionDialog" type="screen" page="component://quzou/widget/quzouScreens.xml#collectionDialog"/>   
+ 	<view-map name="addDept" type="screen" page="component://quzou/widget/quzouScreens.xml#addDept"/>   
+ 	<view-map name="getDeptList" type="screen" page="component://quzou/widget/quzouScreens.xml#getDeptList"/>   
+ 	<view-map name="addCustomerLog" type="screen" page="component://quzou/widget/quzouScreens.xml#addCustomerLog"/>   
+ 	<view-map name="deptAndCustomerList" type="screen" page="component://quzou/widget/quzouScreens.xml#deptAndCustomerList"/>   
+ 	<view-map name="addDeptCustomerDialog" type="screen" page="component://quzou/widget/quzouScreens.xml#addDeptCustomerDialog"/>   
+ 	<view-map name="viewCustomers" type="screen" page="component://quzou/widget/quzouScreens.xml#viewCustomers"/>   
+ 	<view-map name="securityGroup" type="screen" page="component://quzou/widget/quzouScreens.xml#securityGroup"/>   
+ 	<view-map name="exportCompetitionDialog" type="screen" page="component://quzou/widget/quzouScreens.xml#exportCompetitionDialog"/>   
+ 	<view-map name="addSecurityGroup" type="screen" page="component://quzou/widget/quzouScreens.xml#addSecurityGroup"/>   
+</site-conf>

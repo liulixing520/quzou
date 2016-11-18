@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
+
+    <form name="FindCategory" type="single" target="mng_FindCategory" title="" default-map-name="category"
+          header-row-style="header-row" default-table-style="basic-table">
+        <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
+        <field name="productCategoryTypeId"><hidden value="CATALOG_CATEGORY"/></field>
+        <field name="categoryName" title="${uiLabelMap.FormFieldTitle_categoryName}"><text-find /></field>
+        <field name="showInHome" title="是否在首页显示">
+            <drop-down allow-empty="true"><option key="Y" description="${uiLabelMap.CommonY}"/><option key="N" description="${uiLabelMap.CommonN}"/></drop-down>
+        </field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit" position="2">
+            <submit button-type="button"/>
+        </field>
+    </form>
+
+    <form name="ListCategory" list-name="listIt" target="" title="" type="list" paginate-target="mng_FindCategory"
+          odd-row-style="alternate-row" default-table-style="basic-table hover-bar" header-row-style="header-row-2">
+        <actions>
+            <set field="entityName" value="ProductCategory"/>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="requestParameters"/>
+                <field-map field-name="entityName" from-field="entityName"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+        <field name="productCategoryId" sort-field="true">
+            <hyperlink also-hidden="false" description="${productCategoryId}" target="mng_EditCategory">
+                <parameter param-name="productCategoryId"/>
+            </hyperlink>
+        </field>
+
+        <field name="productCategoryTypeId" sort-field="true"><display-entity entity-name="ProductCategoryType" description="${description}"/></field>
+        <field name="primaryParentCategoryId" sort-field="true"><display/></field>
+        <field name="categoryName" sort-field="true"><display/></field>
+        <field name="showInHome"><display/></field>
+        <field name="description" sort-field="true"><display/></field>
+    </form>
+</forms>

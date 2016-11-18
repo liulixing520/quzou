@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+	<description>Module Configuration File</description>
+
+	<handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler" />
+	<handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler" />
+
+	<firstvisit></firstvisit>
+		<!--学生-->
+	<request-map uri="FindLimsStudent">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindLimsStudent" />
+	</request-map>
+	<request-map uri="FindLimsStudentGrid">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindLimsStudentGrid" />
+	</request-map>
+	<request-map uri="FindLimsStudentFtl">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindLimsStudentFtl" />
+	</request-map>
+	<request-map uri="ajaxFindLimsStudent">
+	    <security https="false" auth="true"/>
+	    <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/demo/ajaxFindLimsStudent.groovy" />
+	    <response name="success" type="request" value="json" />
+	    <response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="EditLimsStudent">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditLimsStudent" />
+	</request-map>
+	<request-map uri="EditLimsStudentFtl">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditLimsStudentFtl" />
+	</request-map>
+	<request-map uri="createLimsStudent">
+		<security https="false" auth="true"/>
+	    <event type="service" invoke="createLimsStudent" />
+	    <response name="success"  type="request"  value="FindLimsStudent"></response>
+	    <response name="error"  type="view-last"/>
+	</request-map>
+	<request-map uri="updateLimsStudent">
+	    <security https="false" auth="true"/>
+	    <event type="service" invoke="updateLimsStudent"/>
+	    <response name="success" type="request"  value="FindLimsStudent"/>
+	    <response name="error"  type="view-last"/>
+	</request-map>
+	<request-map uri="deleteLimsStudent">
+	    <security https="false" auth="true"/>
+	    <event type="service" invoke="deleteLimsStudent"/>
+	    <response name="success"  type="request"  value="FindLimsStudent"/>
+	    <response name="error"  type="request-redirect-noparam"  value="FindLimsStudent"/>
+	</request-map>
+	<!--批量删除学生 -->
+	<request-map uri="deleteAllLimsStudent">
+	    <security https="false" auth="true"/>
+	    <event type="service" invoke="deleteAllLimsStudent"/>
+	    <response name="success"  type="request"  value="FindLimsStudent"/>
+	    <response name="error"  type="request-redirect"  value="FindLimsStudent"/>
+	</request-map>
+		<!--班级-->
+	<request-map uri="FindLimsEgrid">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindLimsEgrid" />
+	</request-map>
+	
+	<request-map uri="OperGenericValue">
+		<security https="false" auth="true" />
+		<event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/demo/OperGenericValue.groovy" />
+		<response name="success" type="none"/>
+	</request-map>
+	<request-map uri="FindLimsClass">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindLimsClass" />
+	</request-map>
+	<request-map uri="EditLimsClass">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditLimsClass" />
+	</request-map>
+	<request-map uri="EditLimsClassFtl">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditLimsClassFtl" />
+	</request-map>
+	<request-map uri="createLimsClass">
+		<security https="false" auth="true"/>
+	    <event type="service" invoke="createLimsClass"/>
+	    <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="createLimsClassFile">
+		<security https="false" auth="true"/>
+		<event type="java" path="org.extErp.sysCommon.demo.LimsClassEvents" invoke="createLimsClass" />
+	    <response name="success" type="request"  value="FindLimsClass"/>
+	    <response name="error"  type="view-last"/>
+	</request-map>
+	<request-map uri="updateLimsClassFile">
+		<security https="false" auth="true"/>
+		<event type="java" path="org.extErp.sysCommon.demo.LimsClassEvents" invoke="updateLimsClass" />
+	    <response name="success" type="request"  value="FindLimsClass"/>
+	    <response name="error"  type="view-last"/>
+	</request-map>
+	<request-map uri="updateLimsClass">
+	    <security https="false" auth="true"/>
+	    <event type="service" invoke="updateLimsClass"/>
+	    <response name="success" type="request"  value="FindLimsClass"/>
+	    <response name="error"  type="view-last"/>
+	</request-map>
+	<request-map uri="deleteLimsClass">
+	    <security https="false" auth="true"/>
+	    <event type="service" invoke="deleteLimsClass"/>
+	    <response name="success"  type="request"  value="FindLimsClass"/>
+	    <response name="error"  type="request-redirect"  value="FindLimsClass"/>
+	</request-map>
+	<!--批量删除班级 -->
+	<request-map uri="deleteAllLimsClass">
+	    <security https="false" auth="true"/>
+	    <event type="service" invoke="deleteAllLimsClass"/>
+	    <response name="success"  type="request"  value="FindLimsClass"/>
+	    <response name="error"  type="request-redirect"  value="FindLimsClass"/>
+	</request-map>
+	<request-map uri="importLimsClass">
+	    <security https="false" auth="true"/>
+	    <event type="java" path="org.extErp.sysCommon.demo.LimsClassEvents" invoke="importLimsClass" />
+	    <response name="success" type="request"  value="FindLimsClass"/>
+	    <response name="error"  type="view-last"/>
+	</request-map>
+	<request-map uri="LookupLimsClass">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="LookupLimsClass" />
+	</request-map>
+	<request-map uri="SelectMutilClass">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="SelectMutilClass" />
+	</request-map>
+	<!-- 主从结构demo -->
+	<request-map uri="EditLimsClassAndStudent">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditLimsClassAndStudent" />
+	</request-map>
+	
+	<request-map uri="createLimsClassAndStudent">
+		<security https="false" auth="true" />
+<!-- 		<event type="java" path="org.extErp.sysCommon.demo.LimsClassEvents" invoke="createLimsClass" /> -->
+ 		<event type="service" invoke="createLimsClass"/>
+		<response name="success" type="request" value="createLimsStudentMutil" />
+		<response name="error" type="view-last" value="" />
+	</request-map>
+	<request-map uri="createLimsStudentMutil">
+        <security https="true" auth="true"/>
+        <event type="service-multi" path="" invoke="createLimsStudent"/>
+        <response name="success" type="request" value="FindLimsClass"/>
+        <response name="error" type="view-last" value=""/>
+    </request-map>
+	<request-map uri="updateLimsClassAndStudent">
+		<security https="false" auth="true" />
+ 		<event type="service" invoke="updateLimsClass"/>
+		<response name="success" type="request" value="createOrUpdateLimsStudentMutil" />
+		<response name="error" type="view-last" value="" />
+	</request-map>
+	<request-map uri="createOrUpdateLimsStudentMutil">
+        <security https="true" auth="true"/>
+        <event type="service-multi" path="" invoke="createOrUpdateLimsStudent"/>
+        <response name="success" type="request" value="FindLimsClass"/>
+        <response name="error" type="view-last" value=""/>
+    </request-map>
+	
+	<!--班级-view -->
+	<view-map name="FindLimsClass" type="screen" 
+		page="component://sysCommon/widget/DemoScreens.xml#FindLimsClass" />
+	<view-map name="FindLimsEgrid" type="screen" 
+		page="component://sysCommon/widget/DemoScreens.xml#FindLimsEgrid" />
+	<view-map name="EditLimsClass" type="screen" 
+		page="component://sysCommon/widget/DemoScreens.xml#EditLimsClass" />
+	<view-map name="EditLimsClassFtl" type="screen" 
+		page="component://sysCommon/widget/DemoScreens.xml#EditLimsClassFtl" />
+	<view-map name="LookupLimsClass" type="screen" 
+		page="component://sysCommon/widget/DemoScreens.xml#LookupLimsClass"/>
+	<view-map name="SelectMutilClass" type="screen" 
+		page="component://sysCommon/widget/DemoScreens.xml#SelectMutilClass"/>
+
+	
+	<!--学生-view -->
+	<view-map name="FindLimsStudent" type="screen" 
+		page="component://sysCommon/widget/DemoScreens.xml#FindLimsStudent" />
+	<view-map name="EditLimsStudent" type="screen" 
+		page="component://sysCommon/widget/DemoScreens.xml#EditLimsStudent" />
+	<view-map name="EditLimsStudentFtl" type="screen" 
+		page="component://sysCommon/widget/DemoScreens.xml#EditLimsStudentFtl" />
+	<view-map name="FindLimsStudentFtl" type="screen" 
+		page="component://sysCommon/widget/DemoScreens.xml#FindLimsStudentFtl" />
+	<view-map name="FindLimsStudentGrid" type="screen" 
+		page="component://sysCommon/widget/DemoScreens.xml#FindLimsStudentGrid" />
+	<view-map name="EditLimsClassAndStudent" type="screen" 
+		page="component://sysCommon/widget/DemoScreens.xml#EditLimsClassAndStudent" />
+		
+	
+</site-conf>

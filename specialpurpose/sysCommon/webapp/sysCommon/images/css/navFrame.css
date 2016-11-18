@@ -1,0 +1,38 @@
+/* CSS Document */
+body {
+	font-size: 12px;
+	color: #000;
+	padding: 0;
+	margin: 0;
+	background: url(frame/navFrame_bg.png) repeat-x;
+}
+ul,li {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;	
+}
+.navFrame {
+	height: 35px;
+	line-height: 35px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF;
+}
+.navFrame ul li {
+	display: block;
+	float: left;
+	width: 119px;
+	text-align: center;
+	background: url(frame/nav_line.png) no-repeat right center;
+}
+.navFrame ul li.hover {
+	background: url(frame/nav_hover.png) no-repeat center center;
+}
+.navFrame ul li a {
+	color: #FFF;
+	text-decoration: none;
+}
+.navFrame ul li a:hover {
+	color: #FFF;
+	text-decoration: underline;
+}

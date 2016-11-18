@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entity-engine-xml>
+
+<ProductCategory productCategoryId="C001" categoryName="数码电子产品" primaryParentCategoryId="PortalRootCat" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001001" categoryName="计算机&amp;网络设备" primaryParentCategoryId="C001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001001001" categoryName="平板电脑" categoryImageUrl="/images/categories/C001001001/linkOne.png" primaryParentCategoryId="C001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001001002" categoryName="笔记本电脑" categoryImageUrl="/images/categories/C001001002/linkOne.png" primaryParentCategoryId="C001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001001003" categoryName="台式电脑" categoryImageUrl="/images/categories/C001001003/linkOne.png" primaryParentCategoryId="C001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001001004" categoryName="内存条" primaryParentCategoryId="C001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001001005" categoryName="网络设备" primaryParentCategoryId="C001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001001006" categoryName="平板电脑配件" primaryParentCategoryId="C001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001001007" categoryName="笔记本电脑配件" primaryParentCategoryId="C001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001001008" categoryName="计算机外设" primaryParentCategoryId="C001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001001009" categoryName="计算机部件" primaryParentCategoryId="C001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001002" categoryName="消费电子产品"  categoryImageUrl="/images/categories/C001002/linkOne.png"  primaryParentCategoryId="C001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001002001" categoryName="相机&amp;摄影器材" primaryParentCategoryId="C001002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001002002" categoryName="家庭影音设备" primaryParentCategoryId="C001002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001002003" categoryName="电视网络播放器" primaryParentCategoryId="C001002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001002004" categoryName="相关配件&amp;部件" primaryParentCategoryId="C001002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001002005" categoryName="游戏机&amp;配件" primaryParentCategoryId="C001002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001002006" categoryName="便携式影音设备" primaryParentCategoryId="C001002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001002007" categoryName="耳机&amp;头戴式耳机" primaryParentCategoryId="C001002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001002008" categoryName="微型摄像机" primaryParentCategoryId="C001002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001002009" categoryName="内存卡" primaryParentCategoryId="C001002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001003" categoryName="手机&amp;配件" categoryImageUrl="/images/categories/C001003/linkOne.png" primaryParentCategoryId="C001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001003001" categoryName="手机" categoryImageUrl="/images/categories/C001001001/linkOne.png"  primaryParentCategoryId="C001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001003002" categoryName="手机套&amp;手机壳" primaryParentCategoryId="C001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001003003" categoryName="电池" primaryParentCategoryId="C001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001003004" categoryName="充电器" primaryParentCategoryId="C001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001003005" categoryName="充电宝" primaryParentCategoryId="C001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001003006" categoryName="数据线" primaryParentCategoryId="C001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001003007" categoryName="手机镜头" primaryParentCategoryId="C001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001003008" categoryName="手机部件" primaryParentCategoryId="C001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001003009" categoryName="手机屏" primaryParentCategoryId="C001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001003010" categoryName="手机座" primaryParentCategoryId="C001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C001003011" categoryName="手机贴" primaryParentCategoryId="C001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002" categoryName="服装&amp;配饰" primaryParentCategoryId="PortalRootCat" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002001" categoryName="女装" primaryParentCategoryId="C002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002001001" categoryName="连衣裙" primaryParentCategoryId="C002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002001002" categoryName="大衣&amp;外套" primaryParentCategoryId="C002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002001003" categoryName="上衣&amp;衬衫" primaryParentCategoryId="C002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002001004" categoryName="短袖&amp;T恤" primaryParentCategoryId="C002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002001005" categoryName="卫衣&amp;运动衫" primaryParentCategoryId="C002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002001006" categoryName="内衣" primaryParentCategoryId="C002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002001007" categoryName="泳衣" primaryParentCategoryId="C002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002001008" categoryName="长裤&amp;紧身裤" primaryParentCategoryId="C002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002001009" categoryName="毛衣" primaryParentCategoryId="C002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002001010" categoryName="半身裙" primaryParentCategoryId="C002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002001011" categoryName="打底裤" primaryParentCategoryId="C002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002001012" categoryName="配饰" primaryParentCategoryId="C002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002002" categoryName="男装" primaryParentCategoryId="C002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002002001" categoryName="短袖&amp;T恤" primaryParentCategoryId="C002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002002002" categoryName="大衣&amp;外套" primaryParentCategoryId="C002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002002003" categoryName="内衣" primaryParentCategoryId="C002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002002004" categoryName="衬衫" primaryParentCategoryId="C002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002002005" categoryName="卫衣&amp;运动衫" primaryParentCategoryId="C002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002002006" categoryName="牛仔裤" primaryParentCategoryId="C002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002002007" categoryName="长裤" primaryParentCategoryId="C002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002002008" categoryName="套装&amp;西装" primaryParentCategoryId="C002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002002009" categoryName="短裤" primaryParentCategoryId="C002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002002010" categoryName="毛衣" primaryParentCategoryId="C002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002002011" categoryName="配饰" primaryParentCategoryId="C002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002003" categoryName="婚礼&amp;特殊场合礼服" categoryImageUrl="/images/categories/C002003/linkOne.png"  primaryParentCategoryId="C002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002003001" categoryName="婚纱" primaryParentCategoryId="C002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002003002" categoryName="晚礼服" primaryParentCategoryId="C002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002003003" categoryName="校友返校日礼服" primaryParentCategoryId="C002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002003004" categoryName="舞会礼服" primaryParentCategoryId="C002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002003005" categoryName="鸡尾酒会礼服" primaryParentCategoryId="C002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002003006" categoryName="聚会礼服" primaryParentCategoryId="C002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002003007" categoryName="明星款礼服" primaryParentCategoryId="C002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002003008" categoryName="成人礼礼服" primaryParentCategoryId="C002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002003009" categoryName="圣餐礼服" primaryParentCategoryId="C002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002003010" categoryName="毕业礼服" primaryParentCategoryId="C002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002003011" categoryName="婚纱配饰" primaryParentCategoryId="C002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C002003012" categoryName="婚礼礼服" primaryParentCategoryId="C002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003" categoryName="箱包&amp;鞋子" primaryParentCategoryId="PortalRootCat" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003001" categoryName="行李箱&amp;包" primaryParentCategoryId="C003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003001001" categoryName="女式单肩包" primaryParentCategoryId="C003001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003001002" categoryName="女式钱包" primaryParentCategoryId="C003001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003001003" categoryName="女式长带包" primaryParentCategoryId="C003001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003001004" categoryName="女式手提包" primaryParentCategoryId="C003001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003001005" categoryName="女士手包" primaryParentCategoryId="C003001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003001006" categoryName="女式双肩包" primaryParentCategoryId="C003001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003001007" categoryName="男式钱包" primaryParentCategoryId="C003001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003001008" categoryName="男式双肩包" primaryParentCategoryId="C003001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003001009" categoryName="男式公文包" primaryParentCategoryId="C003001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003001010" categoryName="男式长带包" primaryParentCategoryId="C003001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003001011" categoryName="书包" primaryParentCategoryId="C003001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003001012" categoryName="旅行包" primaryParentCategoryId="C003001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003002" categoryName="鞋子" primaryParentCategoryId="C003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003002001" categoryName="女式帆布鞋" primaryParentCategoryId="C003002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003002002" categoryName="女式凉鞋" primaryParentCategoryId="C003002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003002003" categoryName="女式平底鞋" primaryParentCategoryId="C003002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003002004" categoryName="高跟鞋" primaryParentCategoryId="C003002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003002005" categoryName="女靴" primaryParentCategoryId="C003002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003002006" categoryName="女式拖鞋" primaryParentCategoryId="C003002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003002007" categoryName="男式帆布鞋" primaryParentCategoryId="C003002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003002008" categoryName="男式平底鞋" primaryParentCategoryId="C003002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003002009" categoryName="男式凉鞋" primaryParentCategoryId="C003002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003002010" categoryName="男靴" primaryParentCategoryId="C003002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003002011" categoryName="男式便鞋" primaryParentCategoryId="C003002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003002012" categoryName="男式拖鞋" primaryParentCategoryId="C003002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003003" categoryName="童鞋" primaryParentCategoryId="C003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003003001" categoryName="平底女童鞋" primaryParentCategoryId="C003003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003003002" categoryName="平底男童鞋" primaryParentCategoryId="C003003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003003003" categoryName="女童凉鞋" primaryParentCategoryId="C003003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003003004" categoryName="男童凉鞋" primaryParentCategoryId="C003003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003003005" categoryName="童靴" primaryParentCategoryId="C003003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003003006" categoryName="女童皮鞋" primaryParentCategoryId="C003003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003003007" categoryName="男童皮鞋" primaryParentCategoryId="C003003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003003008" categoryName="学步鞋" primaryParentCategoryId="C003003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003003009" categoryName="婴儿皮鞋" primaryParentCategoryId="C003003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003003010" categoryName="婴儿平底鞋" primaryParentCategoryId="C003003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003003011" categoryName="婴儿靴子" primaryParentCategoryId="C003003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C003003012" categoryName="婴儿凉鞋" primaryParentCategoryId="C003003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004" categoryName="家居&amp;园艺" primaryParentCategoryId="PortalRootCat" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004001" categoryName="家居用品" primaryParentCategoryId="C004" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004001001" categoryName="家居饰品" primaryParentCategoryId="C004001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004001002" categoryName="家纺" primaryParentCategoryId="C004001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004001003" categoryName="厨具、餐具&amp;酒具" primaryParentCategoryId="C004001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004001004" categoryName="卫浴用品" primaryParentCategoryId="C004001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004001005" categoryName="节日&amp;聚会用品" primaryParentCategoryId="C004001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004001006" categoryName="收纳用品" primaryParentCategoryId="C004001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004001007" categoryName="清洁用品" primaryParentCategoryId="C004001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004001008" categoryName="宠物用品" primaryParentCategoryId="C004001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004001009" categoryName="床上用品" primaryParentCategoryId="C004001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004001010" categoryName="窗帘" primaryParentCategoryId="C004001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004001011" categoryName="装饰书画" primaryParentCategoryId="C004001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004001012" categoryName="家具&amp;配件" primaryParentCategoryId="C004001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004002" categoryName="户外&amp;花园用品" primaryParentCategoryId="C004" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004002001" categoryName="花盆" primaryParentCategoryId="C004002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004002002" categoryName="花园造景&amp;美化" primaryParentCategoryId="C004002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004002003" categoryName="园艺工具" primaryParentCategoryId="C004002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004002004" categoryName="浇水灌溉用具" primaryParentCategoryId="C004002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004002005" categoryName="温度计&amp;测温仪" primaryParentCategoryId="C004002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004002006" categoryName="花肥" primaryParentCategoryId="C004002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004002007" categoryName="烧烤用具" primaryParentCategoryId="C004002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004002008" categoryName="遮阳用具" primaryParentCategoryId="C004002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004002009" categoryName="信箱" primaryParentCategoryId="C004002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004002010" categoryName="篱笆&amp;温室" primaryParentCategoryId="C004002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004002011" categoryName="户外家具" primaryParentCategoryId="C004002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004002012" categoryName="盆景" primaryParentCategoryId="C004002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004003" categoryName="灯具&amp;杂货" primaryParentCategoryId="C004" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004003001" categoryName="灯具" primaryParentCategoryId="C004003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004003002" categoryName="家用安全装置" primaryParentCategoryId="C004003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004003003" categoryName="小家电" primaryParentCategoryId="C004003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004003004" categoryName="小五金件" primaryParentCategoryId="C004003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004003005" categoryName="家用小工具" primaryParentCategoryId="C004003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004003006" categoryName="厨房&amp;卫浴设施" primaryParentCategoryId="C004003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004003007" categoryName="水龙头&amp;花洒" primaryParentCategoryId="C004003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004003008" categoryName="闭路电视设备" primaryParentCategoryId="C004003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004003009" categoryName="室内灯具" primaryParentCategoryId="C004003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004003010" categoryName="室外灯具" primaryParentCategoryId="C004003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004003011" categoryName="灯泡&amp;灯管" primaryParentCategoryId="C004003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C004003012" categoryName="LED灯具" primaryParentCategoryId="C004003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005" categoryName="玩具&amp;婴幼用品" primaryParentCategoryId="PortalRootCat" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005001" categoryName="童装&amp;配饰" primaryParentCategoryId="C005" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005001001" categoryName="女童装" primaryParentCategoryId="C005001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005001002" categoryName="男童装" primaryParentCategoryId="C005001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005001003" categoryName="女婴装" primaryParentCategoryId="C005001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005001004" categoryName="男婴装" primaryParentCategoryId="C005001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005001005" categoryName="童装套装" primaryParentCategoryId="C005001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005001006" categoryName="女童连衣裙" primaryParentCategoryId="C005001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005001007" categoryName="男童T恤" primaryParentCategoryId="C005001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005001008" categoryName="婴儿背带裤" primaryParentCategoryId="C005001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005001009" categoryName="儿童书包" primaryParentCategoryId="C005001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005001010" categoryName="学步鞋" primaryParentCategoryId="C005001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005001011" categoryName="儿童鞋" primaryParentCategoryId="C005001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005001012" categoryName="儿童配饰" primaryParentCategoryId="C005001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005002" categoryName="玩具" primaryParentCategoryId="C005" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005002001" categoryName="毛绒玩具" primaryParentCategoryId="C005002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005002002" categoryName="遥控玩具直升机" primaryParentCategoryId="C005002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005002003" categoryName="卡通人偶玩具" primaryParentCategoryId="C005002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005002004" categoryName="气球" primaryParentCategoryId="C005002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005002005" categoryName="拼装玩具" primaryParentCategoryId="C005002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005002006" categoryName="积木玩具" primaryParentCategoryId="C005002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005002007" categoryName="洋娃娃&amp;配饰" primaryParentCategoryId="C005002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005002008" categoryName="电子玩具" primaryParentCategoryId="C005002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005002009" categoryName="益智玩具" primaryParentCategoryId="C005002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005002010" categoryName="婴儿玩具" primaryParentCategoryId="C005002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005002011" categoryName="户外玩具&amp;体育用品" primaryParentCategoryId="C005002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005003" categoryName="母婴用品" primaryParentCategoryId="C005" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005003001" categoryName="妈咪包" primaryParentCategoryId="C005003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005003002" categoryName="出行用品" primaryParentCategoryId="C005003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005003003" categoryName="婴儿护理" primaryParentCategoryId="C005003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005003004" categoryName="安全用品" primaryParentCategoryId="C005003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005003005" categoryName="喂养用品" primaryParentCategoryId="C005003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005003006" categoryName="婴儿床上用品" primaryParentCategoryId="C005003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005003007" categoryName="婴儿游泳池" primaryParentCategoryId="C005003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005003008" categoryName="婴儿监视器" primaryParentCategoryId="C005003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005003009" categoryName="孕妇裙" primaryParentCategoryId="C005003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005003010" categoryName="孕妇内衣" primaryParentCategoryId="C005003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C005003011" categoryName="孕妇上衣" primaryParentCategoryId="C005003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006" categoryName="汽车" primaryParentCategoryId="PortalRootCat" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006001" categoryName="车用电子产品" primaryParentCategoryId="C006" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006001001" categoryName="车用小电子产品" primaryParentCategoryId="C006001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006001002" categoryName="车载DVD" primaryParentCategoryId="C006001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006001003" categoryName="报警系统&amp;安全装置" primaryParentCategoryId="C006001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006001004" categoryName="行车记录仪" primaryParentCategoryId="C006001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006001005" categoryName="测速仪" primaryParentCategoryId="C006001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006001006" categoryName="GPS导航仪" primaryParentCategoryId="C006001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006001007" categoryName="车载播放器" primaryParentCategoryId="C006001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006001008" categoryName="摩托车用品" primaryParentCategoryId="C006001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006001009" categoryName="摩托刹车片" primaryParentCategoryId="C006001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006001010" categoryName="摩托车手保护装备" primaryParentCategoryId="C006001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006001011" categoryName="摩托车电气装置" primaryParentCategoryId="C006001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006002" categoryName="汽车配件" primaryParentCategoryId="C006" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006002001" categoryName="汽车部件" primaryParentCategoryId="C006002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006002002" categoryName="车灯" primaryParentCategoryId="C006002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006002003" categoryName="外灯" primaryParentCategoryId="C006002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006002004" categoryName="车用LED灯" primaryParentCategoryId="C006002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006002005" categoryName="内灯" primaryParentCategoryId="C006002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006002006" categoryName="引擎" primaryParentCategoryId="C006002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006002007" categoryName="喷油嘴" primaryParentCategoryId="C006002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006002008" categoryName="汽车配件" primaryParentCategoryId="C006002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006002009" categoryName="车饰" primaryParentCategoryId="C006002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006002010" categoryName="车身保护条" primaryParentCategoryId="C006002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006002011" categoryName="保险杠保护条" primaryParentCategoryId="C006002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006002012" categoryName="车罩" primaryParentCategoryId="C006002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006003" categoryName="汽车保养工具" primaryParentCategoryId="C006" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006003001" categoryName="车用工具&amp;装置" primaryParentCategoryId="C006003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006003002" categoryName="汽车诊断仪" primaryParentCategoryId="C006003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006003003" categoryName="汽车扫描仪" primaryParentCategoryId="C006003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006003004" categoryName="洗车用具" primaryParentCategoryId="C006003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006003005" categoryName="车载充电器" primaryParentCategoryId="C006003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006003006" categoryName="方向盘套" primaryParentCategoryId="C006003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006003007" categoryName="汽车座套" primaryParentCategoryId="C006003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C006003008" categoryName="汽车置物防滑垫" primaryParentCategoryId="C006003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007" categoryName="运动&amp;户外" primaryParentCategoryId="PortalRootCat" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007001" categoryName="运动服装" primaryParentCategoryId="C007" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007001001" categoryName="登山服" primaryParentCategoryId="C007001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007001002" categoryName="登山T恤" primaryParentCategoryId="C007001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007001003" categoryName="登山长裤" primaryParentCategoryId="C007001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007001004" categoryName="登山包" primaryParentCategoryId="C007001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007001005" categoryName="跑步T恤" primaryParentCategoryId="C007001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007001006" categoryName="跑步包" primaryParentCategoryId="C007001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007001007" categoryName="自行车骑行服" primaryParentCategoryId="C007001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007001008" categoryName="自行车骑行外套" primaryParentCategoryId="C007001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007001009" categoryName="自行车骑行短裤" primaryParentCategoryId="C007001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007001010" categoryName="自行车骑行眼镜" primaryParentCategoryId="C007001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007001011" categoryName="滑雪服" primaryParentCategoryId="C007001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007001012" categoryName="足球球衣" primaryParentCategoryId="C007001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007002" categoryName="运动鞋" primaryParentCategoryId="C007" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007002001" categoryName="跑步鞋" primaryParentCategoryId="C007002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007002002" categoryName="篮球鞋" primaryParentCategoryId="C007002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007002003" categoryName="足球鞋" primaryParentCategoryId="C007002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007002004" categoryName="登山鞋" primaryParentCategoryId="C007002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007002005" categoryName="滑板鞋" primaryParentCategoryId="C007002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007002006" categoryName="网球鞋" primaryParentCategoryId="C007002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007002007" categoryName="健走鞋" primaryParentCategoryId="C007002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007002008" categoryName="舞鞋" primaryParentCategoryId="C007002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007002009" categoryName="轮滑鞋" primaryParentCategoryId="C007002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007002010" categoryName="健身鞋" primaryParentCategoryId="C007002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007003" categoryName="运动装备" primaryParentCategoryId="C007" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007003001" categoryName="自行车" primaryParentCategoryId="C007003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007003002" categoryName="自行车部件" primaryParentCategoryId="C007003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007003003" categoryName="自行车头盔" primaryParentCategoryId="C007003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007003004" categoryName="自行车灯" primaryParentCategoryId="C007003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007003005" categoryName="自行车骑行包&amp;车筐" primaryParentCategoryId="C007003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007003006" categoryName="鱼线轮" primaryParentCategoryId="C007003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007003007" categoryName="钓杆" primaryParentCategoryId="C007003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007003008" categoryName="鱼线" primaryParentCategoryId="C007003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007003009" categoryName="鱼饵" primaryParentCategoryId="C007003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007003010" categoryName="帐篷" primaryParentCategoryId="C007003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007003011" categoryName="瑜伽用品" primaryParentCategoryId="C007003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C007003012" categoryName="吉他" primaryParentCategoryId="C007003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008" categoryName="首饰&amp;手表" primaryParentCategoryId="PortalRootCat" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008001" categoryName="时尚饰品" primaryParentCategoryId="C008" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008001001" categoryName="项链&amp;吊坠" primaryParentCategoryId="C008001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008001002" categoryName="手镯&amp;手链" primaryParentCategoryId="C008001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008001003" categoryName="耳饰" primaryParentCategoryId="C008001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008001004" categoryName="戒指" primaryParentCategoryId="C008001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008001005" categoryName="首饰套装" primaryParentCategoryId="C008001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008001006" categoryName="发饰" primaryParentCategoryId="C008001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008001007" categoryName="领带夹&amp;袖扣" primaryParentCategoryId="C008001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008001008" categoryName="胸针" primaryParentCategoryId="C008001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008001009" categoryName="小饰品" primaryParentCategoryId="C008001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008001010" categoryName="鼻饰&amp;肚脐饰品" primaryParentCategoryId="C008001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008001011" categoryName="脚链" primaryParentCategoryId="C008001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008001012" categoryName="饰品小配件" primaryParentCategoryId="C008001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008002" categoryName="手表" primaryParentCategoryId="C008" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008002001" categoryName="运动手表" primaryParentCategoryId="C008002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008002002" categoryName="腕表" primaryParentCategoryId="C008002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008002003" categoryName="时尚休闲手表" primaryParentCategoryId="C008002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008002004" categoryName="怀表" primaryParentCategoryId="C008002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008002005" categoryName="女式时尚手表" primaryParentCategoryId="C008002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008002006" categoryName="男士休闲手表" primaryParentCategoryId="C008002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008002007" categoryName="情侣手表" primaryParentCategoryId="C008002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008002008" categoryName="手表配件" primaryParentCategoryId="C008002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008003" categoryName="高档首饰" primaryParentCategoryId="C008" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008003001" categoryName="钻石首饰" primaryParentCategoryId="C008003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008003002" categoryName="珍珠首饰" primaryParentCategoryId="C008003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008003003" categoryName="红宝石首饰" primaryParentCategoryId="C008003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008003004" categoryName="蓝宝石首饰" primaryParentCategoryId="C008003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008003005" categoryName="银饰" primaryParentCategoryId="C008003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008003006" categoryName="项链&amp;吊坠" primaryParentCategoryId="C008003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008003007" categoryName="戒指" primaryParentCategoryId="C008003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008003008" categoryName="耳饰" primaryParentCategoryId="C008003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008003009" categoryName="首饰套装" primaryParentCategoryId="C008003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008003010" categoryName="小饰品" primaryParentCategoryId="C008003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C008003011" categoryName="手镯&amp;手链" primaryParentCategoryId="C008003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009" categoryName="美容美发&amp;保健" primaryParentCategoryId="PortalRootCat" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009001" categoryName="美发" primaryParentCategoryId="C009" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009001001" categoryName="美发用品" primaryParentCategoryId="C009001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009001002" categoryName="卷发器" primaryParentCategoryId="C009001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009001003" categoryName="直发器" primaryParentCategoryId="C009001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009001004" categoryName="电动理发器" primaryParentCategoryId="C009001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009001005" categoryName="吹风机" primaryParentCategoryId="C009001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009001006" categoryName="理发剪刀" primaryParentCategoryId="C009001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009001007" categoryName="一次性染发粉" primaryParentCategoryId="C009001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009001008" categoryName="头发生长精华素" primaryParentCategoryId="C009001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009001009" categoryName="剃须&amp;脱毛用品" primaryParentCategoryId="C009001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009001010" categoryName="梳子" primaryParentCategoryId="C009001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009001011" categoryName="镜子" primaryParentCategoryId="C009001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009002" categoryName="假发" primaryParentCategoryId="C009" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009002001" categoryName="真发制假发" primaryParentCategoryId="C009002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009002002" categoryName="织发补发片" primaryParentCategoryId="C009002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009002003" categoryName="驳发" primaryParentCategoryId="C009002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009002004" categoryName="假发片" primaryParentCategoryId="C009002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009002005" categoryName="一片式假发" primaryParentCategoryId="C009002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009002006" categoryName="合成纤维假发" primaryParentCategoryId="C009002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009002007" categoryName="真发与合成纤维混合制假发" primaryParentCategoryId="C009002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009002008" categoryName="羽毛假发" primaryParentCategoryId="C009002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009002009" categoryName="假发配件&amp;工具" primaryParentCategoryId="C009002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009003" categoryName="美容用品及其他" primaryParentCategoryId="C009" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009003001" categoryName="美妆用品" primaryParentCategoryId="C009003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009003002" categoryName="美甲用品" primaryParentCategoryId="C009003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009003003" categoryName="护肤用品" primaryParentCategoryId="C009003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009003004" categoryName="保健用品" primaryParentCategoryId="C009003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009003005" categoryName="口腔保健" primaryParentCategoryId="C009003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009003006" categoryName="纹身用品" primaryParentCategoryId="C009003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009003007" categoryName="成人用品" primaryParentCategoryId="C009003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009003008" categoryName="香水&amp;香体露" primaryParentCategoryId="C009003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009003009" categoryName="沐浴用品" primaryParentCategoryId="C009003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="C009003010" categoryName="尿片" primaryParentCategoryId="C009003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+
+
+
+<ProductCategoryRollup productCategoryId="C001" parentProductCategoryId="PortalRootCat" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001001" parentProductCategoryId="C001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001001001" parentProductCategoryId="C001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001001002" parentProductCategoryId="C001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001001003" parentProductCategoryId="C001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001001004" parentProductCategoryId="C001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001001005" parentProductCategoryId="C001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001001006" parentProductCategoryId="C001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001001007" parentProductCategoryId="C001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001001008" parentProductCategoryId="C001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001001009" parentProductCategoryId="C001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001002" parentProductCategoryId="C001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001002001" parentProductCategoryId="C001002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001002002" parentProductCategoryId="C001002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001002003" parentProductCategoryId="C001002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001002004" parentProductCategoryId="C001002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001002005" parentProductCategoryId="C001002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001002006" parentProductCategoryId="C001002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001002007" parentProductCategoryId="C001002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001002008" parentProductCategoryId="C001002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001002009" parentProductCategoryId="C001002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001003" parentProductCategoryId="C001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001003001" parentProductCategoryId="C001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001003002" parentProductCategoryId="C001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001003003" parentProductCategoryId="C001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001003004" parentProductCategoryId="C001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001003005" parentProductCategoryId="C001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001003006" parentProductCategoryId="C001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001003007" parentProductCategoryId="C001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001003008" parentProductCategoryId="C001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001003009" parentProductCategoryId="C001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001003010" parentProductCategoryId="C001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C001003011" parentProductCategoryId="C001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002" parentProductCategoryId="PortalRootCat" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002001" parentProductCategoryId="C002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002001001" parentProductCategoryId="C002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002001002" parentProductCategoryId="C002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002001003" parentProductCategoryId="C002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002001004" parentProductCategoryId="C002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002001005" parentProductCategoryId="C002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002001006" parentProductCategoryId="C002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002001007" parentProductCategoryId="C002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002001008" parentProductCategoryId="C002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002001009" parentProductCategoryId="C002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002001010" parentProductCategoryId="C002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002001011" parentProductCategoryId="C002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002001012" parentProductCategoryId="C002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002002" parentProductCategoryId="C002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002002001" parentProductCategoryId="C002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002002002" parentProductCategoryId="C002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002002003" parentProductCategoryId="C002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002002004" parentProductCategoryId="C002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002002005" parentProductCategoryId="C002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002002006" parentProductCategoryId="C002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002002007" parentProductCategoryId="C002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002002008" parentProductCategoryId="C002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002002009" parentProductCategoryId="C002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002002010" parentProductCategoryId="C002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002002011" parentProductCategoryId="C002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002003" parentProductCategoryId="C002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002003001" parentProductCategoryId="C002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002003002" parentProductCategoryId="C002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002003003" parentProductCategoryId="C002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002003004" parentProductCategoryId="C002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002003005" parentProductCategoryId="C002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002003006" parentProductCategoryId="C002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002003007" parentProductCategoryId="C002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002003008" parentProductCategoryId="C002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002003009" parentProductCategoryId="C002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002003010" parentProductCategoryId="C002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002003011" parentProductCategoryId="C002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C002003012" parentProductCategoryId="C002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003" parentProductCategoryId="PortalRootCat" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003001" parentProductCategoryId="C003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003001001" parentProductCategoryId="C003001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003001002" parentProductCategoryId="C003001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003001003" parentProductCategoryId="C003001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003001004" parentProductCategoryId="C003001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003001005" parentProductCategoryId="C003001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003001006" parentProductCategoryId="C003001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003001007" parentProductCategoryId="C003001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003001008" parentProductCategoryId="C003001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003001009" parentProductCategoryId="C003001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003001010" parentProductCategoryId="C003001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003001011" parentProductCategoryId="C003001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003001012" parentProductCategoryId="C003001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003002" parentProductCategoryId="C003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003002001" parentProductCategoryId="C003002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003002002" parentProductCategoryId="C003002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003002003" parentProductCategoryId="C003002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003002004" parentProductCategoryId="C003002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003002005" parentProductCategoryId="C003002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003002006" parentProductCategoryId="C003002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003002007" parentProductCategoryId="C003002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003002008" parentProductCategoryId="C003002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003002009" parentProductCategoryId="C003002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003002010" parentProductCategoryId="C003002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003002011" parentProductCategoryId="C003002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003002012" parentProductCategoryId="C003002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003003" parentProductCategoryId="C003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003003001" parentProductCategoryId="C003003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003003002" parentProductCategoryId="C003003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003003003" parentProductCategoryId="C003003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003003004" parentProductCategoryId="C003003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003003005" parentProductCategoryId="C003003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003003006" parentProductCategoryId="C003003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003003007" parentProductCategoryId="C003003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003003008" parentProductCategoryId="C003003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003003009" parentProductCategoryId="C003003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003003010" parentProductCategoryId="C003003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003003011" parentProductCategoryId="C003003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C003003012" parentProductCategoryId="C003003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004" parentProductCategoryId="PortalRootCat" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004001" parentProductCategoryId="C004" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004001001" parentProductCategoryId="C004001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004001002" parentProductCategoryId="C004001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004001003" parentProductCategoryId="C004001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004001004" parentProductCategoryId="C004001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004001005" parentProductCategoryId="C004001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004001006" parentProductCategoryId="C004001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004001007" parentProductCategoryId="C004001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004001008" parentProductCategoryId="C004001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004001009" parentProductCategoryId="C004001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004001010" parentProductCategoryId="C004001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004001011" parentProductCategoryId="C004001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004001012" parentProductCategoryId="C004001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004002" parentProductCategoryId="C004" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004002001" parentProductCategoryId="C004002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004002002" parentProductCategoryId="C004002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004002003" parentProductCategoryId="C004002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004002004" parentProductCategoryId="C004002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004002005" parentProductCategoryId="C004002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004002006" parentProductCategoryId="C004002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004002007" parentProductCategoryId="C004002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004002008" parentProductCategoryId="C004002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004002009" parentProductCategoryId="C004002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004002010" parentProductCategoryId="C004002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004002011" parentProductCategoryId="C004002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004002012" parentProductCategoryId="C004002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004003" parentProductCategoryId="C004" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004003001" parentProductCategoryId="C004003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004003002" parentProductCategoryId="C004003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004003003" parentProductCategoryId="C004003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004003004" parentProductCategoryId="C004003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004003005" parentProductCategoryId="C004003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004003006" parentProductCategoryId="C004003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004003007" parentProductCategoryId="C004003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004003008" parentProductCategoryId="C004003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004003009" parentProductCategoryId="C004003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004003010" parentProductCategoryId="C004003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004003011" parentProductCategoryId="C004003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C004003012" parentProductCategoryId="C004003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005" parentProductCategoryId="PortalRootCat" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005001" parentProductCategoryId="C005" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005001001" parentProductCategoryId="C005001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005001002" parentProductCategoryId="C005001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005001003" parentProductCategoryId="C005001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005001004" parentProductCategoryId="C005001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005001005" parentProductCategoryId="C005001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005001006" parentProductCategoryId="C005001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005001007" parentProductCategoryId="C005001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005001008" parentProductCategoryId="C005001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005001009" parentProductCategoryId="C005001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005001010" parentProductCategoryId="C005001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005001011" parentProductCategoryId="C005001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005001012" parentProductCategoryId="C005001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005002" parentProductCategoryId="C005" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005002001" parentProductCategoryId="C005002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005002002" parentProductCategoryId="C005002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005002003" parentProductCategoryId="C005002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005002004" parentProductCategoryId="C005002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005002005" parentProductCategoryId="C005002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005002006" parentProductCategoryId="C005002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005002007" parentProductCategoryId="C005002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005002008" parentProductCategoryId="C005002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005002009" parentProductCategoryId="C005002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005002010" parentProductCategoryId="C005002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005002011" parentProductCategoryId="C005002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005003" parentProductCategoryId="C005" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005003001" parentProductCategoryId="C005003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005003002" parentProductCategoryId="C005003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005003003" parentProductCategoryId="C005003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005003004" parentProductCategoryId="C005003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005003005" parentProductCategoryId="C005003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005003006" parentProductCategoryId="C005003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005003007" parentProductCategoryId="C005003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005003008" parentProductCategoryId="C005003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005003009" parentProductCategoryId="C005003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005003010" parentProductCategoryId="C005003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C005003011" parentProductCategoryId="C005003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006" parentProductCategoryId="PortalRootCat" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006001" parentProductCategoryId="C006" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006001001" parentProductCategoryId="C006001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006001002" parentProductCategoryId="C006001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006001003" parentProductCategoryId="C006001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006001004" parentProductCategoryId="C006001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006001005" parentProductCategoryId="C006001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006001006" parentProductCategoryId="C006001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006001007" parentProductCategoryId="C006001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006001008" parentProductCategoryId="C006001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006001009" parentProductCategoryId="C006001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006001010" parentProductCategoryId="C006001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006001011" parentProductCategoryId="C006001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006002" parentProductCategoryId="C006" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006002001" parentProductCategoryId="C006002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006002002" parentProductCategoryId="C006002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006002003" parentProductCategoryId="C006002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006002004" parentProductCategoryId="C006002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006002005" parentProductCategoryId="C006002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006002006" parentProductCategoryId="C006002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006002007" parentProductCategoryId="C006002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006002008" parentProductCategoryId="C006002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006002009" parentProductCategoryId="C006002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006002010" parentProductCategoryId="C006002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006002011" parentProductCategoryId="C006002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006002012" parentProductCategoryId="C006002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006003" parentProductCategoryId="C006" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006003001" parentProductCategoryId="C006003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006003002" parentProductCategoryId="C006003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006003003" parentProductCategoryId="C006003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006003004" parentProductCategoryId="C006003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006003005" parentProductCategoryId="C006003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006003006" parentProductCategoryId="C006003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006003007" parentProductCategoryId="C006003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C006003008" parentProductCategoryId="C006003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007" parentProductCategoryId="PortalRootCat" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007001" parentProductCategoryId="C007" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007001001" parentProductCategoryId="C007001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007001002" parentProductCategoryId="C007001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007001003" parentProductCategoryId="C007001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007001004" parentProductCategoryId="C007001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007001005" parentProductCategoryId="C007001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007001006" parentProductCategoryId="C007001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007001007" parentProductCategoryId="C007001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007001008" parentProductCategoryId="C007001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007001009" parentProductCategoryId="C007001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007001010" parentProductCategoryId="C007001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007001011" parentProductCategoryId="C007001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007001012" parentProductCategoryId="C007001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007002" parentProductCategoryId="C007" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007002001" parentProductCategoryId="C007002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007002002" parentProductCategoryId="C007002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007002003" parentProductCategoryId="C007002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007002004" parentProductCategoryId="C007002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007002005" parentProductCategoryId="C007002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007002006" parentProductCategoryId="C007002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007002007" parentProductCategoryId="C007002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007002008" parentProductCategoryId="C007002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007002009" parentProductCategoryId="C007002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007002010" parentProductCategoryId="C007002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007003" parentProductCategoryId="C007" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007003001" parentProductCategoryId="C007003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007003002" parentProductCategoryId="C007003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007003003" parentProductCategoryId="C007003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007003004" parentProductCategoryId="C007003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007003005" parentProductCategoryId="C007003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007003006" parentProductCategoryId="C007003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007003007" parentProductCategoryId="C007003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007003008" parentProductCategoryId="C007003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007003009" parentProductCategoryId="C007003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007003010" parentProductCategoryId="C007003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007003011" parentProductCategoryId="C007003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C007003012" parentProductCategoryId="C007003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008" parentProductCategoryId="PortalRootCat" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008001" parentProductCategoryId="C008" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008001001" parentProductCategoryId="C008001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008001002" parentProductCategoryId="C008001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008001003" parentProductCategoryId="C008001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008001004" parentProductCategoryId="C008001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008001005" parentProductCategoryId="C008001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008001006" parentProductCategoryId="C008001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008001007" parentProductCategoryId="C008001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008001008" parentProductCategoryId="C008001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008001009" parentProductCategoryId="C008001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008001010" parentProductCategoryId="C008001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008001011" parentProductCategoryId="C008001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008001012" parentProductCategoryId="C008001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008002" parentProductCategoryId="C008" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008002001" parentProductCategoryId="C008002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008002002" parentProductCategoryId="C008002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008002003" parentProductCategoryId="C008002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008002004" parentProductCategoryId="C008002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008002005" parentProductCategoryId="C008002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008002006" parentProductCategoryId="C008002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008002007" parentProductCategoryId="C008002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008002008" parentProductCategoryId="C008002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008003" parentProductCategoryId="C008" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008003001" parentProductCategoryId="C008003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008003002" parentProductCategoryId="C008003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008003003" parentProductCategoryId="C008003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008003004" parentProductCategoryId="C008003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008003005" parentProductCategoryId="C008003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008003006" parentProductCategoryId="C008003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008003007" parentProductCategoryId="C008003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008003008" parentProductCategoryId="C008003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008003009" parentProductCategoryId="C008003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008003010" parentProductCategoryId="C008003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C008003011" parentProductCategoryId="C008003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009" parentProductCategoryId="PortalRootCat" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009001" parentProductCategoryId="C009" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009001001" parentProductCategoryId="C009001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009001002" parentProductCategoryId="C009001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009001003" parentProductCategoryId="C009001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009001004" parentProductCategoryId="C009001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009001005" parentProductCategoryId="C009001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009001006" parentProductCategoryId="C009001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009001007" parentProductCategoryId="C009001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009001008" parentProductCategoryId="C009001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009001009" parentProductCategoryId="C009001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009001010" parentProductCategoryId="C009001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009001011" parentProductCategoryId="C009001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009002" parentProductCategoryId="C009" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009002001" parentProductCategoryId="C009002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009002002" parentProductCategoryId="C009002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009002003" parentProductCategoryId="C009002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009002004" parentProductCategoryId="C009002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009002005" parentProductCategoryId="C009002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009002006" parentProductCategoryId="C009002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009002007" parentProductCategoryId="C009002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009002008" parentProductCategoryId="C009002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009002009" parentProductCategoryId="C009002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009003" parentProductCategoryId="C009" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009003001" parentProductCategoryId="C009003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009003002" parentProductCategoryId="C009003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009003003" parentProductCategoryId="C009003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009003004" parentProductCategoryId="C009003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009003005" parentProductCategoryId="C009003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009003006" parentProductCategoryId="C009003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009003007" parentProductCategoryId="C009003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009003008" parentProductCategoryId="C009003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009003009" parentProductCategoryId="C009003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="C009003010" parentProductCategoryId="C009003" fromDate="2001-05-13 12:00:00.0"/>
+
+
+</entity-engine-xml>

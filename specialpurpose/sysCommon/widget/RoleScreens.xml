@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+<screen name="FindSecurityGroup">
+        <section>
+            <actions>
+                <set field="pCtx" from-field="parameters" />
+                <set field="titleProperty" value="权限组列表"/>
+                <set field="searchAction" value="FindSecurityGroup"/>
+                <set field="searchForm" value="FindSecurityGroup"/>
+                <set field="operationButton[]" value="增加权限组.icon-add.EditSecurityGroup.href.SecurityGroup_ADD" />
+<!--              	<set field="operationButton[]" value="CommDeleteAll.icon-remove.delSecurityGroupAll.removeSelected.SecurityGroup_DELETE" /> -->
+<!--             	<set field="operationButton[]" value="启用.ext-icon-qy.updateSecurityGroupEnabled?enabled=Y###navTabId=sysCommon/control/FindSecurityGroup.operSelected-确定启用吗.SecurityGroup_UPDATE" /> -->
+<!-- 				<set field="operationButton[]" value="禁用.ext-icon-jy.updateSecurityGroupEnabled?enabled=N###navTabId=sysCommon/control/FindSecurityGroup.operSelected-确定禁用吗.SecurityGroup_UPDATE" /> -->
+			</actions>
+            <widgets>
+            
+            <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+                            <decorator-section name="search-options">
+				               <include-form name="FindSecurityGroup" location="component://sysCommon/widget/RoleForms.xml"/>
+				            </decorator-section>
+		                     <decorator-section name="search-results">
+		                         <include-form name="ListSecurityGroup" location="component://sysCommon/widget/RoleForms.xml"/>
+		                     </decorator-section>
+                        </decorator-screen>
+                       
+                    </decorator-section>
+                </decorator-screen>
+           </widgets>
+            
+        </section>
+    </screen>
+    <screen name="EditSecurityGroup">
+        <section>
+            <actions>
+            	<!--<set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/jquery-easyui-1.3.3/jquery.easyui.min.js" global="true" />-->
+            	<set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/js/html_entity.js" global="true"/>
+				<set field="layoutSettings.rtlStyleSheets[]" value="/sysCommon/images/zTree-zTree_v3-master/zTree_v3/css/zTreeStyle/zTreeStyle.css" global="true"/>
+				<set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/zTree-zTree_v3-master/zTree_v3/js/jquery.ztree.excheck-3.5.js" global="true" /> 
+				<set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/zTree-zTree_v3-master/zTree_v3/js/jquery.ztree.core-3.5.js" global="true" /> 
+                <set field="titleProperty" value="编辑权限组"/>
+                <set field="tabButtonItem" value="EditSecurityGroup"/>
+                <set field="labelTitleProperty" value="roleInfo"/>
+ 				<set field="currentForm" value="EditSecurityGroup"/>
+                <set field="groupId" from-field="parameters.groupId"/>
+                <entity-one entity-name="SecurityGroup" value-field="securityGroup"/>
+                <!-- <entity-condition list="securityGroupPermissionList" entity-name="SecurityGroupPermission">
+            		<condition-expr field-name="groupId" from-field="parameters.groupId"/>
+            	</entity-condition>
+            	<entity-condition list="userLoginSecurityGroupList" entity-name="UserLoginSecurityGroup">
+            		<condition-expr field-name="groupId" from-field="parameters.groupId"/>
+            	</entity-condition>
+            	<entity-condition list="securityPermissionList" entity-name="SecurityPermission"></entity-condition>
+            	<entity-condition list="securityGroupPermissionList" entity-name="SecurityGroupPermission">
+            		<condition-expr field-name="groupId" from-field="parameters.groupId"/>
+            	</entity-condition> -->
+            	<!-- <entity-condition list="userLoginList" entity-name="UserLogin">
+	            	<condition-list>
+	            		 <condition-expr field-name="userLoginId"  operator="like" value="${parameters.userLoginId}_%"/> 
+	            	</condition-list>
+            	</entity-condition> -->
+            	<!-- <script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/menuTree.groovy"></script> -->
+            </actions>
+            <widgets>
+	            <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+	            <decorator-section name="body">
+	            		
+                       <platform-specific>
+				          <!--<html><html-template location="component://sysCommon/webapp/sysCommon/role/permission_group_edit.ftl"/></html>-->
+				          <html><html-template location="component://sysCommon/webapp/sysCommon/role/ztree_permission_group_edit.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+	                   
+	                </decorator-screen>
+                </widgets>
+        </section>
+    </screen>
+    <screen name="PermissionToParty">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleEditSecurityGroup"/>
+                <set field="tabButtonItem" value="EditSecurityGroup"/>
+ 				<set field="currentForm" value="PermissionToParty"/>
+                <set field="groupId" from-field="parameters.groupId"/>
+                <entity-one entity-name="SecurityGroup" value-field="securityGroup"/>
+                <entity-condition list="securityGroupPermissionList" entity-name="SecurityGroupPermission">
+            		<condition-expr field-name="groupId" from-field="parameters.groupId"/>
+            	</entity-condition>
+            	<entity-condition list="userLoginSecurityGroupList" entity-name="UserLoginSecurityGroup">
+            		<condition-expr field-name="groupId" from-field="parameters.groupId"/>
+            	</entity-condition>
+            	<entity-condition list="securityPermissionList" entity-name="SecurityPermission"></entity-condition>
+            	<entity-condition list="securityGroupPermissionList" entity-name="SecurityGroupPermission">
+            		<condition-expr field-name="groupId" from-field="parameters.groupId"/>
+            	</entity-condition>
+            	<entity-condition list="userLoginList" entity-name="UserLogin">
+	            	<condition-list>
+	            		 <condition-expr field-name="userLoginId"  operator="like" value="${parameters.userLoginId}_%"/> 
+	            	</condition-list>
+            	</entity-condition>
+            </actions>
+  
+                <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						
+						<container id='contact_div' style="pageContent">
+							<platform-specific>
+								<html>
+									<html-template location="component://sysCommon/webapp/sysCommon/role/permission_to_party.ftl" />
+								</html>
+							</platform-specific>
+						</container>
+						<container id='contact_list_div' style="grid">
+							<platform-specific>
+								<html>
+									<html-template location="component://sysCommon/webapp/sysCommon/role/permission_list_party.ftl" />
+								</html>
+							</platform-specific>
+						</container>
+					</decorator-section>
+				</decorator-screen>
+
+			</widgets>
+        </section>
+    </screen>
+    <screen name="LookupPermissions">
+        <section>
+            <actions>
+            	
+            	<entity-condition list="securityPermissionList" entity-name="SecurityPermission"></entity-condition>
+            	<entity-condition list="securityGroupPermissionList" entity-name="SecurityGroupPermission">
+            		<condition-expr field-name="groupId" from-field="parameters.groupId"/>
+            	</entity-condition>
+            	<set field="noConditionFind" value="Y"/>
+            </actions>
+            <widgets>
+            	 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                      	<platform-specific>
+			                            <html><html-template location="component://sysCommon/webapp/sysCommon/role/lookup_permission.ftl"/></html>
+			                        </platform-specific>
+						</decorator-section>
+			                 
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="LookupUserLogin">
+        <section>
+            <actions>
+            	<entity-condition list="userLoginList" entity-name="UserLogin">
+	            	<condition-list>
+	            		 <condition-expr field-name="userLoginId"  operator="like" value="${parameters.userLoginId}_%"/> 
+	            	</condition-list>
+            	</entity-condition>
+            	<set field="noConditionFind" value="Y"/>
+            	<entity-condition list="userLoginSecurityGroupList" entity-name="UserLoginSecurityGroup">
+            		<condition-expr field-name="groupId" from-field="parameters.groupId"/>
+            	</entity-condition>
+            </actions>
+            <widgets>
+            	 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+			                    <html><html-template location="component://sysCommon/webapp/sysCommon/role/lookup_userlogin.ftl"/></html>
+			             </platform-specific>	   
+	                    </decorator-section> 
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    	<screen name="FindRoleType">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="searchAction" value="FindRoleType" />
+				<set field="searchForm" value="FindRoleType" />
+				<set field="operationButton[]" value="增加.icon-add.EditRoleType.href.RoleType_ADD" />
+				<set field="operationButton[]" value="批量删除.icon-remove.deleteRoleType.removeSelected.RoleType_DELETE" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindRoleType" location="component://sysCommon/widget/RoleForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListRoleType" location="component://sysCommon/widget/RoleForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditRoleType">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="roleTypeId" from-field="parameters.roleTypeId" />
+				<set field="currentForm" value="EditRoleType" />
+				<entity-one entity-name="RoleType" value-field="entity" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="detail-options">
+							<screenlet title="">
+									<include-form name="EditRoleType" location="component://sysCommon/widget/RoleForms.xml" />
+						    </screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+     <screen name="FindRoleTypeParty">
+        <section>
+            <actions>
+            	<set field="searchAction" value="FindRoleTypeParty"/>
+                <set field="searchForm" value="FindRoleTypeParty"/>
+            	<set field="pCtx" from-field="parameters" />
+            </actions>
+            <widgets>
+            	<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+					<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/party/role_party.ftl"/></html>
+				        </platform-specific>
+				    </decorator-section>
+				</decorator-screen>    
+            </widgets>
+        </section>
+    </screen>
+</screens>

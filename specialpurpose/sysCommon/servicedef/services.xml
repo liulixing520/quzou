@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Project Manager service definitions.</description>
+	    <!-- 通用增删改服务 传入实体名称和实体id -->
+	    <service name="createCommonEntity" engine="java" 
+	             location="org.extErp.sysCommon.system.SystemServices" invoke="createCommonEntity" auth="true">
+	        <description>Create createCommonEntity</description>
+	        <attribute name="entityIdValue" type="String" mode="INOUT" allow-html="any" optional="true"/>
+			<attribute name="entityName" type="String" mode="IN" optional="false"/>
+			<attribute name="entityIdName" type="String" mode="IN" optional="false"/>
+			<attribute name="entityValueMap" type="java.util.Map" mode="IN" optional="true"/>
+	    </service>
+	     <service name="updateCommonEntity" engine="java" 
+	             location="org.extErp.sysCommon.system.SystemServices" invoke="updateCommonEntity" auth="true">
+	        <description>Update CommonEntity-学生</description>
+			<attribute name="entityName" type="String" mode="IN" optional="false"/>
+			<attribute name="entityIdName" type="String" mode="IN" optional="false"/>
+	        <attribute name="ids" type="String" mode="INOUT"  optional="true"/>
+			<attribute name="entityFiledNames" type="String" mode="IN" optional="false"/>
+			<attribute name="entityFiledValues" type="String" mode="IN" optional="false"/>
+	    </service>
+	    <service name="deleteCommonEntity" engine="simple" default-entity-name="LimsStudent"
+	             location="component://sysCommon/script/DemoServices.xml" invoke="deleteLimsStudent" auth="true">
+	        <description>Delete LimsStudent-学生</description>
+	        <auto-attributes mode="IN" include="pk" optional="false"/>
+	    </service>
+	    <!-- 批量终结实体 -->
+	    <service name="commonThruEntity" engine="java" location="org.extErp.sysCommon.util.OfbizExtUtil" invoke="commonThruEntity">
+	        <attribute name="ids" mode="IN" type="String" optional="false"/>
+	        <attribute name="entityName" mode="IN" type="String" optional="false"/>
+	        <attribute name="entityId" mode="IN" type="String" optional="false"/>
+	    </service>	 
+        <service name="performFindSqlList" auth="false" engine="java" invoke="performFindSqlList" location="org.extErp.sysCommon.util.OfbizExtUtil">
+        <description>Generic service to return an partial list.  set filterByDate to Y to exclude expired records.
+            set noConditionFind to Y to find without conditions.  </description>
+        <attribute name="querySql" type="String" mode="IN" allow-html="any" optional="false"/>
+        <attribute name="inputFields" type="java.util.Map" mode="IN" optional="false"/>
+        <attribute name="orderBy" type="String" mode="IN" optional="true"/>
+        <attribute name="noConditionFind" type="String" mode="IN" optional="true"><!-- find with no condition (empty entityConditionList) only done when this is Y --></attribute>
+        <attribute name="distinct" type="String" mode="IN" optional="true"><!-- distinct find only done when this is Y --></attribute>
+        <attribute name="filterByDate" type="String" mode="IN" optional="true"/>
+        <attribute name="filterByDateValue" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="viewIndex" type="Integer" mode="IN" optional="true"/>
+        <attribute name="viewSize" type="Integer" mode="IN" optional="true"/>
+        <attribute name="list" type="List" mode="OUT" optional="true"/>
+        <attribute name="listSize" type="Integer" mode="OUT" optional="false"/>
+        <attribute name="queryString" type="String" mode="OUT" optional="true"/>
+        <attribute name="queryStringMap" type="java.util.Map" mode="OUT" optional="true"/>
+        <attribute name="columns" type="List" mode="OUT" optional="true"/>
+    </service>
+	<service name="createLogs" engine="simple" default-entity-name="OperLogs"
+             location="component://sysCommon/script/CommonServices.xml" invoke="createLogs" auth="false">
+        <description>Create Logs</description>
+        <auto-attributes include="pk" mode="OUT" optional="false" />
+        
+		<attribute name="logDescription"  mode="IN" type="String" optional="true"/>
+    </service>
+	<!-- 通用编号生成器 -->
+    <service name="getNewSerialNumber" engine="java" location="org.extErp.sysCommon.common.SysSerialNumberServices" invoke="createOrUpdateSN">
+        <attribute name="snName" mode="IN" type="String" optional="false"/>
+        <attribute name="defalutSN" mode="IN" type="String" optional="true"/>
+        <attribute name="dateStyle" mode="IN" type="String" optional="true" default-value="yyyyMM"/>
+        <attribute name="defalutLengthSN" mode="IN" type="Integer" optional="true" default-value="4"/>
+        <attribute name="newSN" mode="OUT" type="String" optional="false"/>
+        <!-- 生成Code的 前缀、日期格式、分隔符 生成RWD-2013-01-01-xxxxx格式的编号(suffix separator (dateFormatter)Date separator defalutLengthSN)-->
+        <attribute name="prefix" mode="IN" type="String" optional="true"/>
+        <attribute name="dateFomatter" mode="IN" type="String" optional="true"/>
+        <attribute name="separator" mode="IN" type="String" optional="true"/>
+    </service>	 
+    
+</services>

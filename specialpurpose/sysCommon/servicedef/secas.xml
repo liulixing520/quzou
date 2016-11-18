@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+用户操作日志等
+-->
+
+<service-eca xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/service-eca.xsd">
+	<!-- 日志 -->
+    <eca service="createLimsClass" event="commit">
+        <action service="createLogs" mode="sync"/>
+    </eca>
+	<eca service="updateLimsClass" event="commit">
+        <action service="createLogs" mode="sync"/>
+    </eca>
+    
+    <!-- 菜单清除缓存 -->
+    <eca service="createMenuTree" event="commit">
+        <action service="clearCacheMenuTree" mode="sync"/>
+    </eca>
+    <eca service="updateMenuTree" event="commit">
+        <action service="clearCacheMenuTree" mode="sync"/>
+    </eca>
+    <eca service="deleteMenuTree" event="commit">
+        <action service="clearCacheMenuTree" mode="sync"/>
+    </eca>
+    <!-- 枚举清除缓存 -->
+    <eca service="createEnumeration" event="commit">
+        <action service="clearCacheEnumeration" mode="sync"/>
+    </eca>
+    <eca service="updateEnumeration" event="commit">
+        <action service="clearCacheEnumeration" mode="sync"/>
+    </eca>
+    <eca service="deleteEnumeration" event="commit">
+        <action service="clearCacheEnumeration" mode="sync"/>
+    </eca>
+    
+    
+    <!-- 用车 -->
+     <eca service="startCommonWorkFlow" event="commit">
+    	<condition field-name="entityName" operator="equals" value="CarUseApplyRegister"/>
+    	<set field-name="status" value="START"/>
+    	<set field-name="carUseId" env-name="entityIdValue"/>
+        <action service="updateCarUseApplyRegister" mode="sync"/>
+    </eca>
+    
+    <eca service="completeCommonEndActivityProcess" event="commit">
+    	<condition field-name="entityName" operator="equals" value="CarUseApplyRegister"/>
+    	<set field-name="status" value="COMPLETED"/>
+    	<set field-name="carUseId" env-name="entityIdValue"/>
+        <action service="updateCarUseApplyRegister" mode="sync"/>
+    </eca> 
+   
+</service-eca>

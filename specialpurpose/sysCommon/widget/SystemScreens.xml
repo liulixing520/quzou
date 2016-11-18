@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+		<screen name="FindExtendAttribute">
+		<section>
+			<actions>
+				<set field="titleProperty" value="扩展属性列表" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="searchAction" value="FindExtendAttribute" />
+				<set field="searchForm" value="FindExtendAttribute" />
+				<set field="operationButton[]" value="增加扩展属性.icon-add.EditExtendAttribute.href.ExtendAttribute_ADD" />
+<!-- 				<set field="operationButton[]" value="批量删除.icon-remove.deleteExtendAttribute.removeSelected.ExtendAttribute_DELETE" /> -->
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindExtendAttribute" location="component://sysCommon/widget/SystemForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListExtendAttribute" location="component://sysCommon/widget/SystemForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditExtendAttribute">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="extendAttributeId" from-field="parameters.extendAttributeId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="ExtendAttribute" value-field="entity" />
+				<set field="currentForm" value="${groovy:(entity==null)?&quot;CreateExtendAttribute&quot;:&quot;EditExtendAttribute&quot;}"/>  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="detail-options">
+							<screenlet title="">
+									<include-form name="EditExtendAttribute" location="component://sysCommon/widget/SystemForms.xml" />
+						    </screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindEnumerationType">
+		<section>
+			<actions>
+				<set field="titleProperty" value="枚举类型列表" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="searchAction" value="FindEnumerationType" />
+				<set field="searchForm" value="FindEnumerationType" />
+				<set field="operationButton[]" value="增加枚举.icon-add.EditEnumerationType.dialog.EnumerationType_ADD" />
+<!-- 				<set field="operationButton[]" value="CommDeleteAll.icon-remove.deleteEnumerationType.removeSelected" /> -->
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindEnumerationType" location="component://sysCommon/widget/SystemForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListEnumerationType" location="component://sysCommon/widget/SystemForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditEnumerationType">
+		<section>
+			<actions>
+				<set field="titleProperty" value="编辑枚举类型" />
+				<set field="enumTypeId" from-field="parameters.enumTypeId" />
+				<set field="currentForm" value="EditEnumerationType" />
+				<entity-one entity-name="EnumerationType" value-field="entity" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="detail-options">
+							<screenlet title="">
+									<include-form name="EditEnumerationType" location="component://sysCommon/widget/SystemForms.xml" />
+						    </screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindEnumeration">
+		<section>
+			<actions>
+				<set field="titleProperty" value="枚举列表" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="searchAction" value="FindEnumeration" />
+				<set field="searchForm" value="FindEnumeration" />
+				<set field="operationButton[]" value="增加枚举项.icon-add.EditEnumeration.href.Enumeration_ADD" />
+<!-- 				<set field="operationButton[]" value="CommDeleteAll.icon-remove.deleteEnumeration.removeSelected" /> -->
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindEnumeration" location="component://sysCommon/widget/SystemForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListEnumeration" location="component://sysCommon/widget/SystemForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+		<screen name="LookupEnumerationType">
+			<section>
+				<actions>
+					<set field="headerItem" value="EnumerationType" />
+					<set field="titleProperty" value="EnumerationType" />
+					<set field="pCtx" from-field="parameters" />
+					<set field="parameters.noConditionFind" value="Y" />   <!--默认无条件查询 -->
+					<set field="lookupId" value="enumTypeId" />   <!--查询lookup -->
+					<set field="searchAction" value="LookupEnumerationType" /><!--列表查询url -->
+					<set field="searchForm" value="LookupFindEnumerationType" />  <!-- 查询 form id -->
+					<!-- 按钮操作区 按钮显示名称.按钮图标CSS样式.按钮连接href(可为js函数).dwz操作方式(tab页、弹出框、批量选择操作等) 多个按钮为多个变量 -->
+<!-- 					<set field="operationButton[]" value="CommDeleteAll.icon-remove.delEnumerationAll.removeSelected" /> -->
+<!-- 					<set field="operationButton[]" value="增加.icon-add.EditEnumeration.navTab" /> -->
+				</actions>
+				<widgets>
+					<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+						<decorator-section name="body">
+							<decorator-screen name="LookupScreenDecorator" location="${parameters.mainDecoratorLocation}">
+								<decorator-section name="lookup-options">
+									<include-form name="LookupFindEnumerationType" location="component://sysCommon/widget/SystemForms.xml" />
+								</decorator-section>
+								<decorator-section name="search-results">
+									<include-form name="LookupEnumerationType" location="component://sysCommon/widget/SystemForms.xml" />
+								</decorator-section>
+							</decorator-screen>
+						</decorator-section>
+					</decorator-screen>
+				</widgets>
+			</section>
+		</screen>
+	<screen name="EditEnumeration">
+		<section>
+			<actions>
+				<set field="titleProperty" value="编辑枚举" />
+				<set field="enumId" from-field="parameters.enumId" />
+				<set field="currentForm" value="EditEnumeration" />
+				<entity-one entity-name="Enumeration" value-field="entity" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="detail-options">
+							<screenlet title="">
+									<include-form name="EditEnumeration" location="component://sysCommon/widget/SystemForms.xml" />
+						    </screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindMenuTree">
+		<section>
+			<actions>
+				<set field="titleProperty" value="菜单列表" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="searchAction" value="FindMenuTree" />
+				<set field="searchForm" value="FindMenuTree" />
+				<set field="operationButton[]" value="增加菜单.icon-add.EditMenuTree.href.MenuTree_ADD" />
+<!-- 				<set field="operationButton[]" value="CommDeleteAll.icon-remove.deleteMenuTree.removeSelected" /> -->
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindMenuTree" location="component://sysCommon/widget/SystemForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListMenuTree" location="component://sysCommon/widget/SystemForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditMenuTree">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="id" from-field="parameters.id" />
+				<set field="currentForm" value="EditMenuTree" />
+				<entity-one entity-name="MenuTree" value-field="entity" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="detail-options">
+							<screenlet title="">
+									<include-form name="EditMenuTree" location="component://sysCommon/widget/SystemForms.xml" />
+						    </screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+		<screen name="FindOperLogs">
+		<section>
+			<actions>
+				<set field="titleProperty" value="系统日志列表" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="searchAction" value="FindOperLogs" />
+				<set field="searchForm" value="FindOperLogs" />
+				<set field="sortField"  from-field="parameters.sortField" default-value="-createdStamp" />
+				
+<!-- 				<set field="operationButton[]" value="CommAdd.icon-add.EditOperLogs.href.OperLogs_ADD" /> -->
+<!-- 				<set field="operationButton[]" value="批量删除.icon-remove.deleteAllOperLogs.removeSelected.OperLogs_DELETE" /> -->
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindOperLogs" 
+									location="component://sysCommon/widget/SystemForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListOperLogs" 
+									location="component://sysCommon/widget/SystemForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditOperLogs">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="logId" from-field="parameters.logId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="OperLogs" value-field="entity" />
+				<set field="currentForm" value="${groovy:(entity==null)?&quot;CreateOperLogs&quot;:&quot;EditOperLogs&quot;}"/>  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+					<decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="detail-options">
+							<screenlet title="">
+								<include-form name="EditOperLogs" 
+									location="component://sysCommon/widget/SystemForms.xml" />
+						    </screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+		<!--自定义表单 -->
+	<screen name="FindDesignForm">
+		<section>
+			<actions>
+				<set field="titleProperty" value="自定义表单列表" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="searchAction" value="FindDesignForm" />
+				<set field="searchForm" value="FindDesignForm" />
+				<set field="operationButton[]" value="增加.icon-add.EditDesignForm.href.DesignForm_ADD" />
+				<set field="operationButton[]" value="批量删除.icon-remove.deleteAllDesignForm.removeSelected.DesignForm_DELETE" />
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindDesignForm" 
+									location="component://sysCommon/widget/SystemForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListDesignForm" 
+									location="component://sysCommon/widget/SystemForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="LookupDesignForm">
+		<section>
+			<actions>
+				<set field="pCtx" from-field="parameters" />
+				<set field="queryString" from-field="result.queryString"/>
+				<set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer" default-value="0"/>
+				<set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="20"/>
+				<set field="entityName" value="DesignForm"/>
+				<set field="searchFields" value="[designFormId, designFormName]"/>
+			</actions>
+			<widgets>
+			    <decorator-screen name="LookupDecorator" location="component://common/widget/CommonScreens.xml">
+			        <decorator-section name="search-options">
+			            <include-form name="lookupDesignForm" location="component://sysCommon/widget/SystemForms.xml"/>
+			        </decorator-section>
+			        <decorator-section name="search-results">
+			            <include-form name="listDesignForms" location="component://sysCommon/widget/SystemForms.xml"/>
+			        </decorator-section>
+			    </decorator-screen>
+			</widgets>	
+		</section>
+	</screen>
+	<screen name="EditDesignForm">
+		<section>
+			<actions>
+				<set field="titleProperty" value="编辑自定义表单" />
+				<set field="designFormId" from-field="parameters.designFormId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="DesignForm" value-field="entity" />
+				<set field="currentForm" value="${groovy:(entity==null)?&quot;CreateDesignForm&quot;:&quot;EditDesignForm&quot;}"/>  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/system/DesignForm_edit.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EntityDesignForm">
+		<section>
+			<actions>
+				<set field="titleProperty" value="选择字段" />
+				<set field="designFormId" from-field="parameters.designFormId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="DesignForm" value-field="entity" />
+				<set field="currentForm" value="${groovy:(entity==null)?&quot;CreateDesignForm&quot;:&quot;EditDesignForm&quot;}"/>  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/system/DesignForm_entity.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!-- 审核卖家的审核 -->
+	<screen name="mng_sellerExamine">
+		<section>
+			<actions>
+				<property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+				<!-- 
+				<set field="titleProperty" value="选择字段" />
+				<set field="designFormId" from-field="parameters.designFormId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="DesignForm" value-field="entity" />
+				<set field="currentForm" value="${groovy:(entity==null)?&quot;CreateDesignForm&quot;:&quot;EditDesignForm&quot;}"/>
+				 -->
+				<set field="titleProperty" value="卖家管理>店铺申请审核"/>
+                <set field="headerItem" value="find"/>
+                <set field="tabButtonItem" value="findparty"/>
+
+                <service service-name="findParty" auto-field-map="parameters"/>  
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <condition>
+                                <if-service-permission service-name="partyBasePermissionCheck" main-action="VIEW"/>
+                            </condition>
+                            <widgets>
+                                <platform-specific>
+                                    <html><html-template location="component://sysCommon/webapp/sysCommon/store/mng_sellerExamine.ftl"/></html>
+                                </platform-specific>
+                            </widgets>
+                            <fail-widgets>
+                                <label style="h3" text="${uiLabelMap.PartyMgrViewPermissionError}"/>
+                            </fail-widgets>
+                        </section>
+                    </decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+</screens>

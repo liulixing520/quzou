@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>Component Services</description>
+	<vendor>OFBiz</vendor>
+	<version>1.0</version>
+	<created>longtuo</created>
+
+
+	<service name="createShopProduct" default-entity-name="Product" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="createProduct" auth="true">
+		<description>Create a Product</description>
+		<implements service="interfaceProduct" />
+		<auto-attributes include="pk" mode="OUT" optional="false"/>
+		<attribute name="featureIds" type="Map" mode="IN" string-map-prefix="valId_" optional="true" />
+		<attribute name="productFeatureIds" type="Map" mode="IN"  optional="true" />
+		<attribute name="spPriceMap" type="Map" mode="IN" optional="true" string-map-prefix="sp_price_" />
+		<attribute name="spZhPriceMap" type="Map" mode="IN" optional="true" string-map-prefix="sp_ZhPrice_" />
+		<attribute name="spRuPriceMap" type="Map" mode="IN" optional="true" string-map-prefix="sp_RuPrice_" />
+		<attribute name="spInventoryMap" type="Map" mode="IN" optional="true" string-map-prefix="sp_inventory_" />
+		<attribute name="imgUrlMap" type="Map" mode="IN" optional="true" string-map-prefix="imgUrl_" />
+		<attribute name="goodsNoMap" type="Map" mode="IN" optional="true" string-map-prefix="sp_goodsNo_" />
+<!--		<attribute name="orderNumMap" type="Map" mode="IN" optional="true" string-map-prefix="orderNum_" />-->
+		<!-- <attribute name="productFeatureIds" type="List" mode="IN" optional="true"/> -->
+		<attribute name="product_assocs" mode="IN" type="List" optional="true" />
+		<attribute name="product_configs" mode="IN" type="List" optional="true" />
+		<attribute name="product_categorys" mode="IN" type="List" optional="true" />
+		<attribute name="productLabIds" mode="IN" type="List" optional="true"></attribute>
+		<attribute name="productStoreId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="metaTitle" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="metaKeywords" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="metaDescription" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="goodType" type="String" mode="IN" optional="true" />
+		<attribute name="saleable" type="String" mode="IN" optional="true" />
+		<attribute name="goodsNo" type="String" mode="IN" optional="true" />
+		<attribute name="marketPrice" type="BigDecimal" mode="IN" optional="true" />
+		<attribute name="inventory" type="BigDecimal" mode="IN" optional="true" />
+		<!-- <attribute name="promoPrice" type="BigDecimal" mode="IN" optional="true"/> <attribute name="promoPriceFromDate" type="Timestamp" mode="IN" optional="true"/> <attribute name="promoPriceThruDate" type="Timestamp" mode="IN" optional="true"/> -->
+		<attribute name="averageCost" type="BigDecimal" mode="IN" optional="true" />
+		<!-- <attribute name="price" type="BigDecimal" mode="IN" optional="true"/> <attribute name="fromDatePrice" type="Timestamp" mode="IN" optional="true"/> -->
+		<attribute name="priceMap" type="Map" mode="IN" optional="true" string-map-prefix="price_" />
+		<attribute name="priceFromDateMap" type="Map" mode="IN" optional="true" string-map-prefix="priceFromDate_" />
+		<attribute name="priceThruDateMap" type="Map" mode="IN" optional="true" string-map-prefix="priceThruDate_" />
+		<attribute name="priceNameMap" type="Map" mode="IN" optional="true" string-map-prefix="priceName_" />
+		<attribute name="currencyUomIdMap" type="Map" mode="IN" optional="true" string-map-prefix="currencyUomId_" />
+
+		<attribute name="idMap" type="Map" mode="IN" optional="true" string-map-prefix="[new]" />
+		<attribute name="filePathMap" type="Map" mode="IN" optional="true" string-map-prefix="[path]" />
+		<attribute name="imgAlthMap" type="Map" mode="IN" optional="true" string-map-prefix="[imgalt]" />
+		<attribute name="imgSeqMap" type="Map" mode="IN" optional="true" string-map-prefix="[imgseq]" />
+		<attribute name="listImg" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="attribs" type="Map" mode="IN" optional="true" string-map-prefix="attr_" />
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="productTypeCategoryId" mode="IN" type="String" optional="false" />
+
+		<attribute name="placeOfOriginCategoryId" mode="IN" type="String" optional="true" />
+		<attribute name="varietyCategoryId" mode="IN" type="String" optional="true" />
+		<attribute name="yearsCategoryId" mode="IN" type="String" optional="true" />
+		<attribute name="otherCategoryId" mode="IN" type="String" optional="true" />
+		<attribute name="productTypeCategoryId" mode="IN" type="String" optional="true" />
+
+		<attribute name="currencyUomId" mode="IN" type="String" optional="true" />
+		<attribute name="weight" mode="IN" type="BigDecimal" optional="true" />
+		<attribute name="weightUomId" mode="IN" type="String" optional="true" />
+		<auto-attributes include="pk" mode="INOUT" optional="true" />
+		<override name="productTypeId" optional="false" />
+		<override name="productName" optional="true" />
+	</service>
+	<service name="updateShopProduct" default-entity-name="Product" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="updateProduct" auth="true">
+	<!--<service name="updateShopProduct" default-entity-name="Product" engine="java" location="org.ofbiz.iteamgr.product.ProductServices" invoke="updateShopProduct" auth="true">  -->
+		<description>Update a Product</description>
+		<implements service="interfaceProduct" />
+		<auto-attributes include="pk" mode="IN" optional="false"/>
+		<attribute name="featureIds" type="Map" mode="IN" string-map-prefix="valId_" optional="true" />
+		<attribute name="productFeatureIds" type="Map" mode="IN" string-map-prefix="v[" optional="true" />
+		<attribute name="imgUrlMap" type="Map" mode="IN" optional="true" string-map-prefix="imgUrl_" />
+		<attribute name="spPriceMap" type="Map" mode="IN" optional="true" string-map-prefix="sp_price_" />
+		<attribute name="spZhPriceMap" type="Map" mode="IN" optional="true" string-map-prefix="sp_ZhPrice_" />
+		<attribute name="spRuPriceMap" type="Map" mode="IN" optional="true" string-map-prefix="sp_RuPrice_" />
+<!--		<attribute name="marketPriceMap" type="Map" mode="IN" optional="true" string-map-prefix="sp_marketPrice_" />-->
+<!--		<attribute name="averageCostPriceMap" type="Map" mode="IN" optional="true" string-map-prefix="sp_averageCostPrice_" />-->
+		<attribute name="goodsNoMap" type="Map" mode="IN" optional="true" string-map-prefix="sp_goodsNo_" />
+<!--		<attribute name="orderNumMap" type="Map" mode="IN" optional="true" string-map-prefix="orderNum_" />-->
+		<attribute name="product_assocs" mode="IN" type="List" optional="true"></attribute>
+		<attribute name="product_configs" mode="IN" type="List" optional="true"></attribute>
+		<attribute name="product_categorys" mode="IN" type="List" optional="true"></attribute>
+		<attribute name="productLabIds" mode="IN" type="List" optional="true"></attribute>
+		<attribute name="productStoreId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="metaTitle" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="metaKeywords" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="metaDescription" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="titleContentId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="keyWordContentId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="descContentId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="oldIdMap" type="Map" mode="IN" optional="true" string-map-prefix="[old]" />
+		<attribute name="idMap" type="Map" mode="IN" optional="true" string-map-prefix="[new]" />
+		<attribute name="filePathMap" type="Map" mode="IN" optional="true" string-map-prefix="[path]" />
+		<attribute name="imgAlthMap" type="Map" mode="IN" optional="true" string-map-prefix="[imgalt]" />
+		<attribute name="imgSeqMap" type="Map" mode="IN" optional="true" string-map-prefix="[imgseq]" />
+		<attribute name="listImg" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="goodType" type="String" mode="IN" optional="true" />
+		<attribute name="saleable" type="String" mode="IN" optional="true" />
+		<attribute name="goodsNo" type="String" mode="IN" optional="true" />
+		<attribute name="marketPrice" type="BigDecimal" mode="IN" optional="true" />
+		<attribute name="inventory" type="BigDecimal" mode="IN" optional="true" />
+		<attribute name="averageCost" type="BigDecimal" mode="IN" optional="true" />
+		<!-- <attribute name="price" type="BigDecimal" mode="IN" optional="true"/> -->
+		<attribute name="hasPriceMap" type="Map" mode="IN" optional="true" string-map-prefix="hasPri_" />
+		<attribute name="priceMap" type="Map" mode="IN" optional="true" string-map-prefix="price_" />
+		<attribute name="priceFromDateMap" type="Map" mode="IN" optional="true" string-map-prefix="priceFromDate_" />
+		<attribute name="priceThruDateMap" type="Map" mode="IN" optional="true" string-map-prefix="priceThruDate_" />
+		<attribute name="priceNameMap" type="Map" mode="IN" optional="true" string-map-prefix="priceName_" />
+		<attribute name="attribs" type="Map" mode="IN" optional="true" string-map-prefix="attr_" />
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="productTypeCategoryId" mode="IN" type="String" optional="false" />
+		<attribute name="currencyUomIdMap" type="Map" mode="IN" optional="true" string-map-prefix="currencyUomId_" />
+
+		<attribute name="placeOfOriginCategoryId" mode="IN" type="String" optional="true" />
+		<attribute name="varietyCategoryId" mode="IN" type="String" optional="true" />
+		<attribute name="yearsCategoryId" mode="IN" type="String" optional="true" />
+		<attribute name="otherCategoryId" mode="IN" type="String" optional="true" />
+
+		<attribute name="currencyUomId" mode="IN" type="String" optional="true" />
+		<attribute name="weight" mode="IN" type="BigDecimal" optional="true" />
+		<attribute name="weightUomId" mode="IN" type="String" optional="true" />
+		<attribute name="longDescription" type="String" mode="IN" optional="true" allow-html="any" /> 
+		<auto-attributes include="pk" mode="IN" optional="false" />
+	</service>
+	<service name="deleteProductContentImage" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="deleteProductContentImage" auth="true">
+		<attribute name="productId" type="String" mode="IN" optional="false" />
+		<attribute name="contentId" mode="IN" type="String" optional="false"></attribute>
+	</service>
+	
+	<!-- Product Visit Services -->
+	<service name="createProductVisit" default-entity-name="ProductVisit" engine="simple" location="component://portal/script/org/ofbiz/product//product/ProdServices.xml" invoke="createProductVisit" auth="false">
+		<description>Create a ProductVisit</description>
+		<auto-attributes include="pk" mode="INOUT" optional="true" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>
+	<service name="updateProductVisit" default-entity-name="ProductVisit" engine="simple" location="component://portal/script/org/ofbiz/product//product/ProdServices.xml" invoke="updateProductVisit" auth="false">
+		<description>Update a ProductVisit</description>
+		<auto-attributes include="pk" mode="INOUT" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>
+
+	<service name="addFavorite" engine="java" location="org.ofbiz.ebiz.product.ProductService" invoke="addFavorite" auth="true">
+		<attribute name="productId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="userLogin" mode="IN" type="org.ofbiz.entity.GenericValue"></attribute>
+		<attribute name="productStoreId" mode="IN" type="String"></attribute>
+		<attribute name="flag" mode="OUT" type="String"></attribute>
+	</service>
+	<!--process the image -->
+	<!-- 按大小缩放 -->
+	<service name="scaleImage" engine="java" location="org.ofbiz.ebiz.product.ProductService" invoke="scaleImage" auth="true">
+		<attribute name="imageIn" mode="IN" type="String" optional="false"><description>待处理图片路径和文件名</description></attribute>
+		<attribute name="imageResult" mode="INOUT" type="String" optional="false"><description>生成图片路径和文件名</description></attribute>
+		<attribute name="resultHeight" mode="IN" type="Integer" optional="false"><description>生成图片高度</description></attribute>
+		<attribute name="resultWidth" mode="IN" type="Integer" optional="false"><description>生成图片宽度</description></attribute>
+		<attribute name="ifAddFiller" mode="IN" type="Boolean" optional="false"><description>比例不对时是否补白</description></attribute>
+	</service>
+	<!-- 按坐标和长宽切割 -->
+	<service name="cutImage" engine="java" location="org.ofbiz.ebiz.product.ProductService" invoke="cutImage" auth="true">
+		<attribute name="imageIn" mode="IN" type="String" optional="false"><description>待处理图片路径和文件名</description></attribute>
+		<attribute name="imageResult" mode="INOUT" type="String" optional="false"><description>生成图片路径和文件名</description></attribute>
+		<attribute name="height" mode="IN" type="Integer" optional="false"><description>切割高度</description></attribute>
+		<attribute name="width" mode="IN" type="Integer" optional="false"><description>切割宽度</description></attribute>
+	</service>
+	<!-- 添加图片水印 -->
+	<service name="addImgWaterMarker" engine="java" location="org.ofbiz.ebiz.product.ProductService" invoke="addImgWaterMarker" auth="false">
+		<attribute name="waterMarkerContent" mode="IN" type="String" optional="false"><description>水印内容：图片地址</description></attribute>
+		<attribute name="imageIn" mode="IN" type="String" optional="false"><description>待处理图片路径和文件名</description></attribute>
+		<attribute name="imageResult" mode="INOUT" type="String" optional="false"><description>生成图片路径和文件名</description></attribute>
+		<attribute name="position" mode="IN" type="String" optional="true"><description>x坐标修正，默认在中间</description></attribute>
+		<attribute name="alpha" mode="IN" type="String" optional="false"><description>透明度【0-100】的整数</description></attribute>
+	</service>
+	<!-- 添加文本水印 -->
+	<service name="addTextWaterMarker" engine="java" location="org.ofbiz.ebiz.product.ProductService" invoke="addTextWaterMarker" auth="true">
+		<attribute name="waterMarkerContent" mode="IN" type="String" optional="false"><description>水印内容：水印文字</description></attribute>
+		<attribute name="imageIn" mode="IN" type="String" optional="false"><description>待处理图片路径和文件名</description></attribute>
+		<attribute name="imageResult" mode="INOUT" type="String" optional="false"><description>生成图片路径和文件名</description></attribute>
+		<attribute name="position" mode="IN" type="String" optional="false"><description>水印位置，默认在中间</description></attribute>
+		<attribute name="alpha" mode="IN" type="String" optional="false"><description>透明度【0-100】的整数</description></attribute>
+		<attribute name="fontName" mode="IN" type="String" optional="false"><description>文字水印字体名称</description></attribute>
+		<attribute name="fontStyle" mode="IN" type="Integer" optional="true"><description>文字水印字体样式，请参考java.awt.Font类,可为空</description></attribute>
+		<attribute name="color" mode="IN" type="String" optional="false"><description>水印的字体颜色</description></attribute>
+		<attribute name="shadowColor" mode="IN" type="String" optional="true"><description>字体阴影颜色</description></attribute>
+		<attribute name="fontSize" mode="IN" type="String" optional="false"><description>水印的字体大小</description></attribute>
+	</service>
+	
+	<!-- 获取product的促销信息 -->
+	<service name="getProductSEOInfo" engine="java" location="org.ofbiz.ebiz.product.ProductService" invoke="getProductSEOInfo" auth="false">
+		<attribute name="productId" mode="IN" type="String" optional="false"/>
+		<attribute name="title" mode="OUT" type="String" optional="true"/>
+		<attribute name="keywords" mode="OUT" type="String" optional="true"/>
+		<attribute name="description" mode="OUT" type="String" optional="true"/>
+	</service>
+		<!--Type Attribute Group Entity -->
+	<service name="createTypeAttributeGroup" engine="simple" default-entity-name="TypeAttributeGroup"
+             location="component://portal/script/org/ofbiz/product//product/ProdServices.xml" invoke="createTypeAttributeGroup" auth="true">
+        <description>Create TypeAttributeGroup-Type Attribute Group Entity</description>
+        <auto-attributes include="pk" mode="INOUT" optional="true" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+     <service name="updateTypeAttributeGroup" engine="simple" default-entity-name="TypeAttributeGroup"
+             location="component://portal/script/org/ofbiz/product//product/ProdServices.xml" invoke="updateTypeAttributeGroup" auth="true">
+        <description>Update TypeAttributeGroup-Type Attribute Group Entity</description>
+        <auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+    <service name="deleteTypeAttributeGroup" engine="simple" default-entity-name="TypeAttributeGroup"
+             location="component://portal/script/org/ofbiz/product//product/ProdServices.xml" invoke="deleteTypeAttributeGroup" auth="true">
+        <description>Delete TypeAttributeGroup-Type Attribute Group Entity</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+    </service>
+    <service name="deleteAllTypeAttributeGroup" engine="simple" default-entity-name="TypeAttributeGroup"
+             location="component://portal/script/org/ofbiz/product//product/ProdServices.xml" invoke="deleteAllTypeAttributeGroup" auth="true">
+        <description>Delete TypeAttributeGroup-Type Attribute Group Entity</description>
+        <attribute name="ids"  mode="IN" type="String" optional="false"/>
+    </service>
+	
+	<!-- Product lab Services -->
+	<service name="createProductLab" default-entity-name="ProductLab" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="createProductLab" auth="true">
+		<description>Create a ProductLab</description>
+		<permission-service service-name="productGenericPermission" main-action="CREATE" />
+		<auto-attributes include="pk" mode="OUT" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="productStoreId" mode="IN" default-value="1" type="String" optional="true"></attribute>
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="createAjaxProductLab" default-entity-name="ProductLab" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="createAjaxProductLab" auth="true">
+		<description>Create a ProductLab</description>
+		<permission-service service-name="productGenericPermission" main-action="CREATE" />
+		<auto-attributes include="pk" mode="OUT" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="productStoreId" mode="IN" default-value="1" type="String" optional="true"></attribute>
+		<attribute name="productId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="updateProductLab" default-entity-name="ProductLab" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="updateProductLab" auth="true">
+		<description>Update a ProductLab</description>
+		<permission-service service-name="productGenericPermission" main-action="UPDATE" />
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<!-- <attribute name="productStoreId" mode="IN" default-value="1" type="String" optional="true"></attribute> -->
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="deleteProductLab" engine="simple" default-entity-name="ProductLab" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="deleteProductLab" auth="true">
+		<auto-attributes include="pk" mode="IN" optional="false" />
+	</service>
+
+	
+	<!-- 
+	<service name="createProductBrand" default-entity-name="ProductBrand" engine="java" location="org.ofbiz.ebiz.productbrand.ProductBrandServices" invoke="createProductBrand" auth="true">
+		<description>Create a Product Brand</description>
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+		<auto-attributes include="pk" mode="OUT" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<override name="description" allow-html="any"></override>
+	</service>
+	<service name="updateProductBrand" default-entity-name="ProductBrand" engine="java" location="org.ofbiz.ebiz.productbrand.ProductBrandServices" invoke="updateProductBrand" auth="true">
+		<description>Update a Product Brand</description>
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<override name="description" allow-html="any"></override>
+	</service>
+	<service name="deleteProductBrand" default-entity-name="ProductBrand" engine="java" location="org.ofbiz.ebiz.productbrand.ProductBrandServices" invoke="deleteProductBrand" auth="true">
+		<description>Delete a Product Brand</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+	</service>
+	 -->
+	<service name="createProductCategoryTree" engine="java" location="org.ofbiz.ebiz.product.ProductCategoryServices" invoke="createProductCategoryTree" auth="true">
+		<description>Create a Product Category</description>
+		<attribute name="productCategoryId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="prodCatalogId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="prodCatalogCategoryTypeId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="productCategoryTypeId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="primaryParentCategoryId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="categoryName" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="description" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="sequenceNum" mode="IN" type="Long" optional="true"></attribute>
+		<attribute name="categoryImageUrl" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="linkOneImageUrl" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="linkTwoImageUrl" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="updateProductCategoryTree" engine="java" location="org.ofbiz.ebiz.product.ProductCategoryServices" invoke="updateProductCategoryTree" auth="true">
+		<description>Update a Product Category</description>
+		<attribute name="productCategoryId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="prodCatalogId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="productCategoryTypeId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="primaryParentCategoryId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="categoryName" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="description" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="sequenceNum" mode="IN" type="Long" optional="true"></attribute>
+		<attribute name="categoryImageUrl" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="linkOneImageUrl" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="linkTwoImageUrl" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="deleteProductCategoryTree" default-entity-name="ProdCatalogCategory" engine="java" location="org.ofbiz.ebiz.product.ProductCategoryServices" invoke="deleteProductCategoryTree" auth="true">
+		<description>Update a Product Category thruDate</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+	</service>
+	<!-- Product Feature Services -->
+	<service name="createProductFeatureAndCategory" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="createProductFeatureCategory" auth="true">
+		<description>Create a ProductFeatureCategory record</description>
+		<attribute name="parentCategoryId" type="String" mode="IN" optional="true" />
+		<attribute name="description" type="String" mode="IN" optional="false" />
+		<attribute name="descriptionZh" type="String" mode="IN" optional="true" />
+		<attribute name="descriptionRu" type="String" mode="IN" optional="true" />
+		<attribute name="productFeatureCategoryId" type="String" mode="OUT" optional="false" />
+		<attribute name="productCategoryId" type="String" mode="IN" optional="true" />
+		<attribute name="selectedDescMap" type="Map" mode="IN" optional="true" string-map-prefix="productFeature_description_" />
+		<attribute name="selectedDescZhMap" type="Map" mode="IN" optional="true" string-map-prefix="productFeature_descriptionZh_" />
+		<attribute name="selectedDescRuMap" type="Map" mode="IN" optional="true" string-map-prefix="productFeature_descriptionRu_" />
+		<attribute name="featureImgMap" type="Map" mode="IN" optional="true" string-map-prefix="featureImg_" />
+		<attribute name="selectedTypeMap" type="Map" mode="IN" optional="true" string-map-prefix="productFeature_type_" />
+	</service>
+	<service name="updateProductFeatureAndCategory" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="updateProductFeatureCategory" auth="true">
+		<description>Update a ProductFeatureCategory record</description>
+		<attribute name="productFeatureCategoryId" type="String" mode="IN" optional="false" />
+		<attribute name="parentCategoryId" type="String" mode="IN" optional="true" />
+		<attribute name="productCategoryId" type="String" mode="IN" optional="true" />
+		<attribute name="description" type="String" mode="IN" optional="false" />
+		<attribute name="selectedDescMap" type="Map" mode="IN" optional="true" string-map-prefix="productFeature_description_" />
+		<attribute name="selectedDescZhMap" type="Map" mode="IN" optional="true" string-map-prefix="productFeature_descriptionZh_" />
+		<attribute name="selectedDescRuMap" type="Map" mode="IN" optional="true" string-map-prefix="productFeature_descriptionRu_" />
+		<attribute name="featureImgMap" type="Map" mode="IN" optional="true" string-map-prefix="featureImg_" />
+		<attribute name="selectedTypeMap" type="Map" mode="IN" optional="true" string-map-prefix="productFeature_type_" />
+	</service>
+	<!-- Product Price Services -->
+	<service name="createShopProductPrice" default-entity-name="ProductPrice" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="createShopProductPrice" auth="true">
+		<description>
+            Create an ProductPrice. 
+            Price is always stored without tax. 
+            If taxAuthGeoId and taxAuthPartyId are (or taxAuthCombinedId is) passed in then the price will be considered a price 
+            with tax included (the priceWithoutTax, priceWithTax, taxAmount, and taxPercentage fields will also be populated).
+            If the taxInPrice field is 'Y' then the price field will be left with the price included (price will be equal to priceWithTax), 
+            otherwise tax will be removed from the passed in price and the price field will be equal to the priceWithoutTax field.
+            If taxAuthGeoId or taxAuthPartyId empty, and taxAuthCombinedId is empty, then the taxInPrice field will be ignored.
+        </description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true">
+			<exclude field-name="priceWithoutTax" />
+			<exclude field-name="priceWithTax" />
+			<exclude field-name="taxAmount" />
+			<exclude field-name="createdDate" />
+			<exclude field-name="createdByUserLogin" />
+			<exclude field-name="lastModifiedDate" />
+			<exclude field-name="lastModifiedByUserLogin" />
+		</auto-attributes>
+		<attribute name="taxAuthCombinedId" type="String" mode="IN" optional="true"><!-- if passed in value will be split based on: "${taxAuthGeoId}::${taxAuthPartyId}" -->
+		</attribute>
+		<override name="fromDate" mode="INOUT" optional="true" />
+		<override name="price" optional="false" />
+	</service>
+	<service name="createShopProductType" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="createProductType" auth="true">
+		<description>Create a Product Type</description>
+		<attribute name="productCategoryId" type="String" mode="IN" optional="true" />
+		<attribute name="prodCatalogId" type="String" mode="IN" optional="true" />
+		<attribute name="prodCatalogCategoryTypeId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="brandsId" mode="IN" type="List" optional="true" />
+		<attribute name="attributeGroupId" mode="IN" type="List" optional="true" />
+		<attribute name="description" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="updateShopProductType" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="updateProductType" auth="true">
+		<description>Create a Product Type</description>
+		<attribute name="productCategoryId" type="String" mode="IN" optional="true" />
+		<attribute name="brandsId" mode="IN" type="List" optional="true" />
+		<attribute name="attributeGroupId" mode="IN" type="List" optional="true" />
+		<attribute name="description" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="createProductTypeAttr" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="createProductTypeAttr" auth="true">
+		<description>Create a Attribute</description>
+		<attribute name="productCategoryId" type="String" mode="IN" optional="false" />
+		<attribute name="attributeId" type="String" mode="IN" optional="true" />
+		<attribute name="optionalNames" mode="IN" type="List" optional="true" />
+		<attribute name="optionalNameZhs" mode="IN" type="List" optional="true" />
+		<attribute name="optionalNameRus" mode="IN" type="List" optional="true" />
+		<attribute name="attributeName" mode="IN" type="String" optional="true" />
+		<attribute name="attributeNameZh" mode="IN" type="String" optional="true" />
+		<attribute name="attributeNameRu" mode="IN" type="String" optional="true" />
+		<attribute name="attributeGroupId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="entryWay" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="updateProductTypeAttr" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="updateProductTypeAttr" auth="true">
+		<description>Create a Attribute</description>
+		<attribute name="productCategoryId" type="String" mode="IN" optional="false" />
+		<attribute name="attributeId" type="String" mode="IN" optional="false" />
+		<attribute name="optionalNames" mode="IN" type="List" optional="true" />
+		<attribute name="optionalNameZhs" mode="IN" type="List" optional="true" />
+		<attribute name="optionalNameRus" mode="IN" type="List" optional="true" />
+		<attribute name="attributeName" mode="IN" type="String" optional="true" />
+		<attribute name="attributeNameZh" mode="IN" type="String" optional="true" />
+		<attribute name="attributeNameRu" mode="IN" type="String" optional="true" />
+		<attribute name="attributeGroupId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="entryWay" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="updateShopProductReview" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="updateProductReview" auth="true">
+		<description>Updates a product review record</description>
+		<attribute name="statusId" type="String" mode="IN" optional="true" />
+		<attribute name="productRatingMap" mode="IN" type="Map" string-map-prefix="productRating_" optional="true" />
+		<attribute name="productReviewMap" mode="IN" type="Map" string-map-prefix="productReview_" optional="true" />
+		<attribute name="postedAnonymousMap" mode="IN" type="Map" string-map-prefix="postedAnonymous_" optional="true" />
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="forwardUrl" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="updateProductReviewSetting" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="updateProductReviewSetting" auth="true">
+		<description>Setting product review</description>
+		<attribute name="showItem" type="String" mode="IN" optional="false" />
+		<attribute name="showNumber" type="String" mode="IN" optional="false" />
+		<attribute name="reviewOpen" mode="IN" type="String" optional="false" />
+		<attribute name="reviewPermission" mode="IN" type="String" optional="false" />
+		<attribute name="successInfo" mode="IN" type="String" optional="false" />
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="updateProductCommunicationSetting" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="updateProductCommunicationSetting" auth="true">
+		<description>Setting product review</description>
+		<attribute name="showItem" type="String" mode="IN" optional="false" />
+		<attribute name="showNumber" type="String" mode="IN" optional="false" />
+		<attribute name="reviewOpen" mode="IN" type="String" optional="false" />
+		<attribute name="reviewPermission" mode="IN" type="String" optional="false" />
+		<attribute name="successInfo" mode="IN" type="String" optional="false" />
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="deleteProductCommunicationsAll" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="deleteProductCommunicationsAll" auth="true">
+		<attribute name="orderIndexs" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="deleteProductCommunication" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="deleteProductCommunication" auth="true">
+		<attribute name="communicationEventId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="parentCommEventId" mode="INOUT" type="String" optional="false"></attribute>
+	</service>
+	<service name="createShopCommunicationEvent" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="createShopCommunicationEvent" auth="true">
+		<implements service="createCommunicationEventInterface" />
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="callbackType" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="isRepliedTo" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="delOrAddFeature" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="delOrAddFeature" auth="true">
+		<implements service="createCommunicationEventInterface" />
+		<attribute name="productId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="productFeatureId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="updateProductSaleable" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="updateProductSaleable" auth="true">
+		<attribute name="productIds" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="saleable" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="deleteProductStatus" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="deleteProductStatus" auth="true">
+		<attribute name="productIds" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="recoverProductStatus" engine="simple" location="component://portal/script/org/ofbiz/product/product/ProdServices.xml" invoke="recoverProductStatus" auth="true">
+		<attribute name="productIds" mode="IN" type="String" optional="true"></attribute>
+	</service>
+
+	
+
+	<service name="getConsultationListByProduct" engine="java" location="org.ofbiz.ebiz.product.ProductService" invoke="getConsultList">
+		<description>get consultations</description>
+		<attribute name="consultPageNum" type="String" mode="INOUT" optional="true" />
+		<attribute name="productId" type="String" mode="IN" optional="false" />
+		<attribute name="consultList" type="java.util.List" mode="OUT" optional="true" />
+		<attribute name="pageTotal" mode="OUT" type="String" optional="true" />
+	</service>
+	
+	<service name="getReviewListByProduct" engine="java" location="org.ofbiz.itea.product.ProductService" invoke="getReviewList">
+		<description>get consultations</description>
+		<attribute name="reviewPageNum" type="String" mode="INOUT" optional="true" />
+		<attribute name="productId" type="String" mode="IN" optional="false" />
+		<attribute name="rating" type="String" mode="IN" optional="true" />
+		<attribute name="reviewList" type="java.util.List" mode="OUT" optional="true" />
+		<attribute name="reviewPageTotal" mode="OUT" type="String" optional="true" />
+		<attribute name="veryGood" type="String" mode="OUT" optional="true" />
+		<attribute name="good" mode="OUT" type="String" optional="true" />
+		<attribute name="justSoSo" mode="OUT" type="String" optional="true" />
+		<attribute name="average" mode="OUT" type="String" optional="true" />
+		<attribute name="reviewUsers" mode="OUT" type="String" optional="true" />
+	</service>
+	<service name="createProductListImage" engine="java" location="org.ofbiz.ebiz.product.ProductServices" invoke="createProductListImage" auth="true">
+		<description>Create a Product Category</description>
+		<attribute name="productId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="contentAssocId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="filePath" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="description" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="productStoreId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+</services>

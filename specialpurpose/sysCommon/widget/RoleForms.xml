@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
+	<form name="FindSecurityGroup" type="single"
+		client-autocomplete-fields="true" style="pageForm"
+		default-table-style="searchContent" target="FindSecurityGroup"
+		default-entity-name="SecurityGroup">
+		<field name="noConditionFind">
+			<hidden value="Y" />
+		</field>
+		<field name="description" title="权限组名称">
+			<text-find hide-options="true" />
+		</field>
+		<field name="submitButton" title="查询" position="3" widget-style="btn btn-primary">
+            <submit/>
+        </field>
+	</form>
+	<form name="ListSecurityGroup" type="list" list-name="listIt"
+		group-columns="false" paginate-target="FindSecurityGroup" default-entity-name="SecurityGroup"
+		separate-columns="true" paginate-style="panelBar" default-table-style="table table-bordered table-striped table-condensed">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="SecurityGroup" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+				<field-map field-name="noConditionFind" value="Y" />
+			</service>
+		</actions>
+		<field name="ids"  widget-area-style="groupAll" id-name="groupAll"
+			title=" ">
+			<check>
+				<option key="${groupId}" description =" "/>
+			</check>
+		</field>
+		<field name="CommSeq" etc="width=5%" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+		<field name="groupId" title="权限组ID" widget-style="buttontext">
+			<display></display>
+		</field>
+		<field name="description" field-name="description" title="权限组名称">
+			<display type="text"></display>
+		</field>
+		<field name="enabled" title="是否可用">
+			<display-entity entity-name="Enumeration" key-field-name="enumId" description="${description}" />
+		</field>
+		<field name="edit" etc="width=5%" title="编辑" use-when="${groovy:!groupId.equals(&quot;FULLADMIN&quot;)}"
+			widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="编辑" target="EditSecurityGroup">
+				<parameter param-name="groupId" />
+			</hyperlink>
+		</field>
+		<field name="assign" etc="width=60px" title="授权" widget-style="btnAssign">
+			<!-- <hyperlink also-hidden="false" target-type="plain" description="${uiLabelMap.CommonEdit}" 
+				target="PermissionToParty"> -->
+			<hyperlink also-hidden="false" target-type="plain"
+				description="授权" target="FindPermissionPerson">
+				<parameter param-name="groupId" />
+			</hyperlink>
+		</field>
+		<!-- <field name="delete" etc="width=35px" title="${uiLabelMap.CommonDelete}"
+		<field name="delete" etc="width=35px" title="${uiLabelMap.CommonDelete}" use-when="${groovy:!groupId.equals(&quot;FULLADMIN&quot;)}"
+			widget-style="btnDel">
+			<hyperlink also-hidden="false" 
+				target-type="plain" description="${uiLabelMap.CommonDelete}" target="delSecurityGroup">
+				<parameter param-name="catalogId" />
+				<parameter param-name="groupId" />
+			</hyperlink>
+		</field> -->
+	</form>
+
+	<form name="EditSecurityGroup" type="single" style="single_table"
+		target-type="plain" target="updateSecurityGroup" default-map-name="securityGroup"
+		header-row-style="header-row" default-table-style="basic-table">
+		<alt-target use-when="securityGroup==null" target="createSecurityGroup" />
+		<auto-fields-service service-name="updateSecurityGroup"
+			map-name="securityGroup" />
+		<field name="navTabId">
+			<hidden value="FindSecurityGroup" />
+		</field>
+		<field name="callbackType">
+			<hidden value="closeCurrent" />
+		</field>
+		<field name="groupId">
+			<hidden />
+		</field>
+		<!-- <field use-when="securityGroup!=null" name="groupId" title="${uiLabelMap.CommonSecurityGroupId}" 
+			tooltip="${uiLabelMap.CommonNotModifRecreat}"><display/></field> <field use-when="securityGroup==null&amp;&amp;groupId==null" 
+			name="groupId" title="${uiLabelMap.CommonSecurityGroupId}"><text size="20" 
+			maxlength="20"/></field> <field use-when="securityGroup==null&amp;&amp;groupId!=null" 
+			name="groupId" title="${uiLabelMap.CommonSecurityGroupId}" tooltip="${uiLabelMap.CommonCannotBeFound}: 
+			[${groupId}]"><text size="20" maxlength="20"/></field> -->
+		<field name="description" title="权限组名称">
+			<text size="60" maxlength="250" />
+		</field>
+		<!-- <field name="submitButton" title="${uiLabelMap.CommonUpdate}"><submit 
+			button-type="button"/></field> -->
+	</form>
+	<form name="FindRoleType" type="single" style="pageForm"
+		default-table-style="searchContent" target="FindRoleType"
+		default-entity-name="RoleType">
+		<field name="description" title="角色名称">
+			<text-find hide-options="true" />
+		</field>
+		<field name="roleTypeId" position="2" title="角色ID">
+			<text-find hide-options="true" />
+		</field>
+	</form>
+	<form name="ListRoleType" type="list" list-name="listIt"
+		group-columns="false" paginate-target="FindRoleType"
+		default-entity-name="RoleType" paginate-style="panelBar"
+		default-table-style="table table-bordered table-striped table-condensed">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="RoleType" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		
+		<field name="ids" widget-area-style="groupAll" id-name="groupAll"
+			title=" ">
+			<check>
+				<option key="${roleTypeId}" description=" "/>
+			</check>
+		</field>
+		<field name="CommSeq" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+		<field name="hasTable" sort-field="true" title="">
+			<display />
+		</field>
+		<field name="description" sort-field="true" title="角色名称">
+			<display />
+		</field>
+		<field name="edit" title="编辑" widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="编辑" target="EditRoleType">
+				<parameter param-name="roleTypeId" />
+			</hyperlink>
+		</field>
+		<field name="assign" title="分配用户" widget-style="btnAssign">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="分配" target="FindRoleParty">
+				<parameter param-name="roleTypeId" />
+			</hyperlink>
+		</field>
+		<field name="delete" title="删除" widget-style="btnDel">
+			<hyperlink also-hidden="false" 
+				target-type="plain" description="删除" target="deleteRoleType">
+				<parameter param-name="roleTypeId" />
+			</hyperlink>
+		</field>
+	</form>
+	<form name="EditRoleType" type='single' style="single_table"
+		default-table-style="basic-table" target-type="plain" target="updateRoleType"
+		default-map-name="entity" default-entity-name="RoleType">
+		<alt-target use-when="entity==null" target="createRoleType" />
+		<field name="roleTypeId">
+			<hidden />
+		</field>
+		<field name="navTabId">
+			<hidden value="FindRoleType" />
+		</field>
+		<field name="callbackType">
+			<hidden value="closeCurrent" />
+		</field>
+		<!-- <field name="hasTable" widget-style="" title=""> <text /> </field> -->
+		<field name="description" widget-style="required" title="角色名称">
+			<text />
+		</field>
+	</form>
+
+</forms>

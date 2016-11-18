@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+	<screen name="FindCmsCatalog">
+		<section> 
+			<actions>
+				<set field="headerItem" value="CmsCatalog" />
+				<set field="titleProperty" value="CmsCatalog" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="parameters.noConditionFind" value="Y" />   <!--默认无条件查询 -->
+				<set field="searchAction" value="FindCmsCatalog" /><!--列表查询url -->
+				<set field="searchForm" value="FindCmsCatalog" />  <!-- 查询 form id -->
+				<set field="searchAdvanced" value="FindCmsCatalogAdvanced" /><!-- 高级查询 弹出框 -->
+				<!-- 按钮操作区 按钮显示名称.按钮图标CSS样式.按钮连接href(可为js函数).dwz操作方式(tab页、弹出框、批量选择操作等) 多个按钮为多个变量 -->
+				<set field="operationButton[]" value="CommDeleteAll.icon-remove.delCmsCatalogAll.removeSelected" />
+				<set field="operationButton[]" value="增加.icon-add.EditCmsCatalog.navTab" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindCmsCatalog" location="component://sysCommon/widget/ContentForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListCmsCatalog" location="component://sysCommon/widget/ContentForms.xml" />
+							</decorator-section>
+							
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+
+		</section>
+	</screen>
+
+	<screen name="FindCmsCatalogAdvanced">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleEditPersonalInformation" />
+				<set field="searchAction" value="FindCmsCatalog" />
+				<set field="searchForm" value="FindCmsCatalogAdvanced" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindDialogDecorator" location="${parameters.sysCommonDecoratorLocation}"> 
+							<decorator-section name="search-form"> 
+								<include-form name="FindCmsCatalogAdvanced" location="component://sysCommon/widget/ContentForms.xml"/> 
+							</decorator-section> 
+						</decorator-screen> 
+
+						
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditCmsCatalog">
+		<section>
+			<actions>
+				<set field="headerItem" value="EditCmsCatalog" />
+				<set field="catalogId" from-field="parameters.catalogId" /><!-- 待修改业务id -->
+				<set field="websiteId" from-field="parameters.websiteId" /><!-- 待修改业务id -->
+				<set field="currentForm" value="EditCmsCatalog" /><!-- 编辑 form id -->
+				<entity-one entity-name="CmsCatalog" value-field="entity" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="DetailScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="detail-options">
+							<screenlet title="${uiLabelMap.EditCmsCatalog}">
+									<include-form name="EditCmsCatalog" location="component://sysCommon/widget/ContentForms.xml" />
+							</screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="LookupCmsCatalog">
+		<section>
+			<actions>
+				<set field="headerItem" value="CmsCatalog" />
+				<set field="titleProperty" value="CmsCatalog" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="parameters.noConditionFind" value="Y" />   <!--默认无条件查询 -->
+				<set field="lookupId" value="catalogId" />   <!--查询lookup -->
+				<set field="searchAction" value="LookupCmsCatalog" /><!--列表查询url -->
+				<set field="searchForm" value="LookupFindCmsCatalog" />  <!-- 查询 form id -->
+				<!-- 按钮操作区 按钮显示名称.按钮图标CSS样式.按钮连接href(可为js函数).dwz操作方式(tab页、弹出框、批量选择操作等) 多个按钮为多个变量 -->
+				<set field="operationButton[]" value="CommDeleteAll.icon-remove.delCmsCatalogAll.removeSelected" />
+				<set field="operationButton[]" value="增加.icon-add.EditCmsCatalog.navTab" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="LookupScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="lookup-options">
+								<include-form name="LookupFindCmsCatalog" location="component://sysCommon/widget/ContentForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="LookupCmsCatalog" location="component://sysCommon/widget/ContentForms.xml" />
+							</decorator-section>
+							
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+
+		</section>
+	</screen>
+
+<screen name="LookupCmsWebSite">
+		<section>
+			<actions>
+				<set field="headerItem" value="CmsWebSite" />
+				<set field="titleProperty" value="CmsWebSite" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="parameters.noConditionFind" value="Y" />   <!--默认无条件查询 -->
+				<set field="lookupId" value="websiteId" />   <!--查询lookup -->
+				<set field="searchAction" value="LookupCmsWebSite" /><!--列表查询url -->
+				<set field="searchForm" value="LookupFindCmsWebSite" />  <!-- 查询 form id -->
+			
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="LookupScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="lookup-options">
+								<include-form name="LookupFindCmsWebSite" location="component://sysCommon/widget/ContentForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="LookupCmsWebSite" location="component://sysCommon/widget/ContentForms.xml" />
+							</decorator-section>
+							
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+
+		</section>
+	</screen>
+
+	<screen name="FindCmsArticle">
+		<section>
+			<actions>
+				<set field="headerItem" value="AcMgrList" />
+				<set field="titleProperty" value="AcMgrList" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="parameters.noConditionFind" value="Y" />
+				<set field="parameters.sortField" value="catalogId.sortNum" />
+				<set field="searchAction" value="FindCmsArticle" />
+				<set field="searchForm" value="FindCmsArticle" />
+				<set field="operationButton[]" value="增加.icon-add.EditCmsArticle.navTab" />
+				<set field="operationButton[]" value="批量删除.icon-remove.deleteCmsArticle.removeSelected" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindCmsArticle" location="component://sysCommon/widget/ContentForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListCmsArticle" location="component://sysCommon/widget/ContentForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EditCmsArticle">
+		<section>
+			<actions>
+				<set field="titleProperty" value="CmsArticle" />
+				<set field="labelTitleProperty" value="cmsContentInfo" />
+				<set field="articleId" from-field="parameters.articleId" />
+				<set field="currentForm" value="EditCmsArticle" />
+				<entity-one entity-name="CmsArticle" value-field="entity" />
+				<entity-one entity-name="StatusItem" value-field="currentStatus" auto-field-map="false">
+					<field-map field-name="statusId" from-field="entity.statusId" />
+				</entity-one>
+				<entity-condition entity-name="CmsCatalog" list="cmsCatalogList">
+					<condition-expr field-name="parentId" operator="not-equals" value="" />
+					<order-by field-name="sortNum" />
+				</entity-condition>
+				<entity-condition entity-name="CmsWebSite" list="cmsWebSiteList">
+					<order-by field-name="websiteId" />
+				</entity-condition>
+				<entity-condition entity-name="CmsArticleType" list="cmsArticleTypeList" />
+			</actions>
+			<widgets>
+
+
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+                      <decorator-section name="body">
+                        <decorator-screen name="DetailUploadScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+	                          <decorator-section name="detail-options" >   
+	                                 <screenlet >
+			                             <include-form name="EditCmsArticle" location="component://sysCommon/widget/ContentForms.xml"/>
+			                        </screenlet>
+							  </decorator-section>
+			            </decorator-screen>
+	                 </decorator-section>
+                </decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	
+
+	<screen name="FindAdvertise">
+		<section>
+			<actions>
+				<set field="headerItem" value="AdMgr" />
+				<set field="titleProperty" value="AdMgr" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="searchAction" value="FindAdvertise" />
+				<set field="searchForm" value="FindAdvertise" />
+				<set field="parameters.noConditionFind" value="Y" />
+				<set field="operationButton[]" value="增加.icon-add.EditAdvertise.navTab" />
+				<set field="operationButton[]" value="批量删除.icon-remove.deleteAdvertise.removeSelected" />
+			</actions>
+
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+
+						<decorator-screen name="FindScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindAdvertise" location="component://sysCommon/widget/ContentForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListAdvertise" location="component://sysCommon/widget/ContentForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+
+
+		</section>
+	</screen>
+
+	<screen name="EditAdvertise">
+		<section>
+			<actions>
+				<set field="titleProperty" value="AdMgr" />
+				<set field="labelTitleProperty" value="cmsAdInfo" />
+				<set field="adId" from-field="parameters.adId" />
+				<set field="currentForm" value="EditAdvertise" />
+				<entity-one entity-name="CmsAdvertise" value-field="entity" />
+				<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/content/editAdvertise.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://sysCommon/webapp/sysCommon/content/editAdvertise.ftl" />
+							</html>
+						</platform-specific>
+
+						<!-- <decorator-screen name="DetailScreenDecorator" location="${parameters.sysCommonDecoratorLocation}"> <decorator-section name="detail-options" > <screenlet title="${uiLabelMap.AdMgrAdd}"> <include-form name="EditAdvertise" location="component://sysCommon/widget/ContentForms.xml"/> </screenlet> <platform-specific> <html><html-template location="component://sysCommon/webapp/sysCommon/common_edit_upload_button.ftl"/></html> </platform-specific> </decorator-section> </decorator-screen> -->
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+
+
+		</section>
+	</screen>
+	
+</screens>

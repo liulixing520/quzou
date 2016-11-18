@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of LIMS collect Component</title>
+	<description>采集系统</description>
+	<version>1.0</version>
+
+	<entity entity-name="RawTemplateGroup" package-name="org.extErp.sysCommon.raw"
+		title="模板组">
+		<description>模板</description>
+		<field name="templateGroupId" type="id-ne">
+			<description>模板组ID</description>
+		</field>
+		<field name="templateGroupName" type="name">
+			<description>模板组名称</description>
+		</field>
+		<field name="fileName" type="name">
+			<description>附件名称</description>
+		</field>
+		<field name="sortNo" type="numeric">
+			<description>顺序</description>
+		</field>
+		<field name="enabled" type="indicator"><!-- 对应枚举类型COMMON_YN -->
+			<description>是否可用</description>
+		</field>
+		
+		<prim-key field="templateGroupId" />
+	</entity>
+
+
+	<entity entity-name="RawTemplate" package-name="org.extErp.sysCommon.raw"
+		title="模板">
+		<description>模板</description>
+		<field name="templateId" type="id-ne">
+			<description>模板ID</description>
+		</field>
+		<field name="templateName" type="name">
+			<description>模板名称</description>
+		</field>
+		<field name="templateDescription" type="name">
+			<description>模板说明</description>
+		</field>
+		<field name="dimCountNum" type="numeric">
+			<description>维度数</description>
+		</field>
+		<!-- <field name="dimension1" type="id-ne"> <description>维度1</description> 
+			</field> <field name="dimension2" type="id-ne"> <description>维度2</description> 
+			</field> <field name="dimension3" type="id-ne"> <description>维度3</description> 
+			</field> <field name="measureId" type="name"> <description>度量</description> 
+			</field> -->
+		<field name="excelPath" type="name">
+			<description>excel路径</description>
+		</field>
+		<field name="sortNo" type="numeric">
+			<description>顺序</description>
+		</field>
+		<field name="startCellNum" type="numeric">
+			<description>默认起始列</description>
+		</field>
+		<field name="startRowNum" type="numeric">
+			<description>默认起始行</description>
+		</field>
+		<field name="hasOneDyn" type="id-long-ne">
+			<description>是否包含动态一维表</description>
+		</field>
+		<field name="startDyRowNum" type="numeric">
+			<description>一维表起始行数</description>
+		</field>
+		<field name="templateGroupId" type="id-ne">
+			<description>模板组ID</description>
+		</field>
+		<prim-key field="templateId" />
+		<relation rel-entity-name="RawTemplateGroup" type="one"
+			fk-name="RawTemplateGroup_temp">
+			<key-map field-name="templateGroupId" rel-field-name="templateGroupId" />
+		</relation>
+	</entity>
+	<entity entity-name="RawTemplateRefdim" package-name="org.extErp.sysCommon.raw"
+		title="模板维度关联">
+		<description>模板维度关联</description>
+		<field name="templateId" type="id-ne">
+			<description>模板ID</description>
+		</field>
+		<field name="dimensionId" type="id-ne">
+			<description>维度ID</description>
+		</field>
+		<field name="dimNum" type="numeric">
+			<description>维度顺序</description>
+		</field>
+		<prim-key field="templateId" />
+		<prim-key field="dimensionId" />
+		<prim-key field="dimNum" />
+	</entity>
+	<entity entity-name="RawTemplateRefmeasure" package-name="org.extErp.sysCommon.raw"
+		title="模板度量关联">
+		<description>模板度量关联</description>
+		<field name="templateId" type="id-ne">
+			<description>模板ID</description>
+		</field>
+		<field name="measureId" type="id-ne">
+			<description>度量ID</description>
+		</field>
+		<field name="measureNum" type="numeric">
+			<description>度量顺序</description>
+		</field>
+		<prim-key field="templateId" />
+		<prim-key field="measureId" />
+		<prim-key field="measureNum" />
+	</entity>
+	<entity entity-name="RawDimension" package-name="org.extErp.sysCommon.raw"
+		title="维度">
+		<description>维度</description>
+		<field name="dimensionId" type="id-ne">
+			<description>维度ID</description>
+		</field>
+		<field name="dimensionName" type="name">
+			<description>维度名称</description>
+		</field>
+		<field name="dimensionCode" type="name">
+			<description>维度编码</description>
+		</field>
+		<field name="uomId" type="id-ne">
+			<description>计量单位</description>
+		</field>
+		<field name="parentDimensionId" type="id-ne">
+			<description>父维度ID</description>
+		</field>
+		<field name="sortNo" type="numeric">
+			<description>顺序</description>
+		</field>
+		<field name="hasChild" type="id-long-ne">
+			<description>是否有子节点</description>
+		</field>
+		<field name="templateGroupId" type="id-ne">
+			<description>模板组ID</description>
+		</field>
+		<prim-key field="dimensionId" />
+		<relation rel-entity-name="Uom" type="one" fk-name="uom_dimension">
+			<key-map field-name="uomId" rel-field-name="uomId" />
+		</relation>
+		<relation rel-entity-name="RawTemplateGroup" type="one"
+			fk-name="RawTemplateGroup_dimension">
+			<key-map field-name="templateGroupId" rel-field-name="templateGroupId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="RawMeasure" package-name="org.extErp.sysCommon.raw"
+		title="度量">
+		<description>度量</description>
+		<field name="measureId" type="id-ne">
+			<description>度量ID</description>
+		</field>
+		<field name="measureName" type="name">
+			<description>度量名称</description>
+		</field>
+		<field name="measureCode" type="name">
+			<description>度量编码</description>
+		</field>
+		<field name="uomId" type="id-ne">
+			<description>计量单位</description>
+		</field>
+		<field name="parentMeasureId" type="id-ne">
+			<description>父度量ID</description>
+		</field>
+		<field name="sortNo" type="numeric">
+			<description>顺序</description>
+		</field>
+		<field name="hasChild" type="id-long-ne">
+			<description>是否有子节点</description>
+		</field>
+		<field name="templateGroupId" type="id-ne">
+			<description>模板组ID</description>
+		</field>
+		<field name="enabled" type="indicator">
+			<description>是否可用</description>
+		</field>
+		<field name="fromDate" type="date-time"></field>
+        <field name="thruDate" type="date-time"></field>
+		<prim-key field="measureId" />
+		<relation rel-entity-name="Uom" type="one" fk-name="uom_index">
+			<key-map field-name="uomId" rel-field-name="uomId" />
+		</relation>
+		<relation rel-entity-name="RawTemplateGroup" type="one"
+			fk-name="RawTemplateGroup_measure">
+			<key-map field-name="templateGroupId" rel-field-name="templateGroupId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="RawDimensionPart" package-name="org.extErp.sysCommon.raw"
+		title="维度值">
+		<description>维度值</description>
+		<field name="dimensionPartId" type="id-ne">
+			<description>维度值ID</description>
+		</field>
+		<field name="dimensionPartName" type="name">
+			<description>维度名称</description>
+		</field>
+		<field name="dimensionPartCode" type="name">
+			<description>维度编码</description>
+		</field>
+
+		<field name="sortNo" type="numeric">
+			<description>顺序</description>
+		</field>
+		<field name="dimensionId" type="id-ne">
+			<description>维度ID</description>
+		</field>
+		<prim-key field="dimensionPartId" />
+		<relation rel-entity-name="RawDimension" type="one"
+			fk-name="RawDimension_part">
+			<key-map field-name="dimensionId" rel-field-name="dimensionId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="RawCrossConfig" package-name="org.extErp.sysCommon.raw"
+		title="交叉表配置">
+		<description>交叉表配置</description>
+		<field name="crossId" type="id-ne">
+			<description>配置ID</description>
+		</field>
+		<field name="templateId" type="id-ne">
+			<description>模板ID</description>
+		</field>
+		<field name="measureId" type="id-ne">
+			<description>度量ID</description>
+		</field>
+		<field name="excelGrid" type="id-ne">
+			<description>excel格子</description>
+		</field>
+		<!-- 冗余行、列数，为展现数据方便 -->
+		<field name="rowNum" type="numeric">
+			<description>行数</description>
+		</field>
+		<field name="cellNum" type="numeric">
+			<description>列数</description>
+		</field>
+		<prim-key field="templateId" />
+		<prim-key field="crossId" />
+		<prim-key field="measureId" />
+		<relation rel-entity-name="RawTemplate" type="one" fk-name="cross_template">
+			<key-map field-name="templateId" rel-field-name="templateId" />
+		</relation>
+
+		<relation rel-entity-name="RawMeasure" type="one" fk-name="cross_measure">
+			<key-map field-name="measureId" rel-field-name="measureId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="RawCrossRefdimPart" package-name="org.extErp.sysCommon.raw"
+		title="交叉表与维度值关联表">
+		<description>交叉表与维度值关联表</description>
+		<field name="crossId" type="id-ne">
+			<description>交叉表ID</description>
+		</field>
+		<field name="dimensionPartId" type="id-ne">
+			<description>维度值ID</description>
+		</field>
+		<field name="dimPartNum" type="numeric">
+			<description>维度序号</description>
+		</field>
+		<field name="dimPartSort" type="numeric">
+			<description>维度值顺序</description>
+		</field>
+		<prim-key field="crossId" />
+		<prim-key field="dimensionPartId" />
+		<prim-key field="dimPartNum" />
+	</entity>
+
+	<entity entity-name="RawDataRev" package-name="org.extErp.sysCommon.raw"
+		title="数据版本">
+		<description>数据版本</description>
+		<field name="revId" type="id-ne">
+			<description>版本ID</description>
+		</field>
+		<field name="detectionBillCode" type="name">
+			<description>检测单编号</description>
+		</field>
+		<field name="templateGroupId" type="id-ne">
+			<description>模板组ID</description>
+		</field>
+		<field name="operUserLoginId" type="id-ne">
+			<description>操作ID</description>
+		</field>
+		<field name="operDate" type="date-time">
+			<description>操作时间</description>
+		</field>
+		<field name="importType" type="id-long-ne">
+			<description>入库方式</description>
+		</field>
+		<field name="enabled" type="indicator">
+			<description>是否可用</description>
+		</field>
+		<prim-key field="revId" />
+		<relation rel-entity-name="RawTemplateGroup" type="one"
+			fk-name="template_data">
+			<key-map field-name="templateGroupId" rel-field-name="templateGroupId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="RawCrossData" package-name="org.extErp.sysCommon.raw"
+		title="交叉数据表">
+		<description>交叉数据表</description>
+		<field name="templateId" type="id-ne">
+			<description>模板ID</description>
+		</field>
+		<field name="revId" type="id-ne">
+			<description>版本ID</description>
+		</field>
+
+		<field name="excelGrid" type="id-ne">
+			<description>excel格子/行列</description>
+		</field>
+		<field name="excelData" type="name">
+			<description>数据</description>
+		</field>
+		<prim-key field="templateId" />
+		<prim-key field="excelGrid" />
+		<prim-key field="revId" />
+		<relation rel-entity-name="RawTemplate" type="one"
+			fk-name="cross_template_data">
+			<key-map field-name="templateId" rel-field-name="templateId" />
+		</relation>
+
+
+	</entity>
+
+	<view-entity entity-name="RawCrossDataAndConfig"
+		package-name="com.yuanh.task" title="交叉表数据与维度度量视图">
+		<member-entity entity-alias="RD" entity-name="RawCrossData" />
+		<member-entity entity-alias="RC" entity-name="RawCrossConfig" />
+
+		<alias-all entity-alias="RC" />
+		<alias name="excelData" entity-alias="RD" />
+		<alias name="templateId" entity-alias="RD" />
+		<alias name="revId" entity-alias="RD" />
+		<view-link entity-alias="RC" rel-optional="false"
+			rel-entity-alias="RD">
+			<key-map field-name="templateId" rel-field-name="templateId" />
+			<key-map field-name="excelGrid" rel-field-name="excelGrid" />
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="RawTemplateRefdimAndDim"
+		package-name="com.yuanh.task" title="模板维度视图">
+		<member-entity entity-alias="RTR" entity-name="RawTemplateRefdim" />
+		<member-entity entity-alias="RD" entity-name="RawDimension" />
+		<alias-all entity-alias="RTR" />
+		<alias name="dimensionName" entity-alias="RD" />
+		<view-link entity-alias="RTR" rel-optional="false"
+			rel-entity-alias="RD">
+			<key-map field-name="dimensionId" rel-field-name="dimensionId" />
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="RawCrossRefdimPartAndName"
+		package-name="com.yuanh.task" title="模板维度视图">
+		<member-entity entity-alias="RRP" entity-name="RawCrossRefdimPart" />
+		<member-entity entity-alias="RP" entity-name="RawDimensionPart" />
+		<alias-all entity-alias="RRP" />
+		<alias name="dimensionPartName" entity-alias="RP" />
+		<view-link entity-alias="RRP" rel-optional="false"
+			rel-entity-alias="RP">
+			<key-map field-name="dimensionPartId" rel-field-name="dimensionPartId" />
+		</view-link>
+	</view-entity>
+
+	<view-entity entity-name="RawCrossAndDimPart" package-name="com.yuanh.task"
+		title="交叉表数据与维度视图">
+		<member-entity entity-alias="RC" entity-name="RawCrossConfig" />
+		<member-entity entity-alias="RCP" entity-name="RawCrossRefdimPart" />
+		<member-entity entity-alias="RDP" entity-name="RawDimensionPart" />
+
+		<alias-all entity-alias="RC" group-by="true"/>
+		<alias-all entity-alias="RCP" group-by="true"/>
+		<alias name="crossId" entity-alias="RC" function="count-distinct" />
+		<alias name="dimensionPartName" entity-alias="RDP" group-by="true"/>
+		<view-link entity-alias="RC" rel-optional="false"
+			rel-entity-alias="RCP">
+			<key-map field-name="crossId" rel-field-name="crossId" />
+		</view-link>
+		<view-link entity-alias="RCP" rel-optional="false"
+			rel-entity-alias="RDP">
+			<key-map field-name="dimensionPartId" rel-field-name="dimensionPartId" />
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="RawTemplateAndmeasure"
+		package-name="com.yuanh.task" title="交叉表数据与度量视图">
+		<member-entity entity-alias="RTF" entity-name="RawTemplateRefmeasure" />
+		<member-entity entity-alias="RM" entity-name="RawMeasure" />
+
+		<alias-all entity-alias="RTF" />
+		<alias name="measureName" entity-alias="RM" />
+
+		<view-link entity-alias="RTF" rel-optional="false"
+			rel-entity-alias="RM">
+			<key-map field-name="measureId" rel-field-name="measureId" />
+		</view-link>
+
+	</view-entity>
+
+</entitymodel>

@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
+	<form name="FindDistributionRegion" type="single" header-row-style="main_title" style="pageForm" target="FindDistributionRegion">
+		<field name="noConditionFind">
+			<hidden value="Y" />
+		</field>
+		<field name="geoName" title="配送区域:">
+			<text-find hide-options="true" default-option="contains" />
+		</field>
+	</form>
+	<form name="ListDistributionRegion" type="list" list-name="listIt" paginate-target="FindDistributionRegion" separate-columns="true" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+		<actions>
+			<service service-name="performFind" result-map="result" result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="parameters" />
+				<field-map field-name="entityName" value="Geo" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="geoName" title="配送区域" sort-field="true">
+			<display />
+		</field>
+		<field name="sequenceNum" title="排序" sort-field="true">
+			<display />
+		</field>
+		<field name="detail" title="区域详情" widget-style="">
+			<hyperlink also-hidden="false"  description="详情" target="ShowDistributionRegion">
+				<parameter param-name="geoId" />
+			</hyperlink>
+		</field>
+		<field name="delete" title="${uiLabelMap.CommonDelete}" widget-style="btnDel">
+			<hyperlink also-hidden="false" target-window="navTabTodo" target-type="plain" description="${uiLabelMap.CommonDelete}" target="deleteDistributionRegion">
+				<parameter param-name="geoId" />
+			</hyperlink>
+		</field>
+	</form>
+	<form name="LookupDistributionRegionUser" type="single" header-row-style="main_title" style="pageForm" target="setDistributionRegionUser">
+		<field name="noConditionFind">
+			<hidden value="Y" />
+		</field>
+		<field name="userLoginId" title="用户名称:">
+			<text-find hide-options="true" default-option="contains" />
+		</field>
+	</form>
+	<form name="ListDistributionRegionUser" type="list" list-name="listIt" group-columns="false" paginate-target="setDistributionRegionUser" separate-columns="true" paginate-style="panelBar_dialog" default-table-style="table">
+		<actions>
+			<service service-name="performFind" result-map="result" result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="parameters" />
+				<field-map field-name="entityName" value="UserLoginAndPartyDetails" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="ids" widget-area-style="groupAll" id-name="groupAll" title="${uiLabelMap.CommSelectAll}">
+			<check>
+				<option key="${userLoginId}" description=" " />
+			</check>
+		</field>
+		<field name="userLoginId" title="用户名称" sort-field="true">
+			<display />
+		</field>
+	</form>
+	<!-- 复制修改查找user -->
+	<form name="LookupDistributionRegionUserII" type="single" header-row-style="main_title" style="pageForm" target="findAllUsers">
+		<field name="noConditionFind">
+			<hidden value="Y" />
+		</field>
+		<field name="userLoginId" title="用户名称:">
+			<text-find hide-options="true" default-option="contains" />
+		</field>
+	</form>
+	<form name="ListDistributionRegionUserII" type="list" list-name="listIt" group-columns="false" paginate-target="findAllUsers" separate-columns="true" paginate-style="panelBar_dialog" default-table-style="table">
+		<actions>
+			<service service-name="performFind" result-map="result" result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="parameters" />
+				<field-map field-name="entityName" value="UserLoginAndPartyDetails" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="ids" widget-area-style="groupAll" id-name="groupAll" title="${uiLabelMap.CommSelectAll}">
+			<check>
+				<option key="${userLoginId}" description=" " />
+			</check>
+		</field>
+		<field name="userLoginId" title="用户名称" sort-field="true">
+			<display />
+		</field>
+	</form>
+	
+	
+	<form name="FindFacility" type="single" client-autocomplete-fields="true" style="pageForm" default-table-style="searchContent" target="FindFacility" default-entity-name="Facility">
+		<field name="noConditionFind">
+			<hidden value="Y" />
+		</field>
+		<field name="facilityName" title="仓库名称">
+			<text-find hide-options="true" />
+		</field>
+	</form>
+	<form name="ListFacility" type="list" list-name="listIt" group-columns="false" paginate-target="FindFacility" default-entity-name="Facility" separate-columns="true" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+		<actions>
+			<set field="pCtx.sortField" from-field="parameters.sortField" default-value="facilityName" />
+			<service service-name="performFind" result-map="result" result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="Facility" />
+				<field-map field-name="orderBy" from-field="pCtx.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="CommSeq" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+
+		<field name="facilityName" title="仓库名称" sort-field="true">
+			<display />
+		</field>
+
+
+		<field name="description" title="描述" sort-field="true">
+			<display />
+		</field>
+
+		<field name="edit" title="${uiLabelMap.CommonEdit}" widget-style="btnEdit" extra-properties="rel='EditFacility'">
+			<hyperlink also-hidden="false"  description="${uiLabelMap.CommonEdit}" target="EditFacility">
+				<parameter param-name="facilityId" />
+			</hyperlink>
+		</field>
+		<field name="delete" title="${uiLabelMap.CommonDelete}" widget-style="btnDel">
+			<hyperlink also-hidden="false" target-window="navTabTodo" target-type="plain" description="${uiLabelMap.CommonDelete}" target="delFacility">
+				<parameter param-name="facilityId" />
+
+			</hyperlink>
+		</field>
+	</form>
+
+	<form name="FindCommunicationEvents" type="single" client-autocomplete-fields="true" style="pageForm" default-table-style="searchContent" target="FindCommunicationEvents" default-entity-name="CommunicationEvent">
+		<field name="noConditionFind">
+			<hidden value="Y" />
+		</field>
+		<field name="statusId" position="1">
+			<drop-down allow-empty="true">
+				<entity-options description="${description}" entity-name="StatusItem">
+					<entity-constraint name="statusTypeId" operator="equals" value="COM_EVENT_STATUS" />
+				</entity-options>
+			</drop-down>
+		</field>
+	</form>
+
+	<!-- <form name="FindContentCategory" type="single" client-autocomplete-fields="true" style="pageForm" default-table-style="searchContent" target="FindContentCategory" default-entity-name="CmsCatalog"> <field name="noConditionFind"> <hidden value="Y" /> </field> <field name="catalogName" title="${uiLabelMap.cmsCatalogName}"> <text-find hide-options="true" /> </field> </form> -->
+
+	<form name="ListLookupCommEvents" type="list" list-name="listIt" group-columns="false" separate-columns="false" use-row-submit="false" item-index-separator="_ww_" paginate-target="FindCommunicationEvents" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+		<actions>
+			<set field="parameters.sortField" from-field="parameters.sortField" default-value="-entryDate" />
+			<service service-name="performFind" result-map="result" result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="parameters" />
+				<field-map field-name="entityName" from-field="entityName" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<row-actions>
+			<set field="subject" from-field="subject" default-value="${uiLabelMap.PartyNoSubject}" />
+		</row-actions>
+		<field name="communicationEventId">
+			<hidden />
+		</field>
+		<field name="subject" sort-field="true">
+			<hyperlink description="${subject}[${communicationEventId}]" target="ViewCommunicationEvent" target-type="plain" >
+				<parameter param-name="communicationEventId" />
+				<parameter param-name="partyIdFrom" from-field="partyId" />
+				<parameter param-name="roleTypeId" />
+				<parameter param-name="headerItem" from-field="parameters.headerItem" />
+			</hyperlink>
+		</field>
+		<field name="communicationEventTypeId" title="${uiLabelMap.CommonType}" sort-field="true">
+			<display-entity description="${description}" entity-name="CommunicationEventType" key-field-name="communicationEventTypeId" />
+		</field>
+		<field name="statusId" sort-field="true">
+			<display-entity description="${description}" entity-name="StatusItem" key-field-name="statusId" />
+		</field>
+		<field name="partyId" title="${uiLabelMap.CommonPartyId}" sort-field="true">
+			<display-entity description="${firstName} ${middleName} ${lastName} ${groupName}" entity-name="PartyNameView" key-field-name="partyId">
+				<sub-hyperlink target="/partymgr/control/viewprofile" description="[${partyIdFrom}]" target-type="inter-app">
+					<parameter param-name="partyId" from-field="partyIdFrom" />
+				</sub-hyperlink>
+			</display-entity>
+		</field>
+		<field name="roleTypeId" sort-field="true">
+			<display-entity description="${description}" entity-name="RoleType" />
+		</field>
+		<field name="roleStatusId" sort-field="true">
+			<display-entity description="${description}" entity-name="StatusItem" key-field-name="statusId" />
+		</field>
+		<field name="entryDate" title="${uiLabelMap.CommonCreated}" sort-field="true">
+			<display type="date" />
+		</field>
+		<field name="datetimeStarted" title="${uiLabelMap.CommonSent}" sort-field="true">
+			<display type="date" />
+		</field>
+	</form>
+
+	<form name="FindTemplate" type="single" header-row-style="main_title" style="pageForm" target="templateList" default-entity-name="NOETemplateView">
+		<field name="noConditionFind">
+			<hidden value="Y" />
+		</field>
+		<field name="contentPurposeTypeId" position="1" title="${uiLabelMap.templatePurpose}">
+			<drop-down>
+				<option key="" description="请选择" />
+				<entity-options description="${description}" entity-name="ContentPurposeList" key-field-name="contentPurposeTypeId">
+				</entity-options>
+			</drop-down>
+		</field>
+		<field name="contentName" position="2" title="${uiLabelMap.templateTitle}">
+			<text-find hide-options="true" />
+		</field>
+	</form>
+	<form name="ListTemplate" type="list" list-name="listIt" paginate-target="templateList" default-entity-name="NOETemplateView" separate-columns="false" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar" use-row-submit="false" item-index-separator="_ww_">
+		<actions>
+			<service service-name="performFind" result-map="result" result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="NOETemplateView" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="contentName" title="${uiLabelMap.templateTitle}" sort-field="false">
+			<!-- <hyperlink also-hidden="false"  target-type="plain" description="${contentName}" target=""> <parameter param-name="contentId" /> </hyperlink> -->
+			<display />
+		</field>
+
+		<field name="description" title="${uiLabelMap.templatePurpose}" sort-field="false">
+			<display />
+		</field>
+
+		<field name="edit" title="${uiLabelMap.CommonEdit}" widget-style="btnEdit" extra-properties="rel='editNoteAndEmailModel'">
+			<hyperlink also-hidden="false"  description="${uiLabelMap.CommonEdit}" target="editNoteAndEmailModel">
+				<parameter param-name="contentId" />
+			</hyperlink>
+		</field>
+		<field name="delete" title="${uiLabelMap.CommonDelete}" widget-style="btnDel">
+			<hyperlink also-hidden="false" target-window="navTabTodo" target-type="plain" description="${uiLabelMap.CommonDelete}" target="deleteTemplate">
+				<parameter param-name="contentId" />
+			</hyperlink>
+		</field>
+	</form>
+	
+	<!-- form whose input filters the FindPaymentGatewayConfig -->
+    <form name="FindPaymentGatewayConfig" type="single" target="FindPaymentGatewayConfig" header-row-style="header-row" default-table-style="basic-table">
+        <field name="paymentGatewayConfigId" title="${uiLabelMap.AccountingPaymentGatewayConfigId}"><text-find ignore-case="true"/></field>
+        <field name="description" title="${uiLabelMap.AccountingPaymentGatewayConfigDescription}"><text-find ignore-case="true"/></field>
+        <field name="paymentGatewayConfigTypeId" title="${uiLabelMap.AccountingPaymentGatewayConfigTypeId}">
+            <drop-down allow-empty="true">
+                <entity-options entity-name="PaymentGatewayConfigType" description="${description}" key-field-name="paymentGatewayConfigTypeId">
+                    <entity-order-by field-name="description"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="performSearch"><hidden value="Y"/></field>
+        <field name="noConditionFind"><hidden value="Y"/></field>
+    </form>
+    
+    <form name="ListPaymentGatewayConfig" type="list" list-name="listIt" group-columns="false" separate-columns="false" use-row-submit="false" item-index-separator="_ww_" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="PaymentGatewayConfig"/>
+                <field-map field-name="orderBy" value="description"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+        <auto-fields-entity entity-name="PaymentGatewayConfig" default-field-type="display"/>
+        <field name="paymentGatewayConfigId"><hidden/></field>
+        <field name="description" title="${uiLabelMap.AccountingPaymentGatewayConfigDescription}" extra-properties="rel='EditPaymentGatewayConfig'">
+            <hyperlink description="${description}"   target="EditPaymentGatewayConfig?paymentGatewayConfigId=${paymentGatewayConfigId}" />
+        </field>
+        <field name="paymentGatewayConfigTypeId" title="${uiLabelMap.AccountingPaymentGatewayConfigTypeId}">
+            <display-entity entity-name="PaymentGatewayConfigType" key-field-name="paymentGatewayConfigTypeId" description="${description}"/>
+        </field>
+    </form>
+    <form name="FindProductStore" type="single" client-autocomplete-fields="true" style="pageForm" default-table-style="searchContent" target="FindProductStore" default-entity-name="ProductStore">
+		<field name="noConditionFind">
+			<hidden value="Y" />
+		</field>
+		<field name="storeName" title="店铺名称" position="1">
+			<text-find hide-options="true" />
+		</field>
+		<field name="primaryStoreGroupId" title="店铺类型" position="2">
+			<drop-down allow-empty="false">
+				<option key="" description="全部"/>
+				<entity-options description="${productStoreGroupName}" entity-name="ProductStoreGroup" key-field-name="productStoreGroupId"/>
+			</drop-down>
+		</field>
+	</form>
+	<form name="ListProductStore" type="list" list-name="listIt" paginate-target="FindProductStore" default-entity-name="ProductStore" separate-columns="true" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+		<actions>
+			<service service-name="performFind" result-map="result" result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="ProductStore" />
+				<field-map field-name="orderBy" from-field="pCtx.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="CommSeq" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+
+		<field name="storeName" title="店铺名称" sort-field="true">
+			<display />
+		</field>
+		<field name="productStoreId" title="店铺ID" sort-field="true">
+			<display />
+		</field>
+		<field name="productStoreTypeId" title="店铺类型" sort-field="true">
+			<display-entity entity-name="Enumeration" key-field-name="enumId" description="${description}"></display-entity>
+		</field>
+		<field name="edit" title="${uiLabelMap.CommonEdit}" widget-style="btnEdit" extra-properties="rel='EditProductStore'">
+			<hyperlink also-hidden="false"  description="${uiLabelMap.CommonEdit}" target="EditProductStore">
+				<parameter param-name="psId"  from-field="productStoreId"/>
+			</hyperlink>
+		</field>
+	</form>
+	<form name="LookupProductStoreManager" type="single" target="LookupProductStoreManager" title="">
+        <field name="noConditionFind"><hidden value="Y"/></field>
+        <field name="firstName" title="负责人名称：">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+    </form>
+    <form name="ListProductStoreManager" list-name="listIt" title="" type="list" separate-columns="true" view-size="20" paginate-target="LookupProductStoreManager"
+        default-map-name="partyRoleNameDetail" default-entity-name="PartyRoleNameDetail"  paginate-style="panelBar_dialog" default-table-style="table">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="PartyRoleNameDetail"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize"  from-field="viewSize" />
+            </service>
+        </actions>
+        <row-actions>
+        	<entity-condition entity-name="PartyContactMechPurpose" list="phoneList">
+        		<condition-list>
+        			<condition-expr field-name="partyId" value="${partyId}"/>
+        			<condition-expr field-name="contactMechPurposeTypeId" value="PHONE_WORK"/>
+        		</condition-list>
+        	</entity-condition>
+        	<set field="phoneContactMechId" value="${phoneList[0].contactMechId}"/>
+        	<entity-one entity-name="TelecomNumber" value-field="telecomPhoneNumber"><field-map field-name="contactMechId" from-field="phoneContactMechId"></field-map></entity-one>
+        	<entity-condition entity-name="PartyContactMechPurpose" list="mobileList">
+        		<condition-list>
+        			<condition-expr field-name="partyId" value="${partyId}"/>
+        			<condition-expr field-name="contactMechPurposeTypeId" value="PHONE_MOBILE"/>
+        		</condition-list>
+        	</entity-condition>
+        	<set field="mobileContactMechId" value="${mobileList[0].contactMechId}"/>
+        	<entity-one entity-name="TelecomNumber" value-field="telecomMobileNumber"><field-map field-name="contactMechId" from-field="mobileContactMechId"></field-map></entity-one>
+        </row-actions>
+        <field name="firstName" sort-field="true" title="负责人名称"><display/></field>
+        <field name="a" sort-field="true" title="电话"><display description="${telecomPhoneNumber.countryCode}-${telecomPhoneNumber.areaCode}-${telecomPhoneNumber.contactNumber}"/></field>
+        <field name="v" sort-field="true" title="手机"><display description="${telecomMobileNumber.contactNumber}"/></field>
+        <field name="edit" title="选择" widget-style="btnSelect">
+            <hyperlink description="${uiLabelMap.FindBack}" target="javascript:$.bringBack({managerPartyId:'${partyId}', managerPartyName:'${firstName}', telPhone:'${telecomPhoneNumber.countryCode}-${telecomPhoneNumber.areaCode}-${telecomPhoneNumber.contactNumber}', mobile:'${telecomMobileNumber.contactNumber}'});" target-type="plain"/>
+        </field>
+    </form>
+</forms>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of an Open For Business Project Component</title>
+	<description>None</description>
+	<version>1.0</version>
+
+	<entity entity-name="LimsClass" package-name="demo"
+		title="班级">
+		<field name="classId" type="id-long-ne">
+			<description>主键ID</description>
+		</field>
+		<field name="className" type="name">
+			<description>班级名称</description>
+		</field>
+		<field name="classTeacher" type="name">
+			<description>班主任</description>
+		</field>
+		<field name="sortNo" type="numeric">
+			<description>班次</description>
+		</field>
+		<field name="fromDate" type="date-time"></field>
+        <field name="thruDate" type="date-time"></field>
+		<prim-key field="classId" />
+		<!-- 
+		<relation type="many" rel-entity-name="LimsStudent">
+        	<key-map field-name="classId"/>
+      	</relation>  -->
+	</entity>
+
+	<entity entity-name="LimsStudent" package-name="demo"
+		title="学生">
+		<field name="studentId" type="id-long-ne">
+			<description>主键ID</description>
+		</field>
+		<field name="studentName" type="name">
+			<description>学生姓名</description>
+		</field>
+		<field name="studentEmail" type="name">
+			<description>邮箱地址</description>
+		</field>
+		<field name="seatNo" type="numeric">
+			<description>座位号</description>
+		</field>
+		<field name="birthDate" type="date">
+			<description>出生年月</description>
+		</field>
+		<field name="gender" type="id-long-ne">
+			<description>性别</description>
+		</field>
+		<field name="sign" type="id-long-ne">
+			<description>星座</description>
+		</field>
+		<field name="classId" type="id-long-ne">
+			<description>班级Id</description>
+		</field>
+		<field name="girlPartyId" type="id-long-ne">
+			<description>对象Id</description>
+		</field>
+		<field name="fromDate" type="date-time"></field>
+        <field name="thruDate" type="date-time"></field>
+		<prim-key field="studentId" />
+		
+		<relation type="one" fk-name="student_class" title="班级"
+			rel-entity-name="LimsClass">
+			<key-map field-name="classId" />
+		</relation>
+		<relation type="one" fk-name="student_person" title="对象"
+			rel-entity-name="Person">
+			<key-map field-name="girlPartyId" rel-field-name="partyId"/>
+		</relation>
+
+	</entity>
+	<entity entity-name="LimsStudentScore" package-name="demo"
+		title="学生成绩">
+		<field name="scoreId" type="id-long-ne">
+			<description>主键ID</description>
+		</field>
+		<field name="scoreNum" type="numeric">
+			<description>分数</description>
+		</field>
+		<field name="limsStudentId" type="id-long-ne">
+			<description>学生</description>
+		</field>
+		<prim-key field="scoreId" />
+		<relation type="one" fk-name="score_student" title="学生"
+			rel-entity-name="LimsStudent">
+			<key-map field-name="limsStudentId" rel-field-name="studentId"/>
+		</relation>
+	</entity>	
+	<!-- java与ftl复杂程序 -->
+	<entity entity-name="LimsStudentComplex" package-name="demo"
+		title="学生-复杂">
+		<field name="studentId" type="id-long-ne">
+			<description>主键ID</description>
+		</field>
+		<field name="studentName" type="name">
+			<description>学生姓名</description>
+		</field>
+		<field name="studentEmail" type="name">
+			<description>邮箱地址</description>
+		</field>
+		<field name="seatNo" type="numeric">
+			<description>座位号</description>
+		</field>
+		<field name="birthDate" type="date">
+			<description>出生年月</description>
+		</field>
+		<field name="gender" type="id-long-ne">
+			<description>性别</description>
+		</field>
+		<field name="sign" type="id-long-ne">
+			<description>星座</description>
+		</field>
+		<field name="classIdNo" type="id-long-ne">
+			<description>班级Id</description>
+		</field>
+		<prim-key field="studentId" />
+
+		<relation type="one" fk-name="student_class_complex" title="班级"
+			rel-entity-name="LimsClass">
+			<key-map field-name="classIdNo" rel-field-name="classId" />
+		</relation>
+
+	</entity>
+
+
+
+	<entity entity-name="CarUseApplyRegister" package-name="demo"
+		title="车辆申请">
+		<field name="carUseId" type="id-long-ne"></field>
+		<field name="carNo" type="name">
+			<description>车牌号码</description>
+		</field>
+		<field name="dayNum" type="numeric">
+			<description>用车天数</description>
+		</field>
+
+		<field name="status" type="name">
+			<description>状态</description>
+		</field>
+		<field name="joinPersonId" type="name">
+			<description>工作流第一步参与人</description>
+		</field>
+		<field name="nextActive" type="name">
+			<description>工作流第一步活动</description>
+		</field>
+		<field name="areaId" type="name">
+			<description>域ID</description>
+		</field>
+		<prim-key field="carUseId" />
+	</entity>
+    <entity entity-name="CustomerAddr" package-name="demo" title="客户地址">
+        <field name="id" type="id-ne"><description>id主键</description></field>
+        <field name="filed1" type="short-varchar"><description>字段1</description></field>
+        <field name="filed2" type="short-varchar"><description>字段2</description></field>
+        <field name="filed3" type="numeric"><description>字段3</description></field>
+        <field name="filed4" type="short-varchar"><description>字段4</description></field>
+        <field name="fromDate" type="date-time"></field>
+        <field name="thruDate" type="date-time"></field>
+        <prim-key field="id" />
+  <relation type="one" fk-name="LimsStudentfiled4" rel-entity-name="LimsStudent"> 
+ <key-map field-name="filed4" rel-field-name="studentId"/>  </relation>
+    </entity>
+  
+</entitymodel>

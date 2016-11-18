@@ -1,0 +1,870 @@
+body {
+	background: rgb(255, 255, 255); font: 12px/1.5 tahoma, arial, ËÎÌå; color: rgb(68, 68, 68); font-size-adjust: none; font-stretch: normal;
+}
+body {
+	margin: 0px; padding: 0px;
+}
+div {
+	margin: 0px; padding: 0px;
+}
+dl {
+	margin: 0px; padding: 0px;
+}
+dt {
+	margin: 0px; padding: 0px;
+}
+dd {
+	margin: 0px; padding: 0px;
+}
+ul {
+	margin: 0px; padding: 0px;
+}
+ol {
+	margin: 0px; padding: 0px;
+}
+li {
+	margin: 0px; padding: 0px;
+}
+h1 {
+	margin: 0px; padding: 0px;
+}
+h2 {
+	margin: 0px; padding: 0px;
+}
+h3 {
+	margin: 0px; padding: 0px;
+}
+h4 {
+	margin: 0px; padding: 0px;
+}
+h5 {
+	margin: 0px; padding: 0px;
+}
+h6 {
+	margin: 0px; padding: 0px;
+}
+pre {
+	margin: 0px; padding: 0px;
+}
+code {
+	margin: 0px; padding: 0px;
+}
+form {
+	margin: 0px; padding: 0px;
+}
+fieldset {
+	margin: 0px; padding: 0px;
+}
+legend {
+	margin: 0px; padding: 0px;
+}
+input {
+	margin: 0px; padding: 0px;
+}
+button {
+	margin: 0px; padding: 0px;
+}
+textarea {
+	margin: 0px; padding: 0px;
+}
+p {
+	margin: 0px; padding: 0px;
+}
+blockquote {
+	margin: 0px; padding: 0px;
+}
+th {
+	margin: 0px; padding: 0px;
+}
+td {
+	margin: 0px; padding: 0px;
+}
+button {
+	font: 100%/normal tahoma, arial, ËÎÌå; font-size-adjust: none; font-stretch: normal;
+}
+input {
+	font: 100%/normal tahoma, arial, ËÎÌå; font-size-adjust: none; font-stretch: normal;
+}
+select {
+	font: 100%/normal tahoma, arial, ËÎÌå; font-size-adjust: none; font-stretch: normal;
+}
+textarea {
+	font: 100%/normal tahoma, arial, ËÎÌå; font-size-adjust: none; font-stretch: normal;
+}
+h1 {
+	font-size: 100%; font-weight: bold;
+}
+h2 {
+	font-size: 100%; font-weight: bold;
+}
+h3 {
+	font-size: 100%; font-weight: bold;
+}
+h4 {
+	font-size: 100%; font-weight: bold;
+}
+h5 {
+	font-size: 100%; font-weight: bold;
+}
+h6 {
+	font-size: 100%; font-weight: bold;
+}
+em {
+	font-style: normal;
+}
+ul {
+	list-style: none;
+}
+ol {
+	list-style: none;
+}
+fieldset {
+	border: 0px currentColor;
+}
+img {
+	border: 0px currentColor;
+}
+input {
+	vertical-align: middle;
+}
+sup {
+	vertical-align: text-top;
+}
+sub {
+	vertical-align: text-bottom;
+}
+table {
+	border-collapse: collapse; border-spacing: 0;
+}
+a {
+	color: rgb(51, 102, 204); text-decoration: none;
+}
+a:hover {
+	color: rgb(153, 0, 0); text-decoration: underline;
+}
+.clearfix::after {
+	height: 0px; clear: both; display: block; visibility: hidden; content: ".";
+}
+.clearfix {
+	
+}
+#header {
+	background: url("http://www.dhresource.com/seller/images/login/login-head-bg.png") repeat-x 0px bottom; margin: 0px auto; width: 950px; height: 77px; padding-bottom: 4px; position: relative;
+}
+#header h1 {
+	left: 0px; top: 0px; position: absolute;
+}
+#header h1 a {
+	width: 356px; height: 77px; overflow: hidden; display: block; position: relative;
+}
+#header h1 a img {
+	left: 0px; top: 0px; position: absolute;
+}
+#header #toplist {
+	padding: 10px 0px; height: 20px; right: 0px; position: absolute;
+}
+#header #toplist a {
+	margin: 0px 5px; color: rgb(44, 44, 44); line-height: 20px; text-decoration: none;
+}
+#header #toplist a:hover {
+	color: rgb(153, 0, 0); text-decoration: underline;
+}
+#header .returnoldsyi {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/returnoldsyi-01.png") no-repeat 0px 50%; right: 12px; bottom: 10px; color: rgb(68, 68, 68); line-height: 20px; padding-left: 20px; position: absolute; cursor: pointer;
+}
+#header .returnoldsyi span {
+	vertical-align: middle; display: block;
+}
+#header .seenewusergu {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/newuserdysyi-01.png") no-repeat 0px 50%; right: 100px; bottom: 10px; color: rgb(68, 68, 68); line-height: 20px; padding-left: 20px; position: absolute; cursor: pointer;
+}
+#header .seenewusergu span {
+	vertical-align: middle; display: block;
+}
+#header .seenewusergu:hover {
+	color: rgb(153, 0, 0); text-decoration: underline;
+}
+#header .returnoldsyi:hover {
+	color: rgb(153, 0, 0); text-decoration: underline;
+}
+.phone {
+	background: url("http://www.dhresource.com/dhs/fob/css/home/phone.png") no-repeat 0px 2px; padding-left: 13px; position: relative;
+}
+#header #toplist a.phone:hover {
+	background: url("http://www.dhresource.com/dhs/fob/css/home/phone.png") no-repeat 0px -18px; color: rgb(153, 0, 0); text-decoration: none;
+}
+#footer {
+	font: 12px/22px Arial, Helvetica, sans-serif; margin: 0px auto; width: 950px; text-align: center; color: rgb(68, 68, 68); padding-top: 15px; border-top-color: rgb(215, 215, 215); border-top-width: 1px; border-top-style: solid; font-size-adjust: none; font-stretch: normal;
+}
+#footer a {
+	margin: 0px 6px; color: rgb(68, 68, 68); text-decoration: none; display: inline;
+}
+#footer a:hover {
+	color: rgb(153, 0, 0);
+}
+#footer p.p1 {
+	font-size: 11px;
+}
+#footer p.p2 {
+	margin-bottom: 10px;
+}
+.leavecategory {
+	margin: 0px auto; width: 950px;
+}
+.catgoray-box {
+	margin: 0px auto; width: 950px;
+}
+.leavecategory {
+	width: 940px; height: 21px; padding-left: 10px; margin-top: 10px;
+}
+.leavecategory h1 {
+	color: rgb(0, 0, 0); font-size: 14px;
+}
+.leavecategory .leave-cat-lv {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/leve01.png") no-repeat 0px 0px; float: right;
+}
+.leavecategory .leave02 {
+	background-position: 0px -22px;
+}
+.leavecategory .leave03 {
+	background-position: 0px -44px;
+}
+.leavecategory span {
+	width: 99px; text-align: center; color: rgb(255, 255, 255); line-height: 22px !important; float: left; display: block;
+}
+.leavecategory span.current {
+	font-weight: bold;
+}
+.leavecategory .leave-cat-lv span.first {
+	width: 100px;
+}
+.leavecategory .leave-cat-lv span.middle {
+	width: 106px;
+}
+.leavecategory .leave-cat-lv span.last {
+	width: 90px;
+}
+.titlebox {
+	padding: 6px 10px 0px; height: 30px; border-bottom-color: rgb(212, 222, 238); border-bottom-width: 1px; border-bottom-style: solid; background-color: rgb(239, 244, 251);
+}
+.titlebox h3 {
+	color: rgb(0, 0, 0); line-height: 22px; padding-top: 2px; font-size: 12px; vertical-align: middle; display: inline-block; _padding-top: 0px;
+}
+.fl-left {
+	float: left;
+}
+.fl-right {
+	float: right;
+}
+.drop-down {
+	border: 1px solid rgb(135, 151, 176); width: 162px; height: 22px; line-height: 22px; padding-top: 1px; float: left; position: relative; background-color: rgb(255, 255, 255);
+}
+.drop-down-default {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/syi-category.png") no-repeat -20px 0px; top: 0px; width: 25px; height: 23px; right: 1px; border-left-color: rgb(185, 203, 231); border-left-width: 1px; border-left-style: solid; display: block; position: absolute; cursor: pointer;
+}
+.drop-down-default:hover {
+	background-position: -20px -33px; border-color: rgb(117, 203, 255);
+}
+.drop-down-value {
+	height: 21px; text-indent: 7px; margin-right: 26px; display: block; cursor: pointer;
+}
+.drop-down-activation {
+	border-color: rgb(0, 141, 226) rgb(117, 203, 255) rgb(117, 203, 255) rgb(0, 141, 226);
+}
+.drop-down-activation .drop-down-default {
+	background-position: -20px -33px; border-color: rgb(117, 203, 255);
+}
+.chouse-down-box {
+	padding: 1px 0px; border: 1px solid rgb(135, 151, 176); left: -1px; top: 24px; width: 162px; display: none; position: absolute; z-index: 999; background-color: rgb(255, 255, 255);
+}
+.chouse-down-box span {
+	margin: 0px 1px; height: 22px; color: rgb(68, 68, 68); text-indent: 7px; display: block; cursor: pointer;
+}
+.chouse-down-box span.hover {
+	color: rgb(255, 255, 255); background-color: rgb(49, 106, 197);
+}
+.chouse-down-box span.selected {
+	color: rgb(255, 255, 255); background-color: rgb(49, 106, 197);
+}
+.chouse-down-box span.sac_over {
+	color: rgb(255, 255, 255); background-color: rgb(49, 106, 197);
+}
+.drop-down-activation .chouse-down-box {
+	display: block;
+}
+.text-indent {
+	text-indent: 12px;
+}
+.text-indent span {
+	text-indent: 12px;
+}
+.catgoray-box {
+	width: 950px; margin-top: 10px; margin-bottom: 10px;
+}
+.search-box {
+	padding: 10px; border-bottom-color: rgb(220, 220, 220); border-bottom-width: 1px; border-bottom-style: dashed;
+}
+.search-model {
+	height: 28px; padding-bottom: 12px; position: relative; z-index: 11;
+}
+.search-model .search-input {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/search-box.jpg") no-repeat 0px 0px; padding: 5px 5px 4px; border: 0px currentColor; width: 422px; height: 22px; line-height: 22px; text-indent: 10px; font-size: 16px; margin-right: 10px; float: left; display: block;
+}
+.search-association {
+	padding: 0px; border: 1px solid rgb(221, 221, 221); left: 0px; top: 31px; width: 430px; height: 218px; color: rgb(68, 68, 68); overflow: hidden; position: absolute; z-index: 99999; background-color: rgb(255, 255, 255);
+}
+.search-association ul {
+	padding: 3px 0px; width: 100%;
+}
+.search-association li {
+	margin: 0px 1px; padding: 0px 10px; height: 21px; line-height: 19px; overflow: hidden; clear: both; font-size: 12px; display: block; cursor: pointer;
+}
+.search-association li span {
+	color: rgb(51, 51, 51); font-weight: 700;
+}
+.sac_over {
+	color: rgb(255, 255, 255); background-color: rgb(49, 106, 197);
+}
+.search-association .sac_over span {
+	color: rgb(255, 255, 255); font-weight: 300;
+}
+.sac-btn {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/searchbtn01.jpg") no-repeat 0px 0px; width: 126px; height: 32px; display: inline-block;
+}
+.sac-btn input {
+	margin: 0px; padding: 0px; border: currentColor; width: 126px; height: 32px; overflow: visible; cursor: pointer;
+}
+.sac-btn:hover {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/searchbtn02.jpg") no-repeat 0px 0px;
+}
+.search-none {
+	color: rgb(68, 68, 68); padding-left: 0px;
+}
+.search-tiperror {
+	background: url("http://www.dhresource.com/2008/web20/seller/img/reg_image/reg_bottom_icon10.gif") no-repeat 10px 50% rgb(235, 242, 246); padding: 4px 10px 4px 30px; border: 1px solid rgb(192, 214, 224); width: 390px; height: 18px; line-height: 18px; margin-top: 5px; vertical-align: middle;
+}
+.div_search_error {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/global-small-error.jpg") no-repeat 10px 50% rgb(254, 238, 238); padding: 4px 10px 4px 30px; border: 1px solid rgb(247, 172, 172); width: 390px; height: 18px; line-height: 18px; margin-top: 5px; vertical-align: middle;
+}
+.search-source {
+	padding: 0px 349px 0px 0px;
+}
+.search-none b {
+	color: rgb(252, 86, 2);
+}
+.search-sailtips {
+	margin: 0px 10px; height: 30px; color: rgb(68, 68, 68); display: block; position: relative;
+}
+.source-tit {
+	margin-top: 3px; display: inline-block;
+}
+.source-tit b {
+	color: rgb(252, 86, 2);
+}
+.search-sailtips span.viewticps {
+	top: 6px; height: 12px; right: 0px; color: rgb(47, 102, 203); line-height: 12px; position: absolute; z-index: 0; cursor: pointer;
+}
+.search-sailtips span.viewticps .darrow {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/syi-category.png") no-repeat 0px -26px; width: 14px; height: 14px; margin-left: 3px; vertical-align: middle; display: inline-block; _margin-top: 2px;
+}
+.search-sailtips span.viewshow .darrow {
+	
+}
+.search-sailtips-box {
+	padding: 10px 10px 0px; border-top-color: rgb(205, 205, 205); border-top-width: 1px; border-top-style: solid;
+}
+.search-sailtips-box li {
+	line-height: 24px; padding-left: 6px; cursor: pointer;
+}
+.search-sailtips-box li span {
+	padding: 0px 6px; color: rgb(196, 196, 196); font-family: Comic Sans MS;
+}
+.search-sailtips-box li.hover {
+	color: rgb(255, 255, 255); background-color: rgb(49, 106, 197);
+}
+.addheight {
+	padding: 0px 10px; border: 0px currentColor; height: 1px; overflow: hidden;
+}
+.addheight ul {
+	display: none;
+}
+.search-history {
+	padding: 15px 10px 0px; height: 50px; position: relative; z-index: 2;
+}
+.search-history .history-tit {
+	color: rgb(11, 11, 11); line-height: 24px; float: left;
+}
+.search-history .drop-down {
+	width: 552px;
+}
+.search-history .chouse-down-box {
+	padding: 1px 0px; border: 1px solid rgb(135, 151, 176); left: -1px; top: 24px; width: 552px; display: none; position: absolute; background-color: rgb(255, 255, 255);
+}
+.search-history .chouse-down-box li {
+	padding-left: 7px; cursor: pointer;
+}
+.search-history .drop-down-activation .chouse-down-box {
+	display: block;
+}
+.greay-cat-box {
+	border: 1px solid rgb(243, 243, 243);
+}
+.greay-cat-box .b-f-line {
+	padding: 8px; border: 1px solid rgb(255, 255, 255); width: 930px; overflow: hidden; background-color: rgb(250, 250, 250);
+}
+.categoryselectlistbox {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/category-bg.png") no-repeat -8px 0px; padding: 0px 0px 0px 1px; width: 939px; height: 222px; overflow: hidden; position: relative; z-index: 0;
+}
+.categoryselectlist {
+	border: 1px solid rgb(184, 195, 212); width: 223px; height: 220px; overflow: hidden; margin-right: 9px; float: left; display: none; position: relative;
+}
+.addscroll {
+	display: block; overflow-y: scroll;
+}
+.categoryselectlist ul {
+	margin: 0px 1px;
+}
+.categoryselectlist li {
+	height: 20px; line-height: 20px; text-indent: 10px; overflow: hidden; padding-left: 0px; cursor: pointer;
+}
+.categoryselectlist li span.limited span {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/nojoin.png") no-repeat 100% 50%; color: rgb(252, 86, 2); padding-right: 20px;
+}
+.categoryselectlist li.current span.limited {
+	color: rgb(0, 0, 0); display: block; background-color: rgb(252, 86, 2);
+}
+.categoryselectlist li.hover span.limited {
+	color: rgb(0, 0, 0); display: block; background-color: rgb(252, 86, 2);
+}
+.categoryselectlist li.current span.limited span {
+	color: rgb(255, 255, 255);
+}
+.categoryselectlist li.hover span.limited span {
+	color: rgb(255, 255, 255);
+}
+.categoryselectlist li.current {
+	color: rgb(252, 86, 2);
+}
+.categoryselectlist li.current {
+	color: rgb(255, 255, 255); background-color: rgb(49, 106, 197);
+}
+.categoryselectlist li.hover {
+	color: rgb(255, 255, 255); background-color: rgb(49, 106, 197);
+}
+.jscroll-e {
+	top: 0px; height: 100%; right: 0px; overflow: hidden; position: absolute; z-index: 10000; -moz-user-select: none;
+}
+.jscroll-u {
+	background: blue; margin: 1px 0px; left: 1px; top: 0px; width: 100%; overflow: hidden; position: absolute;
+}
+.jscroll-h {
+	border: 1px solid currentColor; left: 1px; position: absolute; -moz-user-select: none;
+}
+.jscroll-d {
+	background: blue; margin: 1px 0px; left: 1px; width: 100%; bottom: 0px; overflow: hidden; position: absolute;
+}
+.jscroll-center {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/scrollbg.png") no-repeat -95px 50%; margin: 0px auto; width: 7px; height: 100%; vertical-align: middle;
+}
+.selected-category {
+	padding: 15px 0px;
+}
+.selected-category .chouseed-catrgory {
+	padding: 10px; border: 1px solid rgb(253, 204, 127); background-color: rgb(255, 255, 229);
+}
+.selected-category .chouseed-catrgory span.cate-title {
+	color: rgb(11, 11, 11); float: left;
+}
+.selected-category .chouseed-catrgory span.cate-value {
+	width: 790px; float: left;
+}
+.selected-category .chouseed-catrgory span.cate-value span {
+	padding: 0px 6px; color: rgb(0, 0, 0); font-family: Comic Sans MS;
+}
+.selected-category .chouseed-catrgory span.cate-value b {
+	color: rgb(195, 72, 2); font-weight: 300; display: inline-block;
+}
+.selected-category .chousetips {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/nojoin.png") no-repeat 10px 7px; padding: 5px 0px 0px 30px; color: rgb(252, 86, 2); margin-top: 5px;
+}
+.selected-category-tip {
+	padding: 10px;
+}
+.selected-category-tip span.cate-title {
+	color: rgb(11, 11, 11); float: left;
+}
+.selected-category-tip span.cate-value {
+	width: 846px; color: rgb(90, 90, 90); float: left;
+}
+.buttonbox {
+	padding: 10px; text-align: center;
+}
+.submit-syi {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/sub-btn001.jpg") no-repeat 0px 0px; padding: 3px 0px 0px; width: 240px; height: 35px; text-align: center; color: rgb(178, 87, 6); line-height: 35px; font-size: 14px; font-weight: bold; display: inline-block;
+}
+.submit-syi * {
+	vertical-align: middle;
+}
+button .unavailable {
+	background-position: 0px -78px;
+}
+button:hover .submit-syi {
+	background-position: 0px -39px; color: rgb(118, 56, 0);
+}
+button:hover .initialstate {
+	color: rgb(171, 168, 153);
+}
+button .initialstate {
+	color: rgb(171, 168, 153);
+}
+button .unavailable {
+	background-position: 0px -78px; color: rgb(172, 169, 152);
+}
+button:hover .unavailable {
+	background-position: 0px -78px; color: rgb(172, 169, 152);
+}
+button {
+	margin: 0px; padding: 0px; border: 0px currentColor; text-indent: inherit; overflow: visible; font-size: 12px; vertical-align: middle; cursor: pointer;
+}
+.tourBtn {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/newbutton.png") repeat-x 0px 0px; padding: 0px 0px 0px 1px; height: 23px; overflow: hidden; margin-right: 9px; vertical-align: middle; display: inline-block;
+}
+.tourBtn a {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/newbutton.png") repeat-x 100% 0px; font: 12px/22px Arial, Helvetica, sans-serif; padding: 0px 10px 0px 9px; border: 0px currentColor; height: 23px; text-align: center; color: rgb(68, 68, 68); overflow: hidden; text-decoration: none; float: left; display: block; cursor: pointer; font-size-adjust: none; font-stretch: normal;
+}
+.tourBtn:hover a {
+	background-position: right -23px; color: rgb(0, 0, 0);
+}
+.tourBtn a {
+	padding: 2px 10px 1px 9px;
+}
+.tourBtn:hover {
+	color: rgb(0, 0, 0); text-decoration: none; cursor: pointer;
+}
+.tourBtn:hover a {
+	background-position: 100% -23px; color: rgb(0, 0, 0); text-decoration: none;
+}
+.submit-pro-box {
+	margin: 30px auto; padding: 20px 50px; border: 1px solid rgb(140, 212, 76); width: 525px; background-color: rgb(243, 255, 230);
+}
+.bod-line-btom {
+	padding-bottom: 20px; padding-left: 42px; margin-bottom: 20px;
+}
+.btom-none {
+	padding-bottom: 10px; margin-bottom: 0px;
+}
+.bod-line-btom h2 {
+	padding: 5px 0px 10px; color: rgb(0, 0, 0); line-height: 18px; font-size: 14px;
+}
+.bod-line-btom p {
+	color: rgb(148, 148, 148); line-height: 24px;
+}
+.novialtip {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/nojoin.png") no-repeat 10px 50% rgb(255, 255, 255); padding: 5px 10px 5px 35px; border: 1px solid rgb(213, 236, 188); height: 20px; color: rgb(251, 85, 1);
+}
+.novialtip span {
+	line-height: 22px; vertical-align: middle; display: inline;
+}
+.bod-line-btom p.color000 {
+	color: rgb(0, 0, 0);
+}
+.bod-line-btom p.padtop10 {
+	padding-top: 10px;
+}
+.bod-line-btom span.addwid90 {
+	width: 90px; display: inline-block;
+}
+.bod-add-img {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/sub-success.png") no-repeat 0px 0px;
+}
+.bod-add-line {
+	border-bottom-color: rgb(221, 221, 221); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.guidedbox {
+	margin: 0px auto;
+}
+.guidedbox .greybox {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/bg.png") no-repeat 50% -15px; width: 705px; height: 30px;
+}
+.guidedbox .box {
+	border: 3px solid rgb(136, 136, 136); width: 698px; height: 443px; overflow: hidden; position: relative; background-color: rgb(255, 255, 255);
+}
+.guidedbox a.guidedclosed {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/closed01.jpg") no-repeat -30px 0px; top: 20px; width: 30px; height: 30px; right: 20px; overflow: hidden; display: block; position: absolute; cursor: pointer;
+}
+.guidedbox a.guidedclosed:hover {
+	
+}
+.guidedbox .guided-steps-box {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/bg-01.jpg") repeat-x 0px 0px; padding: 15px 20px 10px; left: 0px; width: 659px; height: 45px; bottom: 0px; position: absolute;
+}
+.guidedbox .guided-steps-box .gsboxleft {
+	line-height: 30px; font-family: "Î¢ÈíÑÅºÚ"; font-size: 26px; float: left;
+}
+.guidedbox .guided-steps-box .gsboxleft span.pageallnum {
+	color: rgb(140, 9, 9);
+}
+.guidedbox .guided-steps-box .gsboxright {
+	float: right;
+}
+.gsboxright ul {
+	width: 400px; height: 40px; overflow: hidden;
+}
+.gsboxright ul li {
+	height: 40px; line-height: 40px; overflow: hidden; float: right; display: inline-block;
+}
+.guidedbox .guided-steps-box .gsboxright span {
+	margin-left: 20px; cursor: pointer;
+}
+.guidednext {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/btn01.png") no-repeat 0px 0px; width: 134px; height: 41px; text-indent: -99em; overflow: hidden; float: left; display: inline-block;
+}
+.guidedpre {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/btn01.png") no-repeat 0px 0px; width: 134px; height: 41px; text-indent: -99em; overflow: hidden; float: left; display: inline-block;
+}
+.guidestartread {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/btn01.png") no-repeat 0px 0px; width: 134px; height: 41px; text-indent: -99em; overflow: hidden; float: left; display: inline-block;
+}
+.guideiknow {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/btn01.png") no-repeat 0px 0px; width: 134px; height: 41px; text-indent: -99em; overflow: hidden; float: left; display: inline-block;
+}
+.guideend {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/btn01.png") no-repeat 0px 0px; width: 134px; height: 41px; text-indent: -99em; overflow: hidden; float: left; display: inline-block;
+}
+.guidednext {
+	background-position: -154px -42px;
+}
+.guidedpre {
+	background-position: 0px -42px;
+}
+.guidestartread {
+	width: 204px;
+}
+.guideiknow {
+	background-position: -213px 0px; width: 144px;
+}
+.guideend {
+	background-position: 0px -84px;
+}
+.noshade-pop-inner .box1 {
+	padding: 20px 20px 10px;
+}
+.noshade-pop-inner .boxcenter {
+	padding: 20px; text-align: center; line-height: 26px;
+}
+.noshade-pop-inner .boxcenter p {
+	padding-bottom: 30px;
+}
+.noshade-pop-inner .box2 {
+	padding: 20px 20px 0px; color: rgb(0, 0, 0); overflow: hidden;
+}
+.noshade-pop-inner .box2 p.tipsnoite {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/nojoin.png") no-repeat 10px 4px; padding: 0px 0px 10px 35px; color: rgb(251, 85, 1);
+}
+.noshade-pop-inner .box2 p {
+	padding: 0px 0px 8px; height: 100%; line-height: 20px; overflow: hidden; display: block;
+}
+.noshade-pop-inner .box2 p span.widtitle {
+	width: 95px; text-align: right; float: left;
+}
+.noshade-pop-inner .box2 p span.wid325contxt {
+	width: 325px; text-align: left; padding-left: 3px; float: left; display: inline-block;
+}
+.tourBtn {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/newbutton.png") repeat-x 0px 0px; padding: 0px 0px 0px 1px; height: 23px; overflow: hidden; margin-right: 9px; vertical-align: middle; display: inline-block;
+}
+.yellowBtn {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/newbutton.png") repeat-x 0px 0px; padding: 0px 0px 0px 1px; height: 23px; overflow: hidden; margin-right: 9px; vertical-align: middle; display: inline-block;
+}
+.yellowBtn {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/newbutton.png") repeat-x 0px -96px; height: 23px;
+}
+.tourBtn a {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/newbutton.png") repeat-x 100% 0px; font: 12px/22px Arial, Helvetica, sans-serif; padding: 0px 10px 0px 9px; border: 0px currentColor; height: 23px; text-align: center; color: rgb(68, 68, 68); overflow: hidden; text-decoration: none; float: left; display: block; cursor: pointer; font-size-adjust: none; font-stretch: normal;
+}
+.tourBtn input {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/newbutton.png") repeat-x 100% 0px; font: 12px/22px Arial, Helvetica, sans-serif; padding: 0px 10px 0px 9px; border: 0px currentColor; height: 23px; text-align: center; color: rgb(68, 68, 68); overflow: hidden; text-decoration: none; float: left; display: block; cursor: pointer; font-size-adjust: none; font-stretch: normal;
+}
+.yellowBtn a {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/newbutton.png") repeat-x 100% 0px; font: 12px/22px Arial, Helvetica, sans-serif; padding: 0px 10px 0px 9px; border: 0px currentColor; height: 23px; text-align: center; color: rgb(68, 68, 68); overflow: hidden; text-decoration: none; float: left; display: block; cursor: pointer; font-size-adjust: none; font-stretch: normal;
+}
+.yellowBtn input {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/newbutton.png") repeat-x 100% 0px; font: 12px/22px Arial, Helvetica, sans-serif; padding: 0px 10px 0px 9px; border: 0px currentColor; height: 23px; text-align: center; color: rgb(68, 68, 68); overflow: hidden; text-decoration: none; float: left; display: block; cursor: pointer; font-size-adjust: none; font-stretch: normal;
+}
+.tourBtn input {
+	_line-height: 24px;
+}
+.yellowBtn input {
+	_line-height: 24px;
+}
+.yellowBtn a {
+	background-position: right -96px; height: 23px; line-height: 23px; font-size: 12px;
+}
+.yellowBtn input {
+	background-position: right -96px; height: 23px; line-height: 23px; font-size: 12px;
+}
+.tourBtn:hover a {
+	background-position: right -23px; color: rgb(0, 0, 0);
+}
+.tourBtn:hover input {
+	background-position: right -23px; color: rgb(0, 0, 0);
+}
+.tourBtn a {
+	padding: 2px 10px 1px 9px;
+}
+.tourBtn input {
+	padding: 2px 10px 1px 9px;
+}
+.yellowBtn a {
+	padding: 2px 10px 1px 9px;
+}
+.yellowBtn input {
+	padding: 2px 10px 1px 9px;
+}
+.tourBtn input {
+	height: 23px; text-indent: inherit; overflow: visible;
+}
+.yellowBtn input {
+	height: 23px; text-indent: inherit; overflow: visible;
+}
+:root .tourBtn input {
+	padding-top: 1px;
+}
+:root .yellowBtn input {
+	padding-top: 1px;
+}
+.tourBtn input {
+	padding-top: 0px;
+}
+.yellowBtn input {
+	padding-top: 0px;
+}
+.yellowBtn a {
+	color: rgb(178, 87, 6);
+}
+.yellowBtn input {
+	color: rgb(178, 87, 6);
+}
+.tourBtn:hover {
+	color: rgb(0, 0, 0); text-decoration: none; cursor: pointer;
+}
+.yellowBtn:hover {
+	color: rgb(0, 0, 0); text-decoration: none; cursor: pointer;
+}
+.tourBtn:hover a {
+	background-position: 100% -23px; color: rgb(0, 0, 0); text-decoration: none;
+}
+.tourBtn:hover input {
+	background-position: 100% -23px; color: rgb(0, 0, 0); text-decoration: none;
+}
+.yellowBtn:hover a {
+	background-position: 100% -23px; color: rgb(0, 0, 0); text-decoration: none;
+}
+.yellowBtn:hover input {
+	background-position: 100% -23px; color: rgb(0, 0, 0); text-decoration: none;
+}
+.yellowBtn:hover a {
+	background-position: 100% -119px; color: rgb(118, 56, 0);
+}
+.yellowBtn:hover input {
+	background-position: 100% -119px; color: rgb(118, 56, 0);
+}
+.tip-error {
+	background: url("http://www.dhresource.com/dhs/mos/image/syi/new/global-small-error.jpg") no-repeat 10px 50% rgb(254, 238, 238); padding: 4px 10px 4px 30px; border: 1px solid rgb(247, 172, 172); width: 390px; height: 18px; line-height: 18px; margin-top: 5px; vertical-align: middle;
+}
+.t-lt {
+	background: rgb(0, 0, 0); filter: alpha(opacity=20); opacity: 0.2;
+}
+.t-mid {
+	background: rgb(0, 0, 0); filter: alpha(opacity=20); opacity: 0.2;
+}
+.t-ri {
+	background: rgb(0, 0, 0); filter: alpha(opacity=20); opacity: 0.2;
+}
+.m-lt {
+	background: rgb(0, 0, 0); filter: alpha(opacity=20); opacity: 0.2;
+}
+.m-ri {
+	background: rgb(0, 0, 0); filter: alpha(opacity=20); opacity: 0.2;
+}
+.b-lt {
+	background: rgb(0, 0, 0); filter: alpha(opacity=20); opacity: 0.2;
+}
+.b-mid {
+	background: rgb(0, 0, 0); filter: alpha(opacity=20); opacity: 0.2;
+}
+.b-ri {
+	background: rgb(0, 0, 0); filter: alpha(opacity=20); opacity: 0.2;
+}
+.t-lt {
+	width: 10px;
+}
+.t-ri {
+	width: 10px;
+}
+.m-lt {
+	width: 10px;
+}
+.m-ri {
+	width: 10px;
+}
+.b-lt {
+	width: 10px;
+}
+.b-ri {
+	width: 10px;
+}
+.t-lt {
+	height: 10px;
+}
+.t-mid {
+	height: 10px;
+}
+.t-ri {
+	height: 10px;
+}
+.b-lt {
+	height: 10px;
+}
+.b-mid {
+	height: 10px;
+}
+.b-ri {
+	height: 10px;
+}
+.m-mid {
+	background: rgb(255, 255, 255);
+}
+.m-mid .tc_content {
+	border: currentColor;
+}
+.m-mid .mid-warp {
+	margin: -10px; padding: 10px; position: relative;
+}
+.noshade-pop-content {
+	background: rgb(255, 255, 255); border: 1px solid rgb(175, 175, 175);
+}
+.noshade-pop-title {
+	background: rgb(237, 237, 237); padding: 5px 10px; height: 16px; color: rgb(0, 0, 0); line-height: 16px; overflow: hidden; border-top-color: rgb(243, 243, 243); border-bottom-color: rgb(221, 221, 221); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+.noshade-pop-bot {
+	background: rgb(237, 237, 237); height: 6px; overflow: hidden; border-top-color: rgb(221, 221, 221); border-top-width: 1px; border-top-style: solid;
+}
+.noshade-pop-inner .box1 {
+	padding: 20px;
+}
+.noshade-pop-inner .boxcenter {
+	padding: 40px 20px 20px; text-align: center; line-height: 26px;
+}
+.noshade-pop-inner .boxcenter p {
+	padding-bottom: 30px;
+}
+.noshade-pop-close {
+	background: url("http://image.dhgate.com/dhs/mos/image/public/pop-close.png") no-repeat; top: 18px; width: 13px; height: 13px; right: 18px; overflow: hidden; position: absolute; cursor: pointer; _right: 8px;
+}
+.noshade-pop-close:hover {
+	background-position: 0px -13px;
+}
+.modalOverlay {
+	filter: alpha(opacity=20); cursor: wait; opacity: 0.2; background-color: rgb(0, 0, 0);
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the OFBizAlipay Component." permissionId="ALIPAY_VIEW"/>
+    <SecurityPermission description="Create operations in the OFBizAlipay Component." permissionId="ALIPAY_CREATE"/>
+    <SecurityPermission description="Update operations in the OFBizAlipay Component." permissionId="ALIPAY_UPDATE"/>
+    <SecurityPermission description="Delete operations in the OFBizAlipay Component." permissionId="ALIPAY_DELETE"/>
+    <SecurityPermission description="ALL operations in the OFBizAlipay Component." permissionId="ALIPAY_ADMIN"/>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="ALIPAY_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="ALIPAY_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="ALIPAY_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="ALIPAY_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="ALIPAY_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="ALIPAY_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="ALIPAY_ADMIN"/>
+</entity-engine-xml>

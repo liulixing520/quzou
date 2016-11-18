@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of quzou Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+    
+<!--     精彩赛事 -->
+    <entity package-name="org.ofbiz.quzou" entity-name="QzCompetition" >
+		<description>精彩赛事</description>
+		<field name="cId" type="id-ne">
+			<description>赛事id</description>
+		</field>
+		<field name="cName" type="name">
+			<description>赛事名称</description>
+		</field>
+		<field name="cPic" type="name">
+			<description>封面图片</description>
+		</field>
+		<field name="shortDescription" type="remark">
+			<description>简短描述</description>
+		</field>
+		<field name="description" type="very-long">
+			<description>简述</description>
+		</field>
+		<field name="publishDate" type="date-time">
+			<description>发布日期</description>
+		</field>
+		<field name="startDate" type="date">
+			<description>开始时间</description>
+		</field>
+		<field name="endDate" type="date">
+			<description>结束时间</description>
+		</field>
+		<field name="uploadEndDate" type="date-time">
+			<description>上传截止日期</description>
+		</field>
+		<field name="minStep" type="id-ne">
+			<description>计算积分最小步数</description>
+		</field>
+		<field name="maxStep" type="id-ne">
+			<description>计算积分最大步数</description>
+		</field>
+		<field name="stepCoefficient" type="id-ne">
+			<description>积分每百步数系数</description>
+		</field>
+		<field name="status" type="id-ne">
+			<description>赛事状态（0：未开始，1：进行中，2：已结束，3：已取消）</description>
+		</field>
+		<field name="isShow" type="id-ne">
+			<description>是否首页展示（0：不展示，1：展示）</description>
+		</field>
+	  	<field name="fromDate" type="date-time"></field>
+	 	<field name="thruDate" type="date-time"></field>
+		<prim-key field="cId" />
+	</entity>
+<!-- 	团队赛事关联表 -->
+	 <entity package-name="org.ofbiz.quzou" entity-name="QzCompetiAndDept" >
+		<description></description>
+		<field name="cId" type="id-ne">
+			<description>赛事id</description>
+		</field>
+		<field name="deptId" type="id-ne">
+			<description>部门id</description>
+		</field>
+		<prim-key field="cId" />
+		<prim-key field="deptId" />
+	</entity>
+<!-- 	人员赛事关联表 -->
+	 <entity package-name="org.ofbiz.quzou" entity-name="QzCompetiAndCustomer" >
+		<description></description>
+		<field name="cId" type="id-ne">
+			<description>赛事id</description>
+		</field>
+		<field name="customerId" type="id-ne">
+			<description>人员id</description>
+		</field>
+		<prim-key field="cId" />
+		<prim-key field="customerId" />
+	</entity>
+<!-- 	团队跟人关联表 -->
+	 <entity package-name="org.ofbiz.quzou" entity-name="QzDeptAndCustomer" >
+		<description></description>
+		<field name="deptId" type="id-ne">
+			<description>部门id</description>
+		</field>
+		<field name="customerId" type="id-ne">
+			<description>客户id</description>
+		</field>
+		<prim-key field="deptId" />
+		<prim-key field="customerId" />
+	</entity>
+<!-- 	公司 -->
+	<entity package-name="org.ofbiz.quzou" entity-name="QzCompany" >
+		<description>公司</description>
+		<field name="companyId" type="id-ne">
+			<description>公司id</description>
+		</field>
+		<field name="companyName" type="name">
+			<description>公司名称</description>
+		</field>
+	  	<field name="fromDate" type="date-time"></field>
+	 	<field name="thruDate" type="date-time"></field>
+		<prim-key field="companyId" />
+	</entity>
+<!-- 	部门 -->
+	<entity package-name="org.ofbiz.quzou" entity-name="QzDept" >
+		<description>部门</description>
+		<field name="deptId" type="id-ne">
+			<description>部门id</description>
+		</field>
+		<field name="deptName" type="name">
+			<description>部门名称</description>
+		</field>
+		<field name="companyId" type="id-ne">
+			<description>单位id</description>
+		</field>
+	  	<field name="fromDate" type="date-time"></field>
+	 	<field name="thruDate" type="date-time"></field>
+		<prim-key field="deptId" />
+	</entity>
+	<!--单位跟部门视图 -->
+	<view-entity entity-name="companyAndDept" package-name="org.ofbiz.quzou">
+		<member-entity entity-alias="QD" entity-name="QzDept"></member-entity>
+		<member-entity entity-alias="QC" entity-name="QzCompany"></member-entity>
+		<alias-all entity-alias="QD"></alias-all>
+		<alias entity-alias="QC" name="companyId"></alias>
+		<alias entity-alias="QC" name="companyName"></alias>
+		<view-link  entity-alias="QD" rel-optional="true" rel-entity-alias="QC">
+			<key-map field-name="companyId"/>
+		</view-link>
+	</view-entity>
+<!-- 	客户信息 -->
+	<extend-entity entity-name="Person">
+		<field name="companyId" type="id-ne">
+			<description>所属单位id</description>
+		</field>
+		<field name="openId" type="url">
+			<description>微信openId</description>
+		</field>
+		<field name="email" type="id-ne">
+			<description>email</description>
+		</field>
+		<field name="telephone" type="id-ne">
+			<description>手机号码</description>
+		</field>
+		<field name="nickname" type="name">
+			<description>微信昵称</description>
+		</field>
+		<field name="headimgurl" type="url">
+			<description>头像地址</description>
+		</field>
+	</extend-entity>
+	<view-entity entity-name="QzCustomer" package-name="org.ofbiz.quzou">
+		<member-entity entity-alias="PS" entity-name="Person"></member-entity>
+		<member-entity entity-alias="UL" entity-name="UserLogin"></member-entity>
+		<member-entity entity-alias="QC" entity-name="QzCompany"></member-entity>
+		<alias entity-alias="UL" name="userLoginId"></alias><!-- 登陆id -->
+		<alias entity-alias="PS" name="partyId" ></alias><!-- 会员id -->
+		<alias entity-alias="PS" name="firstName"></alias><!-- 姓名-->
+		<alias entity-alias="PS" name="gender"></alias><!-- 性别-->
+		<alias entity-alias="PS" name="height"></alias><!-- 身高-->
+		<alias entity-alias="PS" name="weight"></alias><!-- 体重-->
+		<alias entity-alias="PS" name="birthDate"></alias><!-- 生日-->
+		<alias entity-alias="PS" name="cardId"></alias><!-- 计步器号 -->
+		<alias entity-alias="PS" name="companyId"></alias><!-- 公司id-->
+		<alias entity-alias="PS" name="openId"></alias><!-- 微信openId-->
+		<alias entity-alias="PS" name="telephone"></alias><!-- 手机号-->
+		<alias entity-alias="PS" name="email"></alias><!-- 邮箱-->
+		<alias entity-alias="PS" name="nickname"></alias><!-- 微信昵称-->
+		<alias entity-alias="PS" name="headimgurl"></alias><!-- 微信头像-->
+		<alias entity-alias="QC" name="companyName"></alias><!-- 单位名称-->
+		<alias entity-alias="UL" name="enabled"></alias><!-- 是否启用-->
+		<view-link  entity-alias="PS" rel-entity-alias="UL">
+			<key-map field-name="partyId"/>
+		</view-link>
+		<view-link  entity-alias="PS" rel-optional="true" rel-entity-alias="QC">
+			<key-map field-name="companyId"/>
+		</view-link>
+	</view-entity>
+<!-- 	<entity package-name="org.ofbiz.quzou" entity-name="QzCustomer" > -->
+<!-- 		<description>客户信息</description> -->
+<!-- 		<field name="customerId" type="id-ne"> -->
+<!-- 			<description>客户登陆id</description> -->
+<!-- 		</field> -->
+<!-- 		<field name="currentPassword" type="name"> -->
+<!-- 			<description>登陆密码</description> -->
+<!-- 		</field> -->
+<!-- 		<field name="customerName" type="name"> -->
+<!-- 			<description>姓名</description> -->
+<!-- 		</field> -->
+<!-- 		<field name="sex" type="id-ne"> -->
+<!-- 			<description>性别</description> -->
+<!-- 		</field> -->
+<!-- 		<field name="birthDay" type="date"> -->
+<!-- 			<description>出生日期</description> -->
+<!-- 		</field> -->
+<!-- 		<field name="telephone" type="id-ne"> -->
+<!-- 			<description>手机号</description> -->
+<!-- 		</field> -->
+<!-- 		<field name="email" type="id-ne"> -->
+<!-- 			<description>email</description> -->
+<!-- 		</field> -->
+<!-- 		<field name="openId" type="name"> -->
+<!-- 			<description>微信openId</description> -->
+<!-- 		</field> -->
+<!-- 		<field name="companyId" type="id-ne"> -->
+<!-- 			<description>所属单位id</description> -->
+<!-- 		</field> -->
+<!-- 		<field name="cardId" type="name"> -->
+<!-- 			<description>计步器id</description> -->
+<!-- 		</field> -->
+<!-- 	  	<field name="fromDate" type="date-time"></field> -->
+<!-- 	 	<field name="thruDate" type="date-time"></field> -->
+<!-- 		<prim-key field="customerId" /> -->
+<!-- 	</entity> -->
+
+<!-- 	客户计步器信息 -->
+	<entity package-name="org.ofbiz.quzou" entity-name="QzCustomerLog" >
+		<description>客户计步器信息</description>
+		<field name="logId" type="id-ne">
+			<description>logId</description>
+		</field>
+		<field name="cardId" type="name">
+			<description>计步器id</description>
+		</field>
+		<field name="stepNumber" type="numeric">
+			<description>步数</description>
+		</field>
+		<field name="stepDate" type="date">
+			<description>计步日期</description>
+		</field>
+		<field name="uploadDate" type="date-time">
+			<description>上传日期</description>
+		</field>
+	  	<field name="fromDate" type="date-time"></field>
+	 	<field name="thruDate" type="date-time"></field>
+		<prim-key field="logId" />
+	</entity>
+<!-- 	达人秀 -->
+	<entity package-name="org.ofbiz.quzou" entity-name="QzTalentShow" >
+		<description>达人秀</description>
+		<field name="showId" type="id-ne">
+			<description>logId</description>
+		</field>
+		<field name="showTitle" type="name">
+			<description>达人秀标题</description>
+		</field>
+		<field name="showPic" type="name">
+			<description>封面图</description>
+		</field>
+		<field name="description" type="remark">
+			<description>简述</description>
+		</field>
+		<field name="publishDate" type="date-time">
+			<description>发布日期</description>
+		</field>
+		<field name="detailContent" type="very-long">
+			<description>文本内容</description>
+		</field>
+		<field name="imageUrls" type="very-long">
+			<description>图片urls（用英文逗号隔开）</description>
+		</field>
+		<field name="isShow" type="id-ne">
+			<description>是否首页展示（0：不展示，1：展示）</description>
+		</field>
+	  	<field name="fromDate" type="date-time"></field>
+	 	<field name="thruDate" type="date-time"></field>
+		<prim-key field="showId" />
+	</entity>
+<!-- 	站内短消息 -->
+	<entity package-name="org.ofbiz.quzou" entity-name="QzWebMsg" >
+		<description>站内短消息</description>
+		<field name="id" type="id-ne">
+			<description>ID</description>
+		</field>
+		<field name="customerId" type="id-ne">
+			<description>接收人</description>
+		</field>
+		<field name="msg" type="very-long">
+			<description>内容</description>
+		</field>
+		<field name="createTime" type="date-time">
+			<description>发送时间</description>
+		</field>
+	  	<field name="fromDate" type="date-time"></field>
+	 	<field name="thruDate" type="date-time"></field>
+		<prim-key field="id" />
+	</entity>
+	<!-- 	趣走保 -->
+	<entity package-name="org.ofbiz.quzou" entity-name="QzProtect" >
+		<description>趣走保</description>
+		<field name="id" type="id-ne">
+			<description>ID</description>
+		</field>
+		<field name="title" type="value">
+			<description>标题</description>
+		</field>
+		<field name="companyName" type="value">
+			<description>公司名</description>
+		</field>
+		<field name="cPeriod" type="name">
+			<description>保险期限</description>
+		</field>
+		<field name="remark" type="remark">
+			<description>内容</description>
+		</field>
+	  	<field name="fromDate" type="date-time"></field>
+	 	<field name="thruDate" type="date-time"></field>
+		<prim-key field="id" />
+	</entity>
+	
+	<!-- 人员赛事统计表（与赛事关联）（用于查询排名，当计步器数据更新时就往这个表里插数据） -->
+	<entity package-name="org.ofbiz.quzou" entity-name="QzStatistics" >
+		<description>统计表</description>
+		<field name="statId" type="id-ne">
+			<description>统计id</description>
+		</field>
+		<field name="customerId" type="id-ne">
+			<description>用户id</description>
+		</field>
+		<field name="deptId" type="name">
+			<description>团队id</description>
+		</field>
+		<field name="cId" type="id-ne">
+			<description>赛事id</description>
+		</field>
+		<field name="stepNumber" type="numeric">
+			<description>赛事步数</description>
+		</field>
+		<field name="integral" type="numeric">
+			<description>赛事积分</description>
+		</field>
+		<field name="ranking" type="numeric">
+			<description>赛事排名</description>
+		</field>
+		<prim-key field="statId" />
+	</entity>
+	<!-- 点赞表 -->
+	<entity package-name="org.ofbiz.quzou" entity-name="QzRelation" >
+		<description>点赞表</description>
+		<field name="id" type="id-ne">
+			<description>id</description>
+		</field>
+		<field name="customerId" type="id-ne">
+			<description>用户id</description>
+		</field>
+		<field name="cId" type="id-ne">
+			<description>赛事id</description>
+		</field>
+		<field name="deptId" type="id-ne">
+			<description>团队id</description>
+		</field>
+		<field name="fromPartyId" type="id-ne">
+			<description>点赞人id</description>
+		</field>
+		<prim-key field="id" />
+	</entity>
+	<!-- 统计总表，（用于查询积分排名，当计步器数据更新时就往这个表里插数据） -->
+	<entity package-name="org.ofbiz.quzou" entity-name="QzStatisticsTotal" >
+		<description>统计总表</description>
+		<field name="statId" type="id-ne">
+			<description>统计id</description>
+		</field>
+		<field name="customerId" type="id-ne">
+			<description>用户id</description>
+		</field>
+		<field name="stepNumber" type="numeric">
+			<description>步数</description>
+		</field>
+		<field name="integral" type="numeric">
+			<description>积分</description>
+		</field>
+		<field name="ranking" type="numeric">
+			<description>排名</description>
+		</field>
+		<prim-key field="statId" />
+	</entity>
+<!-- 	人员赛事关联视图 -->
+	<view-entity entity-name="QzCompetiAndCustomerView" package-name="org.ofbiz.quzou">
+		<member-entity entity-alias="QCAC" entity-name="QzCompetiAndCustomer"></member-entity>
+		<member-entity entity-alias="QC" entity-name="QzCompetition"></member-entity>
+		<alias-all entity-alias="QCAC"></alias-all>
+		<alias-all entity-alias="QC"></alias-all>
+		<view-link  entity-alias="QCAC" rel-optional="true" rel-entity-alias="QC">
+			<key-map field-name="cId"/>
+		</view-link>
+	</view-entity>
+<!-- 	团队赛事关联视图 -->
+	<view-entity entity-name="QzCompetiAndDeptView" package-name="org.ofbiz.quzou">
+		<member-entity entity-alias="QCAD" entity-name="QzCompetiAndDept"></member-entity>
+		<member-entity entity-alias="QD" entity-name="QzDept"></member-entity>
+		<alias-all entity-alias="QCAD"></alias-all>
+		<alias-all entity-alias="QD"></alias-all>
+		<view-link  entity-alias="QCAD" rel-optional="true" rel-entity-alias="QD">
+			<key-map field-name="deptId"/>
+		</view-link>
+	</view-entity>
+<!-- 	团队人员视图 -->
+	<view-entity entity-name="QzDeptAndCustomerView" package-name="org.ofbiz.quzou">
+		<member-entity entity-alias="QDAC" entity-name="QzDeptAndCustomer"></member-entity>
+		<member-entity entity-alias="QC" entity-name="QzCustomer"></member-entity>
+		<member-entity entity-alias="QD" entity-name="QzDept"></member-entity>
+		<alias-all entity-alias="QDAC"></alias-all>
+		<alias-all entity-alias="QC"></alias-all>
+		<alias-all entity-alias="QD"></alias-all>
+		<view-link  entity-alias="QDAC" rel-optional="true" rel-entity-alias="QC">
+			<key-map field-name="customerId" rel-field-name="partyId"/>
+		</view-link>
+		<view-link  entity-alias="QDAC" rel-optional="true" rel-entity-alias="QD">
+			<key-map field-name="deptId" rel-field-name="deptId"/>
+		</view-link>
+	</view-entity>
+<!-- 	人员计步器关联视图 -->
+	<view-entity entity-name="CustomerLogAndCustomer" package-name="org.ofbiz.quzou">
+		<member-entity entity-alias="QC" entity-name="QzCustomer"></member-entity>
+		<member-entity entity-alias="QCL" entity-name="QzCustomerLog"></member-entity>
+		<alias entity-alias="QC" name="partyId"></alias>
+		<alias entity-alias="QC" name="cardId"></alias>
+		<alias entity-alias="QCL" name="stepDate"></alias>
+		<alias entity-alias="QCL" name="stepNumber"></alias>
+		<alias entity-alias="QCL" name="uploadDate"></alias>
+		<alias entity-alias="QCL" name="thruDate"></alias>
+		<view-link  entity-alias="QC" rel-optional="true" rel-entity-alias="QCL">
+			<key-map field-name="cardId"/>
+		</view-link>
+	</view-entity>
+	
+<!-- 	个人排行榜统计视图 -->
+	<view-entity entity-name="StatisticsView" package-name="org.ofbiz.quzou">
+		<member-entity entity-alias="QCAC" entity-name="QzCompetiAndCustomer"></member-entity>
+		<member-entity entity-alias="QS" entity-name="QzStatistics"></member-entity>
+		<member-entity entity-alias="QC" entity-name="QzCustomer"></member-entity>
+		<member-entity entity-alias="QD" entity-name="QzDept"></member-entity>
+		<alias-all entity-alias="QCAC"></alias-all>
+		<alias entity-alias="QS" name="stepNumber"></alias>
+		<alias entity-alias="QS" name="integral"></alias>
+		<alias entity-alias="QC" name="nickname"></alias>
+		<alias entity-alias="QC" name="userLoginId"></alias>
+		<alias entity-alias="QC" name="headimgurl"></alias>
+		<alias entity-alias="QC" name="partyId"></alias>
+		<alias entity-alias="QS" name="deptId"></alias>
+		<alias entity-alias="QD" name="deptName"></alias>
+		<view-link  entity-alias="QCAC" rel-optional="true" rel-entity-alias="QS">
+			<key-map field-name="customerId"/>
+			<key-map field-name="cId"/>
+		</view-link>
+		<view-link  entity-alias="QCAC" rel-optional="true" rel-entity-alias="QC">
+			<key-map field-name="customerId" rel-field-name="partyId"/>
+		</view-link>
+		<view-link  entity-alias="QS" rel-optional="true" rel-entity-alias="QD">
+			<key-map field-name="deptId"/>
+		</view-link>
+	</view-entity>
+	
+<!-- 	团队排行榜统计视图 -->
+	<view-entity entity-name="StatisticsTeamView" package-name="org.ofbiz.quzou">
+		<member-entity entity-alias="QCAD" entity-name="QzCompetiAndDept"></member-entity>
+		<member-entity entity-alias="QD" entity-name="QzDept"></member-entity>
+		<member-entity entity-alias="QC" entity-name="QzCompany"></member-entity>
+		<member-entity entity-alias="QS" entity-name="QzStatistics"></member-entity>
+		<alias entity-alias="QCAD" name="cId" group-by="true"></alias>
+		<alias entity-alias="QCAD" name="deptId" group-by="true"></alias>
+		<alias entity-alias="QS" name="stepNumber" function="sum" field="stepNumber"></alias>
+		<alias entity-alias="QD" name="deptName"></alias>
+		<alias entity-alias="QC" name="companyName"></alias>
+		<view-link  entity-alias="QCAD" rel-optional="true" rel-entity-alias="QD">
+			<key-map field-name="deptId"/>
+		</view-link>
+		<view-link  entity-alias="QD" rel-optional="true" rel-entity-alias="QC" >
+			<key-map field-name="companyId" rel-field-name="companyId"/>
+		</view-link>
+		<view-link  entity-alias="QCAD" rel-optional="true" rel-entity-alias="QS" >
+			<key-map field-name="deptId" rel-field-name="deptId"/>
+			<key-map field-name="cId" rel-field-name="cId"/>
+		</view-link>
+	</view-entity>
+	
+<!-- 	单位成绩报表视图 -->
+	<view-entity entity-name="StatisticsCompanyView" package-name="org.ofbiz.quzou">
+		<member-entity entity-alias="QS" entity-name="QzStatistics"></member-entity>
+		<member-entity entity-alias="QCAC" entity-name="QzCompetiAndCustomer"></member-entity>
+		<member-entity entity-alias="QC" entity-name="QzCustomer"></member-entity>
+		<alias entity-alias="QS" name="cId" group-by="true"></alias>
+		<alias entity-alias="QS" name="stepNumber" function="sum" field="stepNumber"></alias>
+		<alias entity-alias="QS" name="integral" function="sum" field="integral"></alias>
+		<alias entity-alias="QC" name="companyId" group-by="true"></alias>
+		<alias entity-alias="QC" name="companyName"></alias>
+		<view-link  entity-alias="QS" rel-optional="true" rel-entity-alias="QCAC">
+			<key-map field-name="cId"  />
+			<key-map field-name="customerId"/>
+		</view-link>
+		<view-link  entity-alias="QCAC" rel-optional="true" rel-entity-alias="QC">
+			<key-map field-name="customerId" rel-field-name="partyId"  />
+		</view-link>
+	</view-entity>
+<!-- 	日志视图 -->
+	<view-entity entity-name="QzCustomerLogView" package-name="org.ofbiz.quzou">
+		<member-entity entity-alias="QCL" entity-name="QzCustomerLog"></member-entity>
+		<member-entity entity-alias="QC" entity-name="QzCustomer"></member-entity>
+		<alias-all entity-alias="QCL"></alias-all>
+		<alias entity-alias="QC" name="firstName" ></alias>
+		<alias entity-alias="QC" name="userLoginId" ></alias>
+		<alias entity-alias="QC" name="companyName" ></alias>
+		<view-link  entity-alias="QCL" rel-optional="true" rel-entity-alias="QC" >
+			<key-map field-name="cardId" rel-field-name="cardId"/>
+		</view-link>
+	</view-entity>
+<!-- 	赛事人员视图 -->
+	<view-entity entity-name="QzCompetiAndCustomerAndPerson" package-name="org.ofbiz.quzou">
+		<member-entity entity-alias="QCAC" entity-name="QzCompetiAndCustomer"></member-entity>
+		<member-entity entity-alias="QC" entity-name="QzCustomer"></member-entity>
+		<alias-all entity-alias="QCAC"></alias-all>
+		<alias-all entity-alias="QC"></alias-all>
+		<view-link  entity-alias="QCAC" rel-optional="true" rel-entity-alias="QC" >
+			<key-map field-name="customerId" rel-field-name="partyId"/>
+		</view-link>
+	</view-entity>
+<!-- 	赛事人员视图 -->
+	<view-entity entity-name="QzCompetiAndCustomerAndPersonView" package-name="org.ofbiz.quzou">
+		<member-entity entity-alias="QCACAP" entity-name="QzCompetiAndCustomerAndPerson"></member-entity>
+		<member-entity entity-alias="QS" entity-name="QzStatistics"></member-entity>
+		<member-entity entity-alias="QST" entity-name="QzStatisticsTotal"></member-entity>
+		<alias-all entity-alias="QCACAP"></alias-all>
+		<alias-all entity-alias="QS"></alias-all>
+		<alias entity-alias="QST" name="integralTotal" field="integral"></alias>
+ 		<view-link  entity-alias="QCACAP" rel-optional="true" rel-entity-alias="QS" > 
+ 			<key-map field-name="partyId" rel-field-name="customerId"/>
+			<key-map field-name="cId" rel-field-name="cId"/>
+ 		</view-link> 
+ 		<view-link  entity-alias="QCACAP" rel-optional="true" rel-entity-alias="QST" >
+			<key-map field-name="partyId" rel-field-name="customerId"/>
+		</view-link>
+	</view-entity>
+	
+</entitymodel>

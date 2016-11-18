@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	<TemporalExpression tempExprId="TIMING_RUN" tempExprTypeId="FREQUENCY" description="Every 2 hours" date1="2000-01-01 00:00:00.000" integer1="12" integer2="119"/>
+	<TemporalExpression tempExprId="MIDNIGHT_DAILY" tempExprTypeId="FREQUENCY" date1="2015-11-09 23:55:00.000"  string1="23:55:00" string2="23:55:00"/>
+	<!-- 修改状态值为已结束 -->
+    <JobSandbox jobId="updateCompeStatus" jobName="updateCompeStatus" runTime="2015-11-09 23:55:00.000" serviceName="updateCompeStatus" poolId="pool" runAsUser="system" tempExprId="MIDNIGHT_DAILY" maxRecurrenceCount="-1"/>
+    <!-- 每天凌晨重新获取头像 -->
+    <JobSandbox jobId="updateCustomerPic" jobName="updateCustomerPic" runTime="2015-11-09 23:55:00.000" serviceName="updateCustomerPic" poolId="pool" runAsUser="system" tempExprId="MIDNIGHT_DAILY" maxRecurrenceCount="-1"/>
+    <!-- 每隔2小时调用 获取微信微信token-->
+    <JobSandbox jobId="timingRun" jobName="timingRun" runTime="2000-01-01 01:00:00.000" serviceName="timingRun" poolId="pool" runAsUser="system" tempExprId="TIMING_RUN" maxRecurrenceCount="-1"/>
+</entity-engine-xml>

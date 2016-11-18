@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+  	<include location="component://common/webcommon/WEB-INF/common-controller.xml" />
+  	<include location="component://commonext/webapp/WEB-INF/controller.xml" />
+  	<include location="component://party/webapp/partymgr/WEB-INF/controller.xml" />
+<!--  	<include location="component://workflow/webapp/workflow/WEB-INF/controller.xml" />-->
+  	<include location="component://webtools/webapp/webtools/WEB-INF/controller.xml" />
+<!--  	<include location="component://sysCommon/webapp/sysCommon/WEB-INF/content-controller.xml" />-->
+  	<include location="component://sysCommon/webapp/sysCommon/WEB-INF/cms-controller.xml" />
+	<include location="component://sysCommon/webapp/sysCommon/WEB-INF/role-controller.xml" />
+	<include location="component://sysCommon/webapp/sysCommon/WEB-INF/system-controller.xml" />
+	<include location="component://sysCommon/webapp/sysCommon/WEB-INF/party-controller.xml" />
+	<include location="component://sysCommon/webapp/sysCommon/WEB-INF/demo-controller.xml" />
+<!--	<include location="component://sysCommon/webapp/sysCommon/WEB-INF/raw-controller.xml" />-->
+<!--	<include location="component://sysCommon/webapp/sysCommon/WEB-INF/workflow-controller.xml" />-->
+<!--	<include location="component://sysCommon/webapp/sysCommon/WEB-INF/workflow_demo-controller.xml" />-->
+<!-- 	include other configurations of lims app. -->
+  <description>lims Configuration File</description>
+
+  <handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler" />
+  <handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler" />
+
+  <firstvisit></firstvisit>
+	 <request-map uri="restful">
+	        <event type="rest"/>
+	        <response name="error" type="none"/>
+	        <response name="success" type="none"/>
+	    </request-map>
+	<!-- Request Mappings -->
+	<request-map uri="login" track-visit="false" track-serverhit="false" >
+		<!--     eidt by wanyg  <security https="true" auth="false"/> -->
+		<security https="false" auth="false" />
+		<event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="login" />
+		<response name="success" type="view"  value="main" />
+		<response name="requirePasswordChange" type="view" value="requirePasswordChange" />
+		<response name="error" type="view" value="login" />
+	</request-map>
+		<!--登陆接口	-->
+	<request-map uri="ajaxLogin">
+	    <security https="false" auth="false" />
+		<event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="login" />
+		<response name="success" type="request"  value="dohandleLogin" />
+		<response name="requirePasswordChange" type="request" value="dohandleLogin" />
+		<response name="error" type="request" value="dohandleLogin" />
+	</request-map>
+	<!--登陆接口调用	-->
+	<request-map uri="dohandleLogin">
+	    <security https="false" auth="false" />
+		<event type="groovy" path="component://yxck/webapp/yxck/WEB-INF/actions/party/ajaxLogin.groovy" />
+		<response name="success" type="none"  value="json" />
+		<response name="successJson" type="none" value="json" />
+		<response name="error" type="none" value="json" />
+	</request-map>
+	<request-map uri="logout">
+        <security https="false" auth="true"/>
+        <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="logout"/>
+        <response name="success" type="request-redirect" value="login"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+  <request-map  uri="checkLogin" edit="false" track-serverhit="false" track-visit="false">
+    <description>Verify a user is logged in.</description>
+		<!--     eidt by wanyg  <security https="true" auth="false"/> -->
+    <security https="false" auth="false" />
+    <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="checkLogin" />
+    <response name="success" type="view" value="main" />
+    <response name="error" type="view" value="toLoginFrame" />
+  </request-map>
+  <request-map uri="loginFtl">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="logout"/>
+        <response name="success" type="view" value="login"/>
+        <response name="error" type="view" value="login"/>
+    </request-map>
+  <request-map track-serverhit="false" uri="view">
+    <security https="false" auth="false" />
+    <response name="success" type="request" value="main" />
+  </request-map>
+  <request-map track-serverhit="false" uri="chain">
+    <event type="java" path="org.ofbiz.webapp.event.TestEvent" invoke="test" />
+    <response name="success" type="request" value="/view" />
+    <response name="error" type="view" value="error" />
+  </request-map>
+
+  <request-map track-serverhit="false" uri="main">
+    <security https="false" auth="true" />
+    <response name="success" type="view" value="main" />
+  </request-map>
+  <request-map track-serverhit="false" uri="homePage">
+    <security https="false" auth="true" />
+    <response name="success" type="view" value="homePage" />
+  </request-map>
+
+  <request-map track-serverhit="false" uri="menuTree">
+    <security https="false" auth="true" />
+    <response name="success" type="view" value="menuTree" />
+    <response name="error" type="view" value="menuTree" />
+  </request-map>
+  <request-map track-serverhit="false" uri="test">
+    <security https="true" auth="true" />
+    <response name="success" type="view" value="test" />
+    <response name="error" type="view" value="test" />
+  </request-map>
+  <request-map track-serverhit="false" uri="getMenuTreeAll">
+    <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/getMenuTreeAll.groovy" />
+    <response name="success" type="request" value="json" />
+    <response name="error" type="request" value="json" />
+  </request-map>
+  <request-map track-serverhit="false" uri="commonPerformFind">
+    <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/commonPerformFind.groovy" />
+    <response name="success" type="request" value="json" />
+    <response name="error" type="request" value="json" />
+  </request-map>
+  <request-map track-serverhit="false" uri="commonFindDataTable">
+    <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/commonFindDataTable.groovy" />
+    <response name="success" type="request" value="json" />
+    <response name="successJson" type="none" value="json" />
+    <response name="error" type="request" value="json" />
+  </request-map>
+  <request-map track-serverhit="false" uri="commonFindByAnd">
+    <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/commonFindByAnd.groovy" />
+    <response name="success" type="request" value="json" />
+    <response name="error" type="request" value="json" />
+  </request-map>
+  <request-map track-serverhit="false" uri="commonFindByAndMap">
+    <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/commonFindByAndMap.groovy" />
+    <response name="success" type="request" value="json" />
+    <response name="error" type="request" value="json" />
+  </request-map>
+
+  
+  <request-map track-serverhit="false" uri="remarkDialog">
+    <security https="false" auth="true" />
+    <response name="success" type="view" value="remarkDialog" />
+  </request-map>
+  <request-map track-serverhit="false" uri="returnDialog">
+    <security https="false" auth="true" />
+    <response name="success" type="view" value="returnDialog" />
+  </request-map>
+
+
+  <request-map track-serverhit="false" uri="headerFrame">
+    <security https="false" auth="true" />
+    <response name="success" type="view" value="headerFrame" />
+  </request-map>
+  <request-map track-serverhit="false" uri="navFrame">
+    <security https="false" auth="true" />
+    <response name="success" type="view" value="navFrame" />
+  </request-map>
+  <request-map track-serverhit="false" uri="leftFrame">
+    <security https="false" auth="true" />
+    <response name="success" type="view" value="leftFrame" />
+  </request-map>
+  <request-map track-serverhit="false" uri="centerFrame">
+    <security https="false" auth="true" />
+    <response name="success" type="view" value="centerFrame" />
+  </request-map>
+  <request-map track-serverhit="false" uri="moveFrame">
+    <security https="false" auth="true" />
+    <response name="success" type="view" value="moveFrame" />
+  </request-map>
+  <request-map track-serverhit="false" uri="bottomFrame">
+    <security https="false" auth="true" />
+    <response name="success" type="view" value="bottomFrame" />
+  </request-map>
+  <request-map track-serverhit="false" uri="portal">
+    <security https="false" auth="true" />
+    <response name="success" type="view" value="portal" />
+  </request-map>
+  <request-map track-serverhit="false" uri="uploadBack">
+    <security https="false" auth="false" />
+    <response name="success" type="view" value="uploadBack" />
+  </request-map>
+
+  <request-map track-serverhit="false" uri="ajaxArea">
+    <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/getArea.groovy" />
+    <response name="success" type="request" value="json" />
+    <response name="error" type="request" value="json" />
+  </request-map>
+  <request-map uri="commonThruEntity">
+    <description>批量终结实体</description>
+    <security https="false" auth="true" />
+    <event type="service" invoke="commonThruEntity" />
+    <response name="success" type="request" value="json" />
+  </request-map> 
+  <request-map track-serverhit="false" uri="commonOnlyVerify">
+    <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/commonOnlyVerify.groovy" />
+    <response name="success" type="none" value="json" />
+    <response name="error" type="none" value="json" />
+  </request-map>
+  <request-map track-serverhit="false" uri="selectDate">
+    <security https="false" auth="true" />
+    <response name="success" type="view" value="selectDate" />
+  </request-map>
+  <request-map uri="downloadSysDoc">
+    <event type="java" path="org.extErp.sysCommon.document.DocumentEvents" invoke="downloadSysDoc" />
+    <response name="success" type="none" />
+  </request-map>
+  <request-map uri="downloadDocById">
+    <event type="java" path="org.extErp.sysCommon.document.DocumentEvents" invoke="downloadDocById" />
+    <response name="success" type="none" />
+  </request-map>
+  <request-map uri="getDocUrlByPurpose">
+    <event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/getDocUrlByPurpose.groovy" />
+    <response name="success" type="none" />
+  </request-map>
+  <request-map uri="doajaxfileupload">
+    <description>ajax上传文件</description>
+    <security https="false" auth="true" />
+    <event type="java" path="org.extErp.sysCommon.document.DocumentEvents" invoke="doAjaxFileUpload" />
+    <response name="success" type="request" value="json" />
+  </request-map>
+  <request-map uri="deactivateSysDocRef">
+    <description>禁用某一文件管理</description>
+    <security https="false" auth="true" />
+    <event type="service" invoke="deactivateSysDocRef" />
+    <response name="success" type="request" value="json" />
+  </request-map> 
+  <request-map track-serverhit="false" uri="commonUpload">
+    <security https="false" auth="true" />
+    <response name="success" type="view" value="commonUpload" />
+  </request-map>
+  <request-map track-serverhit="false" uri="commonAjaxFileUpload">
+     <security https="false" auth="false"/>
+     <event type="java" invoke="commonAjaxFileUpload" path="org.extErp.sysCommon.document.DocumentEvents"/>
+     <response name="success" type="none"/>
+  </request-map>
+  <request-map track-serverhit="false" uri="commonAjaxFileUploadWeChat">
+     <security https="false" auth="false"/>
+     <event type="java" invoke="commonAjaxFileUploadWeChat" path="org.extErp.sysCommon.document.DocumentEvents"/>
+     <response name="success" type="none"/>
+  </request-map>
+  <request-map track-serverhit="false" uri="commonAjaxVideoUpload">
+     <security https="false" auth="false"/>
+     <event type="java" invoke="commonAjaxVideoUpload" path="org.extErp.sysCommon.document.DocumentEvents"/>
+     <response name="success" type="none"/>
+  </request-map>
+  <request-map track-serverhit="false" uri="commonDownLoad">
+     <security https="false" auth="false"/>
+     <event type="java" invoke="commonDownLoad" path="org.extErp.sysCommon.document.DocumentEvents"/>
+     <response name="success" type="none"/>
+  </request-map>
+  
+  <!-- 系统平台 卖家审核请求 -->
+  <request-map uri="mng_sellerExamine">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mng_sellerExamine"/>
+  </request-map>
+  <!-- 系统平台 卖家审核请求 -->
+  <view-map name="mng_sellerExamine" type="screen" page="component://sysCommon/widget/SystemScreens.xml#mng_sellerExamine" />
+    
+	<!-- View Mappings -->
+  <view-map name="main" type="screen" page="component://sysCommon/widget/CommonScreens.xml#main" />
+  <view-map name="homePage" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#homePage" />
+  <view-map name="menuTree" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#MenuTree" />
+
+  <view-map name="remarkDialog" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#remarkDialog" />
+  <view-map name="returnDialog" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#returnDialog" />
+
+
+
+  <view-map name="toLoginFrame" type="ftl" page="component://sysCommon/webapp//sysCommon/toLogin.ftl" />
+  <view-map name="login" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#login" />
+  <view-map name="test" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#test" />
+  <view-map name="headerFrame" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#headerFrame" />
+  <view-map name="navFrame" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#navFrame" />
+  <view-map name="leftFrame" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#leftFrame" />
+  <view-map name="bottomFrame" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#bottomFrame" />
+  <view-map name="moveFrame" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#moveFrame" />
+  <view-map name="centerFrame" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#centerFrame" />
+  <view-map name="portal" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#portal" />
+  <view-map name="uploadBack" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#uploadBack" />
+  <view-map name="selectDate" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#selectDate" />
+  <view-map name="commonUpload" type="screen" page="component://sysCommon/widget/SysCommonScreens.xml#commonUpload" />
+
+	<!-- end of view mappings -->
+</site-conf>

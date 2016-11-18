@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+<screen name="FindWorkFlow">
+        <section>
+            <actions>
+                <set field="titleProperty" value="流程列表"/>
+                <set field="pCtx" from-field="parameters" />
+                <set field="searchAction" value="FindWorkFlow"/>
+                <set field="searchForm" value="FindWorkFlow"/>
+                <set field="operationButton[]" value="导入|ext-icon-dr|readxpdl|href|WorkFlow_ADD" />
+<!--              	<set field="operationButton[]" value="CommDeleteAll|icon-remove|delWorkFlowAll|removeSelected|WorkFlow_DELETE" /> -->
+            </actions>
+            <widgets>
+            
+            <decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+                    <decorator-section name="body">
+                        <decorator-screen name="FindScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+                            <decorator-section name="search-options">
+				               <include-form name="FindWorkFlow" location="component://sysCommon/widget/WorkFlowForms.xml"/>
+				            </decorator-section>
+		                     <decorator-section name="search-results">
+		                         <include-form name="ListWorkFlow" location="component://sysCommon/widget/WorkFlowForms.xml"/>
+		                     </decorator-section>
+                        </decorator-screen>
+                       
+                    </decorator-section>
+                </decorator-screen>
+           </widgets>
+            
+        </section>
+    </screen>
+    <screen name="EditWorkFlow">
+        <section>
+            <actions>
+            	<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/wf/wfViewDesign.groovy"></script>
+            </actions>
+            <widgets>
+            	<platform-specific>
+                    <html><html-template location="component://sysCommon/webapp/sysCommon/includes/wf/wf_design.ftl"/></html>
+             	</platform-specific>	   
+            </widgets>
+        </section>
+    </screen>
+   
+    <screen name="examineTrace">
+        <section>
+            <actions>
+            	<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/wf/wfExamineTrace.groovy"></script>
+            </actions>
+            <widgets>
+            	 <decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+			                    <html><html-template location="component://sysCommon/webapp/sysCommon/includes/wf/wf_examine_trace.ftl"/></html>
+			             </platform-specific>	   
+	                    </decorator-section> 
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="wfTrace">
+        <section>
+            <actions>
+            	<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/wf/wfTrace.groovy"></script>
+            </actions>
+            <widgets>
+            	 <decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+			                    <html><html-template location="component://sysCommon/webapp/sysCommon/includes/wf/wf_trace.ftl"/></html>
+			             </platform-specific>	   
+	                    </decorator-section> 
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+       <screen name="viewWorkFlowDesign">
+        <section>
+            <actions>
+            	<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/wf/wfViewDesign.groovy"></script>
+            </actions>
+            <widgets>
+            	
+                        <platform-specific>
+			                    <html><html-template location="component://sysCommon/webapp/sysCommon/includes/wf/wf_view_design.ftl"/></html>
+			             </platform-specific>	   
+	                   
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="setActivityProperty">
+    	<section>
+            <actions>
+            </actions>
+            <widgets>
+               <platform-specific>
+			            <html><html-template location="component://sysCommon/webapp/sysCommon/includes/wf/set_activity_property.ftl"/></html>
+			    </platform-specific>	   
+            </widgets>
+        </section>
+    </screen>
+    <screen name="addActivityProperty">
+    	<section>
+            <actions>
+            </actions>
+            <widgets>
+               <platform-specific>
+			            <html><html-template location="component://sysCommon/webapp/sysCommon/includes/wf/add_activity_property.ftl"/></html>
+			    </platform-specific>	   
+            </widgets>
+        </section>
+    </screen>
+    <screen name="setLineProperty">
+    	<section>
+            <actions>
+            </actions>
+            <widgets>
+               <platform-specific>
+			            <html><html-template location="component://sysCommon/webapp/sysCommon/includes/wf/set_line_property.ftl"/></html>
+			    </platform-specific>	   
+            </widgets>
+        </section>
+    </screen>
+    <screen name="addLineProperty">
+    	<section>
+            <actions>
+            </actions>
+            <widgets>
+               <platform-specific>
+			            <html><html-template location="component://sysCommon/webapp/sysCommon/includes/wf/add_line_property.ftl"/></html>
+			    </platform-specific>	   
+            </widgets>
+        </section>
+    </screen>
+    	<screen name="FindWorkflowParticipant">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="searchAction" value="FindWorkflowParticipant" />
+				<set field="searchForm" value="FindWorkflowParticipant" />
+				<set field="operationButton[]" value="增加|icon-add|EditWorkflowParticipant|href|WorkflowParticipant_ADD" />
+				<set field="operationButton[]" value="批量删除|icon-remove|deleteWorkflowParticipant|removeSelected|WorkflowParticipant_DELETE" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindWorkflowParticipant" location="component://sysCommon/widget/WorkFlowForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListWorkflowParticipant" location="component://sysCommon/widget/WorkFlowForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditWorkflowParticipant">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="participantId" from-field="parameters.participantId" />
+				<set field="oper" from-field="parameters.oper" />
+				<set field="currentForm" value="EditWorkflowParticipant" />
+				<entity-one entity-name="WorkflowParticipant" value-field="entity" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="DetailScreenDecorator" location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="detail-options">
+							<screenlet title="">
+									<include-form name="EditWorkflowParticipant" location="component://sysCommon/widget/WorkFlowForms.xml" />
+						    </screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+    
+    
+</screens>

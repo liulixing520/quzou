@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entity-engine-xml>
+
+	<Product productId="PS-8001" productTypeId="FINISHED_GOOD" primaryProductStoreId="PS8001" primaryProductCategoryId="PS8001_001" productName="产品1001" internalName="产品1001" description="产品1001" longDescription="Highest quality gizmo around." smallImageUrl="/images/products/PS-8001/small.jpg" mediumImageUrl="/images/products/PS-8001/medium.jpg" largeImageUrl="/images/products/PS-8001/large.jpg" detailImageUrl="/images/products/PS-8001/detail.jpg" originalImageUrl="/images/products/PS-8001/original.jpg" taxable="Y" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin" lastUpdatedStamp="2014-11-01 17:55:22.0" lastUpdatedTxStamp="2014-11-01 17:55:21.0" createdStamp="2014-11-01 12:23:35.0" createdTxStamp="2014-11-01 12:23:35.0"/>
+    <Product productId="PS-8002" productTypeId="FINISHED_GOOD" primaryProductStoreId="PS8001" primaryProductCategoryId="PS8001_001" productName="产品1002" internalName="产品1002" description="产品1002" longDescription="Highest quality gizmo around." taxable="Y" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+    <Product productId="PS-8003" productTypeId="FINISHED_GOOD" primaryProductStoreId="PS8001" primaryProductCategoryId="PS8001_001" productName="产品1003" internalName="产品1003" description="产品1003" longDescription="Highest quality gizmo around." taxable="Y" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+    <Product productId="PS-8004" productTypeId="FINISHED_GOOD" primaryProductStoreId="PS8001" primaryProductCategoryId="PS8001_001" productName="产品1004" internalName="产品1004" description="产品1004" longDescription="Highest quality gizmo around." taxable="Y" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+    <Product productId="PS-8005" productTypeId="FINISHED_GOOD" primaryProductStoreId="PS8001" primaryProductCategoryId="PS8001_001" productName="产品1005" internalName="产品1005" description="产品1005" longDescription="Highest quality gizmo around." taxable="Y" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+
+	<ProductPrice productId="PS-8001" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="USD" productStoreGroupId="_NA_" fromDate="2011-08-02 12:00:00.0" price="100" createdDate="2011-08-02 12:00:00.0" createdByUserLogin="admin"/>
+	<ProductPrice productId="PS-8002" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="USD" productStoreGroupId="_NA_" fromDate="2011-08-02 12:00:00.0" price="200" createdDate="2011-08-02 12:00:00.0" createdByUserLogin="admin"/>
+	<ProductPrice productId="PS-8003" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="USD" productStoreGroupId="_NA_" fromDate="2011-08-02 12:00:00.0" price="300" createdDate="2011-08-02 12:00:00.0" createdByUserLogin="admin"/>
+	<ProductPrice productId="PS-8004" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="USD" productStoreGroupId="_NA_" fromDate="2011-08-02 12:00:00.0" price="400" createdDate="2011-08-02 12:00:00.0" createdByUserLogin="admin"/>
+	<ProductPrice productId="PS-8005" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="USD" productStoreGroupId="_NA_" fromDate="2011-08-02 12:00:00.0" price="500" createdDate="2011-08-02 12:00:00.0" createdByUserLogin="admin"/>
+	
+	<Product productId="PS2-8001" productTypeId="FINISHED_GOOD" primaryProductStoreId="PS8002" primaryProductCategoryId="PS8001_001" productName="产品2001" internalName="产品2001" description="产品2001" longDescription="Highest quality gizmo around." smallImageUrl="/images/products/PS-8001/small.jpg" mediumImageUrl="/images/products/PS-8001/medium.jpg" largeImageUrl="/images/products/PS-8001/large.jpg" detailImageUrl="/images/products/PS-8001/detail.jpg" originalImageUrl="/images/products/PS-8001/original.jpg" taxable="Y" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin" lastUpdatedStamp="2014-11-01 17:55:22.0" lastUpdatedTxStamp="2014-11-01 17:55:21.0" createdStamp="2014-11-01 12:23:35.0" createdTxStamp="2014-11-01 12:23:35.0"/>
+    <Product productId="PS2-8002" productTypeId="FINISHED_GOOD" primaryProductStoreId="PS8002" primaryProductCategoryId="PS8001_001" productName="产品2002" internalName="产品2001" description="产品2002" longDescription="Highest quality gizmo around." taxable="Y" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+    <Product productId="PS2-8003" productTypeId="FINISHED_GOOD" primaryProductStoreId="PS8002" primaryProductCategoryId="PS8001_001" productName="产品2003" internalName="产品2001" description="产品2003" longDescription="Highest quality gizmo around." taxable="Y" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+    <Product productId="PS2-8004" productTypeId="FINISHED_GOOD" primaryProductStoreId="PS8002" primaryProductCategoryId="PS8001_001" productName="产品2004" internalName="产品2001" description="产品2004" longDescription="Highest quality gizmo around." taxable="Y" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+    <Product productId="PS2-8005" productTypeId="FINISHED_GOOD" primaryProductStoreId="PS8002" primaryProductCategoryId="PS8001_001" productName="产品2005" internalName="产品2001" description="产品2005" longDescription="Highest quality gizmo around." taxable="Y" chargeShipping="Y" autoCreateKeywords="Y" isVirtual="N" isVariant="N" createdDate="2001-05-13 12:00:00.0" createdByUserLogin="admin" lastModifiedDate="2001-05-13 12:00:00.0" lastModifiedByUserLogin="admin"/>
+
+	<ProductPrice productId="PS2-8001" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="USD" productStoreGroupId="_NA_" fromDate="2011-08-02 12:00:00.0" price="100" createdDate="2011-08-02 12:00:00.0" createdByUserLogin="admin"/>
+	<ProductPrice productId="PS2-8002" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="USD" productStoreGroupId="_NA_" fromDate="2011-08-02 12:00:00.0" price="200" createdDate="2011-08-02 12:00:00.0" createdByUserLogin="admin"/>
+	<ProductPrice productId="PS2-8003" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="USD" productStoreGroupId="_NA_" fromDate="2011-08-02 12:00:00.0" price="300" createdDate="2011-08-02 12:00:00.0" createdByUserLogin="admin"/>
+	<ProductPrice productId="PS2-8004" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="USD" productStoreGroupId="_NA_" fromDate="2011-08-02 12:00:00.0" price="400" createdDate="2011-08-02 12:00:00.0" createdByUserLogin="admin"/>
+	<ProductPrice productId="PS2-8005" productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE" currencyUomId="USD" productStoreGroupId="_NA_" fromDate="2011-08-02 12:00:00.0" price="500" createdDate="2011-08-02 12:00:00.0" createdByUserLogin="admin"/>
+	
+	<ProductCategoryMember productCategoryId="PS8001_001" productId="PS-8001" fromDate="2011-08-02 12:00:00.0"/>
+	<ProductCategoryMember productCategoryId="PS8001_001" productId="PS-8002" fromDate="2011-08-02 12:00:00.0"/>
+	<ProductCategoryMember productCategoryId="PS8001_001" productId="PS-8003" fromDate="2011-08-02 12:00:00.0"/>
+	<ProductCategoryMember productCategoryId="PS8001_001" productId="PS-8004" fromDate="2011-08-02 12:00:00.0"/>
+	<ProductCategoryMember productCategoryId="PS8001_001" productId="PS-8005" fromDate="2011-08-02 12:00:00.0"/>
+	
+	<ProductCategoryMember productCategoryId="HOT_PRODS" productId="PS-8001" fromDate="2011-08-02 12:00:00.0"/>
+	<ProductCategoryMember productCategoryId="HOT_PRODS" productId="PS-8003" fromDate="2011-08-02 12:00:00.0"/>
+	
+	<ProductCategoryMember productCategoryId="WEEKLY_BEST_SELL" productId="PS-8001" fromDate="2011-08-02 12:00:00.0"/>
+	<ProductCategoryMember productCategoryId="WEEKLY_BEST_SELL" productId="PS-8003" fromDate="2011-08-02 12:00:00.0"/>
+	<ProductCategoryMember productCategoryId="WEEKLY_BEST_SELL" productId="PS-8005" fromDate="2011-08-02 12:00:00.0"/>
+	
+	<!-- 产品带多种语言 -->
+	<!-- Example of a product with many languages -->
+    <DataResource dataResourceId="PS-8001DESCRU" dataResourceTypeId="ELECTRONIC_TEXT" localeString="ru"/>
+    <DataResource dataResourceId="PS-8001DESCEN" dataResourceTypeId="ELECTRONIC_TEXT" localeString="en"/>
+    <ElectronicText dataResourceId="PS-8001DESCRU" textData="Gizmo rond lumineux"/>
+    <ElectronicText dataResourceId="PS-8001DESCEN" textData="Round Gizmo with lights"/>
+   	<Content contentId="PS-8001DESCRU" contentTypeId="DOCUMENT" dataResourceId="PS-8001DESCRU" description="DESCRIPTION Ru Round Gizmo" localeString="ru"/>
+    <Content contentId="PS-8001DESCEN" contentTypeId="DOCUMENT" dataResourceId="PS-8001DESCEN" description="DESCRIPTION EN Round Gizmo" localeString="en"/>
+    <ProductContent productId="PS-8001" contentId="PS-8001DESCRU" productContentTypeId="DESCRIPTION" fromDate="2006-09-22 00:00:00.0"/>
+    <ContentAssoc contentId="PS-8001DESCRU" contentIdTo="PS-8001DESCEN" contentAssocTypeId="ALTERNATE_LOCALE" fromDate="2006-09-22 00:00:00.0"/>
+    
+    <DataResource dataResourceId="PS-8001LDESCRU" dataResourceTypeId="ELECTRONIC_TEXT" localeString="ru"/>
+    <DataResource dataResourceId="PS-8001LDESCEN" dataResourceTypeId="ELECTRONIC_TEXT" localeString="en"/>
+    <ElectronicText dataResourceId="PS-8001LDESCRU" textData="Gizmo rond lumineux"/>
+    <ElectronicText dataResourceId="PS-8001LDESCEN" textData="Round Gizmo with lights"/>
+   	<Content contentId="PS-8001LDESCRU" contentTypeId="DOCUMENT" dataResourceId="PS-8001LDESCRU" description="DESCRIPTION Ru Round Gizmo" localeString="ru"/>
+    <Content contentId="PS-8001LDESCEN" contentTypeId="DOCUMENT" dataResourceId="PS-8001LDESCEN" description="DESCRIPTION EN Round Gizmo" localeString="en"/>
+    <ProductContent productId="PS-8001" contentId="PS-8001LDESCRU" productContentTypeId="LONG_DESCRIPTION" fromDate="2006-09-22 00:00:00.0"/>
+    <ContentAssoc contentId="PS-8001LDESCRU" contentIdTo="PS-8001LDESCEN" contentAssocTypeId="ALTERNATE_LOCALE" fromDate="2006-09-22 00:00:00.0"/>
+    
+    <DataResource dataResourceId="PS-8001NAMERU" dataResourceTypeId="ELECTRONIC_TEXT" localeString="ru"/>
+    <DataResource dataResourceId="PS-8001NAMEEN" dataResourceTypeId="ELECTRONIC_TEXT" localeString="en"/>
+    <ElectronicText dataResourceId="PS-8001NAMERU" textData="Gizmo Rond"/>
+    <ElectronicText dataResourceId="PS-8001NAMEEN" textData="Round Gizmo"/>
+    <Content contentId="PS-8001NAMERU" contentTypeId="DOCUMENT" dataResourceId="PS-8001NAMERU" description="DESCRIPTION FR Round Gizmo" localeString="ru"/>
+    <Content contentId="PS-8001NAMEEN" contentTypeId="DOCUMENT" dataResourceId="PS-8001NAMEEN" description="DESCRIPTION EN Round Gizmo" localeString="en"/>
+    <ProductContent productId="PS-8001" contentId="PS-8001NAMERU" productContentTypeId="PRODUCT_NAME" fromDate="2006-09-22 00:00:00.0"/>
+	<ContentAssoc contentId="PS-8001NAMERU" contentIdTo="PS-8001NAMEEN" contentAssocTypeId="ALTERNATE_LOCALE" fromDate="2006-09-22 00:00:00.0"/>
+	
+</entity-engine-xml>

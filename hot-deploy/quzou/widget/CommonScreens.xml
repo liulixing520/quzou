@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="main-decorator">
+        <section>
+            <actions>
+                <property-map resource="quzouUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+
+                <set field="layoutSettings.companyName" from-field="uiLabelMap.quzouCompanyName" global="true"/>
+                <set field="layoutSettings.companySubtitle" from-field="uiLabelMap.quzouCompanySubtitle" global="true"/>
+
+                <set field="activeApp" value="quzou" global="true"/>
+                <set field="applicationMenuName" value="MainAppBar" global="true"/>
+                <set field="applicationMenuLocation" value="component://quzou/widget/quzouMenus.xml" global="true"/>
+                <set field="applicationTitle" value="${uiLabelMap.quzouApplication}" global="true"/>
+            </actions>
+            <widgets>
+                <include-screen name="ApplicationDecorator" location="component://commonext/widget/CommonScreens.xml"/>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="quzouCommonDecorator">
+        <section>
+            <actions>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <condition>
+                                <if-has-permission permission="PCPOS" action="_VIEW"/>
+                            </condition>
+                            <widgets>
+                            <!-- 错误提示 -->
+		        			<platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                                <decorator-section-include name="body"/>
+                            </widgets>
+                            <fail-widgets>
+                                <label style="h3">${uiLabelMap.quzouViewPermissionError}</label>
+                            </fail-widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+
+
+    <screen name="CommonDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+              	<platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+		        <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+		        <decorator-section-include name="body"/>
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="employeeManageDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+              	<platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+		        <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+		        <decorator-section-include name="body"/>
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer3.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="CommonDialogDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+            <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="CommonPartyDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+              	<platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+		        <include-screen name="nav-account" location="component://quzou/widget/quzouScreens.xml"/>
+		        <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+		        <decorator-section-include name="body"/>
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="MenuHeaderDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/memberHome_header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="CustomerMenuHeaderDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/customer_header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="CustomerMenuRegisterDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/customerRegister_header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="userAgreementDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/userAgreement_header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="MemberHomeHeaderDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/customer_header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="BasicInfoDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/productBasicInfo_header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="SalaryQueryDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/salaryQuery_header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="SecurityQueryDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/security_header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="SalaryRuleDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/salaryRule_header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="employeeDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/employee_header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="emPasswordDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="registerUserDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/layout/header/nav/nav-register.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="registerUserDetailDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/layout/header/nav/nav-registerDetail.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="setEmployeeHeadDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/layout/header/nav/nav-HeadImg.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+                <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="RemindDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/remind_header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+		        <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="StockDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/stock_header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+		        <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="businessDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/business_header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+		        <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <!-- 系统设置模块 -->
+    <screen name="systemSettingDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/header.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/systemSetting_header.ftl"/></html></platform-specific>
+                <!-- 错误提示 -->
+		        <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/messages.ftl"/></html></platform-specific>
+		        <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/footer3.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+      <screen name="wechatDecorator">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/quzou_header.ftl"/></html></platform-specific>
+		        <decorator-section-include name="body"/>
+                <platform-specific><html><html-template location="component://quzou/webapp/quzou/includes/quzou_footer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+    	<!-- 公共元素 -->
+    <!-- 返回顶部 -->
+    <screen name="gotop"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/gotop/gotop.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 右侧菜单 -->
+    <screen name="bar"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/rightbar/bar.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 右侧菜单 2-->
+    <screen name="bar_New"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/rightbar/bar_New.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+     <!-- 右侧菜单 3-->
+    <screen name="bar_NoCart"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/rightbar/bar_NoCart.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 顶部LOGO及一些信息 -->
+    <screen name="top"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/header/top.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 筛选选菜单，产品 -->
+    <screen name="filter"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/filter/filter.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+	<!-- 面包屑2-->
+    <screen name="filter2"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/filter/filter2.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+	<!-- 面包屑3-->
+    <screen name="filter-menu"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/filter/filter-menu.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 筛选选菜单，产品信息 -->
+    <screen name="filter-pdt"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/filter/filter-pdt.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 筛选菜单 产品独立 -->
+    <screen name="filter-info"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/filter/filter-info.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 筛选菜单 产品独立 -->
+    <screen name="filter-merge"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/filter/filter-merge.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 筛选菜单 产品独立 -->
+    <screen name="filter-salary"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/filter/filter-salary.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 分页 -->
+    <screen name="pageto"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/pageto/pageto.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 首页 -->
+    <screen name="nav-index"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/header/nav/nav-index.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 产品 -->
+    <screen name="nav-base"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/header/nav/nav-base.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 会员中心 -->
+    <screen name="nav-account"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/header/nav/nav-account.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 营业统计 -->
+    <screen name="nav-statistics"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/header/nav/nav-statistics.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 库存 -->
+    <screen name="nav-stock"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/header/nav/nav-stock.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 注册 -->
+    <screen name="nav-register"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/header/nav/nav-register.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 员工信息 -->
+    <screen name="nav-employee"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/header/nav/nav-employee.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 设置头像 -->
+    <screen name="nav-HeadImg"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/header/nav/nav-HeadImg.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+    <!-- 提醒 -->
+    <screen name="nav-remind"><section><widgets><platform-specific><html>
+                        <html-template location="component://quzou/webapp/quzou/layout/header/nav/nav-remind.ftl"/>
+        </html></platform-specific></widgets></section></screen>
+
+    <screen name="pageList">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html>
+                        <html-template location="component://quzou/webapp/quzou/pages/pagelist.ftl"/>
+                    </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="main">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="pcposCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="login">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html>
+                        <html-template location="component://quzou/webapp/quzou/pages/login.ftl"/>
+                    </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+</screens>
+
+

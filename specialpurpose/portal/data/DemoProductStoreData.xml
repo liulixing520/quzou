@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entity-engine-xml>
+
+	<ContactMech contactMechId="CM8001" contactMechTypeId="POSTAL_ADDRESS"/>
+    <PostalAddress contactMechId="CM8001" toName="Company 8001" attnName="ZJAA" address1="8001 Open Blvd" city="Orem" postalCode="84058" countryGeoId="USA" stateProvinceGeoId="UT" geoPointId="9000"/>
+	<Facility facilityId="FW8001" facilityTypeId="WAREHOUSE" facilityName="Web Store Warehouse 8001" description="Warehouse exclusively for the Web Store " ownerPartyId="Company" defaultInventoryItemTypeId="NON_SERIAL_INV_ITEM" defaultWeightUomId="WT_lb" defaultDaysToShip="25" geoPointId="9000"/>
+	<FacilityContactMech facilityId="FW8001" contactMechId="CM8001" fromDate="2001-05-13 12:00:00.0"/>
+	<FacilityContactMechPurpose facilityId="FW8001" contactMechId="CM8001" contactMechPurposeTypeId="GENERAL_LOCATION" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductStore productStoreId="PS8001" storeName="Demo Store 8001" companyName="Demo Company" title="Demo"
+        subtitle="Part of the Open For Business Family of Open Source Software" payToPartyId="DemoSeller" daysToCancelNonPay="30" prorateShipping="Y" prorateTaxes="Y" autoSaveCart="Y"
+        inventoryFacilityId="FW8001" oneInventoryFacility="Y" checkInventory="N" reserveInventory="Y" balanceResOnOrderCreation="Y" reserveOrderEnumId="INVRO_FIFO_REC" requireInventory="N"
+        defaultLocaleString="en_US" defaultCurrencyUomId="USD" defaultSalesChannelEnumId="WEB_SALES_CHANNEL" allowPassword="Y" explodeOrderItems="N" retryFailedAuths="Y" reqReturnInventoryReceive="N"
+        headerApprovedStatus="ORDER_APPROVED" itemApprovedStatus="ITEM_APPROVED" digitalItemApprovedStatus="ITEM_APPROVED" headerDeclinedStatus="ORDER_REJECTED"
+        itemDeclinedStatus="ITEM_REJECTED" headerCancelStatus="ORDER_CANCELLED" itemCancelStatus="ITEM_CANCELLED" orderNumberPrefix="WS"
+        authDeclinedMessage="There has been a problem with your method of payment. Please try a different method or call customer service."
+        authFraudMessage="Your order has been rejected and your account has been disabled due to fraud."
+        authErrorMessage="Problem connecting to payment processor; we will continue to retry and notify you by email."
+        storeCreditValidDays="90" storeCreditAccountEnumId="FIN_ACCOUNT"
+        visualThemeId="EC_DEFAULT" prodSearchExcludeVariants="Y" autoApproveInvoice="Y" shipIfCaptureFails="Y" autoApproveOrder="Y" showOutOfStockProducts="Y"/>
+	<ProductStoreRole partyId="DemoSeller" roleTypeId="OWNER" productStoreId="PS8001" fromDate="2001-05-13 12:00:00.0"/>
+	
+	<ContactMech contactMechId="CM8002" contactMechTypeId="POSTAL_ADDRESS"/>
+    <PostalAddress contactMechId="CM8002" toName="Company 8002" attnName="ZJAA" address1="8002 Open Blvd" city="Orem" postalCode="84058" countryGeoId="USA" stateProvinceGeoId="UT" geoPointId="9000"/>
+	<Facility facilityId="FW8002" facilityTypeId="WAREHOUSE" facilityName="Web Store Warehouse 8002" description="Warehouse exclusively for the Web Store " ownerPartyId="Company" defaultInventoryItemTypeId="NON_SERIAL_INV_ITEM" defaultWeightUomId="WT_lb" defaultDaysToShip="25" geoPointId="9000"/>
+	<FacilityContactMech facilityId="FW8002" contactMechId="CM8002" fromDate="2001-05-13 12:00:00.0"/>
+	<FacilityContactMechPurpose facilityId="FW8002" contactMechId="CM8002" contactMechPurposeTypeId="GENERAL_LOCATION" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductStore productStoreId="PS8002" storeName="Demo Store 2" companyName="Demo Company2" title="Demo 2"
+        subtitle="Part of the Open For Business Family of Open Source Software" payToPartyId="DemoSeller2" daysToCancelNonPay="30" prorateShipping="Y" prorateTaxes="Y" autoSaveCart="Y"
+        inventoryFacilityId="FW8002" oneInventoryFacility="Y" checkInventory="Y" reserveInventory="Y" balanceResOnOrderCreation="Y" reserveOrderEnumId="INVRO_FIFO_REC" requireInventory="N"
+        defaultLocaleString="en_US" defaultCurrencyUomId="USD" defaultSalesChannelEnumId="WEB_SALES_CHANNEL" allowPassword="Y" explodeOrderItems="N" retryFailedAuths="Y" reqReturnInventoryReceive="N"
+        headerApprovedStatus="ORDER_APPROVED" itemApprovedStatus="ITEM_APPROVED" digitalItemApprovedStatus="ITEM_APPROVED" headerDeclinedStatus="ORDER_REJECTED"
+        itemDeclinedStatus="ITEM_REJECTED" headerCancelStatus="ORDER_CANCELLED" itemCancelStatus="ITEM_CANCELLED" orderNumberPrefix="WS"
+        authDeclinedMessage="There has been a problem with your method of payment. Please try a different method or call customer service."
+        authFraudMessage="Your order has been rejected and your account has been disabled due to fraud."
+        authErrorMessage="Problem connecting to payment processor; we will continue to retry and notify you by email."
+        storeCreditValidDays="90" storeCreditAccountEnumId="FIN_ACCOUNT"
+        visualThemeId="EC_DEFAULT" prodSearchExcludeVariants="Y" autoApproveInvoice="Y" shipIfCaptureFails="Y" autoApproveOrder="Y" showOutOfStockProducts="Y"/>
+	<ProductStoreRole partyId="DemoSeller2" roleTypeId="OWNER" productStoreId="PS8002" fromDate="2001-05-13 12:00:00.0"/>
+	
+	<!-- 店铺营销分类 -->
+	<ProductCategory productCategoryId="HOT_PRODS" productCategoryTypeId="BEST_SELL_CATEGORY" categoryName="热门商品"/>
+    <ProductCategory productCategoryId="CHN_BRAND" productCategoryTypeId="BEST_SELL_CATEGORY" categoryName="中国品牌手机"/>
+    <ProductCategory productCategoryId="HOT_SALES" productCategoryTypeId="BEST_SELL_CATEGORY" categoryName="畅销产品"/>
+    <ProductCategory productCategoryId="NEW_PRODS" productCategoryTypeId="BEST_SELL_CATEGORY" categoryName="新品上架"/>
+    <ProductCategory productCategoryId="SUPER_DEALS" productCategoryTypeId="BEST_SELL_CATEGORY" categoryName="超级特卖"/>
+    
+	<ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="HOT_PRODS" prodCatalogCategoryTypeId="PCCT_BEST_SELL" parentProductCategoryId="_NA_" fromDate="2001-05-13 12:00:00.0" sequenceNum="1"/>
+	<ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="CHN_BRAND" prodCatalogCategoryTypeId="PCCT_BEST_SELL" parentProductCategoryId="_NA_" fromDate="2001-05-13 12:00:00.0" sequenceNum="2"/>
+	<ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="HOT_SALES" prodCatalogCategoryTypeId="PCCT_BEST_SELL" parentProductCategoryId="_NA_" fromDate="2001-05-13 12:00:00.0" sequenceNum="3"/>
+    <ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="NEW_PRODS" prodCatalogCategoryTypeId="PCCT_BEST_SELL" parentProductCategoryId="_NA_" fromDate="2001-05-13 12:00:00.0" sequenceNum="4"/>
+	
+	
+	<!-- 店铺导航分类 -->
+	<ProductCategory productCategoryId="PS8001_001" productCategoryTypeId="STORECAT_CATEGORY" categoryName="测试分类001" productStoreId="PS8001"/>
+    <ProductCategory productCategoryId="PS8001_002" productCategoryTypeId="STORECAT_CATEGORY" categoryName="测试分类002" productStoreId="PS8001"/>
+    <ProductCategory productCategoryId="PS8001_003" productCategoryTypeId="STORECAT_CATEGORY" categoryName="测试分类003" productStoreId="PS8001"/>
+    <ProductCategory productCategoryId="PS8001_004" productCategoryTypeId="STORECAT_CATEGORY" categoryName="测试分类004" productStoreId="PS8001"/>
+    
+    <ProductCategory productCategoryId="PS8001_001001" productCategoryTypeId="STORECAT_CATEGORY" categoryName="测试分类001001" productStoreId="PS8001"/>
+    <ProductCategory productCategoryId="PS8001_001002" productCategoryTypeId="STORECAT_CATEGORY" categoryName="测试分类001002" productStoreId="PS8001"/>
+    <ProductCategory productCategoryId="PS8001_002001" productCategoryTypeId="STORECAT_CATEGORY" categoryName="测试分类002001" productStoreId="PS8001"/>
+    <ProductCategory productCategoryId="PS8001_003001" productCategoryTypeId="STORECAT_CATEGORY" categoryName="测试分类003001" productStoreId="PS8001"/>
+    <ProductCategory productCategoryId="PS8001_003002" productCategoryTypeId="STORECAT_CATEGORY" categoryName="测试分类003002" productStoreId="PS8001"/>
+    <ProductCategory productCategoryId="PS8001_003003" productCategoryTypeId="STORECAT_CATEGORY" categoryName="测试分类003003" productStoreId="PS8001"/>
+	<ProductCategory productCategoryId="PS8001_004001" productCategoryTypeId="STORECAT_CATEGORY" categoryName="测试分类004001" productStoreId="PS8001"/>
+	
+	<ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="PS8001_001" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" parentProductCategoryId="_NA_" fromDate="2001-05-13 12:00:00.0" sequenceNum="1"/>
+	<ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="PS8001_002" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" parentProductCategoryId="_NA_" fromDate="2001-05-13 12:00:00.0" sequenceNum="2"/>
+	<ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="PS8001_003" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" parentProductCategoryId="_NA_" fromDate="2001-05-13 12:00:00.0" sequenceNum="3"/>
+	<ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="PS8001_004" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" parentProductCategoryId="_NA_" fromDate="2001-05-13 12:00:00.0" sequenceNum="4"/>
+		
+	<ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="PS8001_001001" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" parentProductCategoryId="PS8001_001" fromDate="2001-05-13 12:00:00.0" sequenceNum="1"/>
+	<ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="PS8001_001002" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" parentProductCategoryId="PS8001_001" fromDate="2001-05-13 12:00:00.0" sequenceNum="2"/>
+	<ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="PS8001_002001" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" parentProductCategoryId="PS8001_002" fromDate="2001-05-13 12:00:00.0" sequenceNum="1"/>
+	<ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="PS8001_003001" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" parentProductCategoryId="PS8001_003" fromDate="2001-05-13 12:00:00.0" sequenceNum="1"/>
+	<ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="PS8001_003002" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" parentProductCategoryId="PS8001_003" fromDate="2001-05-13 12:00:00.0" sequenceNum="2"/>
+	<ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="PS8001_003003" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" parentProductCategoryId="PS8001_003" fromDate="2001-05-13 12:00:00.0" sequenceNum="1"/>
+	<ProductStoreCategoryRollup productStoreId="PS8001" productCategoryId="PS8001_004001" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" parentProductCategoryId="PS8001_004" fromDate="2001-05-13 12:00:00.0" sequenceNum="1"/>
+
+	<ProductStoreShipmentMeth productStoreShipMethId="PSSM10001" productStoreId="PS8001" shipmentMethodTypeId="STANDARD" partyId="_NA_" roleTypeId="CARRIER" allowUspsAddr="Y" requireUspsAddr="N" allowCompanyAddr="Y" requireCompanyAddr="N" includeNoChargeItems="Y" lastUpdatedStamp="2014-11-08 11:44:13.0" lastUpdatedTxStamp="2014-11-08 11:44:13.0" createdStamp="2014-11-08 11:44:13.0" createdTxStamp="2014-11-08 11:44:13.0"/>
+	<ProductStoreShipmentMeth productStoreShipMethId="PSSM10002" productStoreId="PS8001" shipmentMethodTypeId="NO_SHIPPING" partyId="_NA_" roleTypeId="CARRIER" allowUspsAddr="Y" requireUspsAddr="N" allowCompanyAddr="Y" requireCompanyAddr="N" includeNoChargeItems="Y" lastUpdatedStamp="2014-11-08 11:44:13.0" lastUpdatedTxStamp="2014-11-08 11:44:13.0" createdStamp="2014-11-08 11:44:13.0" createdTxStamp="2014-11-08 11:44:13.0"/>
+    <ProductStoreShipmentMeth productStoreShipMethId="PSSM10003" productStoreId="PS8002" shipmentMethodTypeId="NO_SHIPPING" partyId="_NA_" roleTypeId="CARRIER" allowUspsAddr="Y" requireUspsAddr="N" allowCompanyAddr="Y" requireCompanyAddr="N" includeNoChargeItems="Y" lastUpdatedStamp="2014-11-08 11:44:30.0" lastUpdatedTxStamp="2014-11-08 11:44:30.0" createdStamp="2014-11-08 11:44:30.0" createdTxStamp="2014-11-08 11:44:30.0"/>
+    <ProductStoreShipmentMeth productStoreShipMethId="PSSM10004" productStoreId="PS8002" shipmentMethodTypeId="NEXT_DAY" partyId="UPS" roleTypeId="CARRIER" allowUspsAddr="Y" requireUspsAddr="N" allowCompanyAddr="Y" requireCompanyAddr="N" includeNoChargeItems="Y" lastUpdatedStamp="2014-11-08 11:44:42.0" lastUpdatedTxStamp="2014-11-08 11:44:42.0" createdStamp="2014-11-08 11:44:42.0" createdTxStamp="2014-11-08 11:44:42.0"/>
+	
+	<ProductStore productStoreId="9000" storeName="OFBiz E-Commerce Store" companyName="Open For Business" title="Open For Commerce"
+        subtitle="Part of the Open For Business Family of Open Source Software" payToPartyId="Company" daysToCancelNonPay="30" prorateShipping="Y" prorateTaxes="Y" autoSaveCart="Y"
+        inventoryFacilityId="WebStoreWarehouse" oneInventoryFacility="Y" checkInventory="Y" reserveInventory="Y" balanceResOnOrderCreation="Y" reserveOrderEnumId="INVRO_FIFO_REC" requireInventory="N"
+        defaultLocaleString="zh" defaultCurrencyUomId="CNY" defaultSalesChannelEnumId="WEB_SALES_CHANNEL" allowPassword="Y" explodeOrderItems="N" retryFailedAuths="Y" reqReturnInventoryReceive="N"
+        headerApprovedStatus="ORDER_APPROVED" itemApprovedStatus="ITEM_APPROVED" digitalItemApprovedStatus="ITEM_APPROVED" headerDeclinedStatus="ORDER_REJECTED"
+        itemDeclinedStatus="ITEM_REJECTED" headerCancelStatus="ORDER_CANCELLED" itemCancelStatus="ITEM_CANCELLED" orderNumberPrefix="WS"
+        authDeclinedMessage="There has been a problem with your method of payment. Please try a different method or call customer service."
+        authFraudMessage="Your order has been rejected and your account has been disabled due to fraud."
+        authErrorMessage="Problem connecting to payment processor; we will continue to retry and notify you by email."
+        storeCreditValidDays="90" storeCreditAccountEnumId="FIN_ACCOUNT"
+        visualThemeId="EC_DEFAULT" prodSearchExcludeVariants="Y" autoApproveInvoice="Y" shipIfCaptureFails="Y" autoApproveOrder="Y" showOutOfStockProducts="Y"/>
+	<ProductStorePaymentSetting productStoreId="9000" paymentMethodTypeId="EXT_PAYEASE" paymentServiceTypeEnumId="PRDS_PAY_EXTERNAL" paymentService="" paymentCustomMethodId="" paymentGatewayConfigId="PAYEASE_CONFIG"/>
+	
+	<ProductStoreEmailSetting productStoreId="9000" emailType="PRDS_EMAIL_VERIFY" bodyScreenLocation="component://portal/widget/CustomerScreens.xml#VerifyEmailAddressNotification" subject="Email Address Verification" bccAddress="ofbiztest@example.com" fromAddress="ofbiztest@example.com"/>
+
+</entity-engine-xml>
+
+
+
+
+

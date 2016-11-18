@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="main">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="autoCodeCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="EntityMaint">
+        <section>
+            <actions>
+                <set field="titleProperty" value="autoCodeEntityDataMaintenance"/>
+                <set field="tabButtonItem" value="entitymaint"/>
+                <script location="component://webtools/webapp/webtools/WEB-INF/actions/entity/EntityMaint.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CommonEntityDecorator" location="component://webtools/widget/CommonScreens.xml">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://autoCode/webapp/autoCode/entity/EntityMaint.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+ 	<screen name="ViewCodeSet">
+        <section>
+            <actions>
+                
+                <script location="component://autoCode/webapp/autoCode/WEB-INF/actions/ViewCodeSet.groovy" />
+                <script location="component://autoCode/webapp/autoCode/WEB-INF/actions/entity/ViewRelations.groovy"/>
+                <property-map resource="autoCodeUiLabels" map-name="uiLabelMap"/>
+                <set field="title" value="${uiLabelMap.autoCodeRelations}: ${entityName}"/>
+                <set field="tabButtonItem" value="entitymaint"/>
+           		<set field="entityName" value="${parameters.entityName}"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <screenlet title="${uiLabelMap.AutoCodeSet}">
+                            <platform-specific><html>
+                            <html-template location="component://autoCode/webapp/autoCode/entity/ViewCodeSet.ftl"/>
+                            </html></platform-specific>
+                        </screenlet>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="ViewCodeSetJeasy">
+        <section>
+            <actions>
+                <script location="component://autoCode/webapp/autoCode/WEB-INF/actions/ViewCodeSet.groovy" />
+                <script location="component://autoCode/webapp/autoCode/WEB-INF/actions/entity/ViewRelations.groovy"/>
+                <property-map resource="autoCodeUiLabels" map-name="uiLabelMap"/>
+                <set field="title" value="${uiLabelMap.autoCodeRelations}: ${entityName}"/>
+                <set field="tabButtonItem" value="entitymaint"/>
+           		<set field="entityName" value="${parameters.entityName}"/>
+           		<set field="userOper" value="${parameters.userOper}"/>
+           		<entity-one entity-name="DesignForm" value-field="entity" />
+            </actions>
+            <widgets>
+            	<section>
+            	<condition ><if-empty field="entity"/></condition>
+            	<widgets>
+	                 <platform-specific>
+	                 	<html>
+	                 		<html-template location="component://autoCode/webapp/autoCode/entity/ViewCodeSetJeasy.ftl"/>
+	                 	</html>
+	                 </platform-specific>
+                 </widgets>
+                 <fail-widgets>
+	                 <platform-specific>
+	                 	<html>
+	                 		<html-template location="component://autoCode/webapp/autoCode/entity/ViewCodeSetJeasyEdit.ftl"/>
+	                 	</html>
+	                 </platform-specific>
+                 </fail-widgets>
+                </section> 
+            </widgets>
+        </section>
+    </screen>
+     <screen name="ViewCodeJeasy">
+        <section>
+            <actions>
+                <property-map resource="autoCodeUiLabels" map-name="uiLabelMap"/>
+                <set field="title" value="${uiLabelMap.autoCodeRelations}: ${entityName}"/>
+                <set field="tabButtonItem" value="entitymaint"/>
+                <script location="component://autoCode/webapp/autoCode/WEB-INF/actions/ViewCodeJeasy.groovy" />
+            </actions>
+            <widgets>
+               
+                            <platform-specific><html>
+                            <html-template location="component://autoCode/webapp/autoCode/entity/ViewCodeJeasy.ftl"/>
+                            </html></platform-specific>
+                       
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="genericAllCode">
+        <section>
+            <actions>
+                <set field="tabButtonItem" value="entitymaint"/>
+           		<set field="entityName" value="${parameters.entityName}"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <screenlet title="${uiLabelMap.AutoCodeSet}">
+                            <platform-specific><html>
+                            <html-template location="component://autoCode/webapp/autoCode/entity/ViewGenericAllCode.ftl"/>
+                            </html></platform-specific>
+                        </screenlet>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen> 
+    <screen name="EntityCreate">
+        <section>
+            <actions>
+                <set field="tabButtonItem" value="entitymaint"/>
+                
+            </actions>
+            <widgets>
+                <platform-specific><html>
+                <html-template location="component://autoCode/webapp/autoCode/entity/EntityCreate.ftl"/>
+                </html></platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+</screens>

@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="keywordsearchbox">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/KeywordSearchOptions.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/keywordsearchbox.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+	<screen name="productsummaryForWeekly">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/productsummaryForWeekly.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+	<screen name="productsummaryForSuper">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/productsummaryForSuper.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="sellerproductExhibition">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/sellerproductExhibition.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="productsummary">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>                                                         
+               <platform-specific><html><html-template location="component://portal/webapp/portal/product/productsummaryForWeekly.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="product">
+        <section>
+            <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+                <set field="titleProperty" value="PageTitleProductPage"/>
+                <set field="configproductdetailScreen" value="component://portal/widget/CatalogScreens.xml#configproductdetail"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/Product.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <condition>
+                                <not><if-empty field="product"/></not>
+                            </condition>
+                            <widgets>
+                                <include-screen name="${detailScreen}"/>
+                            </widgets>
+                            <fail-widgets>
+                                <label style="head2">${uiLabelMap.ProductProductNotFound} ${productId}!</label>
+                            </fail-widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="productdetail">
+        <section>
+            <actions>
+                <set field="productsummaryScreen" value="component://portal/widget/CatalogScreens.xml#productsummary"/>
+				<property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductDetail.groovy"/>
+                <!--  <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductStoreDetail.groovy"/> --> <!-- 产品详情页面   对于的商铺 查询  -->
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductStoreDetailToCategory.groovy"/> <!-- 产品详情页面  对于的商铺 分类  查询  -->
+				<!-- 获取代销店铺和产品价格信息 -->
+				<script location="component://portal/webapp/portal/WEB-INF/actions/product/DxProductDetail.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/productdetail.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="dxProduct">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="supplierStoreId" from-field="requestAttributes.supplierStoreId"/>
+                <set field="dxStoreId" from-field="requestAttributes.dxStoreId"/>
+                <set field="productId" from-field="requestAttributes.productId"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/dxProduct.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="configproductdetail">
+        <section>
+            <actions>
+                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productsummary"/>
+                <set field="inlineProductDetailScreen" value="component://ecommerce/widget/CatalogScreens.xml#inlineProductDetail"/>
+                <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/ProductDetail.groovy"/>
+                <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/PrepareConfigForm.groovy"/>
+            </actions>
+            <widgets>
+                <include-screen name="breadcrumbs"/>
+                <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/catalog/configproductdetail.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="category">
+        <section>
+            <actions>
+            	<set field="layoutSettings.styleSheets[]" value="/portal/images/css/header-all.css" global="true"/>
+				<!-- <set field="layoutSettings.styleSheets[]" value="/portal/images/css/m-search-common.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/portal/images/css/m-spu-product-detail.css" global="true"/> -->
+				<set field="layoutSettings.styleSheets[]" value="/portal/images/css/common-nohead.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/portal/images/css/cate-toplink.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/portal/images/css/go-top-ws.css" global="true"/>
+				
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/Category.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-screen name="category-include"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+    
+   <screen name="category-include">
+        <section>
+            <widgets>
+                <section>
+                    <condition>
+                        <not><if-empty field="productCategory"/></not>
+                    </condition>
+                    <widgets>
+                        <include-screen name="${detailScreen}"/>
+                    </widgets>
+                    <fail-widgets>
+                        <label style="head2">${uiLabelMap.ProductCategoryNotFoundForCategoryID} ${productCategoryId}!</label>
+                    </fail-widgets>
+                </section>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="categorydetail">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/CategoryDetail.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/categories/second/main.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="categoryFirst">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/CategoryDetail.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/categories/second/main.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="categorySecond">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/GetChildCategories.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/categories/second/main.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="categoryThird">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/categories/third/main.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="productsummaryCatThird">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PortalUiLabels.xml" map-name="uiLabelMap" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/catalog/productsummaryCatThird.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="productFeatureTypeItem">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PortalUiLabels.xml" map-name="uiLabelMap" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/productFeaturesByeType.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/catalog/productFeatureTypeItem.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="breadcrumbs">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/SideDeepCategory.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://order/webapp/ordermgr/entry/catalog/breadcrumbs.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+	<screen name="productCategoryList">
+        <section>
+            <condition>
+                <if-empty field="parameters.mainSubmitted"/>
+            </condition>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/Category.groovy"/>
+                <set field="fromSetSessionLocale" value="${groovy: return request.getAttribute('fromSetSessionLocale');}"/>
+                <set field="visualThemeId" from-field="productStore.visualThemeId" default-value="EC_DEFAULT"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+            </actions>
+            <widgets>
+                <section>
+                    <condition>
+                        <if-compare operator="equals" value="true" field="fromSetSessionLocale"/>
+                    </condition>
+                    <widgets>
+                        <include-screen name="category"/>
+                    </widgets>
+                    <fail-widgets>
+                        <section>
+                            <condition>
+                                <if-empty field="category_id"/>
+                            </condition>
+                            <widgets>
+                                <include-screen name="newbreadcrumbs" share-scope="true"/>
+                            </widgets>
+                            <fail-widgets>
+                                <include-screen name="breadcrumbs" share-scope="true"/>
+                            </fail-widgets>
+                        </section>
+                    </fail-widgets>
+                </section>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="newbreadcrumbs">
+       <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/ajaxbreadcrumbs.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/catalog/ajaxbreadcrumbs.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="keywordsearch">
+        <section>
+            <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+
+                <set field="productsummaryScreen" value="component://portal/widget/CatalogScreens.xml#productsummary"/>
+
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="10"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/catalog/keywordsearch.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="keywordsearchBrand">
+        <section>
+           <actions>
+                <property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+           </actions>
+            <widgets>
+               <platform-specific><html><html-template location="component://portal/webapp/portal/catalog/keywordsearchBrand.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="keywordsearchCategories">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/catalog/keywordsearchCategories.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="keywordsearchRightCate">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/catalog/keywordsearchRight.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+    <!-- 分类 下的产品  -->
+    <screen name="categoryDetail">
+        <section>
+            <actions>
+            	<property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                
+                <set field="productsummaryScreen" value="component://portal/widget/CatalogScreens.xml#productsummary"/>
+                
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/Category.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+				<platform-specific><html><html-template location="component://portal/webapp/portal/catalog/categorydetail.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- 产品 详情页的 左边 下面  显示 热门产品  
+    <screen name="hotProductSummary">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductStoreHotSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/showProductToOneToleftTohot.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen> -->
+    
+    <!-- 产品详情页面  组合页面  的top页面-->
+    <screen name="showProTop">
+        <section>
+	         <actions>
+	                <script location="component://portal/webapp/portal/WEB-INF/actions/store/ProductStoreDetail.groovy"/> <!-- 产品详情页面   对于的商铺 查询  -->
+	                <script location="component://portal/webapp/portal/WEB-INF/actions/prod/childProducts.groovy"/> <!-- 产品详情页面   对于的商铺 查询  -->
+	        </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/product.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+ 
+    
+    <!-- 产品详情页面  组合页面  的left页面-->
+    <screen name="showProLeft">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/productDetailsPageToleft.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+     
+    <!-- 产品详情页面  组合页面  的left页面-->
+    <screen name="showProductToleftToFor">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                 <!-- 店铺的  新上商品 -->
+                <set field="parameters.orderByName" value="lastModifiedDate"/>
+                <set field="parameters.sortByReverse" value="true" type="Boolean"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/productDetailsPageToleftHot.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- 产品详情页面  组合页面  的left页面    新上商品-->
+    <screen name="showProductToleftToNewSToFor">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                 <!-- 店铺的  新上商品-->
+                <set field="parameters.orderByName" value="totalQuantityOrdered"/>
+                <set field="parameters.sortByReverse" value="true" type="Boolean"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/productDetailsPageToleftToNewSHot.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- 产品详情页面  组合页面  的Right页面-->
+    <screen name="showProRight">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/productDetailsPageToright.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+     
+    <!--产品详情页面  top页面  的Right页面  -->
+    <screen name="showProTotopToRight">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/productDetailsPageTotopToRight.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- 产品详情页面  组合页面  的Right页面-->
+    <screen name="showProductToRightToFor">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                 <!-- 店铺的  其他人浏览的商品 -->
+                <set field="parameters.orderByName" value="lastModifiedDate"/>
+                <set field="parameters.sortByReverse" value="true" type="Boolean"/>
+                <!-- <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/> -->
+                <!-- <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/showOtherProductVisits.groovy"/> -->
+                <!-- <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductStoreViews.groovy"/> -->
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/productDetailsPageTorightToViews.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+    
+</screens>

@@ -1,0 +1,2208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods.xsd">
+   
+    <simple-method method-name="createProduct" short-description="Create a Product">
+        <check-permission permission="CATALOG" action="_CREATE">
+            <alt-permission permission="CATALOG_ROLE" action="_CREATE"/>
+            <fail-property resource="ProductUiLabels" property="ProductCatalogCreatePermissionError"/>
+        </check-permission>
+        <check-errors/>
+
+        <make-value value-field="newEntity" entity-name="Product"/>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+		
+	    <set from-field="parameters.productStoreId" field="newEntity.primaryProductStoreId"/>
+        <set from-field="parameters.productId" field="newEntity.productId"/>
+        <if-empty field="newEntity.productId">
+            <sequenced-id sequence-name="Product" field="newEntity.productId"/>
+        <else>
+            <check-id field="newEntity.productId"/>
+            <check-errors/>
+        </else>
+        </if-empty>
+        <field-to-result field="newEntity.productId" result-name="productId"/>
+
+        <now-timestamp field="nowTimestamp"/>
+        <set from-field="nowTimestamp" field="newEntity.createdDate"/>
+        <set from-field="nowTimestamp" field="newEntity.lastModifiedDate"/>
+        <set from-field="userLogin.userLoginId" field="newEntity.lastModifiedByUserLogin"/>
+        <set from-field="userLogin.userLoginId" field="newEntity.createdByUserLogin"/>
+        <if-empty field="newEntity.billOfMaterialLevel">
+            <set field="newEntity.billOfMaterialLevel" value="0" type="Long"/>
+        </if-empty>
+        
+        <if-not-empty field="parameters.productTypeCategoryId">
+            <set field="newEntity.primaryProductCategoryId" from-field="parameters.productTypeCategoryId"/>
+        </if-not-empty> 
+        
+		<if-compare operator="equals" field="parameters.saleable" value="N">
+			<set field="newEntity.salesDiscontinuationDate" from-field="nowTimestamp"/>
+		</if-compare>
+        <if-compare operator="equals" field="parameters.goodType" value="sigleGood">
+			<set field="newEntity.isVirtual" value="N"/>
+			<set field="newEntity.isVariant" value="N"/>
+			<else>
+	        	<set field="newEntity.isVirtual" value="Y"/>
+				<set field="newEntity.isVariant" value="N"/>
+			</else>
+		</if-compare>
+		<if-not-empty field="parameters.salesDiscontinuationDate">
+			<set field="newEntity.salesDiscontinuationDate" from-field="parameters.salesDiscontinuationDate"/>
+		</if-not-empty>
+		<if-not-empty field="parameters.introductionDate">
+			<set field="newEntity.introductionDate" from-field="parameters.introductionDate"/>
+			<else>
+				<set field="newEntity.introductionDate" from-field="nowTimestamp"/>
+			</else>
+		</if-not-empty>
+		
+		
+		<!--    商品大图片largerUrl获取          -->
+		<if-not-empty field="parameters.idMap">
+			<iterate-map map="parameters.idMap" key="id" value="idValue">
+				<set field="contentCtx.contentName" from-field="parameters.filePathMap[id]"/>
+				<if-not-empty field="parameters.listImg">
+					<if-compare-field operator="equals" field="id" to-field="parameters.listImg">
+						<set field="newEntity.largeImageUrl" from-field="parameters.filePathMap[id]"/>
+						<set field="newEntity.smallImageUrl" from-field="parameters.filePathMap[id]"/>
+					</if-compare-field>
+				</if-not-empty>		
+			</iterate-map>	
+		</if-not-empty>	
+		<if-empty field="parameters.internalName">
+			<set field="parameters.internalName" from-field="parameters.productNameZh"/>
+		</if-empty>
+		<set field="newEntity.productName" from-field="parameters.internalName"/>
+		
+		<!--       商品大图片获取 结束              -->
+        <create-value value-field="newEntity"/>
+
+        <!-- if setting the primaryProductCategoryId create a member entity too -->
+        <!-- THIS IS REMOVED BECAUSE IT CAUSES PROBLEMS FOR WORKING ON PRODUCTION SITES
+        <if-not-empty field="newEntity.primaryProductCategoryId">
+            <make-value entity-name="ProductCategoryMember" value-field="newMember"/>
+            <set from-field="productId" map-name="newEntity" to-field-name="productId" to-map-name="newMember"/>
+            <set from-field="primaryProductCategoryId" map-name="newEntity" to-field-name="productCategoryId" to-map-name="newMember"/>
+            <now-timestamp field="nowStamp"/>
+            <set from-field="nowStamp" field="newMember.fromDate"/>
+            <create-value value-field="newMember"/>
+        </if-not-empty>
+        -->
+        
+        <!-- 库存 -->
+        <entity-and list="facilityList" entity-name="ProductStoreFacility">
+       		<field-map field-name="productStoreId" from-field="parameters.productStoreId"/>
+       	</entity-and>
+        <if-not-empty field="parameters.inventory">
+	        <set field="newInventory.facilityId" from-field="facilityList[0].facilityId"/>
+	        <set field="newInventory.productId" from-field="newEntity.productId"/>
+	        <set field="newInventory.inventoryItemTypeId" value="NON_SERIAL_INV_ITEM"/>
+	        <set field="newInventory.quantityRejected" value="0"/>
+	        <set field="newInventory.unitCost" value="0"/>
+	        <set field="newInventory.ownerPartyId" value="Company"/>
+	        <set field="newInventory.quantityAccepted" from-field="parameters.inventory"/>
+	        <log level="always" message="${newInventory.facilityId}======${newInventory.productId}"></log>
+	        <call-service service-name="receiveInventoryProduct" in-map-name="newInventory">
+	        </call-service>
+        </if-not-empty>
+        <!-- 属性 -->
+		<if-not-empty field="parameters.attribs">
+			<iterate-map key="attrId" value="idValue" map="parameters.attribs">
+				<!-- add into ProductAttribute-->
+				<make-value value-field="newProductAttibute" entity-name="ProductAttribute"/>
+		        <set field="newProductAttibute.productId" from-field="newEntity.productId"/>
+		        <set field="newProductAttibute.attrName" from-field="attrId"/>
+		        <set field="newProductAttibute.attrValue" from-field="idValue"/>
+		        <create-value value-field="newProductAttibute"/>
+	        </iterate-map>
+		</if-not-empty>
+        <!-- 关联产品 -->
+        <if-not-empty field="parameters.product_assocs">
+		        <iterate entry="productIdTo" list="parameters.product_assocs">
+			        <!-- 往ProductAssoc里写关联产品数据 -->
+			        <make-value value-field="productAssoc" entity-name="ProductAssoc"/>
+			        <set from-field="newEntity.productId" field="productAssoc.productId"/>
+			        <set from-field="productIdTo" field="productAssoc.productIdTo"/>
+			        <set from-field="nowTimestamp" field="productAssoc.fromDate"/>
+			        <set value="ALSO_BOUGHT" field="productAssoc.productAssocTypeId"/><!-- 同时购买 -->
+			        <create-value value-field="productAssoc"/>
+				</iterate>
+		</if-not-empty>
+        <!-- 关联配件 -->
+        <if-not-empty field="parameters.product_configs">
+		        <iterate entry="productIdTo" list="parameters.product_configs">
+			        <!-- 往ProductAssoc里写配件数据 -->
+			        <make-value value-field="productconfig" entity-name="ProductAssoc"/>
+			        <set from-field="newEntity.productId" field="productconfig.productId"/>
+			        <set from-field="productIdTo" field="productconfig.productIdTo"/>
+			        <set from-field="nowTimestamp" field="productconfig.fromDate"/>
+			        <set value="PRODUCT_ACCESSORY" field="productconfig.productAssocTypeId"/><!--零配件 -->
+			        <create-value value-field="productconfig"/>
+				</iterate>
+		</if-not-empty>
+		<!-- 主分类 -->
+		<if-not-empty field="parameters.primaryProductCategoryId">
+			<make-value value-field="mainCategoryMember" entity-name="ProductCategoryMember"/>
+	        <set from-field="newEntity.productId" field="mainCategoryMember.productId"/>
+	        <set from-field="newEntity.primaryProductCategoryId" field="mainCategoryMember.productCategoryId"/>
+	        <set from-field="nowTimestamp" field="mainCategoryMember.fromDate"/>
+	        <set value="main" field="mainCategoryMember.disType"/>
+	        <create-value value-field="mainCategoryMember"/>
+		</if-not-empty>
+		<!-- 扩展分类 -->
+		<if-not-empty field="parameters.product_categorys">
+		        <iterate entry="productCategoryId" list="parameters.product_categorys">
+			        <make-value value-field="productCategoryMember" entity-name="ProductCategoryMember"/>
+			        <set from-field="newEntity.productId" field="productCategoryMember.productId"/>
+			        <set from-field="productCategoryId" field="productCategoryMember.productCategoryId"/>
+			        <set from-field="nowTimestamp" field="productCategoryMember.fromDate"/>
+			        <set value="other" field="productCategoryMember.disType"/>
+			        <create-value value-field="productCategoryMember"/>
+				</iterate>
+		</if-not-empty>
+        <!-- 类型分类 -->
+        <if-not-empty field="parameters.productTypeCategoryId">
+	        <make-value value-field="productCategoryMember" entity-name="ProductCategoryMember"/>
+	        <set from-field="newEntity.productId" field="productCategoryMember.productId"/>
+	        <set from-field="parameters.productTypeCategoryId" field="productCategoryMember.productCategoryId"/>
+	        <set from-field="nowTimestamp" field="productCategoryMember.fromDate"/>
+	        <set value="type" field="productCategoryMember.disType"/>
+	        <create-value value-field="productCategoryMember"/>
+		</if-not-empty>
+		
+		<if-compare operator="equals" field="parameters.goodType" value="specGood">
+			<!-- 规格 -->
+			<if-not-empty field="parameters.featureIds">
+				<iterate-map value="productFeatureId" key="k" map="parameters.featureIds">
+					<make-value value-field="productFeatureAppl" entity-name="ProductFeatureAppl"/>
+			        <set from-field="newEntity.productId" field="productFeatureAppl.productId"/>
+			        <set from-field="productFeatureId" field="productFeatureAppl.productFeatureId"/>
+			        <set from-field="nowTimestamp" field="productFeatureAppl.fromDate"/>
+			        <set value="SELECTABLE_FEATURE" field="productFeatureAppl.productFeatureApplTypeId"/>
+			        <create-value value-field="productFeatureAppl"/>
+				</iterate-map>
+			</if-not-empty>
+			<if-not-empty field="parameters.productFeatureIds">
+			        <call-bsh><![CDATA[
+			        	import javolution.util.FastMap;
+			        	parameters.put("groupIdMap" , FastMap.newInstance());
+			        ]]></call-bsh>
+			        <iterate-map key="pfId" value="productFeatureId" map="parameters.productFeatureIds">
+			        	<call-bsh><![CDATA[
+			        		import java.util.Map;
+			        		import java.util.List;
+			        		import javolution.util.FastList;
+			        		import javolution.util.FastMap;
+			        		import org.ofbiz.base.util.UtilValidate;
+				            String isOne = pfId.substring(0,pfId.indexOf("]"));
+				            //Map groupIdMaps = (Map)parameters.get("groupIdMap");
+			        		if(pfId.contains("valId")){
+			        			System.out.println("****"+pfId);
+			        			if((parameters.get("groupIdMap")).containsKey(isOne)){
+			        				List isOneList = (List)(parameters.get("groupIdMap")).get(isOne);
+			        				isOneList.add(productFeatureId);
+			        				(parameters.get("groupIdMap")).put(isOne,isOneList);
+			        			}
+			        			else{
+			        			System.out.println("***(((*"+productFeatureId);
+			        				List a= FastList.newInstance();
+			        				a.add(productFeatureId);
+			        				(parameters.get("groupIdMap")).put(isOne,a);
+			        			}
+			        		}
+				        ]]></call-bsh>
+			        </iterate-map>
+			        <!-- <set field="pfidList" type="List"/> -->
+			        <iterate-map key="k" value="v" map="parameters.groupIdMap">
+			        	<set field="productFeatureIdList" value=""/>
+			        	<iterate entry="pfValue" list="v">
+			        		<!-- <if-compare-field operator="contains" field="pfidList" to-field="pfValue">
+			        			<else>
+				        		<make-value value-field="productFeatureAppl" entity-name="ProductFeatureAppl"/>
+		 				        <set from-field="newEntity.productId" field="productFeatureAppl.productId"/>
+		 				        <set from-field="pfValue" field="productFeatureAppl.productFeatureId"/>
+		 				        <set from-field="nowTimestamp" field="productFeatureAppl.fromDate"/>
+		 				        <set value="SELECTABLE_FEATURE" field="productFeatureAppl.productFeatureApplTypeId"/>
+		 				        <create-value value-field="productFeatureAppl"/>
+				        		<string-to-list string="${pfValue}" list="pfidList"/>
+			        			</else>
+			        		</if-compare-field> -->
+					        <string-append string="|${pfValue}" field="productFeatureIdList"/>
+			        	</iterate>
+			        	<set-service-fields to-map="createVariantParams" service-name="quickAddVariant" map="parameters"/>
+			        	<sequenced-id sequence-name="Product" field="createVariantParams.productVariantId"/>
+				        <set field="createVariantParams.productId" from-field="newEntity.productId"/>
+				        <set field="createVariantParams.productFeatureIds" from-field="productFeatureIdList"/>
+				        <set field="createVariantParams.sequenceNum" from-field="parameters.orderNumMap[k]" type="Long"/>
+				        <call-service service-name="quickAddVariant" in-map-name="createVariantParams">
+				        	<result-to-field result-name="productVariantId" field="vId"/>
+				        </call-service>
+			        	<clear-field field="productFeatureIdList"/>
+			        	<entity-one value-field="p" entity-name="Product">
+			        		<field-map field-name="productId" from-field="vId"/>
+			        	</entity-one>
+			        	<!--  子商品图片和货号 -->
+			        	<set field="p.goodsNo" from-field="parameters.goodsNoMap[k]"/>
+			        	<set field="p.largeImageUrl" from-field="parameters.imgUrlMap[k]"/>
+						<set field="p.smallImageUrl" from-field="parameters.imgUrlMap[k]"/>
+			        	<store-value value-field="p"/>
+			        	<!-- set price -->
+			        	<!-- 市场价
+						<if-not-empty field="parameters.marketPriceMap[k]">
+					        <set from-field="createVariantParams.productVariantId" field="productPriceCtx.productId"/>
+					        <set value="LIST_PRICE" field="productPriceCtx.productPriceTypeId"/>
+					        <set from-field="nowTimestamp" field="productPriceCtx.fromDate"/>
+					        <set value="PURCHASE" field="productPriceCtx.productPricePurposeId"/>
+					        <set default-value="USD" field="productPriceCtx.currencyUomId"  from-field="parameters.currencyUomId"/>
+					        <set value="_NA_" field="productPriceCtx.productStoreGroupId"/>
+					        <set from-field="parameters.marketPriceMap[k]" field="productPriceCtx.price" type="BigDecimal"/>
+					        <call-service service-name="createShopProductPrice" in-map-name="productPriceCtx"></call-service>
+						</if-not-empty>
+						 -->
+						<!-- 成本价 
+						<if-not-empty field="parameters.averageCostPriceMap[k]">
+					        <set from-field="createVariantParams.productVariantId" field="prodPriceCtx.productId"/>
+					        <set value="AVERAGE_COST" field="prodPriceCtx.productPriceTypeId"/>
+					        <set from-field="nowTimestamp" field="prodPriceCtx.fromDate"/>
+					        <set value="PURCHASE" field="prodPriceCtx.productPricePurposeId"/>
+					        <set default-value="USD" field="prodPriceCtx.currencyUomId" from-field="parameters.currencyUomId"/>
+					        <set value="_NA_" field="prodPriceCtx.productStoreGroupId"/>
+					        <set from-field="parameters.averageCostPriceMap[k]" field="prodPriceCtx.price" type="BigDecimal"/>
+					        <call-service service-name="createShopProductPrice" in-map-name="prodPriceCtx"></call-service>
+						</if-not-empty>
+						-->
+						<!-- 零售价美元 -->
+						<if-not-empty field="parameters.spPriceMap[k]">
+					        <set from-field="createVariantParams.productVariantId" field="prodPriceCtx.productId"/>
+					        <set value="DEFAULT_PRICE" field="prodPriceCtx.productPriceTypeId"/>
+					        <set from-field="nowTimestamp" field="prodPriceCtx.fromDate"/>
+					        <set value="PURCHASE" field="prodPriceCtx.productPricePurposeId"/>
+					        <set default-value="USD" field="prodPriceCtx.currencyUomId"/>
+					        <set value="_NA_" field="prodPriceCtx.productStoreGroupId"/>
+					        <set from-field="parameters.spPriceMap[k]" field="prodPriceCtx.price" type="BigDecimal"/>
+					        <call-service service-name="createShopProductPrice" in-map-name="prodPriceCtx"></call-service>
+						</if-not-empty>
+						<!-- 零售价人民币 -->
+						 <log level="always" message="333333111133333${parameters.spZhPriceMap}"></log>
+						<if-not-empty field="parameters.spZhPriceMap[k]">
+					        <set from-field="createVariantParams.productVariantId" field="prodPriceCtx.productId"/>
+					        <set value="DEFAULT_PRICE" field="prodPriceCtx.productPriceTypeId"/>
+					        <set from-field="nowTimestamp" field="prodPriceCtx.fromDate"/>
+					        <set value="PURCHASE" field="prodPriceCtx.productPricePurposeId"/>
+					        <set default-value="CNY" field="prodPriceCtx.currencyUomId"/>
+					        <set value="_NA_" field="prodPriceCtx.productStoreGroupId"/>
+					        <set from-field="parameters.spZhPriceMap[k]" field="prodPriceCtx.price" type="BigDecimal"/>
+					        <call-service service-name="createShopProductPrice" in-map-name="prodPriceCtx"></call-service>
+						</if-not-empty>
+						<!-- 零售价卢布 -->
+						<if-not-empty field="parameters.spRuPriceMap[k]">
+					        <set from-field="createVariantParams.productVariantId" field="prodPriceCtx.productId"/>
+					        <set value="DEFAULT_PRICE" field="prodPriceCtx.productPriceTypeId"/>
+					        <set from-field="nowTimestamp" field="prodPriceCtx.fromDate"/>
+					        <set value="PURCHASE" field="prodPriceCtx.productPricePurposeId"/>
+					        <set default-value="RUR" field="prodPriceCtx.currencyUomId"/>
+					        <set value="_NA_" field="prodPriceCtx.productStoreGroupId"/>
+					        <set from-field="parameters.spRuPriceMap[k]" field="prodPriceCtx.price" type="BigDecimal"/>
+					        <call-service service-name="createShopProductPrice" in-map-name="prodPriceCtx"></call-service>
+						</if-not-empty>
+						<!-- 子商品图片 -->
+						<if-not-empty field="parameters.imgUrlMap[k]">
+									<set field="contentCtx.contentName" from-field="parameters.imgUrlMap[k]"/>
+									<set field="contentCtx.description" from-field="parameters.imgUrlMap[k]"/>
+									<set field="contentCtx.contentTypeId" value="DOCUMENT"/>
+					                <call-service service-name="createContent" in-map-name="contentCtx">
+					                    <result-to-field result-name="contentId" field="contentId"/>
+					                </call-service>
+									<set field="contentPurposeCtx.contentId" from-field="contentId"/>
+									<set field="contentPurposeCtx.contentPurposeTypeId" value="EB_PRODIMG_INFO"/>
+					                <call-service service-name="createContentPurpose" in-map-name="contentPurposeCtx"/>
+									<set field="productContentCtx.contentId" from-field="contentId"/>
+									<set field="productContentCtx.fromDate" from-field="nowTimestamp"/>
+									<set field="productContentCtx.productId" from-field="createVariantParams.productVariantId"/>
+									<set field="productContentCtx.productContentTypeId" value="IMAGE"/>
+									<set field="productContentCtx.extendFlag" value="N"/>
+									
+					                <call-service service-name="createProductContent" in-map-name="productContentCtx"></call-service>
+					       </if-not-empty> 
+					       <!-- 子库存 -->
+					        <if-not-empty field="parameters.spInventoryMap[k]">
+						        <set field="newInventory.facilityId" from-field="facilityList[0].facilityId"/>
+						        <set field="newInventory.productId" from-field="createVariantParams.productVariantId"/>
+						        <set field="newInventory.inventoryItemTypeId" value="NON_SERIAL_INV_ITEM"/>
+						        <set field="newInventory.quantityRejected" value="0"/>
+						        <set field="newInventory.unitCost" value="0"/>
+						        <set field="newInventory.ownerPartyId" value="Company"/>
+						        <set field="newInventory.quantityAccepted" from-field="parameters.spInventoryMap[k]"/>
+						        <log level="always" message="${newInventory.facilityId}======${newInventory.productId}"></log>
+						        <call-service service-name="receiveInventoryProduct" in-map-name="newInventory">
+						        </call-service>
+					       </if-not-empty> 
+			        </iterate-map>
+			</if-not-empty>
+		</if-compare>
+		<!--  产品图片 -->
+		<if-not-empty field="parameters.idMap">
+			<iterate-map map="parameters.idMap" key="id" value="idValue">
+				<set field="contentCtx.contentName" from-field="parameters.filePathMap[id]"/>
+				<set field="contentCtx.description" from-field="parameters.imgAlthMap[id]"/>
+				<set field="contentCtx.contentTypeId" value="DOCUMENT"/>
+                <call-service service-name="createContent" in-map-name="contentCtx">
+                    <result-to-field result-name="contentId" field="contentId"/>
+                </call-service>
+				<set field="contentPurposeCtx.contentId" from-field="contentId"/>
+				<set field="contentPurposeCtx.contentPurposeTypeId" value="EB_PRODIMG_INFO"/>
+                <call-service service-name="createContentPurpose" in-map-name="contentPurposeCtx"/>
+				<set field="productContentCtx.contentId" from-field="contentId"/>
+				<set field="productContentCtx.fromDate" from-field="nowTimestamp"/>
+				<set field="productContentCtx.productId" from-field="newEntity.productId"/>
+				<set field="productContentCtx.sequenceNum" from-field="parameters.imgSeqMap[id]" type="Long"/>
+				<set field="productContentCtx.productContentTypeId" value="IMAGE"/>
+				<set field="productContentCtx.extendFlag" value="N"/>
+				<if-not-empty field="parameters.listImg">
+					<if-compare-field operator="equals" field="id" to-field="parameters.listImg">
+						<set field="productContentCtx.extendFlag" value="Y"/>
+						<!-- call services create list image and cart image -->
+						<set field="productListImagetx.productId" from-field="newEntity.productId"/>
+						<set field="productListImagetx.contentAssocId" from-field="contentId"/>
+						<set field="productListImagetx.filePath" from-field="parameters.filePathMap[id]"/>
+						<set field="productListImagetx.description" from-field="parameters.imgAlthMap[id]"/>
+						<set field="productListImagetx.productStoreId" from-field="parameters.productStoreId"/>
+						<log level="info" message="call xml service createProductListImage"/>
+						<call-service service-name="createProductListImage" in-map-name="productListImagetx"></call-service>
+					</if-compare-field>
+				</if-not-empty>
+                <call-service service-name="createProductContent" in-map-name="productContentCtx"></call-service>
+	        </iterate-map>
+		</if-not-empty>
+		<!-- 单一商品价格 -->
+		<if-compare operator="equals" field="parameters.goodType" value="sigleGood">
+			<!-- 市场价 -->
+			<if-not-empty field="parameters.marketPrice">
+		        <!-- 往ProductPrice里写现价价格数据 -->
+		        <set from-field="newEntity.productId" field="productPriceCtx.productId"/>
+		        <set value="LIST_PRICE" field="productPriceCtx.productPriceTypeId"/>
+		        <set from-field="nowTimestamp" field="productPriceCtx.fromDate"/>
+		        <set value="PURCHASE" field="productPriceCtx.productPricePurposeId"/>
+		        <set default-value="USD" field="productPriceCtx.currencyUomId" from-field="parameters.currencyUomId"/>
+		        <set value="_NA_" field="productPriceCtx.productStoreGroupId"/>
+		        <set from-field="parameters.marketPrice" field="productPriceCtx.price"/>
+		        <call-service service-name="createShopProductPrice" in-map-name="productPriceCtx"></call-service>
+			</if-not-empty>
+			<!-- 成本价 -->
+			<if-not-empty field="parameters.averageCost">
+		        <!-- 往ProductPrice里写现价价格数据 -->
+		        <set from-field="newEntity.productId" field="productPriceCtx.productId"/>
+		        <set value="AVERAGE_COST" field="productPriceCtx.productPriceTypeId"/>
+		        <set from-field="nowTimestamp" field="productPriceCtx.fromDate"/>
+		        <set value="PURCHASE" field="productPriceCtx.productPricePurposeId"/>
+		        <set default-value="USD" field="productPriceCtx.currencyUomId" from-field="parameters.currencyUomId"/>
+		        <set value="_NA_" field="productPriceCtx.productStoreGroupId"/>
+		        <set from-field="parameters.averageCost" field="productPriceCtx.price"/>
+		        <call-service service-name="createShopProductPrice" in-map-name="productPriceCtx"></call-service>
+			</if-not-empty>
+			<!-- 零售价 -->
+			<if-not-empty field="parameters.priceMap">
+				<iterate-map key="id" value="v" map="parameters.priceMap">
+					<if-not-empty field="v">
+						<set from-field="newEntity.productId" field="productPriceContx.productId"/>
+				        <set value="DEFAULT_PRICE" field="productPriceContx.productPriceTypeId"/>
+				        <set from-field="parameters.priceFromDateMap[id]" field="productPriceContx.fromDate" type="Timestamp"/>
+				        <set from-field="parameters.priceThruDateMap[id]" field="productPriceContx.thruDate" type="Timestamp"/>
+				        <set from-field="parameters.priceNameMap[id]" field="productPriceContx.priceName" type="String"/>
+				        <set from-field="parameters.currencyUomIdMap[id]" field="productPriceContx.currencyUomId" type="String"/>
+				        
+				        <set value="PURCHASE" field="productPriceContx.productPricePurposeId"/>
+<!--				        <set default-value="USD" field="productPriceContx.currencyUomId" from-field="parameters.currencyUomId"/>-->
+				        <set value="_NA_" field="productPriceContx.productStoreGroupId"/>
+				        <set from-field="v" field="productPriceContx.price" type="BigDecimal"/>
+				        <call-service service-name="createShopProductPrice" in-map-name="productPriceContx"></call-service>
+					</if-not-empty>
+				</iterate-map>
+			</if-not-empty>
+		</if-compare>
+		
+		<!-- 标签 -->
+		<if-not-empty field="parameters.productLabIds">
+			<iterate entry="labId" list="parameters.productLabIds">
+				<!-- add into ProductLabMember-->
+				<make-value value-field="newProductLabMember" entity-name="ProductLabMember"/>
+		        <if-empty field="newProductLabMember.fromDate">
+		            <set field="newProductLabMember.fromDate" from-field="nowTimestamp"/>
+		        </if-empty>
+		        <set field="newProductLabMember.productStoreId" from-field="parameters.productStoreId"/>
+		        <set field="newProductLabMember.productId" from-field="newEntity.productId"/>
+		        <set field="newProductLabMember.labId" from-field="labId"/>
+		        <create-value value-field="newProductLabMember"/>
+	        </iterate>
+		</if-not-empty>
+		<!--  商品页面标题 -->
+		<if-not-empty field="parameters.metaTitle">
+				<set field="contentCtx.contentName" from-field="parameters.metaTitle"/>
+				<set field="contentCtx.contentTypeId" value="DOCUMENT"/>
+                <call-service service-name="createContent" in-map-name="contentCtx">
+                    <result-to-field result-name="contentId" field="contentId"/>
+                </call-service>
+				<set field="productContentCtx.contentId" from-field="contentId"/>
+				<set field="productContentCtx.fromDate" from-field="from-field"/>
+				<set field="productContentCtx.productId" from-field="newEntity.productId"/>
+				<set field="productContentCtx.productContentTypeId" value="PAGE_TITLE"/>
+                <call-service service-name="createProductContent" in-map-name="productContentCtx"></call-service>
+		</if-not-empty>
+		<!--  页面关键词 -->
+		<if-not-empty field="parameters.metaKeywords">
+				<set field="contentCtx.description" from-field="parameters.metaKeywords"/>
+				<set field="contentCtx.contentTypeId" value="DOCUMENT"/>
+                <call-service service-name="createContent" in-map-name="contentCtx">
+                    <result-to-field result-name="contentId" field="contentId"/>
+                </call-service>
+				<set field="productContentCtx.contentId" from-field="contentId"/>
+				<set field="productContentCtx.fromDate" from-field="from-field"/>
+				<set field="productContentCtx.productId" from-field="newEntity.productId"/>
+				<set field="productContentCtx.productContentTypeId" value="META_KEYWORD"/>
+                <call-service service-name="createProductContent" in-map-name="productContentCtx"></call-service>
+		</if-not-empty>
+		<!--  页面描述 -->
+		<if-not-empty field="parameters.metaDescription">
+				<set field="contentCtx.description" from-field="parameters.metaDescription"/>
+				<set field="contentCtx.contentTypeId" value="DOCUMENT"/>
+                <call-service service-name="createContent" in-map-name="contentCtx">
+                    <result-to-field result-name="contentId" field="contentId"/>
+                </call-service>
+				<set field="productContentCtx.contentId" from-field="contentId"/>
+				<set field="productContentCtx.fromDate" from-field="from-field"/>
+				<set field="productContentCtx.productId" from-field="newEntity.productId"/>
+				<set field="productContentCtx.productContentTypeId" value="META_DESCRIPTION"/>
+                <call-service service-name="createProductContent" in-map-name="productContentCtx"></call-service>
+		</if-not-empty>
+        <!-- if the user has the role limited position, add this product to the limit category/ies -->
+        <if-has-permission permission="CATALOG_ROLE" action="_CREATE">
+            <entity-and entity-name="ProductCategoryRole" list="productCategoryRoles" filter-by-date="true">
+                <field-map field-name="partyId" from-field="userLogin.partyId"/>
+                <field-map field-name="roleTypeId" value="LTD_ADMIN"/>
+            </entity-and>
+
+            <iterate entry="productCategoryRole" list="productCategoryRoles">
+                <!-- add this new product to the category -->
+                <make-value value-field="newLimitMember" entity-name="ProductCategoryMember"/>
+                <set from-field="newEntity.productId" field="newLimitMember.productId"/>
+                <set from-field="productCategoryRole.productCategoryId" field="newLimitMember.productCategoryId"/>
+                <set from-field="nowTimestamp" field="newLimitMember.fromDate"/>
+                <create-value value-field="newLimitMember"/>
+            </iterate>
+        </if-has-permission>
+        <check-errors/>
+        <field-to-result field="newEntity.productId" result-name="productId"/>
+        <!-- <field-to-result field="parameters.navTabId" result-name="navTabId"/>
+        <field-to-result field="parameters.callbackType" result-name="callbackType"/> -->
+        <set value="保存成功" field="successMessage"/>
+        <field-to-result field="successMessage" result-name="successMessage"/>
+    </simple-method>
+    <simple-method method-name="updateProduct" short-description="Update an Product">
+        <set value="updateProduct" field="callingMethodName"/>
+        <set value="UPDATE" field="checkAction"/>
+        <!-- <call-simple-method method-name="checkProductRelatedPermission"/> -->
+        <check-errors/>
+        <entity-one entity-name="Product" value-field="lookedUpValue"/>
+        <set field="attrTypeId" from-field="lookedUpValue.productTypeId"/>
+        <!-- save this value before overwriting it so we can compare it later -->
+       
+       	<if-empty field="parameters.internalName">
+			<set field="parameters.internalName" from-field="parameters.productNameZh"/>
+		</if-empty>
+        
+        <set-nonpk-fields map="parameters" value-field="lookedUpValue"/>
+
+		<if-not-empty field="parameters.productTypeCategoryId">
+            <set field="lookedUpValue.primaryProductCategoryId" from-field="parameters.productTypeCategoryId"/>
+        </if-not-empty> 
+        <now-timestamp field="lookedUpValue.lastModifiedDate"/>
+        <set from-field="userLogin.userLoginId" field="lookedUpValue.lastModifiedByUserLogin"/>
+		<now-timestamp field="nowTimestamp"/>
+		<if-compare operator="equals" field="parameters.saleable" value="N">
+			<set field="lookedUpValue.salesDiscontinuationDate" from-field="nowTimestamp"/>
+		</if-compare>
+		<if-compare operator="equals" field="parameters.saleable" value="Y">
+			<set field="lookedUpValue.salesDiscontinuationDate" set-if-empty="true" value=""/>
+		</if-compare>
+		<if-compare operator="equals" field="parameters.goodType" value="sigleGood">
+			<set field="lookedUpValue.isVirtual" value="N"/>
+			<else>
+	        	<set field="lookedUpValue.isVirtual" value="Y"/>
+			</else>
+		</if-compare>
+		<if-not-empty field="parameters.salesDiscontinuationDate">
+			<set field="lookedUpValue.salesDiscontinuationDate" from-field="parameters.salesDiscontinuationDate"/>
+		</if-not-empty>
+		<if-not-empty field="parameters.introductionDate">
+			<set field="lookedUpValue.introductionDate" from-field="parameters.introductionDate"/>
+		</if-not-empty>
+        <store-value value-field="lookedUpValue"/>
+        <!-- 主分类 -->
+        <entity-condition list="mainCategorys" entity-name="ProductCategoryMember" filter-by-date="true">
+        	<condition-list>
+	        	<condition-expr field-name="productId" from-field="lookedUpValue.productId"/>
+	        	<condition-expr field-name="disType" value="main"/>
+        	</condition-list>
+        </entity-condition>
+        <if-not-empty field="mainCategorys">
+        <!--  edit by wangyg
+        	<iterate entry="mainCategory" list="mainCategorys">
+        		<if-compare-field operator="not-equals" field="mainCategory.productCategoryId" to-field="lookedUpValue.primaryProductCategoryId">
+					<make-value value-field="mainCategoryMember" entity-name="ProductCategoryMember"/>
+			        <set from-field="lookedUpValue.productId" field="mainCategoryMember.productId"/>
+			        <set from-field="lookedUpValue.primaryProductCategoryId" field="mainCategoryMember.productCategoryId"/>
+			        <set from-field="nowTimestamp" field="mainCategoryMember.fromDate"/>
+			        <set value="main" field="mainCategoryMember.disType"/>
+			        <create-value value-field="mainCategoryMember"/>
+		        	<set from-field="nowTimestamp" field="mainCategory.thruDate"/>
+		        	<store-value value-field="mainCategory"/>
+        		</if-compare-field>
+        	</iterate>
+        	<else>
+        		<make-value value-field="mainCategoryMember" entity-name="ProductCategoryMember"/>
+		        <set from-field="lookedUpValue.productId" field="mainCategoryMember.productId"/>
+		        <set from-field="lookedUpValue.primaryProductCategoryId" field="mainCategoryMember.productCategoryId"/>
+		        <set from-field="nowTimestamp" field="mainCategoryMember.fromDate"/>
+		        <set value="main" field="mainCategoryMember.disType"/>
+		        <create-value value-field="mainCategoryMember"/>
+        	</else>
+        	 -->
+        </if-not-empty>
+        <!-- 属性 -->
+		<if-not-empty field="parameters.attribs">
+			<!-- update -->
+			<iterate-map key="attrId" value="idValue" map="parameters.attribs">
+				<entity-one value-field="productAttribute" entity-name="ProductAttribute">
+						<field-map field-name="productId" from-field="lookedUpValue.productId"/>
+						<field-map field-name="attrName" from-field="attrId"/>
+				</entity-one>
+		        <if-not-empty field="productAttribute">
+		        	<set field="productAttribute.attrValue" from-field="idValue"/>
+			        <store-value value-field="productAttribute"/>
+		        <else>
+		        	<make-value value-field="newProductAttibute" entity-name="ProductAttribute"/>
+			        <set field="newProductAttibute.productId" from-field="lookedUpValue.productId"/>
+			        <set field="newProductAttibute.attrName" from-field="attrId"/>
+			        <set field="newProductAttibute.attrValue" from-field="idValue"/>
+		        	<create-value value-field="newProductAttibute"/>
+		        </else>
+		        </if-not-empty>
+       		</iterate-map>
+			<else>
+				<set field="removeData.productId" from-field="lookedUpValue.productId"/>
+		        <remove-by-and entity-name="ProductAttribute" map="removeData"/>
+			</else>
+		</if-not-empty>
+        <!-- 关联产品 -->
+   		<entity-condition list="productAssocList" entity-name="ProductAssoc">
+	       	<condition-list>
+	        	<condition-expr field-name="productId" from-field="lookedUpValue.productId"/>
+	        	<condition-expr value="ALSO_BOUGHT" operator="equals" field-name="productAssocTypeId"/>
+	       	</condition-list>
+       </entity-condition>
+       <if-not-empty field="productAssocList">
+      	 <remove-list list="productAssocList"/>
+       </if-not-empty>
+        <if-not-empty field="parameters.product_assocs">
+		        <iterate entry="productIdTo" list="parameters.product_assocs">
+			        <!-- 往ProductAssoc里写关联产品数据 -->
+			        <make-value value-field="productAssoc" entity-name="ProductAssoc"/>
+			        <set from-field="lookedUpValue.productId" field="productAssoc.productId"/>
+			        <set from-field="productIdTo" field="productAssoc.productIdTo"/>
+			        <set from-field="nowTimestamp" field="productAssoc.fromDate"/>
+			        <set value="ALSO_BOUGHT" field="productAssoc.productAssocTypeId"/><!-- 同时购买 -->
+			        <create-value value-field="productAssoc"/>
+				</iterate>
+		</if-not-empty>
+        <!-- 关联配件 -->
+       	<entity-condition list="productConfigList" entity-name="ProductAssoc">
+        	<condition-list>
+	        	<condition-expr field-name="productId" from-field="lookedUpValue.productId"/>
+	        	<condition-expr value="PRODUCT_ACCESSORY" operator="equals" field-name="productAssocTypeId"/>
+        	</condition-list>
+        </entity-condition>
+        <if-not-empty field="productConfigList">
+	        <remove-list list="productConfigList"/>
+        </if-not-empty>
+        <if-not-empty field="parameters.product_configs">
+		        <iterate entry="productIdTo" list="parameters.product_configs">
+			        <!-- 往ProductAssoc里写关联配件数据 -->
+			        <make-value value-field="product_configs" entity-name="ProductAssoc"/>
+			        <set from-field="lookedUpValue.productId" field="product_configs.productId"/>
+			        <set from-field="productIdTo" field="product_configs.productIdTo"/>
+			        <set from-field="nowTimestamp" field="product_configs.fromDate"/>
+			        <set value="PRODUCT_ACCESSORY" field="product_configs.productAssocTypeId"/><!--零配件 -->
+			        <create-value value-field="product_configs"/>
+				</iterate>
+		</if-not-empty>
+		<!-- 扩展分类 -->
+       	<entity-condition list="productCategoryMemberList" entity-name="ProductCategoryMember">
+        	<condition-list>
+	        	<condition-expr field-name="productId" from-field="lookedUpValue.productId"/>
+	        	<condition-expr field-name="disType" value="other"/>
+        	</condition-list>
+        </entity-condition>
+        <if-not-empty field="productCategoryMemberList">
+	        <remove-list list="productCategoryMemberList"/>
+        </if-not-empty>
+        <if-not-empty field="parameters.product_categorys">
+		        <iterate entry="productCategoryId" list="parameters.product_categorys">
+			        <!-- 往ProductCategoryMember里写扩展分类数据 -->
+			        <make-value value-field="productCategoryMember" entity-name="ProductCategoryMember"/>
+			        <set from-field="lookedUpValue.productId" field="productCategoryMember.productId"/>
+			        <set from-field="productCategoryId" field="productCategoryMember.productCategoryId"/>
+			        <set from-field="nowTimestamp" field="productCategoryMember.fromDate"/>
+			        <set value="other" field="productCategoryMember.disType"/>
+			        <create-value value-field="productCategoryMember"/>
+				</iterate>
+		</if-not-empty>
+		<!-- 类型分类 -->
+        <entity-condition list="typeCategorys" entity-name="ProductCategoryMember" filter-by-date="true">
+        	<condition-list>
+	        	<condition-expr field-name="productId" from-field="lookedUpValue.productId"/>
+	        	<condition-expr field-name="disType" value="type"/>
+        	</condition-list>
+        </entity-condition>
+        <if-not-empty field="typeCategorys">
+        	<iterate entry="typeCategory" list="typeCategorys">
+        		<if-compare-field operator="not-equals" field="typeCategory.productCategoryId" to-field="lookedUpValue.productTypeCategoryId">
+					<make-value value-field="typeCategoryMember" entity-name="ProductCategoryMember"/>
+			        <set from-field="lookedUpValue.productId" field="typeCategoryMember.productId"/>
+			        <set from-field="lookedUpValue.productTypeCategoryId" field="typeCategoryMember.productCategoryId"/>
+			        <set from-field="nowTimestamp" field="typeCategoryMember.fromDate"/>
+			        <set value="type" field="typeCategoryMember.disType"/>
+			        <create-value value-field="typeCategoryMember"/>
+		        	<set from-field="nowTimestamp" field="typeCategory.thruDate"/>
+		        	<store-value value-field="typeCategory"/>
+        		</if-compare-field>
+        	</iterate>
+        	<else>
+				<make-value value-field="typeCategoryMember" entity-name="ProductCategoryMember"/>
+		        <set from-field="lookedUpValue.productId" field="typeCategoryMember.productId"/>
+		        <set from-field="lookedUpValue.productTypeCategoryId" field="typeCategoryMember.productCategoryId"/>
+		        <set from-field="nowTimestamp" field="typeCategoryMember.fromDate"/>
+		        <set value="type" field="typeCategoryMember.disType"/>
+		        <create-value value-field="typeCategoryMember"/>
+        	</else>
+        </if-not-empty>
+		<!-- 
+		<entity-condition list="productCategoryMemberList" entity-name="ProductCategoryAndMember" filter-by-date="true">
+        	<condition-list>
+	        	<condition-expr field-name="productId" from-field="lookedUpValue.productId"/>
+	        	<condition-expr field-name="productCategoryTypeId" value="TYPE_CATEGORY"/>
+        	</condition-list>
+        </entity-condition>
+        <if-not-empty field="productCategoryMemberList">
+        	<if-not-empty field="parameters.productTypeCategoryId">
+        		<if-compare operator="not-equals" value="${productCategoryMemberList[0].productCategoryId}" field="parameters.productTypeCategoryId">
+        			<iterate list="productCategoryMemberList" entry="member">
+        				<get-related-one relation-name="ProductCategoryMember" to-value-field="categoryMember" value-field="member"/>
+			            <set from-field="nowTimestamp" field="member.thruDate"/>
+			            <store-value value-field="categoryMember"/>
+			        </iterate>
+       			    <if-not-empty field="parameters.productTypeCategoryId">
+				        <make-value value-field="productCategoryMember" entity-name="ProductCategoryMember"/>
+				        <set from-field="lookedUpValue.productId" field="productCategoryMember.productId"/>
+				        <set from-field="parameters.productTypeCategoryId" field="productCategoryMember.productCategoryId"/>
+				        <set from-field="nowTimestamp" field="productCategoryMember.fromDate"/>
+				        <create-value value-field="productCategoryMember"/>
+					</if-not-empty>
+        		</if-compare>
+        	</if-not-empty>
+        </if-not-empty>
+        -->
+      
+		<if-compare operator="equals" field="parameters.goodType" value="specGood">
+			<!-- 规格 -->
+			<if-not-empty field="parameters.featureIds">  
+				<entity-condition list="pfGvList" entity-name="ProductFeatureAppl" filter-by-date="true">
+		        	<condition-list>
+		        		<condition-expr field-name="productId" from-field="lookedUpValue.productId"/>
+		        		<condition-expr field-name="productFeatureApplTypeId" value="SELECTABLE_FEATURE"/>
+		        	</condition-list>
+		        </entity-condition>
+		        <set field="pfidList" type="List"/>
+		        <iterate entry="pfGv" list="pfGvList">
+		        	<string-to-list string="${pfGv.productFeatureId}" list="pfidList"/>
+		        </iterate>   
+				<iterate-map value="productFeatureId" key="k" map="parameters.featureIds">
+					<if-compare-field operator="contains" field="pfidList" to-field="productFeatureId">
+						<call-bsh><![CDATA[
+				            pfidList.remove(productFeatureId);
+				        ]]></call-bsh>
+				        <else>
+							<make-value value-field="productFeatureAppl" entity-name="ProductFeatureAppl"/>
+					        <set from-field="lookedUpValue.productId" field="productFeatureAppl.productId"/>
+					        <set from-field="productFeatureId" field="productFeatureAppl.productFeatureId"/>
+					        <set from-field="nowTimestamp" field="productFeatureAppl.fromDate"/>
+					        <set value="SELECTABLE_FEATURE" field="productFeatureAppl.productFeatureApplTypeId"/>
+					        <create-value value-field="productFeatureAppl"/>
+				        </else>
+					</if-compare-field>
+				</iterate-map>   
+				<if-not-empty field="pfidList">
+		        	<entity-condition list="removeList" entity-name="ProductFeatureAppl" filter-by-date="true">
+			        	<condition-list>
+			        		<condition-expr field-name="productId" from-field="lookedUpValue.productId"/>
+			        		<condition-expr field-name="productFeatureId" operator="in" from-field="pfidList"/>
+			        	</condition-list>
+			        </entity-condition>
+			        <iterate list="removeList" entry="pf">
+			            <set from-field="nowTimestamp" field="pf.thruDate"/>
+			        </iterate>
+			        <store-list list="removeList"/>
+		        </if-not-empty>
+			</if-not-empty>
+			 <log level="info" message="**********${parameters.productFeatureIds}"></log>
+			<if-not-empty field="parameters.productFeatureIds"> 
+			        <call-bsh><![CDATA[
+			        	import javolution.util.FastMap;
+			        	parameters.put("groupIdMap" , FastMap.newInstance());
+			        	parameters.put("existsGroupIdMap" , FastMap.newInstance());
+			        ]]></call-bsh>
+			        <iterate-map key="pfId" value="productFeatureId" map="parameters.productFeatureIds">
+			        	<if-not-empty field="productFeatureId">
+				        	<call-bsh><![CDATA[
+				        		import java.util.Map;
+				        		import java.util.List;
+				        		import javolution.util.FastList;
+				        		import javolution.util.FastMap;
+				        		import org.ofbiz.base.util.UtilValidate;
+					            String isOne = pfId.substring(0,pfId.indexOf("]"));
+				        		if(pfId.contains("valId")){
+				        			if((parameters.get("groupIdMap")).containsKey(isOne)){
+				        				List isOneList = (List)(parameters.get("groupIdMap")).get(isOne);
+				        				isOneList.add(productFeatureId);
+				        				(parameters.get("groupIdMap")).put(isOne,isOneList);
+				        			}
+				        			else{
+				        				List a= FastList.newInstance();
+				        				a.add(productFeatureId);
+				        				(parameters.get("groupIdMap")).put(isOne,a);
+				        			}
+				        		}
+				        		if(pfId.contains("[cid]")){
+				        			/*if((parameters.get("existsGroupIdMap")).containsKey(isOne)){
+				        				List isOneList = (List)(parameters.get("existsGroupIdMap")).get(isOne);
+				        				isOneList.add(productFeatureId);
+				        				(parameters.get("existsGroupIdMap")).put(isOne,isOneList);
+				        			}
+				        			else{
+				        				List a= FastList.newInstance();
+				        				a.add(productFeatureId);
+				        				(parameters.get("existsGroupIdMap")).put(isOne,a);
+				        			}*/
+				        			(parameters.get("existsGroupIdMap")).put(isOne,productFeatureId);
+				        		}
+					        ]]></call-bsh>
+			        	</if-not-empty>
+			        </iterate-map>
+			        <log level="info" message="9992****${parameters.existsGroupIdMap}"></log>
+			        <log level="info" message="999222*99333499${parameters.groupIdMap}"></log>
+			        <if-not-empty field="parameters.existsGroupIdMap">
+			        	<log level="info" message="999222922299333499"></log>
+						<entity-and list="prodAssocs" entity-name="ProductAssoc">
+							<field-map field-name="productId" from-field="lookedUpValue.productId"/>
+							<field-map field-name="productAssocTypeId" value="PRODUCT_VARIANT"/>
+						</entity-and>
+						<filter-list-by-date list="prodAssocs"/>
+			        	<set field="prodAssocIds" type="List"/>
+						<iterate entry="prodAssoc" list="prodAssocs">
+		        			<string-to-list string="${prodAssoc.productIdTo}" list="prodAssocIds"/>
+	        			</iterate>
+			        	<iterate-map key="k" value="pId" map="parameters.existsGroupIdMap">
+				        	<!-- 先查产品的规格，有不变，没有加上，剩下的过期 -->
+							<if-compare-field field="prodAssocIds" operator="contains" to-field="pId">
+								<call-bsh><![CDATA[
+						            prodAssocIds.remove(pId);
+						        ]]></call-bsh>
+							</if-compare-field>
+				        	<!--取groupIdMap的对应的Key的list，判断是否需要新建，然后再删除  -->
+				        	<entity-condition list="gvlist" entity-name="ProductFeatureAppl" filter-by-date="true">
+			        			<condition-list>
+			        				<condition-expr field-name="productId" from-field="pId"/>
+			        			</condition-list>
+			        		</entity-condition>
+			        		<set field="ids" type="List"/>
+			        		<iterate entry="gv" list="gvlist">
+			        			<string-to-list string="${gv.productFeatureId}" list="ids"/>
+		        			</iterate> 
+				        	<iterate entry="productFeatureId" list="parameters.groupIdMap[k]">
+				        		<if-compare-field operator="contains" field="ids" to-field="productFeatureId">
+				        			<call-bsh><![CDATA[
+							            ids.remove(productFeatureId);
+							        ]]></call-bsh>
+							        <else>
+						        		<make-value value-field="productFeatureAppl" entity-name="ProductFeatureAppl"/>
+				 				        <set from-field="pId" field="productFeatureAppl.productId"/>
+				 				        <set from-field="productFeatureId" field="productFeatureAppl.productFeatureId"/>
+				 				        <set from-field="nowTimestamp" field="productFeatureAppl.fromDate"/>
+				 				        <set value="SELECTABLE_FEATURE" field="productFeatureAppl.productFeatureApplTypeId"/>
+				 				        <create-value value-field="productFeatureAppl"/>
+						        		<string-to-list string="${productFeatureId}" list="pfidList"/>
+				        			</else>
+				        		</if-compare-field>
+				        	</iterate>
+				        	<if-not-empty field="ids">
+					        	<entity-condition list="removeList" entity-name="ProductFeatureAppl" filter-by-date="true">
+						        	<condition-list>
+						        		<condition-expr field-name="productId" from-field="pId"/>
+						        		<condition-expr field-name="productFeatureId" operator="in" from-field="ids"/>
+						        	</condition-list>
+						        </entity-condition>
+						        <iterate list="removeList" entry="pf">
+						            <set from-field="nowTimestamp" field="pf.thruDate"/>
+						        </iterate>
+						        <store-list list="removeList"/>
+						        
+					        </if-not-empty>
+					        <!-- 删除价格再新建 -->
+					        <set field="delMap.productId"  from-field="pId"/>
+					         <remove-by-and map="delMap" entity-name="ProductPrice"/>
+					        <!-- 零售价美元 -->
+							<if-not-empty field="parameters.spPriceMap[k]">    
+						        <set from-field="pId" field="prodPriceCtx.productId"/>
+						        <set value="DEFAULT_PRICE" field="prodPriceCtx.productPriceTypeId"/>
+						        <set from-field="nowTimestamp" field="prodPriceCtx.fromDate"/>
+						        <set value="PURCHASE" field="prodPriceCtx.productPricePurposeId"/>
+						        <set default-value="USD" field="prodPriceCtx.currencyUomId"/>
+						        <set value="_NA_" field="prodPriceCtx.productStoreGroupId"/>
+						        <set from-field="parameters.spPriceMap[k]" field="prodPriceCtx.price" type="BigDecimal"/>
+						        <log level="info" message="${prodPriceCtx.productId}**${prodPriceCtx.price}"></log>
+						        <call-service service-name="createShopProductPrice" in-map-name="prodPriceCtx"></call-service>
+							</if-not-empty>
+							<!-- 零售价人民币 -->
+							 <log level="info" message="333333111133333${parameters.spZhPriceMap}"></log>
+							<if-not-empty field="parameters.spZhPriceMap[k]">
+						        <set from-field="pId" field="prodPriceCtx.productId"/>
+						        <set value="DEFAULT_PRICE" field="prodPriceCtx.productPriceTypeId"/>
+						        <set from-field="nowTimestamp" field="prodPriceCtx.fromDate"/>
+						        <set value="PURCHASE" field="prodPriceCtx.productPricePurposeId"/>
+						        <set default-value="CNY" field="prodPriceCtx.currencyUomId"/>
+						        <set value="_NA_" field="prodPriceCtx.productStoreGroupId"/>
+						        <set from-field="parameters.spZhPriceMap[k]" field="prodPriceCtx.price" type="BigDecimal"/>
+						        <call-service service-name="createShopProductPrice" in-map-name="prodPriceCtx"></call-service>
+							</if-not-empty>
+							<!-- 零售价卢布 -->
+							<if-not-empty field="parameters.spRuPriceMap[k]">
+						        <set from-field="pId" field="prodPriceCtx.productId"/>
+						        <set value="DEFAULT_PRICE" field="prodPriceCtx.productPriceTypeId"/>
+						        <set from-field="nowTimestamp" field="prodPriceCtx.fromDate"/>
+						        <set value="PURCHASE" field="prodPriceCtx.productPricePurposeId"/>
+						        <set default-value="RUR" field="prodPriceCtx.currencyUomId"/>
+						        <set value="_NA_" field="prodPriceCtx.productStoreGroupId"/>
+						        <set from-field="parameters.spRuPriceMap[k]" field="prodPriceCtx.price" type="BigDecimal"/>
+						        <call-service service-name="createShopProductPrice" in-map-name="prodPriceCtx"></call-service>
+							</if-not-empty>
+							<!-- 子商品图片 -->
+							<log level="info" message="********${parameters.imgUrlMap}"></log>
+							<if-not-empty field="parameters.imgUrlMap[k]">
+								<entity-one value-field="productGv" entity-name="Product">
+									<field-map field-name="productId" from-field="pId"/>
+								</entity-one>
+								
+								<set field="productGv.smallImageUrl" from-field="parameters.imgUrlMap[k]"/>
+								<store-value value-field="productGv"/>
+							</if-not-empty>	
+					
+				        </iterate-map>
+						<if-not-empty field="prodAssocIds">
+							<entity-condition list="delAssocs" entity-name="ProductAssoc">
+								<condition-list>
+								<condition-expr field-name="productId" from-field="lookedUpValue.productId"></condition-expr>
+								<condition-expr field-name="productIdTo" operator="in" from-field="prodAssocIds"></condition-expr>
+								<condition-expr field-name="productAssocTypeId" value="PRODUCT_VARIANT"></condition-expr>
+								</condition-list>
+							</entity-condition>
+							<entity-condition list="delAppls" entity-name="ProductFeatureAppl">
+								<condition-list>
+									<condition-expr field-name="productId" operator="in" from-field="prodAssocIds"></condition-expr>
+								</condition-list>
+							</entity-condition>
+							<filter-list-by-date list="delAppls"></filter-list-by-date>
+							<iterate list="delAssocs" entry="pf">
+					           	<set from-field="nowTimestamp" field="pf.thruDate"/>
+					        </iterate>
+							<iterate list="delAppls" entry="pf">
+					            <set from-field="nowTimestamp" field="pf.thruDate"/>
+					        </iterate>
+					        <store-list list="delAssocs"/>
+					        <store-list list="delAppls"/>
+						</if-not-empty>
+			        </if-not-empty>
+			        <iterate-map key="k" value="v" map="parameters.groupIdMap">
+			        	<set field="flag" value="N" type="String"/>
+			        	<iterate-map key="ke" value="va" map="parameters.existsGroupIdMap">
+			        		<if-compare-field operator="equals" field="k" to-field="ke">
+			        			<set field="flag" value="Y"/>
+			        		</if-compare-field>
+			        	</iterate-map>
+			        	<if-compare operator="equals" field="flag" value="N">
+				        	<set field="productFeatureIdList" value=""/>
+				        	<iterate entry="pfValue" list="v">
+						        <string-append string="|${pfValue}" field="productFeatureIdList"/>
+				        	</iterate>
+				        	<set-service-fields to-map="createVariantParams" service-name="quickAddVariant" map="parameters"/>
+				        	<sequenced-id sequence-name="Product" field="createVariantParams.productVariantId"/>
+					        <set field="createVariantParams.productId" from-field="lookedUpValue.productId"/>
+					        <set field="createVariantParams.productFeatureIds" from-field="productFeatureIdList"/>
+					        <set field="createVariantParams.sequenceNum" from-field="parameters.orderNumMap[k]" type="Long"/>
+					        <call-service service-name="quickAddVariant" in-map-name="createVariantParams">
+					        	<result-to-field result-name="productVariantId" field="vId"/>
+					        </call-service>
+					        <entity-one value-field="p" entity-name="Product">
+				        		<field-map field-name="productId" from-field="vId"/>
+				        	</entity-one>
+				        	<set field="p.goodsNo" from-field="parameters.goodsNoMap[k]"/>
+			        		<store-value value-field="p"/>
+				        	<clear-field field="productFeatureIdList"/>
+				        	<!-- set price -->
+				        	<!-- 市场价 -->
+							<if-not-empty field="parameters.marketPriceMap[k]">
+						        <!-- 往ProductPrice里写现价价格数据 -->
+						        <set from-field="createVariantParams.productVariantId" field="productPriceCtx.productId"/>
+						        <set value="LIST_PRICE" field="productPriceCtx.productPriceTypeId"/>
+						        <set from-field="nowTimestamp" field="productPriceCtx.fromDate"/>
+						        <set value="PURCHASE" field="productPriceCtx.productPricePurposeId"/>
+						        <set default-value="USD" field="productPriceCtx.currencyUomId" from-field="parameters.currencyUomId"/>
+						        <set value="_NA_" field="productPriceCtx.productStoreGroupId"/>
+						        <set from-field="parameters.marketPriceMap[k]" field="productPriceCtx.price" type="BigDecimal"/>
+						        <call-service service-name="createShopProductPrice" in-map-name="productPriceCtx"></call-service>
+							</if-not-empty>
+							<!-- 成本价 -->
+							<if-not-empty field="parameters.averageCostPriceMap[k]">
+						        <!-- 往ProductPrice里写现价价格数据 -->
+						        <set from-field="createVariantParams.productVariantId" field="prodPriceCtx.productId"/>
+						        <set value="AVERAGE_COST" field="prodPriceCtx.productPriceTypeId"/>
+						        <set from-field="nowTimestamp" field="prodPriceCtx.fromDate"/>
+						        <set value="PURCHASE" field="prodPriceCtx.productPricePurposeId"/>
+						        <set default-value="USD" field="prodPriceCtx.currencyUomId" from-field="parameters.currencyUomId"/>
+						        <set value="_NA_" field="prodPriceCtx.productStoreGroupId"/>
+						        <set from-field="parameters.averageCostPriceMap[k]" field="prodPriceCtx.price" type="BigDecimal"/>
+						        <call-service service-name="createShopProductPrice" in-map-name="prodPriceCtx"></call-service>
+							</if-not-empty>
+
+							<!-- 零售价美元 -->
+							<if-not-empty field="parameters.spPriceMap[k]">
+						        <set from-field="createVariantParams.productVariantId" field="prodPriceCtx.productId"/>
+						        <set value="DEFAULT_PRICE" field="prodPriceCtx.productPriceTypeId"/>
+						        <set from-field="nowTimestamp" field="prodPriceCtx.fromDate"/>
+						        <set value="PURCHASE" field="prodPriceCtx.productPricePurposeId"/>
+						        <set default-value="USD" field="prodPriceCtx.currencyUomId"/>
+						        <set value="_NA_" field="prodPriceCtx.productStoreGroupId"/>
+						        <set from-field="parameters.spPriceMap[k]" field="prodPriceCtx.price" type="BigDecimal"/>
+						        <call-service service-name="createShopProductPrice" in-map-name="prodPriceCtx"></call-service>
+							</if-not-empty>
+							<!-- 零售价人民币 -->
+							 <log level="always" message="333333111133333${parameters.spZhPriceMap}"></log>
+							<if-not-empty field="parameters.spZhPriceMap[k]">
+						        <set from-field="createVariantParams.productVariantId" field="prodPriceCtx.productId"/>
+						        <set value="DEFAULT_PRICE" field="prodPriceCtx.productPriceTypeId"/>
+						        <set from-field="nowTimestamp" field="prodPriceCtx.fromDate"/>
+						        <set value="PURCHASE" field="prodPriceCtx.productPricePurposeId"/>
+						        <set default-value="CNY" field="prodPriceCtx.currencyUomId"/>
+						        <set value="_NA_" field="prodPriceCtx.productStoreGroupId"/>
+						        <set from-field="parameters.spZhPriceMap[k]" field="prodPriceCtx.price" type="BigDecimal"/>
+						        <call-service service-name="createShopProductPrice" in-map-name="prodPriceCtx"></call-service>
+							</if-not-empty>
+							<!-- 零售价卢布 -->
+							<if-not-empty field="parameters.spRuPriceMap[k]">
+						        <set from-field="createVariantParams.productVariantId" field="prodPriceCtx.productId"/>
+						        <set value="DEFAULT_PRICE" field="prodPriceCtx.productPriceTypeId"/>
+						        <set from-field="nowTimestamp" field="prodPriceCtx.fromDate"/>
+						        <set value="PURCHASE" field="prodPriceCtx.productPricePurposeId"/>
+						        <set default-value="RUR" field="prodPriceCtx.currencyUomId"/>
+						        <set value="_NA_" field="prodPriceCtx.productStoreGroupId"/>
+						        <set from-field="parameters.spRuPriceMap[k]" field="prodPriceCtx.price" type="BigDecimal"/>
+						        <call-service service-name="createShopProductPrice" in-map-name="prodPriceCtx"></call-service>
+							</if-not-empty>
+			        	</if-compare>
+			        </iterate-map>
+			</if-not-empty>
+		</if-compare>
+		
+		<!--  产品图片 -->
+		<set field="listImg" from-field="parameters.listImg"/>
+		<if-not-empty field="parameters.idMap">
+			<iterate-map map="parameters.idMap" key="id" value="idValue">
+				<set field="contentCtx.contentName" from-field="parameters.filePathMap[id]"/>
+				<set field="contentCtx.description" from-field="parameters.imgAlthMap[id]"/>
+				<set field="contentCtx.contentTypeId" value="DOCUMENT"/>
+                <call-service service-name="createContent" in-map-name="contentCtx">
+                    <result-to-field result-name="contentId" field="contentId"/>
+                </call-service>
+                <set field="contentPurposeCtx.contentId" from-field="contentId"/>
+				<set field="contentPurposeCtx.contentPurposeTypeId" value="EB_PRODIMG_INFO"/>
+                <call-service service-name="createContentPurpose" in-map-name="contentPurposeCtx"/>
+				<set field="productContentCtx.contentId" from-field="contentId"/>
+				<now-timestamp field="productContentCtx.fromDate"/>
+				<set field="productContentCtx.productId" from-field="lookedUpValue.productId"/>
+				<set field="productContentCtx.sequenceNum" from-field="parameters.imgSeqMap[id]" type="Long"/>
+				<set field="productContentCtx.productContentTypeId" value="IMAGE"/>
+				<set field="productContentCtx.extendFlag" value="N"/>
+				<if-not-empty field="listImg">
+					<if-compare-field operator="equals" field="id" to-field="listImg">
+						<set field="productContentCtx.extendFlag" value="Y"/>
+						<!-- call services create list image and cart image -->
+						<set field="productListImagetx.productId" from-field="lookedUpValue.productId"/>
+						<set field="productListImagetx.contentAssocId" from-field="contentId"/>
+						<set field="productListImagetx.filePath" from-field="parameters.filePathMap[id]"/>
+						<set field="productListImagetx.description" from-field="parameters.imgAlthMap[id]"/>
+						<set field="productListImagetx.productStoreId" from-field="parameters.productStoreId"/>
+						<call-service service-name="createProductListImage" in-map-name="productListImagetx"></call-service>
+					</if-compare-field>
+				</if-not-empty>
+                <call-service service-name="createProductContent" in-map-name="productContentCtx"></call-service>
+	        </iterate-map>
+		</if-not-empty>
+		<if-not-empty field="parameters.oldIdMap">
+			<iterate-map map="parameters.oldIdMap" key="id" value="idValue">
+				<set field="contentNewCtx.description" from-field="parameters.imgAlthMap[id]"/>
+				<set field="contentNewCtx.contentId" from-field="idValue"/>
+                <call-service service-name="updateContent" in-map-name="contentNewCtx"/>
+				<entity-condition list="productContentList" entity-name="ProductContent">
+					<condition-list>
+						<condition-expr field-name="contentId" from-field="idValue"/>
+						<condition-expr field-name="productId" from-field="lookedUpValue.productId"/>
+					</condition-list>
+				</entity-condition>
+				<if-not-empty field="productContentList">
+					<iterate entry="productContentGv" list="productContentList">
+						<if-not-empty field="parameters.listImg">
+							<if-compare-field operator="equals" field="id" to-field="listImg">
+								<if-compare operator="not-equals" field="productContentGv.extendFlag" value="Y">
+									<set field="productContentGv.extendFlag" value="Y"/>
+									<!-- new call services-->
+									<set field="productListImagetx.productId" from-field="lookedUpValue.productId"/>
+									<set field="productListImagetx.contentAssocId" from-field="idValue"/>
+									<set field="productListImagetx.filePath" from-field="parameters.filePathMap[id]"/>
+									<set field="productListImagetx.productStoreId" from-field="parameters.productStoreId"/>
+									<call-service service-name="createProductListImage" in-map-name="productListImagetx"></call-service>
+									<else>
+										<!-- nothing -->
+									</else>
+								</if-compare>
+								<else>
+								<set field="productContentGv.extendFlag" value="N"/>
+								<!-- 过期 -->
+									<entity-condition list="contentAssocList" entity-name="ContentAssoc">
+										<condition-list>
+											<condition-expr field-name="contentId" from-field="idValue"/>
+										</condition-list>
+									</entity-condition>
+									<set field="cIdList" type="List"/>
+									<iterate entry="contentAssoc" list="contentAssocList">
+										<field-to-list list="cIdList" field="contentAssoc.contentIdTo"/>
+									</iterate>
+									<remove-list list="contentAssocList"/>
+									<if-not-empty field="cIdList">
+										<entity-condition list="pList" entity-name="ProductContent">
+											<condition-list>
+												<condition-expr field-name="contentId" from-field="cIdList" operator="in"/>
+												<condition-expr field-name="productId" from-field="lookedUpValue.productId"/>
+												<condition-expr field-name="productContentTypeId" value="IMAGE"/>
+											</condition-list>
+										</entity-condition>
+										<if-not-empty field="pList">
+											<remove-list list="pList"/>
+										</if-not-empty> 
+									</if-not-empty>
+								</else>
+							</if-compare-field>
+							<else>
+								<!-- 全部过期 -->
+							</else>
+						</if-not-empty>
+						<set field="productContentGv.sequenceNum" from-field="parameters.imgSeqMap[id]" type="Long"/>
+						<store-value value-field="productContentGv"/>
+					</iterate>
+				</if-not-empty>
+				<!-- <if-not-empty field="parameters.listImg">
+					<if-compare-field operator="equals" field="id" to-field="parameters.listImg">
+						<set field="productContentCtx.extendFlag" value="Y"/>
+						call services create list image and cart image
+						<set field="productListImagetx.productId" from-field="lookedUpValue.productId"/>
+						<set field="productListImagetx.contentAssocId" from-field="idValue"/>
+						<set field="productListImagetx.filePath" from-field="parameters.filePathMap[id]"/>
+						<call-service service-name="createProductListImage" in-map-name="productListImagetx"></call-service>
+					</if-compare-field>
+				</if-not-empty> -->
+	        </iterate-map>
+		</if-not-empty>
+		<!--  商品页面标题-->
+		<if-not-empty field="parameters.titleContentId">
+			<!-- 数据库有数据 -->
+			<make-value entity-name="Content" value-field="content"/>
+			<set field="content.contentId" from-field="parameters.titleContentId"/>
+			<set field="content.contentName" from-field="parameters.metaTitle"/>
+			<store-value value-field="content"/>
+            <!-- 数据库没有数据 -->
+            <else>
+            	<if-not-empty field="parameters.metaTitle">
+	            	<set field="contentCtx.contentName" from-field="parameters.metaTitle"/>
+					<set field="contentCtx.contentTypeId" value="DOCUMENT"/>
+		            <call-service service-name="createContent" in-map-name="contentCtx">
+		                <result-to-field result-name="contentId" field="contentId"/>
+		            </call-service>
+					<set field="productContentCtx.contentId" from-field="contentId"/>
+					<set field="productContentCtx.fromDate" from-field="nowTimestamp"/>
+					<set field="productContentCtx.productId" from-field="lookedUpValue.productId"/>
+					<set field="productContentCtx.productContentTypeId" value="PAGE_TITLE"/>
+		            <call-service service-name="createProductContent" in-map-name="productContentCtx"></call-service>
+	            </if-not-empty>
+			</else>
+		</if-not-empty>
+		<!--  页面关键词-->
+		<if-not-empty field="parameters.keyWordContentId">
+			<!-- 数据库有数据 -->
+			<make-value entity-name="Content" value-field="content"/>
+			<set field="content.contentId" from-field="parameters.keyWordContentId"/>
+			<set field="content.description" from-field="parameters.metaKeywords"/>
+			<store-value value-field="content"/>
+            <!-- 数据库没有数据 -->
+            <else>
+            	<if-not-empty field="parameters.metaKeywords">
+	            	<set field="contentCtx.description" from-field="parameters.metaKeywords"/>
+					<set field="contentCtx.contentTypeId" value="DOCUMENT"/>
+		            <call-service service-name="createContent" in-map-name="contentCtx">
+		                <result-to-field result-name="contentId" field="contentId"/>
+		            </call-service>
+					<set field="productContentCtx.contentId" from-field="contentId"/>
+					<set field="productContentCtx.fromDate" from-field="nowTimestamp"/>
+					<set field="productContentCtx.productId" from-field="lookedUpValue.productId"/>
+					<set field="productContentCtx.productContentTypeId" value="META_KEYWORD"/>
+		            <call-service service-name="createProductContent" in-map-name="productContentCtx"></call-service>
+	            </if-not-empty>
+			</else>
+		</if-not-empty>
+		<!--  商品页面标题-->
+		<if-not-empty field="parameters.descContentId">
+			<!-- 数据库有数据 -->
+			<make-value entity-name="Content" value-field="content"/>
+			<set field="content.contentId" from-field="parameters.descContentId"/>
+			<set field="content.description" from-field="parameters.metaDescription"/>
+			<store-value value-field="content"/>
+            <!-- 数据库没有数据 -->
+            <else>
+            	<if-not-empty field="parameters.metaDescription">
+	            	<set field="contentCtx.description" from-field="parameters.metaDescription"/>
+					<set field="contentCtx.contentTypeId" value="DOCUMENT"/>
+		            <call-service service-name="createContent" in-map-name="contentCtx">
+		                <result-to-field result-name="contentId" field="contentId"/>
+		            </call-service>
+					<set field="productContentCtx.contentId" from-field="contentId"/>
+					<set field="productContentCtx.fromDate" from-field="nowTimestamp"/>
+					<set field="productContentCtx.productId" from-field="lookedUpValue.productId"/>
+					<set field="productContentCtx.productContentTypeId" value="META_DESCRIPTION"/>
+		            <call-service service-name="createProductContent" in-map-name="productContentCtx"></call-service>
+	            </if-not-empty>
+			</else>
+		</if-not-empty>
+		<if-compare operator="equals" field="parameters.goodType" value="sigleGood">
+			<set default-value="USD" field="currencyUomId" from-field="parameters.currencyUomId"/>
+	        <!-- 市场价 -->
+			<if-not-empty field="parameters.marketPrice">
+				<entity-condition list="productPriceList" entity-name="ProductPrice" filter-by-date="true">
+					<condition-list>
+						<condition-expr field-name="productId" from-field="lookedUpValue.productId"/>
+						<condition-expr field-name="productPriceTypeId" value="LIST_PRICE"/>
+						<condition-expr field-name="productPricePurposeId" value="PURCHASE"/>
+						<condition-expr field-name="currencyUomId" from-field="currencyUomId"/>
+						<condition-expr field-name="productStoreGroupId" value="_NA_"/>
+					</condition-list>
+				</entity-condition>
+				<filter-list-by-date list="productPriceList" to-list="productPrices"/>
+				<if-empty field="productPrices">
+			        <!-- 往ProductPrice里写现价价格数据 -->
+			        <set from-field="lookedUpValue.productId" field="productPriceCtx.productId"/>
+			        <set value="LIST_PRICE" field="productPriceCtx.productPriceTypeId"/>
+			        <set from-field="nowTimestamp" field="productPriceCtx.fromDate"/>
+			        <set value="PURCHASE" field="productPriceCtx.productPricePurposeId"/>
+			        <set default-value="USD" field="productPriceCtx.currencyUomId" from-field="parameters.currencyUomId"/>
+			        <set value="_NA_" field="productPriceCtx.productStoreGroupId"/>
+			        <set from-field="parameters.marketPrice" field="productPriceCtx.price"/>
+			        <call-service service-name="createShopProductPrice" in-map-name="productPriceCtx"></call-service>
+			        <iterate entry="productPrice" list="productPrices">
+			        	<set from-field="nowTimestamp" field="productPrice.thruDate"/>
+			        	<store-value value-field="productPrice"/>
+			        </iterate>
+			        <else>
+			            <set field="hasThisPrice" value="N"/>
+			        	<iterate entry="productPrice" list="productPrices">
+			        		<if-compare-field operator="equals" field="productPrice.price"  to-field="parameters.marketPrice" type="BigDecimal">
+				        		<set field="hasThisPrice" value="Y"/>
+					        	<else>
+						        	<set from-field="nowTimestamp" field="productPrice.thruDate"/>
+						        	<store-value value-field="productPrice"/>
+					        	</else>
+			        		</if-compare-field>
+				        </iterate>
+				        <if-compare operator="equals" value="N" field="hasThisPrice">
+				        	<set from-field="lookedUpValue.productId" field="productPriceCtx.productId"/>
+					        <set value="LIST_PRICE" field="productPriceCtx.productPriceTypeId"/>
+					        <set from-field="nowTimestamp" field="productPriceCtx.fromDate"/>
+					        <set value="PURCHASE" field="productPriceCtx.productPricePurposeId"/>
+					        <set default-value="USD" field="productPriceCtx.currencyUomId" from-field="parameters.currencyUomId"/>
+					        <set value="_NA_" field="productPriceCtx.productStoreGroupId"/>
+					        <set from-field="parameters.marketPrice" field="productPriceCtx.price"/>
+					        <call-service service-name="createShopProductPrice" in-map-name="productPriceCtx"></call-service>
+				        </if-compare>
+			        </else>
+				</if-empty>
+			</if-not-empty>
+			<!-- 成本价 -->
+			<if-not-empty field="parameters.averageCost">
+		        <entity-condition list="productPriceList" entity-name="ProductPrice" filter-by-date="true">
+					<condition-list>
+						<condition-expr field-name="productId" from-field="lookedUpValue.productId"/>
+						<condition-expr field-name="productPriceTypeId" value="AVERAGE_COST"/>
+						<condition-expr field-name="productPricePurposeId" value="PURCHASE"/>
+						<condition-expr field-name="currencyUomId" from-field="currencyUomId"/>
+						<condition-expr field-name="productStoreGroupId" value="_NA_"/>
+					</condition-list>
+				</entity-condition>
+				<filter-list-by-date list="productPriceList" to-list="productPrices"/>
+				<if-empty field="productPrices">
+			        <!-- 往ProductPrice里写现价价格数据 -->
+			        <set from-field="lookedUpValue.productId" field="productPriceCtx.productId"/>
+			        <set value="AVERAGE_COST" field="productPriceCtx.productPriceTypeId"/>
+			        <set from-field="nowTimestamp" field="productPriceCtx.fromDate"/>
+			        <set default-value="PURCHASE" field="productPriceCtx.productPricePurposeId"/>
+			        <set default-value="USD" field="productPriceCtx.currencyUomId" from-field="parameters.currencyUomId"/>
+			        <set value="_NA_" field="productPriceCtx.productStoreGroupId"/>
+			        <set from-field="parameters.averageCost" field="productPriceCtx.price"/>
+			        <call-service service-name="createShopProductPrice" in-map-name="productPriceCtx"></call-service>
+		        	<iterate entry="productPrice" list="productPrices">
+			        	<set from-field="nowTimestamp" field="productPrice.thruDate"/>
+			        	<store-value value-field="productPrice"/>
+			        </iterate>
+			        <else>
+			            <set field="hasThisPrice" value="N"/>
+			        	<iterate entry="productPrice" list="productPrices">
+			        		<if-compare-field operator="equals" field="productPrice.price"  to-field="parameters.averageCost" type="BigDecimal">
+				        		<set field="hasThisPrice" value="Y"/>
+					        	<else>
+						        	<set from-field="nowTimestamp" field="productPrice.thruDate"/>
+						        	<store-value value-field="productPrice"/>
+					        	</else>
+			        		</if-compare-field>
+				        </iterate>
+				        <if-compare operator="equals" value="N" field="hasThisPrice">
+				        	<set from-field="lookedUpValue.productId" field="productPriceCtx.productId"/>
+					        <set value="AVERAGE_COST" field="productPriceCtx.productPriceTypeId"/>
+					        <set from-field="nowTimestamp" field="productPriceCtx.fromDate"/>
+					        <set value="PURCHASE" field="productPriceCtx.productPricePurposeId"/>
+					        <set default-value="USD" field="productPriceCtx.currencyUomId" from-field="parameters.currencyUomId"/>
+					        <set value="_NA_" field="productPriceCtx.productStoreGroupId"/>
+					        <set from-field="parameters.averageCost" field="productPriceCtx.price"/>
+					        <call-service service-name="createShopProductPrice" in-map-name="productPriceCtx"></call-service>
+				        </if-compare>
+			        </else>
+				</if-empty>
+			</if-not-empty>
+			<!-- 销售价 -->
+			<log level="always" message="***********************"></log>
+			<if-not-empty field="parameters.priceMap">
+				
+				<entity-and list="oldPrices" entity-name="ProductPrice">
+					<field-map field-name="productId" from-field="lookedUpValue.productId"></field-map>
+					<field-map field-name="productPriceTypeId" value="DEFAULT_PRICE"></field-map>
+				</entity-and>
+				<iterate-map key="id" value="v" map="parameters.priceMap">
+	        		<if-not-empty field="v">
+						<set field="filterCdt.currencyUomId" from-field="parameters.currencyUomIdMap[id]"></set>
+						<filter-list-by-and list="oldPrices" map="filterCdt" to-list="currentPriceGvList"/>
+						<if-not-empty field="currentPriceGvList">
+							<set field="currentPriceGv" from-field="currentPriceGvList[0]"></set>
+							<set from-field="parameters.priceFromDateMap[id]" field="currentPriceGv.fromDate" type="Timestamp"/>
+				        	<set from-field="parameters.priceThruDateMap[id]" field="currentPriceGv.thruDate" type="Timestamp"/>
+				        	<set from-field="parameters.priceNameMap[id]" field="currentPriceGv.priceName" type="String"/>
+				        	<set value="PURCHASE" field="currentPriceGv.productPricePurposeId"/>
+				        	<set value="_NA_" field="currentPriceGv.productStoreGroupId"/>
+				        	<set from-field="v" field="currentPriceGv.price" type="BigDecimal"/>
+							<store-value value-field="currentPriceGv"></store-value>
+							<else>
+								<set from-field="lookedUpValue.productId" field="productPriceContx.productId"/>
+						        <set value="DEFAULT_PRICE" field="productPriceContx.productPriceTypeId"/>
+						        <set from-field="parameters.priceFromDateMap[id]" field="productPriceContx.fromDate" type="Timestamp"/>
+						        <set from-field="parameters.priceThruDateMap[id]" field="productPriceContx.thruDate" type="Timestamp"/>
+						        <set from-field="parameters.priceNameMap[id]" field="productPriceContx.priceName" type="String"/>
+						        <set from-field="parameters.currencyUomIdMap[id]" field="productPriceContx.currencyUomId" type="String"/>
+						        <set value="PURCHASE" field="productPriceContx.productPricePurposeId"/>
+						        <set value="_NA_" field="productPriceContx.productStoreGroupId"/>
+						        <set from-field="v" field="productPriceContx.price" type="BigDecimal"/>
+						        <call-service service-name="createShopProductPrice" in-map-name="productPriceContx"></call-service>
+							</else>
+						</if-not-empty>
+	        		</if-not-empty>
+				</iterate-map>
+			</if-not-empty>
+		</if-compare>
+		<!-- 标签-->
+		<entity-condition list="productLabMemberList" entity-name="ProductLabMember" filter-by-date="true">
+			<condition-list>
+				<condition-expr field-name="productId" from-field="lookedUpValue.productId"/>
+			</condition-list>
+		</entity-condition>
+		<set field="labIdList" type="List"/>
+		<iterate entry="productLabMember" list="productLabMemberList">
+			<field-to-list list="labIdList" field="productLabMember.labId"/>
+		</iterate>
+		<if-not-empty field="parameters.productLabIds">
+			<iterate entry="labId" list="parameters.productLabIds">
+				<if-compare-field operator="contains" to-field="labId" field="labIdList">
+					<call-bsh><![CDATA[
+			            labIdList.remove(labId);
+			        ]]></call-bsh>
+					<else>
+						<!-- add into ProductLabMember-->
+						<make-value value-field="newProductLabMember" entity-name="ProductLabMember"/>
+				        <if-empty field="newProductLabMember.fromDate">
+				            <set field="newProductLabMember.fromDate" from-field="nowTimestamp"/>
+				        </if-empty>
+				        <set field="newProductLabMember.productStoreId" from-field="parameters.productStoreId"/>
+				        <set field="newProductLabMember.productId" from-field="lookedUpValue.productId"/>
+				        <set field="newProductLabMember.labId" from-field="labId"/>
+				        <create-value value-field="newProductLabMember"/>
+					</else>
+				</if-compare-field>
+	        </iterate>
+		</if-not-empty>
+		<if-not-empty field="labIdList">
+			<entity-condition list="productLabMemberList" entity-name="ProductLabMember" filter-by-date="true">
+				<condition-list>
+					<condition-expr field-name="productId" from-field="lookedUpValue.productId"/>
+					<condition-expr field-name="labId" from-field="labIdList" operator="in"/>
+				</condition-list>
+			</entity-condition>
+			<remove-list list="productLabMemberList"/>
+		</if-not-empty>
+        <!-- if setting the primaryParentCategoryId, create a rollup entity too -->
+        <!-- THIS IS REMOVED BECAUSE IT CAUSES PROBLEMS FOR WORKING ON PRODUCTION SITES
+        <if-not-empty field="lookedUpValue.primaryProductCategoryId">
+            <if-compare-field to-field="saveIdMap.primaryProductCategoryId" field="lookedUpValue.primaryProductCategoryId" operator="equals">
+                <make-value entity-name="ProductCategoryMember" value-field="newMember"/>
+                <set from-field="productId" map-name="newEntity" to-field-name="productId" to-map-name="newMember"/>
+                <set from-field="primaryProductCategoryId" map-name="newEntity" to-field-name="productCategoryId" to-map-name="newMember"/>
+                <now-timestamp field="newMember.fromDate"/>
+                <create-value value-field="newMember"/>
+            </if-compare-field>
+        </if-not-empty>
+        -->
+        <check-errors/>
+        <field-to-result field="parameters.navTabId" result-name="navTabId"/>
+        <!-- <field-to-result field="parameters.callbackType" result-name="callbackType"/> -->
+        <set value="修改成功" field="successMessage"/>
+        <field-to-result field="successMessage" result-name="successMessage"/>
+    </simple-method>
+    <!--删除商品图片-->
+    <simple-method method-name="deleteProductContentImage" short-description="Delete an Product Content Image">
+        <now-timestamp field="nowTimestamp"/>
+        <entity-condition list="productContentList" entity-name="ProductContent">
+        	<condition-list>
+        		<condition-expr field-name="contentId" from-field="parameters.contentId"/>
+        		<condition-expr field-name="productId" from-field="parameters.productId"/>
+        	</condition-list>
+        </entity-condition>
+        <remove-list list="productContentList"/>
+        <entity-condition list="contentPurposeList" entity-name="ContentPurpose">
+        	<condition-list>
+        		<condition-expr field-name="contentId" from-field="parameters.contentId"/>
+        	</condition-list>
+        </entity-condition>
+        <remove-list list="contentPurposeList"/>
+    </simple-method>
+    <simple-method method-name="createShopProductPrice" short-description="Create an ProductPrice">
+        <set field="callingMethodName" value="createProductPrice"/>
+        <make-value value-field="newEntity" entity-name="ProductPrice"/>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <set-pk-fields map="parameters" value-field="newEntity"/>
+        
+        <now-timestamp field="nowTimestamp"/>
+        
+        <if-empty field="newEntity.fromDate">
+            <set field="newEntity.fromDate" from-field="nowTimestamp"/>
+        </if-empty>
+        <field-to-result field="newEntity.fromDate" result-name="fromDate"/>
+        
+        <set field="newEntity.lastModifiedDate" from-field="nowTimestamp"/>
+        <set field="newEntity.createdDate" from-field="nowTimestamp"/>
+        <set field="newEntity.lastModifiedByUserLogin" from-field="userLogin.userLoginId"/>
+        <set field="newEntity.createdByUserLogin" from-field="userLogin.userLoginId"/>
+
+        <create-value value-field="newEntity"/>
+    </simple-method>
+     <!-- Product lab Services -->
+    <simple-method method-name="createProductLab" short-description="create a ProductLab">
+        <make-value entity-name="ProductLab" value-field="newEntity"/>
+   	    <if-empty field="parameters.labId">
+        	<sequenced-id sequence-name="ProductLab" field="newEntity.labId"/>
+		</if-empty>
+
+        <set-pk-fields map="parameters" value-field="newEntity"/>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <field-to-result field="newEntity.labId" result-name="labId"/>
+        <create-value value-field="newEntity"/>
+        <field-to-result field="parameters.navTabId" result-name="navTabId"/>
+        <field-to-result field="parameters.callbackType" result-name="callbackType"/>
+    </simple-method>
+    <simple-method method-name="createAjaxProductLab" short-description="create a ProductLab">
+        <make-value entity-name="ProductLab" value-field="newEntity"/>
+   	    <if-empty field="parameters.labId">
+        	<sequenced-id sequence-name="ProductLab" field="newEntity.labId"/>
+		</if-empty>
+
+        <set-pk-fields map="parameters" value-field="newEntity"/>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <field-to-result field="newEntity.labId" result-name="labId"/>
+        <create-value value-field="newEntity"/>
+        <field-to-result field="productId" result-name="parameters.productId"/>
+    </simple-method>
+    <simple-method method-name="updateProductLab" short-description="update a ProductLab">
+        <entity-one entity-name="ProductLab" value-field="lookedUpValue"/>
+        <set-nonpk-fields map="parameters" value-field="lookedUpValue"/>
+        <store-value value-field="lookedUpValue"/>
+        <field-to-result field="parameters.navTabId" result-name="navTabId"/>
+        <field-to-result field="parameters.callbackType" result-name="callbackType"/>
+    </simple-method>
+    <simple-method method-name="deleteProductLab" short-description="delete a ProductLab">
+    	<set field="productContentMap.productId" from-field="parameters.productId"/>
+          <entity-one value-field="productLab" entity-name="ProductLab">
+        	<field-map field-name="labId" from-field="parameters.labId"></field-map>
+       	</entity-one>
+       	<remove-value value-field="productLab"/> 
+    </simple-method>
+    <simple-method method-name="createProductFeatureCategory" short-description="Create Product Feature Category">
+        <check-permission permission="CATALOG" action="_CREATE">
+            <fail-property resource="ProductUiLabels" property="ProductCatalogCreatePermissionError"/>
+        </check-permission>
+        <check-errors/>
+
+        <make-value entity-name="ProductFeatureCategory" value-field="newEntity"/>
+        <set-nonpk-fields value-field="newEntity" map="parameters"/>
+		<if-empty field="parameters.productFeatureCategoryId">
+        	<sequenced-id sequence-name="ProductFeatureCategory" field="newEntity.productFeatureCategoryId"/>
+		</if-empty>
+        <field-to-result field="newEntity.productFeatureCategoryId" result-name="productFeatureCategoryId"/>
+        <create-value value-field="newEntity"/>
+        <if-not-empty field="parameters.productCategoryId">
+	        <make-value entity-name="ProductFeatureCategoryAppl" value-field="productFeatureCategoryApplEntry"/>
+	        <set field="productFeatureCategoryApplEntry.productFeatureCategoryId" from-field="newEntity.productFeatureCategoryId"/>
+	        <set field="productFeatureCategoryApplEntry.productCategoryId" from-field="parameters.productCategoryId"/>
+	        <now-timestamp field="nowTimestamp"/>
+	        <set field="productFeatureCategoryApplEntry.fromDate" from-field="nowTimestamp"/>
+	        <create-value value-field="productFeatureCategoryApplEntry"/>
+        </if-not-empty>
+        <iterate-map map="parameters.selectedDescMap" key="productFeatureIdValue" value="productFeatureValue">
+           	<make-value value-field="productFeature" entity-name="ProductFeature"/>
+            <sequenced-id sequence-name="ProductFeature" field="productFeatureId"/>
+            <set field="productFeature.productFeatureId" from-field="productFeatureId"/>
+            <set field="productFeature.productFeatureCategoryId" from-field="newEntity.productFeatureCategoryId"/>
+            <set field="productFeature.description" from-field="productFeatureValue"/>
+            <if-not-empty field="parameters.selectedDescZhMap">
+            	<set field="productFeature.descriptionZh" from-field="parameters.selectedDescZhMap[productFeatureIdValue]"/>
+            </if-not-empty>
+            <if-not-empty field="parameters.selectedDescRuMap">
+            	<set field="productFeature.descriptionRu" from-field="parameters.selectedDescRuMap[productFeatureIdValue]"/>
+            </if-not-empty>
+            <set field="productFeature.productFeatureTypeId" from-field="parameters.selectedTypeMap[productFeatureIdValue]" default-value="OTHER_FEATURE"/>
+            <set field="productFeature.imageUrl" from-field="parameters.featureImgMap[productFeatureIdValue]"/>
+            <create-value value-field="productFeature"/>
+        </iterate-map>
+    </simple-method>
+    <simple-method method-name="updateProductFeatureCategory" short-description="Update Product Feature Category">
+        <check-permission permission="CATALOG" action="_UPDATE">
+            <fail-property resource="ProductUiLabels" property="ProductCatalogUpdatePermissionError"/>
+        </check-permission>
+        <check-errors/>
+
+        <entity-one entity-name="ProductFeatureCategory" value-field="productFeatureCategory"/>
+        <set-nonpk-fields value-field="productFeatureCategory" map="parameters"/>
+        <store-value value-field="productFeatureCategory"/>
+        <entity-condition list="entityList" entity-name="ProductFeatureCategoryAppl">
+	        <condition-list>
+	        	<condition-expr field-name="productFeatureCategoryId" from-field="parameters.productFeatureCategoryId"/>
+	        	<!-- <condition-expr field-name="productCategoryId" from-field="parameters.productCategoryId"/> -->
+	        </condition-list>
+        </entity-condition>
+        <if-not-empty field="parameters.productCategoryId">
+	        <if-not-empty field="entityList">
+		        <iterate entry="entity" list="entityList">
+		        	<if-compare operator="not-equals" value="${parameters.productCategoryId}" field="entity.productCategoryId">
+		        		<remove-value value-field="entity"/>
+				        <make-value entity-name="ProductFeatureCategoryAppl" value-field="productFeatureCategoryApplEntry"/>
+				        <set field="productFeatureCategoryApplEntry.productFeatureCategoryId" from-field="productFeatureCategory.productFeatureCategoryId"/>
+				        <set field="productFeatureCategoryApplEntry.productCategoryId" from-field="parameters.productCategoryId"/>
+				        <now-timestamp field="nowTimestamp"/>
+				        <set field="productFeatureCategoryApplEntry.fromDate" from-field="nowTimestamp"/>
+				        <create-value value-field="productFeatureCategoryApplEntry"/>
+		        	</if-compare>
+		        </iterate>
+	        <else>
+	        	<make-value entity-name="ProductFeatureCategoryAppl" value-field="productFeatureCategoryApplEntry"/>
+		        <set field="productFeatureCategoryApplEntry.productFeatureCategoryId" from-field="productFeatureCategory.productFeatureCategoryId"/>
+		        <set field="productFeatureCategoryApplEntry.productCategoryId" from-field="parameters.productCategoryId"/>
+		        <now-timestamp field="nowTimestamp"/>
+		        <set field="productFeatureCategoryApplEntry.fromDate" from-field="nowTimestamp"/>
+		        <create-value value-field="productFeatureCategoryApplEntry"/>
+	        </else>
+	        </if-not-empty>
+        <else>
+        	<remove-list list="entityList"/>
+        </else>
+        </if-not-empty>
+        <set field="idList" type="List"/>
+        <iterate-map map="parameters.selectedDescMap" key="productFeatureIdValue" value="productFeatureValue">
+            <entity-one value-field="productFeatureEntity" entity-name="ProductFeature">
+            	<field-map field-name="productFeatureId" from-field="productFeatureIdValue"/>
+            </entity-one>
+            <if-not-empty field="productFeatureEntity">
+            	<set field="productFeatureEntity.productFeatureCategoryId" from-field="productFeatureCategory.productFeatureCategoryId"/>
+	            <set field="productFeatureEntity.description" from-field="productFeatureValue"/>
+	            <set field="productFeatureEntity.descriptionZh" from-field="parameters.selectedDescZhMap[productFeatureIdValue]"/>
+           		<set field="productFeatureEntity.descriptionRu" from-field="parameters.selectedDescRuMap[productFeatureIdValue]"/>
+	            <set field="productFeatureEntity.productFeatureTypeId" from-field="parameters.selectedTypeMap[productFeatureIdValue]" default-value="OTHER_FEATURE"/>
+	            <set field="productFeatureEntity.imageUrl" from-field="parameters.featureImgMap[productFeatureIdValue]"/>
+	            <store-value value-field="productFeatureEntity"/>
+	            <field-to-list list="idList" field="productFeatureIdValue"/>
+            <else>
+            	<make-value value-field="productFeatureEntity" entity-name="ProductFeature"/>
+            	<sequenced-id sequence-name="ProductFeature" field="productFeatureId"/>
+            	<set field="productFeatureEntity.productFeatureId" from-field="productFeatureId"/>
+            	<set field="productFeatureEntity.productFeatureCategoryId" from-field="productFeatureCategory.productFeatureCategoryId"/>
+	            <set field="productFeatureEntity.description" from-field="productFeatureValue"/>
+	            <set field="productFeatureEntity.descriptionZh" from-field="parameters.selectedDescZhMap[productFeatureIdValue]"/>
+           		<set field="productFeatureEntity.descriptionRu" from-field="parameters.selectedDescRuMap[productFeatureIdValue]"/>
+	            <set field="productFeatureEntity.productFeatureTypeId" from-field="parameters.selectedTypeMap[productFeatureIdValue]" default-value="OTHER_FEATURE"/>
+	            <set field="productFeatureEntity.imageUrl" from-field="parameters.featureImgMap[productFeatureIdValue]"/>
+	            <create-value value-field="productFeatureEntity"/>
+	            <field-to-list list="idList" field="productFeatureId"/>
+            </else>
+            </if-not-empty>
+        </iterate-map>
+        <entity-condition list="productFeatureList" entity-name="ProductFeature">
+        	<condition-expr field-name="productFeatureCategoryId" from-field="productFeatureCategory.productFeatureCategoryId"/>
+        </entity-condition>
+        <iterate entry="it" list="productFeatureList">
+        	<if-compare operator="contains" value="${it.productFeatureId}" field="idList">
+        		<else>
+        		    <remove-value value-field="it"/>
+        		</else>
+        	</if-compare>
+        </iterate>
+        <field-to-result field="parameters.navTabId" result-name="navTabId"/>
+        <field-to-result field="parameters.callbackType" result-name="callbackType"/>
+    </simple-method>
+    <simple-method method-name="createProductType" short-description="Create a Product Type">
+        <make-value value-field="newEntity" entity-name="ProductCategory"/>
+        <set from-field="parameters.description" field="newEntity.description"/>
+        <set from-field="parameters.description" field="newEntity.categoryName"/>
+        <set value="CATALOG_CATEGORY" field="newEntity.productCategoryTypeId"/>
+        <set from-field="parameters.productCategoryId" field="newEntity.productCategoryId"/>
+        <if-empty field="newEntity.productCategoryId">
+            <sequenced-id sequence-name="ProductCategory" field="newEntity.productCategoryId"/>
+        <else>
+            <check-id field="newEntity.productCategoryId"/>
+            <check-errors/>
+        </else>
+        </if-empty>
+        <create-value value-field="newEntity"/>
+        <now-timestamp field="nowTimestamp"/>
+        <make-value value-field="prodCatalogCategory" entity-name="ProdCatalogCategory"/>
+        <set from-field="newEntity.productCategoryId" field="prodCatalogCategory.productCategoryId"/>
+        <set from-field="parameters.prodCatalogId" field="prodCatalogCategory.prodCatalogId"/>
+        <set from-field="parameters.prodCatalogCategoryTypeId" field="prodCatalogCategory.prodCatalogCategoryTypeId"/>
+        <set from-field="nowTimestamp" field="prodCatalogCategory.fromDate"/>
+        <create-value value-field="prodCatalogCategory"/>
+
+		<!-- 品牌 -->
+		<if-not-empty field="parameters.brandsId">
+			<iterate entry="id" list="parameters.brandsId">
+				<!-- add into ProductTypeAndBrand-->
+				<make-value value-field="newProductTypeAndBrand" entity-name="ProductCategoryAndBrand"/>
+		        <if-empty field="newProductTypeAndBrand.fromDate">
+		            <set field="newProductTypeAndBrand.fromDate" from-field="nowTimestamp"/>
+		        </if-empty>
+		        <set field="newProductTypeAndBrand.productCategoryId" from-field="newEntity.productCategoryId"/>
+		        <set field="newProductTypeAndBrand.productBrandId" from-field="id"/>
+		        <create-value value-field="newProductTypeAndBrand"/>
+	        </iterate>
+		</if-not-empty>
+		<!-- 属性组
+		<if-not-empty field="parameters.attributeGroupId">
+			<set field="newRefMap.productCategoryId" from-field="lookedUpValue.productCategoryId"/>
+			<iterate entry="id" list="parameters.attributeGroupId">
+				<set field="newRefMap.attributeGroupId" from-field="id"/>
+				<make-value value-field="newAttrCate" entity-name="CategoryRefAttributeGroup" map="newRefMap"/>
+				<create-value value-field="newAttrCate"/>
+			</iterate>
+		</if-not-empty> -->
+        <field-to-result field="parameters.navTabId" result-name="navTabId"/>
+        <field-to-result field="parameters.callbackType" result-name="callbackType"/>
+    </simple-method>
+    <simple-method method-name="updateProductType" short-description="Update an Product Type">
+        <entity-one entity-name="ProductCategory" value-field="lookedUpValue"/>
+        <set-nonpk-fields map="parameters" value-field="lookedUpValue"/>
+        <set from-field="parameters.description" field="lookedUpValue.description"/>
+        <set from-field="parameters.description" field="lookedUpValue.categoryName"/>
+        <store-value value-field="lookedUpValue"/>
+        <now-timestamp field="nowTimestamp"/>
+        <!-- 品牌 -->
+        <entity-condition list="productBrandList" entity-name="ProductCategoryAndBrand">
+			<condition-list>
+				<condition-expr field-name="productCategoryId" from-field="lookedUpValue.productCategoryId"/>
+			</condition-list>
+		</entity-condition>
+		<set field="brandIdList" type="List"/>
+		<iterate entry="productBrand" list="productBrandList">
+			<field-to-list list="brandIdList" field="productBrand.productBrandId"/>
+		</iterate>
+		<if-not-empty field="parameters.brandsId">
+			<iterate entry="id" list="parameters.brandsId">
+				<if-compare-field operator="contains" to-field="id" field="brandIdList">
+						<call-bsh><![CDATA[
+				            brandIdList.remove(id);
+				        ]]></call-bsh>
+						<else>
+							<!-- add into ProductTypeAndBrand-->
+							<make-value value-field="newProductTypeAndBrand" entity-name="ProductCategoryAndBrand"/>
+					        <if-empty field="newProductTypeAndBrand.fromDate">
+					            <set field="newProductTypeAndBrand.fromDate" from-field="nowTimestamp"/>
+					        </if-empty>
+					        <set field="newProductTypeAndBrand.productCategoryId" from-field="lookedUpValue.productCategoryId"/>
+					        <set field="newProductTypeAndBrand.productBrandId" from-field="id"/>
+					        <create-value value-field="newProductTypeAndBrand"/>
+				        </else>
+		        </if-compare-field>
+	        </iterate>
+		</if-not-empty>
+		<if-not-empty field="brandIdList">
+			<entity-condition list="productTypeAndBrandList" entity-name="ProductCategoryAndBrand">
+				<condition-list>
+					<condition-expr field-name="productCategoryId" from-field="lookedUpValue.productCategoryId"/>
+					<condition-expr field-name="productBrandId" from-field="brandIdList" operator="in"/>
+				</condition-list>
+			</entity-condition>
+			<remove-list list="productTypeAndBrandList"/>
+		</if-not-empty>
+		<!-- 属性组
+		<set field="removeCondt.productCategoryId" from-field="lookedUpValue.productCategoryId"/>
+		<remove-by-and map="removeCondt" entity-name="CategoryRefAttributeGroup"/>
+		<set field="newRefMap.productCategoryId" from-field="lookedUpValue.productCategoryId"/>
+		<if-not-empty field="parameters.attributeGroupId">
+			<iterate entry="id" list="parameters.attributeGroupId">
+				<set field="newRefMap.attributeGroupId" from-field="id"/>
+				<make-value value-field="newAttrCate" entity-name="CategoryRefAttributeGroup" map="newRefMap"/>
+				<create-value value-field="newAttrCate"/>
+			</iterate>
+		</if-not-empty> -->
+        <field-to-result field="parameters.navTabId" result-name="navTabId"/>
+        <field-to-result field="parameters.callbackType" result-name="callbackType"/>
+    </simple-method>
+    <simple-method method-name="createProductTypeAttr" short-description="Create a Attribute">
+        <make-value value-field="newEntity" entity-name="TypeAttribute"/>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+
+        <if-empty field="newEntity.attributeId">
+            <sequenced-id sequence-name="TypeAttribute" field="newEntity.attributeId"/>
+        <else>
+            <check-id field="newEntity.attributeId"/>
+            <check-errors/>
+        </else>
+        </if-empty>
+        <now-timestamp field="nowTimestamp"/>
+        <create-value value-field="newEntity"/>
+
+		<!--可选值 -->
+		<if-not-empty field="parameters.optionalNames">
+			<iterate entry="idValue"  list="parameters.optionalNames">
+				<!-- add into TypeAttributeGroup-->
+				<make-value value-field="newAttrOptionalValue" entity-name="AttrOptionalValue"/>
+				<call-bsh><![CDATA[
+						import java.util.Map;
+		        		import java.util.List;
+		        		import javolution.util.FastList;
+		        		import javolution.util.FastMap;
+		        		import org.ofbiz.base.util.UtilValidate;
+						int v=0;
+						List  zhList=(List)parameters.get("optionalNameZhs");
+						List  ruList=(List)parameters.get("optionalNameRus");
+			            newAttrOptionalValue.set("optionalName",idValue.replace(",",""));
+			            newAttrOptionalValue.set("optionalNameZh",zhList.get(v).replace(",",""));  
+			            newAttrOptionalValue.set("optionalNameRu",ruList.get(v).replace(",",""));  
+			            v=v+1;
+			        ]]></call-bsh>
+		        <if-empty field="newAttrOptionalValue.optionalId">
+		           <sequenced-id sequence-name="TypeAttributeGroup" field="newAttrOptionalValue.optionalId"/>
+		        </if-empty>
+		        <set field="newAttrOptionalValue.attributeId" from-field="newEntity.attributeId"/>
+		        <create-value value-field="newAttrOptionalValue"/>
+	        </iterate>
+		</if-not-empty>
+    </simple-method>
+    <simple-method method-name="updateProductTypeAttr" short-description="Update an Attribute">
+        <entity-one entity-name="TypeAttribute" value-field="lookedUpValue"/>
+        <set-nonpk-fields map="parameters" value-field="lookedUpValue"/>
+        <store-value value-field="lookedUpValue"/>
+        <now-timestamp field="nowTimestamp"/>
+		<!-- 可选值 -->
+		<!-- 如果不是列表全删除 -->
+		<if-compare-field operator="not-equals" field="" to-field="">
+			<entity-condition list="attrOptionalValueList" entity-name="AttrOptionalValue">
+				<condition-list>
+					<condition-expr field-name="attributeId" from-field="lookedUpValue.attributeId"/>
+				</condition-list>
+			</entity-condition>
+			<remove-list list="attrOptionalValueList"/>
+			<!--  是列表做如下处理 -->
+			<else>
+				<entity-condition list="attrOptionalValueList" entity-name="AttrOptionalValue">
+					<condition-list>
+						<condition-expr field-name="attributeId" from-field="lookedUpValue.attributeId"/>
+					</condition-list>
+				</entity-condition>
+				<set field="attrOptionalIdList" type="List"/>
+				<iterate entry="attrOptionalValue" list="attrOptionalValueList">
+					<field-to-list list="attrOptionalIdList" field="attrOptionalValue.optionalId"/>
+				</iterate>
+				<if-not-empty field="parameters.optionalNames">
+					<set field="zhList" from-field="parameters.optionalNameZhs"></set>
+					<set field="ruList" from-field="parameters.optionalNameRus"></set>
+					<iterate entry="idValue" list="parameters.optionalNames">
+						<!-- add into AttrOptionalValue-->
+						<make-value value-field="newAttrOptionalValue" entity-name="AttrOptionalValue"/>
+						<call-bsh><![CDATA[
+							import java.lang.String;
+							import java.util.Map;
+	        				import java.util.List;
+							
+							String idValueZh = zhList.remove(0);
+							String idValueRu = ruList.remove(0);
+							if(idValue.startsWith(",")){
+								newAttrOptionalValue.set("optionalName",idValue.substring(1).replace(",",""));
+		            			newAttrOptionalValue.set("optionalNameZh",idValueZh.substring(1).replace(",",""));  
+		            			newAttrOptionalValue.set("optionalNameRu",idValueRu.substring(1).replace(",",""));  
+							}else{
+					            String[] exp = idValue.split(",");
+					            String[] expZh = idValueZh.split(",");
+					            String[] expRu = idValueRu.split(",");
+								
+					            if(exp.length==1){
+					            }else{
+					            	newAttrOptionalValue.set("optionalId",exp[0]); 
+									if(attrOptionalIdList.contains(exp[0]))
+					            		attrOptionalIdList.remove(exp[0]);
+					            	newAttrOptionalValue.set("optionalName",exp[1].replace(",","")); 
+		            				newAttrOptionalValue.set("optionalNameZh",expZh[1].replace(",",""));  
+		            				newAttrOptionalValue.set("optionalNameRu",expRu[1].replace(",","")); 
+					            }	   
+				            }
+				        ]]></call-bsh>
+				        <set field="newAttrOptionalValue.attributeId" from-field="lookedUpValue.attributeId"/>
+				        <if-empty field="newAttrOptionalValue.optionalId">
+				           	<sequenced-id sequence-name="AttrOptionalValue" field="newAttrOptionalValue.optionalId"/>
+					        <create-value value-field="newAttrOptionalValue"/>
+					        <else>
+					        	<store-value value-field="newAttrOptionalValue"/>
+					        </else>
+				        </if-empty>
+			        </iterate>
+				</if-not-empty>
+				<if-not-empty field="attrOptionalIdList">
+					<entity-condition list="attrOptionalValueList" entity-name="AttrOptionalValue">
+						<condition-list>
+							<condition-expr field-name="attributeId" from-field="lookedUpValue.attributeId"/>
+							<condition-expr field-name="optionalId" from-field="attrOptionalIdList" operator="in"/>
+						</condition-list>
+					</entity-condition>
+					<remove-list list="attrOptionalValueList"/>
+				</if-not-empty>
+			</else>
+		</if-compare-field>
+    </simple-method>
+    <simple-method method-name="updateProductReview" short-description="Update ProductReview">
+    	<iterate-map map="parameters.productRatingMap" key="productReviewId" value="idVale">
+	        <set from-field="productReviewId" field="productReviewCtx.productReviewId"/>
+	        <if-not-empty field="parameters.statusId">
+		        <set from-field="parameters.statusId" field="productReviewCtx.statusId"/>
+	        </if-not-empty>
+	        <set from-field="idVale" field="productReviewCtx.productRating" type="BigDecimal"/>
+	        <set from-field="parameters.productReviewMap[productReviewId]" field="productReviewCtx.productReview"/>
+	        <set from-field="parameters.postedAnonymousMap[productReviewId]" field="productReviewCtx.postedAnonymous"/>
+	        <call-service service-name="updateProductReview" in-map-name="productReviewCtx"></call-service>
+
+	     	<!--doRewardAction-->
+	        <entity-one value-field="ProductReview" entity-name="ProductReview">
+	        	<field-map field-name="productReviewId" from-field="productReviewId"/>
+	        </entity-one>
+	        <entity-one value-field="reviewUser" entity-name="UserLogin">
+	        	<field-map  from-field="ProductReview.userLoginId" field-name="userLoginId"/>
+	        </entity-one>
+	        <!-- <set-service-fields map="parameters" service-name="doRewardAction" to-map="rewardActionContext" /> -->
+		    <set field="rewardActionContext.rewardActionTypeId" value="PROD_REVIEW" />
+			<set field="rewardActionContext.partyId" from-field="reviewUser.partyId" />
+			<set field="rewardActionContext.productStoreId" from-field="ProductReview.productStoreId" />
+			<!-- the above copy is okay since we checked already that they are the same -->
+			<!--  
+			<call-service service-name="doRewardAction" in-map-name="rewardActionContext">
+			</call-service>	    
+			-->    
+			<!-- 审核通过送积分 -->
+			<entity-condition list="userLogins" entity-name="UserLogin">
+				<condition-expr field-name="partyId" from-field="reviewUser.partyId"  />
+			</entity-condition>
+			<iterate entry="user" list="userLogins">
+				<field-to-list list="userNames" field="user.userLoginId"/>
+			</iterate>
+			<log level="info" >
+				<field field="userNames"/>
+			</log>
+			<entity-condition list="partyReviews" entity-name="ProductReview">
+				<condition-list combine="and" >
+					<condition-expr field-name="productStoreId" from-field="ProductReview.productStoreId" />
+					<condition-expr field-name="userLoginId" operator="in" from-field="userNames"/>
+					<condition-expr field-name="productId" from-field="ProductReview.productId" />
+					<condition-expr field-name="statusId" value="PRR_APPROVED" />
+					<condition-expr field-name="productReviewId" operator="not-equals" from-field="productReviewId" />
+				</condition-list>
+			</entity-condition>
+			<iterate entry="partyReview" list="partyReviews">
+			<log level="info">
+				<field field="partyReview.productReview"/>
+			</log>
+			</iterate>
+			<if>
+				<condition>
+				<and>
+					<if-empty field="partyReviews"></if-empty>
+					<not>
+						<if-empty field="parameters.statusId"></if-empty>
+					</not>
+					<if-compare operator="equals" value="PRR_APPROVED" field="parameters.statusId"></if-compare>
+				</and>
+				</condition>
+				<then>
+					<entity-one value-field="pscs" entity-name="ProductStoreCreditsSetting">
+						<field-map field-name="productStoreId" from-field="ProductReview.productStoreId" />
+						<field-map field-name="settingTypeId" value="AUDIT_REWARD"/>
+					</entity-one>
+					
+				</then>
+			</if>
+			
+        </iterate-map>
+        
+        <field-to-result field="parameters.navTabId" result-name="navTabId"/>
+        <field-to-result field="parameters.callbackType" result-name="callbackType"/>
+        <field-to-result field="parameters.forwardUrl" result-name="forwardUrl"/>
+    </simple-method>
+    <simple-method method-name="updateProductReviewSetting" short-description="Product Review Setting">
+        <if-not-empty field="parameters.showItem">
+	        <entity-one entity-name="Enumeration" value-field="showItemGv">
+	       		<field-map field-name="enumId" value="REVIEW_SHOW_ITEM"/>
+	        </entity-one>
+	        <set from-field="parameters.showItem" field="showItemGv.description"/>
+	        <store-value value-field="showItemGv"/>
+        </if-not-empty>
+        <if-not-empty field="parameters.showNumber">
+	        <entity-one entity-name="Enumeration" value-field="showNumberGv">
+	       		<field-map field-name="enumId" value="REVIEW_SHOW_NUMBER"/>
+	        </entity-one>
+	        <set from-field="parameters.showNumber" field="showNumberGv.description"/>
+	        <store-value value-field="showNumberGv"/>
+        </if-not-empty>
+        <if-not-empty field="parameters.reviewOpen">
+	        <entity-one entity-name="Enumeration" value-field="reviewOpenGv">
+	       		<field-map field-name="enumId" value="REVIEW_OPEN"/>
+	        </entity-one>
+	        <set from-field="parameters.reviewOpen" field="reviewOpenGv.description"/>
+	        <store-value value-field="reviewOpenGv"/>
+        </if-not-empty>
+        <if-not-empty field="parameters.reviewPermission">
+	        <entity-one entity-name="Enumeration" value-field="reviewPermissionGv">
+	       		<field-map field-name="enumId" value="REVIEW_PERMISSION"/>
+	        </entity-one>
+	        <set from-field="parameters.reviewPermission" field="reviewPermissionGv.description"/>
+	        <store-value value-field="reviewPermissionGv"/>
+        </if-not-empty>
+        <if-not-empty field="parameters.successInfo">
+	        <entity-one entity-name="Enumeration" value-field="successInfoGv">
+	       		<field-map field-name="enumId" value="REVIEW_SUCC_INFO"/>
+	        </entity-one>
+	        <set from-field="parameters.successInfo" field="successInfoGv.description"/>
+	        <store-value value-field="successInfoGv"/>
+        </if-not-empty>
+        
+        <field-to-result field="parameters.navTabId" result-name="navTabId"/>
+    </simple-method>
+    <simple-method method-name="updateProductCommunicationSetting" short-description="Product Communication Setting">
+        <if-not-empty field="parameters.showItem">
+	        <entity-one entity-name="Enumeration" value-field="showItemGv">
+	       		<field-map field-name="enumId" value="COMMUNI_SHOW_ITEM"/>
+	        </entity-one>
+	        <set from-field="parameters.showItem" field="showItemGv.description"/>
+	        <store-value value-field="showItemGv"/>
+        </if-not-empty>
+        <if-not-empty field="parameters.showNumber">
+	        <entity-one entity-name="Enumeration" value-field="showNumberGv">
+	       		<field-map field-name="enumId" value="COMMUNI_SHOW_NUMBER"/>
+	        </entity-one>
+	        <set from-field="parameters.showNumber" field="showNumberGv.description"/>
+	        <store-value value-field="showNumberGv"/>
+        </if-not-empty>
+        <if-not-empty field="parameters.reviewOpen">
+	        <entity-one entity-name="Enumeration" value-field="reviewOpenGv">
+	       		<field-map field-name="enumId" value="COMMUNI_OPEN"/>
+	        </entity-one>
+	        <set from-field="parameters.reviewOpen" field="reviewOpenGv.description"/>
+	        <store-value value-field="reviewOpenGv"/>
+        </if-not-empty>
+        <if-not-empty field="parameters.reviewPermission">
+	        <entity-one entity-name="Enumeration" value-field="reviewPermissionGv">
+	       		<field-map field-name="enumId" value="COMMUNI_PERMISSION"/>
+	        </entity-one>
+	        <set from-field="parameters.reviewPermission" field="reviewPermissionGv.description"/>
+	        <store-value value-field="reviewPermissionGv"/>
+        </if-not-empty>
+        <if-not-empty field="parameters.successInfo">
+	        <entity-one entity-name="Enumeration" value-field="successInfoGv">
+	       		<field-map field-name="enumId" value="COMMUNI_SUCC_INFO"/>
+	        </entity-one>
+	        <set from-field="parameters.successInfo" field="successInfoGv.description"/>
+	        <store-value value-field="successInfoGv"/>
+        </if-not-empty>
+        
+        <field-to-result field="parameters.navTabId" result-name="navTabId"/>
+    </simple-method>
+    <simple-method method-name="deleteProductCommunicationsAll" short-description="Delete Product Communications">
+    	<if-compare operator="contains" value="," field="parameters.orderIndexs">
+	        <set field="idList" value="${groovy:
+            	import javolution.util.FastList;
+            	String[] a = parameters.get('orderIndexs').split(',');
+	            List &lt; String&gt; ids = FastList.newInstance();
+	            for( int i=0; i &lt;a.length; i++)
+	            	ids.add(a[i]);
+            	parameters.put('cid',ids);
+            	return ids;
+       		}"/>
+	        <iterate entry="communicationEventId" list="parameters.cid">
+	        	<!-- delete -->
+	        	<set from-field="communicationEventId" field="communicationEventCtx.communicationEventId"/>
+        	  	<set value="COM_CANCELLED" field="communicationEventCtx.statusId"/>
+        	  	<call-service service-name="setCommunicationEventStatus" in-map-name="communicationEventCtx"></call-service>
+        	  	<check-errors/>
+	        </iterate>
+	        <else>
+	        	<set field="communicationEventId" from-field="parameters.orderIndexs"/>
+	        	<set from-field="communicationEventId" field="communicationEventCtx.communicationEventId"/>
+	        	<set value="COM_CANCELLED" field="communicationEventCtx.statusId"/>
+        	  	<call-service service-name="setCommunicationEventStatus" in-map-name="communicationEventCtx"></call-service>
+        	  	<check-errors/>
+	        </else>
+        </if-compare>
+        <set field="deleteSuccess" default-value="删除成功"></set>
+        <field-to-result field="deleteSuccess" result-name="successMessage"/>
+    </simple-method>
+    <simple-method method-name="deleteProductCommunication" short-description="Delete Product Communication">
+       	<set field="communicationEventId" from-field="parameters.communicationEventId"/>
+       	<set from-field="communicationEventId" field="communicationEventCtx.communicationEventId"/>
+       	<set value="COM_CANCELLED" field="communicationEventCtx.statusId"/>
+     	<call-service service-name="setCommunicationEventStatus" in-map-name="communicationEventCtx"></call-service>
+     	<check-errors/>
+        <set field="deleteSuccess" default-value="删除成功"></set>
+        <field-to-result field="deleteSuccess" result-name="successMessage"/>
+        <field-to-result field="parameters.parentCommEventId" result-name="parentCommEventId"/>
+    </simple-method>
+    <simple-method method-name="createShopCommunicationEvent" short-description="Create a CommunicationEvent without permission check">
+        <set field="parameters.permission" value="false"/>
+        <if-not-empty field="parameters.isRepliedTo">
+	        <entity-one value-field="communicationEvent" entity-name="CommunicationEvent">
+	        	<field-map field-name="communicationEventId" from-field="parameters.parentCommEventId"/>
+	        </entity-one>
+	        <set field="communicationEvent.isReplied" from-field="parameters.isRepliedTo" default-value="Y"/>
+        	<store-value value-field="communicationEvent"/>
+        </if-not-empty>
+        <set field="communicationEventCtx" from-field="parameters"/>
+        <call-service service-name="createCommunicationEvent" in-map-name="communicationEventCtx"></call-service>
+        <field-to-result field="parameters.navTabId" result-name="navTabId"/>
+        <field-to-result field="parameters.callbackType" result-name="callbackType"/>
+    </simple-method>
+    <simple-method method-name="updateProductSaleable" short-description="">
+        <if-compare operator="contains" value="," field="parameters.productIds">
+	        <set field="idList" value="${groovy:
+            	import javolution.util.FastList;
+            	String[] a = parameters.get('productIds').split(',');
+	            List &lt; String&gt; ids = FastList.newInstance();
+	            for( int i=0; i &lt;a.length; i++)
+	            	ids.add(a[i]);
+            	parameters.put('cid',ids);
+            	return ids;
+       		}"/>
+	        <iterate entry="productId" list="parameters.cid">
+	        	<entity-one value-field="product" entity-name="Product">
+	        		<field-map field-name="productId" from-field="productId"/>
+	        	</entity-one>
+	        	<if-compare operator="equals" value="Y" field="parameters.saleable">
+		        	<set field="product.salesDiscontinuationDate" type="Timestamp" set-if-null="true" value=""/>
+	        		<else>
+	        			<now-timestamp field="nowTimestamp"/>
+			        	<set field="product.salesDiscontinuationDate" from-field="nowTimestamp"/>
+	        		</else>
+	        	</if-compare>
+        		<store-value value-field="product"/>
+        	  	<check-errors/>
+	        </iterate>
+	        <else>
+	        	<entity-one value-field="product" entity-name="Product">
+	        		<field-map field-name="productId" from-field="parameters.productIds"/>
+	        	</entity-one>
+	        	<if-compare operator="equals" value="Y" field="parameters.saleable">
+		        	<!-- <set field="product.salesDiscontinuationDate" type="Timestamp" value="9999-12-31 23:59:59.999"/> -->
+		        	<set field="product.salesDiscontinuationDate" type="Timestamp" set-if-null="true" value=""/>
+	        		<else>
+	        			<now-timestamp field="nowTimestamp"/>
+			        	<set field="product.salesDiscontinuationDate" from-field="nowTimestamp"/>
+	        		</else>
+	        	</if-compare>
+        		<store-value value-field="product"/>
+        	  	<check-errors/>
+	        </else>
+        </if-compare>
+        <field-to-result field="parameters.navTabId" result-name="navTabId"/>
+    </simple-method>
+    <simple-method method-name="deleteProductStatus" short-description="">
+        <if-compare operator="contains" value="," field="parameters.productIds">
+	        <set field="idList" value="${groovy:
+            	import javolution.util.FastList;
+            	String[] a = parameters.get('productIds').split(',');
+	            List &lt; String&gt; ids = FastList.newInstance();
+	            for( int i=0; i &lt;a.length; i++)
+	            	ids.add(a[i]);
+            	parameters.put('cid',ids);
+            	return ids;
+       		}"/>
+	        <iterate entry="productId" list="parameters.cid">
+	        	<entity-one value-field="product" entity-name="Product">
+	        		<field-map field-name="productId" from-field="productId"/>
+	        	</entity-one>
+	        	<set field="product.deleteStatus" value="Y"/>
+       			<now-timestamp field="nowTimestamp"/>
+	        	<set field="product.salesDiscontinuationDate" from-field="nowTimestamp"/>
+        		<store-value value-field="product"/>
+        	  	<check-errors/>
+	        </iterate>
+	        <else>
+	        	<entity-one value-field="product" entity-name="Product">
+	        		<field-map field-name="productId" from-field="parameters.productIds"/>
+	        	</entity-one>
+	        	<set field="product.deleteStatus" value="Y"/>
+       			<now-timestamp field="nowTimestamp"/>
+	        	<set field="product.salesDiscontinuationDate" from-field="nowTimestamp"/>
+        		<store-value value-field="product"/>
+        	  	<check-errors/>
+	        </else>
+        </if-compare>
+    </simple-method>
+    <simple-method method-name="recoverProductStatus" short-description="">
+        <if-compare operator="contains" value="," field="parameters.productIds">
+	        <set field="idList" value="${groovy:
+            	import javolution.util.FastList;
+            	String[] a = parameters.get('productIds').split(',');
+	            List &lt; String&gt; ids = FastList.newInstance();
+	            for( int i=0; i &lt;a.length; i++)
+	            	ids.add(a[i]);
+            	parameters.put('cid',ids);
+            	return ids;
+       		}"/>
+	        <iterate entry="productId" list="parameters.cid">
+	        	<entity-one value-field="product" entity-name="Product">
+	        		<field-map field-name="productId" from-field="productId"/>
+	        	</entity-one>
+	        	<set field="product.deleteStatus" value="N"/>
+	        	<set field="product.salesDiscontinuationDate" type="Timestamp" set-if-null="true" value=""/>
+        		<store-value value-field="product"/>
+        	  	<check-errors/>
+	        </iterate>
+	        <else>
+	        	<entity-one value-field="product" entity-name="Product">
+	        		<field-map field-name="productId" from-field="parameters.productIds"/>
+	        	</entity-one>
+	        	<set field="product.deleteStatus" value="N"/>
+	        	<set field="product.salesDiscontinuationDate" type="Timestamp" set-if-null="true" value=""/>
+        		<store-value value-field="product"/>
+        	  	<check-errors/>
+	        </else>
+        </if-compare>
+    </simple-method>
+    <simple-method method-name="createProductPromo" short-description="Create a ProductPromo">
+        <check-permission permission="CATALOG" action="_CREATE">
+            <fail-property resource="ProductUiLabels" property="ProductCatalogCreatePermissionError"/>
+        </check-permission>
+        <check-permission permission="CATALOG_PRICE_MAINT">
+            <fail-property resource="ProductUiLabels" property="ProductPriceMaintPermissionError"/>
+        </check-permission>
+        <check-errors/>
+
+        <make-value value-field="newEntity" entity-name="ProductPromo"/>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <sequenced-id sequence-name="ProductPromo" field="newEntity.productPromoId"/>
+        <field-to-result field="newEntity.productPromoId" result-name="productPromoId"/>
+
+        <if-empty field="newEntity.userEntered">
+            <set value="Y" set-if-empty="true" field="newEntity.userEntered"/>
+        </if-empty>
+
+        <now-timestamp field="nowTimestamp"/>
+        <set from-field="nowTimestamp" field="newEntity.createdDate"/>
+        <set from-field="nowTimestamp" field="newEntity.lastModifiedDate"/>
+        <set from-field="userLogin.userLoginId" field="newEntity.lastModifiedByUserLogin"/>
+        <set from-field="userLogin.userLoginId" field="newEntity.createdByUserLogin"/>
+
+        <create-value value-field="newEntity"/>
+        <field-to-result field="parameters.navTabId" result-name="navTabId"/>
+        <field-to-result field="parameters.callbackType" result-name="callbackType"/>
+        <set value="保存成功" field="successMessage"/>
+        <field-to-result field="successMessage" result-name="successMessage"/>
+    </simple-method>
+    <simple-method method-name="createProductVisit" short-description="create a ProductVisit">
+        <make-value entity-name="ProductVisit" value-field="newEntity"/>
+   	    <if-empty field="parameters.productVisitId">
+        	<sequenced-id sequence-name="ProductVisit" field="newEntity.productVisitId"/>
+		</if-empty>
+
+        <set-pk-fields map="parameters" value-field="newEntity"/>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <now-timestamp field="nowTimestamp"/>
+        <if-empty field="newEntity.fromDate">
+        	<set from-field="nowTimestamp" field="newEntity.fromDate"/>
+		</if-empty>
+        <field-to-result field="newEntity.productVisitId" result-name="productVisitId"/>
+        <create-value value-field="newEntity"/>
+    </simple-method>
+    <simple-method method-name="updateProductVisit" short-description="update a ProductVisit">
+        <entity-one entity-name="ProductVisit" value-field="lookedUpValue"/>
+        <set-nonpk-fields map="parameters" value-field="lookedUpValue"/>
+        <field-to-result field="parameters.productVisitId" result-name="productVisitId"/>
+        <store-value value-field="lookedUpValue"/>
+     </simple-method>
+</simple-methods>

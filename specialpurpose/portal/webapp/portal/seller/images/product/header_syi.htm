@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>敦煌网</title>
+<link href="header_syi_data/header-syi.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="header_syi_data/common.js"></script>
+</head>
+
+<body>
+<div id="header">
+	<h1><a href="http://seller.dhgate.com/" target="_parent">DHgate敦煌网-卖家首页<img src="header_syi_data/seller-logo.png" alt="DHgate敦煌网-卖家首页" title="DHgate敦煌网-卖家首页" height="77" width="356"></a></h1>
+    <div id="viewReturn" style="display:none;">
+    <span class="seenewusergu" id="seeNewUserWizard"><span>查看新版向导</span></span>
+    <a href="javascript:void(0);" class="returnoldsyi" id="changeSyiVsersion"><span>返回旧版</span></a>
+    </div>
+    <div id="toplist"><span>您好！sunvsoft.<a href="http://seller.dhgate.com/mydhgate/message/newmessagecenter.do?state=0" target="_top">( 101 )</a></span>&nbsp; <a href="http://seller.dhgate.com/usr/signin.do?act=loginout" target="_parent" class="a1">退出</a>|<a href="http://seller.dhgate.com/mydhgate/index.do" target="_parent">我的DHgate</a>|<a href="http://seller.dhgate.com/mydhgate/product/productentry.do?act=edit" target="_parent" class="color0">上传产品</a>|<a href="http://help.dhgate.com/dhgate/sellerhelpcn.php" target="_parent">帮助</a>|<a href="http://www.dhgate.com/" target="_parent">Buyer Home</a></div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#changeSyiVsersion").live('click', function() {
+		if($(this).attr("syiurl")!=undefined && $(this).attr("syiurl")!='undefined' && $.trim($(this).attr("syiurl"))!=''){
+			top.document.body.onbeforeunload = null;
+			parent.document.location.href = $(this).attr("syiurl");
+			return false;
+		}
+	});
+   jQuery.ajax({
+		type: "POST",
+		url: "http://seller.dhgate.com/usr/signin.do?act=ajaxlogin&isblank=true",
+		dataType: "json",
+		success: function(data,status){
+				var retmes = data.msg;
+				var phpmail = data.phpmail;
+				var retmeslist;
+				if(retmes != "" ){
+					if(phpmail==null||phpmail.length<1){
+						$("#toplist").html("<span>您好！"+retmes+".</span>&nbsp;&nbsp;&nbsp;&nbsp; <a href='http://seller.dhgate.com/usr/signin.do?act=loginout' target=_parent class='a1'>退出</a>|<a href='http://seller.dhgate.com/mydhgate/index.do' target='_parent'>我的DHgate</a>|<a href='http://seller.dhgate.com/mydhgate/product/productentry.do?act=edit' target='_parent'  class='color0'>上传产品</a>|<a href='http://help.dhgate.com/dhgate/sellerhelpcn.php' target='_parent'>帮助</a>|<a href='http://seller.dhgate.com/!khty' target='_parent'>体验计划</a>|<a href='http://www.dhgate.com' target='_parent'>Buyer Home</a>");
+					}else{
+						if(isNaN(phpmail)){
+							$("#toplist").html("<span>您好！"+retmes+".</span>&nbsp;&nbsp;&nbsp;&nbsp; <a href='http://seller.dhgate.com/usr/signin.do?act=loginout' target=_parent class='a1'>退出</a>|<a href='http://seller.dhgate.com/mydhgate/index.do' target='_parent' >我的DHgate</a>|<a href='http://seller.dhgate.com/mydhgate/product/productentry.do?act=edit'  target='_parent' class='color0'>上传产品</a>|<a href='http://help.dhgate.com/dhgate/sellerhelpcn.php' target='_parent'>帮助</a>|<a href='http://seller.dhgate.com/!khty' target='_parent'>体验计划</a>|<a href='http://www.dhgate.com' target='_parent'>Buyer Home</a>");
+						}else if(parseInt(phpmail)>0){
+							$("#toplist").html("<span>您好！"+retmes+".<a href='/mydhgate/message/newmessagecenter.do?state=0' target='_top'>( "+phpmail+" )</a></span>&nbsp; <a href='http://seller.dhgate.com/usr/signin.do?act=loginout' target=_parent class='a1'>退出</a>|<a href='http://seller.dhgate.com/mydhgate/index.do' target='_parent'>我的DHgate</a>|<a href='http://seller.dhgate.com/mydhgate/product/productentry.do?act=edit' target='_parent' class='color0'>上传产品</a>|<a href='http://help.dhgate.com/dhgate/sellerhelpcn.php' target='_parent'>帮助</a>|<a href='http://www.dhgate.com' target='_parent'>Buyer Home</a>");
+						}else{
+							$("#toplist").html("<span>您好！"+retmes+".</span>&nbsp;&nbsp;&nbsp;&nbsp; <a href='http://seller.dhgate.com/usr/signin.do?act=loginout' target=_parent class='a1'>退出</a>|<a href='http://seller.dhgate.com/mydhgate/index.do' target='_parent'>我的DHgate</a>|<a href='http://seller.dhgate.com/mydhgate/product/productentry.do?act=edit' target='_parent' class='color0'>上传产品</a>|<a href='http://help.dhgate.com/dhgate/sellerhelpcn.php' target='_parent'>帮助</a>|<a href='http://seller.dhgate.com/!khty' target='_parent'>体验计划</a>|<a href='http://www.dhgate.com' target='_parent'>Buyer Home</a>");
+						}
+					}
+				}else{
+					$("#toplist").html("<a href='http://seller.dhgate.com/usr/loginsign.do' target='_parent'>我的DHgate</a>|<a href='http://seller.dhgate.com/mydhgate/product/productentry.do?act=edit' target='_parent' class='color0'>上传产品</a>|<a href='http://seller.dhgate.com/usr/sellerregister.do?act=pageload' target='_parent'>免费注册</a>|<a href='http://help.dhgate.com/dhgate/sellerhelpcn.php' target='_parent' >帮助</a>|<a href='http://www.dhgate.com' target='_parent'>Buyer Home</a>");
+				}
+		},
+		error: function (data, status, e)
+	   {
+				   $("#toplist").html("<a href='http://seller.dhgate.com/usr/loginsign.do' target='_parent'>我的DHgate</a>|<a href='http://seller.dhgate.com/mydhgate/product/productentry.do?act=edit' target='_parent' class='color0'>上传产品</a>|<a href='http://seller.dhgate.com/usr/sellerregister.do?act=pageload' target='_parent'>免费注册</a>|<a href='http://help.dhgate.com/dhgate/sellerhelpcn.php' target='_parent' >帮助</a>|<a href='http://www.dhgate.com' target='_parent'>Buyer Home</a>");
+	   }
+	}); 
+	$("#seeNewUserWizard").click(function(){
+		if ( self == top ) { return; }
+		var oDoc = parent.document;
+		oDoc.getElementById('ViewNewUserWizard').click();
+	});	
+});
+</script>
+
+
+</body></html>

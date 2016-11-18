@@ -1,0 +1,43 @@
+/* CSS Document */
+body {
+	font-family: Arial, Verdana, '宋体'; 
+	font-size: 12px;
+	color: #000;
+	padding: 0;
+	margin: 0;
+	background: url(frame/topFrame_bg.png) repeat-x;
+}
+.topFrame {
+	height: 60px;	
+}
+.topFrame .logo {
+	height: 60px;
+	width: 318px;
+	float: left;
+	background: url(frame/logo.png) no-repeat;
+}
+.topFrame .user {
+	height: 44px;
+	float: right;
+	padding-top: 16px;
+	padding-right: 10px;
+	color: #FFF;
+}
+.topFrame .user a.zx {
+	display: block;
+	height: 27px;
+	width: 70px;
+	background: url(frame/zx.png) no-repeat;	
+}
+.topFrame .user a.zx:hover {
+	background: url(frame/zxh.png) no-repeat;	
+}
+.topFrame .user a.xgmm {
+	display: block;
+	height: 27px;
+	width: 86px;
+	background: url(frame/xgmm.png) no-repeat;	
+}
+.topFrame .user a.xgmm:hover {
+	background: url(frame/xgmmh.png) no-repeat;	
+}

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+	<description>Module Configuration File</description>
+
+	<handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler" />
+	<handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler" />
+
+	<firstvisit></firstvisit>
+	<request-map uri="FindOrderEn">
+		<security https="false" auth="true" />
+		<event type="service" invoke="findOrdersEn" />
+		<response name="success" type="view" value="FindOrderEn" />
+	</request-map>
+	<request-map uri="FindOrderDx">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindOrderDx" />
+	</request-map>
+	<request-map uri="OrderDetail">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="OrderDetail" />
+	</request-map>
+	<request-map uri="toChangeOrderStatus">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="toChangeOrderStatus" />
+	</request-map>
+	<request-map uri="changeOrderStatus">
+		<security https="false" auth="false" />
+		<event type="service" invoke="changeOrderStatusLt" />
+		<response name="success" type="request" value="FindOrderEn" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="orderSend">
+		<security https="false" auth="true" />
+		<event type="service" invoke="updateOrderHeader"/>
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	     <!--申请发货中间页面-->
+	<request-map uri="sendOrder">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="sendOrder" />
+	</request-map>
+	<!-- ajax申请发货页面 -->
+	<request-map uri="ajaxSendOrder">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="ajaxSendOrder" />
+	</request-map>
+	
+	<!--订单列表支付订单-->
+	<request-map uri="doSendOrder">
+		<security https="false" auth="true" />
+		<event type="java" path="org.ofbiz.ebiz.order.OrderEvents" invoke="doSendOrder"/>
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="checkExternalPayment">
+        <security https="false" />
+        <event type="java" path="org.ofbiz.ytec.cart.OfcShoppingCartEvents" invoke="checkExternalPayment"/>
+        <response name="none" type="request" value="emailorder"/>
+        <response name="offline" type="request" value="emailorder"/>
+        <response name="worldpay" type="request" value="callWorldPay"/>
+        <response name="paypal" type="request" value="callPayPal"/>
+        <response name="billact" type="request" value="emailorder"/>
+        <response name="cod" type="request" value="emailorder"/>
+        <response name="ideal" type="request" value="callIdeal"/>
+        <response name="error" type="view" value="checkoutreview"/>
+        <response name="alipay" type="request" value="callAlipay"/>
+        <response name="netpay" type="request" value="callNetpay"/>
+        <response name="zjpay" type="request" value="callZjpay"/>
+    </request-map>
+	<view-map name="FindOrderEn" type="screen" page="component://portal/widget/OrderEnScreens.xml#FindOrder" />
+	<view-map name="FindOrderDx" type="screen" page="component://portal/widget/OrderEnScreens.xml#FindOrderDx" />
+	<view-map name="OrderDetail" type="screen" page="component://portal/widget/OrderEnScreens.xml#OrderDetail" />
+	<view-map name="toChangeOrderStatus" type="screen" page="component://portal/widget/OrderEnScreens.xml#toChangeOrderStatus" />
+	<view-map name="ajaxSendOrder" type="screen" page="component://manage/widget/ManageScreens.xml#ajaxSendOrder" />
+</site-conf>

@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- The controller elements that are common to all OFBiz components
+         can be found in the following xml file. A component can override the
+         elements found in the common-controller.xml file. -->
+    <include location="component://common/webcommon/WEB-INF/handlers-controller.xml"/>     
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+    <include location="component://manage/webapp/manage/WEB-INF/prod-controller.xml"/>
+    <include location="component://manage/webapp/manage/WEB-INF/product-controller.xml"/>
+    <include location="component://manage/webapp/manage/WEB-INF/manage-controller.xml"/>
+    <description>Manage Component Site Configuration File</description>
+
+   
+
+    <after-login>
+        <event type="java" path="org.ofbiz.product.product.ProductVisitWorker" invoke="updateProductVisit"/>
+    </after-login>
+
+    <!-- Request Mappings -->
+    <request-map uri="main">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="main"/>
+    </request-map>
+
+    <request-map uri="login">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.securityext.login.LoginEvents" invoke="storeLogin"/>
+        <response name="success" type="view" value="main"/>
+        <response name="requirePasswordChange" type="view" value="requirePasswordChange"/>
+        <response name="error" type="view" value="login"/>
+    </request-map>
+
+    <request-map uri="mng_FindCategory">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="mng_FindCategory"/>
+    </request-map>
+    <request-map uri="mng_EditCategory">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="mng_EditCategory"/>
+    </request-map>
+    <request-map uri="mng_UploadCategoryImage">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mng_EditCategory"/>
+    </request-map>
+    <request-map uri="mng_UpdateProductCategory">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateProductCategory"/>
+        <response name="success" type="view" value="mng_FindCategory"/>
+        <response name="error" type="view" value="mng_EditCategory"/>
+    </request-map>
+    <request-map uri="mng_FindProduct">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="mng_FindProduct"/>
+    </request-map>
+    <!-- 订单 -->
+    <request-map uri="mng_ShowOrder">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mng_ShowOrder"/>
+    </request-map>
+    <!--申请发货中间页面-->
+	<request-map uri="sendOrder">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="sendOrder" />
+	</request-map>
+	<!-- ajax申请发货页面 -->
+	<request-map uri="ajaxSendOrder">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="ajaxSendOrder" />
+	</request-map>
+	
+	<!--订单列表支付订单-->
+	<request-map uri="doSendOrder">
+		<security https="false" auth="true" />
+		<event type="java" path="org.ofbiz.ebiz.order.OrderEvents" invoke="doSendOrder"/>
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+      <!-- home page map setting -->
+    <request-map uri="mng_PageSetting">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mng_PageSetting"/>
+    </request-map>
+    <!-- create home page -->
+    <request-map uri="create_mng_Pages">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="create_mng_Pages"/>
+    </request-map>
+    
+     <request-map uri="uploadMessageImage">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="create_mng_Pages"/>
+    </request-map>
+    
+    	<!-- 修改广告 -->
+	<request-map uri="editPagemanage">
+		<security https="false" auth="true" />
+		<event type="service" invoke="editPagemanage" /> 
+		<!-- <event type="java" path="org.ofbiz.setfield.FieldtoPage" invoke="createPagemanage"/>-->
+		<response name="success" type="view" value="mng_PageSetting" />
+	</request-map>
+	
+	<request-map uri="uploadPagemanage">
+		<security https="false" auth="true" />
+		<event type="groovy" path="component://manager/webapp/manager/WEB-INF/actions/imageSet/uploadPagemanage.groovy" /> 
+		<response name="success" type="view" value="mng_PageSetting" />
+	</request-map>
+	
+		<!-- 删除广告 -->
+	<request-map uri="removePagemanage">
+		<security https="false" auth="true" />
+		<event type="service" invoke="removePagemanage" />
+		<response name="success" type="view" value="mng_PageSetting" />
+	</request-map>
+	
+    <!-- 添加广告 -->
+	<request-map uri="addPagemanage">
+        <security auth="false" https="false"/>
+        <event type="service" path="" invoke="addPagemanage"/>
+        <response name="success" type="view" value="mng_PageSetting"/>
+    </request-map>
+    
+    <!-- 公告设置  -->
+    <request-map uri="mng_announcementSetting">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mng_announcementSetting"/>
+    </request-map>
+    
+    <request-map uri="create_mng_Announcement">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="create_mng_Announcement"/>
+    </request-map>
+    
+    <request-map uri="release_mng_Announcement">
+        <security https="false" auth="true"/>
+        <event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/imageSet/GetPageSetterForRelease.groovy"/>
+        <response name="success" type="view" value="mng_announcementSetting"/>
+    </request-map>
+    
+    <request-map uri="seller_findMessageByOne">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="seller_findMessageByOne"/>
+    </request-map>
+    
+    <request-map uri="seller_findMessageByAll">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="seller_findMessageByAll"/>
+    </request-map>
+    
+      	<!-- 修改公告 -->
+	<request-map uri="editMessage">
+		<security https="false" auth="true" />
+		<event type="service" invoke="editMessage" /> 
+		<!-- <event type="java" path="org.ofbiz.setfield.FieldtoPage" invoke="createPagemanage"/>-->
+		<response name="success" type="view" value="mng_announcementSetting" />
+	</request-map>
+	
+		<!-- 删除公告 -->
+	<request-map uri="removeMessage">
+		<security https="false" auth="true" />
+		<event type="service" invoke="removeMessage" />
+		<response name="success" type="view" value="mng_announcementSetting" />
+	</request-map>
+	
+    <!-- 添加公告 -->
+	<request-map uri="addMessage">
+        <security auth="false" https="false"/>
+        <event type="service" path="" invoke="addMessage"/>
+        <response name="success" type="view" value="mng_announcementSetting"/>
+    </request-map>
+    
+    <request-map uri="createHomePage">
+        <security auth="false" https="false"/>
+        <event type="service" invoke="createHomePage"/>
+        <response name="success" type="view" value="mng_Home_pagesetting"/>
+    </request-map>
+    
+    <request-map uri="updateHomePage">
+		<security https="false" auth="false" />
+		<!--<event type="service" invoke="updateHomePage" /> -->
+	    <event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/imageSet/GetPageSetterForUpdate.groovy"/>
+		<response name="success" type="view" value="mng_Home_pagesetting" />
+	</request-map>
+	
+	<request-map uri="OrderDetail">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="OrderDetail" />
+	</request-map>
+	
+	<request-map uri="mng_helpclass">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="mng_helpclass"/>
+    </request-map>
+    
+    <request-map uri="create_mng_HelpClass">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="create_mng_HelpClass"/>
+    </request-map>
+    
+    <request-map uri="createHelpClass">
+        <security auth="false" https="false"/>
+        <event type="service" path="" invoke="createHelpClass"/>
+        <response name="success" type="view" value="mng_helpclass"/>
+    </request-map>
+    
+    <request-map uri="editorHelpClass">
+		<security https="true" auth="false" />
+		<event type="service" invoke="editorHelpClass" /> 
+		<response name="success" type="view" value="mng_helpclass" />
+	</request-map>
+	
+	<request-map uri="removeHelpClass">
+		<security https="true" auth="false" />
+		<event type="service" invoke="removeHelpClass" />
+		<response name="success" type="view" value="mng_helpclass" />
+	</request-map>
+	
+	<request-map uri="mng_helpinformation">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="mng_helpinformation"/>
+    </request-map>
+    
+    <request-map uri="manage_findMessageByOne">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="manage_findMessageByOne"/>
+    </request-map>
+    
+    <request-map uri="manage_findMessageByAll">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="manage_findMessageByAll"/>
+    </request-map>
+    
+    <request-map uri="create_mng_HelpClassInfo">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="create_mng_HelpClassInfo"/>
+    </request-map>
+    
+    <request-map uri="createHelpInfo">
+        <security auth="false" https="false"/>
+       <!-- <event type="service" path="" invoke="createHelpInfo"/>-->
+        <event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/manager/CreateHelpInfo.groovy"/>
+        <response name="success" type="view" value="mng_Home_pagesetting"/>
+    </request-map>
+    
+    <request-map uri="editorHelpInfo">
+		<security https="true" auth="false" />
+		<!-- <event type="service" invoke="editorHelpClass" />  -->
+		<event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/manager/CreateHelpInfo.groovy"/>
+		<response name="success" type="view" value="mng_Home_pagesetting" />
+	</request-map>
+	
+	<request-map uri="removeHelpInfo">
+		<security https="true" auth="false" />
+		<!-- <event type="service" invoke="removeHelpClass" /> -->
+		<event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/manager/RemoveHelpInfo.groovy"/>
+		<response name="success" type="view" value="mng_Home_pagesetting" />
+	</request-map>
+	
+	<!-- 后台页面底部 -->
+	<request-map uri="mng_Home_pagesetting">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="mng_Home_pagesetting"/>
+    </request-map>
+	
+	<!-- 修改密码 -->
+	<request-map uri="seller_EditUserLogin">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="seller_EditUserLogin"/>
+    </request-map>
+    
+    <request-map uri="seller_ProfileUpdatePassword">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updatePassword"/>
+        <response name="success" type="view" value="seller_EditUserLogin"/>
+        <response name="error" type="view" value="seller_EditUserLogin"/>
+    </request-map>
+    
+    <request-map uri="ProfileUpdatePassword">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updatePassword"/>
+        <response name="success" type="view" value="user_EditUserLogin"/>
+        <response name="error" type="view" value="user_EditUserLogin"/>
+    </request-map>
+    
+    
+    
+    
+    <!-- 后台管理portal推荐卖家 -->
+    <!-- 推荐卖家主页 -->
+    <request-map uri="mng_Home_recommendSeller">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="mng_Home_recommendSeller"/>
+    </request-map>
+    
+    <request-map uri="mng_FindProductStoreByOne">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="mng_Home_recommendSeller" />
+	</request-map>
+	
+		
+	<request-map uri="mng_addStoreToHomePage">
+		<security https="true" auth="false" />
+		<event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/homepageset/AddStoreToRecommendeSeller.groovy"/>
+		<response name="success" type="view" value="mng_Home_recommendSeller" />
+	</request-map>
+	
+	<request-map uri="removeRecommendSeller">
+		<security https="true" auth="false" />
+		<event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/homepageset/RemoveStoreToRecommendeSeller.groovy"/>
+		<response name="success" type="view" value="mng_RecommendedSellerList" />
+	</request-map>
+	
+	<request-map uri="mng_RecommendSellerList">
+		<security https="true" auth="false" />
+		<response name="success" type="view" value="mng_RecommendedSellerList" />
+	</request-map>
+	
+	
+	<!-- 后台管理portal推荐品类 -->
+    <!-- 推荐品类主页 -->
+    <request-map uri="mng_Home_recommendCategory">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="mng_Home_recommendCategory"/>
+    </request-map>
+    
+    <request-map uri="mng_FindCategoryByOne">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="mng_Home_recommendCategory" />
+	</request-map>
+	
+		
+	<request-map uri="mng_addCategoryToHomePage">
+		<security https="true" auth="false" />
+		<event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/homepageset/AddCategoryToRecommendeCategory.groovy"/>
+		<response name="success" type="view" value="mng_Home_recommendCategory" />
+	</request-map>
+	
+	<request-map uri="removeRecommendCategory">
+		<security https="true" auth="false" />
+		<event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/homepageset/RemoveCategoryToRecommendeCategory.groovy"/>
+		<response name="success" type="view" value="mng_RecommendedCategoryList" />
+	</request-map>
+	
+	<request-map uri="mng_RecommendCategoryList">
+		<security https="true" auth="false" />
+		<response name="success" type="view" value="mng_RecommendedCategoryList" />
+	</request-map>
+    
+    
+    <!-- 后台管理portal畅销商品 -->
+    <!-- 畅销商品主页 -->
+    <request-map uri="mng_Home_BestSellingProducts">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="mng_Home_BestSellingProducts"/>
+    </request-map>
+    
+    <request-map uri="mng_FindCategoryMemberByOne">
+		<security https="false" auth="false" />
+		<response name="success" type="view" value="mng_Home_BestSellingProducts" />
+	</request-map>
+	
+		
+	<request-map uri="mng_addCategoryMemberToHomePage">
+		<security https="true" auth="false" />
+		<event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/homepageset/AddCategoryToBestCategory.groovy"/>
+		<response name="success" type="view" value="mng_Home_BestSellingProducts" />
+	</request-map>
+	
+	<request-map uri="removeBestSellCategory">
+		<security https="true" auth="false" />
+		<event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/homepageset/RemoveCategoryToBestCategory.groovy"/>
+		<response name="success" type="view" value="mng_BestSellingList" />
+	</request-map>
+	
+	<request-map uri="mng_BestSellingList">
+		<security https="true" auth="false" />
+		<response name="success" type="view" value="mng_BestSellingList" />
+	</request-map>
+	
+	
+    <!-- 后台管理portal超级特卖 -->
+    <!-- 超级特卖主页 -->
+    <request-map uri="mng_Home_SuperDealsProducts">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="mng_Home_SuperDealsProducts"/>
+    </request-map>
+    
+    <request-map uri="mng_FindSuperDealsByOne">
+		<security https="false" auth="false" />
+		<response name="success" type="view" value="mng_Home_SuperDealsProducts" />
+	</request-map>
+	
+		
+	<request-map uri="mng_addSuperDealsToHomePage">
+		<security https="true" auth="false" />
+		<event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/homepageset/AddCategoryToSuperDeal.groovy"/>
+		<response name="success" type="view" value="mng_Home_SuperDealsProducts" />
+	</request-map>
+	
+	<request-map uri="removeSuperDealCategory">
+		<security https="true" auth="false" />
+		<event type="groovy" path="component://manage/webapp/manage/WEB-INF/actions/homepageset/RemoveCategoryToSuperCategory.groovy"/>
+		<response name="success" type="view" value="mng_SuperDealsList" />
+	</request-map>
+	
+	<request-map uri="mng_SuperDealsList">
+		<security https="true" auth="false" />
+		<response name="success" type="view" value="mng_SuperDealsList" />
+	</request-map>
+    
+    
+    
+    
+    
+    
+    
+    <!-- View Mappings -->
+    <view-map name="error" page="/error/error.jsp"/>
+    <view-map name="main" type="screen" page="component://manage/widget/CommonScreens.xml#main"/>
+
+    <view-map name="login" type="screen" page="component://manage/widget/CommonScreens.xml#login"/>
+
+    <view-map name="mng_FindCategory" type="screen" page="component://manage/widget/ManageScreens.xml#mng_FindCategory" />
+    <view-map name="mng_EditCategory" type="screen" page="component://manage/widget/ManageScreens.xml#mng_EditCategory" />
+    <view-map name="mng_FindProduct" type="screen" page="component://manage/widget/ManageScreens.xml#mng_FindProduct" />
+    <view-map name="mng_ShowOrder" type="screen" page="component://manage/widget/ManageScreens.xml#mng_showorder" />
+    <view-map name="mng_PageSetting" type="screen" page="component://manage/widget/ManageScreens.xml#mng_pagesetting" />
+    <view-map name="create_mng_Pages" type="screen" page="component://manage/widget/ManageScreens.xml#create_mng_Pages" />
+    <view-map name="mng_announcementSetting" type="screen" page="component://manage/widget/ManageScreens.xml#mng_announcementSetting" />
+    <view-map name="create_mng_Announcement" type="screen" page="component://manage/widget/ManageScreens.xml#create_mng_Announcement" />
+    <view-map name="seller_findMessageByOne" type="screen" page="component://manage/widget/SellerScreens.xml#seller_findMessageByOne" />
+    <view-map name="seller_findMessageByAll" type="screen" page="component://manage/widget/SellerScreens.xml#seller_findMessageByAll" />
+    <view-map name="mng_Home_pagesetting" type="screen" page="component://manage/widget/ManageScreens.xml#mng_Home_pagesetting" />
+    
+    <view-map name="mng_helpclass" type="screen" page="component://manage/widget/ManageScreens.xml#mng_helpclass" />
+    <view-map name="create_mng_HelpClass" type="screen" page="component://manage/widget/ManageScreens.xml#create_mng_HelpClass" />
+    
+    <view-map name="mng_helpinformation" type="screen" page="component://manage/widget/ManageScreens.xml#mng_helpinformation" />
+    <view-map name="create_mng_HelpClassInfo" type="screen" page="component://manage/widget/ManageScreens.xml#create_mng_HelpClassInfo" />
+   
+    <view-map name="manage_findMessageByOne" type="screen" page="component://manage/widget/ManageScreens.xml#manage_findMessageByOne" />
+    <view-map name="manage_findMessageByAll" type="screen" page="component://manage/widget/ManageScreens.xml#manage_findMessageByAll" />
+    
+    <view-map name="seller_EditUserLogin" type="screen" page="component://manage/widget/ManageScreens.xml#seller_EditUserLogin" />
+    
+    <!-- 首页中下方的注意 -->
+    <view-map name="about_us" type="screen" page="component://manage/widget/CommonScreens.xml#look_abouteus" />
+    <view-map name="newbie_on_road" type="screen" page="component://manage/widget/Comm    reens.xml#look_newbieonroad" />
+    <view-map name="buyer_protection" type="screen" page="component://manage/widget/CommonScreens.xml#look_buyerprotection" />
+    <view-map name="sendOrder" type="screen" page="component://manage/widget/ManageScreens.xml#sendOrder" />
+    <view-map name="ajaxSendOrder" type="screen" page="component://manage/widget/ManageScreens.xml#ajaxSendOrder" />
+	
+    <!--  -->
+    <view-map name="OrderDetail" type="screen" page="component://manage/widget/OrderEnScreens.xml#OrderDetail" />
+    
+    
+    
+    
+    <!-- 推荐卖家主页  -->
+    
+    <view-map name="mng_Home_recommendSeller" type="screen" page="component://manage/widget/ManageScreens.xml#mng_Home_recommendSeller" />
+    
+    <view-map name="mng_RecommendedSellerList" type="screen" page="component://manage/widget/ManageScreens.xml#mng_RecommendedSellerList" />
+       
+    <!-- 推荐品类主页  -->
+    <view-map name="mng_Home_recommendCategory" type="screen" page="component://manage/widget/ManageScreens.xml#mng_Home_recommendCategory" />
+    
+    <view-map name="mng_RecommendedCategoryList" type="screen" page="component://manage/widget/ManageScreens.xml#mng_RecommendedCategoryList" />
+    
+    <!-- 畅销商品主页  -->
+    <view-map name="mng_Home_BestSellingProducts" type="screen" page="component://manage/widget/ManageScreens.xml#mng_Home_BestSellingProducts" />
+    
+    <view-map name="mng_BestSellingList" type="screen" page="component://manage/widget/ManageScreens.xml#mng_BestSellingList" />
+    
+    <!-- 畅销商品主页  -->
+    <view-map name="mng_Home_SuperDealsProducts" type="screen" page="component://manage/widget/ManageScreens.xml#mng_Home_SuperDealsProducts" />
+    
+    <view-map name="mng_SuperDealsList" type="screen" page="component://manage/widget/ManageScreens.xml#mng_SuperDealsList" />
+</site-conf>

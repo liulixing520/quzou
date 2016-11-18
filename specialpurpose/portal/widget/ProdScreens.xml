@@ -1,0 +1,1969 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+    <screen name="product-decorator">
+        <section>
+            <actions>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="SecurityUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/style.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/ui-dialog.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/my_chunbo.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/dui.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/style_002.css" global="true"/>
+                
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/z.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/jquery-1_002.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/jquery-1.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/my_chunbo.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/review.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/dialog-plus-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/dui.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/my_chunbo.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/info.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/portal/images/green/jquery-1.8.3.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/common_002.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/common_003.js" global="true" />
+
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/user/includes/header.ftl" />
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/user/includes/footer.ftl" />
+            </actions>
+            <widgets>
+                <section>
+                    <widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="body" >
+                                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/toplink.ftl"/></html></platform-specific>
+                                <platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific>
+                                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/includes/left.ftl"/></html></platform-specific>
+                                <container style="main-content">
+                                      <decorator-section-include name="body"/>
+                                </container>
+                            </container>
+                    </widgets>
+                </section>
+            </widgets>
+        </section>
+    </screen>    
+    <!-- 
+    <screen name="product-decorator">
+		<section>
+			<actions>
+				<property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ui.jqgrid.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/datepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap-timepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/daterangepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap-datetimepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-extra.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery/jquery-2.1.1.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/bootstrap/3.2.0/js/bootstrap.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jqGrid/jquery.jqGrid.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jqGrid/i18n/grid.locale-en.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery-ui.custom.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery.ui.touch-punch.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.resize.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-datepicker.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-timepicker.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/moment.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/daterangepicker.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-datetimepicker.min.js" global="true" />
+
+                <set field="initialLocaleComplete" type="String" value="${groovy:parameters?.userLogin?.lastLocale}" default-value="${groovy:locale.toString()}" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.datejs.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.jquery.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.validation.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.dateTime.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/asmselect/jquery.asmselect-1.0.4a-beta.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/datetimepicker/jquery-ui-timepicker-addon.min-1.4.3.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/jquery.maskedinput-1.3.1.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/ui/js/jquery-ui-1.10.3.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/jeditable/jquery.jeditable.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/jquery.validate.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/fjTimer/jquerytimer-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-migrate-1.2.1.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-1.10.2.min.js" global="true" />
+                <set field="layoutSettings.styleSheets[+0]" value="/images/jquery/plugins/asmselect/jquery.asmselect-1.0.4a-beta.css" global="true" />
+                
+                <set field="layoutSettings.javaScripts[]" value="/images/OpenLayers-2.13.1.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/selectall.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/fieldlookup.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/date/date.format-1.2.3-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/date/date.timezone-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/miscAjaxFunctions.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/selectMultipleRelatedValues.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/util.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/tomahawk/js/dropdown.js" global="true" />
+
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                
+				<set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/header.ftl" />
+				<set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/footer.ftl" />
+			</actions>
+			<widgets>
+				<section>
+					<condition>
+                       <if-empty field="productStoreId"/>
+                     </condition>
+                     <widgets>
+                         <include-screen name="store" location="component://portal/widget/SellerScreens.xml"/>
+              		</widgets>
+			        <fail-widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="body" style="no-skin">
+							<container id="toplink">
+								<platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/toplink.ftl"/></html></platform-specific>
+							</container>
+                            <container id="navbar" style="navbar navbar-default">
+                                <platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific>
+                            </container>
+                            <container id="main-container" style="main-container container">
+                                <container id="sidebar" style="sidebar responsive">
+                                    <include-screen name="left" location="component://portal/widget/SellerScreens.xml"/>
+                                </container>
+
+                                <container style="main-content">
+                                    <container id="breadcrumbs" style="breadcrumbs">
+                                        <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/breadcrumbs.ftl"/></html></platform-specific>
+                                    </container>
+                                    <container style="page-content">
+                                        <container style="page-content-area">
+                                            <container style="row">
+                                                <container style="col-xs-12">
+                                                    <decorator-section-include name="body"/>
+                                                </container>
+                                            </container>
+                                        </container>
+                                    </container>
+                                 <container style="footer">
+                                    <platform-specific><html><html-template location="${footerTemplateLocation}" /></html></platform-specific>
+                                </container>
+                                </container>
+                            </container>
+                        </container>
+					</fail-widgets>
+				</section>
+			</widgets>
+		</section>
+	</screen>
+	 -->
+	<screen name="product-noLeft-decorator">
+		<section>
+			<actions>
+				<property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ui.jqgrid.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/datepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap-timepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/daterangepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap-datetimepicker.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-extra.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery/jquery-2.1.1.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/bootstrap/3.2.0/js/bootstrap.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jqGrid/jquery.jqGrid.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jqGrid/i18n/grid.locale-en.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery-ui.custom.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery.ui.touch-punch.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.resize.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-datepicker.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-timepicker.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/moment.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/daterangepicker.min.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/date-time/bootstrap-datetimepicker.min.js" global="true" />
+
+				<!-- Load available JS Language Files -->
+                <set field="initialLocaleComplete" type="String" value="${groovy:parameters?.userLogin?.lastLocale}" default-value="${groovy:locale.toString()}" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.datejs.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.jquery.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.validation.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.dateTime.getFilePath(initialLocaleComplete)}" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/asmselect/jquery.asmselect-1.0.4a-beta.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/datetimepicker/jquery-ui-timepicker-addon.min-1.4.3.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/jquery.maskedinput-1.3.1.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/ui/js/jquery-ui-1.10.3.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/jeditable/jquery.jeditable.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/jquery.validate.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/fjTimer/jquerytimer-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-migrate-1.2.1.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-1.10.2.min.js" global="true" />
+                <!-- jQuery CSSs -->
+                <set field="layoutSettings.styleSheets[+0]" value="/images/jquery/plugins/asmselect/jquery.asmselect-1.0.4a-beta.css" global="true" />
+                
+                <set field="layoutSettings.javaScripts[]" value="/images/OpenLayers-2.13.1.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/selectall.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/fieldlookup.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/date/date.format-1.2.3-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/date/date.timezone-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/miscAjaxFunctions.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/selectMultipleRelatedValues.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/util.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/tomahawk/js/dropdown.js" global="true" />
+
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                
+				<set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/header.ftl" />
+				<set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/footer.ftl" />
+			</actions>
+			<widgets>
+				<section>
+					<widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                      
+                     			 <container id="body" style="no-skin">
+                             			 <decorator-section-include name="body"/>
+                                        
+                        </container>
+					</widgets>
+				</section>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="CategoryTreeEn">
+        <section>
+        	<actions>
+        	    <set field="NavigationLi" value="categoryTreeLi"/> 
+        	    
+        	  <set field="Navigation1" value="产品管理"/>
+                <set field="Navigation2" value="商品品类"/>
+        	
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/prod/CategoryTree.groovy"></script>
+        	</actions>
+            <widgets>
+            	<decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+               			<platform-specific><html><html-template location="component://portal/webapp/portal/seller/prod/CategoryTree.ftl"/></html></platform-specific>
+               	 	</decorator-section>
+                </decorator-screen>       
+            </widgets>
+        </section>
+     </screen>
+	<screen name="FindProdCatalog">
+        <section>
+             <actions>
+	            <set field="entityName" value="ProdCatalog"/>
+	            <set field="viewIndex" from-field="parameters.VIEW_INDEX_1" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE_1" type="Integer" default-value="12"/>
+	            <set field="parameters.sortField" from-field="parameters.sortField" default-value="+catalogName"/>
+	            <service service-name="performFindList" result-map="result">
+	                <field-map field-name="inputFields" from-field="parameters"/>
+	                <field-map field-name="entityName" from-field="entityName"/>
+	                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+	                <field-map field-name="viewIndex" from-field="viewIndex"/>
+	                <field-map field-name="viewSize" from-field="viewSize"/>
+	                <field-map field-name="noConditionFind" value="Y"/>
+	            </service>
+                <set field="listIt" from-field="result.list"/>
+                <set field="listSize" from-field="result.listSize"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/seller/prod/FindProdCatalog.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 编辑商品 -->
+    <screen name="EditProduct">
+        <section>
+            <actions>
+				<set field="NavigationLi" value="editProductLi"/>
+            	<property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+            	<property-map resource="CommonEntityLabels.xml" map-name="uiLabelMap" global="true"/> 
+            	<set field="titleProperty" value="商品编辑"/>
+                <set field="tabButtonItem" value="ProductProductsMgr"/>
+                <set field="productId" from-field="parameters.productId"/>
+               
+                <entity-one entity-name="Product" value-field="entity"/>
+                <set field="product" from-field="product" global="true"/>
+                 <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+            </actions>	
+		         	<widgets>    
+                 			 <decorator-screen name="product-decorator">
+			                    <decorator-section name="body">
+				                    <container id="EditProductDiv">
+				                       <platform-specific>
+				                           <html><html-template location="component://portal/webapp/portal/seller/prod/EditProduct.ftl"/></html>
+				                       </platform-specific>
+				                    </container>
+				                </decorator-section>
+			                </decorator-screen>
+           			</widgets>
+        </section>
+    </screen>
+    <!-- 编辑商品详情 -->
+    <screen name="EditProductDetail">
+        <section>
+            <actions>
+            	<property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+            	<property-map resource="CommonEntityLabels.xml" map-name="uiLabelMap" global="true"/> 
+            	<set field="titleProperty" value="商品编辑"/>
+                <set field="tabButtonItem" value="ProductProductsMgr"/>
+                <set field="productId" from-field="parameters.productId"/>
+                <entity-one entity-name="Product" value-field="entity"/>
+                <set field="productTypeCategoryId" value="${groovy:entity!=null?entity.primaryProductCategoryId:parameters.productTypeCategoryId}"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                 <!-- 查产品对应的规格 -->
+                <script location="component://portal/webapp/portal/WEB-INF/actions/prod/get_feature_category.groovy"></script>
+               
+                <set field="product" from-field="product" global="true"/>
+                
+                  <!-- 查分类对应的规格 -->
+                <entity-condition list="productFeatureCategoryApplList" entity-name="ProductFeatureCategoryAppl">
+                	<condition-expr field-name="productCategoryId" from-field="productTypeCategoryId"/>
+                	<order-by field-name="productFeatureCategoryId"/>
+                </entity-condition>
+               
+                <entity-condition list="marketPriceList" entity-name="ProductPrice" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                	<condition-expr field-name="productPriceTypeId" value="LIST_PRICE"/>
+	                	<condition-expr field-name="productPricePurposeId" value="PURCHASE"/>
+	                	<!-- <condition-expr field-name="currencyUomId" value="USD"/> -->
+	                	<condition-expr field-name="productStoreGroupId" value="_NA_"/>
+                	</condition-list>
+                	<order-by field-name="-fromDate"/>
+                </entity-condition>
+                <set field="marketPrice" from-field="marketPriceList[0].price"/>
+                <entity-condition list="averageCostList" entity-name="ProductPrice" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                	<condition-expr field-name="productPriceTypeId" value="AVERAGE_COST"/>
+	                	<condition-expr field-name="productPricePurposeId" value="PURCHASE"/>
+	                	<!-- <condition-expr field-name="currencyUomId" value="USD"/> -->
+	                	<condition-expr field-name="productStoreGroupId" value="_NA_"/>
+                	</condition-list>
+                	<order-by field-name="-fromDate"/>
+                </entity-condition>
+                <set field="averageCost" from-field="averageCostList[0].price"/>
+                
+                <entity-condition list="priceList" entity-name="ProductPrice">
+                	<condition-list combine="or">
+	                	<condition-list combine="and">
+		                	<condition-expr field-name="productId" from-field="productId"/>
+		                	<condition-expr field-name="productPriceTypeId" value="DEFAULT_PRICE"/>
+		                	<condition-expr field-name="productPricePurposeId" value="PURCHASE"/>
+		                	<!-- <condition-expr field-name="currencyUomId" value="USD"/> -->
+		                	<condition-expr field-name="productStoreGroupId" value="_NA_"/>
+        			        <condition-expr field-name="thruDate" value="" operator="equals"/>
+	                	</condition-list>
+	                	<condition-list combine="and">
+		                	<condition-expr field-name="productId" from-field="productId"/>
+		                	<condition-expr field-name="productPriceTypeId" value="DEFAULT_PRICE"/>
+		                	<condition-expr field-name="productPricePurposeId" value="PURCHASE"/>
+		                	<!-- <condition-expr field-name="currencyUomId" value="USD"/> -->
+		                	<condition-expr field-name="productStoreGroupId" value="_NA_"/>
+		                	<condition-expr field-name="thruDate" value="${groovy:org.ofbiz.base.util.UtilDateTime.nowTimestamp()}" operator="greater"/>
+	                	</condition-list>
+                	</condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <set field="price" from-field="priceList[0].price"/>
+                <!-- 
+                <entity-condition list="promoPriceList" entity-name="ProductPrice" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                	<condition-expr field-name="productPriceTypeId" value="PROMO_PRICE"/>
+	                	<condition-expr field-name="productPricePurposeId" value="PURCHASE"/>
+	                	<condition-expr field-name="currencyUomId" value="USD"/>
+	                	<condition-expr field-name="productStoreGroupId" value="_NA_"/>
+                	</condition-list>
+                	<order-by field-name="-fromDate"/>
+                </entity-condition>
+                <set field="promoPriceGv" from-field="promoPriceList[0]"/> 
+                -->
+                <!-- <entity-condition list="primaryProductCategoryList" entity-name="ProductCategory"/> -->
+                <entity-condition list="productBrandList" entity-name="ProductCategoryAndBrand">
+                	<condition-expr field-name="productCategoryId" from-field="entity.productTypeCategoryId"/>
+                </entity-condition>
+                <entity-condition list="weightUomList" entity-name="Uom">
+                	<condition-expr field-name="uomTypeId" value="WEIGHT_MEASURE"/>
+                	<order-by field-name="description"/>
+                </entity-condition>
+                 <entity-condition list="quantityUomList" entity-name="Uom">
+                	<condition-expr field-name="uomTypeId" operator="not-equals" value="CURRENCY_MEASURE"/>
+                	<order-by field-name="description"/>
+                </entity-condition>
+                <!-- TODO: 需要从层级获取商品类型
+                <entity-condition list="productTypeList" entity-name="ProdCatalogCategory" filter-by-date="true">
+                	<condition-expr field-name="prodCatalogId" value="NavMenuCatalog"/>
+                	<order-by field-name="productCategoryId"/>
+                </entity-condition>
+                -->
+                
+                <entity-condition list="productConfigList" entity-name="ProductAssoc">
+	                <condition-list>
+	                	<condition-expr field-name="productAssocTypeId" value="PRODUCT_ACCESSORY"/>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <entity-condition list="productAssocList" entity-name="ProductAssoc">
+                	<condition-list>
+	                	<condition-expr field-name="productAssocTypeId" value="ALSO_BOUGHT"/>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <entity-condition list="productCategoryMemberList" entity-name="ProductCategoryMember">
+                	<condition-list>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                	<condition-expr field-name="disType" value="other"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <!-- 商品相关图片 -->
+                <entity-condition list="productContentList" entity-name="ProductContentAndPurpose" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="productContentTypeId" value="IMAGE"/>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <!--页面关键词  -->
+                <entity-condition list="productContentKeyWordList" entity-name="ProductContent" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="productContentTypeId" value="META_KEYWORD"/>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <!--页面描述  -->
+                <entity-condition list="productContentDescList" entity-name="ProductContent" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="productContentTypeId" value="META_DESCRIPTION"/>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <!--商品页面标题  -->
+                <entity-condition list="productContentTitleList" entity-name="ProductContent" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="productContentTypeId" value="PAGE_TITLE"/>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <!--查询标签-->
+                <entity-condition list="productLabtList" entity-name="ProductLab">
+                	<!-- 
+               		<condition-list>
+	                	<condition-expr field-name="productContentTypeId" value="IMAGE"/>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/> 
+                	-->
+                </entity-condition>
+                <!--查询商品已关联的标签-->
+                <entity-condition list="productLabMemberList" entity-name="ProductLabMember" filter-by-date="true">
+               		<condition-list>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/> 
+                </entity-condition>
+                <entity-condition list="specValueList" entity-name="ProductFeatureAndAppl" filter-by-date="true" >
+               		<condition-list>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                	<!-- <condition-expr field-name="productFeatureApplTypeId" value="SELECTABLE_FEATURE"/> -->
+	                </condition-list>
+	                <order-by field-name="productFeatureCategoryId"/>
+                </entity-condition>
+                <set field="currentForm" value="EditProduct"/>
+                <set field="layoutSettings.javaScripts[]" value="/portal/seller/images/uploadify/scripts/swfobject.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/portal/seller/images/uploadify/scripts/jquery.uploadify.v2.1.0.js" global="true" />
+				<set field="layoutSettings.rtlStyleSheets[+0]" value="/portal/seller/images/uploadify/css/uploadify.css" global="true"/>
+            </actions>
+         	<widgets>               
+             <decorator-screen name="product-noLeft-decorator">
+                    <decorator-section name="body">
+	                    <container id="EditProductDiv">
+	                       <platform-specific>
+	                           <html><html-template location="component://portal/webapp/portal/seller/prod/EditProductDetail.ftl"/></html>
+	                       </platform-specific>
+<!-- 	                       <platform-specific> -->
+<!-- 	                           <html><html-template location="component://portal/webapp/portal/seller/prod/category_change_ajax.ftl"/></html> -->
+<!-- 	                       </platform-specific> -->
+	                    </container>
+	                </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="EditProductDiv">
+        <section>
+            <actions>
+            	<property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+            	<property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="productId" from-field="parameters.productId"/>
+                <entity-one entity-name="Product" value-field="entity"/>
+                <set field="product" from-field="product" global="true"/>
+                <entity-condition list="marketPriceList" entity-name="ProductPrice" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                	<condition-expr field-name="productPriceTypeId" value="LIST_PRICE"/>
+	                	<condition-expr field-name="productPricePurposeId" value="PURCHASE"/>
+	                	<!-- <condition-expr field-name="currencyUomId" value="USD"/> -->
+	                	<condition-expr field-name="productStoreGroupId" value="_NA_"/>
+                	</condition-list>
+                	<order-by field-name="-fromDate"/>
+                </entity-condition>
+                <set field="marketPrice" from-field="marketPriceList[0].price"/>
+                <entity-condition list="averageCostList" entity-name="ProductPrice" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                	<condition-expr field-name="productPriceTypeId" value="AVERAGE_COST"/>
+	                	<condition-expr field-name="productPricePurposeId" value="PURCHASE"/>
+	                	<!-- <condition-expr field-name="currencyUomId" value="USD"/> -->
+	                	<condition-expr field-name="productStoreGroupId" value="_NA_"/>
+                	</condition-list>
+                	<order-by field-name="-fromDate"/>
+                </entity-condition>
+                <set field="averageCost" from-field="averageCostList[0].price"/>
+                <entity-condition list="priceList" entity-name="ProductPrice">
+                	<condition-list combine="or">
+	                	<condition-list combine="and">
+		                	<condition-expr field-name="productId" from-field="productId"/>
+		                	<condition-expr field-name="productPriceTypeId" value="DEFAULT_PRICE"/>
+		                	<condition-expr field-name="productPricePurposeId" value="PURCHASE"/>
+		                	<!-- <condition-expr field-name="currencyUomId" value="USD"/> -->
+		                	<condition-expr field-name="productStoreGroupId" value="_NA_"/>
+        			        <condition-expr field-name="thruDate" value="" operator="equals"/>
+	                	</condition-list>
+	                	<condition-list combine="and">
+		                	<condition-expr field-name="productId" from-field="productId"/>
+		                	<condition-expr field-name="productPriceTypeId" value="DEFAULT_PRICE"/>
+		                	<condition-expr field-name="productPricePurposeId" value="PURCHASE"/>
+		                	<!-- <condition-expr field-name="currencyUomId" value="USD"/> -->
+		                	<condition-expr field-name="productStoreGroupId" value="_NA_"/>
+		                	<condition-expr field-name="thruDate" value="${groovy:org.ofbiz.base.util.UtilDateTime.nowTimestamp()}" operator="greater"/>
+	                	</condition-list>
+                	</condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <set field="price" from-field="priceList[0].price"/>
+                <!-- 
+                <entity-condition list="promoPriceList" entity-name="ProductPrice" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                	<condition-expr field-name="productPriceTypeId" value="PROMO_PRICE"/>
+	                	<condition-expr field-name="productPricePurposeId" value="PURCHASE"/>
+	                	<condition-expr field-name="currencyUomId" value="USD"/>
+	                	<condition-expr field-name="productStoreGroupId" value="_NA_"/>
+                	</condition-list>
+                	<order-by field-name="-fromDate"/>
+                </entity-condition>
+                <set field="promoPriceGv" from-field="promoPriceList[0]"/> 
+                -->
+                <!-- <entity-condition list="primaryProductCategoryList" entity-name="ProductCategory"/> -->
+                <entity-condition list="productBrandList" entity-name="ProductCategoryAndBrand">
+                	<condition-expr field-name="productCategoryId" from-field="entity.productTypeCategoryId"/>
+                </entity-condition>
+                <entity-condition list="weightUomList" entity-name="Uom">
+                	<condition-expr field-name="uomTypeId" value="WEIGHT_MEASURE"/>
+                	<order-by field-name="description"/>
+                </entity-condition>
+                <entity-condition list="productTypeList" entity-name="ProdCatalogCategory" filter-by-date="true">
+                	<condition-expr field-name="prodCatalogId" value="ProductType"/>
+                	<order-by field-name="productCategoryId"/>
+                </entity-condition>
+                <entity-condition list="productConfigList" entity-name="ProductAssoc">
+	                <condition-list>
+	                	<condition-expr field-name="productAssocTypeId" value="PRODUCT_ACCESSORY"/>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <entity-condition list="productAssocList" entity-name="ProductAssoc">
+                	<condition-list>
+	                	<condition-expr field-name="productAssocTypeId" value="ALSO_BOUGHT"/>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <entity-condition list="productCategoryMemberList" entity-name="ProductCategoryMember">
+                	<condition-list>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                	<condition-expr field-name="disType" value="other"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <!-- 商品相关图片 -->
+                <entity-condition list="productContentList" entity-name="ProductContentAndPurpose" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="productContentTypeId" value="IMAGE"/>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <!--页面关键词  -->
+                <entity-condition list="productContentKeyWordList" entity-name="ProductContent" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="productContentTypeId" value="META_KEYWORD"/>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <!--页面描述  -->
+                <entity-condition list="productContentDescList" entity-name="ProductContent" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="productContentTypeId" value="META_DESCRIPTION"/>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <!--商品页面标题  -->
+                <entity-condition list="productContentTitleList" entity-name="ProductContent" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="productContentTypeId" value="PAGE_TITLE"/>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/>
+                </entity-condition>
+                <!--查询标签-->
+                <entity-condition list="productLabtList" entity-name="ProductLab">
+                	<!-- 
+               		<condition-list>
+	                	<condition-expr field-name="productContentTypeId" value="IMAGE"/>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/> 
+                	-->
+                </entity-condition>
+                <!--查询商品已关联的标签-->
+                <entity-condition list="productLabMemberList" entity-name="ProductLabMember" filter-by-date="true">
+               		<condition-list>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/> 
+                </entity-condition>
+                <entity-condition list="specValueList" entity-name="ProductFeatureAndAppl" filter-by-date="true" >
+               		<condition-list>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                	<!-- <condition-expr field-name="productFeatureApplTypeId" value="SELECTABLE_FEATURE"/> -->
+	                </condition-list>
+	                <order-by field-name="productFeatureCategoryId"/>
+                </entity-condition>
+                <set field="currentForm" value="EditProduct"/>
+            </actions>
+         	<widgets>               
+                 <platform-specific>
+                     <html><html-template location="component://portal/webapp/portal/seller/prod/EditProduct.ftl"/></html>
+                 </platform-specific>
+                 <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/prod/category_change_ajax.ftl"/></html>
+                 </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 类型查询 -->
+    <screen name="FindProductType">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="parameters.prodCatalogId" value="ProductType"/>
+                <set field="searchAction" value="FindProductType"/>
+                <set field="searchForm" value="FindProductType"/>
+                <set field="operationButton[]" value="增加.icon-add.EditProductType.href.ProductTypeAdd" />
+            </actions>
+         	<widgets>
+               <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                            <decorator-section name="search-options">
+				               <include-form name="FindProductType" location="component://portal/widget/seller/ProdForms.xml"/>
+				            </decorator-section>
+		                     <decorator-section name="search-results">
+		                         <include-form name="ListProductTypes" location="component://portal/widget/seller/ProdForms.xml"/>
+		                     </decorator-section>
+                        </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 编辑类型 -->
+    <screen name="EditProductType">
+        <section>
+            <actions>
+            	<property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+            	<set field="titleProperty" value="ProductTypeMgr"/>
+                <set field="tabButtonItem" value="ProductTypeMgr"/>
+                <set field="productCategoryId" from-field="parameters.productCategoryId"/>
+                <entity-one entity-name="ProductCategory" value-field="entity"/>
+                <!-- <entity-condition list="choseTypeAttributeGroupList" entity-name="CategoryRefAttributeGroup">
+                	<condition-list>
+	                	<condition-expr field-name="productCategoryId" from-field="productCategoryId"/>
+                	</condition-list>
+                	<select-field field-name="attributeGroupId"/>
+                </entity-condition>
+               	<entity-and list="allTypeAttributeGroupList" entity-name="TypeAttributeGroup">
+               		<field-map field-name="productCategoryId" from-field="productCategoryId"/>
+               	</entity-and> -->
+                <entity-condition list="productTypeAndBrandList" entity-name="ProductCategoryAndBrand">
+                	<condition-list>
+	                	<condition-expr field-name="productCategoryId" from-field="productCategoryId"/>
+                	</condition-list>
+                </entity-condition>
+                <entity-condition list="productBrandList" entity-name="ProductBrand" filter-by-date="true">
+                	<condition-list>
+	                	<condition-expr field-name="isDisplay" value="Y"/>
+                	</condition-list>
+                </entity-condition>
+                <set field="currentForm" value="EditProductType"/>
+            </actions>
+         	<widgets>               
+               <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                       <platform-specific>
+                           <html><html-template location="component://portal/webapp/portal/seller/prod/EditProductType.ftl"/></html>
+                       </platform-specific>
+                      <!--  <platform-specific>
+                           <html><html-template location="component://itea/webapp/iteamgr/common_edit_button.ftl"/></html>
+                       </platform-specific> -->
+	                </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 属性查询 -->
+    <screen name="FindTypeAttribute">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="titleProperty" value="商品属性"/>
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="productCategoryId" from-field="parameters.productCategoryId"/>
+                <set field="editUrl" value="EditProductTypeAttribute"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/prod/getProductCategories.groovy"/>
+                <set field="operationButton[]" value="增加.icon-add.EditProductTypeAttribute?productCategoryId=${parameters.productCategoryId}.href.productMgr" />
+            </actions>
+         	<widgets>
+               <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                           <html><html-template location="component://portal/webapp/portal/seller/prod/addButton.ftl"/></html>
+                        </platform-specific>
+		                         <include-form name="ListProductTypeAttributes" location="component://portal/widget/seller/ProdForms.xml"/>
+		                     
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 编辑属性 -->
+    <screen name="EditProductTypeAttribute">
+        <section>
+            <actions>
+            	<property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+            	<set field="titleProperty" value="ProductTypeMgr"/>
+                <set field="tabButtonItem" value="ProductTypeMgr"/>
+                <set field="attributeId" from-field="parameters.attributeId"/>
+                <set field="productCategoryId" from-field="parameters.productCategoryId"/>
+                <entity-one entity-name="TypeAttribute" value-field="entity"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/prod/getProductCategories.groovy"/>
+                <entity-condition list="inputValuess" entity-name="AttrOptionalValue">
+                	<condition-list>
+	                	<condition-expr field-name="attributeId" from-field="attributeId"/>
+                	</condition-list>
+                </entity-condition>
+                <set field="currentForm" value="EditProductTypeAttribute"/>
+            </actions>
+         	<widgets>               
+               <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                       <platform-specific>
+                           <html><html-template location="component://portal/webapp/portal/seller/prod/EditProductTypeAttribute.ftl"/></html>
+                       </platform-specific>
+	                </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- 编辑属性 -->
+    <screen name="EditTypeAttribute">
+		<section>
+			<actions>
+				<set field="titleProperty" value="编辑Type Attribute Group Entity" />
+				<set field="attributeId" from-field="parameters.attributeId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="TypeAttribute" value-field="entity" />
+				<set field="currentForm" value="EditTypeAttribute"/>  
+				<!-- <entity-and entity-name="ProdCatalogCategory" list="productCategorys">
+					<field-map field-name="prodCatalogId" value="ProductType"/>
+					<select-field field-name="productCategoryId"/>
+				</entity-and>
+				<entity-condition list="productCategorys" entity-name="ProductCategory">
+					<condition-expr field-name="productCategoryId" operator="in" from-field="productCategorys"/>
+				</entity-condition>
+				 -->
+                <script location="component://portal/webapp/portal/WEB-INF/actions/prod/getProductCategories.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+						<decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="detail-options">
+								<screenlet title="">
+									<include-form name="EditTypeAttribute" 
+									location="component://portal/widget/seller/ProdForms.xml" />
+					    		</screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+    <!-- 产品信息查询 -->
+    <screen name="FindProduct">
+        <section>
+            <actions>
+				<set field="NavigationLi" value="findProductLi"/>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                  <set field="Navigation1" value="产品管理"/>
+                <set field="Navigation2" value="产品列表"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <set field="parameters.primaryProductStoreId" from-field="productStoreId"/>
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="parameters.sortField" value="${parameters.sortField}" default-value="-createdDate"/>
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX_1" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE_1" type="Integer" default-value="20"/>
+                <service service-name="performFindList" result-map="result">
+	                <field-map field-name="inputFields" from-field="parameters"/>
+	                <field-map field-name="entityName" value="FilterProductView"/>
+	                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+	                <field-map field-name="viewIndex" from-field="viewIndex" />
+	                <field-map field-name="viewSize"  from-field="viewSize"/>
+	            </service>
+	            <set field="productList" from-field="result.list"/>
+	            <set field="listSize" from-field="result.listSize"/>
+	            
+	            <set field="operationButton[]" value="增加.icon-add.EditProduct.href.ProductTypeAdd" />
+	            <set field="operationButton[]" value="将产品上架.icon-add.saleable('Y').jsFunction.ProductTypeAdd" />
+	            <set field="operationButton[]" value="将产品下架.icon-add.saleable('N').jsFunction.ProductTypeAdd" />
+	            <set field="operationButton[]" value="调整库存.icon-add.inventory().jsFunction.ProductTypeAdd" />
+	            
+	            
+            </actions>
+         	<widgets>
+               <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<platform-specific>
+				          <html><html-template location="component://portal/webapp/portal/seller/prod/productList.ftl"/></html>
+				        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 代销产品信息查询 -->
+    <screen name="FindProductDx">
+        <section>
+            <actions>
+				<set field="NavigationLi" value="findProductLi"/>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                  <set field="Navigation1" value="产品管理"/>
+                <set field="Navigation2" value="产品列表"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <set field="parameters.dxStoreId" from-field="productStoreId"/>
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="parameters.sortField" value="${parameters.sortField}" default-value="-createdDate"/>
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX_1" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE_1" type="Integer" default-value="20"/>
+                <service service-name="performFindList" result-map="result">
+	                <field-map field-name="inputFields" from-field="parameters"/>
+	                <field-map field-name="entityName" value="DxProductAndProduct"/>
+	                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+	                <field-map field-name="viewIndex" from-field="viewIndex" />
+	                <field-map field-name="viewSize"  from-field="viewSize"/>
+	            </service>
+	            <set field="productList" from-field="result.list"/>
+	            <set field="listSize" from-field="result.listSize"/>
+	            
+            </actions>
+         	<widgets>
+               <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<platform-specific>
+				          <html><html-template location="component://portal/webapp/portal/seller/prod/productDxList.ftl"/></html>
+				        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="FindProductAdvanced">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="searchAction" value="FindProduct"/>
+                <set field="searchForm" value="FindProductAdvanced"/>
+            </actions>
+         	<widgets>
+               <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <decorator-screen name="FindDialogDecorator" location="${parameters.mainDecoratorLocation}">
+                            <decorator-section name="search-form">
+				               <include-form name="FindProductAdvanced" location="component://portal/widget/seller/ProdForms.xml"/>
+				            </decorator-section>
+                        </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 产品回收站查询 -->
+    <screen name="FindProductRecycle">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="parameters.deleteStatus" value="Y"/>
+                <set field="parameters.sortField" value="${parameters.sortField}" default-value="-productId"/>
+                <set field="searchAction" value="FindProductRecycle"/>
+                <set field="searchForm" value="FindProductRecycle"/>
+                <set field="viewIndex" value="0" type="Integer"/>
+                <set field="viewSize" value="1000" type="Integer"/>
+                <service service-name="performFindList" result-map="result">
+	                <field-map field-name="inputFields" from-field="parameters"/>
+	                <field-map field-name="entityName" value="Product"/>
+	                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+	                <field-map field-name="viewIndex" from-field="viewIndex"/>
+	                <field-map field-name="viewSize"  from-field="viewSize"/>
+	            </service>
+	            <set field="productList" from-field="result.list"/>
+            </actions>
+         	<widgets>
+               <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<platform-specific>
+				          <html><html-template location="component://portal/webapp/portal/seller/prod/recycleProductList.ftl"/></html>
+				        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- 标签 -->
+    <screen name="FindProductLab">
+        <section>
+            <actions>
+                <set field="headerItem" value="AcMgrList"/>
+                <set field="titleProperty" value="AcMgrList"/>
+                <set field="pCtx" from-field="parameters"/>
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="searchAction" value="FindProductLab"/>
+                <set field="searchForm" value="FindProductLab"/>
+            </actions>
+            <widgets>
+                 <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	 <decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+                            <decorator-section name="search-options">
+				               <include-form name="FindProductLab" location="component://portal/widget/seller/ProdForms.xml"/>
+				            </decorator-section>
+		                     <decorator-section name="search-results">
+		                         <include-form name="ListProductLab" location="component://portal/widget/seller/ProdForms.xml"/>
+		                     </decorator-section>
+                        </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="EditProductLab">
+       <section>
+           <actions>
+            	<set field="headerItem" value="EditProductLab"/>
+                <set field="labId" from-field="parameters.labId"/>
+                <set field="currentForm" value="EditProductLab"/>
+                <entity-one entity-name="ProductLab" value-field="entity"/>
+            </actions>
+            <widgets>
+               	<decorator-screen name="product-decorator">
+	              	<decorator-section name="body">
+	            		<decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+	                      	<decorator-section name="detail-options" >   
+	                         	<screenlet >
+	                             	<include-form name="EditProductLab" location="component://portal/widget/seller/ProdForms.xml"/>
+		                        </screenlet>
+		                       	<!--<platform-specific>
+		                            <html><html-template location="component://itea/webapp/iteamgr/common_edit_button.ftl"/></html>
+		                        </platform-specific>-->
+					    	</decorator-section>
+	                  	</decorator-screen>
+	            	</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>    
+    <screen name="NewAjaxProductLab">
+       <section>
+       		<actions><set field="productId" from-field="parameters.productId"></set></actions>
+            <widgets>
+               <decorator-screen name="product-decorator">
+                   <decorator-section name="body">
+                       <decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+                          <decorator-section name="detail-options" >   
+		                       <platform-specific>
+		                            <html><html-template location="component://portal/webapp/portal/seller/prod/newAjaxProductLab.ftl"/></html>
+		                       </platform-specific>
+					      </decorator-section>
+	                   </decorator-screen>
+	               </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>    
+    <screen name="ShowAjaxProductLabs">
+       <section>
+       		<actions>
+       			<set field="productId" from-field="parameters.productId"></set>
+                <entity-condition list="productLabtList" entity-name="ProductLab"/>
+                <entity-condition list="productLabMemberList" entity-name="ProductLabMember" filter-by-date="true">
+               		<condition-list>
+	                	<condition-expr field-name="productId" from-field="productId"/>
+	                </condition-list>
+                	<order-by field-name="fromDate"/> 
+                </entity-condition>
+            </actions>
+            <widgets>
+                <platform-specific>
+                     <html><html-template location="component://portal/webapp/portal/seller/prod/showAjaxProductLabs.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>    
+     
+     
+    <!-- 产品品牌查询 -->
+    <screen name="FindProductBrand">
+        <section>
+            <actions>
+            	<property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="parameters.sortField" from-field="parameters.sortField" default-value="displaySort"/>
+                <set field="headerTitle" value="${uiLabelMap.ProductBrandMgr}"/>
+                <set field="searchAction" value="FindProductBrand"/>
+                <set field="searchForm" value="FindProductBrand"/>
+                <!-- <set field="operationButton[]" value="增加.icon-add.EditProductBrand.navTab" /> -->
+            </actions>
+         	<widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+                            <decorator-section name="search-options">
+				               <include-form name="FindProductBrand" location="component://portal/widget/seller/ProdForms.xml"/>
+				            </decorator-section>
+		                     <decorator-section name="search-results">
+		                         <include-form name="ListProductsBrand" location="component://portal/widget/seller/ProdForms.xml"/>
+		                     </decorator-section>
+                        </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 编辑产品品牌 -->
+    <screen name="EditProductBrand">
+        <section>
+            <actions>
+            	<property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+            	<set field="titleProperty" value="ProductBrand"/>
+                <set field="tabButtonItem" value="ProductBrand"/>
+                <set field="id" from-field="parameters.id"/>
+                <entity-one entity-name="ProductBrand" value-field="entity"/>
+                <set field="currentForm" value="EditProductBrand"/>
+            </actions>
+         	<widgets>               
+                <decorator-screen name="product-decorator">
+                    	<decorator-section name="body">
+							<decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+								<decorator-section name="detail-options">
+				                <include-form name="EditProductBrand" location="component://portal/widget/seller/ProdForms.xml"/>
+				            </decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 商品规格查询 -->
+    <screen name="FindProductFeatureCategory">
+        <section>
+            <actions>
+            	<property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+             <set field="NavigationLi" value="productFeatureLi"/>	
+            	  <set field="Navigation1" value="产品管理"/>
+                <set field="Navigation2" value="商品规格"/>
+            	
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="headerTitle" value="${uiLabelMap.ProductFeatureCategoryMgr}"/>
+                <set field="editUrl" value="EditProductsFeatureCategory"/>
+                <set field="searchForm" value="FindProductFeatureCategory"/>
+                <!-- <set field="operationButton[]" value="ProductFeatureCategoryAdd.add.EditProductsFeatureCategory.navTab" /> -->
+            </actions>
+         	<widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                         <!--<decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                           <decorator-section name="search-options">
+				               <include-form name="FindProductFeatureCategory" location="component://portal/widget/seller/ProdForms.xml"/>
+				            </decorator-section> -->
+				            <platform-specific>
+                           		<html><html-template location="component://portal/webapp/portal/seller/prod/addButton.ftl"/></html>
+                       		</platform-specific>
+		                     <!--<decorator-section name="search-results">-->
+		                         <include-form name="ListProductFeatureCategory" location="component://portal/widget/seller/ProdForms.xml"/>
+		                     <!--</decorator-section>-->
+                        <!--</decorator-screen>-->
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 编辑商品规格 -->
+    <screen name="EditProductsFeatureCategory">
+        <section>
+            <actions>
+            	<property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+            	<set field="titleProperty" value="编辑特征"/>
+                <set field="tabButtonItem" value="ProductProductsMgr"/>
+                <set field="productCategoryId" from-field="parameters.productCategoryId"/>
+                <!-- 
+                <set field="id" from-field="parameters.id"/>
+                <entity-one entity-name="ProductBrand" value-field="entity"/> 
+                -->
+                <set field="headerTitle" value="ProductFeatureCategoryMgr"/>
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="50"/>
+                <script location="component://product/webapp/catalog/WEB-INF/actions/feature/EditFeatureCategoryFeatures.groovy"/>
+                <set field="productFeatureCategoryId" from-field="parameters.productFeatureCategoryId"/>
+                <entity-condition list="productFeatureList" entity-name="ProductFeature">
+                	<condition-expr field-name="productFeatureCategoryId" from-field="productFeatureCategoryId"/>
+                	<order-by field-name="description"/>
+                </entity-condition>
+                <entity-condition list="productFeatureTypeList" entity-name="ProductFeatureType">
+                </entity-condition>
+                <entity-one value-field="entity" entity-name="ProductFeatureCategory"></entity-one>
+                <entity-condition list="productCategoryList" entity-name="ProdCatalogCategory">
+                	<condition-expr field-name="prodCatalogId" value="ProductType"/>
+                </entity-condition>
+                <!-- <set field="currentForm" value="CreateProductFeature"/> -->
+                <entity-condition list="productFeatureCategoryApplList" entity-name="ProductFeatureCategoryAppl">
+                	<condition-expr field-name="productFeatureCategoryId" from-field="productFeatureCategoryId"/>
+                </entity-condition>
+                <set field="productCategoryId" value="${productFeatureCategoryApplList[0].productCategoryId}"/>
+                <set field="currentForm" value="EditFeatureCategory"/>
+            </actions>
+         	<widgets>               
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                       <platform-specific>
+                           <html><html-template location="component://portal/webapp/portal/seller/prod/EditFeatureCategoryFeatures.ftl"/></html>
+                       </platform-specific> 
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 快速添加规格值 -->
+    <screen name="QuickAddProductFeatures">
+        <section>
+            <actions>
+            	<property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <script location="component://product/webapp/catalog/WEB-INF/actions/feature/QuickAddProductFeatures.groovy"/>
+                <set field="productFeatureCategoryId" from-field="parameters.productFeatureCategoryId"/>
+                <set field="featureNum" from-field="parameters.featureNum" type="Integer"/>
+            </actions>
+         	<widgets>               
+	            <platform-specific>
+	               <html><html-template location="component://product/webapp/catalog/feature/BulkAddFeature.ftl"/></html>
+	            </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 新建规格值 -->
+    <screen name="CreateFeature">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+            	<set field="titleProperty" value="ProductProductsMgr"/>
+                <set field="tabButtonItem" value="ProductProductsMgr"/>
+                <entity-one entity-name="ProductFeature" value-field="productFeature" auto-field-map="true"/>
+                <entity-and entity-name="SupplierProductFeature" list="supplierProductFeatures">
+                    <field-map field-name="productFeatureId" from-field="parameters.productFeatureId"/>
+                </entity-and>
+            </actions>
+            <widgets>
+               <screenlet title="${uiLabelMap.ProductEditFeature} : ${productFeature.description}">
+                	<include-form name="EditProductFeature" location="component://product/widget/catalog/FeatureForms.xml"/>
+               </screenlet>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 编辑规格值 -->
+    <screen name="EditFeature">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+            	<set field="titleProperty" value="ProductProductsMgr"/>
+                <set field="tabButtonItem" value="ProductProductsMgr"/>
+                <set field="headerTitle" value="ProductFeatureCategoryMgr"/>
+                <entity-one entity-name="ProductFeature" value-field="productFeature" auto-field-map="true"/>
+                <entity-and entity-name="SupplierProductFeature" list="supplierProductFeatures">
+                    <field-map field-name="productFeatureId" from-field="parameters.productFeatureId"/>
+                </entity-and>
+            </actions>
+            <widgets>
+            	<decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                       <decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+	                          <decorator-section name="detail-options" >
+		                            <screenlet title="${uiLabelMap.ProductEditFeature} : ${productFeature.description}">
+			                            <include-form name="EditProductFeature" location="component://product/widget/catalog/FeatureForms.xml"/>
+			                        </screenlet>
+							  </decorator-section>
+	                    </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="GetFeatureCategories">
+        <section>
+            <actions>
+            	<property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+            	<set field="productCategoryId" from-field="parameters.productCategoryId"/>
+                <entity-condition list="productFeatureCategoryApplList" entity-name="ProductFeatureCategoryAppl">
+                	<condition-expr field-name="productCategoryId" from-field="productCategoryId"/>
+                	<order-by field-name="productFeatureCategoryId"/>
+                </entity-condition>
+            	<set field="productId" from-field="parameters.productId"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/prod/get_feature_category.groovy"></script>
+            </actions>
+         	<widgets>               
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/seller/prod/get_feature_category.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <!--查找主分类-->
+    <screen name="LookupProductCategory">
+        <section>
+            <actions>
+            	<!-- <entity-condition list="productCategoryList" entity-name="ProductCategory"></entity-condition> -->
+            	<set field="parameters.noConditionFind" value="Y"/>
+            	<set field="parameters.prodCatalogId" value="productCategory"/>
+            	<set field="searchAction" value="LookupProductCategory"/>
+                <set field="searchForm" value="LookupProductCategory"/>
+            </actions>
+            <widgets>
+            	 <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<decorator-screen name="FindDialogInnerDecorator" location="${parameters.mainDecoratorLocation}">
+                            <decorator-section name="search-options">
+				               <include-form name="LookupProductCategory" location="component://portal/widget/seller/ProdForms.xml"/>
+				            </decorator-section>
+		                    <decorator-section name="search-results">
+                          	 	<include-form location="component://portal/widget/seller/ProdForms.xml" name="ListGetProductCategory"/> 
+			                    <platform-specific>
+			                        <html><html-template location="component://portal/webapp/portal/seller/prod/category_change_ajax.ftl"/></html>
+			                    </platform-specific>
+		                    </decorator-section>
+                        </decorator-screen>
+	                </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!--关联产品-->
+    <screen name="FindProductAssoc">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="searchAction" value="FindProductAssoc"/>
+                <set field="searchForm" value="FindProductAssoc"/>
+            </actions>
+         	<widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<decorator-screen name="FindDialogInnerDecorator" location="${parameters.mainDecoratorLocation}">
+                            <decorator-section name="search-options">
+				               <include-form name="FindProductAssoc" location="component://portal/widget/seller/ProdForms.xml"/>
+				            </decorator-section>
+		                     <decorator-section name="search-results">
+	                          	<include-form  name="ListProductAssoc" location="component://portal/widget/seller/ProdForms.xml"/> 
+		                     </decorator-section>
+                        </decorator-screen>
+                        <platform-specific>
+                           	<html><html-template location="component://portal/webapp/portal/seller/prod/get_product_assoc.ftl"/></html>
+                       	</platform-specific>
+                       	<platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/seller/prod/category_change_ajax.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section> 
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!--关联配件-->
+    <screen name="FindProductConfig">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="searchAction" value="FindProductConfig"/>
+                <set field="searchForm" value="FindProductConfig"/>
+            </actions>
+         	<widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                    	<decorator-screen name="FindDialogInnerDecorator" location="${parameters.mainDecoratorLocation}">
+                            <decorator-section name="search-options">
+				               <include-form name="FindProductConfig" location="component://portal/widget/seller/ProdForms.xml"/>
+				            </decorator-section>
+		                     <decorator-section name="search-results">
+	                          	<include-form  name="ListProductConfig" location="component://portal/widget/seller/ProdForms.xml"/> 
+		                     </decorator-section>
+                        </decorator-screen>
+                        <platform-specific>
+                           <html><html-template location="component://portal/webapp/portal/seller/prod/get_product_config.ftl"/></html>
+                       	 </platform-specific>
+                       	 <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/seller/prod/category_change_ajax.ftl"/></html>
+                        </platform-specific>
+	                    </decorator-section> 
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!--扩展分类-->
+    <screen name="FindProductCatrgoryMember">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="parameters.prodCatalogId" value="ProductCategory"/>
+                <set field="searchAction" value="FindProductCatrgoryMember"/>
+                <set field="searchForm" value="FindProductCatrgoryMember"/>
+                <service service-name="performFindList" result-map="result">
+	                <field-map field-name="inputFields" from-field="parameters"/>
+	                <field-map field-name="entityName" value="ProdCatalogCategory"/>
+	                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+	                <field-map field-name="viewIndex" from-field="viewIndex"/>
+	                <field-map field-name="viewSize"  from-field="viewSize" />
+	            </service>
+	            <set field="productCategoryList" from-field="result.list"/>
+	            <set field="listSize" from-field="result.listSize"/>
+            </actions>
+         	<widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                       <decorator-screen name="FindDialogInnerDecorator" location="${parameters.mainDecoratorLocation}">
+                            <decorator-section name="search-options">
+				               <include-form name="FindProductCatrgoryMember" location="component://portal/widget/seller/ProdForms.xml"/>
+				            </decorator-section>
+		                     <decorator-section name="search-results">
+	                          	<include-form  name="ListProductCatrgoryMember" location="component://portal/widget/seller/ProdForms.xml"/> 
+		                     </decorator-section>
+                        </decorator-screen>
+                        <platform-specific>
+                          		<html><html-template location="component://portal/webapp/portal/seller/prod/get_product_category_member.ftl"/></html>
+                       	</platform-specific>
+	                 </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 评论查询 -->
+    <screen name="pendingReviews">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="parameters.statusId"  from-field="parameters.statusId" default-value="PRR_PENDING"/>
+                <set field="searchAction" value="pendingReviews"/>
+                <set field="searchForm" value="FindPendingReviews"/>
+                <set field="commonButton[]" value="CommonUpdate.edit.javascript:changeReviewStatus('');" />
+                <set field="commonButton[]" value="ProductPendingReviewUpdateAndApprove.edit.javascript:changeReviewStatus('PRR_APPROVED');"/>
+                <set field="commonButton[]" value="CommDeleteAll.delete.javascript:changeReviewStatus('PRR_DELETED');" />
+            </actions>
+         	<widgets>
+               <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+		                     <decorator-section name="search-options">
+				               <include-form name="FindPendingReviews" location="component://portal/widget/seller/ProdForms.xml"/>
+				            </decorator-section>
+		                     <decorator-section name="search-results">
+		                     	 <include-form name="ListPendingReviews" location="component://portal/widget/seller/ProdForms.xml"/>
+  		                         <platform-specific>
+                              		<html><html-template location="component://itea/webapp/iteamgr/reviews/pendingReviews.ftl"/></html>
+	                        	</platform-specific>
+		                     </decorator-section>
+                        </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 评论回复查看 -->
+    <screen name="ShowReplyProductReview">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="parameters.noConditionFind" value="Y"/>
+            </actions>
+         	<widgets>
+               <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <decorator-screen name="FindNoOptionScreenDecorator" location="${parameters.mainDecoratorLocation}">
+		                     <decorator-section name="search-results">
+		                     	 <include-form name="ListReplyPendingReviews" location="component://portal/widget/seller/ProdForms.xml"/>
+		                     </decorator-section>
+                        </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!--评论设置-->
+    <screen name="EditProductReviewSetting">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="currentForm" value="EditProductReviewSetting"/>
+                <set field="entity" value="EditProductReviewSetting"/>
+                <entity-one value-field="ShowItemGv" entity-name="Enumeration">
+                	<field-map field-name="enumId" value="REVIEW_SHOW_ITEM"/>
+                </entity-one>
+                <entity-one value-field="ShowINumberGv" entity-name="Enumeration">
+                	<field-map field-name="enumId" value="REVIEW_SHOW_NUMBER"/>
+                </entity-one>
+                <entity-one value-field="OpenGv" entity-name="Enumeration">
+                	<field-map field-name="enumId" value="REVIEW_OPEN"/>
+                </entity-one>
+                <entity-one value-field="PermissionGv" entity-name="Enumeration">
+                	<field-map field-name="enumId" value="REVIEW_PERMISSION"/>
+                </entity-one>
+                <entity-one value-field="SuccessInfoGv" entity-name="Enumeration">
+                	<field-map field-name="enumId" value="REVIEW_SUCC_INFO"/>
+                </entity-one>
+            </actions>
+         	<widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                       <decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+	                          <decorator-section name="detail-options" >   
+	                          		<include-form name="EditProductReviewSetting" location="component://portal/widget/seller/ProdForms.xml"/>
+			                        <!--<platform-specific>
+			                           <html><html-template location="component://itea/webapp/iteamgr/common_edit_button.ftl"/></html>
+			                        </platform-specific>-->
+							    </decorator-section>
+			                  </decorator-screen>
+	                    </decorator-section> 
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!--咨询设置-->
+    <screen name="EditProductCommunicationSetting">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="currentForm" value="EditProductCommunicationSetting"/>
+                <set field="entity" value="EditProductCommunicationSetting"/>
+                <entity-one value-field="ShowItemGv" entity-name="Enumeration">
+                	<field-map field-name="enumId" value="COMMUNI_SHOW_ITEM"/>
+                </entity-one>
+                <entity-one value-field="ShowINumberGv" entity-name="Enumeration">
+                	<field-map field-name="enumId" value="COMMUNI_SHOW_NUMBER"/>
+                </entity-one>
+                <entity-one value-field="OpenGv" entity-name="Enumeration">
+                	<field-map field-name="enumId" value="COMMUNI_OPEN"/>
+                </entity-one>
+                <entity-one value-field="PermissionGv" entity-name="Enumeration">
+                	<field-map field-name="enumId" value="COMMUNI_PERMISSION"/>
+                </entity-one>
+                <entity-one value-field="SuccessInfoGv" entity-name="Enumeration">
+                	<field-map field-name="enumId" value="COMMUNI_SUCC_INFO"/>
+                </entity-one>
+            </actions>
+         	<widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                       <decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+	                          <decorator-section name="detail-options" >   
+	                          		<include-form name="EditProductCommunicationSetting" location="component://portal/widget/seller/ProdForms.xml"/>
+			                        <!--<platform-specific>
+			                           <html><html-template location="component://itea/webapp/iteamgr/common_edit_button.ftl"/></html>
+			                        </platform-specific>-->
+							    </decorator-section>
+			                  </decorator-screen>
+	                    </decorator-section> 
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 咨询列表 -->
+    <screen name="FindProductCommunications">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/> 
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="searchAction" value="FindProductCommunications"/>
+                <set field="searchForm" value="FindProductCommunications"/>
+                <set field="operationButton[]" value="CommDeleteAll.delete.deleteProductCommunicationsAll.removeSelected"/>
+            </actions>
+         	<widgets>
+               <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+                            <decorator-section name="search-options">
+				               <include-form name="FindProductCommunications" location="component://portal/widget/seller/ProdForms.xml"/>
+				            </decorator-section>
+		                     <decorator-section name="search-results">
+		                         <include-form name="ListProductCommunications" location="component://portal/widget/seller/ProdForms.xml"/>
+		                     </decorator-section>
+                        </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!--咨询回复-->
+    <screen name="EditReplyProductCommunication">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="currentForm" value="EditReplyProductCommunication"/>
+                <set field="parentCommEventId" from-field="parameters.parentCommEventId"/>
+                <entity-one entity-name="CommunicationEvent" value-field="entity"/>
+                <set field="partyIdFrom" from-field="communicationEvent.partyIdFrom" default-value="${userLogin.partyId}"/>
+                <set field="contactMechIdTo" from-field="parameters.contactMechIdTo" default-value="${communicationEvent.contactMechIdTo}"/>
+                <entity-condition list="communicationEvents" entity-name="CommunicationEvent">
+                	<condition-list>
+                		<condition-expr field-name="parentCommEventId" from-field="parentCommEventId"/>
+                		<condition-expr field-name="statusId" value="COM_CANCELLED" operator="not-equals"/>
+                	</condition-list>
+                </entity-condition>
+            </actions>
+         	<widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                       <decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+	                          <decorator-section name="detail-options" >  
+	                          		<platform-specific>
+			                           <html><html-template location="component://portal/webapp/portal/seller/prod/product_commnication_reply.ftl"/></html>
+			                        </platform-specific>
+		                            <include-form name="EditReplyProductCommunication" location="component://portal/widget/seller/ProdForms.xml"/>
+			                        <!--<platform-specific>
+			                           <html><html-template location="component://itea/webapp/iteamgr/common_edit_button.ftl"/></html>
+			                        </platform-specific>-->
+							    </decorator-section>
+			                  </decorator-screen>
+	                    </decorator-section> 
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!--删除咨询回复-->
+    <screen name="DeleteReplyProductCommunication">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/> 
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="currentForm" value="EditReplyProductCommunication"/>
+                <set field="parentCommEventId" from-field="parameters.parentCommEventId"/>
+                <entity-one entity-name="CommunicationEvent" value-field="entity"/>
+                <entity-condition list="communicationEvents" entity-name="CommunicationEvent">
+                	<condition-list>
+                		<condition-expr field-name="parentCommEventId" from-field="parentCommEventId"/>
+                		<condition-expr field-name="statusId" value="COM_CANCELLED" operator="not-equals"/>
+                	</condition-list>
+                </entity-condition>
+            </actions>
+         	<widgets>
+             	<platform-specific>
+                  <html><html-template location="component://portal/webapp/portal/seller/prod/product_commnication_reply.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!--设置规格-->
+    <screen name="setFeatureCategoryByCategory">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="productId" from-field="parameters.productId"/>
+                <set field="productCategoryId" from-field="parameters.productCategoryId"/>
+                <!-- 查分类对应的规格 -->
+                <entity-condition list="productFeatureCategoryApplList" entity-name="ProductFeatureCategoryAppl">
+                	<condition-expr field-name="productCategoryId" from-field="productCategoryId"/>
+                	<order-by field-name="productFeatureCategoryId"/>
+                </entity-condition>
+                <!-- 查产品对应的规格 -->
+                <script location="component://portal/webapp/portal/WEB-INF/actions/prod/get_feature_category.groovy"></script>
+            </actions>
+         	<widgets>
+	                <platform-specific>
+	                  		<html><html-template location="component://portal/webapp/portal/seller/prod/set_product_feature.ftl"/></html>
+	               	</platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="sortProduct">
+        <section>
+            <actions>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="productId" from-field="parameters.productId"/>
+                <set field="productCategoryId" from-field="parameters.productCategoryId"/>
+                <entity-one value-field="entity" entity-name="Product"></entity-one>
+            </actions>
+         	<widgets>
+         		<decorator-screen name="product-decorator">
+					<decorator-section name="body">
+	                <platform-specific>
+	                  		<html><html-template location="component://portal/webapp/portal/seller/prod/sortProduct.ftl"/></html>
+	               	</platform-specific>
+	               	</decorator-section>
+               	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- 编辑商品配送区域信息 -->
+    <screen name="EditFacilityGeoAssoc">
+	<section>
+		<actions>
+			    <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="facilityId" from-field="parameters.facilityId"/>
+                <set field="geoId" from-field="parameters.geoId"/>
+                <set field="assocTypeId" from-field="parameters.assocTypeId"/>
+                <set field="currentForm" value="currentForm"/>
+				<entity-condition entity-name="FacilityGeoAssoc" list="facilityGeoAssocList" filter-by-date="true" >
+                    <condition-list combine="and">
+                        <condition-expr field-name="facilityId" from-field="facilityId" />
+                    </condition-list>
+                </entity-condition>
+		</actions>
+		<widgets>
+			<decorator-screen name="product-decorator">
+				<decorator-section name="body">
+					<container id='facility_Geo_Assoc_list_div' style="grid">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/prod/facilityGeoAssoc_list.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+					<container id='add_facility_Geo_Assoc_div' style="pageContent">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/prod/addFacilityGeoAssoc.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+				</decorator-section>
+			</decorator-screen>
+		</widgets>
+	</section>
+</screen>
+<!--deleteFacilityGeoAssoc-->
+<screen name="deleteFacilityGeoAssoc">
+	<section>
+		<actions>
+			    <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="facilityId" from-field="parameters.facilityId"/>
+                <set field="geoId" from-field="parameters.geoId"/>
+                <set field="assocTypeId" from-field="parameters.assocTypeId"/>
+                <set field="fromDate" from-field="parameters.fromDate"/>
+                <set field="currentForm" value="currentForm"/>
+				<entity-condition entity-name="FacilityGeoAssoc" list="facilityGeoAssocList" filter-by-date="true" >
+                    <condition-list combine="and">
+                        <condition-expr field-name="facilityId" from-field="facilityId" />
+                    </condition-list>
+                </entity-condition>
+		</actions>
+		<widgets>
+			<decorator-screen name="product-decorator">
+				<decorator-section name="body">
+					<container id='facility_Geo_Assoc_list_div' style="grid">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/prod/facilityGeoAssoc_list.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+				</decorator-section>
+			</decorator-screen>
+		</widgets>
+	</section>
+</screen>
+<!-- updateFacilityGeoAssoc -->
+<screen name="updateFacilityGeoAssoc">
+	<section>
+		<actions>
+			    <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="facilityId" from-field="parameters.facilityId"/>
+                <set field="geoId" from-field="parameters.geoId"/>
+                <set field="assocTypeId" from-field="parameters.assocTypeId"/>
+                <set field="currentForm" value="currentForm"/>
+				<entity-condition entity-name="FacilityGeoAssoc" list="facilityGeoAssocList" filter-by-date="true" >
+                    <condition-list combine="and">
+                        <condition-expr field-name="facilityId" from-field="facilityId" />
+                    </condition-list>
+                </entity-condition>
+		</actions>
+		<widgets>
+            	<platform-specific>
+			         <html><html-template location="component://portal/webapp/portal/seller/prod/facilityGeoAssoc_list.ftl" /></html>
+			    </platform-specific>  
+		</widgets>
+	</section>
+</screen>
+<!-- createFacilityGeoAssoc -->
+<screen name="createFacilityGeoAssoc">
+	<section>
+		<actions>
+			    <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="facilityId" from-field="parameters.facilityId"/>
+                <set field="geoId" from-field="parameters.geoId"/>
+                <set field="assocTypeId" from-field="parameters.assocTypeId"/>
+                <set field="currentForm" value="currentForm"/>
+				<entity-condition entity-name="FacilityGeoAssoc" list="facilityGeoAssocList" filter-by-date="true" >
+                    <condition-list combine="and">
+                        <condition-expr field-name="facilityId" from-field="facilityId" />
+                    </condition-list>
+                </entity-condition>
+		</actions>
+		<widgets>
+			<decorator-screen name="product-decorator">
+				<decorator-section name="body">
+					<container id='facility_Geo_Assoc_list_div' style="grid">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/prod/facilityGeoAssoc_list.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+				</decorator-section>
+			</decorator-screen>
+		</widgets>
+	</section>
+</screen>
+<!-- viewFacilityGeoAssoc -->
+<screen name="viewFacilityGeoAssoc">
+	<section>
+		<actions>
+			    <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="facilityId" from-field="parameters.facilityId"/>
+                <set field="geoId" from-field="parameters.geoId"/>
+                <set field="assocTypeId" from-field="parameters.assocTypeId"/>
+                <set field="fromDate" from-field="parameters.fromDate"/>
+                <set field="currentForm" value="currentForm"/>
+                <entity-one entity-name="FacilityGeoAssoc" value-field="facilityGeoAssoc"/>
+		</actions>
+		<widgets>
+            	<platform-specific>
+			         <html><html-template location="component://portal/webapp/portal/seller/prod/addFacilityGeoAssoc.ftl" /></html>
+			    </platform-specific>  
+		</widgets>
+	</section>
+</screen>
+	<screen name="BatchProduct">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/> 
+            </actions>
+            <widgets>
+                <decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                       <platform-specific>
+				            <html><html-template location="component://portal/webapp/portal/seller/prod/EditBatchProduct.ftl"/></html>
+			           </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="EditCategory">
+        <section>
+            <actions>
+            	<property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AdminUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ShopMgrUiLabels" map-name="uiLabelMap" global="true" />
+                <set field="productCategoryId" from-field="parameters.productCategoryId"/>
+                <set field="parentProductCategoryId" from-field="parameters.parentProductCategoryId"/>
+                <entity-one entity-name="ProductCategory" value-field="productCategory"/>
+                <entity-one entity-name="ProductCategory" value-field="entity"/>
+				<set field="currentForm" value="productCategoryForm"/>
+                <entity-condition entity-name="ProductCategoryType" list="productCategoryTypes">
+                    <order-by field-name="description"/>
+                </entity-condition>
+                <entity-condition entity-name="ProdCatalogCategory" list="productCategorys">
+                	<condition-expr field-name="prodCatalogId" value="ProductCategory"/>
+                    <order-by field-name="productCategoryId"/>
+                </entity-condition>
+                <script location="component://product/webapp/catalog/WEB-INF/actions/category/EditCategory.groovy"/>
+            </actions>
+            <widgets>
+            	<decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/seller/prod/editCategory.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="setCategoryFeature">
+        <section>
+            <actions>
+            	<property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="productCategoryId" from-field="parameters.productCategoryId"/>
+                <entity-condition entity-name="ProductFeatureCategory" list="productFeatureCategoryList">
+                    <order-by field-name="description"/>
+                </entity-condition>
+                 <!-- 查分类对应的规格 -->
+                <entity-condition list="productFeatureCategoryApplList" entity-name="ProductFeatureCategoryAppl">
+                	<condition-expr field-name="productCategoryId" from-field="productCategoryId"/>
+                	<order-by field-name="productFeatureCategoryId"/>
+                </entity-condition>
+            </actions>
+            <widgets>
+            	<decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/seller/prod/setCategoryFeature.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="setCategoryAttribute">
+        <section>
+            <actions>
+            	<property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="productCategoryId" from-field="parameters.productCategoryId"/>
+                <entity-condition entity-name="TypeAttributeGroup" list="typeAttributeGroupList">
+                    <order-by field-name="attributeGroupName"/>
+                </entity-condition>
+                 <!-- 查分类对应的规格 -->
+                <entity-condition list="categoryRefAttributeGroupList" entity-name="CategoryRefAttributeGroup">
+                	<condition-expr field-name="productCategoryId" from-field="productCategoryId"/>
+                	<order-by field-name="attributeGroupId"/>
+                </entity-condition>
+            </actions>
+            <widgets>
+            	<decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/seller/prod/setCategoryAttribute.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="setCategoryRefTypeAttribute">
+        <section>
+            <actions>
+            	<property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="productCategoryId" from-field="parameters.productCategoryId"/>
+                <entity-condition entity-name="TypeAttribute" list="typeAttributeList">
+                    <order-by field-name="attributeName"/>
+                </entity-condition>
+                 <!-- 查分类对应的规格 -->
+                <entity-condition list="categoryRefTypeAttributeList" entity-name="CategoryRefTypeAttribute">
+                	<condition-expr field-name="productCategoryId" from-field="productCategoryId"/>
+                	<order-by field-name="productCategoryId"/>
+                </entity-condition>
+            </actions>
+            <widgets>
+            	<decorator-screen name="product-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/seller/prod/setCategoryRefTypeAttribute.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+ 
+</screens>

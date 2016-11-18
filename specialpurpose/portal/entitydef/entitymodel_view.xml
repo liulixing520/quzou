@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of ebiz Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+
+	<view-entity entity-name="ProductVisitAndProduct" package-name="org.ofbiz.product.visit" title="ProductVisit And Product View Entity">
+		<member-entity entity-alias="PV" entity-name="ProductVisit" />
+		<member-entity entity-alias="PROD" entity-name="Product" />
+		<alias-all entity-alias="PV"/>
+		<alias-all entity-alias="PROD"/>
+		<view-link entity-alias="PV" rel-entity-alias="PROD">
+			<key-map field-name="productId"/>
+		</view-link>
+	</view-entity>
+    
+    <view-entity entity-name="AgreementItemAndAgreement"
+        package-name="org.ofbiz.party.agreement"
+        title="Agreement Item and Agreement View Entity">
+        <member-entity entity-alias="AGI" entity-name="AgreementItem"/>
+        <member-entity entity-alias="AG" entity-name="Agreement"/>
+        <alias-all entity-alias="AGI"/>
+        <alias-all entity-alias="AG">
+            <exclude field="productId"/>
+        </alias-all>
+        <view-link entity-alias="AGI" rel-entity-alias="AG">
+            <key-map field-name="agreementId"/>
+        </view-link>
+        <relation type="one-nofk" rel-entity-name="Agreement">
+            <key-map field-name="agreementId"/>
+        </relation>
+    </view-entity>
+    <!-- 店铺商品销售量报表 --> <!-- never-cache="true" -->
+    <view-entity entity-name="SalesVolumeGoods"
+            package-name="org.ofbiz.order.order"
+            title="Order Item And Product View Entity">
+      <member-entity entity-alias="OI" entity-name="OrderItem"/>
+      <member-entity entity-alias="PD" entity-name="Product"/>
+      <alias entity-alias="OI" name="productId" group-by="true"/>
+      <alias entity-alias="OI" name="totalQuantity" field="quantity" function="sum"/>
+      <alias entity-alias="OI" name="unitPrice"/>
+      <alias entity-alias="OI" name="itemDescription"/>
+      <alias entity-alias="PD" name="primaryProductStoreId"/>
+      <alias entity-alias="PD" name="internalName"/>
+      <view-link entity-alias="OI" rel-entity-alias="PD">
+        <key-map field-name="productId"/>
+      </view-link>
+    </view-entity>
+        <!-- 店铺商品销售额报表 --> <!-- never-cache="true" -->
+    <view-entity entity-name="SalesAmountGoods"
+            package-name="org.ofbiz.order.order"
+            title="Order Item And Product View Entity">
+      <member-entity entity-alias="OI" entity-name="OrderItem"/>
+      <member-entity entity-alias="PD" entity-name="Product"/>
+      <alias entity-alias="OI" name="productId" group-by="true"/>
+      <alias entity-alias="OI" name="totalQuantity" field="quantity" function="sum"/>
+      <alias entity-alias="OI" name="unitPrice"/>
+      <alias entity-alias="OI" name="totalPrice" field="unitPrice" function="sum"/>
+      <alias entity-alias="PD" name="description"/>
+      <alias entity-alias="PD" name="primaryProductStoreId"/>
+      <alias entity-alias="PD" name="internalName"/>
+      <view-link entity-alias="OI" rel-entity-alias="PD">
+        <key-map field-name="productId"/>
+      </view-link>
+    </view-entity>
+    
+     <!-- 购物车商品报表 --> <!-- never-cache="true" -->
+    <view-entity entity-name="ShoppingCartHistoryGoods"
+            package-name="org.ofbiz.shoppingcart.cart"
+            title="ShoppingCartHistory And Product and Person View Entity">
+      <member-entity entity-alias="OI" entity-name="ShoppingCartHistory"/>
+      <member-entity entity-alias="PD" entity-name="Product"/>
+      <member-entity entity-alias="PN" entity-name="Person"/>
+      <alias entity-alias="OI" name="productId" group-by="true"/>
+      <alias entity-alias="OI" name="modifiedPrice" />
+      <alias entity-alias="OI" name="fromDate"/>
+      <alias entity-alias="OI" name="partyId" />
+      <alias entity-alias="PD" name="internalName"/>
+      <alias entity-alias="PN" name="firstName"/>
+      <alias entity-alias="PN" name="lastName"/>
+      <alias entity-alias="OI" name="quantity"/>
+      <alias entity-alias="OI" name="statusId"/>  
+      <view-link entity-alias="OI" rel-entity-alias="PD">
+        <key-map field-name="productId"/>
+      </view-link> 
+       <view-link entity-alias="OI" rel-entity-alias="PN">
+        <key-map field-name="partyId"/>
+      </view-link>
+    </view-entity>
+    
+    <!-- 购物车弃购商品报表 --> <!-- never-cache="true" -->
+    <view-entity entity-name="ShoppingCartOutHistoryGoods"
+            package-name="org.ofbiz.shoppingcart.cart"
+            title="ShoppingCartHistory And Product and Person View Entity">
+      <member-entity entity-alias="OI" entity-name="ShoppingCartHistory"/>
+      <member-entity entity-alias="PD" entity-name="Product"/>
+      <member-entity entity-alias="PN" entity-name="Person"/>
+      <alias entity-alias="OI" name="productId" group-by="true"/>
+      <alias entity-alias="OI" name="modifiedPrice" />
+      <alias entity-alias="OI" name="fromDate"/>
+      <alias entity-alias="OI" name="partyId" />
+      <alias entity-alias="PD" name="internalName"/>
+      <alias entity-alias="PN" name="firstName"/>
+      <alias entity-alias="PN" name="lastName"/>
+      <alias entity-alias="OI" name="quantity"/>
+      <alias entity-alias="OI" name="statusId"/>      
+      <view-link entity-alias="OI" rel-entity-alias="PD">
+        <key-map field-name="productId"/>
+      </view-link> 
+       <view-link entity-alias="OI" rel-entity-alias="PN">
+        <key-map field-name="partyId"/>
+      </view-link>
+    </view-entity>
+    
+     
+    <!-- 店铺收藏 --> <!-- never-cache="true" -->
+    <view-entity entity-name="ShoppingListView"
+            package-name="org.ofbiz.ShoppingList.favo"
+            title="ShoppingList And ProductStore View Entity">
+      <member-entity entity-alias="OI" entity-name="ShoppingList"/>
+      <member-entity entity-alias="PD" entity-name="ProductStore"/>
+      <alias entity-alias="OI" name="productStoreId" group-by="true"/>
+      <alias entity-alias="OI" name="lastUpdatedStamp" />
+      <alias entity-alias="PD" name="storeName"/>        
+      <alias entity-alias="OI" name="partyId" /> 
+      <alias entity-alias="OI" name="shoppingListTypeId"/>        
+      <alias entity-alias="OI" name="listName" />
+      <view-link entity-alias="OI" rel-entity-alias="PD">
+        <key-map field-name="productStoreId"/>
+      </view-link> 
+    </view-entity>
+    
+</entitymodel>

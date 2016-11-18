@@ -1,0 +1,135 @@
+#calendar_div {
+	border-width: 1px 2px 2px 1px; border-style: solid; border-color: rgb(17, 17, 17); margin: 0px; padding: 0px; line-height: 20px; font-family: "????"; font-size: 12px; display: none; z-index: 10;
+}
+#calendar_inline_div {
+	border-width: 1px 2px 2px 1px; border-style: solid; border-color: rgb(17, 17, 17); margin: 0px; padding: 0px; line-height: 20px; font-family: "????"; font-size: 12px; display: none; z-index: 10;
+}
+#calendar_inline_div {
+	border: 0px currentColor; display: block;
+}
+.calendar_dialog {
+	background: rgb(221, 221, 221); padding: 5px; border: 4px ridge rgb(221, 221, 221) !important;
+}
+#calendar_div a {
+	cursor: pointer;
+}
+#calendar_inline_div a {
+	cursor: pointer;
+}
+button.calendar_trigger {
+	width: 25px;
+}
+img.calendar_trigger {
+	margin: 2px; vertical-align: middle;
+}
+#calendar_prompt {
+	background: rgb(221, 221, 221); padding: 2px; width: 181px; color: rgb(0, 0, 0); float: left;
+}
+* html #calendar_prompt {
+	width: 185px;
+}
+#calendar_control {
+	width: 185px; color: rgb(255, 255, 255); clear: both; float: left;
+}
+#calendar_links {
+	width: 185px; color: rgb(255, 255, 255); clear: both; float: left;
+}
+#calendar_header {
+	width: 185px; color: rgb(255, 255, 255); clear: both; float: left;
+}
+#calendar {
+	width: 185px; color: rgb(255, 255, 255); clear: both; float: left;
+}
+#calendar_control {
+	background: rgb(17, 17, 17);
+}
+#calendar_links {
+	background: rgb(255, 102, 0);
+}
+#calendar_control a {
+	padding: 2px 5px; color: rgb(238, 238, 238); letter-spacing: 1px; font-weight: bold;
+}
+#calendar_links a {
+	padding: 2px 5px; color: rgb(238, 238, 238); letter-spacing: 1px; font-weight: bold;
+}
+#calendar_control a:hover {
+	background: rgb(255, 221, 221); color: rgb(51, 51, 51);
+}
+#calendar_links a:hover {
+	background: rgb(221, 221, 221); color: rgb(51, 51, 51);
+}
+.calendar_titleRow a:hover {
+	background: rgb(221, 221, 221); color: rgb(51, 51, 51);
+}
+#calendar_links label {
+	padding: 2px 5px; color: rgb(136, 136, 136);
+}
+#calendar_clear {
+	float: left;
+}
+#calendar_prev {
+	float: left;
+}
+#calendar_current {
+	width: 35%; text-align: center; float: left;
+}
+#calendar_close {
+	float: right;
+}
+#calendar_next {
+	float: right;
+}
+#calendar_header {
+	background: rgb(255, 153, 0); text-align: center; font-weight: bold;
+}
+#calendar_header select {
+	background: rgb(255, 255, 255); border: 0px currentColor; color: rgb(0, 0, 0); font-weight: bold;
+}
+#calendar {
+	background: rgb(204, 204, 204); text-align: center;
+}
+#calendar a {
+	width: 100%; display: block;
+}
+#calendar a:hover {
+	color: rgb(238, 238, 238);
+}
+#calendar .calendar_titleRow {
+	background: rgb(85, 85, 85); padding: 3px 0px;
+}
+#calendar .calendar_titleRow a {
+	color: rgb(238, 238, 238);
+}
+#calendar .calendar_titleRow a:hover {
+	color: rgb(0, 0, 0);
+}
+#calendar .calendar_daysRow {
+	background: rgb(255, 255, 255); color: rgb(102, 102, 102);
+}
+#calendar .calendar_daysCell {
+	border-width: 1px; border-style: solid; border-color: rgb(255, 153, 0) rgb(255, 255, 255) rgb(255, 255, 255) rgb(255, 153, 0);
+}
+#calendar .calendar_daysCell a {
+	width: 100%; color: rgb(0, 0, 0);
+}
+#calendar .calendar_daysCell a:hover {
+	
+}
+#calendar .calendar_weekEndCell {
+	background: rgb(255, 255, 204);
+}
+#calendar .calendar_daysCellOver {
+	background: rgb(255, 255, 255); border: 1px solid rgb(119, 119, 119);
+}
+#calendar .calendar_unselectable {
+	color: rgb(136, 136, 136);
+}
+#calendar_today {
+	background: rgb(255, 255, 102) !important;
+}
+#calendar_currentDay {
+	background: rgb(255, 255, 238) !important;
+}
+#calendar_cover {
+	left: -4px; top: -4px; width: 193px; height: 200px; display: block; filter: mask(); position: absolute; z-index: -1;
+}

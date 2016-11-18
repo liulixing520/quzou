@@ -1,0 +1,66 @@
+BODY {
+	FONT-SIZE: 12px; LINE-HEIGHT: 18px
+}
+TD {
+	FONT-SIZE: 12px; LINE-HEIGHT: 18px
+}
+HR {
+	COLOR: #dddddd
+}
+.shadow {
+	
+}
+A.BlueShine {
+	FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.BlueShine:link {
+	COLOR: #185da1
+}
+A.BlueShine:visited {
+	COLOR: #185da1
+}
+A.BlueShine:hover {
+	COLOR: #f00000
+}
+A.BlackShine {
+	FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.BlackShine:link {
+	COLOR: #000000
+}
+A.BlackShine:visited {
+	COLOR: #000000
+}
+A.BlackShine:hover {
+	COLOR: #f00000
+}
+A.RedShine {
+	FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.RedShine:link {
+	COLOR: #ff0000
+}
+A.RedShine:visited {
+	COLOR: #ffa000
+}
+A.RedShine:hover {
+	COLOR: #ffa000
+}
+.x {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none
+}
+INPUT.CardBtn {
+	FONT-SIZE: 12px; HEIGHT: 20px; WIDTH: 200px; BACKGROUND-COLOR: #ffa806
+}
+P.MsoNormal {
+	FONT-SIZE: 10.5pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; MARGIN: 0cm 0cm 0pt; TEXT-JUSTIFY: inter-ideograph; mso-style-parent: ""; mso-pagination: none; mso-bidi-font-size: 12.0pt; mso-fareast-font-family: ËÎÌו; mso-font-kerning: 1.0pt
+}
+LI.MsoNormal {
+	FONT-SIZE: 10.5pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; MARGIN: 0cm 0cm 0pt; TEXT-JUSTIFY: inter-ideograph; mso-style-parent: ""; mso-pagination: none; mso-bidi-font-size: 12.0pt; mso-fareast-font-family: ËÎÌו; mso-font-kerning: 1.0pt
+}
+DIV.MsoNormal {
+	FONT-SIZE: 10.5pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; MARGIN: 0cm 0cm 0pt; TEXT-JUSTIFY: inter-ideograph; mso-style-parent: ""; mso-pagination: none; mso-bidi-font-size: 12.0pt; mso-fareast-font-family: ËÎÌו; mso-font-kerning: 1.0pt
+}
+.table_v {
+	BORDER-TOP: 1px; BORDER-RIGHT: 1px; BORDER-BOTTOM: 1px; COLOR: #000000; BORDER-LEFT: 1px
+}

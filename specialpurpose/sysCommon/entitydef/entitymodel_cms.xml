@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of LIMS Component</title>
+	<description>None</description>
+	<version>1.0</version>
+
+	<entity entity-name="CmsArticle" package-name="org.extErp.sysCommon.article"
+		title="Article Entity">
+		<field name="articleId" type="id-ne">
+			<description>primary sequenced ID</description>
+		</field>
+		<field name="articleTypeId" type="id-ne"></field>
+		<field name="statusId" type="id-ne"></field>
+		<field name="catalogId" type="id-ne">
+			<description></description>
+		</field>
+		<field name="websiteId" type="id-ne">
+			<description>网站Id</description>
+		</field>
+		<field name="description" type="description"></field>
+		<field name="keywords" type="name"></field>
+		<field name="title" type="name"></field>
+		<field name="content" type="very-long">
+			<description>文章内容</description>
+		</field>
+		<field name="author" type="name">
+			<description>作者</description>
+		</field>
+		<field name="visitTotal" type="name">
+			<description>查看次数</description>
+		</field>
+		<field name="fileUrl" type="name">
+			<description>文件路径</description>
+		</field>
+		<field name="shortTitle" type="name">
+			<description>简短标题（用于栏目或首页索引）</description>
+		</field>
+		<field name="titleColor" type="name">
+			<description>标题颜色</description>
+		</field>
+		<field name="titleImg" type="name">
+			<description>文章标题缩略图</description>
+		</field>
+		<field name="contentImg" type="name">
+			<description>文章内容图</description>
+		</field>
+		<field name="tags" type="name">
+			<description>标记，类似关键字</description>
+		</field>
+		<field name="origin" type="name">
+			<description>来源</description>
+		</field>
+
+		<field name="releaseDate" type="date">
+			<description>发表日期（可人为设置）</description>
+		</field>
+		<field name="releaseSysDate" type="date">
+			<description>发布日期（系统日期）</description>
+		</field>
+		<field name="checkTime" type="date-time">
+			<description>终审通过时间</description>
+		</field>
+		<field name="disableTime" type="date-time">
+			<description>禁用时间</description>
+		</field>
+
+		<field name="comments" type="comment"></field>
+		<field name="allowComment" type="very-short"></field>
+
+		<field name="commentCount" type="numeric">
+			<description>评论数量</description>
+		</field>
+		<field name="isDisplay" type="very-short">
+			<description>是否显示</description>
+		</field>
+		<field name="sortNum" type="numeric">
+			<description>排序数字</description>
+		</field>
+		<prim-key field="articleId" />
+		<relation type="one" fk-name="CARTI_TYP" rel-entity-name="CmsArticleType">
+			<key-map field-name="articleTypeId" />
+		</relation>
+
+		<relation type="one" fk-name="CCA_CATA" rel-entity-name="CmsCatalog">
+			<key-map field-name="catalogId" />
+		</relation>
+		<relation type="one" fk-name="CARTI_WSITE" rel-entity-name="CmsWebSite">
+			<key-map field-name="websiteId" />
+		</relation>
+	</entity>
+
+
+
+	<entity entity-name="CmsArticleType" package-name="org.extErp.sysCommon.article"
+		title="文章类型">
+		<field name="articleTypeId" type="id-ne">
+			<description>编号</description>
+		</field>
+		<field name="displayName" type="id-long">
+			<description>显示名称</description>
+		</field>
+		<field name="displayLevel" type="very-short">
+			<description>优先级别</description>
+		</field>
+
+		<prim-key field="articleTypeId" />
+	</entity>
+	
+	<entity entity-name="CmsAdvertise" package-name="org.ofbiz.itea.plugin" title="CmsAdvertise Entity">
+		<field name="adId" type="id-ne"></field>
+		<field name="advertiseTypeId" type="id-ne"></field>
+		<field name="adName" type="name"></field>
+		<field name="url" type="value"></field>
+		<field name="fileName" type="value"></field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		<field name="statusId" type="id"></field>
+		<field name="content" type="very-long">
+			<description>广告内容</description>
+		</field>
+		<field name="ifAvailable" type="indicator">
+			<description>是否有效</description>
+		</field>
+		<prim-key field="adId" />
+		<relation type="one" fk-name="FK_AD_AD_TYPE" rel-entity-name="CmsAdvertiseType">
+			<key-map field-name="advertiseTypeId" />
+		</relation>
+		<!-- <field name="adTypeId" type="id-ne"></field> <relation type="one" fk-name="CA_TYP" rel-entity-name="CmsAdvertiseType"> <key-map field-name="adTypeId" /> </relation> -->
+	</entity>
+
+	<entity entity-name="CmsCatalog" package-name="org.extErp.sysCommon.article"
+		title="CmsCatalog Entity">
+		<field name="catalogId" type="id-ne">
+			<description>primary sequenced ID</description>
+		</field>
+		<field name="catalogTypeId" type="id-ne"></field>
+		<field name="statusId" type="id-ne"></field>
+		<field name="websiteId" type="id-ne">
+			<description>网站Id</description>
+		</field>
+		<field name="parentId" type="name">
+			<description>父栏目</description>
+		</field>
+		<field name="catalogPath" type="url">
+			<description>栏目路径</description>
+		</field>
+		<field name="catalogName" type="name">
+			<description>栏目名称</description>
+		</field>
+		<field name="content" type="name">
+			<description>栏目内容</description>
+		</field>
+		<field name="titleImg" type="name">
+			<description>栏目缩略图</description>
+		</field>
+		<field name="contentImg" type="name">
+			<description>栏目内容图</description>
+		</field>
+		<field name="tplIndex" type="name">
+			<description>栏目页模板路径</description>
+		</field>
+		<field name="tplContent" type="name">
+			<description>内容页模板路径</description>
+		</field>
+		<field name="title" type="name">
+			<description>TITLE</description>
+		</field>
+		<field name="keywords" type="name">
+			<description>KEYWORDS</description>
+		</field>
+		<field name="description" type="name">
+			<description>DESCRIPTION</description>
+		</field>
+
+		<field name="isDisplay" type="very-short">
+			<description>是否显示</description>
+		</field>
+		<field name="sortNum" type="numeric">
+			<description>排序数字</description>
+		</field>
+		<prim-key field="catalogId" />
+		<relation type="one" fk-name="CCATA_WSITE" rel-entity-name="CmsWebSite">
+			<key-map field-name="websiteId" />
+		</relation>
+	</entity>
+	<entity entity-name="CmsWebSite" package-name="org.extErp.sysCommon.article"
+		title="CmsWebSite Entity">
+
+		<field name="websiteId" type="id-ne">
+			<description>网站Id</description>
+		</field>
+		<field name="websiteName" type="id-ne">
+			<description>站点名称</description>
+		</field>
+		<field name="parentId" type="id">
+			<description>父站点</description>
+		</field>
+		<field name="webDomain" type="name">
+			<description>域名</description>
+		</field>
+		<field name="resPath" type="value">
+			<description>资源路径</description>
+		</field>
+		<field name="resDomain" type="name">
+			<description>资源地址</description>
+		</field>
+		<field name="baseDomain" type="name">
+			<description>根域名</description>
+		</field>
+		<field name="shortName" type="name">
+			<description>简称</description>
+		</field>
+		<field name="systemType" type="name">
+			<description>系统类型</description>
+		</field>
+		<field name="cookieKey" type="name">
+			<description>系统cookie识别码</description>
+		</field>
+		<field name="closeReason" type="description">
+			<description>网站暂时关闭 关闭原因</description>
+		</field>
+		<field name="isClose" type="very-short">
+			<description>是否关闭网站（后台仍可访问）</description>
+		</field>
+		<field name="description" type="description">
+			<description>DESCRIPTION</description>
+		</field>
+		<field name="copyright" type="description">
+			<description>DESCRIPTION</description>
+		</field>
+		<field name="recordCode" type="description">
+			<description>DESCRIPTION</description>
+		</field>
+
+		<prim-key field="websiteId" />
+		<index name="CW_DOM">
+			<index-field name="webDomain" />
+		</index>
+	</entity>
+	<entity entity-name="CmsAdvertiseType" package-name="org.ofbiz.itea.plugin" title="CmsAdvertiseType Entity">
+		<field name="advertiseTypeId" type="id-ne"></field>
+		<field name="advertiseTypeName" type="name"></field>
+		<field name="displayDesc" type="value"></field>
+		<field name="status" type="indicator"></field>
+		<prim-key field="advertiseTypeId" />
+		<relation type="many" rel-entity-name="CmsAdvertise">
+			<key-map field-name="advertiseTypeId" />
+		</relation>
+	</entity>
+	<entity entity-name="CmsAdvertiseImg" package-name="org.ofbiz.itea.plugin" title="CmsAdvertiseImg Entity">
+		<field name="advertiseImgId" type="id-ne"></field>
+		<field name="adId" type="id-ne"></field>
+		<field name="imgTitle" type="url"></field>
+		<field name="imgUrl" type="url"></field>
+		<field name="href" type="url"></field>
+		<field name="orderNum" type="value"></field>
+		<field name="status" type="indicator"></field>
+		<prim-key field="advertiseImgId" />
+		<relation type="one" fk-name="FK_ADIMG_AD" rel-entity-name="CmsAdvertise">
+			<key-map field-name="adId" />
+		</relation>
+	</entity>
+</entitymodel>

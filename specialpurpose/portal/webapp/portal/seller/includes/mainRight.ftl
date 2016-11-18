@@ -1,0 +1,2 @@
+<div class="common-box"> <a href='http://seller.dhgate.com/marketing/signup/spread' > <img src="http://www.dhresource.com/dhs/mos/image/summary/banner20140904.jpg" width="230" height="100" /> </a> </div>
+<iframe frameborder="0" scrolling="no" width="100%" height="762" src="http://seller.dhgate.com/help/sellercenter.html" ></iframe>

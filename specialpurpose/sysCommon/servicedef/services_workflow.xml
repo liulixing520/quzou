@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>Component Services</description>
+	<vendor>OFBiz</vendor>
+	<version>1.0</version>
+    	<service name="createWorkflowParticipant" engine="simple" default-entity-name="WorkflowParticipant"
+             location="component://sysCommon/script/WorkFlowServices.xml" invoke="createWorkflowParticipant" auth="true">
+        <description>Create WorkflowParticipant-Workflow Participant Entity</description>
+        <auto-attributes include="pk" mode="OUT" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+     <service name="updateWorkflowParticipant" engine="simple" default-entity-name="WorkflowParticipant"
+             location="component://sysCommon/script/WorkFlowServices.xml" invoke="updateWorkflowParticipant" auth="true">
+        <description>Update WorkflowParticipant-Workflow Participant Entity</description>
+        <auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+    <service name="deleteWorkflowParticipant" engine="simple" default-entity-name="WorkflowParticipant"
+             location="component://sysCommon/script/WorkFlowServices.xml" invoke="deleteWorkflowParticipant" auth="true">
+        <description>Delete WorkflowParticipant-Workflow Participant Entity</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+    </service>
+    
+    
+     <!-- 工作流相关服务 -->	
+    <service name="startCommonWorkFlow" engine="java"
+            location="org.ofbiz.workflowMng.WorkflowMng" invoke="startCommonWorkFlow">
+        <description>update a VisitLetterRegister Info</description>
+        <attribute name="entityName" type="String" mode="IN" optional="false"/>
+        <attribute name="entityIdName" type="String" mode="IN" optional="false"/>
+        <attribute name="entityIdValue" type="String" mode="INOUT" optional="false"/>
+        <attribute name="workflowProcessServices" type="String" mode="INOUT" optional="false"/>
+        <attribute name="areaId" type="String" mode="INOUT" optional="true"/>
+	</service>
+	
+	<service name="startCommonFirstActivityProcess" engine="java" location="org.ofbiz.workflowMng.WorkflowMng" invoke="startCommonFirstActivityProcess">
+        <description>Service for testing the workflow engine</description>
+        <attribute name="entityIdName" type="String" mode="IN" optional="false"/>
+        <attribute name="entityIdValue" type="String" mode="IN" optional="false"/>
+        <attribute name="entityName" type="String" mode="IN" optional="false"/>
+        <attribute name="areaId" type="String" mode="IN" optional="true"/>
+        <attribute name="packageId" type="String" mode="INOUT" optional="true"/>
+	</service>
+	<service name="completeCommonEndActivityProcess" engine="java" location="org.ofbiz.workflowMng.WorkflowMng" invoke="completeCommonEndActivityProcess">
+        <description>Service for testing the workflow engine</description>
+        <attribute name="entityIdValue" type="String" mode="IN" optional="false"/>
+        <attribute name="areaId" type="String" mode="IN" optional="true"/>
+        <attribute name="packageId" type="String" mode="IN" optional="true"/>
+	</service>
+	<service name="saveCommonExamin" engine="java" 
+             location="org.ofbiz.workflowMng.WorkflowMng" invoke="toNextActivityCommonWorkFlow" auth="true">
+        <description>通用下一步处理</description>
+		<attribute name="nextActive" type="String" mode="IN" optional="true"/>
+		<attribute name="joinPersonId" type="String" mode="IN" optional="true"/>
+		<attribute name="roleTypeId" type="String" mode="IN" optional="true"/>
+		<attribute name="fromDate" type="String" mode="IN" optional="true"/>
+		<attribute name="workEffortId" type="String" mode="IN" optional="true"/>
+		<attribute name="entityIdValue" type="String" mode="IN" optional="true"/>
+		<attribute name="LeadCensure" type="String" mode="IN" optional="true"/>
+		<attribute name="returnActivity" type="String" mode="IN" optional="true"/>
+		<attribute name="paramMap" type="Map" mode="IN" optional="true"/>
+    </service>
+	
+	<service name="commonAssignFirstRole" engine="java" location="org.ofbiz.workflowMng.WorkflowMng" invoke="commonAssignFirstRole">
+        <description>Service for testing the workflow engine</description>
+        <attribute name="areaId" type="String" mode="IN" optional="false"/>
+        <attribute name="entityIdValue" type="String" mode="IN" optional="false"/>
+        <attribute name="roleTypeId" type="String" mode="IN" optional="false"/>
+        <attribute name="workflowProcessServices" type="String" mode="IN" optional="true"/>
+	</service>
+	<service name="CompleteUseCarWorkFlow" engine="java"
+	            location="org.extErp.sysCommon.demo.CarUtilWorkFlow" invoke="CompleteUseCarWorkFlow">
+	        <description>update a VisitLetterRegister Info</description>
+	        <attribute name="carUseId" type="String" mode="IN" optional="true"/>
+	        <attribute name="areaId" type="String" mode="IN" optional="true"/>
+	</service>	
+</services>

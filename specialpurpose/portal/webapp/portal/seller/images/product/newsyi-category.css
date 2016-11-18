@@ -1,0 +1,1330 @@
+@charset "utf-8";
+/*body{background:#fff;font:12px/1.5 tahoma,arial,\5b8b\4f53; color:#444444;}*/
+/*body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}*/
+/*button,input,select,textarea{font:100% tahoma,arial,\5b8b\4f53;}*/
+/*h1,h2,h3,h4,h5,h6{font-size:100%; font-weight:bold}*/
+em {
+    font-style: normal;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+input {
+    vertical-align: middle;
+}
+
+sup {
+    vertical-align: text-top;
+}
+
+sub {
+    vertical-align: text-bottom;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    color: #3366cc;
+    text-decoration: none;
+    outline: none
+}
+
+a:hover {
+    color: #900;
+    text-decoration: underline;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* CSS Document */
+#header {
+    position: relative;
+    width: 950px;
+    margin: 0 auto;
+    padding-bottom: 4px;
+    height: 77px;
+    background: url(http://www.dhresource.com/seller/images/login/login-head-bg.png) 0 bottom repeat-x;
+}
+
+#header h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#header h1 a {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: 356px;
+    height: 77px;
+}
+
+#header h1 a img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#header #toplist {
+    position: absolute;
+    right: 0;
+    padding: 10px 0;
+    height: 20px;
+}
+
+#header #toplist a {
+    color: #2c2c2c;
+    text-decoration: none;
+    margin: 0 5px;
+    line-height: 20px;
+}
+
+#header #toplist a:hover {
+    color: #900;
+    text-decoration: underline;
+}
+
+#header .returnoldsyi {
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    padding-left: 20px;
+    line-height: 20px;
+    color: #444;
+    cursor: pointer;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/returnoldsyi-01.png) 0 50% no-repeat;
+}
+
+#header .returnoldsyi span {
+    display: block;
+    vertical-align: middle;
+}
+
+#header .seenewusergu {
+    position: absolute;
+    bottom: 10px;
+    right: 100px;
+    padding-left: 20px;
+    line-height: 20px;
+    color: #444;
+    cursor: pointer;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/newuserdysyi-01.png) 0 50% no-repeat;
+}
+
+#header .seenewusergu span {
+    display: block;
+    vertical-align: middle;
+}
+
+#header .seenewusergu:hover, #header .returnoldsyi:hover {
+    color: #900;
+    text-decoration: underline;
+}
+
+.phone {
+    position: relative;
+    background: url(http://www.dhresource.com/dhs/fob/css/home/phone.png) no-repeat 0 2px;
+    *background: url(http://www.dhresource.com/dhs/fob/css/home/phone.png) no-repeat 0 0;
+    padding-left: 13px;
+}
+
+#header #toplist a.phone:hover {
+    background: url(http://www.dhresource.com/dhs/fob/css/home/phone.png) no-repeat 0 -18px;
+    *background: url(http://www.dhresource.com/dhs/fob/css/home/phone.png) no-repeat 0 -20px;
+    text-decoration: none;
+    color: #900
+}
+
+#footer {
+    width: 950px;
+    margin: 0 auto;
+    padding-top: 15px;
+    text-align: center;
+    border-top: solid 1px #D7D7D7;
+    font: 12px/22px Arial, Helvetica, sans-serif;
+    color: #444;
+}
+
+#footer a {
+    color: #444;
+    text-decoration: none;
+    margin: 0 6px;
+    display: inline;
+}
+
+#footer a:hover {
+    color: #900;
+}
+
+#footer p.p1 {
+    font-size: 11px;
+}
+
+#footer p.p2 {
+    margin-bottom: 10px;
+}
+
+.leavecategory, .catgoray-box {
+    width: 950px;
+    margin: 0 auto;
+}
+
+.leavecategory {
+    padding-left: 10px;
+    width: 940px;
+    height: 21px;
+    margin-top: 10px;
+}
+
+.leavecategory h1 {
+    font-size: 14px;
+    color: #000;
+}
+
+.leavecategory .leave-cat-lv {
+    float: right;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/leve01.png) 0 0 no-repeat;
+}
+
+.leavecategory .leave02 {
+    background-position: 0 -22px;
+}
+
+.leavecategory .leave03 {
+    background-position: 0 -44px;
+}
+
+.leavecategory span {
+    float: left;
+    display: block;
+    width: 99px;
+    line-height: 22px !important;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.leavecategory span.current {
+    font-weight: bold;
+}
+
+.leavecategory .leave-cat-lv span.first {
+    width: 100px;
+}
+
+.leavecategory .leave-cat-lv span.middle {
+    width: 106px;
+}
+
+.leavecategory .leave-cat-lv span.last {
+    width: 90px;
+}
+
+.titlebox {
+    padding: 6px 10px 0px;
+    height: 30px;
+    border-bottom: 1px solid #d4deee;
+    background-color: #EFF4FB;
+}
+
+.titlebox h3 {
+    display: inline-block;
+    padding-top: 2px;
+    _padding-top: 0px;
+    color: #000;
+    font-size: 12px;
+    line-height: 22px;
+    vertical-align: middle;
+}
+
+.fl-left {
+    float: left;
+}
+
+.fl-right {
+    float: right;
+}
+
+/*下拉框样式 开始*/
+.drop-down {
+    position: relative;
+    float: left;
+    padding-top: 1px;
+    width: 162px;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #8797b0;
+    background-color: #fff;
+}
+
+.drop-down-default {
+    display: block;
+    position: absolute;
+    right: 1px;
+    top: 0px;
+    width: 25px;
+    height: 23px;
+    border-left: 1px solid #b9cbe7;
+    cursor: pointer;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/syi-category.png) -20px 0 no-repeat;
+}
+
+.drop-down-default:hover {
+    border-color: #75cbff;
+    background-position: -20px -33px;
+}
+
+.drop-down-value {
+    display: block;
+    height: 21px;
+    text-indent: 7px;
+    margin-right: 26px;
+    cursor: pointer;
+}
+
+.drop-down-activation {
+    border-color: #008de2 #75cbff #75cbff #008de2;
+}
+
+.drop-down-activation .drop-down-default {
+    border-color: #75cbff;
+    background-position: -20px -33px;
+}
+
+.chouse-down-box {
+    display: none;
+    position: absolute;
+    left: -1px;
+    top: 24px;
+    border: 1px solid #8797b0;
+    padding: 1px 0;
+    width: 162px;
+    z-index: 999;
+    background-color: #fff;
+}
+
+.chouse-down-box span {
+    display: block;
+    margin: 0 1px;
+    text-indent: 7px;
+    color: #444444;
+    cursor: pointer;
+    height: 22px;
+}
+
+.chouse-down-box span.hover, .chouse-down-box span.selected, .chouse-down-box span.sac_over {
+    color: #fff;
+    background-color: #316ac5;
+}
+
+.drop-down-activation .chouse-down-box {
+    display: block;
+}
+
+.text-indent {
+    text-indent: 12px;
+}
+
+.text-indent span {
+    text-indent: 12px;
+}
+
+/*下拉框样式 结束*/
+
+.catgoray-box {
+    width: 950px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/*类目搜索模块  开始*/
+.search-box {
+    padding: 10px;
+    border-bottom: 1px dashed #dcdcdc;
+}
+
+.search-model {
+    position: relative;
+    height: 28px;
+    padding-bottom: 12px;
+    z-index: 11;
+}
+
+/*.search-model .search-title{ float:left; display:block; width:94px; height:30px; line-height:30px; }*/
+.search-model .search-input {
+    float: left;
+    display: block;
+    padding: 5px 5px 4px 5px;
+    width: 422px;
+    height: 22px;
+    font-size: 16px;
+    line-height: 22px;
+    border: 0 none;
+    text-indent: 10px;
+    margin-right: 10px;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/search-box.jpg) 0 0 no-repeat;
+}
+
+.search-association {
+    position: absolute;
+    left: 0px;
+    top: 31px;
+    z-index: 99999;
+    width: 430px;
+    height: 218px;
+    padding: 0px;
+    color: #444444;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.search-association ul {
+    width: 100%;
+    padding: 3px 0;
+}
+
+.search-association li {
+    display: block;
+    height: 21px;
+    line-height: 22px;
+    padding: 0 10px;
+    margin: 0 1px;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 19px;
+    overflow: hidden;
+    clear: both;
+}
+
+.search-association li span {
+    color: #333;
+    font-weight: 700;
+}
+
+.sac_over {
+    background-color: #316ac5;
+    color: #fff;
+}
+
+.search-association .sac_over span {
+    color: #fff;
+    font-weight: 300;
+}
+
+.sac-btn {
+    display: inline-block;
+    width: 126px;
+    height: 32px;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/searchbtn01.jpg) 0px 0 no-repeat;
+}
+
+.sac-btn input {
+    width: 126px;
+    height: 32px;
+    border: none;
+    background: none transparent;
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.sac-btn:hover {
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/searchbtn02.jpg) 0px 0 no-repeat;
+}
+
+/*类目搜索模块  结束*/
+
+/*search list start*/
+.search-none {
+    color: #444444;
+    padding-left: 0px;
+}
+
+.search-tiperror {
+    margin-top: 5px;
+    width: 390px;
+    height: 18px;
+    line-height: 18px;
+    vertical-align: middle;
+    border: solid 1px #C0D6E0;
+    padding: 4px 10px 4px 30px;
+    background: url(http://www.dhresource.com/2008/web20/seller/img/reg_image/reg_bottom_icon10.gif) #EBF2F6 no-repeat 10px 50%
+}
+
+.div_search_error {
+    margin-top: 5px;
+    padding: 4px 10px 4px 30px;
+    width: 390px;
+    height: 18px;
+    line-height: 18px;
+    vertical-align: middle;
+    border: solid 1px #F7ACAC;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/global-small-error.jpg) #feeeee 10px 50% no-repeat;
+}
+
+.search-source {
+    padding: 0 349px 0px 0px;
+}
+
+.search-none b {
+    color: #fc5602;
+}
+
+.search-sailtips {
+    position: relative;
+    display: block;
+    height: 30px;
+    margin: 0px 10px;
+    color: #444444;
+}
+
+.source-tit {
+    display: inline-block;
+    margin-top: 3px;
+}
+
+.source-tit b {
+    color: #fc5602;
+}
+
+.search-sailtips span.viewticps {
+    position: absolute;
+    top: 6px;
+    right: 0px;
+    z-index: 0;
+    line-height: 12px;
+    height: 12px;
+    color: #2f66cb;
+    cursor: pointer;
+}
+
+.search-sailtips span.viewticps .darrow {
+    display: inline-block;
+    margin-left: 3px;
+    width: 14px;
+    height: 14px;
+    _margin-top: 2px;
+    vertical-align: middle;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/syi-category.png) 0px -26px no-repeat;
+}
+
+.search-sailtips span.viewshow .darrow {
+    background-position: 0px 0px;
+}
+
+.search-sailtips-box {
+    padding: 10px 10px 0px 10px;
+    border-top: 1px solid #cdcdcd;
+}
+
+.search-sailtips-box li {
+    padding-left: 6px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.search-sailtips-box li span {
+    color: #c4c4c4;
+    padding: 0 6px;
+    font-family: Comic Sans MS;
+}
+
+.search-sailtips-box li.hover {
+    color: #fff;
+    background-color: #316ac5;
+}
+
+.addheight {
+    height: 1px;
+    padding: 0px 10px;
+    overflow: hidden;
+    border: 0 none;
+}
+
+.addheight ul {
+    display: none;
+}
+
+/*search list end*/
+
+/*history catgroay start*/
+.search-history {
+    position: relative;
+    z-index: 2;
+    height: 50px;
+    padding: 15px 10px 0;
+}
+
+.search-history .history-tit {
+    float: left;
+    color: #0b0b0b;
+    line-height: 24px;
+}
+
+.search-history .drop-down {
+    width: 552px;
+}
+
+.search-history .chouse-down-box {
+    display: none;
+    position: absolute;
+    left: -1px;
+    top: 24px;
+    border: 1px solid #8797b0;
+    padding: 1px 0;
+    width: 552px;
+    background-color: #fff;
+}
+
+.search-history .chouse-down-box li {
+    padding-left: 7px;
+    cursor: pointer;
+}
+
+.search-history .drop-down-activation .chouse-down-box {
+    display: block;
+}
+
+/*history catgroay start*/
+
+.greay-cat-box {
+    border: 1px solid #f3f3f3;
+}
+
+.greay-cat-box .b-f-line {
+    /*width: 930px;*/
+    overflow: hidden;
+    padding: 8px;
+    border: 1px solid #fff;
+    background-color: #fafafa;
+}
+
+.categoryselectlistbox {
+    position: relative;
+    z-index: 0;
+    width: 939px;
+    padding: 0 0 0 1px;
+    height: 222px;
+    overflow: hidden;
+}
+
+.categoryselectlist {
+    display: none;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 223px;
+    height: 220px;
+    border: 1px solid #b8c3d4;
+    margin-right: 9px;
+}
+
+.addscroll {
+    display: block;
+    overflow-y: scroll;
+}
+
+.categoryselectlist ul {
+    margin: 0 1px;
+}
+
+.categoryselectlist li {
+    overflow: hidden;
+    padding-left: 0px;
+    line-height: 20px;
+    height: 20px;
+    text-indent: 10px;
+    cursor: pointer;
+}
+
+.categoryselectlist li span.limited span {
+    color: #fc5602;
+    padding-right: 20px;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/nojoin.png) 100% 50% no-repeat;
+}
+
+.categoryselectlist li.current span.limited, .categoryselectlist li.hover span.limited {
+    display: block;
+    background-color: #fc5602;
+    color: #000;
+}
+
+.categoryselectlist li.current span.limited span, .categoryselectlist li.hover span.limited span {
+    color: #fff;
+}
+
+.categoryselectlist li.current {
+    color: #fc5602;
+}
+
+.categoryselectlist li.current, .categoryselectlist li.hover {
+    color: #fff;
+    background-color: #316ac5;
+}
+
+/*自定义滚动条样式 start*/
+.jscroll-e {
+    height: 100%;
+    top: 0px;
+    right: 0;
+    -moz-user-select: none;
+    position: absolute;
+    overflow: hidden;
+    z-index: 10000;
+}
+
+.jscroll-u {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    left: 1px;
+    background: blue;
+    overflow: hidden;
+    margin: 1px 0;
+}
+
+.jscroll-h {
+    position: absolute;
+    left: 1px;
+    -moz-user-select: none;
+    border: 1px solid;
+}
+
+.jscroll-d {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    left: 1px;
+    background: blue;
+    overflow: hidden;
+    margin: 1px 0;
+}
+
+.jscroll-center {
+    width: 7px;
+    height: 100%;
+    margin: 0 auto;
+    vertical-align: middle;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/scrollbg.png) -95px 50% no-repeat;
+}
+
+/*自定义滚动条样式 end*/
+
+/*类目提示 & 选择 开始*/
+.selected-category {
+    padding: 15px 0px;
+}
+
+.selected-category .chouseed-catrgory {
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #fdcc7f;
+    background-color: #ffffe5;
+}
+
+.selected-category .chouseed-catrgory span.cate-title {
+    float: left;
+    color: #0b0b0b;
+}
+
+.selected-category .chouseed-catrgory span.cate-value {
+    float: left;
+    width: 790px;
+}
+
+.selected-category .chouseed-catrgory span.cate-value span {
+    padding: 0 6px;
+    color: #000;
+    font-family: Comic Sans MS;
+}
+
+.selected-category .chouseed-catrgory span.cate-value b {
+    display: inline-block;
+    font-weight: 300;
+    color: #c34802;
+}
+
+.selected-category .chousetips {
+    color: #fc5602;
+    margin-top: 5px;
+    padding: 5px 0 0 30px;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/nojoin.png) 10px 7px no-repeat;
+}
+
+.selected-category-tip {
+    padding: 10px 10px 10px 10px;
+}
+
+.selected-category-tip span.cate-title {
+    float: left;
+    color: #0b0b0b;
+}
+
+.selected-category-tip span.cate-value {
+    float: left;
+    width: 846px;
+    color: #5a5a5a;
+}
+
+/*类目提示 & 选择 结束*/
+
+/*提交按钮样式 开始*/
+.buttonbox {
+    padding: 10px;
+    text-align: center;
+}
+
+
+.submit-syi {
+    display: inline-block;
+    padding: 3px 0 0;
+    width: 240px;
+    height: 38px;
+    color: #B25706;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/sub-btn001.jpg) 0 0 no-repeat;
+}
+
+.submit-syi * {
+    vertical-align: middle;
+}
+
+button .unavailable {
+    background-position: 0 -78px;
+}
+
+button:hover .submit-syi {
+    color: #763800;
+    background-position: 0 -39px;
+}
+
+button:hover .initialstate, button .initialstate {
+    color: #aba899;
+    background-position: 0 0;
+}
+
+button .unavailable, button:hover .unavailable {
+    color: #aca998;
+    background-position: 0 -78px;
+}
+
+button {
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    text-indent: inherit;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/*提交按钮样式 结束*/
+
+/*input链接按钮 开始*/
+.tourBtn {
+    vertical-align: middle;
+    overflow: hidden;
+    display: inline-block;
+    height: 23px;
+    padding: 0 0 0 1px;
+    margin-right: 9px;
+    background: url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) repeat-x 0 0;
+}
+
+.tourBtn a {
+    display: block;
+    height: 23px;
+    padding: 0 10px 0 9px;
+    border: 0 none;
+    background: url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) repeat-x 100% 0px;
+    text-decoration: none;
+    text-align: center;
+    color: #444444;
+    font: 12px/22px Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    overflow: hidden;
+    float: left;
+}
+
+.tourBtn:hover a {
+    color: #000;
+    background-position: right -23px;
+}
+
+.tourBtn a {
+    padding: 0 8px 3px 7px;
+    padding: 2px 10px 1px 9px \0;
+    *padding: 1px 10px 2px 9px;
+}
+
+.tourBtn:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+}
+
+.tourBtn:hover a {
+    background-position: 100% -23px;
+    text-decoration: none;
+    color: #000;
+}
+
+/*input链接按钮 结束*
+
+
+/*** 产品成功提交 开始 ****/
+
+/*提交产品成功页 开始*/
+.submit-pro-box {
+    padding: 20px 50px;
+    margin: 30px auto;
+    width: 525px;
+    border: 1px solid #8cd44c;
+    background-color: #f3ffe6;
+}
+
+.bod-line-btom {
+    padding-left: 42px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.btom-none {
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+
+.bod-line-btom h2 {
+    padding: 5px 0 10px 0;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000;
+}
+
+.bod-line-btom p {
+    line-height: 24px;
+    color: #949494;
+}
+
+.novialtip {
+    padding: 5px 10px 5px 35px;
+    height: 20px;
+    color: #fb5501;
+    border: 1px solid #d5ecbc;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/nojoin.png) #fff 10px 50% no-repeat;
+}
+
+.novialtip span {
+    display: inline;
+    vertical-align: middle;
+    line-height: 22px;
+}
+
+.bod-line-btom p.color000 {
+    color: #000;
+}
+
+.bod-line-btom p.padtop10 {
+    padding-top: 10px;
+}
+
+.bod-line-btom span.addwid90 {
+    display: inline-block;
+    width: 90px;
+}
+
+.bod-add-img {
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/sub-success.png) 0 0 no-repeat;
+}
+
+.bod-add-line {
+    border-bottom: 1px solid #ddd;
+}
+
+/*提交产品成功页 结束*/
+
+/*** 产品成功提交 开始 ****/
+
+/* 用户引导开始 */
+.guidedbox {
+    margin: 0 auto;
+}
+
+.guidedbox .greybox {
+    width: 705px;
+    height: 30px;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/bg.png) 50% -15px no-repeat;
+}
+
+.guidedbox .box {
+    overflow: hidden;
+    position: relative;
+    border: 3px solid #888888;
+    width: 698px;
+    height: 443px;
+    background-color: #fff;
+}
+
+.guidedbox a.guidedclosed {
+    overflow: hidden;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/closed01.jpg) -30px 0 no-repeat;
+}
+
+.guidedbox a.guidedclosed:hover {
+    background-position: 0 0;
+}
+
+.guidedbox .guided-steps-box {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding: 15px 20px 10px;
+    width: 659px;
+    height: 45px;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/bg-01.jpg) 0 0 repeat-x;
+}
+
+.guidedbox .guided-steps-box .gsboxleft {
+    float: left;
+    font-size: 26px;
+    font-family: "微软雅黑";
+    line-height: 30px;
+}
+
+.guidedbox .guided-steps-box .gsboxleft span.pageallnum {
+    color: #8c0909;
+}
+
+.guidedbox .guided-steps-box .gsboxright {
+    float: right;
+}
+
+.gsboxright ul {
+    width: 400px;
+    overflow: hidden;
+    height: 40px;
+}
+
+.gsboxright ul li {
+    overflow: hidden;
+    float: right;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+}
+
+.guidedbox .guided-steps-box .gsboxright span {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.guidednext, .guidedpre, .guidestartread, .guideiknow, .guideend {
+    overflow: hidden;
+    float: left;
+    display: inline-block;
+    width: 134px;
+    height: 41px;
+    text-indent: -99em;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/btn01.png) 0 0 no-repeat;
+}
+
+.guidednext {
+    background-position: -154px -42px;
+}
+
+.guidedpre {
+    background-position: 0 -42px;
+}
+
+.guidestartread {
+    width: 204px;
+}
+
+.guideiknow {
+    width: 144px;
+    background-position: -213px 0;
+}
+
+.guideend {
+    background-position: 0 -84px;
+}
+
+/* 用户引导结束 */
+
+/*SYI 错误恢复弹层 */
+.noshade-pop-inner .box1 {
+    padding: 20px 20px 10px 20px;
+}
+
+.noshade-pop-inner .boxcenter {
+    padding: 20px 20px 20px 20px;
+    line-height: 26px;
+    text-align: center;
+}
+
+.noshade-pop-inner .boxcenter p {
+    padding-bottom: 30px;
+}
+
+.noshade-pop-inner .box2 {
+    overflow: hidden;
+    padding: 20px 20px 0px 20px;
+    color: #000;
+}
+
+.noshade-pop-inner .box2 p.tipsnoite {
+    padding: 0 0 10px 35px;
+    color: #FB5501;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/nojoin.png) 10px 4px no-repeat;
+}
+
+.noshade-pop-inner .box2 p {
+    display: block;
+    overflow: hidden;
+    height: 100%;
+    padding: 0 0 8px 0px;
+    line-height: 20px;
+}
+
+.noshade-pop-inner .box2 p span.widtitle {
+    float: left;
+    width: 95px;
+    text-align: right;
+}
+
+.noshade-pop-inner .box2 p span.wid325contxt {
+    float: left;
+    padding-left: 3px;
+    text-align: left;
+    display: inline-block;
+    width: 325px;
+}
+
+/*input链接按钮 开始*/
+.tourBtn, .yellowBtn {
+    vertical-align: middle;
+    overflow: hidden;
+    display: inline-block;
+    height: 23px;
+    padding: 0 0 0 1px;
+    margin-right: 9px;
+    background: url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) repeat-x 0 0;
+}
+
+.yellowBtn {
+    height: 23px;
+    background: url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) repeat-x 0 -96px;
+}
+
+.tourBtn a, .tourBtn input, .yellowBtn a, .yellowBtn input {
+    display: block;
+    height: 23px;
+    padding: 0 10px 0 9px;
+    border: 0 none;
+    background: url(http://www.dhresource.com/dhs/mos/image/public/newbutton.png) repeat-x 100% 0px;
+    text-decoration: none;
+    text-align: center;
+    color: #444444;
+    font: 12px/22px Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    overflow: hidden;
+    float: left;
+}
+
+.tourBtn input, .yellowBtn input {
+    *+height: 24px;
+    _line-height: 24px;
+}
+
+.yellowBtn a, .yellowBtn input {
+    height: 23px;
+    font-size: 12px;
+    line-height: 23px;
+    background-position: right -96px;
+}
+
+.tourBtn:hover a, .tourBtn:hover input {
+    color: #000;
+    background-position: right -23px;
+}
+
+.tourBtn a, .tourBtn input, .yellowBtn a, .yellowBtn input {
+    padding: 0 8px 3px 7px;
+    padding: 2px 10px 1px 9px \0;
+    *padding: 1px 10px 2px 9px;
+}
+
+.tourBtn input, .yellowBtn input {
+    height: 23px;
+    overflow: visible;
+    text-indent: inherit;
+    *vertical-align: middle;
+}
+
+:root .tourBtn input {
+    padding-top: 1px \9;
+}
+
+:root .yellowBtn input {
+    padding-top: 1px \9;
+}
+
+.tourBtn input, .yellowBtn input {
+    padding-top: 0px \0;
+}
+
+.yellowBtn a, .yellowBtn input {
+    color: #B25706;
+}
+
+.tourBtn:hover, .yellowBtn:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+}
+
+.tourBtn:hover a, .tourBtn:hover input, .yellowBtn:hover a, .yellowBtn:hover input {
+    background-position: 100% -23px;
+    text-decoration: none;
+    color: #000;
+}
+
+.yellowBtn:hover a, .yellowBtn:hover input {
+    color: #763800;
+    background-position: 100% -119px;
+}
+
+/*input链接按钮 结束*/
+.tip-error {
+    margin-top: 5px;
+    padding: 4px 10px 4px 30px;
+    width: 390px;
+    height: 18px;
+    line-height: 18px;
+    vertical-align: middle;
+    border: solid 1px #F7ACAC;
+    background: url(http://www.dhresource.com/dhs/mos/image/syi/new/global-small-error.jpg) #feeeee 10px 50% no-repeat;
+}
+
+/*无蒙版弹出框样式开始*/
+.t-lt, .t-mid, .t-ri, .m-lt, .m-ri, .b-lt, .b-mid, .b-ri {
+    background: #000;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+
+.t-lt, .t-ri, .m-lt, .m-ri, .b-lt, .b-ri {
+    width: 10px;
+}
+
+.t-lt, .t-mid, .t-ri, .b-lt, .b-mid, .b-ri {
+    height: 10px;
+}
+
+.m-mid {
+    background: #fff;
+}
+
+.m-mid .tc_content {
+    border: none;
+}
+
+.m-mid .mid-warp {
+    position: relative;
+    margin: -10px;
+    padding: 10px;
+}
+
+.noshade-pop-content {
+    border: 1px solid #afafaf;
+    background: #fff;
+}
+
+.noshade-pop-title {
+    overflow: hidden;
+    padding: 5px 10px;
+    height: 16px;
+    line-height: 16px;
+    color: #000;
+    border-top: 1px solid #f3f3f3;
+    border-bottom: 1px solid #ddd;
+    background: #ededed;
+}
+
+.noshade-pop-bot {
+    overflow: hidden;
+    height: 6px;
+    border-top: 1px solid #ddd;
+    background: #ededed;
+}
+
+.noshade-pop-inner .box1 {
+    padding: 20px;
+}
+
+.noshade-pop-inner .boxcenter {
+    padding: 40px 20px 20px 20px;
+    line-height: 26px;
+    text-align: center;
+}
+
+.noshade-pop-inner .boxcenter p {
+    padding-bottom: 30px;
+}
+
+.noshade-pop-close {
+    overflow: hidden;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    _right: 8px;
+    width: 13px;
+    height: 13px;
+    background: url(http://image.dhgate.com/dhs/mos/image/public/pop-close.png) no-repeat;
+    cursor: pointer;
+}
+
+.noshade-pop-close:hover {
+    background-position: 0 -13px;
+}
+
+/*遮罩层*/
+.modalOverlay {
+    background-color: #000000;
+    cursor: wait;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}

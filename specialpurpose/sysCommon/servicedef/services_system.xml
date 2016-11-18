@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>Component Services</description>
+	<vendor>OFBiz</vendor>
+	<version>1.0</version>
+		<!-- 扩展属性 -->
+    	<service name="createExtendAttribute" engine="simple" default-entity-name="ExtendAttribute"
+	             location="component://sysCommon/script/SystemServices.xml" invoke="createExtendAttribute" auth="true">
+	        <description>Create ExtendAttribute-Entity of LIMS Component</description>
+	        <auto-attributes include="pk" mode="OUT" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	     <service name="updateExtendAttribute" engine="simple" default-entity-name="ExtendAttribute"
+	             location="component://sysCommon/script/SystemServices.xml" invoke="updateExtendAttribute" auth="true">
+	        <description>Update ExtendAttribute-Entity of LIMS Component</description>
+	        <auto-attributes include="pk" mode="IN" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	    <service name="deleteExtendAttribute" engine="simple" default-entity-name="ExtendAttribute"
+	             location="component://sysCommon/script/SystemServices.xml" invoke="deleteExtendAttribute" auth="true">
+	        <description>Delete ExtendAttribute-Entity of LIMS Component</description>
+	        <auto-attributes mode="IN" include="pk" optional="false"/>
+	    </service>
+	    <!-- 枚举和枚举类型 -->
+    	 <service name="createEnumerationType" engine="simple" default-entity-name="EnumerationType"
+             location="component://sysCommon/script/SystemServices.xml" invoke="createEnumerationType" auth="true">
+        <description>Create EnumerationType-Enumeration Type Entity</description>
+        <auto-attributes include="pk" mode="INOUT" optional="true" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+     <service name="updateEnumerationType" engine="simple" default-entity-name="EnumerationType"
+             location="component://sysCommon/script/SystemServices.xml" invoke="updateEnumerationType" auth="true">
+        <description>Update EnumerationType-Enumeration Type Entity</description>
+        <auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+    <service name="deleteEnumerationType"  default-entity-name="EnumerationType"
+    		engine="java" location="org.extErp.sysCommon.system.SystemServices" invoke="deleteEnumerationType">
+<!--              location="component://sysCommon/script/SystemServices.xml" invoke="deleteEnumerationType" auth="true"> -->
+        <description>Delete EnumerationType-Enumeration Type Entity</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+    </service>
+    	<service name="createEnumeration" engine="simple" default-entity-name="Enumeration"
+             location="component://sysCommon/script/SystemServices.xml" invoke="createEnumeration" auth="true">
+        <description>Create Enumeration-Enumeration Entity</description>
+        <auto-attributes include="pk" mode="OUT" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+     <service name="updateEnumeration" engine="simple" default-entity-name="Enumeration"
+             location="component://sysCommon/script/SystemServices.xml" invoke="updateEnumeration" auth="true">
+        <description>Update Enumeration-Enumeration Entity</description>
+        <auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+    <service name="deleteEnumeration" engine="simple" default-entity-name="Enumeration"
+             location="component://sysCommon/script/SystemServices.xml" invoke="deleteEnumeration" auth="true">
+        <description>Delete Enumeration-Enumeration Entity</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+    </service>
+    <!-- 清除缓存 -->
+     <service name="clearCacheEnumeration" engine="simple" default-entity-name="Enumeration"
+             location="component://sysCommon/script/SystemServices.xml" invoke="clearCacheEnumeration" auth="true">
+        <description>Update Enumeration-Admin Tree Item Entity</description>
+        <auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>	
+    	<service name="createMenuTree" engine="simple" default-entity-name="MenuTree"
+             location="component://sysCommon/script/SystemServices.xml" invoke="createMenuTree" auth="true">
+        <description>Create MenuTree-Admin Tree Item Entity</description>
+        <auto-attributes include="pk" mode="OUT" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+     <service name="updateMenuTree" engine="simple" default-entity-name="MenuTree"
+             location="component://sysCommon/script/SystemServices.xml" invoke="updateMenuTree" auth="true">
+        <description>Update MenuTree-Admin Tree Item Entity</description>
+        <auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+    <service name="deleteMenuTree" engine="simple" default-entity-name="MenuTree"
+             location="component://sysCommon/script/SystemServices.xml" invoke="deleteMenuTree" auth="true">
+        <description>Delete MenuTree-Admin Tree Item Entity</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+    </service>
+    <!-- 清除缓存 -->
+     <service name="clearCacheMenuTree" engine="simple" default-entity-name="MenuTree"
+             location="component://sysCommon/script/SystemServices.xml" invoke="clearCacheMenuTree" auth="true">
+        <description>Update MenuTree-Admin Tree Item Entity</description>
+        <auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>	
+    	
+
+	     <service name="updateOperLogs" engine="simple" default-entity-name="OperLogs"
+	             location="component://sysCommon/script/SystemServices.xml" invoke="updateOperLogs" auth="true">
+	        <description>Update OperLogs-OperLogs</description>
+	        <auto-attributes include="pk" mode="IN" optional="false" />
+			<auto-attributes include="nonpk" mode="IN" optional="true" />
+	    </service>
+	    <service name="deleteOperLogs" engine="simple" default-entity-name="OperLogs"
+	             location="component://sysCommon/script/SystemServices.xml" invoke="deleteOperLogs" auth="true">
+	        <description>Delete OperLogs-OperLogs</description>
+	        <auto-attributes mode="IN" include="pk" optional="false"/>
+	    </service>
+	    <service name="deleteAllOperLogs" engine="simple" default-entity-name="OperLogs"
+	             location="component://sysCommon/script/SystemServices.xml" invoke="deleteAllOperLogs" auth="true">
+	        <description>Delete OperLogs-OperLogs</description>
+	        <attribute name="ids"  mode="IN" type="String" optional="false"/>
+	    </service>
+    <service name="sendMailFromScreenExt" max-retry="3" engine="java"
+        location="org.extErp.sysCommon.common.email.EmailServices" invoke="sendMailFromScreen">
+        <description>Send E-Mail From Screen Widget Service</description>
+        <implements service="sendMailFromScreenInterface"/>
+        <attribute name="hideInLog" type="Boolean" mode="IN" optional="true"/>
+     </service> 	
+    <service name="sendReportFromFaxServices" max-retry="3" engine="java"
+        location="org.extErp.sysCommon.system.SystemServices" invoke="sendReportFromFaxServices">
+        <description>Send report From Fax Service</description>
+        <attribute name="faxNumber" type="String" mode="IN" optional="true"/>
+        <attribute name="fileName" type="String" mode="IN" optional="true"/>
+     </service>
+    <service name="wordToPDFServices" max-retry="3" engine="java"
+        location="org.extErp.sysCommon.system.SystemServices" invoke="wordToPDFServices">
+        <description>WORD文档到PDF</description>
+        <attribute name="docfile" type="String" mode="IN" optional="true"/>
+        <attribute name="toFile" type="String" mode="IN" optional="true"/>
+     </service>
+     	<!--自定义表单 -->
+    <service name="createDesignForm" engine="java" default-entity-name="DesignForm" 
+     		location="org.extErp.sysCommon.system.DesignFormServices" invoke="createDesignForm" auth="true">
+        <description>Create DesignForm-自定义表单</description>
+        <auto-attributes include="pk" mode="INOUT" optional="true" />
+		<auto-attributes include="nonpk" mode="IN" allow-html="any" optional="true" />
+    </service>
+     <service name="updateDesignForm" engine="java" default-entity-name="DesignForm"
+             location="org.extErp.sysCommon.system.DesignFormServices" invoke="updateDesignForm" auth="true">
+        <description>Update DesignForm-自定义表单</description>
+        <auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+    <service name="deleteDesignForm" engine="java" default-entity-name="DesignForm"
+             location="org.extErp.sysCommon.system.DesignFormServices" invoke="deleteDesignForm" auth="true">
+        <description>Delete DesignForm-自定义表单</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+    </service>
+     
+</services>

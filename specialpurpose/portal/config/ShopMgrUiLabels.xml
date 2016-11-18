@@ -1,0 +1,1495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE file distributed with this work for additional information regarding copyright ownership. The ASF licenses this file to you under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and 
+	limitations under the License. -->
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- 系统菜单开始 -->
+	<property key="ProductProductsMgr">
+		<value xml:lang="en">Products</value>
+		<value xml:lang="zh">商品管理</value>
+		<value xml:lang="zh_TW">產品管理</value>
+	</property>
+	<property key="OrderOrdersMgr">
+		<value xml:lang="en">Orders</value>
+		<value xml:lang="zh">订单管理</value>
+		<value xml:lang="zh_TW">订单管理</value>
+	</property>
+	<property key="MemberMembersMgr">
+		<value xml:lang="en">members</value>
+		<value xml:lang="zh">会员管理</value>
+		<value xml:lang="zh_TW">会员管理</value>
+	</property>
+	<property key="PromoPromosMgr">
+		<value xml:lang="en">Promos</value>
+		<value xml:lang="zh">促销管理</value>
+		<value xml:lang="zh_TW">促销管理</value>
+	</property>
+	<property key="ContentContentsMgr">
+		<value xml:lang="en">Contents</value>
+		<value xml:lang="zh">内容管理</value>
+		<value xml:lang="zh_TW">内容管理</value>
+	</property>
+	<property key="FinanceMgr">
+		<value xml:lang="en">FinanceMgr</value>
+		<value xml:lang="zh">财务管理</value>
+		<value xml:lang="zh_TW">财务管理</value>
+	</property>
+	<property key="ConfigConfigsMgr">
+		<value xml:lang="en">Configs</value>
+		<value xml:lang="zh">系统设置</value>
+		<value xml:lang="zh_TW">系统设置</value>
+	</property>
+	<property key="paymentGatewayMgr">
+		<value xml:lang="en">payment gateway management</value>
+		<value xml:lang="zh">支付网关管理</value>
+		<value xml:lang="zh_TW">支付网关管理</value>
+	</property>
+	<property key="paymentGatewaySetting">
+		<value xml:lang="en">payment gateway setting</value>
+		<value xml:lang="zh">支付宝网关设置</value>
+		<value xml:lang="zh_TW">支付寶網関設置</value>
+	</property>
+	<property key="PermissionPermissionsMgr">
+		<value xml:lang="en">Permissions</value>
+		<value xml:lang="zh">权限管理</value>
+		<value xml:lang="zh_TW">权限管理</value>
+	</property>
+	<property key="StatisticsStatisticsMgr">
+		<value xml:lang="en">Statistics</value>
+		<value xml:lang="zh">统计管理</value>
+		<value xml:lang="zh_TW">统计管理</value>
+	</property>
+	<property key="SystemSystemMgr">
+		<value xml:lang="en">System</value>
+		<value xml:lang="zh">系统配置</value>
+		<value xml:lang="zh_TW">系统配置</value>
+	</property>
+
+	<property key="ProductCategoriesMgr">
+		<value xml:lang="en">Categories</value>
+		<value xml:lang="zh">分类管理</value>
+		<value xml:lang="zh_TW">分類管理</value>
+	</property>
+	<property key="ProductFeatureCatsMgr">
+		<value xml:lang="en">Features</value>
+		<value xml:lang="zh">规格管理</value>
+		<value xml:lang="zh_TW">特性管理</value>
+	</property>
+	<property key="ProductPromosMgr">
+		<value xml:lang="en">Promos</value>
+		<value xml:lang="zh">促销管理</value>
+		<value xml:lang="zh_TW">促銷管理</value>
+	</property>
+	<property key="ProductLabMgr">
+		<value xml:lang="en">ProductLabMgr</value>
+		<value xml:lang="zh">标签管理</value>
+		<value xml:lang="zh_TW">标签管理</value>
+	</property>
+	<property key="ProductPriceRulesMgr">
+		<value xml:lang="en">Price Rules</value>
+		<value xml:lang="zh">定价规则</value>
+		<value xml:lang="zh_TW">價格規則</value>
+	</property>
+	<property key="ProductStoresMgr">
+		<value xml:lang="en">Stores</value>
+		<value xml:lang="zh">店铺管理</value>
+		<value xml:lang="zh_TW">商店管理</value>
+	</property>
+	<property key="ProductThesaurusMgr">
+		<value xml:lang="en">Thesaurus</value>
+		<value xml:lang="zh">关键字管理</value>
+		<value xml:lang="zh_TW">辭典</value>
+	</property>
+	<property key="ProductReviewsMgr">
+		<value xml:lang="en">Reviews</value>
+		<value xml:lang="zh">评论管理</value>
+		<value xml:lang="zh_TW">評論</value>
+	</property>
+	<property key="ProductConfigItemsMgr">
+		<value xml:lang="en">Configurations</value>
+		<value xml:lang="zh">配置</value>
+		<value xml:lang="zh_TW">配置</value>
+	</property>
+	<property key="ProductSubscriptionsMgr">
+		<value xml:lang="en">Subscriptions</value>
+		<value xml:lang="zh">订阅管理</value>
+		<value xml:lang="zh_TW">訂閱</value>
+	</property>
+	<property key="ProductShippingMgr">
+		<value xml:lang="en">Shipping</value>
+		<value xml:lang="zh">运货管理</value>
+		<value xml:lang="zh_TW">送貨</value>
+	</property>
+	<property key="CatalogWebAnalyticsMgr">
+		<value xml:lang="en">Web Analytics</value>
+		<value xml:lang="zh">网站分析</value>
+		<value xml:lang="zh_TW">網站分析</value>
+	</property>
+	<property key="ImageManagementMgr">
+		<value xml:lang="en">Image Management</value>
+		<value xml:lang="zh">图片管理</value>
+		<value xml:lang="zh_TW">图像</value>
+	</property>
+	<property key="QuickReg">
+		<value xml:lang="en">QuickReg</value>
+		<value xml:lang="zh">快速注册</value>
+		<value xml:lang="zh_TW">快速注册</value>
+	</property>
+	<property key="QuickOrder">
+		<value xml:lang="en">QuickOrder</value>
+		<value xml:lang="zh">快速下单</value>
+		<value xml:lang="zh_TW">快速下单</value>
+	</property>
+
+	<!-- 二级菜单 -->
+	<property key="MemberGrade">
+		<value xml:lang="en">MemberGrade</value>
+		<value xml:lang="zh">会员等级</value>
+	</property>
+	<property key="MemberMessage">
+		<value xml:lang="en">MemberMessage</value>
+		<value xml:lang="zh">站內信</value>
+	</property>
+	<property key="ProductAdvisory">
+		<value xml:lang="en">ProductAdvisory</value>
+		<value xml:lang="zh">商品咨询</value>
+		<value xml:lang="zh_TW">商品咨询</value>
+	</property>
+
+	<property key="OrderCourierMgr">
+		<value xml:lang="en">AdMgr</value>
+		<value xml:lang="zh">快递单管理</value>
+		<value xml:lang="zh_TW">快递单管理</value>
+	</property>
+	<property key="OrderReturnMgr">
+		<value xml:lang="en">OrderReturnMgr</value>
+		<value xml:lang="zh">退换货处理</value>
+	</property>
+	<property key="OrderPosMgr">
+		<value xml:lang="en">OrderPosMgr</value>
+		<value xml:lang="zh">直营店管理</value>
+	</property>
+	<property key="AdMgr">
+		<value xml:lang="en">AdMgr</value>
+		<value xml:lang="zh">广告管理</value>
+		<value xml:lang="zh_TW">广告管理</value>
+	</property>
+	<property key="AcMgr">
+		<value xml:lang="en">AcMgr</value>
+		<value xml:lang="zh">文章管理</value>
+		<value xml:lang="zh_TW">文章管理</value>
+	</property>
+	<property key="ApMgr">
+		<value xml:lang="en">ApMgr</value>
+		<value xml:lang="zh">应付</value>
+		<value xml:lang="zh_TW">应付</value>
+	</property>
+	<property key="ArMgr">
+		<value xml:lang="en">ArMgr</value>
+		<value xml:lang="zh">应收</value>
+		<value xml:lang="zh_TW">应收</value>
+	</property>
+	<!-- 二级菜单结束 -->
+	<!-- 三级菜单 -->
+	<property key="ProductAdd">
+		<value xml:lang="en">ProductAdd</value>
+		<value xml:lang="zh">商品添加</value>
+		<value xml:lang="zh_TW">產品管理</value>
+	</property>
+	<property key="ProductCategoryAdd">
+		<value xml:lang="en">ProductCategory tAdd</value>
+		<value xml:lang="zh">分类添加</value>
+	</property>
+	<property key="ProductCategoryList">
+		<value xml:lang="en">ProductCategory List</value>
+		<value xml:lang="zh">分类列表</value>
+	</property>
+	<property key="ProductLabList">
+		<value xml:lang="en">ProductLabList</value>
+		<value xml:lang="zh">标签列表</value>
+		<value xml:lang="zh_TW">标签管理</value>
+	</property>
+	<property key="ProductLabAdd">
+		<value xml:lang="en">ProductLabAdd</value>
+		<value xml:lang="zh">添加标签</value>
+	</property>
+	<property key="ProductLabMgr">
+		<value xml:lang="en">ProductLabMgr</value>
+		<value xml:lang="zh">标签管理</value>
+		<value xml:lang="zh_TW">标签管理</value>
+	</property>
+	<property key="ProductRecive">
+		<value xml:lang="en">ProductRecive</value>
+		<value xml:lang="zh">回收站</value>
+		<value xml:lang="zh_TW">產品管理</value>
+	</property>
+	<property key="ProductMutilAdd">
+		<value xml:lang="en">ProductMutilAdd</value>
+		<value xml:lang="zh">批量上传商品</value>
+		<value xml:lang="zh_TW">產品管理</value>
+	</property>
+	<property key="ProductAdvisoryList">
+		<value xml:lang="en">ProductAdvisoryList</value>
+		<value xml:lang="zh">商品咨询列表</value>
+		<value xml:lang="zh_TW">商品商品咨询</value>
+	</property>
+	<property key="ProductAdvisorySet">
+		<value xml:lang="en">ProductAdvisorySet</value>
+		<value xml:lang="zh">商品咨询设置</value>
+		<value xml:lang="zh_TW">商品商品咨询</value>
+	</property>
+	<property key="OrderAdd">
+		<value xml:lang="en">OrderAdd</value>
+		<value xml:lang="zh">快速下单</value>
+		<value xml:lang="zh_TW"></value>
+	</property>
+	<property key="OrderList">
+		<value xml:lang="en">OrderList</value>
+		<value xml:lang="zh">订单列表</value>
+	</property>
+	<property key="OrderCreatedList">
+		<value xml:lang="en">OrderCreatedList</value>
+		<value xml:lang="zh">待确认订单</value>
+	</property>
+	<property key="OrderApprovedList">
+		<value xml:lang="en">OrderApprovedList</value>
+		<value xml:lang="zh">待打包订单</value>
+	</property>
+	<property key="OrderProcessingList">
+		<value xml:lang="en">OrderProcessingList</value>
+		<value xml:lang="zh">待发货订单</value>
+	</property>
+	<property key="OrderShippedList">
+		<value xml:lang="en">OrderShippedList</value>
+		<value xml:lang="zh">已发货订单</value>
+	</property>
+	<property key="OrderCancelShippedList">
+		<value xml:lang="en">OrderCancelShippedList</value>
+		<value xml:lang="zh">已拒收订单</value>
+	</property>
+	<property key="OrderCompletedList">
+		<value xml:lang="en">OrderCompletedList</value>
+		<value xml:lang="zh">已完成订单</value>
+	</property>
+	<property key="OrderCancelledList">
+		<value xml:lang="en">OrderCancelledList</value>
+		<value xml:lang="zh">无效订单</value>
+	</property>
+	<property key="OrderRetrunList">
+		<value xml:lang="en">OrderRetrunList</value>
+		<value xml:lang="zh">退换货订单</value>
+	</property>
+	<property key="OrderReturnRequestedList">
+		<value xml:lang="en">OrderReturnRequestedList</value>
+		<value xml:lang="zh">待确认退货单</value>
+	</property>
+	<property key="OrderReturnAcceptedList">
+		<value xml:lang="en">OrderReturnAcceptedList</value>
+		<value xml:lang="zh">已确认退货单</value>
+	</property>
+	<property key="OrderReturnReceivedList">
+		<value xml:lang="en">OrderReturnReceivedList</value>
+		<value xml:lang="zh">已接收退货单</value>
+	</property>
+	<property key="OrderReturnCompletedList">
+		<value xml:lang="en">OrderReturnCompletedList</value>
+		<value xml:lang="zh">已完成退货单</value>
+	</property>
+	<property key="OrderReturnCancelledList">
+		<value xml:lang="en">OrderReturnCancelledList</value>
+		<value xml:lang="zh">已取消退货单</value>
+	</property>
+	<property key="OrderReturnReqReplaceList">
+		<value xml:lang="en">OrderReturnReqReplaceList</value>
+		<value xml:lang="zh">待确认换货单</value>
+	</property>
+	<property key="OrderReturnAccReplaceList">
+		<value xml:lang="en">OrderReturnAccReplaceList</value>
+		<value xml:lang="zh">已确认换货单</value>
+	</property>
+	<property key="OrderReturnRecReplaceList">
+		<value xml:lang="en">OrderReturnRecReplaceList</value>
+		<value xml:lang="zh">已接收换货单</value>
+	</property>
+	<property key="OrderReturnComReplaceList">
+		<value xml:lang="en">OrderReturnComReplaceList</value>
+		<value xml:lang="zh">已完成换货单</value>
+	</property>
+	<property key="OrderReturnCanReplaceList">
+		<value xml:lang="en">OrderReturnCanReplaceList</value>
+		<value xml:lang="zh">已取消换货单</value>
+	</property>
+	<property key="OrderPosAdd">
+		<value xml:lang="en">OrderPosAdd</value>
+		<value xml:lang="zh">直营店下单</value>
+	</property>
+	<property key="OrderPosList">
+		<value xml:lang="en">OrderPosList</value>
+		<value xml:lang="zh">直营店下单列表</value>
+	</property>
+	<!-- added by dongyc 201206 -->
+	 <property key="addFinAccount">
+		<value xml:lang="en">addFinAccount</value>
+		<value xml:lang="zh">会员卡批量管理</value>
+	</property> 
+	<property key="finAccountList">
+		<value xml:lang="en">finAccountList</value>
+		<value xml:lang="zh">会员卡列表</value>
+	</property> 
+	
+	<property key="addGiftCard">
+		<value xml:lang="en">addGiftCard</value>
+		<value xml:lang="zh">提货卡使用记录</value>
+	</property>
+	<!-- added by dongyc 201206 end -->
+	<!-- added by dongyc 20120914 提货卡使用记录2 -->
+	<property key="giftcardUsedList">
+		<value xml:lang="en">giftcardUsedList</value>
+		<value xml:lang="zh">提货卡使用记录</value>
+	</property>
+	<property key="OrderCourierList">
+		<value xml:lang="en">AdMgr</value>
+		<value xml:lang="zh">快递单模板</value>
+		<value xml:lang="zh_TW">快递单模板</value>
+	</property>
+	<property key="OrderCourierAdd">
+		<value xml:lang="en">AdMgr</value>
+		<value xml:lang="zh">新增快递单</value>
+	</property>
+	<property key="OrderReturnList">
+		<value xml:lang="en">OrderReturnList</value>
+		<value xml:lang="zh">退换货列表</value>
+	</property>
+	<property key="AcMgrList">
+		<value xml:lang="en">AcMgrList</value>
+		<value xml:lang="zh">文章列表</value>
+		<value xml:lang="zh_TW">文章列表</value>
+	</property>
+	<property key="AdMgrList">
+		<value xml:lang="en">AdMgrList</value>
+		<value xml:lang="zh">广告列表</value>
+		<value xml:lang="zh_TW">广告列表</value>
+	</property>
+	<property key="AcCategoryMgrList">
+		<value xml:lang="en">AcCategoryMgrList</value>
+		<value xml:lang="zh">文章分类列表</value>
+	</property>
+	<property key="AdMgrAdd">
+		<value xml:lang="en">AdMgrAdd</value>
+		<value xml:lang="zh">广告添加</value>
+		<value xml:lang="zh_TW">广告添加</value>
+	</property>
+	
+	<property key="MarketingCampaignMgr">
+		<value xml:lang="en">Marketing Campaign management</value>
+		<value xml:lang="zh">市场活动管理</value>
+		<value xml:lang="zh_TW">市場活動管理</value>
+	</property>
+	<property key="FindMarketingCampaign">
+		<value xml:lang="en">Find Marketing Campaign</value>
+		<value xml:lang="zh">市场活动维护</value>
+		<value xml:lang="zh_TW">市場活動維護</value>
+	</property>
+	<property key="FindTrackingCode">
+		<value xml:lang="en">Find Tracking Code</value>
+		<value xml:lang="zh">市场活动跟踪</value>
+		<value xml:lang="zh_TW">市場活動跟蹤</value>
+	</property>
+	<property key="FindTrackingCodeGroup">
+		<value xml:lang="en">Find Tracking Code Group</value>
+		<value xml:lang="zh">媒体维护</value>
+		<value xml:lang="zh_TW">媒体维护</value>
+	</property>
+	
+	<property key="AcMgrAdd">
+		<value xml:lang="en">AcMgrAdd</value>
+		<value xml:lang="zh">文章添加</value>
+		<value xml:lang="zh_TW">文章添加</value>
+	</property>
+	<property key="AcCategoryAdd">
+		<value xml:lang="en">AcCategoryAdd</value>
+		<value xml:lang="zh">添加文章分类</value>
+	</property>
+	<property key="SecurityGroupList">
+		<value xml:lang="en">SecurityGroup List</value>
+		<value xml:lang="zh">角色列表</value>
+	</property>
+	<property key="SecurityGroupAdd">
+		<value xml:lang="en">SecurityGroup Add</value>
+		<value xml:lang="zh">添加角色</value>
+	</property>
+	
+	<property key="SecurityGroupManagerAdd">
+		<value xml:lang="en">SecurityGroupManager Add</value>
+		<value xml:lang="zh">添加管理员</value>
+	</property>
+	
+	<property key="SecurityGroupManagerList">
+		<value xml:lang="en">SecurityGroupManager List</value>
+		<value xml:lang="zh">管理员列表</value>
+	</property>
+	
+	<property key="ArList">
+		<value xml:lang="en">ArList</value>
+		<value xml:lang="zh">应收列表</value>
+	</property>
+	<property key="ApList">
+		<value xml:lang="en">ApList</value>
+		<value xml:lang="zh">应付列表</value>
+	</property>
+	<!-- 三级菜单结束 -->
+	<!-- 系统菜单结束 -->
+	<!-- shop页面开始 -->
+	<property key="ShopSystemName">
+		<value xml:lang="en">ShopSystemName</value>
+		<value xml:lang="zh">系统名称</value>
+		<value xml:lang="zh_TW">系统名称</value>
+	</property>
+	<property key="ShopManagerCenter">
+		<value xml:lang="en">ShopManagerCenter</value>
+		<value xml:lang="zh">管理中心</value>
+		<value xml:lang="zh_TW">管理中心</value>
+	</property>
+	<property key="ModelMenu">
+		<value xml:lang="en">ModelMenu</value>
+		<value xml:lang="zh">功能菜单</value>
+		<value xml:lang="zh_TW">系统名称</value>
+	</property>
+	<!-- -->
+	<!-- 后台页面公用开始 -->
+	<property key="CommEdit">
+		<value xml:lang="en">CommEdit</value>
+		<value xml:lang="zh">编辑</value>
+		<value xml:lang="zh_TW">编辑</value>
+	</property>
+	<property key="CommonYes">
+		<value xml:lang="en">CommonYes</value>
+		<value xml:lang="zh">是</value>
+		<value xml:lang="zh_TW">编辑</value>
+	</property>
+	<property key="CommonFalse">
+		<value xml:lang="en">CommonFalse</value>
+		<value xml:lang="zh">否</value>
+		<value xml:lang="zh_TW">编辑</value>
+	</property>
+	<property key="CommList">
+		<value xml:lang="en">List</value>
+		<value xml:lang="zh">列表</value>
+		<value xml:lang="zh_TW">列表</value>
+	</property>
+	<property key="CommSelectAll">
+		<value xml:lang="en">CommSelectAll</value>
+		<value xml:lang="zh">全选</value>
+		<value xml:lang="zh_TW">全选</value>
+	</property>
+	<property key="CommSeq">
+		<value xml:lang="en">CommSeq</value>
+		<value xml:lang="zh">序号</value>
+		<value xml:lang="zh_TW">序号</value>
+	</property>
+	<property key="CommMgr">
+		<value xml:lang="en">mgr</value>
+		<value xml:lang="zh">管理</value>
+		<value xml:lang="zh_TW">管理</value>
+	</property>
+	<property key="CommSet">
+		<value xml:lang="en">set</value>
+		<value xml:lang="zh">设置</value>
+		<value xml:lang="zh_TW">设置</value>
+	</property>
+	<property key="CommAdd">
+		<value xml:lang="en">Add</value>
+		<value xml:lang="zh">增加</value>
+	</property>
+	<property key="CommDeleteAll">
+		<value xml:lang="en">CommDeleteAll</value>
+		<value xml:lang="zh">批量删除</value>
+	</property>
+	<property key="CommRecoverAll">
+		<value xml:lang="en">CommRecoverAll</value>
+		<value xml:lang="zh">批量还原</value>
+	</property>
+	<property key="CommonRecover">
+		<value xml:lang="en">CommonRecover</value>
+		<value xml:lang="zh">还原</value>
+	</property>
+
+
+	<property key="CommReset">
+		<value xml:lang="en">Comm Reset</value>
+		<value xml:lang="zh">重置</value>
+		<value xml:lang="zh_TW">重置</value>
+	</property>
+	<property key="CommOper">
+		<value xml:lang="en">CommOper</value>
+		<value xml:lang="zh">操作</value>
+		<value xml:lang="zh_TW">操作</value>
+	</property>
+	<property key="CommIsView">
+		<value xml:lang="en">CommIsView</value>
+		<value xml:lang="zh">是否显示</value>
+		<value xml:lang="zh_TW">是否显示</value>
+	</property>
+	<property key="CommpPageDisplayCount">
+		<value xml:lang="en">pageDisplayCount</value>
+		<value xml:lang="zh">每页显示记录条数</value>
+		<value xml:lang="zh_TW">每页显示记录条数</value>
+	</property>
+	<property key="CommpPageTotalNum">
+		<value xml:lang="en">CommpPageTotalNum</value>
+		<value xml:lang="zh">共</value>
+		<value xml:lang="zh_TW">共</value>
+	</property>
+	<property key="CommpPageTotalItem">
+		<value xml:lang="en">CommpPageTotalItem</value>
+		<value xml:lang="zh">条</value>
+		<value xml:lang="zh_TW">条</value>
+	</property>
+	<property key="CommpPageFirst">
+		<value xml:lang="en">CommpPageFirst</value>
+		<value xml:lang="zh">首页</value>
+		<value xml:lang="zh_TW">首页</value>
+	</property>
+	<property key="CommpPageEnd">
+		<value xml:lang="en">CommpPageEnd</value>
+		<value xml:lang="zh">末页</value>
+		<value xml:lang="zh_TW">末页</value>
+	</property>
+	<property key="CommpPageNext">
+		<value xml:lang="en">CommpPageNext</value>
+		<value xml:lang="zh">下一页</value>
+		<value xml:lang="zh_TW">下一页</value>
+	</property>
+	<property key="CommpPageBack">
+		<value xml:lang="en">CommpPageBack</value>
+		<value xml:lang="zh">上一页</value>
+		<value xml:lang="zh_TW">上一页</value>
+	</property>
+	<property key="CommpPageForword">
+		<value xml:lang="en">CommpPageForword</value>
+		<value xml:lang="zh">转到</value>
+		<value xml:lang="zh_TW">转到</value>
+	</property>
+	<property key="CommGoto">
+		<value xml:lang="en">Commp goto</value>
+		<value xml:lang="zh">跳转</value>
+		<value xml:lang="zh_TW">跳转</value>
+	</property>
+	<property key="CommpPageNow">
+		<value xml:lang="en">CommpPageNow</value>
+		<value xml:lang="zh">第</value>
+		<value xml:lang="zh_TW">第</value>
+	</property>
+	<property key="CommpPagePage">
+		<value xml:lang="en">pagePage</value>
+		<value xml:lang="zh">页</value>
+		<value xml:lang="zh_TW">页</value>
+	</property>
+	<!-- 后台页面公用结束 -->
+	<!-- 商品管理开始 -->
+
+
+	<property key="ProductCategoryNumber">
+		<value xml:lang="en">ProductCategoryNumber</value>
+		<value xml:lang="zh">商品数量</value>
+		<value xml:lang="zh_TW">商品数量</value>
+	</property>
+	<property key="ProductList">
+		<value xml:lang="en">Product List</value>
+		<value xml:lang="zh">商品列表</value>
+		<value xml:lang="zh_TW">商品列表</value>
+	</property>
+	<property key="ProductName">
+		<value xml:lang="en">Product Name</value>
+		<value xml:lang="zh">商品名称</value>
+		<value xml:lang="zh_TW">商品名称</value>
+	</property>
+	<property key="ProductGoodsNo">
+		<value xml:lang="en">Product Brand Name</value>
+		<value xml:lang="zh">品牌</value>
+		<value xml:lang="zh_TW">品牌</value>
+	</property>
+	<property key="ProductGoodsNo">
+		<value xml:lang="en">Goods No</value>
+		<value xml:lang="zh">货号</value>
+		<value xml:lang="zh_TW">货号</value>
+	</property>
+	<property key="ProductType">
+		<value xml:lang="zh">商品类型</value>
+		<value xml:lang="zh_TW">產品類型</value>
+	</property>
+	<property key="ProductLabName">
+		<value xml:lang="en">Product Lab Name</value>
+		<value xml:lang="zh">标签名称</value>
+		<value xml:lang="zh_TW">标签名称</value>
+	</property>
+	<!-- 商品管理结束 -->
+	<!-- 订单管理开始 -->
+
+	<property key="OrderWaitConfirm">
+		<value xml:lang="en">OrderWaitConfirm</value>
+		<value xml:lang="zh">待确认订单</value>
+		<value xml:lang="zh_TW">待确认订单</value>
+	</property>
+	<!-- 订单管理结束 -->
+	<!-- 会员管理开始 -->
+
+	<property key="member">
+		<value xml:lang="en">member</value>
+		<value xml:lang="zh">会员</value>
+		<value xml:lang="zh_TW">会员</value>
+	</property>
+	<property key="MemberList">
+		<value xml:lang="en">memberList</value>
+		<value xml:lang="zh">会员列表</value>
+		<value xml:lang="zh_TW">会员</value>
+	</property>
+	<property key="MemberAdd">
+		<value xml:lang="en">member ADD</value>
+		<value xml:lang="zh">会员添加</value>
+		<value xml:lang="zh_TW">会员添加</value>
+	</property>
+	<property key="MemberMessageList">
+		<value xml:lang="en">memberList</value>
+		<value xml:lang="zh">已发送</value>
+		<value xml:lang="zh_TW">已發送</value>
+	</property>
+
+	<property key="MemberMessageEdit">
+		<value xml:lang="en">member ADD</value>
+		<value xml:lang="zh">发送消息</value>
+		<value xml:lang="zh_TW">發送消息</value>
+	</property>
+	<property key="MemberRecover">
+		<value xml:lang="en">member Recover</value>
+		<value xml:lang="zh">会员回收站</value>
+		<value xml:lang="zh_TW">会员回收站</value>
+	</property>
+	<property key="MemberGradeAdd">
+		<value xml:lang="en">member Grade ADD</value>
+		<value xml:lang="zh">会员等级添加</value>
+		<value xml:lang="zh_TW">会员等级添加</value>
+	</property>
+	<property key="MemberGradeList">
+		<value xml:lang="en">member Gradelist</value>
+		<value xml:lang="zh">会员等级列表</value>
+		<value xml:lang="zh_TW">会员等级列表</value>
+	</property>
+	<property key="MemberInteqralsSet">
+		<value xml:lang="en">MemberInteqralsSet</value>
+		<value xml:lang="zh">会员积分设置</value>
+	</property>
+	<property key="MemberUpgradeRuleList">
+		<value xml:lang="en">Member Upgrade Rule list</value>
+		<value xml:lang="zh">会员升级规则列表</value>
+		<value xml:lang="zh_TW">会员升级规则列表</value>
+	</property>
+	<property key="SendWebSiteMsg">
+		<value xml:lang="en">Send Message</value>
+		<value xml:lang="zh">发送消息</value>
+	</property>
+	<property key="ReceivedSiteMsgList">
+		<value xml:lang="en">Received Message List</value>
+		<value xml:lang="zh">已收消息</value>
+	</property>
+	<property key="SentSiteMsgList">
+		<value xml:lang="en">Sent Message List</value>
+		<value xml:lang="zh">已发消息</value>
+	</property>
+	<property key="SystemNotice">
+		<value xml:lang="en">System Notice</value>
+		<value xml:lang="zh">站内消息发送</value>
+	</property>
+	<property key="SystemNoticeList">
+		<value xml:lang="en">System Notice List</value>
+		<value xml:lang="zh">已发送消息</value>
+	</property>
+	<property key="WebSiteMsgMgr">
+		<value xml:lang="en">Message Management</value>
+		<value xml:lang="zh">站内消息</value>
+	</property>
+	<!--  start guwenzhong  快递公司管理 20120816-->
+	<property key="ExpressCompMgr">
+		<value xml:lang="en">ExpressCompMgr</value>
+		<value xml:lang="zh">快递公司管理</value>		
+	</property>
+	<property key="ExpressCompAdd">
+		<value xml:lang="en">ExpressCompAdd</value>
+		<value xml:lang="zh">添加快递公司</value>
+	</property>
+	<property key="ExpressCompList">
+		<value xml:lang="en">ExpressCompList</value>
+		<value xml:lang="zh">快递公司列表</value>
+	</property>
+	<!-- 会员管理结束 -->
+
+	<!-- 权限管理开始 -->
+
+	<property key="roleInfo">
+		<value xml:lang="en">roleInfo</value>
+		<value xml:lang="zh">角色信息</value>
+		<value xml:lang="zh_TW">角色信息</value>
+	</property>
+
+	<!-- 内容管理开始 -->
+	<property key="cmsContent">
+		<value xml:lang="en">Content</value>
+		<value xml:lang="zh">文章</value>
+	</property>
+	<property key="cmsContentInfo">
+		<value xml:lang="en">Content Info</value>
+		<value xml:lang="zh">文章信息</value>
+	</property>
+	<property key="cmsAdInfo">
+		<value xml:lang="en">ad Info</value>
+		<value xml:lang="zh">广告信息</value>
+	</property>
+	<property key="cmsCategoryInfo">
+		<value xml:lang="en">Category Info</value>
+		<value xml:lang="zh">文章分类信息</value>
+	</property>
+	<property key="cmsCategory">
+		<value xml:lang="en">Category</value>
+		<value xml:lang="zh">文章分类</value>
+	</property>
+	<property key="cmsTitle">
+		<value xml:lang="en">Title</value>
+		<value xml:lang="zh">标题</value>
+	</property>
+	<property key="cmsCatalogTypeId">
+		<value xml:lang="en">Catalog Type</value>
+		<value xml:lang="zh">文章栏目</value>
+	</property>
+	<property key="articleTypeId">
+		<value xml:lang="en">Article Type</value>
+		<value xml:lang="zh">文章类型</value>
+	</property>
+
+
+
+	<property key="FindCmsCatalog">
+		<value xml:lang="en">Find Catalog</value>
+		<value xml:lang="zh">分类查找</value>
+	</property>
+	<property key="EditCmsCatalog">
+		<value xml:lang="en">Edit Catalog</value>
+		<value xml:lang="zh">分类编辑</value>
+	</property>
+	<property key="FindCmsCatalog">
+		<value xml:lang="en">Find Catalog</value>
+		<value xml:lang="zh">分类查找</value>
+	</property>
+	<property key="PageTitleFindCmsCatalog">
+		<value xml:lang="en">Find Catalog Page</value>
+		<value xml:lang="zh">分类查找页面</value>
+	</property>
+	<property key="PageTitleEditCmsCatalog">
+		<value xml:lang="en">Edit Catalog Page</value>
+		<value xml:lang="zh">分类编辑页面</value>
+	</property>
+
+	<property key="cmsStatusId">
+		<value xml:lang="en">Status</value>
+		<value xml:lang="zh">状态</value>
+	</property>
+	<property key="cmsWebSiteId">
+		<value xml:lang="en">Web Site</value>
+		<value xml:lang="zh">站点</value>
+	</property>
+	<property key="cmsParentId">
+		<value xml:lang="en">Parent Catalog</value>
+		<value xml:lang="zh">上级分类名称</value>
+	</property>
+	<property key="cmsPath">
+		<value xml:lang="en">Path</value>
+		<value xml:lang="zh">栏目路径</value>
+	</property>
+	<property key="cmsCatalogName">
+		<value xml:lang="en">Catalog Name</value>
+		<value xml:lang="zh">分类名称</value>
+	</property>
+	<property key="cmsContent">
+		<value xml:lang="en">Content</value>
+		<value xml:lang="zh">内容</value>
+	</property>
+
+
+
+	<property key="cmsKeywords">
+		<value xml:lang="en">Keywords</value>
+		<value xml:lang="zh">关键字</value>
+	</property>
+	<property key="cmsDescription">
+		<value xml:lang="en">Description</value>
+		<value xml:lang="zh">描述</value>
+	</property>
+	<property key="cmsIsDisplay">
+		<value xml:lang="en">Is Display</value>
+		<value xml:lang="zh">是否显示</value>
+	</property>
+	<property key="AdName">
+		<value xml:lang="en">AdName</value>
+		<value xml:lang="zh">广告位名称</value>
+		<value xml:lang="zh_TW">广告位名称</value>
+	</property>
+	<property key="AdId">
+		<value xml:lang="en">AdId</value>
+		<value xml:lang="zh">广告标识</value>
+		<value xml:lang="zh_TW">广告标识</value>
+	</property>
+	<property key="AdAdd">
+		<value xml:lang="en">AdAdd</value>
+		<value xml:lang="zh">添加广告</value>
+		<value xml:lang="zh_TW">添加广告</value>
+	</property>
+	<property key="AdView">
+		<value xml:lang="en">AdView</value>
+		<value xml:lang="zh">广告预览</value>
+		<value xml:lang="zh_TW">广告预览</value>
+	</property>
+	<property key="AdTitle">
+		<value xml:lang="en">title</value>
+		<value xml:lang="zh">标题</value>
+		<value xml:lang="zh_TW">标题</value>
+	</property>
+	<property key="AdUrl">
+		<value xml:lang="en">AdUrl</value>
+		<value xml:lang="zh">链接地址</value>
+		<value xml:lang="zh_TW">链接地址</value>
+	</property>
+	<property key="AdPosition">
+		<value xml:lang="en">AD Position</value>
+		<value xml:lang="zh">广告位置</value>
+		<value xml:lang="zh_TW">广告位置</value>
+	</property>
+	<property key="AdType">
+		<value xml:lang="en">AD type</value>
+		<value xml:lang="zh">广告类型</value>
+		<value xml:lang="zh_TW">广告类型</value>
+	</property>
+	<property key="AdOrderNum">
+		<value xml:lang="en">AD Order Num</value>
+		<value xml:lang="zh">顺序号</value>
+		<value xml:lang="zh_TW">顺序号</value>
+	</property>
+	<property key="AdUploadImg">
+		<value xml:lang="en">AD upload img</value>
+		<value xml:lang="zh">上传图片</value>
+		<value xml:lang="zh_TW">上传图片</value>
+	</property>
+	<!-- 内容管理结束 -->
+	<property key="ProductLabName">
+		<value xml:lang="en">Brand Name</value>
+		<value xml:lang="zh">标签名称</value>
+		<value xml:lang="zh_TW">标签名称</value>
+	</property>
+	<!-- 品牌管理开始 -->
+	<property key="ProductBrandAdd">
+		<value xml:lang="en">Add Brand</value>
+		<value xml:lang="zh">品牌添加</value>
+		<value xml:lang="zh_TW">品牌添加</value>
+	</property>
+	<property key="ProductBrandList">
+		<value xml:lang="en">Brand List</value>
+		<value xml:lang="zh">品牌列表</value>
+		<value xml:lang="zh_TW">品牌列表</value>
+	</property>
+	<property key="ProductBrandMgr">
+		<value xml:lang="en">Brand Management</value>
+		<value xml:lang="zh">品牌管理</value>
+		<value xml:lang="zh_TW">品牌管理</value>
+	</property>
+	<property key="ProductBrandName">
+		<value xml:lang="en">Brand Name</value>
+		<value xml:lang="zh">品牌名称</value>
+		<value xml:lang="zh_TW">品牌名称</value>
+	</property>
+	<property key="ProductBrandUrl">
+		<value xml:lang="en">Brand Url</value>
+		<value xml:lang="zh">品牌网址</value>
+		<value xml:lang="zh_TW">品牌网址</value>
+	</property>
+	<property key="ProductBrandDescription">
+		<value xml:lang="en">Brand Description</value>
+		<value xml:lang="zh">品牌描述</value>
+		<value xml:lang="zh_TW">品牌描述</value>
+	</property>
+	<property key="ProductBrandLogo">
+		<value xml:lang="en">Brand Logo</value>
+		<value xml:lang="zh">品牌Logo</value>
+		<value xml:lang="zh_TW">品牌Logo</value>
+	</property>
+	<property key="DisplaySort">
+		<value xml:lang="en">Display Sort</value>
+		<value xml:lang="zh">显示排序</value>
+		<value xml:lang="zh_TW">显示排序</value>
+	</property>
+	<property key="IsDisplay">
+		<value xml:lang="en">Whether To Display</value>
+		<value xml:lang="zh">是否显示</value>
+		<value xml:lang="zh_TW">是否显示</value>
+	</property>
+	<!-- 品牌管理结束 -->
+	<!-- 规格管理开始 -->
+	<property key="ProductFeatureCategoryAdd">
+		<value xml:lang="en">Add Feature</value>
+		<value xml:lang="zh">添加规格</value>
+		<value xml:lang="zh_TW">添加规格</value>
+	</property>
+	<property key="ProductFeatureCategoryMgr">
+		<value xml:lang="en">Feature Management</value>
+		<value xml:lang="zh">规格管理</value>
+		<value xml:lang="zh_TW">规格管理</value>
+	</property>
+	<property key="FeatureCategoryList">
+		<value xml:lang="en">Feature List</value>
+		<value xml:lang="zh">规格列表</value>
+		<value xml:lang="zh_TW">规格列表</value>
+	</property>
+	<property key="ProductFeatureCategoryName">
+		<value xml:lang="en">Feature Name</value>
+		<value xml:lang="zh">规格名称</value>
+		<value xml:lang="zh_TW">规格名称</value>
+	</property>
+	<!-- 规格管理结束 -->
+	<!-- 类型管理开始 -->
+	<property key="ProductTypeAdd">
+		<value xml:lang="en">Add Type</value>
+		<value xml:lang="zh">添加类型</value>
+		<value xml:lang="zh_TW">添加类型</value>
+	</property>
+	<property key="ProductTypeMgr">
+		<value xml:lang="en">Type Management</value>
+		<value xml:lang="zh">类型管理</value>
+		<value xml:lang="zh_TW">类型管理</value>
+	</property>
+	<property key="ProductTypeList">
+		<value xml:lang="en">Type List</value>
+		<value xml:lang="zh">类型列表</value>
+		<value xml:lang="zh_TW">类型列表</value>
+	</property>
+	<property key="TypeName">
+		<value xml:lang="en">Type Name</value>
+		<value xml:lang="zh">类型名称</value>
+		<value xml:lang="zh_TW">类型名称</value>
+	</property>
+	<property key="FindBack">
+		<value xml:lang="en">Find back</value>
+		<value xml:lang="zh">查找带回</value>
+		<value xml:lang="zh_TW">查找带回</value>
+	</property>
+	<property key="AttributeGroup">
+		<value xml:lang="en">Attribute Group</value>
+		<value xml:lang="zh">属性分组</value>
+		<value xml:lang="zh_TW">属性分组</value>
+	</property>
+	<property key="Attribute">
+		<value xml:lang="en">Attribute</value>
+		<value xml:lang="zh">属性</value>
+		<value xml:lang="zh_TW">属性</value>
+	</property>
+	<property key="InputType">
+		<value xml:lang="en">Input Type</value>
+		<value xml:lang="zh">属性值录入方式</value>
+		<value xml:lang="zh_TW">属性值录入方式</value>
+	</property>
+	<property key="OptionalList">
+		<value xml:lang="en">Optional List</value>
+		<value xml:lang="zh">可选值列表</value>
+		<value xml:lang="zh_TW">可选值列表</value>
+	</property>
+	<!-- 类型管理结束 -->
+	<!-- 评论管理开始 -->
+	<property key="ProductReviewMgr">
+		<value xml:lang="en">Reviews Management</value>
+		<value xml:lang="zh">评论管理</value>
+		<value xml:lang="zh_TW">评论管理</value>
+	</property>
+	<property key="ProductReviewsList">
+		<value xml:lang="en">Reviews List</value>
+		<value xml:lang="zh">评论列表</value>
+		<value xml:lang="zh_TW">评论列表</value>
+	</property>
+	<property key="ProductReviewsSetting">
+		<value xml:lang="en">Reviews Setting</value>
+		<value xml:lang="zh">评论设置</value>
+		<value xml:lang="zh_TW">评论设置</value>
+	</property>
+	<!-- 评论管理结束 -->
+	<!-- 咨询管理开始 -->
+	<property key="ProductCommunicationMgr">
+		<value xml:lang="en">Communication Management</value>
+		<value xml:lang="zh">咨询管理</value>
+		<value xml:lang="zh_TW">咨询管理</value>
+	</property>
+	<property key="ProductCommunicationList">
+		<value xml:lang="en">Communication List</value>
+		<value xml:lang="zh">咨询列表</value>
+		<value xml:lang="zh_TW">咨询列表</value>
+	</property>
+	<property key="ProductCommunicationSetting">
+		<value xml:lang="en">Communication Setting</value>
+		<value xml:lang="zh">咨询设置</value>
+		<value xml:lang="zh_TW">咨询设置</value>
+	</property>
+	<!-- 评论管理结束 -->
+	<property key="ProductCommunicationSetting">
+		<value xml:lang="en">Communication Setting</value>
+		<value xml:lang="zh">咨询设置</value>
+		<value xml:lang="zh_TW">咨询设置</value>
+	</property>
+	<property key="DistributionRegionMgr">
+		<value xml:lang="en">Distribution Region Management</value>
+		<value xml:lang="zh">配送方式管理</value>
+		<value xml:lang="zh_TW">配送方式管理</value>
+	</property>
+	<property key="FindDistributionRegion">
+		<value xml:lang="en">Distribution Region List</value>
+		<value xml:lang="zh">配送方式列表</value>
+		<value xml:lang="zh_TW">配送方式列表</value>
+	</property>
+	<property key="EditDistributionRegion">
+		<value xml:lang="en">Edit Distribution Region</value>
+		<value xml:lang="zh">添加配送方式</value>
+		<value xml:lang="zh_TW">添加配送方式</value>
+	</property>
+	<property key="FindRegion">
+		<value xml:lang="en">Region List</value>
+		<value xml:lang="zh">地区列表</value>
+		<value xml:lang="zh_TW">地区列表</value>
+	</property>
+	<property key="ImageSettingsMgr">
+		<value xml:lang="en">Image Setting</value>
+		<value xml:lang="zh">图片设置管理</value>
+		<value xml:lang="zh_TW">图片设置管理</value>
+	</property>
+	<property key="EditImageSetting">
+		<value xml:lang="en">Edit Image Setting</value>
+		<value xml:lang="zh">图片设置</value>
+		<value xml:lang="zh_TW">图片设置</value>
+	</property>
+	<property key="EditRegion">
+		<value xml:lang="en">Edit Region</value>
+		<value xml:lang="zh">添加地区</value>
+		<value xml:lang="zh_TW">添加地区</value>
+	</property>
+	<property key="InventoryMgr">
+		<value xml:lang="en">InventoryMgr</value>
+		<value xml:lang="zh">仓储物流管理</value>
+		<value xml:lang="zh_TW">仓储物流管理</value>
+	</property>
+	<property key="Facilitylist">
+		<value xml:lang="en">Facilitylist</value>
+		<value xml:lang="zh">仓库列表</value>
+		<value xml:lang="zh_TW">仓库列表</value>
+	</property>
+	<property key="FacilityAdd">
+		<value xml:lang="en">FacilityAdd</value>
+		<value xml:lang="zh">添加仓库</value>
+		<value xml:lang="zh_TW">添加仓库</value>
+	</property>
+	<property key="ProductPromoMgr">
+		<value xml:lang="en">Promotion Management</value>
+		<value xml:lang="zh">促销管理</value>
+		<value xml:lang="zh_TW">促销管理</value>
+	</property>
+	<property key="FindProductPromoList">
+		<value xml:lang="en">Promotion List</value>
+		<value xml:lang="zh">促销列表</value>
+		<value xml:lang="zh_TW">促销列表</value>
+	</property>
+	<property key="ProductPromoAdd">
+		<value xml:lang="en">Edit Promotion</value>
+		<value xml:lang="zh">添加促销</value>
+		<value xml:lang="zh_TW">添加促销</value>
+	</property>
+	<!-- 搜索引擎与seo相关 -->
+	<property key="searchEngineMgr">
+		<value xml:lang="en">set search engine</value>
+		<value xml:lang="zh">搜索引擎设置</value>
+		<value xml:lang="zh_TW">搜索引擎設置</value>
+	</property>
+	<property key="SEOMgr">
+		<value xml:lang="en">set SEO</value>
+		<value xml:lang="zh">SEO设置</value>
+		<value xml:lang="zh_TW">SEO設置</value>
+	</property>
+	<property key="SeoTitleSubscript">
+		<value xml:lang="en">Title Subscript</value>
+		<value xml:lang="zh">标题附加字</value>
+		<value xml:lang="zh_TW">標題附加字</value>
+	</property>
+	<property key="SeoMetaKeyWords">
+		<value xml:lang="en">Meta KeyWords</value>
+		<value xml:lang="zh">关键字</value>
+		<value xml:lang="zh_TW">關鍵字</value>
+	</property>
+	<property key="SeoMetaDescription">
+		<value xml:lang="en">Meta Description</value>
+		<value xml:lang="zh">描述</value>
+		<value xml:lang="zh_TW">描述</value>
+	</property>
+	<property key="SeoAnoherHeadMsg">
+		<value xml:lang="en">Anoher HeadMsg</value>
+		<value xml:lang="zh">其它头部信息</value>
+		<value xml:lang="zh_TW">其它頭部信息</value>
+	</property>
+
+	<property key="StatisticsModel">
+		<value xml:lang="en">Statistics Management</value>
+		<value xml:lang="zh">统计管理</value>
+		<value xml:lang="zh_TW">統計管理</value>
+	</property>
+	<property key="SalesStatistics">
+		<value xml:lang="en">Sales Statistics</value>
+		<value xml:lang="zh">销售统计</value>
+		<value xml:lang="zh_TW">銷售統計</value>
+	</property>
+	<property key="OrderStatistics">
+		<value xml:lang="en">Order Statistics</value>
+		<value xml:lang="zh">订单统计</value>
+		<value xml:lang="zh_TW">訂單統計</value>
+	</property>
+	<property key="OrderProSaleStats">
+		<value xml:lang="en">Product Sales Statistics</value>
+		<value xml:lang="zh">商品销售统计</value>
+	</property>
+	<property key="InvalidOrderStats">
+		<value xml:lang="en">Invalid Order Statistics</value>
+		<value xml:lang="zh">无效订单统计</value>
+	</property>
+	<property key="BuyingBehaviorStats">
+		<value xml:lang="en">Buying behavior analysis</value>
+		<value xml:lang="zh">购买行为分析</value>
+	</property>
+	<property key="AssocPurchaseStats">
+		<value xml:lang="en">Associated Purchase Analysis</value>
+		<value xml:lang="zh">关联购买分析</value>
+	</property>
+	<property key="OrderSourceStats">
+		<value xml:lang="en">Order Source Analysis</value>
+		<value xml:lang="zh">订单来源分析</value>
+	</property>
+	<property key="DailyOrderShippedStats">
+		<value xml:lang="en">Daily Orders Shipped Statistics</value>
+		<value xml:lang="zh">每日发货订单统计</value>
+	</property>
+	<property key="DailyProductShippedStats">
+		<value xml:lang="en">Daily Product Shipped Statistics</value>
+		<value xml:lang="zh">每日发货商品统计</value>
+	</property>
+	<property key="CategorySalesRankingStats">
+		<value xml:lang="en">Category Sales Ranking Statistics</value>
+		<value xml:lang="zh">分类销售排行</value>
+	</property>
+	<property key="OrderNaturalSourceStats">
+		<value xml:lang="en">Analysis of orders Natural Source</value>
+		<value xml:lang="zh">订单自然来源分析</value>
+	</property>
+	<property key="OrderGeographicaStats">
+		<value xml:lang="en">Order Geographical Statistics</value>
+		<value xml:lang="zh">订单地域分析</value>
+	</property>
+	<property key="EmailNoteMgr">
+		<value xml:lang="en">Email and Note Manage</value>
+		<value xml:lang="zh">邮件短信管理</value>
+		<value xml:lang="zh_TW">郵件短信管理</value>
+	</property>
+	<property key="EmailLogMgr">
+		<value xml:lang="en">Email Log Manage</value>
+		<value xml:lang="zh">邮件日志</value>
+		<value xml:lang="zh_TW">郵件日誌</value>
+	</property>
+
+	<!-- 模板 -->
+	<property key="AutoSendMgr">
+		<value xml:lang="en">auto send msg mgr</value>
+		<value xml:lang="zh">设置自动发送消息</value>
+		<value xml:lang="zh_TW">設置自動發送消息</value>
+	</property>
+	<property key="EditTemplate">
+		<value xml:lang="en">edit template</value>
+		<value xml:lang="zh">新建模板</value>
+		<value xml:lang="zh_TW">新建模板</value>
+	</property>
+	<property key="templateTitle">
+		<value xml:lang="en">template title</value>
+		<value xml:lang="zh">模板标题</value>
+		<value xml:lang="zh_TW">模板標題</value>
+	</property>
+	<property key="templatePurpose">
+		<value xml:lang="en">template purpose</value>
+		<value xml:lang="zh">模板用途</value>
+		<value xml:lang="zh_TW">模板用途</value>
+	</property>
+	<property key="templateContent">
+		<value xml:lang="en">template text data</value>
+		<value xml:lang="zh">模板内容</value>
+		<value xml:lang="zh_TW">模板內容</value>
+	</property>
+	<property key="TemplateList">
+		<value xml:lang="en">template record list</value>
+		<value xml:lang="zh">模板列表</value>
+		<value xml:lang="zh_TW">模板列表</value>
+	</property>
+	<property key="SendMail">
+		<value xml:lang="en">send Mail manually</value>
+		<value xml:lang="zh">手动发送消息</value>
+		<value xml:lang="zh_TW">手動發送消息</value>
+	</property>
+
+	<property key="FriendLinkMgr">
+		<value xml:lang="en">friend link management</value>
+		<value xml:lang="zh">友情链接维护</value>
+		<value xml:lang="zh_TW">友情鏈接維護</value>
+	</property>
+	<property key="SetFriendLink">
+		<value xml:lang="en">friend link setting</value>
+		<value xml:lang="zh">友情链接维护</value>
+		<value xml:lang="zh_TW">友情鏈接维护</value>
+	</property>
+	<property key="CreateFriendLink">
+		<value xml:lang="en">create new friend link</value>
+		<value xml:lang="zh">新建友情链接</value>
+		<value xml:lang="zh_TW">新建友情鏈接</value>
+	</property>
+	<property key="ProductStoreMgr">
+		<value xml:lang="en">Store Management</value>
+		<value xml:lang="zh">店铺管理</value>
+		<value xml:lang="zh_TW">商店管理</value>
+	</property>
+	<property key="FindProductStore">
+		<value xml:lang="en">Store List</value>
+		<value xml:lang="zh">店铺列表</value>
+		<value xml:lang="zh_TW">商店列表</value>
+	</property>
+	<property key="EditProductStore">
+		<value xml:lang="en">New Store</value>
+		<value xml:lang="zh">新建店铺</value>
+		<value xml:lang="zh_TW">新建商店</value>
+	</property>
+	
+	<property key="CreditsSettingMgr">
+		<value xml:lang="en">Credits Setting Management</value>
+		<value xml:lang="zh">积分设置管理</value>
+		<value xml:lang="zh_TW">積分設置管理</value>
+	</property>
+	<property key="CreditsSetting">
+		<value xml:lang="en">Credits Setting</value>
+		<value xml:lang="zh">积分设置</value>
+		<value xml:lang="zh_TW">積分設置</value>
+	</property>
+	<property key="AddSupplier">
+        <value xml:lang="en">Add Supplier</value>
+        <value xml:lang="zh">增加供应商</value>
+    </property>
+    <property key="BuyerSysytem">
+        <value xml:lang="en">Buyer Sysytem</value>
+        <value xml:lang="zh">系统管理</value>
+    </property>
+    <property key="BuyersApplication">
+        <value xml:lang="en">Administration</value>
+        <value xml:lang="zh">应用管理</value>
+    </property>
+    <property key="EditSupplier">
+        <value xml:lang="en">Edit Supplier</value>
+        <value xml:lang="zh">修改供应商</value>
+    </property>
+    <property key="LogSettings">
+        <value xml:lang="en">Log Settings</value>
+        <value xml:lang="zh">日志设置</value>
+    </property>
+    <property key="PersonalInfo">
+        <value xml:lang="en">Personal Information</value>
+        <value xml:lang="zh">个人信息</value>
+    </property>
+    <property key="bulletinId">
+        <value xml:lang="en">bulletinId</value>
+        <value xml:lang="zh">编号</value>
+    </property>
+    <property key="draft">
+        <value xml:lang="en">draft</value>
+        <value xml:lang="zh">草稿</value>
+    </property>
+    <property key="bulletinTitle">
+        <value xml:lang="en">bulletinTitle</value>
+        <value xml:lang="zh">标题</value>
+    </property>
+    <property key="bulletinType">
+        <value xml:lang="en">bulletinType</value>
+        <value xml:lang="zh">类型</value>
+    </property>
+    <property key="content">
+        <value xml:lang="en">content</value>
+        <value xml:lang="zh">内容</value>
+    </property>
+    <property key="FindAnnouncement">
+        <value xml:lang="en">Find Announcement</value>
+        <value xml:lang="zh">公告查询</value>
+    </property>
+    <property key="SupplierInfo">
+        <value xml:lang="en">Suppliers Personal Info</value>
+        <value xml:lang="zh">供应商个人信息</value>
+    </property>
+    <property key="userLoginId">
+        <value xml:lang="en">user Login ID</value>
+        <value xml:lang="zh">用户登录名</value>
+    </property>
+    <property key="selectSupplierName">
+        <value xml:lang="en">Please Select Supplier Name</value>
+        <value xml:lang="zh">请选择供应商名称</value>
+    </property>
+    <property key="supplierUniqueName">
+        <value xml:lang="en">Supplier Name</value>
+        <value xml:lang="zh">供应商名称</value>
+    </property>
+    
+    <property key="SupplierCompanyInfo">
+        <value xml:lang="en">Suppliers Company Info</value>
+        <value xml:lang="zh">供应商公司信息</value>
+    </property>
+    <property key="CustomerInfo">
+        <value xml:lang="en">Customer Company Info</value>
+        <value xml:lang="zh">客户公司信息</value>
+    </property>
+    <property key="SupplierOfPersonalInfo">
+        <value xml:lang="en">Suppliers Personal Info Management</value>
+        <value xml:lang="zh">供应商个人信息管理</value>
+    </property>
+    <property key="SuppliersCompanyInfo">
+        <value xml:lang="en">Suppliers Company Info Management</value>
+        <value xml:lang="zh">供应商公司信息管理</value>
+    </property>
+    <property key="adminApplication">
+        <value xml:lang="en">admin Application</value>
+        <value xml:lang="zh">admin应用程序</value>
+    </property>
+    <property key="adminCompanyName">
+        <value xml:lang="en">OFBiz: admin</value>
+    </property>
+    <property key="adminCompanySubtitle">
+        <value xml:lang="en">Part of the Open For Business Family of Open Source Software</value>
+        <value xml:lang="zh">开源软件OFBiz的组成部分</value>
+    </property>
+    <property key="adminViewPermissionError">
+        <value xml:lang="en">You are not allowed to view this page.</value>
+        <value xml:lang="zh">不允许你浏览这个页面</value>
+    </property>
+    <property key="ViewCustomer">
+        <value xml:lang="en">View Receiver Information</value>
+        <value xml:lang="zh">查看接收人信息</value>
+    </property>
+    <property key="ViewSupplier">
+        <value xml:lang="en">View Supplier Information</value>
+        <value xml:lang="zh">查看供应商信息</value>
+    </property>
+    <property key="FindOrder">
+        <value xml:lang="en">View Order Information</value>
+        <value xml:lang="zh">查看订单信息</value>
+    </property>
+    <property key="FindInvoice">
+        <value xml:lang="en">View Invoice Information</value>
+        <value xml:lang="zh">查看发票信息</value>
+    </property>
+    <property key="fromDate">
+        <value xml:lang="en">from Date</value>
+        <value xml:lang="zh">开始日期</value>
+    </property>
+    <property key="publishDate">
+        <value xml:lang="en">from Date</value>
+        <value xml:lang="zh">发布日期</value>
+    </property>
+    <property key="NoticeDateTip">
+        <value xml:lang="en">Notice Date Tip</value>
+        <value xml:lang="zh">公告日期说明</value>
+    </property>
+    <property key="toDate">
+        <value xml:lang="en">to Date</value>
+        <value xml:lang="zh">结束日期</value>
+    </property>
+    <property key="bulletinUrl">
+        <value xml:lang="en">bulletin Url</value>
+        <value xml:lang="zh">公告链接地址</value>
+    </property>
+    <property key="FindShipNotice">
+        <value xml:lang="en">View Ship Notice Information</value>
+        <value xml:lang="zh">查看发货通知信息</value>
+    </property>
+    <property key="emptyList">
+        <value xml:lang="en">Order Not Exist</value>
+        <value xml:lang="zh">没有相关信息</value>
+    </property>
+  
+    <property key="ChangePassword">
+        <value xml:lang="en">Change Password</value>
+        <value xml:lang="zh">修改密码</value>
+    </property>
+    <property key="currentPassword">
+        <value xml:lang="en">currentPassword</value>
+        <value xml:lang="zh">当前密码</value>
+    </property>
+    <property key="newPassword">
+        <value xml:lang="en">newPassword</value>
+        <value xml:lang="zh">新密码</value>
+    </property>
+    <property key="newPasswordVerify">
+        <value xml:lang="en">newPasswordVerify</value>
+        <value xml:lang="zh">确认新密码</value>
+    </property>
+    <property key="passwordChangedSuccessfully">
+        <value xml:lang="en">Password changed successfully</value>
+        <value xml:lang="zh">密码修改成功</value>
+    </property>  
+    <property key="adminSubmit">
+        <value xml:lang="en">Submit</value>
+        <value xml:lang="zh">提交</value>
+    </property>  
+    <property key="ChooseLanguage">
+        <value xml:lang="en">Choose Language</value>
+        <value xml:lang="zh">选择语言</value>
+    </property>
+    <property key="AnnouncementInfo">
+        <value xml:lang="en">Announcement Information</value>
+        <value xml:lang="zh">公告信息管理</value>
+    </property>
+    <property key="AnnouncementList">
+        <value xml:lang="en">Announcement Information</value>
+        <value xml:lang="zh">公告信息</value>
+    </property>
+    <property key="AnnouncementDetail">
+        <value xml:lang="en">Announcement Detail</value>
+        <value xml:lang="zh">公告详细信息</value>
+    </property>
+    <property key="edit">
+        <value xml:lang="en">edit</value>
+        <value xml:lang="zh">编辑</value>
+    </property>
+    <property key="publish">
+        <value xml:lang="en">publish</value>
+        <value xml:lang="zh">发布</value>
+    </property>
+    <property key="cancel">
+        <value xml:lang="en">cancel</value>
+        <value xml:lang="zh">撤销</value>
+    </property>
+    <property key="nullify">
+        <value xml:lang="en">nullify</value>
+        <value xml:lang="zh">作废</value>
+    </property>
+    <property key="AnnouncementEditPage">
+        <value xml:lang="en">Announcement Edit Page</value>
+        <value xml:lang="zh">公告编辑页面</value>
+    </property>
+    <property key="CreateNotice">
+        <value xml:lang="en">Announcement Create</value>
+        <value xml:lang="zh">创建公告</value>
+    </property>
+    <property key="AnnouncementUpdate">
+        <value xml:lang="en">Announcement Update</value>
+        <value xml:lang="zh">公告信息修改</value>
+    </property>
+    <property key="finish">
+        <value xml:lang="en">finish</value>
+        <value xml:lang="zh">完成</value>
+    </property>
+     
+</resource>

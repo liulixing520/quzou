@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="showProductTolefttoFor">
+        <section>
+             <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+				 
+                <set field="showproductScreen" value="component://portal/widget/CataShowProductScreens.xml#showproductsummary"/>
+				 
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="5"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/product/productDetailsPageToleftToFor.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+    
+   <screen name="showproductsummary">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/productDetailsPageToleftToFor2.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>     
+        
+        
+    <screen name="showProductTolefttoNewsFor">
+        <section>
+             <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+				 
+                <set field="showproductNewsScreen" value="component://portal/widget/CataShowProductScreens.xml#showproductNews"/>
+				 
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="5"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/product/productDetailsPageToleftToNewSHotToFor.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+    
+   <screen name="showproductNews">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/productDetailsPageToleftToNewSHotToFor2.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>         
+        
+        
+    <screen name="showProductTorighttoViewsFor">
+        <section>
+             <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+				 
+                <set field="showproductViewsScreen" value="component://portal/widget/CataShowProductScreens.xml#showproductViews"/>
+                
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="10"/>
+                <!-- <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/> -->
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/showOtherProductVisits.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/product/productDetailsPageTorightToViewsToFor.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+    
+   <screen name="showproductViews">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/product/productDetailsPageTorightToViewsToFor2.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>    
+        
+  <!-- 搜索页面的 推荐商品  -->
+    <screen name="showTuiJian">
+        <section>
+             <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+				<set field="showproducttjScreen" value="component://portal/widget/CataShowProductScreens.xml#showproducttj"/> 
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="5"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/catalog/keywordsearchRightFor.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+    
+   <screen name="showproducttj">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/catalog/keywordsearchRightFor2.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>       
+        
+</screens>
+

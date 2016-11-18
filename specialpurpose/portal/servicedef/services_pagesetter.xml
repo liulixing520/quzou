@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>ebiz Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+	<!-- this is a boundary广告设置 -->
+		<!-- 保存 广告-->
+	<service name="addPagemanage" default-entity-name="PageSetting"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/pageset/PageServices.xml"
+		invoke="createPagemanage" auth="true">
+		<description>Create a Product Store Shipment Method</description>
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>
+	
+			<!-- 修改 广告-->
+	<service name="editPagemanage" default-entity-name="PageSetting"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/pageset/PageServices.xml"
+		invoke="editPagemanage" auth="true">
+		<description>Edit a Product Store Shipment Method</description>
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="pageSettingId" type="String" mode="IN" optional="false"/>
+		
+	</service>
+
+	<!-- 删除广告 -->
+	<service name="removePagemanage" default-entity-name="PageSetting"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/pageset/PageServices.xml"
+		invoke="removePagemanage" auth="true">
+		<description>Remove a Brand Method</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+	</service>
+	
+	<!-- this is a boundary公告设置 -->
+	<!-- 保存 公告-->
+	<service name="addMessage" default-entity-name="MessageSet"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/pageset/MessageServices.xml"
+		invoke="createMessage" auth="true">
+		<description>Create a Product Store Shipment Method</description>
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>
+	
+			<!-- 修改 公告-->
+	<service name="editMessage" default-entity-name="MessageSet"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/pageset/MessageServices.xml"
+		invoke="editMessage" auth="true">
+		<description>Edit a Product Store Shipment Method</description>
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="messageId" type="String" mode="IN" optional="false"/>
+		
+	</service>
+
+	<!-- 删除公告 -->
+	<service name="removeMessage" default-entity-name="MessageSet"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/pageset/MessageServices.xml"
+		invoke="removeMessage" auth="true">
+		<description>Remove a Brand Method</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+	</service>
+	
+	<service name="createHomePage" default-entity-name="HomePageSetter"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/pageset/MessageServices.xml"
+		invoke="createHomePage" auth="true">
+		<description>Create a Product Store Shipment Method</description>
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>
+	
+	<service name="updateHomePage" default-entity-name="HomePageSetter"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/pageset/MessageServices.xml"
+		invoke="updateHomePage" auth="true">
+		<description>Edit a Product Store Shipment Method</description>
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="homePageId" type="String" mode="IN" optional="false"/>
+		
+	</service>
+	
+	
+</services>

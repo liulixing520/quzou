@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entity-engine-xml>
+
+	<SecurityGroup description="Seller of ECOMMERCE Limited access to own account" groupId="ECOMMERCE_SELLER"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="CONTENTMGR_CREATE"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="CONTENTMGR_UPDATE"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="CATALOG_ROLE_CREATE"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="CATALOG_ROLE_UPDATE"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="CATALOG_ROLE_DELETE"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="CATALOG_PRICE_MAINT"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="CATALOG_CREATE"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="CATALOG_UPDATE"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="CATALOG_DELETE"/>
+    
+	<SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="FACILITY_VIEW"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="FACILITY_CREATE"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="FACILITY_UPDATE"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="FACILITY_DELETE"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="FACILITY_ROLE_VIEW"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="FACILITY_ROLE_UPDATE"/>
+    
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="ACCOUNTING_ADMIN"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="PAY_INFO_ADMIN"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="ACCTG_PREF_ADMIN"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="ACCTG_ATX_ADMIN"/>
+
+	<SecurityGroup description="卖家产品权限组" groupId="EBIZ_SELLER_PRD"/>
+    <SecurityGroup description="卖家订单权限组" groupId="EBIZ_SELLER_ORD"/>
+    <SecurityGroup description="卖家仓库权限组" groupId="EBIZ_SELLER_FAC"/>
+    <SecurityGroup description="卖家设置权限组" groupId="EBIZ_SELLER_SET"/>
+    
+    <SecurityPermission description="卖家查看" permissionId="ECSELLER_VIEW"/>
+    <SecurityPermission description="卖家创建" permissionId="ECSELLER_CREATE"/>
+    <SecurityPermission description="卖家更新" permissionId="ECSELLER_UPDATE"/>
+    <SecurityPermission description="卖家删除" permissionId="ECSELLER_DELETE"/>
+    <SecurityPermission description="卖家管理" permissionId="ECSELLER_ADMIN"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="ECSELLER_VIEW"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="ECSELLER_CREATE"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="ECSELLER_UPDATE"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="ECSELLER_DELETE"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_SELLER" permissionId="ECSELLER_ADMIN"/>
+</entity-engine-xml>	

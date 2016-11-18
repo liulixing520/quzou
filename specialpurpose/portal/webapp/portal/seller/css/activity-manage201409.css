@@ -1,0 +1,325 @@
+.page-topic{margin-bottom:15px;}
+.rtab-warp{margin-top:0;}
+.activity-list-warp{margin-bottom:50px;}
+.activity-select{padding:10px 20px;border:1px solid #e6e6e6;border-width:1px 0;background:#fbfbfb;zoom:1;}
+.activity-list{padding:10px 10px 0 20px;border-bottom:1px solid #ddd;}
+.activity-claim{position:relative;margin-top:-1px;}
+.activity-title,.activity-title1,.activity-title2{position:relative;margin-bottom:15px;zoom:1;}
+.activity-title h2{font-size:14px;width:380px;}
+.activity-title .countdown{position:absolute;top:2px;left:450px;}
+.activity-title .yellowbutton1{position:absolute;top:0;right:0;}
+.activity-title1{padding-left:10px;}
+.activity-title1 .yellowbutton1{position:absolute;top:-2px;left:250px;}
+.activity-detail dl,.activity-range dl,.activity-claim dl{position:relative;margin-bottom:15px;zoom:1;}
+.activity-range{padding:20px 10px 0 20px;}
+.activity-detail dt,.activity-range dt,.activity-claim dt{position:absolute;top:0;left:0;width:70px;color:#666;text-align:right;}
+.activity-claim dt{width:90px;}
+.activity-detail dl,.activity-range dl{padding-left:90px;}
+.activity-claim dl{padding:0 10px 0 110px;}
+.activity-claim dl dd{min-height:18px; _height:18px;}
+.activity-time{float:left;height:22px;line-height:18px;margin-right:5px;}
+.setcountdown{color:#FB5501;}
+.calendar-line{position:relative;zoom:1;}
+.calendar-icon{_position:relative;float:left;margin-top:-2px;width:22px;height:22px;background:url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) 0 -22px;}
+.calendar-icon:hover{background:url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) 0 0;}
+.activity-subpages{position:relative;margin-top:10px;padding:5px 10px;line-height:25px;}
+.activity-subpages2{position:relative;margin-bottom:10px;padding:5px 10px;line-height:25px;border-bottom:2px solid #c4c4c4;}
+.activity-subpages h2,.activity-subpages2 h2{float:left;margin-right:10px;font-size:16px;}
+.activity-subpages2 a{float:right;}
+.activity-category li{margin-bottom:5px;}
+.activity-category span{margin-right:30px;}
+.activity-claim h3{margin-bottom:15px;padding-left:20px;height:29px;line-height:30px;border-top:1px solid #f2f2f2;border-bottom:1px solid #e4e4e4;background:url(http://www.dhresource.com/dhs/mos/image/public/shadowline-bg.png) repeat-x;}
+.activity-title2{margin:20px 0;padding:0 10px;}
+.activity-title2 h2{float:left;margin-right:10px;font-size:14px;}
+.activity-title2 a{float:left;margin-top:2px;}
+.activity-title2 .countdown{float:right;}
+.activity-step{margin:20px 0;height:21px;background:#eee;}
+.activity-step li{float:left;width:262px;height:21px;line-height:20px;text-align:center;color:#999;}
+.stepone .step1,.steptwo .step2{font-weight:700;color:#fff;background:#ff9000 url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) no-repeat right -116px;}
+.stepone .step2{background:url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) no-repeat right -95px;}
+.steptwo .step1,.stepthree .step2{color:#fc5602;background:#ffe2cc url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) no-repeat right -137px;}
+.stepthree .step1{color:#fc5602;background:#ffe2cc url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) no-repeat right -158px;}
+.stepthree .step3{font-weight:700;color:#fff;background:#ff9000;}
+.product-selected-warp p{padding:5px 10px;}
+.qualified-product{margin-bottom:10px;}
+.qualified-product .qualified-introduce{float:left;padding:5px 5px 5px 10px;}
+.activity-detail .marginbottom10{margin-bottom:10px;}
+.activity-detail .activity-requirement{margin-top:-5px; margin-bottom:10px;line-height:24px;}
+/*产品范围提示*/
+#productRangeWarp{position:relative;float:left;z-index:998;}
+.product-range-info{position:relative;padding:10px;width:200px;border:1px solid #EFD392;background:#feffe5;zoom:1;}
+.product-range-title{padding-bottom:8px;color:#fb5501;border-bottom:1px solid #ddd;}
+.product-range-info dt{margin:5px 0;color:#333;}
+.product-range-info li{padding-bottom:5px;color:#666;}
+#productRangeIcon,.questionicon{display:inline-block;margin-top:6px;width:15px;height:16px;background:url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) no-repeat 0 -258px;cursor:pointer}
+.questionicon{margin:0 0 0 3px; vertical-align:top;}
+#productRangeTranslucent{position:absolute;top:2px;left:2px;z-index:-1;height:100%;width:100%;background:#000;opacity:0.2;filter:alpha(opacity:20);}
+#productRangeDetail{display:none;position:absolute;top:2px;left:22px;}
+#productRangeDetail b{position:absolute;top:8px;left:-8px;z-index:10;height:16px;width:11px;background:url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) no-repeat -14px -192px}
+.qualified-product .activity-select input{float:left;margin-right:10px;padding:2px 3px;width:150px;height:16px;}
+.qualified-product .activity-select .focus{color:#000;}
+.qualified-product .activity-select a{float:left;}
+.qualified-product .activity-select .select1{float:left;margin:1px 10px 0 0;padding:2px;}
+.qualified-product .activity-select .select2{float:;margin:1px 0 0 10px;padding:2px;width:130px;}
+.filter-condition,.filter-condition1,.filter-condition2{ padding:8px 0;border-top:1px solid #f2f2f2;border-bottom:1px solid #e4e4e4;background:#fdfdfd;}
+.filter-condition2{margin-top:10px; overflow:hidden;}
+.filter-condition{width:788px;}
+.filter-condition li,.filter-condition1 li,.filter-condition2 li{float:left;color:#000;}
+.filter-condition .col1{padding-left:18px;*padding-left:15px;width:80px;_margin-top:5px;}
+.filter-condition .col2{padding-left:67px;width:270px;}
+.filter-condition .col3,.filter-condition .col4,.filter-condition .col5{width:115px;text-align:center;}
+.filter-condition1 .col1,.filter-condition2 .col1{width:186px;text-align:center}
+.filter-condition2 .col1{width:175px;}
+.filter-condition1 .col2,.filter-condition2 .col2{width:36px;text-align:left;}
+.filter-condition2 .col2{width:56px;padding-left:10px;}
+.filter-condition1 .col3,.filter-condition1 .col4,.filter-condition1 .col5{width:90px;text-align:right;}
+.filter-condition2 .col3,.filter-condition2 .col4,.filter-condition2 .col5{width:85px;text-align:right;}
+.filter-condition2 .col5{width:76px;text-align:center;}
+.filter-condition1 .col6{padding-right:22px;width:73px;text-align:center;}
+.filter-condition2 .col6{padding-top:4px;width:90px;text-align:center;}
+.filter-condition1 .col7{width:42px;text-align:center;}
+.filter-condition2 .col7{width:42px;text-align:right;}
+.filter-condition1 em{color:#f00;}
+.filter-condition1 .col5{padding-right:10px;}
+.filter-condition1 .col8{width:80px;text-align:left;}
+.filter-condition2 .col8{width:70px;text-align:center;}
+.filter-condition2 .col9{width:54px;text-align:left;}
+.filter-condition1 .col9{width:68px;text-align:left;}
+.filter-condition1 .col9 .disinblock{display:inline-block; width:48px;}
+.category-line{padding:0 20px;height:30px;line-height:30px;border-bottom:1px solid #ccc;background:#e8fff1;}
+.category-line .linename{float:left;margin-right:10px;}
+.category-line .countdown,.category-line .countdown1,.category-line .countdown2,.category-line .countdown3{float:right;padding-right:130px;}
+.category-line .countdown1{padding-right:206px;}
+.category-line .countdown2{padding-right:278px;}
+.category-line .countdown3{padding-right:80px;width:172px;}
+#right .activity-product-list td{padding:15px 0;vertical-align:top;border-bottom:1px solid #f1f1f1;}
+#right .activity-product-list .col1{padding-left:10px;vertical-align:middle;width:30px;}
+#right .activity-product-list .col2{width:7%;}
+#right .activity-product-list .col3{padding:15px 50px 15px 10px;text-align:left;}
+#right .activity-product-list .col4,#right .activity-product-list .col5,#right .activity-product-list .col6{width:15%;}
+.activity-product-list .selected{background:#f3f3f3;}
+.proimgbox1,.proimgbox2{display:table;table-layout:fixed;width:55px;height:55px;}
+.proimgbox2{width:80px;height:80px;}
+.proimg1{overflow:hidden;display:table-cell;*display:block;width:54px;height:54px;text-align:center;*font-size:48px;*font-family:Arial;vertical-align:middle;border:1px solid #eee;background:#fff;}
+.proimg1 img{max-height:54px;max-width:54px;_width:54px;_height:54px;vertical-align:middle;}
+.current-product-info .p-img span{display: table-cell;*display: block;width:80px;height:80px;vertical-align:middle;text-align:center;*font-size: 70px;*font-family:Arial;}
+.current-product-info .p-img span img{max-height:80px;max-width:80px;_width:80px;_height:80px;vertical-align:middle;}
+#right table td .promotion-remind{margin-top:10px;height:18px;text-align:left;}
+#right table td .promotion-remind .prompt-letter{overflow:hidden;position: absolute;width:600px;height: 18px;line-height: 18px;color:#fb5501;}
+.page-emerge{position:relative;margin:10px 0 15px;padding:5px 20px;height:20px;line-height:20px;background:#ebebeb;zoom:1;}
+.page-emerge .col1{float:left;}
+.page-emerge .col2{position:absolute;top:4px;left:325px;padding:0 30px;border:1px solid #aeaeae;background:#fff;cursor:pointer;}
+.MS{font-family:"Comic Sans MS", cursive;}
+.page-emerge .col3{float:right;}
+.page-emerge .col3 a{padding-right:15px;background:url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) no-repeat right -229px;color:#333;}
+.page-emerge .col3 a:hover{color:#333;}
+.page-emerge .redborder{border-color:#f00;}
+.page-emerge .col4{visibility:hidden;position:absolute;top:5px;left:470px;color:#f00;}
+.follow-operate{overflow:hidden;margin:30px 0;height:40px;text-align:center}
+.follow-operate a,.follow-operate .bigunclick-button{margin:0 5px;}
+.follow-operate .bigyellow-button span,.follow-operate .bigunclick-button span{padding:7px 50px 8px 45px;}
+.follow-operate .biggrey-button span{padding:7px 30px 8px 25px;}
+.follow-operate .bigload-button{padding-left:35px;}
+.follow-operate .bigload-button span{padding-right:35px;}
+.activity-product-selected,.activity-product-selected1,.activity-product-list,.participate-activity{width:100%;}
+.activity-product-selected tr:hover,.activity-product-selected1 tr:hover,.activity-product-list tr:hover,.participate-activity tr:hover{background:#f3f3f3;}
+#right .activity-product-selected td,#right .activity-product-selected1 td{padding:15px 10px;vertical-align:top;text-align:left;border-bottom:1px solid #f1f1f1;}
+#right .activity-product-selected .col1,#right .activity-product-selected1 .col1{width:55px;}
+#right .activity-product-selected .col2,#right .activity-product-selected1 .col2{padding:10px 0;width:100px;word-break:break-all;}
+#right .activity-product-selected .col4{text-align:right;}
+#right .activity-product-selected .col3,#right .activity-product-selected1 .col3{width:46px;text-align:left; padding-right:0;}
+#right .activity-product-selected .col4,#right .activity-product-selected .col5,#right .activity-product-selected .col6{width:80px; padding-left:0;}
+#right .activity-product-selected1 .col6{width:76px;padding:15px 0;text-align:center;}
+#right .activity-product-selected1 .col9{width:70px; padding:15px 0;text-align:center;}
+#right .activity-product-selected1 .col10{width:54px; padding:15px 0;text-align:center;}
+#right .activity-product-selected .col5,#right .activity-product-selected .col6,#right .activity-product-selected1 .col5{color:#900;text-align:right;}
+#right .activity-product-selected .col7{padding:11px 4px 15px;width:87px;}
+.activity-product-selected .col7 input,.activity-product-selected .col9 input,.activity-product-selected .col10 input{margin-bottom:5px;padding:2px 3px;width:30px;border:1px solid #7f9db9;}
+.activity-product-selected .col9 input,.activity-product-selected .col10 input{width:50px; text-align:right;}
+.activity-product-selected td .red-border{border:solid 1px #f00;}
+#right .activity-product-selected .col7 span,.activity-product-selected .col9 span,.activity-product-selected .col10 span{display:block;}
+#right .activity-product-selected td span.range{color:#f00;}
+#right .activity-product-selected td span.digital{color:#f00;}
+.activity-product-selected .col7 .remind,.activity-product-selected .col9 .remind{color:#999;}
+.activity-product-selected .col7 .error,.activity-product-selected .col9 .error{color:#f00;}
+#right .activity-product-selected1 .col4,#right .activity-product-selected1 .col5{padding:15px 0;width:90px;text-align:right;}
+#right .activity-product-selected1 .col7{padding:15px 0;width:90px;text-align:center;}
+#right .activity-product-selected .col9{width:80px; padding:11px 0 15px;}
+#right .activity-product-selected .col10{width:68px; padding:11px 0 15px;}
+#right .activity-product-selected .col8{padding-right:0;}
+.activity-product-selected1 .col7 strong{font-weight:normal;}
+.activity-product-selected1 .col7 .state1{color:#fb5501;}
+.activity-product-selected1 .col7 .state3{color:#029600;} 
+.activity-product-selected1 .col7 .state4,.activity-product-selected1 .col7 .state2{display:inline-block;padding-right:20px;color:#f00;line-height:22px\0;*line-height:22px;background:url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) no-repeat 64px -257px;zoom:1;cursor:pointer;}
+.activity-product-selected1 .col7 .state2{color:#000; background-position: 40px -257px;}
+#right .participate-activity .state1,.activity-description .state1{color:#000;}
+#right .participate-activity .state2,.activity-description .state2{color:#029600;}
+#right .participate-activity .state3,.activity-description .state3{color:#444;}
+.activity-description{padding:10px 10px;}
+.activity-description li{float:left;margin-right:30px;}
+.activity-description .last{float:right;margin:0;}
+/*审核未通过浮层*/
+.checkfailed{position:relative;zoom:1;}
+.checkfailed-warp{display:none;position:absolute;top:25px;left:10px;}
+.revocation .checkfailed-warp{left:-2px;}
+.checkfailed-detail{position:relative;padding:5px 10px;width:135px;text-align:left;border:1px solid #EFD392;background:#feffe5;zoom:1;}
+.checkfailed-detail b{overflow:hidden;position: absolute;right:76px;top:-6px;width:11px;height:6px;background:url(http://www.dhresource.com/dhs/mos/image/public/bg.png) no-repeat -13px -6px;}
+.checkfailed-translucent{position:absolute;top:2px;left:2px;z-index:-1;height:100%;width:157px;background:#000;opacity:0.2;filter:alpha(opacity:20);}
+.col9 .checkfailed-warp{left:-15px; z-index:1;}
+.col8 .checkfailed-detail b{right:auto; left:50px;}
+.col8 .checkfailed-detail{width:180px; line-height:20px;}
+.col8 .checkfailed-translucent{width:202px;}
+#right .activity-product-selected1 .col8{padding:15px 0;}
+.discount-fill{position:relative;padding:5px 10px;margin-bottom:10px;height:20px;line-height:20px;border-top:1px solid #e5e5e5;border-bottom:1px solid #dadada;background:url(http://www.dhresource.com/dhs/mos/image/public/fborder.png) repeat-x;zoom:1;z-index:999;}
+.discount-fill .fill-warp{position:absolute;top:4px;right:10px;}
+.discount-fill .fill-warp .bulk-button{margin-right:15px;vertical-align:middle;}
+.discount-fill .fill-warp .product-account{line-height:20px;}
+/*批量填写折扣*/
+.bulk-discount-warp{position:absolute;top:28px;left:-140px;}
+.bulk-discount-detail{position:relative;width:350px;padding:10px;border:1px solid #EFD392;background:#feffe5;zoom:1;}
+.bulk-discount-detail b{overflow:hidden;position: absolute;left:180px;top:-6px;width:11px;height:6px;background:url(http://www.dhresource.com/dhs/mos/image/public/bg.png) no-repeat -13px -6px;}
+.bulk-discount-translucent{position:absolute;top:2px;left:2px;z-index:-1;height:100%;width:100%;background:#000;opacity:0.2;filter:alpha(opacity:20);}
+.bulk-discount-detail input{padding:2px 3px;width:30px;vertical-align:middle;border:1px solid #7f9db9;}
+.bulk-discount-detail .red-border{border:solid 1px #f00;}
+.whole-bulk-discount{padding-left:10px;}
+.bulk-discount-list{margin:10px 0;padding:0 10px 10px;border:1px solid #ddd;background:#fff;}
+.bulk-discount-list dl{overflow:hidden;padding:10px 0 0 20px;height:61px;border-bottom:1px solid #ddd;}
+.bulk-discount-list dd{margin:10px 0;padding-left:40px;}
+.bulk-discount-list dd span{margin-left:10px;color:#999;}
+.bulk-discount-list dd span.range{color:#f00;}
+.bulk-discount-category{overflow:auto;max-height:360px;_height:360px;}
+.bulk-discount-remind{margin-top:10px;padding-left:30px;height:28px;line-height:28px;color:#1a1a1a;border:1px solid #7bbfff;background:#daedff url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) no-repeat 8px -276px;}
+.bulk-discount-operate{text-align:center;}
+.bulk-discount-operate a,.bulk-discount-operate .unclickbutton2{margin:0 5px;}
+.complete-apply{padding:20px 0;border:1px solid #e5e5e5;}
+.complete-prompt{padding:0px 100px 0px 130px;background:url(http://www.dhresource.com/dhs/mos/image/public/middle-right.png) no-repeat 90px 0;}
+.complete-prompt p{color:#666;}
+.complete-prompt .prompt-title{margin:5px 0;line-height:24px;font-size:14px;font-weight:700;color:#010101;}
+.complete-others{margin-top:25px;padding:0 100px 0 130px;line-height:22px;}
+.verification-confirm{padding:20px 100px 20px 130px;border:1px solid #e5e5e5;border-top:0 none;background:#ffffe5;}
+.verification-confirm p{padding-bottom:5px;}
+.verification-confirm li{margin-top:10px;}
+.verification-confirm li input{width:150px;padding:2px 3px;vertical-align:middle;}
+.verification-confirm .confirm-button{margin-top:20px;padding-left:60px;}
+#right .participate-activity{margin-top:10px;width:100%;}
+#right .participate-activity th{overflow:hidden;padding:0 10px;height:29px;line-height:29px;font-weight:normal;color:#000;border-top:1px solid #e6e6e6;border-bottom:1px solid #ccc;background:url(http://www.dhresource.com/dhs/mos/image/public/shadowline-bg.png) repeat-x;}
+#right .participate-activity td{padding:15px 10px;border-bottom:1px solid #f1f1f1;}
+#right .participate-activity .col1,#right .participate-activity .col2{padding-left:20px;text-align:left;}
+#right .participate-activity .col1{width:168px;}
+#right .participate-activity .col2{width:255px;}
+/*促销活动弹层*/
+.activity-abnormal{padding:20px 30px;}
+.abnormal-title{padding-left:70px;background:url(http://www.dhresource.com/dhs/mos/image/public/middle-warn.png) no-repeat 25px 0;}
+.abnormal-title strong{display:block;margin-bottom:5px;font-size:14px;line-height:24px;}
+.abnormal-product{overflow:auto;max-height:254px;_height:254px;margin-top:20px;padding-bottom:10px;border-bottom:1px solid #e5e5e5;}
+.abnormal-product li{margin-bottom:10px;}
+.abnormal-product li a{float:left;margin-right:10px;}
+.abnormal-product li span{float:left;width:300px;}
+.abnormal-operate{padding-top:10px;text-align:center;}
+.abnormal-operate a{margin:0 5px;}
+/*日历*/
+.calendar-warp{display:none;position:absolute;top:0;left:0;z-index:999;}
+.calendar-detail{position:relative;padding:10px 0 0 10px;width:386px;border:1px solid #bbb;background:#fff;zoom:1;}
+.calendar-detail .calendar-list{float:left;padding:0 10px 10px 0;width:183px;}
+.calendar-detail h3{text-align:center;}
+.calendar-detail .calendar-title{margin:5px 0;background:#eee;}
+.calendar-detail .calendar-title li{float:left;width:26px;height:22px;line-height:22px;text-align:center;}
+.calendar-title .col1,.calendar-title .col7{font-weight:700;color:#ffac00;}
+.calendar-detail .active{background:#5792dc;color:#fff;}
+.calendar-detail .current{color:#fc5602;}
+.calendar-detail .past{color:#aaa;}
+.calendar-detail th{background:#eee;}
+.calendar-detail table{border-top:1px solid #e5e5e5;border-left:1px solid #e5e5e5;}
+.calendar-detail td{width:25px;height:22px;line-height:22px;text-align:center;border-bottom:1px solid #e5e5e5;border-right:1px solid #e5e5e5;}
+.calendar-detail .sharp-corner{overflow:hidden;position:absolute;top:7px;left:-6px;z-index:9;width:7px;height:11px;background:url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) no-repeat 0 -182px;}
+.calendar-translucent{position:absolute;top:2px;left:2px;z-index:-1;height:100%;width:100%;background:#000;opacity:0.2;filter:alpha(opacity:20);}
+.calendar-translucent iframe{height:100%;width:100%;border:0 none;opacity:0;filter:alpha(opacity:0);}
+/*删除产品浮层*/
+.popupclose{overflow:hidden;position:absolute;top:10px;right:10px;height:11px;width:11px;background:url(http://www.dhresource.com/dhs/mos/image/public/common-bg.png) -11px -67px;}
+.popupclose:hover{background-position:0 -67px;}
+.delete-product-warp{position:absolute;top:0;left:0;z-index:777;}
+.delete-product-detail{position:relative;width:180px;padding:20px 0 15px;text-align:center;border:1px solid #EFD392;background:#feffe5;zoom:1;}
+.delete-product-detail p{color:#666;}
+.delete-product-operate{margin-top:10px;}
+.delete-product-operate a{margin:0 5px;}
+.delete-product-detail b{overflow:hidden;position: absolute;right:30px;top:-6px;width:11px;height:6px;background:url(http://www.dhresource.com/dhs/mos/image/public/bg.png) no-repeat -13px -6px;}
+.delete-product-translucent{position:absolute;top:2px;left:2px;z-index:-1;height:90px;width:182px;background:#000;opacity:0.2;filter:alpha(opacity:20);}
+/*按规格查看价格*/
+.viewprice-content{position:relative;z-index:99}
+#right table td .viewprice-button{display:inline-block;padding-right:10px;color:#444;cursor:pointer;}
+.viewprice-warp{position:absolute;top:22px;left:0;}
+.viewprice-detail{position:relative;width:270px;padding:10px;border:1px solid #EFD392;background:#feffe5;zoom:1;}
+.viewprice-detail select{float:left;margin:2px 10px 0 0;width:90px;}
+#right table td .yellowbutton1 span{color:#B25706;}
+#right table td .yellowbutton1 span:hover{color:#763800;}
+.viewprice-detail b{overflow:hidden;position:absolute;left:30px;top:-6px;width:11px;height:6px;background:url(http://www.dhresource.com/dhs/mos/image/public/bg.png) no-repeat -13px -6px;}
+.viewprice-translucent{position:absolute;top:2px;left:2px;z-index:-1;height:45px;width:292px;background:#000;opacity:0.2;filter:alpha(opacity:20);}
+/*产品选择*/
+.product-selected-warp{height:120px;}
+.product-selected-detail{overflow:hidden;position:relative;padding:5px 30px 10px 35px;width:721px;height:61px;border:1px solid #ccc;background:#f2f2f2;zoom:1;}
+.product-selected-container{overflow:hidden;position:relative;padding-top:5px;width:720px;height:56px;}
+.product-selected-list{position:absolute;top:5px;left:0;width:90000px;}
+.product-selected-list li{position:relative;float:left;margin-right:10px;}
+.product-selected-list .unselected{padding-top:3px;line-height:24px;color:#666;}
+.product-selected-list .selected{width:56px;}
+.product-selected-list .loadmore{height:54px;width:54px;text-align:center;line-height:54px;border:1px solid #ddd;background:#fff;cursor:pointer;}
+.product-selected-list li .delete-product{display:none;overflow:hidden;position:absolute;top:-5px;right:-5px;width:13px;height:13px;background:url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) no-repeat 0 -200px;cursor:pointer;}
+.product-selected-list .proimg1{border:1px solid #ddd;}
+#scrollLeft,#scrollRight{display:none;overflow:hidden;position:absolute;top:30px;width:10px;height:17px;}
+.scroll-left,.scroll-right,.unscroll-left,.unscroll-right{background:url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) no-repeat;cursor:pointer;}
+.scroll-left{left:12px;background-position:0 -61px;}
+.scroll-right{right:12px;background-position:-10px -61px;}
+.scroll-left:hover{left:12px;background-position:0 -78px;}
+.scroll-right:hover{right:12px;background-position:-10px -78px;}
+.unscroll-left{left:12px;background-position:0 -44px;cursor:default;}
+.unscroll-right{right:12px;background-position:-10px -44px;cursor:default;}
+.fixed1{position:fixed!important;position:absolute;top:0;z-index:9999;box-shadow: 0 5px 5px rgba(6, 0, 1, 0.25);-webkit-box-shadow:0 0 10px rgba(6,0,1,.35);-moz-box-shadow:0 0 10px rgba(6,0,1,.35)}
+.fixed2{position:fixed!important;position:absolute;top:78px;z-index:9999;box-shadow: 0 5px 5px rgba(6, 0, 1, 0.25);-webkit-box-shadow:0 0 10px rgba(6,0,1,.35);-moz-box-shadow:0 0 10px rgba(6,0,1,.35)}
+#productSelectedToolIframe{position:absolute;top:0;left:0;z-index:-1;height:78px;width:788px;border:0 none;opacity:0;filter:alpha(opacity:0);}
+.activity-product-title{height:31px;}
+/*当前产品信息*/
+.current-product-detail{display:none;position:absolute;top:0;left:0;z-index:9999;padding:5px;width:190px;border:1px solid #b1b1b1;background:#f0f0f0;zoom:1;}
+.current-product-info{padding:10px;width:170px;background:#fff;}
+.current-product-info li{line-height:24px;}
+.current-product-info li span{display:inline-block;width:60px;text-align:right;}
+.current-product-info .p-img{padding:5px 45px;width:80px;height:80px;}
+.current-product-info .p-name{overflow:hidden;margin-bottom:10px;line-height:18px;}
+.current-product-info .p-price{padding-top:10px;border-top:1px solid #e5e5e5;}
+.current-product-detail b{overflow:hidden;position:absolute;top:-7px;left:95px;width:11px;height:8px;background:url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) no-repeat -10px -184px;}
+#currentProductIframe{position:absolute;top:-1px;left:-1px;z-index:-1;width:202px;height:300px;border:0 none;opacity:0;filter:alpha(opacity:0);}
+#decideAllSelect{position:fixed!important;position:absolute;top:0;left:0;z-index:10001;}
+.allproduct-select{padding:20px 30px;text-align:center;}
+.allproduct-select-operate{margin-top:15px;}
+.allproduct-select-operate a{margin:0 5px;}
+#decideAllSelectIframe{display:none;position:fixed!important;position:absolute;z-index:10000;top:0;left:0;width:100%;height:100%;background:#000;opacity:0.5;filter:alpha(opacity:50);}
+#decideAllSelectIframe iframe{position:absolute;z-index:-1;top:0;left:0;border:0;width:100%;height:100%;opacity:0;filter:alpha(opacity:0);}
+#productSubmitErrorPop{position:fixed!important;position:absolute;top:0;left:0;z-index:10001;}
+#productSubmitErrorIframe{display:none;position:fixed!important;position:absolute;z-index:10000;top:0;left:0;width:100%;height:100%;background:#000;opacity:0.5;filter:alpha(opacity:50);}
+.nomeet-activity-remind{margin-top:10px;padding:10px;height:40px;line-height:40px;text-align:center;color:#fc5602;border:1px solid #fdcc7f;background:#ffffe5;}
+.already-operate-info{padding-left:10px;}
+.load-data{display:none;margin-top:10px;height:80px;background:url(http://www.dhresource.com/seller/images/index/loading.gif) no-repeat center;}
+.join-activities{padding:15px 30px;line-height:24px;}
+.join-activities-operate{margin-top:10px;text-align:center;}
+#joinActivitiesPopup{position:fixed!important;position:absolute;top:0;left:0;z-index:10001;}
+#joinActivitiesIframe{display:none;position:fixed!important;position:absolute;z-index:10000;top:0;left:0;width:100%;height:100%;background:#000;opacity:0.5;filter:alpha(opacity:50);}
+#joinActivitiesIframe iframe{position:absolute;z-index:-1;top:0;left:0;border:0;width:100%;height:100%;opacity:0;filter:alpha(opacity:0);}
+#loadDataPopup{position:fixed!important;position:absolute;top:0;left:0;z-index:10001;}
+.load-product-data{padding:30px 70px;}
+.progressbar{margin:10px 0 5px;width:230px;height:15px;border-top:1px solid #616161;border-left:1px solid #616161;background:#cdcdcd;}
+.progressbar-inner{width:230px;height:15px;background:#4cab00;}
+.straight-down .down{visibility:hidden;}
+.activity-select{position:relative;zoom:1;}
+.activity-help{position:absolute;top:10px;right:10px;}
+/*回到顶部*/
+.back-to-top{display:none;position:fixed!important;position:absolute;right:0;top:0;width:60px;cursor:pointer;}
+.back-to-top a{display:block;padding-top:25px;width:60px;height:25px;color:#333;text-align:center;background:url(http://www.dhresource.com/dhs/mos/image/myproduct/ambg1.png) no-repeat center -310px;}
+.back-to-top a:hover{color:#333;text-decoration:none;}
+/*促销时段*/
+#activityTimeRange{position:absolute;top:0;right:0;z-index:999;}
+.activity-time-range{position:relative;width:255px;border:1px solid #EFD392;background:#feffe5;zoom:1;}
+.activity-range-title{padding:5px 10px;color:#666;font-weight:700;border-bottom:1px solid #efd392;}
+.activity-time-range p{padding:5px 10px;color:#999;}
+.activity-time-range dl{padding:0 0 5px 20px;}
+.activity-time-range dt{color:#999;}
+.activity-time-range b{overflow:hidden;position:absolute;right:28px;top:-6px;width:11px;height:6px;background:url(http://www.dhresource.com/dhs/mos/image/public/bg.png) no-repeat -13px -6px;}
+#activityTimeRangeTranslucent{position:absolute;top:2px;left:2px;z-index:-1;height:100%;width:257px;background:#000;opacity:0.2;filter:alpha(opacity:20);}

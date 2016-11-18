@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>imageCutter demo</title>
+    <link rel="stylesheet" href="css/ui.Button.css"/>
+    <script src="std.min.js"></script>
+    <script src="ui.Button.js"></script>
+    <script src="ui.ImageCutter.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    Std.ui.module("UploadPhoto",{
+        parent:"widget",
+        option:{
+            image:null,
+            width:500,
+            height:500,
+            pickerWidth:215,
+            pickerHeight:215,
+            action:""
+        },
+        extend:{
+            render:function(){
+                var that = this;
+
+                that.layout({
+                    ui:"VBoxLayout",
+                    spacing:0,
+                    items:[
+                        that._imageCutter,
+                        that._stateWidget
+                    ]
+                });
+                return that;
+            }
+        },
+        private:{
+            initButtons:function(){
+                var that     = this;
+                var postData = null;
+
+                that._selectButton[0].readLocalImage({
+                    callback:function(data){
+                        postData = data;
+                        that.image(data.data);
+                    }
+                });
+                that._submitButton[0].on("click",function(){
+                    var action = that.opts.action;
+                    var data   = that._imageCutter.toData();
+
+                    if(isEmpty(action)){
+                        return;
+                    }
+
+                    Std.ajax.post(action,{
+
+                    },function(){
+
+                    });
+                });
+                return that;
+            }
+        },
+        public:{
+            image:function(src){
+                var that = this;
+
+                if(src === undefined){
+                    return that._imageCutter.image();
+                }
+                that._imageCutter.image(src);
+                return that;
+            }
+        },
+        main:function(that,opts,dom){
+            that.D            = {};
+            that._imageCutter = Std.ui("ImageCutter",{
+                pickerWidth:opts.pickerWidth,
+                pickerHeight:opts.pickerHeight
+            });
+            that._stateWidget = Std.ui("widget",{
+                height:40,
+                layout:{
+                    ui:"HBoxLayout",
+
+                    items:[
+                        that._selectButton = Std.ui("Button",{
+                            text:"select"
+                        }),
+                        that._submitButton = Std.ui("Button",{
+                            text:"submit"
+                        })
+                    ]
+                }
+            });
+            if(opts.image){
+                that.image(opts.image);
+            }
+            that.initButtons();
+        }
+    });
+
+    //-------Std Dom 文件读取扩展
+    Std.dom.extend({
+        readLocalImage:function(options){
+            var that    = this;
+            var opts    = Std.extend({
+                callback:null,
+                maxFileSize:1024 * 1024 * 10
+            },options);
+
+            var reader  = new FileReader;
+            var element = null;
+            var create  = function(){
+                element = new Std.dom("input[type='file']","body").css({
+                    position: "absolute",
+                    opacity : 0,
+                    zIndex  : 999
+                }).on({
+                    change:function(){
+                        fileChange();
+                    }
+                });
+            };
+
+            var fileChange = function(){
+                var files = element.dom.files;
+
+                if(files.length < 0 || files[0].size > opts.maxFileSize){
+                    return;
+                }
+                if(!Std.url.suffix.img(Std.url(files[0].name).suffix)){
+                    return;
+                }
+                reader.readAsDataURL(files[0]);
+                reader.onload = function(){
+                    if(isFunction(opts.callback)){
+                        opts.callback.call(that,{
+                            fileName:files[0].name,
+                            fileSize:files[0].size,
+                            data:reader.result
+                        });
+                    }
+                };
+            };
+
+            that.on("mouseenter",function(){
+                var offset = that.offset();
+                if(element === null){
+                    create();
+                }
+                element.css({
+                    width   : that.outerWidth(),
+                    height  : that.outerHeight(),
+                    left    : offset.x,
+                    top     : offset.y
+                })
+            });
+
+            return that;
+        }
+    });
+
+    Std.main(function(){
+
+        Std.ui("UploadPhoto",{
+            renderTo:"body",
+            action:"updatePosProduct"
+        });
+    });
+</script>
+</body>
+</html>

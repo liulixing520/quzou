@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="OFBIZTOOLS_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="OFBIZTOOLS_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="OFBIZTOOLS_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="OFBIZTOOLS_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="OFBIZTOOLS_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="OFBIZTOOLS_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="OFBIZTOOLS_ADMIN"/>
+
+    <!-- 安全组 -->
+    <SecurityGroup groupId="YtcmManagement"/>
+    <SecurityGroup groupId="YtsmManagement"/>
+    <SecurityGroup groupId="YtbmManagement"/>
+    <SecurityGroup groupId="YtcmOrigin"/>
+    <SecurityGroup groupId="YtecPurchaseCust"/>
+	
+    <!--原始安全组权限-->
+    <SecurityGroupPermission groupId="YtcmOrigin" permissionId="YTCM_ADMIN"/>
+    <SecurityGroupPermission groupId="YtcmOrigin" permissionId="YTSM_ADMIN"/>
+    <SecurityGroupPermission groupId="YtcmOrigin" permissionId="YTBM_ADMIN"/>
+    <SecurityGroupPermission groupId="YtcmOrigin" permissionId="YTEC_ADMIN"/>
+	
+	<SecurityGroup description="Customer user of ECOMMERCE Limited access to own account" groupId="ECOMMERCE_CUSTOMER"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_CUSTOMER" permissionId="CONTENTMGR_ROLE_CREATE"/>
+    <SecurityGroupPermission groupId="ECOMMERCE_CUSTOMER" permissionId="CONTENTMGR_ROLE_UPDATE"/>
+	
+	<!-- 卖家初始权限: 当前模块访问权限 -->
+    <SecurityGroupPermission groupId="YtsmManagement" permissionId="YTSM_ADMIN"/>
+    <!-- 商家能维护产品价格/产品目录管理权限 -->
+    <SecurityGroupPermission groupId="YtsmManagement" permissionId="CATALOG_ADMIN"/>
+    <!-- 库存管理权限 -->
+    <SecurityGroupPermission groupId="YtsmManagement" permissionId="ACCTG_PREF_ADMIN"/>
+    <!-- 账目交易 -->
+    <SecurityGroupPermission groupId="YtsmManagement" permissionId="ACCTG_ATX_ADMIN"/>
+    <!-- 账户更新 -->
+    <SecurityGroupPermission groupId="YtsmManagement" permissionId="ACCOUNTING_ADMIN"/>
+    <!-- 价格更新 -->
+    <SecurityGroupPermission groupId="YtsmManagement" permissionId="CATALOG_PRICE_MAINT"/>
+
+	<SecurityGroupPermission groupId="YtsmManagement" permissionId="PAY_INFO_ADMIN"/>
+
+	<SecurityGroupPermission groupId="YtsmManagement" permissionId="ORDERMGR_ADMIN"/>
+
+	<SecurityGroupPermission groupId="YtsmManagement" permissionId="PARTYMGR_ADMIN"/>
+	
+	<SecurityGroupPermission groupId="YtsmManagement" permissionId="FACILITY_ADMIN"/>
+	
+	<SecurityGroupPermission groupId="YtsmManagement" permissionId="CONTENTMGR_ADMIN"/>
+</entity-engine-xml>

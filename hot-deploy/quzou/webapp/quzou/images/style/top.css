@@ -1,0 +1,7 @@
+@charset "utf-8";
+.main {position:relative;width:980px;background-color:#FC6;margin:0 auto;padding-top:220px; text-align:center;}
+#AdLayer {position:absolute;width:20px;display:none;height:59px;top:60px;right:-30px;}
+
+.backToTop {
+	POSITION: fixed; TEXT-ALIGN: center; FILTER: Alpha(opacity=60); PADDING-BOTTOM: 5px; LINE-HEIGHT: 1.2; BACKGROUND-COLOR: #000; PADDING-LEFT: 0px; WIDTH: 18px; BOTTOM: 100px; PADDING-RIGHT: 0px; DISPLAY: none; COLOR: #fff; FONT-SIZE: 12px; CURSOR: pointer; RIGHT: 10px; PADDING-TOP: 5px; _position: absolute; _bottom: "auto"; opacity: .6
+}

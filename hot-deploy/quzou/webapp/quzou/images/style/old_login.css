@@ -1,0 +1,117 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-color:#fff !important;
+}
+#login{
+	width:920px;margin:80px auto 0px;
+}
+.login-ad{
+	width:463px; overflow:hidden; float:left;
+}
+.login{
+	width:339px; height:337px;overflow:hidden; float:right; padding:20px 54px 0;background-color:#ffffff;
+}
+.login_row{
+	height:32px; border:1px solid #c8c8c8; position:relative;
+}
+.login_top{margin-top:10px;}
+.login_row label{
+	display:inline-block; float:left; width:34px; height:32px;/* background:url(../images/login/icons.png) no-repeat;*/
+}
+.login_row label.user{
+	/*background-position:8px 6px;*/
+	background:url(../images/login/login_user.png) center center no-repeat;
+	float:right;
+}
+.login_row label.psw{
+	/*background-position:8px -44px;*/
+	background:url(../images/login/login_pass.png) center center no-repeat;
+	float:right;
+}
+.login_row label.ecode{
+	background-position:8px -94px;
+}
+.login_row input{
+	height:20px; padding:6px 5px; line-height:20px; font-size:14px; color:#999; border:none; width:270px; outline:none;
+	display:inline-block; float:left;
+}
+.login_row2 input{
+	height:20px; padding:6px 5px; line-height:20px; font-size:14px; color:#999; border:none; width:148px; outline:none;
+	display:inline-block; float:left;border:1px solid #c8c8c8;
+}
+.login_row i{
+	display:inline-block; height:32px; width:280px; position:absolute; top:0px; left:34px; color:#999; line-height:32px; font-size:14px;
+	cursor:text;
+}
+.login_row2.code i{
+	width:148px;
+}
+.login_row2.code em a{color:#ef3181;margin-left:8px;}
+.login_row2.code i{
+	width:124px;
+}
+.login_row2.code em{
+	display:inline-block; float:right; width:158px; overflow:hidden; height:32px;
+}
+.login_remember{
+	height:46px; line-height:46px; overflow:hidden; font-size:14px; color:#666;
+}
+.login_remember span{
+	display:inline-block; height:46px; float:left; margin-right:9px;
+}
+.login_remember span input{
+	margin-top:17px; width:14px; height:14px;
+}
+.login_remember a{
+	color:#666;
+}
+.login_remember a:hover{
+	text-decoration:underline;
+}
+.login_btn{
+	width:340px; height:34px; border:none; background-color:#f83976; color:#fff; text-align:center; font-size:17px; font-family:"微软雅黑";
+	outline:none; cursor:pointer;margin-top:45px;border-radius:2px;
+}
+.login_btn:hover{background-color:#dd2d65;}
+.login_btn:active{background-color:#b21e4d;}
+#footer{
+	overflow:hidden; background-color:#f5f5f5; margin-top:218px;
+}
+.footer{
+	width:1000px; overflow:hidden; margin:0px auto;
+}
+.bottom{
+	height:40px; line-height:40px; text-align:center; border-top:1px solid #d8d8d8; margin-top:60px;
+}
+.footer_list{
+	overflow:hidden;
+}
+.footer_list dl{
+	width:165px; float:left; margin-left:113px; margin-top:15px; overflow:hidden;
+}
+.footer_list dl:first-child{
+	margin-left:0px;
+}
+.footer_list dl:last-child{
+	margin-left:0px; float:right;
+}
+.footer_list dl dt{
+	height:38px; line-height:38px; font-size:18px; color:#2e3032; border-bottom:1px solid #d8d8d8; margin-bottom:8px;
+}
+.footer_list dl dd{
+	height:24px; line-height:24px; padding-left:14px; font-size:14px; position:relative;
+}
+.footer_list dl dd a{
+	color:#2e3032;
+}
+.footer_list dl dd em{
+	display:block; position:absolute; left:1px; top:11px; background-color:#000; border-radius:2px; width:4px; height:4px;
+}
+
+.logoHead span{display:inline-block;vertical-align:middle;}
+.logoHead span.logo{border-right:1px solid #e3e3e3;padding-right:10px;}
+.logoHead span.welcome{font-size:20px;margin-left:5px;}
+.loginMain{width:910px;height:357px;background-color:#e8e8e8;border-radius:4px;padding:5px;margin-top:70px;}
+.loginBotImg{width:900px;height:133px;margin:0 auto;background:url(../images/login/loginBotImg.png) no-repeat;}
+

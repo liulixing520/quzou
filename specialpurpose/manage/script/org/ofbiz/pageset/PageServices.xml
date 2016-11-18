@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>     
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods-v2.xsd">
+
+	<!-- 添加广告 -->
+	<simple-method method-name="createPagemanage"
+		short-description="创建广告的方法">
+		<check-errors />
+
+		<log level="info" message="parameters=${parameters}" />
+
+
+		<make-value value-field="newEntity" entity-name="PageSetting" />
+		<!-- <set-nonpk-fields map="parameters" value-field="newEntity" /> -->
+
+		<sequenced-id sequence-name="PageSetting" field="newEntity.pageSettingId" />
+
+		<set from-field="parameters.advertisingName" field="newEntity.advertisingName" />
+		<set from-field="parameters.describePage" field="newEntity.describePage" />
+		<set from-field="parameters.gradingType" field="newEntity.gradingType" />
+		<set from-field="parameters.pageLogoImage" field="newEntity.pageLogoImage" />
+		<set from-field="parameters.pageJumpImage" field="newEntity.pageJumpImage" />
+		<set from-field="parameters.advertisingPosition" field="newEntity.advertisingPosition" />
+		<set from-field="parameters.startTime" field="newEntity.startTime" />
+		<set from-field="parameters.failureTime" field="newEntity.failureTime" />
+		<set field="newEntity.status" value="0" />
+		<create-value value-field="newEntity" />
+	</simple-method>
+	
+	
+	<!-- 修改广告 -->
+	<simple-method method-name="editPagemanage"
+		short-description="修改广告的方法">
+		<check-errors />
+
+		<log level="info" message="parameters=${parameters}" />
+
+
+		<!-- <set-nonpk-fields map="parameters" value-field="newEntity" /> -->
+
+		<make-value value-field="lookupKeyValue" entity-name="PageSetting" />
+		<set-pk-fields map="parameters" value-field="lookupKeyValue" />
+		<find-by-primary-key entity-name="PageSetting"
+			map="lookupKeyValue" value-field="lookedUpValue" />
+		<set-nonpk-fields map="parameters" value-field="lookedUpValue" />
+		<set field="lookedUpValue.status" value="0" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	
+		<!-- 删除广告 -->
+	<simple-method method-name="removePagemanage"
+		short-description="Remove PageSetter Method">
+		<check-errors />
+		<log level="info" message="删除方法===================Remove PageSetter" />
+
+		<make-value value-field="lookupPKMap" entity-name="PageSetting" />
+		<set-pk-fields map="parameters" value-field="lookupPKMap" />
+		<find-by-primary-key entity-name="PageSetting"
+			map="lookupPKMap" value-field="lookedUpValue" />
+		
+		<set field="lookedUpValue.status" value="1" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	
+	<!-- 创建帮助分类 -->
+	<simple-method method-name="createHelpClass"
+		short-description="创建帮助分类的方法">
+		<check-errors />
+
+		<log level="info" message="parameters=${parameters}" />
+
+
+		<make-value value-field="newEntity" entity-name="HelpClassification" />
+		<!-- <set-nonpk-fields map="parameters" value-field="newEntity" /> -->
+
+		<sequenced-id sequence-name="HelpClassification" field="newEntity.helpClassId" />
+
+		<set from-field="parameters.classificationName" field="newEntity.classificationName" />
+		<set field="newEntity.classificationDelete" value="0" />
+		<create-value value-field="newEntity" />
+	</simple-method>
+	
+		<!-- 修改帮助分类 -->
+	<simple-method method-name="editorHelpClass"
+		short-description="修改帮助分类的方法">
+		<check-errors />
+
+		<log level="info" message="parameters=${parameters}" />
+		<make-value value-field="lookupKeyValue" entity-name="HelpClassification" />
+		<set-pk-fields map="parameters" value-field="lookupKeyValue" />
+		<find-by-primary-key entity-name="HelpClassification"
+			map="lookupKeyValue" value-field="lookedUpValue" />
+		<set-nonpk-fields map="parameters" value-field="lookedUpValue" />
+		<set field="lookedUpValue.classificationDelete" value="0" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	
+		<!-- 删除帮助分类 -->
+	<simple-method method-name="removeHelpClass"
+		short-description="Remove HelpClass Method">
+		<check-errors />
+		<log level="info" message="删除方法===================Remove HelpClass" />
+
+		<make-value value-field="lookupPKMap" entity-name="HelpClassification" />
+		<set-pk-fields map="parameters" value-field="lookupPKMap" />
+		<find-by-primary-key entity-name="HelpClassification"
+			map="lookupPKMap" value-field="lookedUpValue" />
+		
+		<set field="lookedUpValue.classificationDelete" value="1" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	
+	<!-- 创建帮助信息 -->
+	<simple-method method-name="createHelpInfo"
+		short-description="创建帮助分类的方法">
+		<check-errors />
+
+		<log level="info" message="parameters=${parameters}" />
+
+
+		<make-value value-field="newEntity" entity-name="HelpInformation" />
+		<!-- <set-nonpk-fields map="parameters" value-field="newEntity" /> -->
+
+		<sequenced-id sequence-name="HelpInformation" field="newEntity.helpPageInfoId" />
+
+		<set from-field="parameters.helpTitleName" field="newEntity.helpTitleName" />
+		<set from-field="parameters.longHelpInfo" field="newEntity.longHelpInfo" />
+		<set from-field="parameters.helpClassId" field="newEntity.helpClassId" />
+		<set field="newEntity.helpStatus" value="0" />
+		<create-value value-field="newEntity" />
+	</simple-method>
+	
+		<!-- 修改帮助信息 -->
+	<simple-method method-name="editorHelpClass"
+		short-description="修改帮助分类的方法">
+		<check-errors />
+
+		<log level="info" message="parameters=${parameters}" />
+		<make-value value-field="lookupKeyValue" entity-name="HelpInformation" />
+		<set-pk-fields map="parameters" value-field="lookupKeyValue" />
+		<find-by-primary-key entity-name="HelpInformation"
+			map="lookupKeyValue" value-field="lookedUpValue" />
+		<set-nonpk-fields map="parameters" value-field="lookedUpValue" />
+		<set field="lookedUpValue.helpStatus" value="0" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	
+		<!-- 删除帮助信息 -->
+	<simple-method method-name="removeHelpClass"
+		short-description="Remove HelpClass Method">
+		<check-errors />
+		<log level="info" message="删除方法===================Remove HelpClass" />
+
+		<make-value value-field="lookupPKMap" entity-name="HelpInformation" />
+		<set-pk-fields map="parameters" value-field="lookupPKMap" />
+		<find-by-primary-key entity-name="HelpInformation"
+			map="lookupPKMap" value-field="lookedUpValue" />
+		
+		<set field="lookedUpValue.helpStatus" value="1" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	
+</simple-methods>

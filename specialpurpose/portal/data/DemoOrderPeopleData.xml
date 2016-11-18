@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entity-engine-xml>
+
+    <!-- this person can create sales orders for any store -->
+    <Party partyId="DemoSeller" partyTypeId="PERSON"/>
+    <Person partyId="DemoSeller" firstName="Demo" lastName="Sales Rep for All Stores"/>
+    <PartyRole partyId="DemoSeller" roleTypeId="_NA_"/>
+    <PartyRole partyId="DemoSeller" roleTypeId="BILL_FROM_VENDOR"/>
+    <PartyRole partyId="DemoSeller" roleTypeId="BILL_TO_CUSTOMER"/>
+    <PartyRole partyId="DemoSeller" roleTypeId="CUSTOMER"/>
+    <PartyRole partyId="DemoSeller" roleTypeId="OWNER"/>
+    <PartyRole partyId="DemoSeller" roleTypeId="PLACING_CUSTOMER"/>
+    <PartyRole partyId="DemoSeller" roleTypeId="INTERNAL_ORGANIZATIO"/>
+    <PartyRole partyId="DemoSeller" roleTypeId="SUPPLIER"/>
+    <UserLogin partyId="DemoSeller" currentPassword="{SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a" userLoginId="DemoSeller"/>
+    <UserLoginSecurityGroup userLoginId="DemoSeller" groupId="ORDERENTRY_ALL" fromDate="2001-05-13 00:00:00"/>
+	<UserLoginSecurityGroup userLoginId="DemoSeller" groupId="ECOMMERCE_SELLER" fromDate="2000-01-01 00:00:00.0"/>
+
+	<Party partyId="DemoSeller2" partyTypeId="PERSON"/>
+    <Person partyId="DemoSeller2" firstName="Demo2" lastName="Sales Rep for All Stores"/>
+    <PartyRole partyId="DemoSeller2" roleTypeId="_NA_"/>
+    <PartyRole partyId="DemoSeller2" roleTypeId="BILL_FROM_VENDOR"/>
+    <PartyRole partyId="DemoSeller2" roleTypeId="BILL_TO_CUSTOMER"/>
+    <PartyRole partyId="DemoSeller2" roleTypeId="CUSTOMER"/>
+    <PartyRole partyId="DemoSeller2" roleTypeId="OWNER"/>
+    <PartyRole partyId="DemoSeller2" roleTypeId="PLACING_CUSTOMER"/>
+    <PartyRole partyId="DemoSeller2" roleTypeId="INTERNAL_ORGANIZATIO"/>
+    <PartyRole partyId="DemoSeller2" roleTypeId="SUPPLIER"/>
+    <UserLogin userLoginId="DemoSeller2" currentPassword="{SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a" partyId="DemoSeller2"/>
+    <UserLoginSecurityGroup userLoginId="DemoSeller2" groupId="ORDERENTRY_ALL" fromDate="2001-05-13 00:00:00"/>
+	<UserLoginSecurityGroup userLoginId="DemoSeller2" groupId="ECOMMERCE_SELLER" fromDate="2000-01-01 00:00:00.0"/>
+</entity-engine-xml>

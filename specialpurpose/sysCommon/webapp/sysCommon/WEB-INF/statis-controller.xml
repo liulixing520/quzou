@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <description>Module Configuration File</description>
+    
+    <handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler"/>
+    <handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler"/>
+ 
+    <firstvisit></firstvisit>
+    
+	
+    <!-- Request Mappings -->
+    <request-map uri="view">
+        <security https="false" auth="false"/>
+        <response name="success" type="request" value="FindRole"/>
+    </request-map>
+    
+    <request-map uri="contractWorkTime">
+		<security https="false" auth="true" />
+<!-- 		<event type="groovy" path="component://extErp/webapp/extErp/WEB-INF/actions/statis/" invoke="contractWorkTimeReport.groovy"/> -->
+		<response name="success" type="view" value="contractWorkTime" />
+		
+	</request-map>
+	
+    <!-- View Mappings -->
+   <view-map name="contractWorkTime" type="birt" page="component://extErp/webapp/extErp/statis/contractWorkTimeReport.rptdesign" content-type="application/vnd.ms-excel" />
+<!--    <view-map name="contractWorkTime" type="birt" page="component://extErp/webapp/extErp/statis/sample.rptdesign" content-type="text/html" /> -->
+	
+    <!-- end of view mappings -->
+</site-conf>

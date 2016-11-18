@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	<screen name="main-decorator">
+		<section>
+			<actions>
+				<property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+				<property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+				
+				<!-- The default (global) shortcut icon -->
+                <set field="layoutSettings.shortcutIcon" value="/portal/images/TradeEase.ico" global="true"/>
+                
+				<set field="layoutSettings.styleSheets[]" value="/portal/images/css/header.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/portal/images/css/footer.css" global="true"/>
+				<!-- <set field="layoutSettings.styleSheets[]" value="/portal/images/css/cart.css" global="true"/> -->
+				<set field="layoutSettings.javaScripts[]" value="/portal/images/js/jquery-1.11.1.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/images/selectall.js" global="true"/>
+				<script location="component://portal/widget/PortalSetup.groovy"/>
+				
+				 <!-- Get the store VisualTheme -->
+                <!-- <set field="visualThemeId" default-value="EC_DEFAULT"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/> -->
+
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/includes/header.ftl"/>
+				<set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/includes/footer.ftl"/>
+			</actions>
+			<widgets>
+				<section>
+                    <actions>
+                        <set field="title" value="商城" />
+                        <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/ProductCategories.groovy"/>
+                    </actions>
+					<widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="header"><platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific></container>
+						
+						<container id="body">
+							<decorator-section-include name="body"/>
+						</container>
+						
+						<!-- render footer -->
+	                    <container id="footer"><platform-specific><html><html-template location="${footerTemplateLocation}"/></html></platform-specific></container>
+	                    <platform-specific><html><html-template location="component://common/webcommon/includes/closehtmlbody.ftl"/></html></platform-specific>
+					</widgets>
+				</section>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="header">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html><html-template location="component://portal/webapp/portal/includes/header.ftl"/></html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="footer">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html><html-template location="component://portal/webapp/portal/includes/footer.ftl"/></html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+    <screen name="main">
+        <section>
+            <widgets>
+            	<decorator-screen name="main-decorator">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://portal/webapp/portal/main.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="categories">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/home/categories.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="activityShow">
+        <section>
+        	<actions>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/home/SlideImages.groovy"/>
+        	</actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/home/activityShow.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="bestselling">
+        <section>
+        	<actions>
+        	    <set field="parameters.productCategoryId" value="HOT_SALES"/>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/store/recommendProductStore.groovy"/>
+        	</actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/home/bestselling.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 推荐品类 -->
+	<screen name="bestselling2">
+        <section>
+        	<actions>
+        		<set field="parameters.putcategorys" value="PUT_CATEG"/>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/catalog/PutCategories.groovy"/>
+        	</actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/home/bestselling2.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+<!--     <screen name="weeklyBestsellings">
+        <section>
+        	<actions>
+        		<set field="parameters.productCategoryId" value="WEEKLY_BEST_SELL"/>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/home/weeklyBestsellings.groovy"/>
+        	</actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/home/weeklyBestsellings.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen> -->
+
+    <screen name="hotNew">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/home/hotNew.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 首页最新产品显示 -->
+	<screen name="keywordsearch">
+        <section>
+            <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+				 
+                <set field="productsummaryScreen" value="component://portal/widget/CommonScreens.xml#productsummary"/>
+				 
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="8"/>
+                <set field="parameters.orderByName" from-field="introductionDate"/>
+                <set field="parameters.sortByReverse" from-field="true"/>
+                <set field="parameters.SEARCH_CATEGORY_ID" from-field="requestAttributes.productCategoryId"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/FindCategory2.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                 <platform-specific><html><html-template location="component://portal/webapp/portal/home/newProduct.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 畅销商品 -->
+    <screen name="weeklyBestsellingsSearch">
+        <section>
+            <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+				 
+                <set field="productsummaryScreen" value="component://portal/widget/CommonScreens.xml#productsummary"/>
+				 
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.VIEW_SIZE" value="10"/>
+                <set field="parameters.SEARCH_CATEGORY_ID"  value="WEEKLY_BEST_SELL"/>
+                <!-- from-field="requestAttributes.productCategoryId" default-value="8" -->
+                
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/FindCategory.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                 <platform-specific><html><html-template location="component://portal/webapp/portal/home/weeklyBestsellings.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="productsummary">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/home/newProduct2.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="publicInformation">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/home/publicInformation.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="popular">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/home/popular.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+     <screen name="popularList">
+        <section>
+        <actions>
+       		<script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+        </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/home/popularListToFor2.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="superdeals">
+        <section>
+        	<actions>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/home/SuperDeals.groovy"/>
+        	</actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/home/superdeals.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="login">
+        <section>
+            <actions>
+            	
+            	<property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+				<property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+				
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/css/registe.css" global="true"/>
+                <set field="titleProperty" value="PageTitleLogin"/>
+                <set field="headerItem" value="login"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/Login.groovy"/>
+            </actions>
+            <widgets>
+          		<!--  
+                <decorator-screen name="footer-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/login.ftl"/></html>
+                        </platform-specific>
+                        -->
+                        
+<!--                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/order/startanoncheckout.ftl"/></html>
+                        </platform-specific>-->
+                     <!--  
+                    </decorator-section>
+                </decorator-screen>
+                -->   
+                  <platform-specific>
+                       <html><html-template location="component://portal/webapp/portal/login.ftl"/></html>
+                  </platform-specific>
+                 
+            </widgets>
+        </section>
+    </screen>
+    <!-- 卖家登录 -->
+    <screen name="buyerlogin">
+        <section>
+            <actions>
+            	
+            	<property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+				<property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+				
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/css/registe.css" global="true"/>
+                <set field="titleProperty" value="PageTitleLogin"/>
+                <set field="headerItem" value="login"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/Login.groovy"/>
+            </actions>
+            <widgets>
+          		<!--  
+                <decorator-screen name="footer-decorator">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/login.ftl"/></html>
+                        </platform-specific>
+                        -->
+                        
+<!--                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/order/startanoncheckout.ftl"/></html>
+                        </platform-specific>-->
+                     <!--  
+                    </decorator-section>
+                </decorator-screen>
+                -->   
+                  <platform-specific>
+                       <html><html-template location="component://portal/webapp/portal/buyerlogin.ftl"/></html>
+                  </platform-specific>
+                 
+            </widgets>
+        </section>
+    </screen>
+    <!-- 产品详情页面  组合页面  
+    <screen name="showPro">
+        <section>
+            <actions>         
+				<script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductDetail.groovy" />  
+           </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                       <platform-specific>
+                           <html><html-template location="component://portal/webapp/portal/product/showProductToOne.ftl"/></html>
+                       </platform-specific>
+                    </decorator-section>
+                </decorator-screen>               
+            </widgets>
+        </section>
+    </screen> -->
+
+    
+    
+    <!-- 我的店铺首页 -->
+    <screen name="sellerhome">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <!--<entity-one entity-name="ProductStore" value-field="productStore" auto-field-map="true"/>
+                <set field="parameters.productStoreId" from-field="productStoreId"/>-->
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/sellerhome/sellerhome.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- 首页下方注意 -->
+    <screen name="look_abouteus">
+        <section>
+            <actions>
+                <set field="paramTemp" value="10001"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                location="component://portal/webapp/portal/seller/system/pagesetter.ftl" />
+                                        <!--location="component://portal/webapp/portal/seller/system/aboutus.ftl" />-->
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="look_newbieonroad">
+        <section>
+            <actions>
+                <set field="paramTemp" value="10002"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/system/pagesetter.ftl" />
+                                        <!--location="component://portal/webapp/portal/seller/system/newbieonroad.ftl" /> -->
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="look_buyerprotection">
+        <section>
+            <actions>
+                <set field="paramTemp" value="10003"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                location="component://portal/webapp/portal/seller/system/pagesetter.ftl" />
+                                       <!--  location="component://portal/webapp/portal/seller/system/buyerprotection.ftl" /> -->
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="look_allgoods">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/system/allgoods.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="look_allpromotionalitems">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/system/allpromotionalitems.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="look_allhotsearchkeywords">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/system/allhotsearchkeywords.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="look_helps">
+        <section>
+            <actions>
+                <set field="paramTemp" value="10004"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                location="component://portal/webapp/portal/seller/system/pagesetter.ftl" />
+                                        <!-- location="component://portal/webapp/portal/seller/system/helps.ftl" /> -->
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="look_customerservice">
+        <section>
+            <actions>
+                <set field="paramTemp" value="10005"/> 
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                location="component://portal/webapp/portal/seller/system/pagesetter.ftl" />
+                                        <!-- location="component://portal/webapp/portal/seller/system/customerservice.ftl" /> -->
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="look_onwebsite">
+        <section>
+            <actions>
+                <set field="paramTemp" value="10006"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                location="component://portal/webapp/portal/seller/system/pagesetter.ftl" />
+                                       <!--  location="component://portal/webapp/portal/seller/system/onwebsite.ftl" /> -->
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="look_privacypolicy">
+        <section>
+            <actions>
+                <set field="paramTemp" value="10007"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                location="component://portal/webapp/portal/seller/system/pagesetter.ftl" />
+                                        <!-- location="component://portal/webapp/portal/seller/system/privacypolicy.ftl" /> -->
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="look_termsuse">
+        <section>
+            <actions>
+                <set field="paramTemp" value="10008"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                location="component://portal/webapp/portal/seller/system/pagesetter.ftl" />
+                                       <!--  location="component://portal/webapp/portal/seller/system/termsuse.ftl" /> -->
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="look_sellerplatform">
+        <section>
+            <actions>
+                <set field="paramTemp" value="10009"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                location="component://portal/webapp/portal/seller/system/pagesetter.ftl" />
+                                        <!-- location="component://portal/webapp/portal/seller/system/sellerplatform.ftl" /> -->
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="lastPagesetter">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/includes/footer.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+</screens>

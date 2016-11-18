@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+	<!--学生 -->
+	<screen name="FindLimsStudent">
+		<section>
+			<actions>
+				<set field="titleProperty" value="学生列表" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="operationButton[]" value="增加.icon-add.EditLimsStudent.href.LimsStudent_ADD" />
+				<set field="operationButton[]" value="弹出增加.icon-add.EditLimsStudent.dialog.LimsStudent_ADD" />
+				<set field="operationButton[]" value="批量删除.icon-remove.deleteAllLimsStudent.removeSelected.LimsStudent_DELETE" />
+				<set field="operationButton[]" value="js函数.icon-remove.alert(1).jsFunction.LimsStudent_DELETE" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindLimsStudent" 
+									location="component://sysCommon/widget/DemoForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListLimsStudent" 
+									location="component://sysCommon/widget/DemoForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditLimsStudent">
+		<section>
+			<actions>
+				<set field="titleProperty" value="编辑学生" />
+				<set field="studentId" from-field="parameters.studentId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="LimsStudent" value-field="entity" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="detail-options">
+								<screenlet title="">
+									<include-form name="EditLimsStudent" 
+									location="component://sysCommon/widget/DemoForms.xml" />
+					    		</screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditLimsStudentFtl">
+		<section>
+			<actions>
+				<set field="titleProperty" value="编辑学生" />
+				<set field="studentId" from-field="parameters.studentId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="LimsStudent" value-field="entity" />
+				<entity-condition list="LimsClassList" entity-name="LimsClass"></entity-condition>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/demo/LimsStudent_edit.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindLimsStudentGrid">
+		<section>
+			<actions>
+				<set field="titleProperty" value="学生列表" />
+				<set field="pCtx" from-field="parameters" />
+				<entity-condition list="LimsClassList" entity-name="LimsClass"></entity-condition>
+            	<!--<set field="layoutSettings.rtlStyleSheets[+0]" value="/sysCommon/images/jquery.jqGrid-4.4.3/css/jqgrid.css" global="true" />--> 
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://sysCommon/webapp/sysCommon/Demo/LimsStudentGrid.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+		<!--学生 -->
+	<screen name="FindLimsStudentFtl">
+		<section>
+			<actions>
+				<set field="titleProperty" value="学生列表" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="viewIndex" from-field="parameters.VIEW_INDEX_1" type="Integer" default-value="0"/>
+	            <set field="viewSize" from-field="parameters.VIEW_SIZE_1" type="Integer" default-value="20"/>
+	            <set field="operationButton[]" value="增加.icon-add.EditLimsStudent.href.LimsStudent_ADD" />
+	            <service service-name="performFindList" result-map="result">
+	                <field-map field-name="inputFields" from-field="parameters"/>
+	                <field-map field-name="entityName" value="LimsStudent"/>
+	                <field-map field-name="filterByDate" value="Y"/>
+	                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+	                <field-map field-name="viewIndex" from-field="viewIndex" />
+	                <field-map field-name="viewSize"  from-field="viewSize"/>
+	            </service>
+	            <set field="LimsStudentList" from-field="result.list"/>
+	            <set field="listSize" from-field="result.listSize"/>
+				<entity-condition list="LimsClassList" entity-name="LimsClass"></entity-condition>
+				
+				<set field="resultFtl" value="component://sysCommon/webapp/sysCommon/Demo/LimsStudent_list.ftl" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="ListResults" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="list-results">
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindLimsClass">
+		<section>
+			<actions>
+				<set field="titleProperty" value="班级列表" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="operationButton[]" value="增加.icon-add.EditLimsClass.href.LimsClass_ADD" />
+				<set field="operationButton[]" value="批量删除.icon-remove.deleteAllLimsClass.removeSelected.LimsClass_DELETE" />
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindLimsClass" 
+									location="component://sysCommon/widget/DemoForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListLimsClass" 
+									location="component://sysCommon/widget/DemoForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindLimsEgrid">
+		<section>
+			<actions>
+				<set field="titleProperty" value="班级列表" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/jquery-easyui-1.3.3/plugins/jquery.edatagrid.js" global="true" /> 
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://sysCommon/webapp/sysCommon/Demo/LimsClass_egrid.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+    <screen name="LookupLimsClass">
+		<section>
+			<actions>
+				<set field="pCtx" from-field="parameters" />
+				<set field="queryString" from-field="result.queryString"/>
+				<set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer" default-value="0"/>
+				<set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="20"/>
+				<set field="entityName" value="LimsClass"/>
+				<set field="searchFields" value="[classId, className]"/>
+			</actions>
+			<widgets>
+			    <decorator-screen name="LookupDecorator" location="component://common/widget/CommonScreens.xml">
+			        <decorator-section name="search-options">
+			            <include-form name="lookupLimsClass" location="component://sysCommon/widget/DemoForms.xml"/>
+			        </decorator-section>
+			        <decorator-section name="search-results">
+			            <include-form name="listLimsClasss" location="component://sysCommon/widget/DemoForms.xml"/>
+			        </decorator-section>
+			    </decorator-screen>
+			</widgets>	
+		</section>
+	</screen>
+	<screen name="SelectMutilClass">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+			</actions>
+			<widgets>
+			<decorator-screen name="jeasy-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+		          			<html><html-template location="component://sysCommon/webapp/sysCommon/Demo/LimsClass_selectMutil.ftl"/></html>
+		        		</platform-specific>
+		        	</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="EditLimsClass">
+		<section>
+			<actions>
+				<set field="titleProperty" value="编辑班级" />
+				<set field="classId" from-field="parameters.classId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="LimsClass" value-field="entity" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="DetailUploadScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="detail-options">
+								<screenlet title="">
+									<include-form name="EditLimsClass" 
+									location="component://sysCommon/widget/DemoForms.xml" />
+					    		</screenlet>	
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditLimsClassFtl">
+		<section>
+			<actions>
+				<set field="titleProperty" value="编辑班级" />
+				<set field="studentId" from-field="parameters.studentId" />
+				<set field="oper" from-field="parameters.oper" />
+				<entity-one entity-name="LimsClass" value-field="entity" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/demo/LimsClass_edit.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditLimsClassAndStudent">
+		<section>
+			<actions>
+				<set field="titleProperty" value="编辑学生" />
+				<set field="studentId" from-field="parameters.studentId" />
+				<set field="oper" from-field="parameters.oper" />
+				<set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/js/simple_table.js" global="true" /> 
+				<entity-one entity-name="LimsClass" value-field="entity" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/demo/LimsClassAndStudent_edit.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+</screens>

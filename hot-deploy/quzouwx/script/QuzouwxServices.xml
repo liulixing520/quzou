@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods.xsd">
+
+	<simple-method method-name="createRelation" short-description="createRelation" login-required="false">
+		<log level="info" message="createRelation:${parameters}"></log>
+		<now-timestamp field="nowTimestamp" />
+	    <make-value value-field="qzRelation" entity-name="QzRelation"/>
+	    <sequenced-id sequence-name="QzRelation" field="id"/>
+	    <set field="qzRelation.id" from-field="id"/>
+		<set-nonpk-fields value-field="qzRelation" map="parameters"/>
+		<create-value value-field="qzRelation"/>
+		
+		<if-not-empty field="parameters.fromPartyId">
+			<entity-one value-field="person" entity-name="Person">
+				<field-map field-name="partyId" from-field="parameters.fromPartyId"/>
+			</entity-one>
+			<set field="msg" value="${person.nickname}给你点赞啦。" type="String"/>
+			<set field="inMap.customerId" from-field="parameters.customerId" />
+			<set field="inMap.msg" from-field="msg" />
+			<set field="inMap.createTime" from-field="nowTimestamp"/>
+			<call-service service-name="createWebMsg" in-map-name="inMap">
+			</call-service>
+		</if-not-empty>
+	</simple-method>
+	
+	<simple-method method-name="updateSetCustomer"  short-description="updateSetCustomer" login-required="false">
+		<log level="info" message="parameters:${parameters}"></log>
+		
+		<entity-one value-field="user" entity-name="UserLogin">
+			<field-map field-name="userLoginId" value="system"/>
+		</entity-one>
+		
+		<set field="updateQzCustomerParam.userLoginId" from-field="parameters.userLoginId" />
+		<set field="updateQzCustomerParam.partyId" from-field="parameters.partyId" />
+		<set field="updateQzCustomerParam.gender" from-field="parameters.gender" />
+		<set field="updateQzCustomerParam.birthDate" from-field="parameters.birthDate" />
+		<set field="updateQzCustomerParam.weight" from-field="parameters.weight" />
+		<set field="updateQzCustomerParam.height" from-field="parameters.height" />
+		<set field="updateQzCustomerParam.telephone" from-field="parameters.telephone" />
+		<set field="updateQzCustomerParam.email" from-field="parameters.email" />
+		<set field="updateQzCustomerParam.userLogin" from-field="user" />
+		<log level="info" message="updateQzCustomerParam>>>>>>>>>>>>>>>>>${updateQzCustomerParam}"></log>
+		<call-service service-name="updateQzCustomer" in-map-name="updateQzCustomerParam">
+			<result-to-field result-name="partyId" />
+		</call-service>
+	</simple-method>
+	
+	<simple-method method-name="createWebMsg"  short-description="createWebMsg" login-required="false">
+		<log level="info" message="parameters:${parameters}"></log>
+		
+		<make-value value-field="webMsg" entity-name="QzWebMsg" />
+		<sequenced-id sequence-name="QzWebMsg" field="id" />
+		<set field="webMsg.id" from-field="id"/>
+		<set-nonpk-fields value-field="webMsg" map="parameters"/>
+		<create-value value-field="webMsg" />
+	</simple-method>
+</simple-methods>

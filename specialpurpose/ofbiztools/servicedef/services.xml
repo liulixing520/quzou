@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>OfbizTools Services</description>
+	<vendor></vendor>
+	<version>1.0</version>
+
+	<!--////////////////////////////////// Common Services Start ////////////////////////////////////-->
+
+    <service name="saveOfcFileCache" engine="java" invoke="saveOfcFileCache" location="org.ofbiz.ofc.tools.FileCacheUtils" auth="false">
+		<description>获取 子集/下级/相关联 数据列表</description>
+		<attribute name="ofcinput" mode="IN" type="String" optional="true"/>
+		<attribute name="ofcout" mode="OUT" type="String" optional="true"/>
+		
+	</service>
+
+
+	<service name="findAssocOrNextList" engine="java" invoke="findAssocOrNextList" location="org.ofbiz.ofc.tools.CommonUtils" auth="false">
+		<description>获取 子集/下级/相关联 数据列表</description>
+		<attribute name="entityName" mode="IN" type="String" optional="false"/>
+		<attribute name="findKey" mode="IN" type="String" optional="false"/>
+		<attribute name="findValue" mode="IN" type="String" optional="false"/>
+		<attribute name="useCache" mode="IN" type="String" optional="true"/>
+		<attribute name="orderBy" mode="IN" type="String" optional="true"/>
+		<attribute name="list" mode="OUT" type="List" optional="false"/>
+	</service>
+
+	<service name="getNextAssocGeoList" engine="java" invoke="getNextAssocGeoList" location="org.ofbiz.ofc.tools.CommonUtils" auth="false">
+		<description>获取 级联地理信息列表(国家/省/市/区)</description>
+		<attribute name="geoIdFrom" type="String" mode="IN" optional="false" />
+		<attribute name="geoAssocTypeId" type="String" mode="IN" optional="false" />
+		<attribute name="list" type="List" mode="OUT" optional="false" />
+	</service>
+
+	<service name="checkKeywordExisted" engine="java" invoke="checkKeywordExisted" location="org.ofbiz.ofc.tools.CommonUtils" auth="false">
+		<description>检查 关键字在指定表 是否已存在</description>
+		<attribute name="entityName" mode="IN" type="String" optional="false"/>
+		<attribute name="findKey" mode="IN" type="String" optional="false"/>
+		<attribute name="findValue" mode="IN" type="String" optional="false"/>
+		<attribute name="existed" type="String" mode="OUT" optional="false"><description>Y:存在/N:不存在</description></attribute>
+	</service>
+
+	<service name="checkUserLoginIdExisted" engine="java" invoke="checkKeywordExisted" location="org.ofbiz.ofc.tools.CommonUtils" auth="false">
+		<description>检查 userLoginId 是否已存在</description>
+		<implements service="checkKeywordExisted"/>
+		<attribute name="existed" type="String" mode="OUT" optional="false"><description>Y:存在/N:不存在</description></attribute>
+		<override name="entityName" default-value="UserLogin"/>
+		<override name="findKey" default-value="userLoginId"/>
+	</service>
+
+	<service name="uploadedFile" engine="java" invoke="uploadedFile" location="org.ofbiz.ofc.tools.CommonUtils" auth="false">
+		<description>上传文件</description>
+		<attribute name="dependId" type="String" mode="IN" optional="false"><description>文件地址回传表的主键值</description></attribute>
+		<attribute name="imageFolder" type="String" mode="IN" optional="true"><description>文件存放路径(默认不填,放ofcupload)(相对:OFBIZ_HOME)</description></attribute>
+		<attribute name="uploadedFile" type="java.nio.ByteBuffer" mode="IN" optional="true"><description>文件</description></attribute>
+		<attribute name="_uploadedFile_fileName" type="String" mode="IN" optional="true"><description>文件名</description></attribute>
+		<attribute name="_uploadedFile_contentType" type="String" mode="IN" optional="true"><description>文件类型</description></attribute>
+		<attribute name="imagePath" mode="OUT" type="String" optional="true"><description>OFBIZ_HOME+文件存放路径+文件存储路径</description></attribute>
+		<attribute name="imageName" mode="OUT" type="String" optional="true"><description>文件名</description></attribute>
+	</service>
+
+	<!--////////////////////////////////// Common Services End ////////////////////////////////////-->
+
+	<!-- SecurityGroup services -->
+	<service name="createSecurityGroupOfc" engine="entity-auto" invoke="create" default-entity-name="SecurityGroup" auth="true">
+		<description>Create an SecurityGroup</description>
+		<attribute name="groupId" type="String" mode="IN" optional="false"/>
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+	</service>
+	<service name="updateSecurityGroupOfc" engine="entity-auto" invoke="update" default-entity-name="SecurityGroup" auth="true">
+		<description>Update a SecurityGroup</description>
+		<attribute name="groupId" type="String" mode="IN" optional="false"/>
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+	</service>
+	<service name="deleteSecurityGroupOfc" engine="java" location="org.ofbiz.ofc.security.SecurityServices"  invoke="deleteSecurityGroupOfc" default-entity-name="SecurityGroup" auth="true">
+		<description>Delete a SecurityGroup</description>
+		<attribute name="groupId" type="String" mode="IN" optional="false"/>
+	</service>
+
+	<!-- SecurityPermission services -->
+	<service name="createSecurityPermissionOfc" engine="java" default-entity-name="SecurityPermission" location="org.ofbiz.ofc.security.SecurityServices"  invoke="createSecurityPermissionOfc" auth="true">
+		<description>create a SecurityPermission</description>
+		<attribute name="permissionId" type="String" mode="IN" optional="false"/>
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+	</service>
+	<service name="updateSecurityPermissionOfc" engine="entity-auto" invoke="update" default-entity-name="SecurityPermission" auth="true">
+		<description>Create a SecurityPermission</description>
+		<attribute name="permissionId" type="String" mode="IN" optional="false"/>
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+	</service>
+	<service name="deleteSecurityPermissionOfc" engine="java" location="org.ofbiz.ofc.security.SecurityServices"  invoke="deleteSecurityPermissionOfc" auth="true">
+		<description>delete a SecurityPermission</description>
+		<attribute name="permissionId" type="String" mode="IN" optional="false"/>
+	</service>
+
+	<!-- SecurityPermission to SecurityGroup services -->
+	<service name="addSecurityPermissionToSecurityGroupOfc" engine="entity-auto" invoke="create" default-entity-name="SecurityGroupPermission" auth="true">
+		<description>Add a SecurityPermission to a SecurityGroup</description>
+		<attribute name="groupId" type="String" mode="IN" optional="false"/>
+		<attribute name="permissionId" type="String" mode="IN" optional="false"/>
+	</service>
+	<service name="removeSecurityPermissionFromSecurityGroupOfc" engine="entity-auto" invoke="delete" default-entity-name="SecurityGroupPermission" auth="true">
+		<description>Remove a SecurityPermission from a SecurityGroup</description>
+		<attribute name="groupId" type="String" mode="IN" optional="false"/>
+		<attribute name="permissionId" type="String" mode="IN" optional="false"/>
+	</service>
+
+	<service name="storeSecurityPermissionToSecurityGroupOfc" engine="java" location="org.ofbiz.ofc.security.SecurityServices" invoke="storeSecurityPermissionToSecurityGroupOfc" auth="true">
+		<description>storeOfcSecurityPermissionToSecurityGroup</description>
+		<attribute name="groupId" type="String" mode="IN" />
+		<attribute name="permissionIdList" mode="IN" type="String" optional="true"></attribute>
+	</service>
+
+	<!--////////////////////////////////// Security Services End ////////////////////////////////////-->
+
+
+
+
+
+	<service name="getAllProductCategory" auth="false" engine="java" invoke="getAllProductCategory" location="org.ofbiz.management.ProductServices">
+		<description>获取分类下一级分类列表</description>
+		<attribute name="prodCatalogId" mode="IN" type="String" />
+		<attribute name="categoryList" mode="OUT" type="List" optional="true" />
+	</service>
+	
+	<service name="getAllShenPiProductCategory" auth="false" engine="java" invoke="getAllShenPiProductCategory" location="org.ofbiz.management.ProductServices">
+		<description>获取分类下一级分类列表</description>
+		<attribute name="productStoreId" mode="IN" type="String" />
+		<attribute name="statusId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="productCategoryId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="categoryList" mode="OUT" type="List" optional="true" />
+	</service>
+	
+	
+	
+	<service name="createCustomerAccount" export="true" engine="java" auth="true" default-entity-name="FinAccount" invoke="createCustomerAccount" location="org.ofbiz.account.CardBaseServices">
+    	<description>新建金融帐号</description>
+    	<auto-attributes mode="OUT" include="pk"></auto-attributes>
+    	<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+    	<attribute name="productStoreId" mode="IN" type="String" optional="false"></attribute>
+    	<attribute name="customerId" mode="OUT" type="String" optional="false"></attribute>
+    </service>
+    
+    
+    <service name="createCustomerCardAccount" export="true" engine="java" auth="true" default-entity-name="FinAccount" invoke="createCustomerCardAccount" location="org.ofbiz.account.CardBaseServices">
+    	<description>新建客户卡金融帐号</description>
+    	<auto-attributes mode="OUT" include="pk"></auto-attributes>
+    	<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+    	<attribute name="productStoreId" mode="IN" type="String" optional="false"></attribute>
+    	<attribute name="ownerPartyId" mode="INOUT" type="String" optional="false"></attribute>
+    </service>
+    
+    
+     <service name="createRecharge" export="true"  engine="java" auth="true"  invoke="createRecharge" location="org.ofbiz.account.CardBaseServices">
+    	<description>充值</description>
+    	
+    	<attribute name="finAccountId" mode="IN" type="String" optional="false"></attribute>
+    	
+    	<attribute name="ownerPartyId" mode="INOUT" type="String" optional="false"></attribute>
+    	<attribute name="productStoreId" mode="IN" type="String" optional="false"></attribute>
+    	<attribute name="amount" mode="IN" type="BigDecimal" optional="true"></attribute>
+    	<attribute name="amountString" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="previousBalance" mode="OUT" type="BigDecimal" optional="true"></attribute>
+    	<attribute name="balance" mode="OUT" type="BigDecimal" optional="true"></attribute>
+    	<attribute name="paymentId" mode="OUT" type="String" optional="true"></attribute>
+    </service>
+    <service name="createConsume" export="true"  engine="java" auth="true"  invoke="createConsume" location="org.ofbiz.account.CardBaseServices">
+    	<description>消费</description>
+    	<attribute name="finAccountId" mode="IN" type="String" optional="false"></attribute>
+    	
+    	<attribute name="ownerPartyId" mode="INOUT" type="String" optional="false"></attribute>
+    	<attribute name="productStoreId" mode="IN" type="String" optional="false"></attribute>
+    	<attribute name="amount" mode="IN" type="BigDecimal" optional="true"></attribute>
+    	<attribute name="comments" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="amountString" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="externalId" mode="IN" type="String" optional="true"></attribute>
+    	
+    	<attribute name="previousBalance" mode="OUT" type="BigDecimal" optional="true"></attribute>
+    	<attribute name="balance" mode="OUT" type="BigDecimal" optional="true"></attribute>
+    	<attribute name="paymentId" mode="OUT" type="String" optional="true"></attribute>
+    </service>
+   
+    <service name="getCustomerAccountInfo" export="true"  invoke="getCustomerAccountInfo" default-entity-name="FinAccount"  auth="true"  engine="java" location="org.ofbiz.account.CardBaseServices" >
+    	<description>获取客户帐号</description>
+    	<attribute name="customerId" mode="IN" type="String" optional="false"></attribute>
+    	<auto-attributes mode="OUT" include="pk" optional="true"></auto-attributes>
+    	<auto-attributes mode="OUT" include="nonpk" optional="true"></auto-attributes>
+    	<attribute name="createdStamp" mode="OUT" type="java.sql.Timestamp" optional="true"></attribute>
+    	<attribute name="createdTxStamp" mode="OUT" type="java.sql.Timestamp" optional="true"></attribute>
+    	<attribute name="lastUpdatedStamp" mode="OUT" type="java.sql.Timestamp" optional="true"></attribute>
+    	<attribute name="lastUpdatedTxStamp" mode="OUT" type="java.sql.Timestamp" optional="true"></attribute>
+    </service>
+    <service name="listCustomerAccount" export="true"  invoke="listCustomerAccount"  auth="true"  engine="java" location="org.ofbiz.account.CardBaseServices" >
+    	<description>列出客户所有帐号</description>
+    	<attribute name="customerId" mode="IN" type="String" optional="false"></attribute>
+    	<attribute name="customerAccountList" mode="OUT" type="List" optional="true"></attribute>
+    </service>
+    
+    <service name="listCustomerPaymentReceipt" export="true"  invoke="listCustomerPaymentReceipt"  auth="true"  engine="java" location="org.ofbiz.account.CardBaseServices" >
+    	<description>获取客户充值列表</description>
+    	<attribute name="productStoreId" mode="IN" type="String" optional="false"></attribute>
+    	<attribute name="customerId" mode="IN" type="String" optional="false"></attribute>
+    	<attribute name="paymentList" mode="OUT" type="List" optional="true"></attribute>
+    </service>
+    <service name="listCustomerPaymentDisbursement"  export="true" invoke="listCustomerPaymentDisbursement"  auth="true"  engine="java" location="org.ofbiz.account.CardBaseServices" >
+    	<description>获取客户消费列表</description>
+    	<attribute name="productStoreId" mode="IN" type="String" optional="false"></attribute>
+    	<attribute name="customerId" mode="IN" type="String" optional="false"></attribute>
+    	<attribute name="paymentList" mode="OUT" type="List" optional="true"></attribute>
+    </service>
+    
+    
+
+</services>

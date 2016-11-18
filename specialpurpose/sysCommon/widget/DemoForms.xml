@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
+	<!--学生 -->
+	<form name="FindLimsStudent" type="single"  style="form-horizontal"  target="FindLimsStudent" default-entity-name="LimsStudent">
+		<field name="studentName" widget-style="false" title="学生姓名" position="1">
+			<text-find hide-options="true" />	
+		</field> 
+		<!-- 
+		<field name="classId" widget-style="" title="班级名称" position="7">
+			<drop-down text-size="30"  allow-empty="true"> 
+				<entity-options description="${className}" entity-name="LimsClass"  key-field-name="classId"></entity-options>
+			</drop-down>
+		</field>
+		<field name="girlPartyId" widget-style="false"   title="姓名" position="8" >
+			<lookup target-form-name="LookupPerson"  description-field-name="firstName" ></lookup>
+		</field> -->
+		<field name="studentEmail" widget-style="false" title="邮箱" position="2">
+			<text-find hide-options="true" />	
+		</field> 
+		<field name="seatNo" widget-style="false" title="座位" position="1">
+			<text-find hide-options="true" />	
+		</field> 
+		<field name="birthDate" position='2'  title="出生年月" >
+			<text-find hide-options="true" />	
+		</field>
+		<!-- 
+		 <sort-order>
+            <field-group>
+             	<sort-field name="studentName"/>
+                <sort-field name="classId"/>
+                <sort-field name="girlPartyId"/>
+            </field-group>
+            <field-group collapsible="true" title="更多" initially-collapsed="true">
+            	<sort-field name="studentEmail"/>
+            	<sort-field name="seatNo"/>
+            	<sort-field name="birthDate"/>
+            </field-group>
+         </sort-order>   
+          -->
+          <field name="submitButton" title="查询" position="3" widget-style="btn btn-primary">
+            <submit/>
+        </field>
+	</form>
+	<form name="FindLimsStudentExt" extends="FindLimsStudent" extends-resource="component://sysCommon/widget/DemoForms.xml" type="single"  style="pageForm" default-table-style="searchContent" target="FindLimsStudent" default-entity-name="LimsStudent">
+		<field name="seatNo" position="4"><text-find></text-find></field>
+		
+	</form>
+	<form name="ListLimsStudent" type="list" list-name="listIt" group-columns="false"   paginate-target="FindLimsStudent"
+   		default-entity-name="LimsStudent" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-bordered table-striped table-condensed">
+		<actions>
+			<service service-name="performFind" result-map="result" result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="LimsStudent" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="filterByDate" value="Y"/>
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="ids" widget-area-style="groupAll" id-name="groupAll" title=" ">
+			<check>
+				<option key="${studentId}"  description=" "/>
+			</check>
+		</field>
+		<field name="CommSeq" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}" ></display>
+		</field>
+		<field name="studentName" sort-field="true" title="学生姓名" >
+			<hyperlink also-hidden="false" target-type="plain"  description="${studentName}" target="EditLimsStudent">
+				<parameter param-name="studentId" />
+				<parameter param-name="oper" value="view"/>
+				<parameter param-name="backHref" value="FindLimsStudentFtl"/>
+			</hyperlink>
+		</field>
+		<field name="studentEmail" sort-field="true" title="邮箱地址" >
+			<display />
+		</field>
+		<field name="seatNo" sort-field="true" title="座位号" >
+			<display />
+		</field>
+		<field name="birthDate" sort-field="true" title="出生年月" >
+			<display />
+		</field>
+		<field name="gender" sort-field="true" title="性别" >
+			<display />
+		</field>
+		<field name="sign" sort-field="true" title="星座" >
+			<display />
+		</field>
+		<field name="classId"  title="班级名称">
+			<display-entity entity-name="LimsClass"  key-field-name="classId" description="${className}" />
+		</field>
+		<field name="girlPartyId"  title="姓名">
+			<display-entity entity-name="Person" key-field-name="partyId" description="${firstName}" />
+		</field>
+		<!-- 
+		<field name="view" title="查看" use-when="${groovy:security.hasEntityPermission(&quot;LimsStudent&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnView">
+			<hyperlink also-hidden="false" target-type="plain"  description="查看" target="EditLimsStudent">
+				<parameter param-name="studentId" />
+				<parameter param-name="oper" value="view"/>
+				<parameter param-name="backHref" value="FindLimsStudentFtl"/>
+			</hyperlink>
+		</field>		
+		<field name="edit" title="编辑" use-when="${groovy:security.hasEntityPermission(&quot;LimsStudent&quot;, &quot;_UPDATE&quot;, session);}" widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"  description="编辑" target-window="dialog" target="EditLimsStudentFtl">
+				<parameter param-name="studentId" />
+				<parameter param-name="backHref" value="FindLimsStudent"/>
+			</hyperlink>
+		</field>
+		<field name="delete" title="删除" use-when="${groovy:security.hasEntityPermission(&quot;LimsStudent&quot;, &quot;_DELETE&quot;, session);}" widget-style="btnDel">
+			<hyperlink also-hidden="false" target-type="plain" description="删除" target="deleteLimsStudent">
+				<parameter param-name="studentId" />
+			</hyperlink>
+		</field>
+		 -->
+	</form>
+	<form name="EditLimsStudent"   type='single' style="single_table" etc="onsubmit='javascript:submitFormDisableSubmits(this)'"
+	    default-table-style="basic-table" target="updateLimsStudent"  default-map-name="entity" default-entity-name="LimsStudent">
+		<alt-target use-when="entity==null" target="createLimsStudent" />
+		<field name="studentId">
+			<hidden />
+		</field>
+		<field name="studentName" position='1' use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"   required-field="false"  title="学生姓名" >
+			<text  disabled="true"/>
+		</field>
+		<field name="studentName" position='1' use-when="${groovy:oper==null}"    required-field="true"  title="学生姓名">
+			<text  />
+		</field>
+		<field name="studentEmail" position='2' use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"   required-field="false"  title="邮箱地址" >
+			<text  disabled="true"/>
+		</field>
+		<field name="studentEmail" position='2' use-when="${groovy:oper==null}" widget-style="email"   required-field="true" title="邮箱地址">
+			<text  />
+		</field>
+		<field name="seatNo" position='1' use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"   required-field="false"  title="座位号" >
+			<text  disabled="true"/>
+		</field>
+		<field name="seatNo" position='1' use-when="${groovy:oper==null}"   widget-style="number"   required-field="false"  title="座位号">
+			<text  />
+		</field>
+		<field name="birthDate" position='2' use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"   required-field="false"  title="出生年月" >
+			<text  disabled="true"/>
+		</field>
+		<field name="birthDate" position='2' use-when="${groovy:oper==null}"    required-field="false"  title="出生年月">
+			<date-time type="date"/>
+		</field>
+		<field name="gender" position='1' use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"   required-field="false"  title="性别" >
+			<text  disabled="true"/>
+		</field>
+		<field name="gender" position='1' use-when="${groovy:oper==null}"    required-field="false"  title="性别">
+			<text  />
+		</field>
+		<field name="sign" position='2' use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"   required-field="false"  title="星座" >
+			<text  disabled="true"/>
+		</field>
+		<field name="sign" position='2' use-when="${groovy:oper==null}"    required-field="false"  title="星座">
+			<text  />
+		</field>
+			    	
+	
+		<field name="classId" position='1'  widget-style="" title="班级名称">
+			<drop-down text-size="30"> 
+				<entity-options description="${className}" entity-name="LimsClass"  key-field-name="classId"></entity-options>
+			</drop-down>
+		</field>
+			    	
+		<field name="girlPartyId" position='2' use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="false " title="女朋友">
+			<text disabled="true"/>
+		</field>
+		
+		<field name="girlPartyId" position='2' use-when="${groovy:oper==null}" widget-style="false"  title="女朋友" >
+			<lookup target-form-name="LookupPerson" ></lookup>
+		</field>
+		<field name="partyIdFrom" title="测试">
+            <lookup target-form-name="LookupPerson"/>
+        </field>
+        <field name="save" title="保存" position='1' use-when="${groovy:oper==null}"  widget-style="btn btn-primary"><submit/></field>
+	</form>
+	 <form name="lookupLimsClass" target="LookupLimsClass" title="" type="single"
+        header-row-style="header-row" default-table-style="basic-table">
+        <field name="classId" ><text-find/></field>
+        <field name="className" ><text-find/></field>
+        <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+    <form name="listLimsClasss" list-name="listIt" title="" type="list" target="LookupLimsClass"
+        odd-row-style="alternate-row" default-table-style="table table-bordered table-striped table-condensed">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="LimsClass"/>
+            </service>
+        </actions>
+        <field name="classId" widget-style="buttontext">
+            <hyperlink also-hidden="false" target-type="plain" description="${classId}" target="javascript:set_value('${classId}')"/>
+        </field>
+        <field name="className"><display/></field>
+    </form>
+    <!--班级 -->
+	<form name="FindLimsClass" type="single"  style="pageForm" default-table-style="searchContent" target="FindLimsClass" default-entity-name="LimsClass">
+		<field name="className" widget-style="false" title="班级名称" position="1">
+			<text-find hide-options="true" />	
+		</field>
+		<field name="submitButton" title="查询" position="3" widget-style="btn btn-primary">
+            <submit/>
+        </field>
+	</form>
+	<form name="ListLimsClass" type="list" list-name="listIt" group-columns="false"   paginate-target="FindLimsClass"
+   		default-entity-name="LimsClass" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-bordered table-striped table-condensed">
+		<actions>
+			<service service-name="performFind" result-map="result" result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="LimsClass" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="filterByDate" value="Y"/>
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="ids" widget-area-style="groupAll" id-name="groupAll" title=" ">
+			<check>
+				<option key="${classId}"  description=" "/>
+			</check>
+		</field>
+		<field name="CommSeq" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}" ></display>
+		</field>
+		<field name="className" sort-field="true" title="班级名称" >
+			<display />
+		</field>
+		<field name="classTeacher" sort-field="true" title="班主任" >
+			<display />
+		</field>
+		<field name="sortNo" sort-field="true" title="班次" >
+			<display />
+		</field>
+		<field name="test" title="附件">
+            <hyperlink target="getDocUrlByPurpose" target-window="_blank" target-type="plain" 
+            	description="${groovy:org.extErp.sysCommon.document.DocumentUtils.getDocNameByPurpose(request, &quot;LimsClass&quot;, classId)}">
+                 <parameter param-name="sysDocPurposeId" value="LimsClass"/>
+                 <parameter param-name="relatedIdValue" value="${classId}"/>
+            </hyperlink>
+        </field>
+		<field name="view" title="查看" use-when="${groovy:security.hasEntityPermission(&quot;LimsClass&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnView">
+			<hyperlink also-hidden="false" target-type="plain"  description="查看" target="EditLimsClassFtl">
+				<parameter param-name="classId" />
+				<parameter param-name="oper" value="view"/>
+			</hyperlink>
+		</field>		
+		<field name="edit" title="编辑" use-when="${groovy:security.hasEntityPermission(&quot;LimsClass&quot;, &quot;_UPDATE&quot;, session);}" widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain" target-window="dialog"  description="编辑" target="EditLimsClass">
+				<parameter param-name="classId" />
+			</hyperlink>
+		</field>
+		<field name="edit" title="编辑主从" use-when="${groovy:security.hasEntityPermission(&quot;LimsClass&quot;, &quot;_UPDATE&quot;, session);}" widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"   description="编辑" target="EditLimsClassAndStudent">
+				<parameter param-name="classId" />
+			</hyperlink>
+		</field>
+		<field name="delete" title="删除" use-when="${groovy:security.hasEntityPermission(&quot;LimsClass&quot;, &quot;_DELETE&quot;, session);}" widget-style="btnDel">
+			<hyperlink also-hidden="false" target-type="plain" description="删除" target="deleteLimsClass">
+				<parameter param-name="classId" />
+			</hyperlink>
+		</field>
+	</form>
+    <form name="EditLimsClass" id="${groovy:(entity==null)?&quot;CreateLimsClass&quot;:&quot;EditLimsClass&quot;}" type="upload" style="single_table" 
+	    default-table-style="basic-table" target="updateLimsClassFile"  default-map-name="entity" default-entity-name="LimsClass">
+		<alt-target use-when="entity==null" target="createLimsClassFile" />
+		<field name="classId">
+			<hidden />
+		</field>
+		<field name="className" position='1' use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"   required-field="false"  title="班级名称" >
+			<display/>
+		</field>
+		<field name="className" position='1' use-when="${groovy:oper==null}"    required-field="false"  title="班级名称">
+			<text  />
+		</field>
+		<field name="classTeacher" position='1' use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"   required-field="false"  title="班主任" >
+			<display/>
+		</field>
+		<field name="classTeacher" position='1' use-when="${groovy:oper==null}"    required-field="false"  title="班主任">
+			<text  />
+		</field>
+		<field name="sortNo" position='1' use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"
+			 widget-style="number" required-field="false" title="班次">
+			<text disabled="true"/>
+		</field>
+		<field name="sortNo" position='1'  use-when="${groovy:oper==null}"  widget-style="number" required-field="false" title="班次">
+			<text />
+		</field>
+		<field name="filePath1" position='1' use-when="${groovy:(entity!=null);}"
+			 title="附件查看">
+			 <hyperlink target="getDocUrlByPurpose" target-window="_blank" target-type="plain" 
+            	description="${groovy:org.extErp.sysCommon.document.DocumentUtils.getDocNameByPurpose(request, &quot;LimsClass&quot;, classId)}">
+                 <parameter param-name="sysDocPurposeId" value="LimsClass"/>
+                 <parameter param-name="relatedIdValue" value="${classId}"/>
+            </hyperlink>
+		</field>		
+		<field name="filePath" title="附件"  use-when="${groovy:oper==null}">
+			<file></file>
+		</field>
+	</form>
+</forms>

@@ -1,0 +1,1 @@
+${screens.render("component://manage/widget/CommonScreens.xml#content")}

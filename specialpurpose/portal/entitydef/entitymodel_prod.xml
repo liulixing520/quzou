@@ -1,0 +1,1387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of ebiz Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+
+	<extend-entity entity-name="PostalAddress">
+      <field name="mobileExd" type="short-varchar"></field>
+      <field name="phoneAreaExd" type="short-varchar"></field>
+      <field name="phoneExd" type="short-varchar"></field>
+      <field name="genderExd" type="indicator"></field>
+      <field name="cityGeoId" type="id"></field>
+    </extend-entity>
+	<extend-entity entity-name="Product">
+		<field name="productTypeCategoryId" type="id-ne">
+			<description>商品类型：关联品牌，属性和规格</description>
+		</field>
+		<field name="goodsNo" type="name">
+			<description>货号</description>
+		</field>
+		<field name="sort1" type="numeric">
+			<description>排序1</description>
+		</field>
+		<field name="sort2" type="numeric">
+			<description>排序2</description>
+		</field>
+		<field name="sort3" type="numeric">
+			<description>排序3</description>
+		</field>
+		<field name="sort4" type="numeric">
+			<description>排序4</description>
+		</field>
+		<field name="sort5" type="numeric">
+			<description>排序5</description>
+		</field>
+		<field name="deleteStatus" type="id">
+			<description>删除标志</description>
+		</field>
+		<field name="removed" type="id">
+			<description>删除</description>
+		</field>
+		<field name="isRewardPoint" type="indicator">
+			<description>是否开启积分</description>
+		</field>
+		<field name="rewardDes" type="description">
+			<description>积分描述</description>
+		</field>
+		<field name="rewardPoint" type="fixed-point">
+			<description>积分</description>
+		</field>
+		<field name="isSaleReward" type="indicator">
+			<description>是否开启积分换购</description>
+		</field>
+		<field name="saleReward" type="fixed-point">
+			<description>换购积分</description>
+		</field>
+		<relation type="one-nofk" rel-entity-name="ProductCategory">
+			<key-map field-name="productTypeCategoryId" rel-field-name="productCategoryId" />
+		</relation>
+	</extend-entity>
+	<extend-entity entity-name="ShipmentStatus">
+		<!-- add by wangyg添加状态改变原因changeReason-原逻辑不支持用户输入 -->
+		<field name="changeReason" type="description"></field>
+	</extend-entity>
+	<extend-entity entity-name="ReturnStatus">
+		<!-- add by wangyg添加状态改变原因changeReason-原逻辑不支持用户输入 -->
+		<field name="changeReason" type="description"></field>
+	</extend-entity>
+	<extend-entity entity-name="CommunicationEvent">
+		<field name="isRead" type="indicator">
+			<description>是否阅读</description>
+		</field>
+		<field name="isReplied" type="indicator">
+			<description>有回复</description>
+		</field>
+	</extend-entity>
+	<extend-entity entity-name="ContactListParty">
+		<field name="isPartyRead" type="indicator">
+			<description>是否阅读</description>
+		</field>
+	</extend-entity>
+	<extend-entity entity-name="ProductCategoryMember">
+		<field name="disType" type="name"></field>
+	</extend-entity>
+    <extend-entity entity-name="FinAccount">
+    	<field name="accountLevel" type="id">
+			<description>等级</description>
+		</field>
+    </extend-entity>
+	<extend-entity entity-name="FinAccount">
+    	<field name="accountLevel" type="id">
+			<description>等级</description>
+		</field>
+    </extend-entity>
+    <extend-entity entity-name="OrderItemShipGroup">
+    	<field name="shipDateEnumId" type="id">
+			<description>发货日期枚举标识</description>
+		</field>
+    </extend-entity>
+    <extend-entity entity-name="ProductReview">
+    	<field name="parentProdReviewId" type="id">
+			<description>上级产品评价标识</description>
+		</field>
+    </extend-entity>
+    <extend-entity entity-name="ProductFeature">
+    	<field name="imageUrl" type="url">
+			<description>产品规格图片</description>
+		</field>
+    </extend-entity>
+    <extend-entity entity-name="Product">
+    	<field name="goodType" type="id">
+			<description>产品类型单多</description>
+		</field>
+    	<field name="productNameZh" type="description">
+			<description>产品中文名称</description>
+		</field>
+		<field name="productNameRu" type="description">
+			<description>产品俄文名称</description>
+		</field>
+    </extend-entity>
+    <extend-entity entity-name="ProductPrice">
+    	<field name="priceName" type="name">
+			<description>价格名称</description>
+		</field>
+    </extend-entity>
+    <extend-entity entity-name="GeoAssoc">
+    	<field name="sequenceNum" type="numeric"></field>
+    </extend-entity>
+    <extend-entity entity-name="Geo">
+    	<field name="sequenceNum" type="numeric"></field>
+    </extend-entity>
+    <extend-entity entity-name="SecurityPermission">
+    	<field name="extendFlag" type="indicator"><description>扩展标记，Y表示扩展的</description></field>
+    	<field name="extendLev" type="id"><description>扩展标记，1表示扩展的一级菜单，2表示扩展的二级菜单，3表示扩展的三级菜单</description></field>
+    	<field name="parentPermissionId" type="id-long-ne"><description>扩展标记，表示权限的上级权限，主要用于菜单权限的配置（一级，二级。。。）</description></field>
+    	<field name="sequenceNum" type="numeric"><description>扩展标记，表示排序</description></field>
+    </extend-entity>
+    <extend-entity entity-name="SecurityGroup">
+    	<field name="extendFlag" type="indicator"><description>扩展标记，Y表示扩展的</description></field>
+    </extend-entity>
+    <extend-entity entity-name="ProductPromoAction">
+    	<field name="condValue" type="long-varchar"></field>
+      	<field name="otherValue" type="long-varchar"></field>
+    </extend-entity>
+    <extend-entity entity-name="ProductContent">
+    	<field name="extendFlag" type="indicator"><description>扩展标记，Y表示扩展的</description></field>
+    </extend-entity>
+    <extend-entity entity-name="ReturnHeader">
+    	<field name="returnTypeId" type="id">
+            <description>退换货：actually used for disbursement type: store credit, cash refund, exchange</description>
+        </field>
+    </extend-entity>
+    
+    <extend-entity entity-name="OrderHeader">
+    	<field name="estimatedShipFacilityId" type="id">
+    		<description>估计的发货仓库</description>
+    	</field>
+    	<field name="paymentStatus" type="id">
+    		<description>扩展支付状态</description>
+    	</field>
+    	<field name="tradeNo" type="name">
+    		<description>支付宝交易号</description>
+    	</field>
+    	<field name="rewardPartyRatio" type="fixed-point">
+    		<description>会员获取的积分比例</description>
+    	</field>
+    	<field name="orderRatio" type="fixed-point">
+    		<description>订单获取的积分比例</description>
+    	</field>
+    	<field name="rewardPointTotal" type="fixed-point">
+    		<description>订单获取的积分</description>
+    	</field>
+    	<field name="isContainsSaleReward" type="indicator">
+			<description>是否包含积分换购</description>
+		</field>
+    	<field name="applyForRefund" type="indicator">
+			<description>申请退款</description>
+		</field>
+    	<field name="refundReason" type="description">
+			<description>申请理由</description>
+		</field>
+    	<field name="ifRefuse" type="indicator">
+			<description>驳回申请</description>
+		</field>
+    	<field name="refuseReason" type="description">
+			<description>驳回理由</description>
+		</field>
+	</extend-entity>
+    <extend-entity entity-name="OrderItem">
+    	<field name="rewardPoint" type="fixed-point">
+    		<description>订单条目获取的积分</description>
+    	</field>
+    	<field name="rewardPartyRatio" type="fixed-point">
+    		<description>会员获取的积分比例</description>
+    	</field>
+    	<field name="isSaleReward" type="indicator">
+			<description>是否是积分换购</description>
+		</field>
+    	<field name="saleReward" type="fixed-point">
+    		<description>积分换购消耗的积分（单个商品）</description>
+    	</field>
+	</extend-entity>
+	<extend-entity entity-name="OrderPaymentPreference">
+		<field name="finAccountTypeId" type="id">
+			<description>金融账户类型标识</description>
+		</field>
+		<field name="finAccountCode" type="long-varchar" encrypt="false"></field>
+    	<field name="comments" type="comment">
+    		<description>附加说明</description>
+    	</field>
+	</extend-entity>
+	<extend-entity entity-name="ReturnItem">
+    	<field name="comments" type="comment">
+    		<description>附加说明</description>
+    	</field>
+	</extend-entity>
+	<extend-entity entity-name="ProductStore">
+    	<field name="productStoreTypeId" type="id">
+    		<description>店铺类型</description>
+    	</field>
+    	<field name="stateProvinceGeoId" type="id"></field>
+        <field name="cityGeoId" type="id"></field>
+        <field name="countyGeoId" type="id"></field>
+        <field name="address1" type="long-varchar"></field>
+    	<relation type="one" fk-name="PROD_STR_TYPEIDENUM" rel-entity-name="Enumeration">
+	        <key-map field-name="productStoreTypeId" rel-field-name="enumId"/>
+	    </relation>
+	</extend-entity>
+    <entity entity-name="ProductLab" package-name="org.ofbiz.product.product" title="标签" never-cache="true">
+		<field name="productStoreId" type="id-ne">
+			<description>店铺ID</description>
+		</field>
+		<field name="labId" type="id-ne">
+			<description>标签ID</description>
+		</field>
+		<field name="labName" type="short-varchar">
+			<description>标签名字</description>
+		</field>
+		<field name="relevancyWeight" type="numeric">
+			<description>权重-可用作排序</description>
+		</field>
+		<!-- <prim-key field="productStoreId"/> -->
+		<prim-key field="labId" />
+	</entity>
+	<entity entity-name="ProductBrand" package-name="org.ofbiz.ebiz" title="Product Brand Entity">
+		<field name="id" type="id-ne">
+			<description>品牌主键</description>
+		</field>
+		<field name="brandName" type="name">
+			<description>品牌名称</description>
+		</field>
+		<field name="brandUrl" type="name">
+			<description>品牌网址</description>
+		</field>
+		<field name="brandLogo" type="name">
+			<description>品牌Logo</description>
+		</field>
+		<field name="description" type="very-long">
+			<description>品牌描述</description>
+		</field>
+		<field name="displaySort" type="id-ne">
+			<description>显示排序</description>
+		</field>
+		<field name="isDisplay" type="id-ne">
+			<description>是否显示</description>
+		</field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		<prim-key field="id" />
+	</entity>
+
+	<!--标签产品关联表 -->
+	<entity entity-name="ProductLabMember" package-name="org.ofbiz.product.product.lab" title="Product And Lab entity">
+		<field name="productId" type="id-ne">
+			<description>商品ID</description>
+		</field>
+		<field name="productStoreId" type="id-ne">
+			<description>店铺ID</description>
+		</field>
+		<field name="labId" type="id-ne">
+			<description>标签ID</description>
+		</field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		<prim-key field="productId" />
+		<prim-key field="productStoreId" />
+		<prim-key field="labId" />
+	</entity>
+	<!-- 类型品牌关联 -->
+	<entity entity-name="ProductCategoryAndBrand" package-name="org.ofbiz.ebiz.attribute" title="Product Type And Brand Entity">
+		<field name="productBrandId" type="id-ne">
+			<description>品牌主键</description>
+		</field>
+		<field name="productCategoryId" type="name">
+			<description>产品类型外键</description>
+		</field>
+		<field name="fromDate" type="date-time"></field>
+		<prim-key field="productBrandId" />
+		<prim-key field="productCategoryId" />
+		<prim-key field="fromDate" />
+		<relation type="one-nofk" rel-entity-name="ProductCategory">
+			<key-map field-name="productCategoryId" />
+		</relation>
+		<relation type="one-nofk" rel-entity-name="ProductBrand">
+			<key-map field-name="productBrandId" rel-field-name="id" />
+		</relation>
+	</entity>
+	<!-- 类型属性组 -->
+	<entity entity-name="TypeAttributeGroup" package-name="org.ofbiz.ebiz.attribute" title="Type Attribute Group Entity">
+		<field name="attributeGroupId" type="id-ne">
+			<description>属性组主键</description>
+		</field>
+		<field name="attributeGroupName" type="name">
+			<description>属性组名称</description>
+		</field>
+		<field name="attributeGroupNameZh" type="name">
+			<description>属性组中文名称</description>
+		</field>
+		<field name="attributeGroupNameRu" type="name">
+			<description>属性组俄文名称</description>
+		</field>
+		<prim-key field="attributeGroupId" />
+	</entity>
+	<!-- 属性组和从产品分类 -->
+	<entity entity-name="CategoryRefAttributeGroup" package-name="org.ofbiz.ebiz.attribute" title="属性组于产品关联表">
+		<field name="attributeGroupId" type="id-ne">
+			<description>属性组主键</description>
+		</field>
+		<field name="productCategoryId" type="id-ne">
+			<description>产品类型</description>
+		</field>
+		<prim-key field="attributeGroupId" />
+		<prim-key field="productCategoryId" />
+	</entity>
+
+	<!-- 类型属性 -->
+	<entity entity-name="TypeAttribute" package-name="org.ofbiz.ebiz.attribute" title="Type Attribute Entity">
+		<field name="attributeId" type="id-ne">
+			<description>属性主键</description>
+		</field>
+		<field name="attributeGroupId" type="id-ne">
+			<description>属性组外键</description>
+		</field>
+		<field name="productCategoryId" type="name">
+			<description>产品类型外键</description>
+		</field>
+		<field name="attributeName" type="name">
+			<description>属性名称</description>
+		</field>
+		<field name="attributeNameZh" type="name">
+			<description>属性中文名称</description>
+		</field>
+		<field name="attributeNameRu" type="name">
+			<description>属性中文名称</description>
+		</field>
+		<field name="entryWay" type="id-ne">
+			<description>属性值录入方式(手工录入:TEXT,从下面的列表中选择:SELECT 多行文本框:TEXTAREA )</description>
+		</field>
+		<!-- <field name="isSearch" type="id-ne"><description>能否进行搜索(渐进式筛选:SLOW下拉筛选:SELECT 不可筛选:NONE )</description></field> -->
+		<prim-key field="attributeId" />
+		<relation type="one-nofk" rel-entity-name="ProductCategory">
+			<key-map field-name="productCategoryId" />
+		</relation>
+		<relation type="one-nofk" rel-entity-name="TypeAttributeGroup">
+			<key-map field-name="attributeGroupId" />
+		</relation>
+	</entity>
+	
+	<!-- 属性可选值 -->
+	<entity entity-name="AttrOptionalValue" package-name="org.ofbiz.ebiz.attribute" title="Type Attribute Optional Value Entity">
+		<field name="optionalId" type="id-ne">
+			<description>可选值主键</description>
+		</field>
+		<field name="attributeId" type="id-ne">
+			<description>属性外键</description>
+		</field>
+		<field name="optionalName" type="name">
+			<description>可选值</description>
+		</field>
+		<field name="optionalNameZh" type="name">
+			<description>可选值中文</description>
+		</field>
+		<field name="optionalNameRu" type="name">
+			<description>可选值英文</description>
+		</field>
+		<prim-key field="optionalId" />
+		<relation type="one-nofk" rel-entity-name="TypeAttribute">
+			<key-map field-name="attributeId" />
+		</relation>
+	</entity>
+		<!-- 属性和从产品分类 -->
+	<entity entity-name="CategoryRefTypeAttribute" package-name="org.ofbiz.ebiz.attribute" title="属性于产品关联表">
+		<field name="attributeId" type="id-ne">
+			<description>属性主键</description>
+		</field>
+		<field name="productCategoryId" type="id-ne">
+			<description>产品类型</description>
+		</field>
+		<prim-key field="attributeId" />
+		<prim-key field="productCategoryId" />
+	</entity>	
+	<extend-entity entity-name="ProductFeatureCategory">
+    	<field name="descriptionZh" type="id">
+            <description>描述中文</description>
+        </field>
+    	<field name="descriptionRu" type="id">
+            <description>描述俄文</description>
+        </field>
+    </extend-entity>
+	<extend-entity entity-name="ProductFeature">
+    	<field name="descriptionZh" type="id">
+            <description>描述中文</description>
+        </field>
+    	<field name="descriptionRu" type="id">
+            <description>描述俄文</description>
+        </field>
+    </extend-entity>
+	<entity entity-name="GeoDistribution" package-name="org.ofbiz.ebiz.distribution" title="">
+		<field name="geoId" type="id-ne">
+			<description>主键</description>
+		</field>
+		<field name="feeType" type="id">
+			<description>费用类型</description>
+		</field>
+		<field name="totalPrice" type="currency-precise"></field>
+		<field name="firstMoney" type="currency-precise"></field>
+		<field name="firstDimension" type="fixed-point"></field>
+		<field name="firstUnit" type="id-ne"></field>
+		<field name="additionalMoney" type="currency-precise"></field>
+		<field name="additionalDimension" type="fixed-point"></field>
+		<field name="additionalUnit" type="id-ne"></field>
+		<field name="sequenceNum" type="numeric">
+			<description>排序</description>
+		</field>
+		<field name="description" type="very-long">
+			<description>描述</description>
+		</field>
+		<prim-key field="geoId" />
+	</entity>
+
+	<entity entity-name="GeoDistributionAssoc" package-name="org.ofbiz.ebiz.distribution" title="">
+		<field name="geoId" type="id-ne">
+			<description>主键</description>
+		</field>
+		<field name="geoIdTo" type="id-ne">
+			<description>主键</description>
+		</field>
+		<field name="totalPrice" type="currency-precise"></field>
+		<field name="firstMoney" type="currency-precise"></field>
+		<field name="firstDimension" type="fixed-point"></field>
+		<field name="firstUnit" type="id-ne"></field>
+		<field name="additionalMoney" type="currency-precise"></field>
+		<field name="additionalDimension" type="fixed-point"></field>
+		<field name="additionalUnit" type="id-ne"></field>
+		<prim-key field="geoId" />
+		<prim-key field="geoIdTo" />
+	</entity>
+
+	<entity entity-name="GeoDistributionUser" package-name="org.ofbiz.ebiz.distribution" title="">
+		<field name="geoId" type="id-ne">
+			<description>主键</description>
+		</field>
+		<field name="userLoginId" type="id-ne">
+			<description>用户名</description>
+		</field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		<prim-key field="geoId" />
+		<prim-key field="userLoginId" />
+		<prim-key field="fromDate" />
+	</entity>
+
+
+
+	<entity entity-name="ProductStoreContent" package-name="org.ofbiz.product.product" title="ProductType Data Object Entity">
+		<field name="productStoreId" type="id-ne"></field>
+		<field name="contentId" type="id-ne"></field>
+		<field name="productStoreContentTypeId" type="id-ne"></field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		<field name="purchaseFromDate" type="date-time"></field>
+		<field name="purchaseThruDate" type="date-time"></field>
+		<field name="useCountLimit" type="numeric"></field>
+		<field name="useTime" type="numeric"></field>
+		<field name="useTimeUomId" type="id"></field>
+		<field name="useRoleTypeId" type="id"></field>
+		<field name="sequenceNum" type="numeric"></field>
+		<prim-key field="productStoreId" />
+		<prim-key field="contentId" />
+		<prim-key field="productStoreContentTypeId" />
+		<relation type="one" fk-name="PROD_CNT_PROD" rel-entity-name="ProductStore">
+			<key-map field-name="productStoreId" />
+		</relation>
+		<relation type="one" fk-name="PROD_CNT_CNT" rel-entity-name="Content">
+			<key-map field-name="contentId" />
+		</relation>
+		<relation type="one" fk-name="PROD_CNT_TYPE" rel-entity-name="ProductStoreContentType">
+			<key-map field-name="productStoreContentTypeId" />
+		</relation>
+		<relation type="one" fk-name="PROD_CNT_URT" title="Use" rel-entity-name="RoleType">
+			<key-map field-name="useRoleTypeId" rel-field-name="roleTypeId" />
+		</relation>
+		<relation type="one" fk-name="PROD_CNT_UTU" title="UseTime" rel-entity-name="Uom">
+			<key-map field-name="useTimeUomId" rel-field-name="uomId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="ProductStoreContentType" package-name="org.ofbiz.product.product" default-resource-name="ProductEntityLabels" title="Product Content Type Entity">
+		<field name="productStoreContentTypeId" type="id-ne"></field>
+		<field name="parentTypeId" type="id"></field>
+		<field name="hasTable" type="indicator"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="productStoreContentTypeId" />
+		<relation type="one" fk-name="PRDCT_TYP_PARENT" title="Parent" rel-entity-name="ProductStoreContentType">
+			<key-map field-name="parentTypeId" rel-field-name="productStoreContentTypeId" />
+		</relation>
+	</entity>
+
+
+	<entity entity-name="FacilityGeoAssoc" package-name="org.ofbiz.product.facility" title="Facility Geo Entity">
+		<description>仓库与地理位置关联表</description>
+		<field name="facilityId" type="id"></field>
+		<field name="geoId" type="id"></field>
+		<field name="assocTypeId" type="id">
+			<description>关联类型，比如SHIP_REGION(发货区域)</description>
+		</field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		<field name="priority" type="numeric">
+			<description>优先级</description>
+		</field>
+		<field name="description" type="description"></field>
+		<prim-key field="facilityId" />
+		<prim-key field="geoId" />
+		<prim-key field="assocTypeId" />
+		<prim-key field="fromDate" />
+		<relation type="one" fk-name="FACIGEO_RLE_FACI" rel-entity-name="Facility">
+			<key-map field-name="facilityId" />
+		</relation>
+		<relation type="one" fk-name="FACIGEO_RLE_GEO" rel-entity-name="Geo">
+			<key-map field-name="geoId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="ProductStoreMsgSetting" package-name="org.ofbiz.product.store" title="Product Store Msg Settings Entity">
+		<field name="productStoreId" type="id-ne"></field>
+		<field name="msgTypeId" type="id-ne">
+			<description>消息类型：MAIL邮件、SMS短信、INTERNAL_MSG站内消息</description>
+		</field>
+		<field name="eventTypeId" type="id-ne">
+			<description>事件类型：</description>
+		</field>
+		<field name="content" type="long-varchar">
+			<description>内容</description>
+		</field>
+		<field name="contentId" type="id">
+			<description>内容标识</description>
+		</field>
+		<field name="fromAddress" type="email"></field>
+		<field name="ccAddress" type="email"></field>
+		<field name="bccAddress" type="email"></field>
+		<field name="ifAutoSend" type="id">
+			<description>是否自动发送：1（是）0（否）</description>
+		</field>
+		<field name="subject" type="comment">
+			<description>标题</description>
+		</field>
+		<field name="contentType" type="long-varchar"></field>
+		<prim-key field="productStoreId" />
+		<prim-key field="msgTypeId" />
+		<prim-key field="eventTypeId" />
+		<relation type="one" fk-name="PRDSTRMSG_PRDS" rel-entity-name="ProductStore">
+			<key-map field-name="productStoreId" />
+		</relation>
+		<relation type="one" fk-name="PRDSTRMSG_ENUM1" rel-entity-name="Enumeration">
+			<key-map field-name="eventTypeId" rel-field-name="enumId" />
+		</relation>
+		<relation type="one" fk-name="PRDSTRMSG_ENUM2" rel-entity-name="Enumeration">
+			<key-map field-name="msgTypeId" rel-field-name="enumId" />
+		</relation>
+		<relation type="one" fk-name="PRDSTRMSG_CNT" rel-entity-name="Content">
+			<key-map field-name="contentId" rel-field-name="contentId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="ProductVisit" package-name="org.ofbiz.product.visit" never-cache="true" title="Product Visit Entity"
+        sequence-bank-size="100">
+        <field name="productVisitId" type="id-ne"></field>
+        <field name="productId" type="id-ne"></field>
+        <field name="partyId" type="id-ne"></field>
+        <field name="visitId" type="id"></field>
+        <field name="visitorId" type="id"></field>
+        <field name="sessionId" type="id-vlong"></field>
+        <field name="fromDate" type="date-time"></field>
+        <field name="thruDate" type="date-time"></field>
+        <prim-key field="productVisitId"/>
+        <relation type="one" fk-name="PROD_VST_PRODUCT" rel-entity-name="Product">
+	        <key-map field-name="productId"/>
+	    </relation>
+    </entity>
+    
+    <entity entity-name="ProductStoreImageSetting" package-name="org.ofbiz.product.store" title="Product Store Image Settings Entity">
+		<field name="productStoreId" type="id-ne"></field>
+		<field name="imageTypeId" type="id-ne">
+			<description>图片类型：规格图、列表图、购物车图</description>
+		</field>
+		<field name="width" type="floating-point">
+			<description>宽度</description>
+		</field>
+		<field name="height" type="floating-point">
+			<description>高度</description>
+		</field>
+		<field name="imageScaleTypeId" type="id">
+			<description>缩放类型：等比、截剪</description>
+		</field>
+		<field name="openWatermark" type="indicator">
+			<description>开户或关闭</description>
+		</field>
+		<field name="comments" type="comment">
+			<description>说明</description>
+		</field>
+		<field name="defaultImageUrl" type="url">
+			<description>缺省图片</description>
+		</field>
+		<prim-key field="productStoreId" />
+		<prim-key field="imageTypeId" />
+		<relation type="one" fk-name="PRDSTRIMG_PRDS" rel-entity-name="ProductStore">
+			<key-map field-name="productStoreId" />
+		</relation>
+		<relation type="one" fk-name="PRDSTRIMG_ENUM1" rel-entity-name="Enumeration">
+			<key-map field-name="imageTypeId" rel-field-name="enumId" />
+		</relation>
+		<relation type="one" fk-name="PRDSTRIMG_ENUM2" rel-entity-name="Enumeration">
+			<key-map field-name="imageScaleTypeId" rel-field-name="enumId" />
+		</relation>
+	</entity>
+	<entity entity-name="ProductStoreWatermarkSetting" package-name="org.ofbiz.product.store" title="Product Store Image Settings Entity">
+		<field name="productStoreId" type="id-ne"></field>
+		<field name="imageTypeId" type="id-ne">
+			<description>图片类型：规格图、列表图、购物车图、所有</description>
+		</field>
+		<field name="watermarkTypeId" type="id-ne">
+			<description>水印类型：文本、图片</description>
+		</field>
+		<field name="watermarkText" type="description">
+			<description>水印文字</description>
+		</field>
+		<field name="textFont" type="value">
+			<description>文字字体</description>
+		</field>
+		<field name="textFontSize" type="value">
+			<description>字体大小</description>
+		</field>
+		<field name="textFontColor" type="value">
+			<description>字体颜色</description>
+		</field>
+		<field name="fontShadowColor" type="value">
+			<description>字体阴影颜色</description>
+		</field>
+		<field name="watermarkImageUrl" type="url">
+			<description>水印图片</description>
+		</field>
+		<field name="imageTransparency" type="value">
+			<description>图片水印透明度</description>
+		</field>
+		<field name="watermarkPositionId" type="id">
+			<description>水印位置</description>
+		</field>
+		<field name="comments" type="comment">
+			<description>说明</description>
+		</field>
+		<prim-key field="productStoreId" />
+		<prim-key field="imageTypeId" />
+		<relation type="one" fk-name="PRDSTRWM_PRDS" rel-entity-name="ProductStore">
+			<key-map field-name="productStoreId" />
+		</relation>
+		<relation type="one" fk-name="PRDSTRWM_ENUM1" rel-entity-name="Enumeration">
+			<key-map field-name="imageTypeId" rel-field-name="enumId" />
+		</relation>
+		<relation type="one" fk-name="PRDSTRWM_ENUM2" rel-entity-name="Enumeration">
+			<key-map field-name="watermarkTypeId" rel-field-name="enumId" />
+		</relation>
+		<relation type="one" fk-name="PRDSTRWM_ENUM3" rel-entity-name="Enumeration">
+			<key-map field-name="watermarkPositionId" rel-field-name="enumId" />
+		</relation>
+	</entity>
+	<entity entity-name="TrackingCodeGroup"
+            package-name="org.ofbiz.marketing.tracking"
+            title="Tracking Code Group Entity">
+       	<description>跟踪组，可用作媒体</description>
+        <field name="trackingCodeGroupId" type="id-ne"></field>
+        <field name="groupTypeId" type="id-ne"></field>
+        <field name="parentGroupId" type="id"></field>
+        <field name="description" type="description"></field>
+        <field name="groupUrl" type="url"></field>
+        <prim-key field="trackingCodeGroupId"/>
+    </entity>
+	
+	<!-- 带城市geoId会员联系地址 -->
+	<view-entity entity-name="PartyContactDetailByPurposeAndCity" package-name="org.ofbiz.party.contact" title="Party Contact Purpose View Entity">
+		<member-entity entity-alias="PCM" entity-name="PartyContactMech" />
+		<member-entity entity-alias="PCMP" entity-name="PartyContactMechPurpose" />
+		<member-entity entity-alias="CM" entity-name="ContactMech" />
+		<member-entity entity-alias="PA" entity-name="PostalAddress" />
+		<member-entity entity-alias="TN" entity-name="TelecomNumber" />
+		<member-entity entity-alias="STTG" entity-name="Geo" />
+		<member-entity entity-alias="CTYG" entity-name="Geo" />
+		<member-entity entity-alias="CTRYG" entity-name="Geo" />
+		<member-entity entity-alias="CTG" entity-name="Geo" />
+		<alias-all entity-alias="PCM" />
+		<alias-all entity-alias="PA" />
+		<alias-all entity-alias="TN" />
+		<alias-all entity-alias="CTG" prefix="city" />
+		<alias-all entity-alias="STTG" prefix="state" />
+		<alias-all entity-alias="CTYG" prefix="county" />
+		<alias-all entity-alias="CTRYG" prefix="country" />
+		<alias entity-alias="PCMP" name="contactMechPurposeTypeId" />
+		<alias entity-alias="PCMP" name="purposeFromDate" field="fromDate" />
+		<alias entity-alias="PCMP" name="purposeThruDate" field="thruDate" />
+		<alias entity-alias="CM" name="contactMechTypeId" />
+		<alias entity-alias="CM" name="infoString" />
+		<view-link entity-alias="PCM" rel-entity-alias="CM">
+			<key-map field-name="contactMechId" />
+		</view-link>
+		<view-link entity-alias="PCM" rel-entity-alias="PCMP">
+			<key-map field-name="partyId" />
+			<key-map field-name="contactMechId" />
+		</view-link>
+		<view-link entity-alias="CM" rel-entity-alias="PA" rel-optional="true">
+			<key-map field-name="contactMechId" />
+		</view-link>
+		<view-link entity-alias="CM" rel-entity-alias="TN" rel-optional="true">
+			<key-map field-name="contactMechId" />
+		</view-link>
+		<view-link entity-alias="PA" rel-entity-alias="STTG" rel-optional="true">
+			<key-map field-name="stateProvinceGeoId" rel-field-name="geoId" />
+		</view-link>
+		<view-link entity-alias="PA" rel-entity-alias="CTYG" rel-optional="true">
+			<key-map field-name="countyGeoId" rel-field-name="geoId" />
+		</view-link>
+		<view-link entity-alias="PA" rel-entity-alias="CTRYG" rel-optional="true">
+			<key-map field-name="countryGeoId" rel-field-name="geoId" />
+		</view-link>
+		<view-link entity-alias="PA" rel-entity-alias="CTG" rel-optional="true">
+			<key-map field-name="cityGeoId" rel-field-name="geoId" />
+		</view-link>
+	</view-entity>
+	<!-- 带城市geoId仓库发货地址 -->
+	<view-entity entity-name="FacilityContactDetailByPurposeAndCity" package-name="org.ofbiz.party.contact" title="Party Contact Purpose View Entity">
+		<member-entity entity-alias="PCM" entity-name="FacilityContactMech" />
+		<member-entity entity-alias="PCMP" entity-name="FacilityContactMechPurpose" />
+		<member-entity entity-alias="CM" entity-name="ContactMech" />
+		<member-entity entity-alias="PA" entity-name="PostalAddress" />
+		<member-entity entity-alias="TN" entity-name="TelecomNumber" />
+		<member-entity entity-alias="STTG" entity-name="Geo" />
+		<member-entity entity-alias="CTYG" entity-name="Geo" />
+		<member-entity entity-alias="CTRYG" entity-name="Geo" />
+		<member-entity entity-alias="CTG" entity-name="Geo" />
+		<alias-all entity-alias="PCM" />
+		<alias-all entity-alias="PA" />
+		<alias-all entity-alias="TN" />
+		<alias-all entity-alias="CTG" prefix="city" />
+		<alias-all entity-alias="STTG" prefix="state" />
+		<alias-all entity-alias="CTYG" prefix="county" />
+		<alias-all entity-alias="CTRYG" prefix="country" />
+		<alias entity-alias="PCMP" name="contactMechPurposeTypeId" />
+		<alias entity-alias="PCMP" name="purposeFromDate" field="fromDate" />
+		<alias entity-alias="PCMP" name="purposeThruDate" field="thruDate" />
+		<alias entity-alias="CM" name="contactMechTypeId" />
+		<alias entity-alias="CM" name="infoString" />
+		<view-link entity-alias="PCM" rel-entity-alias="CM">
+			<key-map field-name="contactMechId" />
+		</view-link>
+		<view-link entity-alias="PCM" rel-entity-alias="PCMP">
+			<key-map field-name="facilityId" />
+			<key-map field-name="contactMechId" />
+		</view-link>
+		<view-link entity-alias="CM" rel-entity-alias="PA" rel-optional="true">
+			<key-map field-name="contactMechId" />
+		</view-link>
+		<view-link entity-alias="CM" rel-entity-alias="TN" rel-optional="true">
+			<key-map field-name="contactMechId" />
+		</view-link>
+		<view-link entity-alias="PA" rel-entity-alias="STTG" rel-optional="true">
+			<key-map field-name="stateProvinceGeoId" rel-field-name="geoId" />
+		</view-link>
+		<view-link entity-alias="PA" rel-entity-alias="CTYG" rel-optional="true">
+			<key-map field-name="countyGeoId" rel-field-name="geoId" />
+		</view-link>
+		<view-link entity-alias="PA" rel-entity-alias="CTRYG" rel-optional="true">
+			<key-map field-name="countryGeoId" rel-field-name="geoId" />
+		</view-link>
+		<view-link entity-alias="PA" rel-entity-alias="CTG" rel-optional="true">
+			<key-map field-name="cityGeoId" rel-field-name="geoId" />
+		</view-link>
+	</view-entity>
+	<!-- 带会员分类的用户信息 -->
+	<view-entity entity-name="UserLoginAndPartyClassisDetails" package-name="org.ofbiz.party.party" title="UserLogin, Party, Person and PartyGroup">
+		<member-entity entity-alias="ULN" entity-name="UserLogin" />
+		<member-entity entity-alias="PTY" entity-name="Party" />
+		<member-entity entity-alias="PER" entity-name="Person" />
+		<member-entity entity-alias="PTYGRP" entity-name="PartyGroup" />
+		<member-entity entity-alias="PTCF" entity-name="PartyClassification" />
+
+		<alias entity-alias="PTY" name="partyId" />
+		<alias entity-alias="PTY" name="partyTypeId" />
+		<alias entity-alias="PTY" name="createdDate" />
+		<alias entity-alias="PTY" name="statusId" />
+		<alias entity-alias="PTYGRP" name="groupName" />
+		<alias entity-alias="PTCF" name="partyClassificationGroupId" />
+		<alias entity-alias="ULN" name="userLoginId" />
+		<alias entity-alias="ULN" name="currentPassword" />
+		<alias entity-alias="ULN" name="passwordHint" />
+		<alias entity-alias="ULN" name="enabled" />
+		<alias entity-alias="ULN" name="disabledDateTime" />
+		<alias entity-alias="ULN" name="successiveFailedLogins" />
+		<alias entity-alias="PER" name="lastName" />
+		<alias entity-alias="PER" name="middleName" />
+		<alias entity-alias="PER" name="firstName" />
+		<view-link entity-alias="ULN" rel-entity-alias="PTY" rel-optional="true">
+			<key-map field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="ULN" rel-entity-alias="PER" rel-optional="true">
+			<key-map field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="ULN" rel-entity-alias="PTYGRP" rel-optional="true">
+			<key-map field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="ULN" rel-entity-alias="PTCF" rel-optional="true">
+			<key-map field-name="partyId" />
+		</view-link>
+
+		<relation type="one-nofk" rel-entity-name="Party">
+			<key-map field-name="partyId" />
+		</relation>
+		<relation type="one-nofk" rel-entity-name="UserLogin">
+			<key-map field-name="userLoginId" />
+		</relation>
+	</view-entity>
+
+
+	<view-entity entity-name="ProductPromoCodePartyView" package-name="org.ofbiz.product.promo" title="Product Promotion Use Check View Entity">
+		<member-entity entity-alias="PPC" entity-name="ProductPromoCode" />
+		<member-entity entity-alias="PPP" entity-name="ProductPromoCodeParty" />
+		<member-entity entity-alias="PP" entity-name="ProductPromo" />
+
+		<alias-all entity-alias="PPC" />
+		<alias entity-alias="PPP" name="partyId" />
+		<alias entity-alias="PP" name="promoName" />
+		<view-link entity-alias="PPC" rel-entity-alias="PPP">
+			<key-map field-name="productPromoCodeId" />
+		</view-link>
+		<view-link entity-alias="PPC" rel-entity-alias="PP">
+			<key-map field-name="productPromoId" />
+		</view-link>
+	</view-entity>
+
+
+	
+
+	<view-entity entity-name="ProductFeatureAndCategoryAppl" package-name="org.ofbiz.product.feature" title="ProductFeature And ProductFeatureCategoryAppl View Entity">
+		<member-entity entity-alias="PF" entity-name="ProductFeature" />
+		<member-entity entity-alias="PFCA" entity-name="ProductFeatureCategoryAppl" />
+		<alias-all entity-alias="PFCA" />
+		<alias entity-alias="PF" name="productFeatureId" />
+		<alias entity-alias="PF" name="description" />
+		<view-link entity-alias="PF" rel-entity-alias="PFCA">
+			<key-map field-name="productFeatureCategoryId" />
+		</view-link>
+		<relation type="one-nofk" rel-entity-name="ProductFeature">
+			<key-map field-name="productFeatureId" />
+		</relation>
+	</view-entity>
+
+	<view-entity entity-name="ProductCategoryTypeAttribute" package-name="org.ofbiz.product.attribute" title="TypeAttributeGroup And ProductAttribute View Entity">
+		<member-entity entity-alias="PC" entity-name="ProductCategory" />
+		<member-entity entity-alias="TA" entity-name="TypeAttribute" />
+		<member-entity entity-alias="AOV" entity-name="AttrOptionalValue" />
+		<alias entity-alias="PC" name="productCategoryId" />
+		<alias entity-alias="PC" name="productCategoryTypeId" />
+		<alias entity-alias="PC" name="categoryName" />
+		<alias entity-alias="TA" name="attributeId" />
+		<alias entity-alias="TA" name="entryWay" />
+		<alias entity-alias="TA" name="attributeName" />
+		<alias entity-alias="AOV" name="optionalId" />
+		<alias entity-alias="AOV" name="optionalName" />
+		<view-link entity-alias="PC" rel-entity-alias="TA">
+			<key-map field-name="productCategoryId" />
+		</view-link>
+		<view-link entity-alias="TA" rel-entity-alias="AOV">
+			<key-map field-name="attributeId" />
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="productCategoryTypeId" entity-alias="PC" value="CATALOG_CATEGORY" />
+				<condition-expr field-name="entryWay" entity-alias="TA" value="SELECT" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+	<view-entity entity-name="ProductBaseInfo" package-name="org.ofbiz.product.attribute" title="TypeAttributeGroup And ProductAttribute View Entity">
+		<member-entity entity-alias="PD" entity-name="Product" />
+		<member-entity entity-alias="PA" entity-name="ProductAttribute" />
+		<member-entity entity-alias="PP" entity-name="ProductPrice" />
+		<member-entity entity-alias="PC" entity-name="ProductCategory" />
+		<member-entity entity-alias="PCM" entity-name="ProductCategoryMember" />
+		<alias-all entity-alias="PD"  ></alias-all>
+		<alias entity-alias="PA" name="attrName" />
+		<alias entity-alias="PA" name="attrValue" />
+		<alias entity-alias="PP" name="price" />
+		<alias entity-alias="PP" name="productPriceTypeId" />
+		<alias entity-alias="PP" name="thruDate" />
+		<alias entity-alias="PCM" name="productCategoryId" />
+		<alias entity-alias="PC" name="productCategoryTypeId" />
+		<alias entity-alias="PC" name="categoryName" />
+		<view-link entity-alias="PD" rel-entity-alias="PP">
+			<key-map field-name="productId"/>
+		</view-link>
+		<view-link entity-alias="PD" rel-entity-alias="PA" rel-optional="true">
+			<key-map field-name="productId"/>
+		</view-link>
+		<view-link entity-alias="PD" rel-entity-alias="PCM">
+			<key-map field-name="productId"/>
+		</view-link>
+		<view-link entity-alias="PCM" rel-entity-alias="PC">
+			<key-map field-name="productCategoryId"/>
+		</view-link>			
+		<entity-condition filter-by-date="true">
+			<condition-list combine="and">
+				<condition-expr entity-alias="PP" field-name="productPriceTypeId" operator="equals" value="DEFAULT_PRICE" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+	<view-entity entity-name="ProductBaseInfoAndSaleState" package-name="org.ofbiz.product.attribute" title="TypeAttributeGroup And ProductAttribute And Sales State View Entity">
+		<member-entity entity-alias="PB" entity-name="ProductBaseInfo" />
+		<member-entity entity-alias="PCI" entity-name="ProductCalculatedInfo" />
+		<alias-all entity-alias="PB"/>
+		<alias-all entity-alias="PCI"/>
+		<view-link entity-alias="PB" rel-entity-alias="PCI" rel-optional="true" >
+			<key-map field-name="productId"/>
+		</view-link>
+	</view-entity>
+	
+	<view-entity entity-name="ProductTypeAndAttribute" package-name="org.ofbiz.product.attribute" title="TypeAttribute And ProductAttribute View Entity">
+		<member-entity entity-alias="PA" entity-name="ProductAttribute" />
+		<member-entity entity-alias="TA" entity-name="TypeAttribute" />
+		<alias entity-alias="PA" name="productId" />
+		<alias entity-alias="PA" name="attrValue" />
+		<alias entity-alias="PA" name="attrName" />
+		<alias entity-alias="PA" name="attrType" />
+		<alias entity-alias="TA" name="attributeGroupId" />
+		<alias entity-alias="TA" name="productCategoryId" />
+		<alias entity-alias="TA" name="attributeName" />
+		<alias entity-alias="TA" name="entryWay" />
+		<view-link entity-alias="PA" rel-entity-alias="TA">
+			<key-map field-name="attrName" rel-field-name="attributeId" />
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="CommunicationEventProductView" package-name="org.ofbiz.ebiz.communication" title="Communication Event And Product View Entity">
+		<member-entity entity-alias="CP" entity-name="CommunicationEventProduct" />
+		<member-entity entity-alias="P" entity-name="Product" />
+		<member-entity entity-alias="CE" entity-name="CommunicationEvent" />
+		<alias-all entity-alias="CP" />
+		<alias-all entity-alias="CE" />
+		<view-link entity-alias="CP" rel-entity-alias="CE">
+			<key-map field-name="communicationEventId" />
+		</view-link>
+		<view-link entity-alias="CP" rel-entity-alias="P">
+			<key-map field-name="productId" />
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="statusId" entity-alias="CE" value="COM_CANCELLED" operator="not-equals" />
+				<condition-expr field-name="parentCommEventId" entity-alias="CE"  operator="equals" value="" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+
+	<view-entity entity-name="FilterProductView" package-name="org.ofbiz.ebiz.product">
+		<member-entity entity-alias="P" entity-name="Product"></member-entity>
+		<member-entity entity-alias="PB" entity-name="ProductBrand"></member-entity>
+		<member-entity entity-alias="PC" entity-name="ProductCategory"></member-entity>
+		<alias-all entity-alias="P">
+			<exclude field="brandName"></exclude>
+		</alias-all>
+		<alias-all entity-alias="PB"></alias-all>
+		<alias entity-alias="PC" name="categoryName" />
+<!--		<alias-all entity-alias="PC"></alias-all>-->
+		<view-link entity-alias="P" rel-entity-alias="PB" rel-optional="true">
+			<key-map field-name="brandName" rel-field-name="id" />
+		</view-link>
+		<view-link entity-alias="P" rel-entity-alias="PC" rel-optional="true">
+			<key-map field-name="productTypeCategoryId" rel-field-name="productCategoryId" />
+		</view-link>
+		<entity-condition>
+			<condition-list combine="or">
+				<condition-list>
+					<condition-expr entity-alias="P" field-name="isVirtual" value="Y" />
+					<condition-expr entity-alias="P" field-name="isVariant" value="N" />
+					<condition-list combine="or">
+						<condition-expr entity-alias="P" field-name="deleteStatus" value="N" />
+						<condition-expr entity-alias="P" field-name="deleteStatus" value="" />
+					</condition-list>
+				</condition-list>
+				<condition-list>
+					<condition-expr entity-alias="P" field-name="isVirtual" value="N" />
+					<condition-expr entity-alias="P" field-name="isVariant" value="N" />
+					<condition-list combine="or">
+						<condition-expr entity-alias="P" field-name="deleteStatus" value="N" />
+						<condition-expr entity-alias="P" field-name="deleteStatus" value="" />
+					</condition-list>
+				</condition-list>
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+	<view-entity entity-name="CommunicationEventView" package-name="org.ofbiz.ebiz.communication" title="Communication Event View Entity">
+		<member-entity entity-alias="CE" entity-name="CommunicationEvent" />
+		<alias-all entity-alias="CE" />
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="statusId"  entity-alias="CE" value="COM_CANCELLED" operator="not-equals" />
+				<condition-expr field-name="parentCommEventId" operator="equals" value="" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+
+	<view-entity entity-name="ProdCatalogCategoryView" package-name="org.ofbiz.ebiz.product" title="">
+		<member-entity entity-alias="PCC" entity-name="ProdCatalogCategory" />
+		<member-entity entity-alias="PC" entity-name="ProductCategory" />
+		<alias-all entity-alias="PCC" />
+		<alias-all entity-alias="PC">
+			<exclude field="productCategoryId" />
+		</alias-all>
+		<view-link entity-alias="PCC" rel-entity-alias="PC" rel-optional="true">
+			<key-map field-name="productCategoryId" rel-field-name="productCategoryId" />
+		</view-link>
+	</view-entity>
+
+	<view-entity entity-name="productStoreContentView" package-name="org.ofbiz.ebiz.system" title="">
+		<member-entity entity-alias="CTT" entity-name="Content" />
+		<member-entity entity-alias="PS" entity-name="ProductStore" />
+		<member-entity entity-alias="PSCT" entity-name="ProductStoreContentType" />
+		<member-entity entity-alias="PSC" entity-name="ProductStoreContent" />
+		<alias name="typeContent" entity-alias="CTT" field="description"></alias>
+		<alias name="PSId" entity-alias="PS" field="productStoreId"></alias>
+		<alias name="PSCType" entity-alias="PSCT" field="description"></alias>
+		<alias name="PSCTypeId" entity-alias="PSCT" field="productStoreContentTypeId"></alias>
+		<view-link rel-entity-alias="PSC" entity-alias="CTT">
+			<key-map field-name="contentId" rel-field-name="contentId" />
+		</view-link>
+		<view-link rel-entity-alias="PS" entity-alias="PSC">
+			<key-map field-name="productStoreId" rel-field-name="productStoreId" />
+		</view-link>
+		<view-link rel-entity-alias="PSCT" entity-alias="PSC">
+			<key-map field-name="productStoreContentTypeId" rel-field-name="productStoreContentTypeId" />
+		</view-link>
+	</view-entity>
+
+	<view-entity entity-name="ShoppingListAndItem" package-name="org.ofbiz.itea.member" title="">
+		<member-entity entity-alias="SL" entity-name="ShoppingList" />
+		<member-entity entity-alias="SLI" entity-name="ShoppingListItem" />
+		<member-entity entity-alias="P" entity-name="Product" />
+		<alias-all entity-alias="P" />
+		<alias-all entity-alias="SLI">
+			<exclude field="modifiedPrice" />
+		</alias-all>
+		<alias-all entity-alias="SL">
+			<exclude field="shoppingListId" />
+			<exclude field="productId" />
+		</alias-all>
+		<alias name="entryDate" field="createdStamp" entity-alias="SLI"></alias>
+		<alias name="price" field="modifiedPrice" entity-alias="SLI"></alias>
+		<view-link entity-alias="SLI" rel-entity-alias="SL" rel-optional="true">
+			<key-map field-name="shoppingListId" rel-field-name="shoppingListId" />
+		</view-link>
+		<view-link entity-alias="SLI" rel-entity-alias="P" rel-optional="true">
+			<key-map field-name="productId" rel-field-name="productId" />
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="MyCommunicationEventProduct" package-name="org.ofbiz.ebiz.communication" title="Communication Event And Product View Entity">
+		<member-entity entity-alias="CP" entity-name="CommunicationEventProduct" />
+		<member-entity entity-alias="P" entity-name="Product" />
+		<member-entity entity-alias="CE" entity-name="CommunicationEvent" />
+		<alias-all entity-alias="CP" />
+		<alias-all entity-alias="CE" />
+		<view-link entity-alias="CP" rel-entity-alias="CE">
+			<key-map field-name="communicationEventId" />
+		</view-link>
+		<view-link entity-alias="CP" rel-entity-alias="P">
+			<key-map field-name="productId" />
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="parentCommEventId"  entity-alias="CE" operator="equals" value="" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="ProductPromoCodePartyUse" package-name="org.ofbiz.product.promo" title="Product Promotion Use Check View Entity">
+		<member-entity entity-alias="PPC" entity-name="ProductPromoCode" />
+		<member-entity entity-alias="PPP" entity-name="ProductPromoCodeParty" />
+		<member-entity entity-alias="PPU" entity-name="ProductPromoUse" />
+		<member-entity entity-alias="PP" entity-name="ProductPromo" />
+
+		<alias-all entity-alias="PPC" />
+		<alias-all entity-alias="PPU">
+			<exclude field="productPromoCodeId" />
+		</alias-all>
+		<alias entity-alias="PPU" name="usePromoCodeId" field="productPromoCodeId" />
+		<alias entity-alias="PPU" name="useTime" field="createdTxStamp" />
+		<alias entity-alias="PPP" name="partyId" />
+		<alias entity-alias="PP" name="promoName" />
+		<view-link entity-alias="PPC" rel-entity-alias="PPP">
+			<key-map field-name="productPromoCodeId" />
+		</view-link>
+		<view-link entity-alias="PPC" rel-entity-alias="PPU" rel-optional="true">
+			<key-map field-name="productPromoCodeId" />
+		</view-link>
+		<view-link entity-alias="PPC" rel-entity-alias="PP">
+			<key-map field-name="productPromoId" />
+		</view-link>
+	</view-entity>
+
+
+	<!-- <view-entity entity-name="NOETemplateView" package-name="org.ofbiz.common.template"> <description>短信邮件模板</description> <member-entity entity-alias="C" entity-name="Content"></member-entity> <member-entity entity-alias="CT" entity-name="ContentType"></member-entity> <member-entity entity-alias="DR" entity-name="DataResource"></member-entity> <member-entity entity-alias="DRT" entity-name="DataResourceType"></member-entity> <member-entity entity-alias="ET" entity-name="ElectronicText"></member-entity> <member-entity entity-alias="CP" entity-name="ContentPurpose"></member-entity> <member-entity entity-alias="CPT" entity-name="ContentPurposeType"></member-entity> <alias name="contentId" entity-alias="C" ></alias> 
+		<alias name="contentName" entity-alias="C"></alias> <alias name="contentTypeId" entity-alias="CT"></alias> <alias name="dataResourceId" entity-alias="DR"></alias> <alias name="dataResourceTypeId" entity-alias="DRT"></alias> <alias name="textData" entity-alias="ET"></alias> <alias name="contentPurposeTypeId" entity-alias="CPT"></alias> <alias name="description" entity-alias="CPT"></alias> <view-link rel-entity-alias="CT" entity-alias="C"> <key-map field-name="contentTypeId" rel-field-name="contentTypeId" /> </view-link> <view-link rel-entity-alias="DR" entity-alias="C"> <key-map field-name="dataResourceId" rel-field-name="dataResourceId" /> </view-link> <view-link rel-entity-alias="DRT" entity-alias="DR"> <key-map 
+		field-name="dataResourceTypeId" rel-field-name="dataResourceTypeId" /> </view-link> <view-link rel-entity-alias="ET" entity-alias="DR"> <key-map field-name="dataResourceId" rel-field-name="dataResourceId" /> </view-link> <view-link rel-entity-alias="CP" entity-alias="C"> <key-map field-name="contentId" rel-field-name="contentId" /> </view-link> <view-link rel-entity-alias="CPT" entity-alias="CP"> <key-map field-name="contentPurposeTypeId" rel-field-name="contentPurposeTypeId" /> </view-link> </view-entity> <view-entity entity-name="ContentPurposeList" package-name="org.ofbiz.common.template"> <member-entity entity-alias="CPT" entity-name="ContentPurposeType"></member-entity> <alias-all entity-alias="CPT"></alias-all> 
+		<entity-condition> <condition-list combine="or"> <condition-expr field-name="contentPurposeTypeId" operator="equals" value="EMAIL_TEMPLATE" /> <condition-expr field-name="contentPurposeTypeId" operator="equals" value="NOTE_TEMPLATE" /> </condition-list> </entity-condition> </view-entity> -->
+
+    <view-entity entity-name="OrderHeaderItemView" package-name="org.ofbiz.order.order">
+   		<member-entity entity-alias="OH" entity-name="OrderHeader"/>
+        <member-entity entity-alias="OI" entity-name="OrderItem"/>
+        <alias entity-alias="OH" name="orderStatusId" field="statusId"/>
+        <alias entity-alias="OH" name="productStoreId"/>
+        <alias entity-alias="OH" name="orderTypeId"/>
+        <alias entity-alias="OH" name="createdBy"/>
+        <alias entity-alias="OI" name="productId"/>
+        <view-link entity-alias="OH" rel-entity-alias="OI">
+          <key-map field-name="orderId"/>
+        </view-link>
+    </view-entity>
+    <view-entity entity-name="ProductReviewView" package-name="org.ofbiz.ebiz.productreview" title="Product View Entity">
+		<member-entity entity-alias="PR" entity-name="ProductReview" />
+		<alias-all entity-alias="PR" />
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="parentProdReviewId"  entity-alias="PR" operator="equals" value="" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+	<!-- 图片设置视图 -->
+	<view-entity entity-name="EnumAndProdImageSetting" package-name="org.ofbiz.order.order">
+   		<member-entity entity-alias="E" entity-name="Enumeration"/>
+        <member-entity entity-alias="PSIS" entity-name="ProductStoreImageSetting"/>
+        <alias-all entity-alias="PSIS"/>
+        <!--<alias-all entity-alias="E"/>-->
+        <alias entity-alias="E" name="enumId"/>
+        <alias entity-alias="E" name="enumTypeId"/>
+        <alias entity-alias="E" name="enumCode"/>
+        <alias entity-alias="E" name="sequenceId"/>
+        <alias entity-alias="E" name="description"/>
+        <view-link entity-alias="E" rel-entity-alias="PSIS" rel-optional="true">
+          <key-map field-name="enumId" rel-field-name="imageTypeId"/>
+        </view-link>
+        <entity-condition>
+        	<condition-expr field-name="enumTypeId" operator="equals" value="SPR_IMG_TYPE"/>
+        </entity-condition>
+    </view-entity>
+	<view-entity entity-name="ProductContentAndPurpose" package-name="org.ofbiz.order.order">
+   		<member-entity entity-alias="PC" entity-name="ProductContent"/>
+   		<member-entity entity-alias="C" entity-name="Content"/>
+        <member-entity entity-alias="CP" entity-name="ContentPurpose"/>
+        <alias-all entity-alias="PC"/>
+        <alias-all entity-alias="C"/>
+        <alias-all entity-alias="CP"/>
+        <view-link entity-alias="PC" rel-entity-alias="C">
+          <key-map field-name="contentId"/>
+        </view-link>
+        <view-link entity-alias="C" rel-entity-alias="CP" rel-optional="true">
+          <key-map field-name="contentId"/>
+        </view-link>
+        <entity-condition>
+        	<condition-expr entity-alias="CP" field-name="contentPurposeTypeId" operator="equals" value="EB_PRODIMG_INFO"/>
+        </entity-condition>
+    </view-entity>
+    <view-entity entity-name="OrderShippmentHeaderItem" package-name="org.ofbiz.order.order">
+        <member-entity entity-alias="OS" entity-name="OrderShipment"/>
+   		<member-entity entity-alias="OH" entity-name="OrderHeader"/>
+   		<member-entity entity-alias="OI" entity-name="OrderItem"/>
+   		<member-entity entity-alias="S" entity-name="Shipment"/>
+        <alias-all entity-alias="OS"/>
+        <alias entity-alias="OI" name="productId"/>
+        <alias entity-alias="OI" name="unitPrice"/>
+        <alias entity-alias="OH" name="productStoreId"/>
+        <alias entity-alias="OH" name="orderStatusId" field="statusId"/>
+        <alias entity-alias="OH" name="productStoreId"/>
+        <alias entity-alias="OH" name="orderTypeId"/>
+        <alias entity-alias="OH" name="createdBy"/>
+        <alias entity-alias="S" name="lastModifiedDate"/>
+        <alias entity-alias="S" name="statusId"/>
+        <view-link entity-alias="OS" rel-entity-alias="OH">
+          <key-map field-name="orderId"/>
+        </view-link>
+        <view-link entity-alias="OS" rel-entity-alias="S">
+          <key-map field-name="shipmentId"/>
+        </view-link>
+        <view-link entity-alias="OS" rel-entity-alias="OI">
+          <key-map field-name="orderId"/>
+          <key-map field-name="orderItemSeqId"/>
+        </view-link>
+    </view-entity>
+    <view-entity entity-name="OrderHeaderAndProductItems"
+            package-name="org.ofbiz.order.order"
+            never-cache="true"
+            title="Order Header And Order Items View Entity">
+      <member-entity entity-alias="OH" entity-name="OrderHeader"/>
+      <member-entity entity-alias="OI" entity-name="OrderItem"/>
+      <member-entity entity-alias="P" entity-name="Product"/>
+      <alias entity-alias="OH" name="orderId"/>
+      <alias entity-alias="OH" name="orderDate"/>
+      <alias entity-alias="OH" name="orderStatusId" field="statusId"/>
+      <alias entity-alias="OH" name="grandTotal"/>
+      <alias entity-alias="OH" name="productStoreId"/>
+      <alias entity-alias="OH" name="orderTypeId"/>
+      <alias entity-alias="OI" name="orderItemSeqId"/>
+      <alias entity-alias="OI" name="productId"/>
+      <alias entity-alias="OI" name="quantity"/>
+      <alias entity-alias="OI" name="cancelQuantity"/>
+      <alias entity-alias="OI" name="unitPrice"/>
+      <alias entity-alias="OI" name="unitListPrice"/>
+      <alias entity-alias="OI" name="itemDescription"/>
+      <alias entity-alias="OI" name="itemStatusId" field="statusId"/>
+      <alias entity-alias="OI" name="estimatedShipDate"/>
+      <alias entity-alias="OI" name="estimatedDeliveryDate"/>
+      <alias entity-alias="OI" name="shipBeforeDate"/>
+      <alias entity-alias="OI" name="shipAfterDate"/>
+      <alias entity-alias="OI" name="orderItemTypeId"/>
+      <alias entity-alias="P" name="primaryProductCategoryId"/>
+      <alias entity-alias="P" name="productName"/>
+      <view-link entity-alias="OH" rel-entity-alias="OI">
+        <key-map field-name="orderId"/>
+      </view-link>
+      <view-link entity-alias="OI" rel-entity-alias="P">
+        <key-map field-name="productId"/>
+      </view-link>
+    </view-entity>
+    <view-entity entity-name="OrderHeaderContactMechAndPostalAddr"
+            package-name="org.ofbiz.order.order"
+            never-cache="true"
+            title="Order ContactMech And Order Header View Entity">
+      <member-entity entity-alias="OCM" entity-name="OrderContactMech"/>
+      <member-entity entity-alias="OH" entity-name="OrderHeader"/>
+      <member-entity entity-alias="ORR" entity-name="OrderRole"/>
+      <member-entity entity-alias="PA" entity-name="PostalAddress"/>
+      <alias-all entity-alias="OCM"></alias-all>
+      <alias-all entity-alias="PA">
+      	<exclude field="contactMechId"/>
+      </alias-all>
+      <alias-all entity-alias="ORR">
+      	<exclude field="orderId"/>
+      </alias-all>
+      <alias entity-alias="OH" name="orderDate"/>
+      <alias entity-alias="OH" name="orderStatusId" field="statusId"/>
+      <alias entity-alias="OH" name="productStoreId"/>
+      <alias entity-alias="OH" name="orderTypeId"/>
+      <view-link entity-alias="OCM" rel-entity-alias="OH" rel-optional="true">
+        <key-map field-name="orderId"/>
+      </view-link>
+      <view-link entity-alias="OCM" rel-entity-alias="PA" rel-optional="true">
+        <key-map field-name="contactMechId"/>
+      </view-link>
+      <view-link entity-alias="OCM" rel-entity-alias="ORR" rel-optional="true">
+        <key-map field-name="orderId"/>
+      </view-link>
+      <entity-condition>
+      	<condition-expr field-name="roleTypeId" entity-alias="ORR" value="BILL_TO_CUSTOMER" operator="equals"/>
+      </entity-condition>
+    </view-entity>
+    <view-entity entity-name="UserLoginAndPartyRole"
+            package-name="org.ofbiz.party.party"
+            title="UserLogin, PartyRole, Person and PartyGroup">
+      <member-entity entity-alias="ULN" entity-name="UserLogin"/>
+      <member-entity entity-alias="PTR" entity-name="PartyRole"/>
+            <alias entity-alias="ULN" name="userLoginId"/>
+      <alias entity-alias="ULN" name="currentPassword"/>
+      <alias entity-alias="ULN" name="passwordHint"/>
+      <alias entity-alias="ULN" name="enabled"/>
+      <alias entity-alias="ULN" name="disabledDateTime"/>
+      <alias entity-alias="ULN" name="successiveFailedLogins"/>
+      <alias entity-alias="ULN" name="partyId"/>
+      <alias entity-alias="ULN" name="createdStamp"/>
+      <alias entity-alias="PTR" name="roleTypeId"/>
+      <view-link entity-alias="ULN" rel-entity-alias="PTR" rel-optional="true">
+        <key-map field-name="partyId"/>
+      </view-link>
+      <relation type="one-nofk" rel-entity-name="Party">
+        <key-map field-name="partyId"/>
+      </relation>
+      <relation type="one-nofk" rel-entity-name="UserLogin">
+        <key-map field-name="userLoginId"/>
+      </relation>
+      <!-- 
+      <entity-condition>
+      	<condition-expr field-name="roleTypeId" value="ADMIN" operator="equals"/>
+      </entity-condition>
+       -->
+    </view-entity>
+    <view-entity entity-name="PartyClassificationAndGroup"
+            package-name="org.ofbiz.party.party"
+            title="PartyClassification And PartyClassificationGroup">
+      <member-entity entity-alias="PC" entity-name="PartyClassification"/>
+      <member-entity entity-alias="PCG" entity-name="PartyClassificationGroup"/>
+      <alias-all entity-alias="PC"/>
+      <alias entity-alias="PCG" name="partyClassificationTypeId"/>
+      <view-link entity-alias="PC" rel-entity-alias="PCG" rel-optional="true">
+        <key-map field-name="partyClassificationGroupId"/>
+      </view-link>
+    </view-entity>
+    <view-entity entity-name="CommEventAndContactListParty" package-name="org.ofbiz.ebiz.communication" title="Communication Event And Contact Party View Entity">
+		<member-entity entity-alias="CE" entity-name="CommunicationEvent" />
+		<member-entity entity-alias="CLP" entity-name="ContactListParty" />
+		<alias-all entity-alias="CE" />
+		<alias-all entity-alias="CLP" />
+		<alias entity-alias="CLP" name="partyStatusId" field="statusId"/>
+		<view-link entity-alias="CE" rel-entity-alias="CLP" rel-optional="true">
+			<key-map field-name="contactListId" />
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="OrderHeaderAndShippment" package-name="org.ofbiz.order.order">
+   		<member-entity entity-alias="OH" entity-name="OrderHeader"/>
+   		<member-entity entity-alias="S" entity-name="Shipment"/>
+        <alias-all entity-alias="OH"/>
+        <alias entity-alias="S" name="shipStatusId" field="statusId"/>
+        <view-link entity-alias="OH" rel-entity-alias="S" rel-optional="true">
+          <key-map field-name="orderId" rel-field-name="primaryOrderId"/>
+        </view-link>
+    </view-entity>
+    <view-entity entity-name="ReturnHeaderAndItemSummary"
+            package-name="org.ofbiz.order.order"
+            never-cache="true"
+            title="Order Header And Roles View Entity">
+      <member-entity entity-alias="RH" entity-name="ReturnHeader"/>
+      <member-entity entity-alias="RI" entity-name="ReturnItem"/>
+      <alias entity-alias="RH" name="partyId" field="fromPartyId" group-by="true"/>
+      <alias entity-alias="RH" name="statusId" group-by="true"/>
+      <alias entity-alias="RH" name="returnTypeId"/>
+      <alias entity-alias="RH" name="returnId"/>
+      <alias entity-alias="RI" name="itemStatusId" field="statusId"/>
+      <alias entity-alias="RI" name="subTotal" function="sum">
+          <complex-alias operator="*">
+              <complex-alias-field entity-alias="RI" field="returnPrice" default-value="0"/>
+              <complex-alias-field entity-alias="RI" field="returnQuantity" default-value="0"/>
+          </complex-alias>
+      </alias>
+      <view-link entity-alias="RH" rel-entity-alias="RI">
+        <key-map field-name="returnId"/>
+      </view-link>
+    </view-entity>
+    <view-entity entity-name="ReturnItemSummary"
+            package-name="org.ofbiz.order.order"
+            never-cache="true"
+            title="Order Header And Roles View Entity">
+      <member-entity entity-alias="RH" entity-name="ReturnHeader"/>
+      <member-entity entity-alias="RI" entity-name="ReturnItem"/>
+      <alias entity-alias="RH" name="statusId" group-by="true"/>
+      <alias entity-alias="RH" name="returnTypeId"/>
+      <alias entity-alias="RH" name="returnId"/>
+      <alias entity-alias="RH" name="lastUpdatedStamp"/>
+      <alias entity-alias="RI" name="itemStatusId" field="statusId"/>
+      <alias entity-alias="RH" name="totalOrders" field="returnId" function="count"/>
+      <alias entity-alias="RI" name="subTotal" function="sum">
+          <complex-alias operator="*">
+              <complex-alias-field entity-alias="RI" field="returnPrice" default-value="0"/>
+              <complex-alias-field entity-alias="RI" field="returnQuantity" default-value="0"/>
+          </complex-alias>
+      </alias>
+      <view-link entity-alias="RH" rel-entity-alias="RI">
+        <key-map field-name="returnId"/>
+      </view-link>
+    </view-entity>
+</entitymodel>

@@ -1,0 +1,1 @@
+var pingJS=function(a){var b=a.pin;try{jQuery.getScript("http://h5.m.jd.com/active/common/ping.min.js",function(){if(b!=undefined&&b!=""){ping.init({userPin:b})}else{ping.init()}})}catch(c){}};

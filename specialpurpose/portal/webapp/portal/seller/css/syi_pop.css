@@ -1,0 +1,267 @@
+img {
+	border: 0px currentColor;
+}
+a {
+	color: rgb(51, 102, 204);
+}
+a:hover {
+	color: rgb(153, 0, 0);
+}
+table {
+	border-collapse: collapse;
+}
+.grey {
+	color: rgb(102, 102, 102);
+}
+.red {
+	color: rgb(255, 0, 0);
+}
+.blue {
+	color: rgb(0, 61, 116);
+}
+.cen {
+	text-align: center;
+}
+.lt {
+	text-align: left;
+}
+.ri {
+	text-align: right;
+}
+button {
+	margin: 0px; padding: 0px; border: 0px currentColor; text-indent: inherit; overflow: visible; font-size: 12px; vertical-align: middle; cursor: pointer;
+}
+.btn_lt {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/syi/syi_button.gif") left top;
+}
+.btn_ri {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/syi/syi_button.gif") right top;
+}
+.h_btn_lt {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/syi/syi_h_button.gif") left top;
+}
+.h_btn_ri {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/syi/syi_h_button.gif") right top;
+}
+.btn_lt {
+	color: rgb(255, 255, 255);
+}
+.btn_ri {
+	color: rgb(255, 255, 255);
+}
+.h_btn_lt {
+	color: rgb(0, 0, 0);
+}
+.h_btn_ri {
+	color: rgb(0, 0, 0);
+}
+.btn_lt {
+	height: 22px; line-height: 22px; display: block; white-space: nowrap;
+}
+.btn_ri {
+	height: 22px; line-height: 22px; display: block; white-space: nowrap;
+}
+.h_btn_lt {
+	height: 22px; line-height: 22px; display: block; white-space: nowrap;
+}
+.h_btn_ri {
+	height: 22px; line-height: 22px; display: block; white-space: nowrap;
+}
+.btn_lt {
+	padding-left: 6px;
+}
+.h_btn_lt {
+	padding-left: 6px;
+}
+.btn_ri {
+	padding: 0px 20px 0px 14px;
+}
+.h_btn_ri {
+	padding: 0px 20px 0px 14px;
+}
+input {
+	font-family: Arial, Helvetica, sans-serif; font-size: 12px; vertical-align: middle;
+}
+select {
+	font-family: Arial, Helvetica, sans-serif; font-size: 12px; vertical-align: middle;
+}
+textarea {
+	font-family: Arial, Helvetica, sans-serif; font-size: 12px; vertical-align: middle;
+}
+.pop_select1 {
+	width: 175px;
+}
+.pop_select2 {
+	width: 160px;
+}
+.pop_message {
+	background: rgb(65, 65, 65); font: 12px/18px "ËÎÌו"; overflow: hidden; font-size-adjust: none; font-stretch: normal;
+}
+.pop_message_lt {
+	height: 5px; overflow: hidden;
+}
+.pop_message_ri {
+	height: 5px; overflow: hidden;
+}
+.pop_message_lt {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/syi/syi_pop_bg.gif") no-repeat left top;
+}
+.pop_message_ri {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/syi/syi_pop_bg.gif") no-repeat right -5px;
+}
+.pop_content_top {
+	padding: 5px 10px 0px; height: 12px; color: rgb(255, 255, 255); clear: both;
+}
+.pop_content_title {
+	float: left;
+}
+.pop_btn_close {
+	float: right;
+}
+.pop_message_content {
+	background: rgb(255, 255, 255); margin: 10px;
+}
+.upload_file_a tr td {
+	line-height: 18px;
+}
+.upload_file_a tr.tr1 td {
+	padding: 0px 0px 8px 15px;
+}
+.upload_file_a tr.tr2 td {
+	padding: 0px 15px 8px;
+}
+.upload_file_a tr.tr2 td.td1 strong {
+	font-size: 14px;
+}
+.upload_file_a tr.tr2 td.td1 img {
+	vertical-align: middle;
+}
+.upload_file_a tr.tr2 td.td2 ul {
+	list-style-type: none;
+}
+.upload_file_a tr.tr2 td.td2 ul li {
+	padding-left: 15px;
+}
+.upload_file_a tr td.sum {
+	padding: 0px 15px 8px;
+}
+.pop_express {
+	border: 1px solid rgb(200, 217, 233);
+}
+.pop_express tr.title td {
+	background: rgb(236, 246, 254); height: 39px; line-height: 39px;
+}
+.pop_express tr td {
+	border: 1px solid rgb(200, 217, 233); text-align: center; color: rgb(0, 61, 116); line-height: 25px;
+}
+.pop_express tr td.red {
+	color: rgb(255, 0, 0);
+}
+.pop_child_message {
+	width: 489px; font-size: 12px;
+}
+.pop_child_message table {
+	margin: 0px auto;
+}
+.pop_select tr.tr1 td {
+	height: 30px; line-height: 30px;
+}
+.pop_select tr.tr2 td {
+	height: 20px; line-height: 20px;
+}
+.pop_select tr td img {
+	vertical-align: middle;
+}
+.syi_close {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/syi/syi_close.gif") no-repeat right; padding-right: 20px;
+}
+.syi_open {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/syi/syi_open.gif") no-repeat right; padding-right: 20px;
+}
+.pop_express_f {
+	border: 1px solid rgb(153, 152, 141);
+}
+.pop_express_f tr td {
+	border: 1px solid rgb(153, 152, 141); color: rgb(59, 59, 59); line-height: 36px;
+}
+.pop_express_f tr td a.down {
+	color: rgb(0, 0, 0); padding-right: 10px; text-decoration: none;
+}
+.pop_express_f tr td a.up {
+	color: rgb(0, 0, 0); padding-right: 10px; text-decoration: none;
+}
+.pop_express_f tr td a.down {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_img1.gif") no-repeat right;
+}
+.pop_express_f tr td a.up {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_img2.gif") no-repeat right;
+}
+.pop_express_f tr.title_f td {
+	background: rgb(231, 231, 231); height: 39px; line-height: 39px;
+}
+.hand {
+	cursor: pointer;
+}
+.pop_tab {
+	height: 26px; line-height: 28px; overflow: hidden; padding-left: 28px; margin-top: -4px; position: absolute;
+}
+.pop_tab a.current {
+	height: 26px; padding-left: 20px; margin-right: 2px; float: left;
+}
+.pop_tab a.default {
+	height: 26px; padding-left: 20px; margin-right: 2px; float: left;
+}
+.pop_tab a.current span {
+	height: 26px; padding-right: 20px; float: left;
+}
+.pop_tab a.default span {
+	height: 26px; padding-right: 20px; float: left;
+}
+.pop_tab a.current {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/syi/syi_pop_tab.gif") no-repeat left top; color: rgb(34, 34, 34); text-decoration: none;
+}
+.pop_tab a.current span {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/syi/syi_pop_tab.gif") no-repeat right top; cursor: pointer;
+}
+.pop_tab a.default {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/syi/syi_pop_tab.gif") no-repeat left -26px; color: rgb(255, 255, 255); text-decoration: none;
+}
+.pop_tab a.default span {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/syi/syi_pop_tab.gif") no-repeat right -26px; cursor: pointer;
+}
+.pop_mob {
+	margin: 0px auto; width: 350px; color: rgb(68, 68, 68); font-family: Arial, Helvetica, sans-serif;
+}
+.pop_mob a {
+	color: rgb(9, 44, 160); text-decoration: none;
+}
+.pop_mob a:hover {
+	color: rgb(153, 0, 0);
+}
+.pop_mob p {
+	line-height: 24px;
+}
+.pop_mob p.p1 {
+	padding: 10px 0px;
+}
+.pop_mob p.p3 {
+	padding: 8px 0px;
+}
+.pop_mob p.p4 {
+	padding-bottom: 20px;
+}
+.pop_mob p a.a1 {
+	margin-left: 10px;
+}
+.pop_mob p a span {
+	font-family: "ËÎÌו"; font-size: 10px;
+}
+.pop_mob_a {
+	margin: 0px auto; padding: 5px 0px 20px; width: 400px;
+}
+.pop_mob_a table {
+	border: 1px solid rgb(205, 205, 205);
+}
+.pop_mob_a table tr td {
+	text-align: left; padding-left: 5px;
+}

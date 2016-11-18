@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods-v2.xsd">
+
+	<simple-method method-name="createSellerProductPrice" short-description="Create a Product">
+        <set-service-fields service-name="createProductPrice" map="parameters" to-map="callServiceCtx"/>
+        <!-- call the service with the system account to get around security constraints for this special create -->
+        <entity-one entity-name="UserLogin" value-field="callServiceCtx.userLogin" auto-field-map="false">
+            <field-map field-name="userLoginId" value="system"/>
+        </entity-one>
+        <log level="info" message="Call service createProduct, callServiceCtx=${callServiceCtx}"/>
+        <call-service service-name="createProductPrice" in-map-name="callServiceCtx">
+            <result-to-result result-name="fromDate"/>
+        </call-service>
+    </simple-method>
+    
+
+	<simple-method method-name="updateSellerProductPrice" short-description="Create a Product">
+        <set-service-fields service-name="updateProductPrice" map="parameters" to-map="callServiceCtx"/>
+        <!-- call the service with the system account to get around security constraints for this special create -->
+        <entity-one entity-name="UserLogin" value-field="callServiceCtx.userLogin" auto-field-map="false">
+            <field-map field-name="userLoginId" value="system"/>
+        </entity-one>
+        <log level="info" message="Call service createProduct, callServiceCtx=${callServiceCtx}"/>
+        <call-service service-name="updateProductPrice" in-map-name="callServiceCtx">
+            <result-to-result result-name="oldPrice"/>
+        </call-service>
+    </simple-method>
+
+	<simple-method method-name="deleteSellerProductPrice" short-description="Create a Product">
+        <set-service-fields service-name="deleteProductPrice" map="parameters" to-map="callServiceCtx"/>
+        <!-- call the service with the system account to get around security constraints for this special create -->
+        <entity-one entity-name="UserLogin" value-field="callServiceCtx.userLogin" auto-field-map="false">
+            <field-map field-name="userLoginId" value="system"/>
+        </entity-one>
+        <log level="info" message="Call service createProduct, callServiceCtx=${callServiceCtx}"/>
+        <call-service service-name="deleteProductPrice" in-map-name="callServiceCtx">
+        </call-service>
+    </simple-method>
+</simple-methods>

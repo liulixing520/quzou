@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>Component Services</description>
+	<vendor>OFBiz</vendor>
+	<version>1.0</version>
+	
+	<!-- order  services -->
+	<!-- 修改订单状态-ofbiz本身修改状态setOrderStatus没有把修改原因保存上 -->
+    <service name="changeOrderStatusLt" engine="java" auth="true"
+            location="org.ofbiz.ebiz.order.OrderServices" invoke="setOrderStatus">
+        <description>Change the status of an existing order</description>
+        <attribute name="orderId" type="String" mode="IN"/>
+        <attribute name="statusId" type="String" mode="IN"/>
+        <attribute name="setItemStatus" type="String" mode="IN" optional="true"/>
+        <attribute name="oldStatusId" type="String" mode="OUT" optional="false"/>
+        <attribute name="orderStatusId" type="String" mode="OUT" optional="true"/>
+        <attribute name="orderTypeId" type="String" mode="OUT" optional="true"/>
+        <attribute name="needsInventoryIssuance" type="String" mode="OUT" optional="true"/>
+        <attribute name="grandTotal" type="BigDecimal" mode="OUT" optional="true"/>
+        <attribute name="changeReason" type="String" mode="IN" optional="true"/>
+    </service>
+    
+    
+    
+   
+    <!-- order  services -->
+	<!-- 修改订单状态-ofbiz本身修改状态setOrderStatus没有把修改原因保存上 -->
+    <service name="getOrderShipmentInfo" engine="java" auth="false"
+            location="org.ofbiz.ebiz.order.OrderServices" invoke="getOrderShipmentInfo">
+        <description>Change the status of an existing order</description>
+        <attribute name="orderId" type="String" mode="IN"/>
+        <attribute name="carrierName" type="String" mode="OUT" optional="true"/>
+        <attribute name="carrierSiteName" type="String" mode="OUT" optional="true"/>
+        <attribute name="carrierSymbol" type="String" mode="OUT" optional="true"/>
+        <attribute name="trackingNumber" type="String" mode="OUT" optional="true"/>
+    </service>
+    
+     <!-- 订单查询 -->
+    <service name="findOrdersEn" engine="java" transaction-timeout="300" auth="true"
+            location="org.ofbiz.ebiz.order.OrderLookupServices" invoke="findOrders">
+        <description>Uses dynamic view entity to find orders; returns a list of Order (OrderHeader) objects</description>
+        <!-- order header fields -->
+        <attribute name="orderId" type="String" mode="IN" optional="true"/>
+        <attribute name="orderName" type="String" mode="IN" optional="true"/>
+        <attribute name="orderTypeId" type="List" mode="IN" optional="true" default-value="SALES_ORDER"/> <!-- can pass multiple values as list -->
+        <attribute name="orderStatusId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="productStoreId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="orderWebSiteId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="salesChannelEnumId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="createdBy" type="String" mode="IN" optional="true"/>
+        <attribute name="terminalId" type="String" mode="IN" optional="true"/>
+        <attribute name="transactionId" type="String" mode="IN" optional="true"/>
+        <attribute name="externalId" type="String" mode="IN" optional="true"/>
+        <attribute name="internalCode" type="String" mode="IN" optional="true"/>
+        <attribute name="useEntryDate" type="String" mode="IN" optional="true"/> <!-- Y/N use entryDate instead of orderDate -->
+        <attribute name="minDate" type="String" mode="IN" optional="true"/> <!-- converted to Timestamp -->
+        <attribute name="maxDate" type="String" mode="IN" optional="true"/> <!-- converted to Timestamp -->
+        <attribute name="hasBackOrders" type="String" mode="IN" optional="true"/> <!-- Y to only show orders with items on backorder -->
+
+        <!-- order role fields -->
+        <attribute name="userLoginId" type="String" mode="IN" optional="true"/>
+        <attribute name="roleTypeId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="partyId" type="String" mode="IN" optional="true"/>
+
+        <!-- order item fields -->
+        <attribute name="correspondingPoId" type="String" mode="IN" optional="true"/>
+        <attribute name="subscriptionId" type="String" mode="IN" optional="true"/>
+        <attribute name="productId" type="String" mode="IN" optional="true"/>
+        <attribute name="budgetId" type="String" mode="IN" optional="true"/>
+        <attribute name="quoteId" type="String" mode="IN" optional="true"/>
+
+        <attribute name="billingAccountId" type="String" mode="IN" optional="true"/>
+        <attribute name="finAccountId" type="String" mode="IN" optional="true"/>
+        <attribute name="cardNumber" type="String" mode="IN" optional="true"/>
+        <attribute name="accountNumber" type="String" mode="IN" optional="true"/>
+
+        <!-- shipment/inventory fields -->
+        <attribute name="inventoryItemId" type="String" mode="IN" optional="true"/>
+        <attribute name="softIdentifier" type="String" mode="IN" optional="true"/>
+        <attribute name="serialNumber" type="String" mode="IN" optional="true"/>
+        <attribute name="shipmentId" type="String" mode="IN" optional="true"/>
+
+        <!-- inventory problem fields -->
+        <attribute name="filterInventoryProblems" type="String" mode="IN" optional="true"/>
+        <attribute name="filterPOsWithRejectedItems" type="String" mode="IN" optional="true"/>
+        <attribute name="filterPOsOpenPastTheirETA" type="String" mode="IN" optional="true"/>
+        <attribute name="filterPartiallyReceivedPOs" type="String" mode="IN" optional="true"/>
+
+        <attribute name="isViewed" type="String" mode="IN"  optional="true"/> <!-- show orders with viewed Y/N -->
+        <attribute name="shipmentMethod" type="String" mode="IN" optional="true"/>
+        <attribute name="gatewayAvsResult" type="String" mode="IN" optional="true"/>
+        <attribute name="gatewayScoreResult" type="String" mode="IN" optional="true"/>
+
+        <!-- ship to country fields -->
+        <attribute name="countryGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="includeCountry" type="String" mode="IN" optional="true"/>    
+        
+        <attribute name="stateGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="cityGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="countyGeoId" type="String" mode="IN" optional="true"/>    
+        
+        <attribute name="shipmentStatusId" type="String" mode="IN" optional="true"/>    
+
+        
+        <!-- view and page fields -->
+        <attribute name="VIEW_INDEX_1" type="Integer" default-value="0" mode="IN" optional="true"/>
+        <attribute name="VIEW_SIZE_1" type="Integer" default-value="20"  mode="IN" optional="true"/>
+        <attribute name="VIEW_INDEX_1" type="Integer"  mode="OUT" optional="false"/>
+        <attribute name="VIEW_SIZE_1" type="Integer"  mode="OUT" optional="false"/>
+        <attribute name="showAll" type="String" mode="INOUT" default-value="Y"  optional="true"/>
+        <attribute name="aotuSearch" type="String" mode="INOUT" optional="true"/>
+
+        <!-- index fields -->
+        <attribute name="highIndex" type="Integer" mode="OUT" optional="false"/>
+        <attribute name="lowIndex" type="Integer" mode="OUT" optional="false"/>
+
+        <!-- inventory problem results -->
+        <attribute name="filterInventoryProblemsList" type="List" mode="OUT" optional="true"/>
+        <attribute name="filterPOsWithRejectedItemsList" type="List" mode="OUT" optional="true"/>
+        <attribute name="filterPOsOpenPastTheirETAList" type="List" mode="OUT" optional="true"/>
+        <attribute name="filterPartiallyReceivedPOsList" type="List" mode="OUT" optional="true"/>
+
+        <!-- actual results -->
+        <attribute name="paramList" type="String" mode="OUT" optional="false"/>
+        <attribute name="orderList" type="List" mode="OUT" optional="false"/>
+        <attribute name="orderListSize" type="Integer" mode="OUT" optional="false"/>
+        <attribute name="paymentMethodTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="oppStatusId" type="String" mode="IN" optional="true"/>
+        <attribute name="finAccountTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="estimatedShipFacilityId" type="String" mode="IN" optional="true"/>
+    </service>
+    
+     <!-- 退货单查询 -->
+    <service name="findReturnOrdersLt" engine="java" transaction-timeout="300"
+            location="org.ofbiz.ebiz.order.ReturnOrderServices" invoke="findReturnOrders">
+        <description>Uses dynamic view entity to find orders; returns a list of Order (OrderHeader) objects</description>
+        <attribute name="inputFields" type="java.util.Map" mode="IN" optional="false"/>
+        <attribute name="viewIndex" type="Integer" default-value="0" mode="INOUT" optional="true"/>
+        <attribute name="viewSize" type="Integer" default-value="20" mode="INOUT" optional="true"/>
+        <attribute name="listIt" type="List" mode="OUT" optional="false"/>
+        <attribute name="listSize" type="Integer" mode="OUT" optional="false"/>
+        
+    </service>
+    <!-- 直营店订单查询 主要参数salesChannelEnumId -->
+    <service name="findPosOrdersLt" engine="java" transaction-timeout="300" auth="true"
+            location="org.ofbiz.ebiz.order.OrderLookupServices" invoke="findOrders">
+        <description>Uses dynamic view entity to find orders; returns a list of Order (OrderHeader) objects</description>
+        <!-- order header fields -->
+        <attribute name="orderId" type="String" mode="IN" optional="true"/>
+        <attribute name="orderName" type="String" mode="IN" optional="true"/>
+        <attribute name="orderTypeId" type="List" mode="IN" optional="true" default-value="SALES_ORDER"/> <!-- can pass multiple values as list -->
+        <attribute name="orderStatusId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="productStoreId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="orderWebSiteId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="salesChannelEnumId" type="List" mode="IN" optional="true" default-value="POS_SALES_CHANNEL"/> <!-- can pass multiple values as list -->
+        <attribute name="createdBy" type="String" mode="IN" optional="true"/>
+        <attribute name="terminalId" type="String" mode="IN" optional="true"/>
+        <attribute name="transactionId" type="String" mode="IN" optional="true"/>
+        <attribute name="externalId" type="String" mode="IN" optional="true"/>
+        <attribute name="internalCode" type="String" mode="IN" optional="true"/>
+        <attribute name="useEntryDate" type="String" mode="IN" optional="true"/> <!-- Y/N use entryDate instead of orderDate -->
+        <attribute name="minDate" type="String" mode="IN" optional="true"/> <!-- converted to Timestamp -->
+        <attribute name="maxDate" type="String" mode="IN" optional="true"/> <!-- converted to Timestamp -->
+        <attribute name="hasBackOrders" type="String" mode="IN" optional="true"/> <!-- Y to only show orders with items on backorder -->
+
+        <!-- order role fields -->
+        <attribute name="userLoginId" type="String" mode="IN" optional="true"/>
+        <attribute name="roleTypeId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="partyId" type="String" mode="IN" optional="true"/>
+
+        <!-- order item fields -->
+        <attribute name="correspondingPoId" type="String" mode="IN" optional="true"/>
+        <attribute name="subscriptionId" type="String" mode="IN" optional="true"/>
+        <attribute name="productId" type="String" mode="IN" optional="true"/>
+        <attribute name="budgetId" type="String" mode="IN" optional="true"/>
+        <attribute name="quoteId" type="String" mode="IN" optional="true"/>
+
+        <attribute name="billingAccountId" type="String" mode="IN" optional="true"/>
+        <attribute name="finAccountId" type="String" mode="IN" optional="true"/>
+        <attribute name="cardNumber" type="String" mode="IN" optional="true"/>
+        <attribute name="accountNumber" type="String" mode="IN" optional="true"/>
+
+        <!-- shipment/inventory fields -->
+        <attribute name="inventoryItemId" type="String" mode="IN" optional="true"/>
+        <attribute name="softIdentifier" type="String" mode="IN" optional="true"/>
+        <attribute name="serialNumber" type="String" mode="IN" optional="true"/>
+        <attribute name="shipmentId" type="String" mode="IN" optional="true"/>
+
+        <!-- inventory problem fields -->
+        <attribute name="filterInventoryProblems" type="String" mode="IN" optional="true"/>
+        <attribute name="filterPOsWithRejectedItems" type="String" mode="IN" optional="true"/>
+        <attribute name="filterPOsOpenPastTheirETA" type="String" mode="IN" optional="true"/>
+        <attribute name="filterPartiallyReceivedPOs" type="String" mode="IN" optional="true"/>
+
+        <attribute name="isViewed" type="String" mode="IN"  optional="true"/> <!-- show orders with viewed Y/N -->
+        <attribute name="shipmentMethod" type="String" mode="IN" optional="true"/>
+        <attribute name="gatewayAvsResult" type="String" mode="IN" optional="true"/>
+        <attribute name="gatewayScoreResult" type="String" mode="IN" optional="true"/>
+
+        <!-- ship to country fields -->
+        <attribute name="countryGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="includeCountry" type="String" mode="IN" optional="true"/>        
+
+		<attribute name="selectChanneltype" type="String" mode="IN" optional="true" default-value="POS_CHANNEL"/>
+		<attribute name="stateGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="cityGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="countyGeoId" type="String" mode="IN" optional="true"/> 
+        <attribute name="paymentMethodTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="oppStatusId" type="String" mode="IN" optional="true"/>
+        <attribute name="finAccountTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="estimatedShipFacilityId" type="String" mode="IN" optional="true"/>
+        
+        <!-- view and page fields -->
+        <attribute name="VIEW_INDEX_1" type="Integer" default-value="0" mode="IN" optional="true"/>
+        <attribute name="VIEW_SIZE_1" type="Integer" default-value="20"  mode="IN" optional="true"/>
+        <attribute name="VIEW_INDEX_1" type="Integer"  mode="OUT" optional="false"/>
+        <attribute name="VIEW_SIZE_1" type="Integer"  mode="OUT" optional="false"/>
+        <attribute name="showAll" type="String" mode="INOUT" default-value="Y"  optional="true"/>
+        <attribute name="aotuSearch" type="String" mode="INOUT" optional="true"/>
+
+        <!-- index fields -->
+        <attribute name="highIndex" type="Integer" mode="OUT" optional="false"/>
+        <attribute name="lowIndex" type="Integer" mode="OUT" optional="false"/>
+
+        <!-- inventory problem results -->
+        <attribute name="filterInventoryProblemsList" type="List" mode="OUT" optional="true"/>
+        <attribute name="filterPOsWithRejectedItemsList" type="List" mode="OUT" optional="true"/>
+        <attribute name="filterPOsOpenPastTheirETAList" type="List" mode="OUT" optional="true"/>
+        <attribute name="filterPartiallyReceivedPOsList" type="List" mode="OUT" optional="true"/>
+
+        <!-- actual results -->
+        <attribute name="paramList" type="String" mode="OUT" optional="false"/>
+        <attribute name="orderList" type="List" mode="OUT" optional="false"/>
+        <attribute name="orderListSize" type="Integer" mode="OUT" optional="false"/>
+        
+    </service>
+    <!-- 直营店订单查询 -->
+    
+    
+     <!-- 删除发货地址 -->
+    <service name="delDeliveryAddress" engine="java" transaction-timeout="300" auth="true"
+            location="org.ofbiz.ebiz.order.ReturnOrderServices" invoke="delDeliveryAddress">
+        <description>delete an address by contactMechId</description>
+        <attribute name="contactMechId" type="String" mode="IN" optional="false"/>        
+    </service>
+    
+    <!-- 估计发货的仓库 
+    <service name="getEstimatedShipFacility" engine="java" 
+		location="org.ofbiz.order.OrderFacilityServices" invoke="getEstimatedShipFacility">
+
+		<attribute name="productStoreId" type="String" mode="IN" optional="true" />
+		<attribute name="shipGeoId" type="String" mode="IN" optional="true" />
+		<attribute name="contactMechId" type="String" mode="IN" optional="true" />
+
+		<attribute name="estimatedShipFacilityId" type="String" mode="OUT" optional="true" />
+
+	</service>
+	-->
+	<!--
+	<service name="setSaleOrderPaymentStatus" engine="java"
+            location="org.ofbiz.itea.order.ShopCheckOutEvents" invoke="setSaleOrderPaymentStatus">
+        <description>Creates an order payment preference</description>
+        <attribute name="orderId" type="String" mode="IN"/>
+    </service>
+    
+	-->
+	
+	<service name="createOrderPaymentGroupAndMember" engine="simple"
+            location="component://portal/script/org/ofbiz/accounting/payment/PaymentServices.xml" invoke="createOrderPaymentGroupAndMember" auth="true">
+        <attribute name="orderIds" type="List" mode="IN" optional="false"/>
+        <attribute name="paymentGroupTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="fromDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="paymentGroupName" type="String" mode="IN" optional="true"/>
+        <attribute name="orderPaymentGroupId" type="String" mode="IN" optional="true"/>
+        <attribute name="oid" type="String" mode="IN" optional="true"/>
+        <attribute name="orderPaymentGroupId" type="String" mode="OUT" optional="false"/>
+    </service>
+    <!-- Payment Group -->
+    <service name="createOrderPaymentGroup" default-entity-name="OrderPaymentGroup" engine="entity-auto" invoke="create" auth="true">
+        <description>Create a Order Payment Group</description>
+        <auto-attributes include="pk" mode="INOUT" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="statusId"  optional="false" default-value="PAYGRP_CREATED"/>
+    </service>
+    <service name="updateOrderPaymentGroup" default-entity-name="OrderPaymentGroup" engine="entity-auto" invoke="update" auth="true">
+        <description>Update a Order Payment Group</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    <service name="deleteOrderPaymentGroup" default-entity-name="OrderPaymentGroup" engine="entity-auto" invoke="delete" auth="true">
+        <description>Delete a Order Payment Group</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service>
+    
+    <!-- Payment Group Member -->
+    <service name="createOrderPaymentGroupMember" default-entity-name="OrderPaymentGroupMember" engine="simple"
+            location="component://portal/script/org/ofbiz/accounting/payment/PaymentServices.xml" invoke="createOrderPaymentGroupMember" auth="true">
+        <description>Check For Outgoing/Incoming Payment And Create Payment Group Member</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="fromDate" optional="true"/>
+    </service>
+    <service name="updateOrderPaymentGroupMember" default-entity-name="OrderPaymentGroupMember" engine="entity-auto" invoke="update" auth="true">
+        <description>Update a Payment Group Member</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    <service name="deleteOrderPaymentGroupMember" default-entity-name="OrderPaymentGroupMember" engine="entity-auto" invoke="delete" auth="true">
+        <description>Delete a Payment Group Member</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service>
+    <service name="expireOrderPaymentGroupMember" default-entity-name="OrderPaymentGroupMember" engine="simple"
+            location="component://portal/script/org/ofbiz/accounting/payment/PaymentServices.xml" invoke="expireOrderPaymentGroupMember" auth="true">
+        <description>expire a Payment Group Member</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service>
+    <!-- ShoppingCartHistory -->
+    <service name="createShoppingListGroup" default-entity-name="ShoppingListGroup" engine="simple" auth="false"
+            location="component://portal/script/org/ofbiz/order/shoppinglist/ShoppingListServices.xml" invoke="createShoppingListGroup">
+        <description>Create a ShoppingListGroup</description>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+    </service>
+    <service name="updateShoppingListGroup" default-entity-name="ShoppingListGroup" engine="simple" auth="true"
+            location="component://portal/script/org/ofbiz/order/shoppinglist/ShoppingListServices.xml" invoke="updateShoppingListGroup">
+        <description>Update a ShoppingListGroup</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    <service name="createShoppingCartHistory" default-entity-name="ShoppingCartHistory" engine="simple" auth="false"
+            location="component://portal/script/org/ofbiz/order/shoppinglist/ShoppingListServices.xml" invoke="createShoppingCartHistory">
+        <description>Create a ShoppingCartHistory</description>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+    </service>
+    <service name="updateShoppingCartHistory" default-entity-name="ShoppingCartHistory" engine="simple" auth="true"
+            location="component://portal/script/org/ofbiz/order/shoppinglist/ShoppingListServices.xml" invoke="updateShoppingCartHistory">
+        <description>Update a ShoppingCartHistory</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    
+    <service name="getSupplierSaleTotalMap" engine="java" transaction-timeout="300"
+            location="org.ofbiz.order.shoppinglist.DxServices" invoke="getSupplierSaleTotalMap">
+        <description>计算订单佣金</description>
+        <attribute name="orderHeader" type="org.ofbiz.entity.GenericValue" mode="IN" optional="false"/>
+        <attribute name="supplierSaleTotal" type="BigDecimal" mode="OUT" optional="false"/>
+        <attribute name="yjSaleTotal" type="BigDecimal" mode="OUT" optional="false"/>
+     </service>   
+</services>

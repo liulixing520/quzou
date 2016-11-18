@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of LIMS RawData Component</title>
+	<description>原始记录</description>
+	<version>1.0</version>
+
+
+	<entity entity-name="RawIndex" package-name="org.extErp.sysCommon.raw"
+		title="指标">
+		<description>指标</description>
+		<field name="indexId" type="id-ne">
+			<description>指标ID</description>
+		</field>
+		<field name="indexName" type="name">
+			<description>指标名称</description>
+		</field>
+		<field name="indexCode" type="name">
+			<description>指标编码</description>
+		</field>
+		<field name="uomId" type="id-ne">
+			<description>计量单位</description>
+		</field>
+		<field name="parentIndexId" type="id-ne">
+			<description>父指标ID</description>
+		</field>
+		<field name="sortNo" type="numeric">
+			<description>顺序</description>
+		</field>
+		<field name="hasChild" type="id-long-ne">
+			<description>是否有子节点</description>
+		</field>
+		<field name="indexLocation" type="id-long-ne">
+			<description>指标位置</description>
+		</field>
+
+		<prim-key field="indexId" />
+
+		<relation rel-entity-name="Uom" type="one" fk-name="uom_index">
+			<key-map field-name="uomId" rel-field-name="uomId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="RawTheme" package-name="org.extErp.sysCommon.raw"
+		title="模板">
+		<description>模板</description>
+		<field name="themeId" type="id-ne">
+			<description>模板ID</description>
+		</field>
+		<field name="themeName" type="name">
+			<description>模板名称</description>
+		</field>
+		<field name="excelPath" type="name">
+			<description>excel路径</description>
+		</field>
+		<field name="sortNo" type="numeric">
+			<description>顺序</description>
+		</field>
+		<field name="hasOneDyn" type="id-long-ne">
+			<description>是否包含动态一维表</description>
+		</field>
+		<field name="startRowNum" type="numeric">
+			<description>一维表起始行数</description>
+		</field>
+		<prim-key field="themeId" />
+	</entity>
+
+	<entity entity-name="RawCrosstab" package-name="org.extErp.sysCommon.raw"
+		title="交叉表配置">
+		<description>交叉表配置</description>
+		<field name="themeId" type="id-ne">
+			<description>模板ID</description>
+		</field>
+		<field name="rowIndexId" type="id-ne">
+			<description>行指标ID</description>
+		</field>
+		<field name="cellIndexId" type="id-ne">
+			<description>列指标ID</description>
+		</field>
+		<field name="excelGrid" type="id-ne">
+			<description>excel格子</description>
+		</field>
+		<prim-key field="themeId" />
+		<prim-key field="rowIndexId" />
+		<prim-key field="cellIndexId" />
+		<relation rel-entity-name="RawTheme" type="one" fk-name="cross_theme">
+			<key-map field-name="themeId" rel-field-name="themeId" />
+		</relation>
+		<relation rel-entity-name="RawIndex" type="one" fk-name="cross_cell_index">
+			<key-map field-name="cellIndexId" rel-field-name="indexId" />
+		</relation>
+		<relation rel-entity-name="RawIndex" type="one" fk-name="cross_row_index">
+			<key-map field-name="rowIndexId" rel-field-name="indexId" />
+		</relation>
+	</entity>
+	<entity entity-name="RawOneDynamic" package-name="org.extErp.sysCommon.raw"
+		title="一维动态表配置">
+		<description>一维动态表配置</description>
+		<field name="themeId" type="id-ne">
+			<description>模板ID</description>
+		</field>
+		<field name="cellIndexId" type="id-ne">
+			<description>列指标ID</description>
+		</field>
+		<field name="cellNum" type="short-varchar">
+			<description>列指标对应excel列数</description>
+		</field>
+
+		<prim-key field="themeId" />
+		<prim-key field="cellIndexId" />
+		<relation rel-entity-name="RawTheme" type="one" fk-name="cross_theme_one">
+			<key-map field-name="themeId" rel-field-name="themeId" />
+		</relation>
+		<relation rel-entity-name="RawIndex" type="one" fk-name="one_cell_index">
+			<key-map field-name="cellIndexId" rel-field-name="indexId" />
+		</relation>
+	</entity>
+
+
+
+	<entity entity-name="RawCrosstabData" package-name="org.extErp.sysCommon.raw"
+		title="交叉数据表">
+		<description>交叉数据表</description>
+		<field name="themeId" type="id-ne">
+			<description>模板ID</description>
+		</field>
+		<field name="rowIndexId" type="id-ne">
+			<description>行指标ID</description>
+		</field>
+		<field name="cellIndexId" type="id-ne">
+			<description>列指标ID</description>
+		</field>
+		<field name="excelGrid" type="id-ne">
+			<description>excel格子</description>
+		</field>
+		<field name="excelData" type="name">
+			<description>数据</description>
+		</field>
+		<prim-key field="themeId" />
+		<prim-key field="excelGrid" />
+		<relation rel-entity-name="RawTheme" type="one" fk-name="cross_theme_data">
+			<key-map field-name="themeId" rel-field-name="themeId" />
+		</relation>
+		<relation rel-entity-name="RawIndex" type="one"
+			fk-name="cross_data_cell_index">
+			<key-map field-name="cellIndexId" rel-field-name="indexId" />
+		</relation>
+		<relation rel-entity-name="RawIndex" type="one"
+			fk-name="cross_data_row_index">
+			<key-map field-name="rowIndexId" rel-field-name="indexId" />
+		</relation>
+	</entity>
+	<entity entity-name="RawOneDynamicData" package-name="org.extErp.sysCommon.raw"
+		title="一维动态数据表">
+		<description>一维动态数据表</description>
+		<field name="themeId" type="id-ne">
+			<description>模板ID</description>
+		</field>
+		<field name="batch" type="id-ne">
+			<description>批次</description>
+		</field>
+
+
+		<field name="cellIndexId" type="id-ne">
+			<description>列指标ID</description>
+		</field>
+		<field name="excelGrid" type="id-ne">
+			<description>excel格子</description>
+		</field>
+		<field name="excelData" type="name">
+			<description>数据</description>
+		</field>
+		<field name="rowNum" type="numeric">
+			<description>行数</description>
+		</field>
+		<prim-key field="themeId" />
+		<prim-key field="excelGrid" />
+		<relation rel-entity-name="RawTheme" type="one" fk-name="one_theme_data">
+			<key-map field-name="themeId" rel-field-name="themeId" />
+		</relation>
+		<relation rel-entity-name="RawIndex" type="one"
+			fk-name="one_data_cell_index">
+			<key-map field-name="cellIndexId" rel-field-name="indexId" />
+		</relation>
+	</entity>
+
+	<view-entity entity-name="RawCrosstabDataAndIndex"
+		package-name="com.yuanh.task" title="交叉表数据与指标视图">
+		<member-entity entity-alias="RD" entity-name="RawCrosstabData" />
+		<member-entity entity-alias="RC" entity-name="RawCrosstab" />
+
+		<alias-all entity-alias="RC" />
+		<alias name="excelData" entity-alias="RD" />
+		<alias name="themeId" entity-alias="RD" />
+		<view-link entity-alias="RC" rel-optional="false"
+			rel-entity-alias="RD">
+			<key-map field-name="themeId" rel-field-name="themeId" />
+			<key-map field-name="excelGrid" rel-field-name="excelGrid" />
+		</view-link>
+
+	</view-entity>
+	<!-- <view-entity entity-name="RawCrosstabAndRowIndex" package-name="com.yuanh.task" 
+		title="交叉表行指标视图"> <member-entity entity-alias="RC" entity-name="RawCrosstab" 
+		/> <member-entity entity-alias="RI" entity-name="RawIndex" /> <alias name="rowIndexId" 
+		entity-alias="RC" function="count-distinct"/> <alias name="indexName" entity-alias="RI" 
+		function="count-distinct"/> <alias name="sortNo" entity-alias="RI" function="count-distinct"/> 
+		<view-link entity-alias="RC" rel-optional="false" rel-entity-alias="RI"> 
+		<key-map field-name="rowIndexId" rel-field-name="indexId" /> </view-link> 
+		<entity-condition> <condition-expr entity-alias="RI" field-name="indexLocation" 
+		operator="equals" value="row"/> <order-by field-name="sortNo"/> </entity-condition> 
+		</view-entity> <view-entity entity-name="RawCrosstabAndCellIndex" package-name="com.yuanh.task" 
+		title="交叉表列指标视图"> <member-entity entity-alias="RC" entity-name="RawCrosstab" 
+		/> <member-entity entity-alias="RI" entity-name="RawIndex" /> <alias name="rowIndexId" 
+		entity-alias="RC" function="count-distinct"/> <alias name="indexName" entity-alias="RI" 
+		function="count-distinct"/> <alias name="sortNo" entity-alias="RI" function="count-distinct"/> 
+		<view-link entity-alias="RC" rel-optional="false" rel-entity-alias="RI"> 
+		<key-map field-name="cellIndexId" rel-field-name="indexId" /> </view-link> 
+		<entity-condition> <condition-expr entity-alias="RI" field-name="indexLocation" 
+		operator="equals" value="cell"/> <order-by field-name="sortNo"/> </entity-condition> 
+		</view-entity> -->
+</entitymodel>

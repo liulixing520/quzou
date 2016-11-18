@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0; padding:0;}
+img{border:0 none;vertical-align: top; display:block;}
+ul li{ list-style:none;}
+a{text-decoration: none; cursor:pointer; display:block;}
+a img{ border:0 none; display:block;}
+img { -ms-interpolation-mode: bicubic; max-width: 100%;} 
+body,html{ font-family:"微软雅黑"; font: normal 100%; background-color:#f9f9f9; width:100%; }
+input, textarea, button, a{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
+
+.white_box{ width:100%; height:60px; background-color:#f9f9f9; overflow:hidden; margin:1% 0;}
+.footer{ width:100%; height:50px; position:fixed; bottom:0px; border-top:2px solid #C9D1D4; background-color:#FFF; overflow:hidden; z-index:200;}
+.menu_table{ width:100%; height:50px; line-height:50px; overflow:hidden; table-layout:fixed;}
+.menu_table td{ text-align:center; word-break: break-all; word-wrap:break-word;}
+.menu_table td a{ font-size:1.0em; }
+.menu_1{ display:inline;width:15%; padding:11% 5% 0 0;}
+.menu_2{ display:inline;width:15%; padding:11% 0 0 0;}
+.menu_3{ display:inline;width:13%; padding:12% 5% 0 0;}
+

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of OfbizTools Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+    
+    <entity entity-name="GlobalTreeItem" package-name="org.ofbiz.ofbiztools" title="Global Tree Item Entity">
+        <description>后台菜单树</description>
+        <field name="id" type="id-long-ne"><description>节点标识</description></field>
+        <field name="itemName" type="name"><description>节点名称， 其值为*UiLabel.xml国际化文件里的Key</description></field>
+        <field name="itemAction" type="value"><description>节点动作(相对路径的链接)</description></field>
+        <field name="parentItemId" type="id-long"><description>父节点标识</description></field>
+        <field name="itemPermission" type="id-long-ne"><description>节点的操作权限(如: WORKBENCH_ADMIN)</description></field>
+        <field name="isLeaf" type="id-ne"><description>类型标识(CATEGORY:为目录节点/ACTION:为叶子节点)</description></field>
+        <field name="itemId" type="name"><description>新增节点</description></field>
+        <field name="rank" type="numeric"><description>节点排序标识（按照String类型的排序）</description></field>
+        <field name="typeId" type="id-ne"><description>类型</description></field>
+        <field name="description" type="very-long"><description>描述</description></field>
+        <prim-key field="id"/>
+        <relation type="one" fk-name="TREE_ITEM_PARENT" title="PrimaryParentTree" rel-entity-name="GlobalTreeItem">
+            <key-map field-name="parentItemId" rel-field-name="id"/>
+        </relation>
+    </entity>
+    
+    
+    <entity entity-name="ReportSql" package-name="org.ofbiz.sql">
+    	<field name="baseId" type="id-long-ne">
+    	 <description>SQL ID</description>
+    	</field>
+    	<field name="sqlCommand" type="very-long">
+    	 <description>SQL 语句</description>
+    	</field>
+    	<field name="sqlParameters" type="very-long">
+    	 <description>SQL 参数</description>
+    	</field>
+    	<field name="description" type="description">
+    	 <description>描述</description>
+    	</field>
+    	
+    	<field name="httpdbUrl" type="value">
+    	 <description>远程地址</description>
+    	</field>
+    	<field name="httpdbUsername" type="value">
+    	 <description>远程地址用户名</description>
+    	</field>
+    	<field name="httpdbPassword" type="value">
+    	 <description>远程地址密码</description>
+    	</field>
+    	<prim-key field="baseId"/>
+	</entity>
+    
+    <!-- 店铺和分类关联表 -->
+	
+	<entity entity-name="ProductCategoryRollupStore" package-name="">
+		<field name="parentProductCategoryId" type="id-long"><description>当前父分类id</description></field>
+		<field name="productCategoryId" type="id-long"><description>分类id</description></field>
+		<field name="fromDate" type="date-time"><description>创建时间</description></field>
+		<field name="thruDate" type="date-time"><description>创建时间</description></field>
+		<field name="sequenceNum" type="numeric"><description>排序</description></field>
+		<field name="productStoreId" type="id-ne"><description>店铺id</description></field>
+		<field name="statusId" type="id-ne"><description>审核状态</description></field>
+		
+		<prim-key field="productStoreId"/>
+		<prim-key field="parentProductCategoryId"/>
+		<prim-key field="productCategoryId"/>
+	</entity>
+    
+    
+    <entity entity-name="PaymentGateway" package-name="org.ofbiz.p2p" title="iDEAL Payment Gateway Config">
+		<field name="baseId" type="id-ne"></field>
+		<field name="typeId" type="value">
+			<description>网上支付类型 平台支付  网银支付</description>
+		</field>
+		<field name="paymentUrl" type="value">
+			<description>支付Url</description>
+		</field>
+		<field name="paymentUrl2" type="value">
+			<description>支付Url</description>
+		</field>
+		<field name="paymentReturnUrl" type="value">
+			<description>支付成功返回url</description>
+		</field>
+		<field name="paymentNotifyUrl" type="value">
+			<description>支付成功后异步的返回地址</description>
+		</field>
+		<field name="paymentReturnErrorUrl" type="value">
+			<description>支付不成功返回url</description>
+		</field>
+		<field name="currencyType" type="value">
+			<description>支付币种--  RMB</description>
+		</field>
+		<field name="gatewayType" type="value">
+			<description>支付方式 比如ips的卡支付-01</description>
+		</field>
+		<field name="paymentTimeout" type="value">
+			<description>支付请求超时 设置</description>
+		</field>
+		<field name="paymentLang" type="value">
+			<description>中</description>
+		</field>
+		<field name="paymentEncodeType" type="value">
+			<description>支付加密方式 </description>
+		</field>
+		<field name="paymentRetEncodeType" type="value">
+			<description>支付返回数据加密方式</description>
+		</field>
+		<field name="partnerId" type="value">
+			<description>合作者身份ID</description>
+		</field>
+		<field name="paymentMerKey" type="value">
+			<description>密钥</description>
+		</field>
+		<field name="paymentRetType" type="value">
+			<description>返回方式 有无Server to Server 0-无  1-有</description>
+		</field>
+		<field name="paymentRetSts" type="value">
+			<description>当paymentRetType为1 此处为返回Server to Server URL</description>
+		</field>
+		<field name="logo" type="value">
+			<description>支付商家图标</description>
+		</field>
+		<field name="description" type="value">
+			<description>描述</description>
+		</field>
+		<field name="sellerUserLoginId" type="value">
+			<description>卖家帐号(可以是邮件,QQ号码,手机号码等.)</description>
+		</field>
+		<field name="paymentRefundUrl" type="value">
+			<description>退款url</description>
+		</field>
+		
+		<field name="paymentReturnOtherUrl1" type="value">
+			<description>支付成功返回url1</description>
+		</field>
+		<field name="paymentReturnOtherUrl2" type="value">
+			<description>支付成功返回url1</description>
+		</field>
+		<prim-key field="baseId"/>
+	</entity>
+    	
+    <entity entity-name="PayToBank" package-name="org.ofbiz.p2p" >
+		<field name="payId" type="value">
+			<description>支付方式</description>
+		</field>
+		<field name="bankId" type="value">
+			<description>支付银行</description>
+		</field>
+		<field name="bankCode" type="value">
+			<description>支付银行编码</description>
+		</field>
+		<prim-key field="payId" />
+		<prim-key field="bankId" />
+	</entity>	
+    	
+     <entity entity-name="PaymentInfoBank" package-name="org.ofbiz.p2p" >
+		<field name="baseId" type="id-ne"></field>
+		<field name="logo" type="value">
+			<description>支付商家图标</description>
+		</field>
+		<field name="bankName" type="value">
+			<description>支付银行名称</description>
+		</field>
+		<field name="bankCode" type="name">
+			<description>银行编码</description>
+		</field>
+		<field name="specialDesc" type="name">
+			<description>特殊说明</description>
+		</field>
+		<field name="bankSpecial" type="value">
+			<description></description>
+		</field>
+		<prim-key field="baseId" />
+	</entity>
+    
+    
+    <view-entity entity-name="PayToBankAndBank" package-name="org.ofbiz.p2p">
+		<member-entity entity-alias="PTB" entity-name="PayToBank"></member-entity>
+		<member-entity entity-alias="PB" entity-name="PaymentInfoBank"></member-entity>
+		<alias-all entity-alias="PTB"></alias-all>
+		<alias name="logo" entity-alias="PB"></alias>
+		<alias name="bankName" entity-alias="PB"></alias>
+		<alias name="specialDesc" entity-alias="PB"></alias>
+		<view-link entity-alias="PTB" rel-entity-alias="PB">
+			<key-map field-name="bankId" rel-field-name="baseId"/>
+		</view-link>
+	</view-entity>
+    
+    <!-- 产品增加字段 -->
+	<extend-entity entity-name="Product">
+		<field name="isApproval" type="id"></field>
+	</extend-entity>
+	
+	
+	
+	
+</entitymodel>

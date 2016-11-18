@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+管理员管理controller
+-->
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <request-map uri="mng_sellerExamine">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="mng_sellerExamine"/>
+    </request-map>
+
+ <view-map name="mng_sellerExamine" type="screen" page="component://portal/widget/manager/ManagerScreens.xml#mng_sellerExamine" />
+
+</site-conf>        

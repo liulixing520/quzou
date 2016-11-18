@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>ebiz Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+   
+   
+    <service name="createPartyPostalAddress" engine="simple"
+            location="component://party/script/org/ofbiz/party/contact/PartyContactMechServices.xml" invoke="createPartyPostalAddress" auth="true">
+        <description>Create a Postal Address</description>
+        <permission-service service-name="partyContactMechPermissionCheck" main-action="CREATE"/>
+        <auto-attributes entity-name="PartyContactMech" include="all" mode="IN" optional="true"/>
+        <auto-attributes entity-name="PostalAddress" include="nonpk" mode="IN" optional="true"/>
+        <attribute name="paymentMethodId" type="String" mode="IN" optional="true"/>
+        <attribute name="contactMechPurposeTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="contactMechId" type="String" mode="OUT" optional="false"/>
+        <override name="address1" optional="false"/>
+        <!--<override name="city" optional="false"/>
+        <override name="postalCode" optional="false"/>-->
+    </service>
+    <service name="findPortalList" auth="false" engine="java" invoke="findList" location="org.ofbiz.ebiz.util.FindPortalUtil">
+        <description>ljs drawing</description>
+        <attribute name="entityName" type="String" mode="IN" optional="false"/>
+        <attribute name="fieldsToSelect" type="java.util.Set" mode="IN" optional="true"/>
+        <attribute name="orderBy" type="java.util.List" mode="IN" optional="true"/>
+        <attribute name="viewIndex" type="Integer" mode="IN" optional="true"/>
+        <attribute name="viewSize" type="Integer" mode="IN" optional="true"/>
+        <attribute name="mainCond" type="org.ofbiz.entity.condition.EntityCondition" mode="IN" optional="true"/>
+        <attribute name="listSize" type="Integer" mode="OUT" optional="true"/>
+        <attribute name="list" type="List" mode="OUT" optional="true"/>
+        <!--  
+        <attribute name="filterByDate" type="String" mode="IN" optional="true"/>
+        <attribute name="filterByDateValue" type="Timestamp" mode="IN" optional="true"/>
+
+        <attribute name="listIt" type="org.ofbiz.entity.util.EntityListIterator" mode="OUT" optional="true"/>
+        <attribute name="listSize" type="Integer" mode="OUT" optional="true"/>
+        <attribute name="queryString" type="String" mode="OUT" optional="true"/>
+        <attribute name="queryStringMap" type="java.util.Map" mode="OUT" optional="true"/>
+        --> 
+    </service>
+    <service name="testPost" engine="java" location="org.ofbiz.ebiz.util.UtilHttpClient" invoke="testPost" auth="false" >
+    	<attribute name="postUrl" type="String" mode="IN" optional="false"/>
+    	<attribute name="postParams" type="String" mode="IN" optional="false"/>
+    	<attribute name="content" type="String" mode="OUT" optional="true"/>
+    </service>
+</services>

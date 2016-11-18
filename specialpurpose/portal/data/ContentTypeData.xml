@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <WebSiteContentType webSiteContentTypeId="HOME_SLIDE_IMGS" description="首页幻灯图片" hasTable="N" parentTypeId=""/>
+	
+	<SystemProperty systemResourceId="general" systemPropertyId="defaultFromEmailAddress" systemPropertyValue="easysell@payeasenet.com" description="general default 'fromEmailAddress' can be overridden in: EmailTemplateSetting"/>
+    <SystemProperty systemResourceId="general" systemPropertyId="mail.notifications.enabled" systemPropertyValue="Y" description="mail notifications enabled (Y|N)"/>
+    <SystemProperty systemResourceId="general" systemPropertyId="mail.smtp.relay.host" systemPropertyValue="mail.payeasenet.com" description="the default mail server to use"/>
+    <SystemProperty systemResourceId="general" systemPropertyId="mail.smtp.auth.user" systemPropertyValue="easysell@payeasenet.com" description="SMTP Auth username setting"/>
+    <SystemProperty systemResourceId="general" systemPropertyId="mail.smtp.auth.password" systemPropertyValue="easysell4975689" description="SMTP Auth password setting"/>
+    <SystemProperty systemResourceId="general" systemPropertyId="mail.smtp.port" systemPropertyValue="25" description="Gmail smtp port can be either 465 or 587"/>
+    <SystemProperty systemResourceId="general" systemPropertyId="mail.smtp.starttls.enable" systemPropertyValue="" description="Gmail requires StartTLS"/>
+    <SystemProperty systemResourceId="general" systemPropertyId="mail.smtp.socketFactory.port" systemPropertyValue="" description="Port needs to be the same as mail.smtp.port"/>
+    <SystemProperty systemResourceId="general" systemPropertyId="mail.smtp.socketFactory.class" systemPropertyValue="" description="JSSE socket factory"/>
+    <SystemProperty systemResourceId="general" systemPropertyId="mail.smtp.socketFactory.fallback" systemPropertyValue="" description="Fallback [true|false] determines whether you will allow a non secure connection if you are unable to get a secure one"/>
+    <SystemProperty systemResourceId="general" systemPropertyId="mail.smtp.sendpartial" systemPropertyValue="" description="setting this property to false will abort sending the message"/>
+</entity-engine-xml>

@@ -1,0 +1,19 @@
+.resume-tc { border: 1px solid #fff; background: #fff; margin:0 auto;}
+.resume-tc-head { height: 47px; background: #e7eaee; position: relative; }
+.resume-tc-head h3 { line-height: 47px; padding-left: 40px; color: #25af60; font-size: 14px; font-weight: bold; }
+.resume-tc-head .close { position: absolute; width: 16px; height: 16px; top: 16px; right: 16px; background: url(../images/base/icon.png) no-repeat -334px -62px; }
+.resume-tc-head .close:hover { background: url(../images/base/icon.png) no-repeat -334px -84px; }
+.resume-tc-head .close-auth { position: absolute; width: 16px; height: 16px; top: 16px; right: 16px; background: url(../images/base/icon.png) no-repeat -334px -62px; }
+.resume-tc-head .close-auth:hover { background: url(../images/base/icon.png) no-repeat -334px -84px; }
+.resume-tc-body { padding: 0 40px; }
+.resume-tc-action { padding: 20px 80px; }
+.resume-tc-action button { border: 0; margin: 0 16px 0 0; padding: 10px 20px; line-height: 1; font-size: 14px; font-weight: bold; font-family: "Microsoft Yahei"; cursor: pointer; color: #666; background: #eee; }
+.resume-tc-action button.grn { color: #fff; background: #6ed373; }
+.resume-tc-action2 { padding: 20px; text-align: center; }
+.resume-tc-action2 button { border: 0; margin: 0; margin-right: 10px; padding: 10px 20px; line-height: 1; font-size: 14px; font-weight: bold; font-family: "Microsoft Yahei"; cursor: pointer; color: #666; background: #eee; }
+.resume-tc-action2 button.grn { color: #fff; background: #6ed373; }
+.resume-tc-action2 button.org { color: #fff; background: #ff7300; }
+.resume-tc-action2 label{margin-right:20px;}
+.resume-tc-action3{border-top:1px solid #e7eaee;padding:10px 0 10px 444px;*padding:10px 0 10px 380px;}
+.resume-tc-action3 button { border: 0; margin: 0; margin-right: 10px; padding: 10px 20px; line-height: 1; font-size: 14px; font-weight: bold; font-family: "Microsoft Yahei"; cursor: pointer; color: #666; background: #eee; }
+.resume-tc-action3 button.grn { color: #fff; background: #6ed373; }

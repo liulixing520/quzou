@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entity-engine-xml>
+    <!-- Portal Default Visual Theme -->
+    <VisualThemeSet visualThemeSetId="PORTAL" description="Themes to be used for backoffice applications"/>
+    <VisualTheme visualThemeId="PORTAL_DEFAULT" visualThemeSetId="PORTAL" description="OFBiz Portal Standard Floating Layout"/>
+    <VisualThemeResource visualThemeId="PORTAL_DEFAULT" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/images/ecommain.css" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="PORTAL_DEFAULT" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/content/images/contentForum.css" sequenceId="02"/>
+    <VisualThemeResource visualThemeId="PORTAL_DEFAULT" resourceTypeEnumId="VT_SHORTCUT_ICON" resourceValue="/images/ofbiz.ico" sequenceId="03"/>
+    <VisualThemeResource visualThemeId="PORTAL_DEFAULT" resourceTypeEnumId="VT_HDR_IMAGE_URL" resourceValue="/images/ofbiz_logo.gif" sequenceId="04"/>
+    <VisualThemeResource visualThemeId="PORTAL_DEFAULT" resourceTypeEnumId="VT_HDR_TMPLT_LOC" resourceValue="component://portal/webapp/portal/includes/header.ftl" sequenceId="05"/>
+    <VisualThemeResource visualThemeId="PORTAL_DEFAULT" resourceTypeEnumId="VT_FTR_TMPLT_LOC" resourceValue="component://portal/webapp/portal/includes/footer.ftl" sequenceId="06"/>
+    <VisualThemeResource visualThemeId="PORTAL_DEFAULT" resourceTypeEnumId="VT_SCREENSHOT" resourceValue="/images/ecdefaulttheme.jpg" sequenceId="07"/>
+	
+	<!-- 产品状态 -->
+	<StatusType description="Product" hasTable="N" parentTypeId="" statusTypeId="PRODUCT_STATUS"/>
+    <StatusItem description="Created" sequenceId="01" statusCode="CREATED" statusId="PRODUCT_CREATED" statusTypeId="PRODUCT_STATUS"/>
+    
+    <ShoppingListType description="Product Store Wish List" shoppingListTypeId="SLT_WISH_LIST_PS"/>
+    
+    <Uom abbreviation="piece" description="件" uomId="OTH_piece" uomTypeId="OTHER_MEASURE"/>
+    <Uom abbreviation="set" description="套" uomId="OTH_set" uomTypeId="OTHER_MEASURE"/>
+</entity-engine-xml>

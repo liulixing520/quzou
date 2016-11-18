@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="brand">
+        <section>
+            <actions>
+                <property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/third/brand.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+  
+    <screen name="Categories">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/third/categories.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="RightCate">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/third/right.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+
+<!-- 三级页面的 推荐商品  -->
+    <screen name="showTuiJian">
+        <section>
+             <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+				<set field="showproducttjScreen" value="component://portal/widget/thirdCategoriesScreensToOne.xml#showproducttj"/> 
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="5"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/third/rightFor.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+    
+   <screen name="showproducttj">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/categories/third/rightFor2.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+
+</screens>

@@ -1,0 +1,1 @@
+<@htmlTemplate.navTitle titleProperty/>

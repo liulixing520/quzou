@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of ebiz Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+
+	
+	<entity entity-name="DxSupplierProtocol"
+        package-name="org.ofbiz.content.website"
+        title="代销协议">
+        <description>代销协议</description>
+        <field name="dxStoreId" type="id-ne"><description>代销商</description></field>
+        <field name="supplierStoreId" type="id-ne"><description>供应商</description></field>
+        <field name="protlcalContent" type="description"><description>协议内容</description></field>
+        <field name="fromDate" type="date-time"></field>
+        <prim-key field="dxStoreId"/>
+        <prim-key field="supplierStoreId"/>
+     </entity>   
+	<entity entity-name="DxProduct"
+        package-name="org.ofbiz.content.website"
+        title="代销商品">
+        <description>代销商品</description>
+        <field name="dxStoreId" type="id-ne"><description>代销商</description></field>
+        <field name="supplierStoreId" type="id-ne"><description>供应商</description></field>
+        <field name="productId" type="id-ne"><description>代销商品id</description></field>
+        <field name="dxPrice" type="currency-precise"><description>代销商品价格</description></field>
+        <field name="fromDate" type="date-time"></field>
+        <prim-key field="dxStoreId"/>
+        <prim-key field="supplierStoreId"/>
+        <prim-key field="productId"/>
+     </entity>  
+	<extend-entity entity-name="OrderHeader">
+		<field name="dxStoreId" type="id"><description>代销商</description></field>
+		<field name="dxPrice" type="numeric"><description>代销商品价格</description></field>
+		<field name="yongjin" type="numeric"><description>代销赚取差价</description></field>
+		<field name="pingtai" type="numeric"><description>平台佣金</description></field>
+	</extend-entity>
+	
+	<view-entity entity-name="DxSupplierProtocolAndStore" package-name="org.ofbiz.product.visit" title="ProductVisit And Product View Entity">
+		<member-entity entity-alias="DP" entity-name="DxSupplierProtocol" />
+		<member-entity entity-alias="PS" entity-name="ProductStore" />
+		<member-entity entity-alias="DXPS" entity-name="ProductStore" />
+		<alias-all entity-alias="DP"/>
+		<alias entity-alias="PS" name="storeName" field="storeName"/>
+		<alias entity-alias="PS" name="productStoreLogo" field="productStoreLogo"/>
+		<alias entity-alias="DXPS" name="dxStoreName" field="storeName"/>
+		<alias entity-alias="DXPS" name="productStoreLogoDx" field="productStoreLogo"/>
+		<view-link entity-alias="DP" rel-entity-alias="PS">
+			<key-map field-name="supplierStoreId" rel-field-name="productStoreId"/>
+		</view-link>
+		<view-link entity-alias="DP" rel-entity-alias="DXPS">
+			<key-map field-name="dxStoreId" rel-field-name="productStoreId"/>
+		</view-link>
+	</view-entity>
+    <view-entity entity-name="DxProductAndProduct" package-name="org.ofbiz.product.visit" title="ProductVisit And Product View Entity">
+		<member-entity entity-alias="DP" entity-name="DxProduct" />
+		<member-entity entity-alias="P" entity-name="Product" />
+		<alias-all entity-alias="DP"/>
+		<alias-all entity-alias="P"/>
+		<view-link entity-alias="DP" rel-entity-alias="P">
+			<key-map field-name="productId" rel-field-name="productId"/>
+		</view-link>
+	</view-entity>
+	
+	<!-- 交易日志表 -->
+	<entity entity-name="FinAccountLog" package-name="org.ofbiz.p2p" >
+		<field name="baseId" type="id-ne"><description>日志ID</description></field>
+		<field name="logType" type="id-ne"><description>日志类型  cash(提现) recharge(充值) 认证Auth   入围  quote</description></field>
+		<field name="paymentType" type="id-ne"><description>支付方式</description></field>
+		<field name="bankCode" type="value">
+			<description>银行账户</description>
+		</field>
+		<field name="bankNo" type="value">
+			<description>银行流水号</description>
+		</field>
+		<field name="bankName" type="value">
+			<description>银行名称</description>
+		</field>
+		<field name="personName" type="name">
+			<description>银行账户所有者</description>
+		</field>
+		<field name="logDesc" type="value">
+			<description>日志描述</description>
+		</field>
+		<field name="statusId" type="id-ne">
+			<description>操作状态  </description>
+		</field>
+		<field name="paymentStatusId" type="id-ne">
+			<description>结算状态  </description>
+		</field>
+		<field name="serialNumber" type="value">
+			<description>结算流水编号</description>
+		</field>
+		
+		<field name="productStoreId" type="id-ne">
+			<description>操作人  (如果是供应商  记录供应商的店铺)</description>
+		</field>
+		<field name="amount" type="currency-amount"><description>操作金额</description></field>
+		
+		<field name="partyId" type="id-ne">
+			<description>操作人</description>
+		</field>
+		<field name="fromDate" type="date-time"><description>创建时间</description></field>
+		<field name="thruDate" type="date-time"><description>结束时间</description></field>
+		
+		<prim-key field="baseId" />
+	</entity>
+	<!-- ========================================================= -->
+	<!--  - web site -->
+	<!-- ========================================================= -->
+	<entity entity-name="WebSiteProductStore"
+        package-name="org.ofbiz.content.website"
+        title="Web Site ProductStore Associations">
+        <description>站点下的店铺</description>
+        <field name="webSiteId" type="id-ne"></field>
+        <field name="productStoreId" type="id-ne"></field>
+        <field name="fromDate" type="date-time"></field>
+        <field name="thruDate" type="date-time"></field>
+        <field name="comments" type="comment"></field>
+        <field name="sequenceNum" type="numeric"></field>
+        <prim-key field="webSiteId"/>
+        <prim-key field="productStoreId"/>
+        <prim-key field="fromDate"/>
+        <relation type="one" fk-name="WSPST_WEBSITE" rel-entity-name="WebSite">
+            <key-map field-name="webSiteId"/>
+        </relation>
+        <relation type="one" fk-name="WSPST_PRODSTORE" rel-entity-name="ProductStore">
+            <key-map field-name="productStoreId"/>
+        </relation>
+
+    </entity>
+    
+    <entity entity-name="ProductProductStore"
+        package-name="org.ofbiz.product"
+        title="Product ProductStore Associations">
+        <description>产品所挂的店铺</description>
+        <field name="productId" type="id-ne"></field>
+        <field name="productStoreId" type="id-ne"></field>
+        <field name="fromDate" type="date-time"></field>
+        <field name="thruDate" type="date-time"></field>
+        <field name="comments" type="comment"></field>
+        <field name="sequenceNum" type="numeric"></field>
+        <prim-key field="productId"/>
+        <prim-key field="productStoreId"/>
+        <prim-key field="fromDate"/>
+        <relation type="one" fk-name="PRDPST_PRODUCT" rel-entity-name="Product">
+            <key-map field-name="productId"/>
+        </relation>
+        <relation type="one" fk-name="PRDPST_PRODSTORE" rel-entity-name="ProductStore">
+            <key-map field-name="productStoreId"/>
+        </relation>
+    </entity>
+    
+    <entity entity-name="ProductStoreCategoryRollup"
+            package-name="org.ofbiz.product.category"
+            title="店铺下的分类">
+      <field name="productStoreId" type="id-ne"></field>
+      <field name="productCategoryId" type="id-ne"></field>
+      <field name="prodCatalogCategoryTypeId" type="id"></field>
+      <field name="parentProductCategoryId" type="id-ne"><description>The parent category; it should be one of productCategoryId already setup in ProductCategory or ProductCategoryRollup</description></field>
+      <field name="fromDate" type="date-time"></field>
+      <field name="thruDate" type="date-time"></field>
+      <field name="sequenceNum" type="numeric"></field>
+      <prim-key field="productStoreId"/>
+      <prim-key field="productCategoryId"/>
+      <prim-key field="prodCatalogCategoryTypeId"/>
+      <prim-key field="parentProductCategoryId"/>
+      <prim-key field="fromDate"/>
+      <relation type="one" fk-name="PS_CAT_PRDSTR" rel-entity-name="ProductStore">
+        <key-map field-name="productStoreId"/>
+      </relation>
+      <relation type="one" fk-name="PRDSTR_CRLP_CURRENT" title="Current" rel-entity-name="ProductCategory">
+        <key-map field-name="productCategoryId"/>
+      </relation>
+      <relation type="one-nofk" fk-name="PRDSTR_CRLP_PARENT" title="Parent" rel-entity-name="ProductCategory">
+        <key-map field-name="parentProductCategoryId" rel-field-name="productCategoryId"/>
+      </relation>
+
+    </entity>
+
+	<!-- =====Visit====== -->
+	<entity entity-name="ProductVisit" package-name="org.ofbiz.product.visit" never-cache="true" title="Product Visit Entity"
+        sequence-bank-size="100">
+        <field name="productVisitId" type="id-ne"></field>
+        <field name="productId" type="id-ne"></field>
+        <field name="partyId" type="id-ne"></field>
+        <field name="visitId" type="id"></field>
+        <field name="visitorId" type="id"></field>
+        <field name="sessionId" type="id-vlong"></field>
+        <field name="fromDate" type="date-time"></field>
+        <field name="thruDate" type="date-time"></field>
+        <prim-key field="productVisitId"/>
+        <relation type="one" fk-name="PROD_VST_PRODUCT" rel-entity-name="Product">
+	        <key-map field-name="productId"/>
+	    </relation>
+    </entity>
+    
+	<!-- 商铺 公司经营信息 -->
+	<entity entity-name="ProductStoreCompany" package-name="org.ofbiz.product.store"
+		title="Product Store Company Entity">
+		<description>商铺 公司经营信息表</description>
+		<field name="productStoreId" type="id-ne"></field>
+		<field name="companyName" type="name"></field>
+		<field name="businessType" type="name"></field>
+		<field name="createTime" type="date-time"></field>
+		<field name="registeredAddress" type="name"></field>
+		<field name="scaleCompany" type="name"></field>
+		<field name="shopsKeywords" type="name"></field>
+		<field name="productKeywords" type="name"></field>
+		<field name="productStoreLogo" type="url"></field>
+		<field name="productStoreBanner" type="url"></field>
+		<prim-key field="productStoreId" />
+		<relation type="one" fk-name="PS_COM_PRDSTR" rel-entity-name="ProductStore">
+			<key-map field-name="productStoreId" />
+		</relation>
+	</entity>
+
+
+	<!-- 品牌信息 -->
+	<entity entity-name="ProductStoreBrand" package-name="org.ofbiz.product.store"
+		title="Product Store Company Entity">
+		<description>商铺 公司经营信息表</description>
+		<field name="productStoreBrandId" type="id-ne"></field>
+		<field name="productStoreId" type="id-ne"></field>
+		<field name="brandName" type="name"></field>
+		<field name="brandAlias" type="name"></field>
+		<field name="brandIntroduction" type="name"></field>
+		<field name="brandLogoImage" type="url"></field>
+		<field name="effectTime" type="date-time"></field>
+		<field name="failureTime" type="date-time"></field>
+		<field name="status" type="name"></field>
+		
+		
+		
+		<prim-key field="productStoreBrandId" />
+		<prim-key field="productStoreId" />
+		<relation type="one" fk-name="PRDPSTB_PRODSTORE"
+			rel-entity-name="ProductStore">
+			<key-map field-name="productStoreId" />
+		</relation>
+	</entity>
+	<!-- 首页广告 -->
+	<entity entity-name="PageSetting" package-name="org.ofbiz.page.pagesetting"
+		title="Page Setting Company Entity">
+		<description>广告位设置表</description>
+		<field name="pageSettingId" type="id-ne"></field>
+		<field name="advertisingName" type="name"></field>
+		<field name="describePage" type="description"></field>
+		<field name="fontName" type="name"></field>
+		<field name="describeFont" type="description"></field>
+		<field name="pageLogoImage" type="url"></field>
+		<field name="pageJumpImage" type="url"></field>
+		<field name="startTime" type="date-time"></field>
+		<field name="failureTime" type="date-time"></field>
+		<field name="gradingType" type="name"><description>哪一级的页面</description></field>
+		<field name="advertisingPosition" type="name"><description>位置</description></field>
+		<field name="gradingChildTwoType" type="name"><description>下属分级的那层</description></field>
+	    <field name="status" type="name"></field>
+		
+		<prim-key field="pageSettingId" />
+	</entity>
+	
+	<!-- accounting -->
+	<entity entity-name="PaymentGatewayPayease"
+            package-name="org.ofbiz.accounting.payment"
+            title="Payease Payment Gateway Config">
+        <field name="paymentGatewayConfigId" type="id-ne"></field>
+        <field name="merchantId" type="id-ne"><description></description></field>
+        <field name="moneyType" type="short-varchar"><description>money type</description></field>
+        <field name="businessEmail" type="value"><description>Business e-mail</description></field>
+        <field name="apiUserName" type="short-varchar"><description>Payease API UserName</description></field>
+        <field name="apiPassword" type="short-varchar"><description>Payease API Password</description></field>
+        <field name="apiSignature" type="short-varchar"><description>Payease API Signature</description></field>
+        <field name="apiEnvironment" type="short-varchar"><description>Payease API Environment (valid values are: live, sandbox or beta-sandbox)</description></field>
+        <field name="refundOperator" type="short-varchar"><description>refund operator UserName</description></field>
+        <field name="notifyUrl" type="value"><description>Notify URL</description></field>
+        <field name="returnUrl" type="value"><description>Return URL</description></field>
+        <field name="cancelReturnUrl" type="value"><description>Return On Cancel URL</description></field>
+        <field name="imageUrl" type="value"><description>Image URL to use on Payease</description></field>
+        <field name="confirmTemplate" type="value"><description>Thank-You / Confirm Order Template (rendered via Freemarker)</description></field>
+        <field name="redirectUrl" type="value"><description>Payease Redirect URL (Sandbox/Production)</description></field>
+        <field name="redirectBankUrl" type="value"><description>Payease Redirect URL (Sandbox/Production)</description></field>
+        <field name="confirmUrl" type="value"><description>Payease Confirm URL Sandbox/Production (JSSE must be configured to use SSL)</description></field>
+        <field name="shippingCallbackUrl" type="url"><description>Specific to Express Checkout which performs callbacks to our server to retrieve shipping estimates</description></field>
+        <field name="requireConfirmedShipping" type="indicator"><description>Indicates that you require that the customer’s shipping address on file with Payease be a confirmed address.</description></field>
+        <prim-key field="paymentGatewayConfigId"/>
+        <relation type="one" fk-name="PGPP_PGC" rel-entity-name="PaymentGatewayConfig">
+            <key-map field-name="paymentGatewayConfigId"/>
+        </relation>
+    </entity>
+    
+    <!--  -->
+    <entity entity-name="OrderPaymentGroup"
+            package-name="org.ofbiz.accounting.payment"
+            title="OrderPayment Group Entity">
+      <description>Order Payment Group</description>
+      <field name="orderPaymentGroupId" type="id-ne"></field>
+      <field name="paymentGroupTypeId" type="id-ne"></field>
+      <field name="paymentGroupName" type="name"></field>
+      <field name="oid" type="value"></field>
+      <field name="statusId" type="id"><description>状态标识PAYGRP_CREATED,PAYGRP_PROCESSING,PAYGRP_COMPLETED</description></field>
+      <prim-key field="orderPaymentGroupId"/>
+    </entity>
+    <entity entity-name="OrderPaymentGroupMember"
+            package-name="org.ofbiz.accounting.payment"
+            title="Order Payment Group Member Entity">
+      <description>Order Payment Group Member</description>
+      <field name="orderPaymentGroupId" type="id-ne"></field>
+      <field name="orderId" type="id-ne"></field>
+      <field name="fromDate" type="date-time"></field>
+      <field name="thruDate" type="date-time"></field>
+      <field name="sequenceNum" type="numeric"></field>
+      <prim-key field="orderPaymentGroupId"/>
+      <prim-key field="orderId"/>
+      <prim-key field="fromDate"/>
+      <relation type="one" fk-name="ORDPAYGRPMMBR_OPG" rel-entity-name="OrderPaymentGroup">
+          <key-map field-name="orderPaymentGroupId"/>
+      </relation>
+      <relation type="one" fk-name="ORDPAYGRPMMBR_ORD" rel-entity-name="OrderHeader">
+          <key-map field-name="orderId"/>
+      </relation>
+    </entity>
+    
+    	<!-- 公告设置表 -->
+	<entity entity-name="MessageSet" package-name="org.ofbiz.page.pagesetting"
+		title="Message Setting Company Entity">
+		<description>公告设置表</description>
+		<field name="messageId" type="id-ne"></field>
+		<field name="messageTitle" type="name"></field>
+		<field name="messageContent" type="description"></field>
+		<field name="startTime" type="date-time"></field>
+		<field name="failureTime" type="date-time"></field>
+	    <field name="status" type="name"><description>公告显示/不显示 标记.</description></field>
+	    <field name="releases" type="name"><description>公告发布/不显示 发布.</description></field>
+		
+		<prim-key field="messageId" />
+	</entity>
+	
+	<!-- 中国区域表 -->
+	<entity entity-name="ChinaGeo" package-name="org.ofbiz.geo"
+		title="Geo Setting Company Entity">
+		<description>中国区域表（省，市，小区）</description>
+		<field name="geoId" type="id-ne"></field>
+		<field name="geoName" type="name"></field><!-- 区域名称 -->
+		<field name="geoType" type="name"><description>区域类型，PROVINCE，CITY，COUNTY</description></field>
+		<field name="parentGeoId" type="id-ne"><description>当前区域的上级区域</description></field>
+		<!--  
+		<field name="startTime" type="date-time"></field>
+		<field name="failureTime" type="date-time"></field>
+	    <field name="status" type="name"><description>公告显示/不显示 标记.</description></field>
+		-->
+		<prim-key field="geoId" />
+	</entity>
+	<!-- 店铺地区关联表 -->
+	<entity entity-name="ProductStoreGeo" package-name="org.ofbiz.geo"
+		title="ProductStore Geo Setting Company Entity">
+		<description>店铺的负责区域</description>
+		<field name="storeGeoId" type="id-ne"></field>
+		<field name="productStoreId" type="id-ne"></field>
+		<field name="geoId" type="id-ne"></field>
+		<prim-key field="storeGeoId" />
+		<relation type="one-nofk" rel-entity-name="ProductStore">
+        	<key-map field-name="productStoreId" rel-field-name="productStoreId"/>
+      	</relation>
+		<!--  
+		<field name="geoName" type="name"></field>
+		<field name="geoType" type="name"><description>区域类型，PROVINCE，CITY，COUNTY</description></field>
+		<field name="parentGeoId" type="id-ne"><description>当前区域的上级区域</description></field>
+		
+		<field name="startTime" type="date-time"></field>
+		<field name="failureTime" type="date-time"></field>
+	    <field name="status" type="name"><description>公告显示/不显示 标记.</description></field>
+		<prim-key field="geoId" />
+		-->
+		
+	</entity>
+	
+	<!-- chenfei -->
+	<!-- 中国区域表 -->
+	<entity entity-name="HospitalGeo" package-name="org.ofbiz.holgeo"
+		title="Geo Setting Company Entity">
+		<description>中国区域表（省，市，区）</description>
+		<field name="geoId" type="id-ne"></field>
+		<field name="geoName" type="name">
+		    <description>名称</description></field>
+		<field name="geoType" type="name">
+		    <description>类型，PROVINCE，CITY，COUNTY</description></field>
+		<field name="parentGeoId" type="id-ne">
+		    <description>当前区域的上级区域</description></field>
+		<prim-key field="geoId" />	
+	</entity>
+	
+	
+	
+	<entity entity-name="ShoppingListGroup" package-name="org.ofbiz.order.shoppinglist">
+		<field name="shoppingListGroupId" type="id-ne"></field>
+		<field name="shoppingListGroupName" type="name"></field>
+		<field name="fromDate" type="date-time"><description>生成时间</description></field>
+		<field name="thruDate" type="date-time"><description>取消或生成订单时间</description></field>
+		<prim-key field="shoppingListGroupId"/>
+	</entity>
+	<entity entity-name="ShoppingCartHistory"
+            package-name="org.ofbiz.order.shoppinglist"
+            title="Shopping Cart History Entity">
+      <field name="shoppingCartHistoryId" type="id-ne"></field>
+      <field name="parentCartHistoryId" type="id"></field>
+      <field name="productStoreId" type="id"></field>
+      <field name="shoppingListGroupId" type="id"></field>
+      <field name="partyId" type="id-ne"><description></description></field>
+      <field name="visitId" type="id"></field>
+      <field name="visitorId" type="id"></field>
+      <field name="sessionId" type="id-vlong"></field>
+      <field name="shoppingListId" type="id-ne"></field>
+      <field name="shoppingListItemSeqId" type="id-ne"></field>
+      <field name="productId" type="id"></field>
+      <field name="quantity" type="fixed-point"></field>
+      <field name="modifiedPrice" type="currency-precise"/>
+      <field name="reservStart" type="date-time"></field>
+      <field name="reservLength" type="fixed-point"></field>
+      <field name="reservPersons" type="fixed-point"></field>
+      <field name="quantityPurchased" type="fixed-point"></field>
+      <field name="configId" type="id"></field>
+      <field name="fromDate" type="date-time"><description>加入购物车时间</description></field>
+      <field name="thruDate" type="date-time"><description>取消或生成订单时间</description></field>
+      <field name="statusId" type="id"><description>状态：CART_CREATED,CART_MODIFIED,CART_FAVORITE,CART_CANCEL,CART_COMPLETED</description></field>
+      <field name="thruStatusId" type="id"></field>
+      <prim-key field="shoppingCartHistoryId"/>
+      <relation type="one-nofk" fk-name="SHCART_HIST_LIST" rel-entity-name="ShoppingList">
+        <key-map field-name="shoppingListId"/>
+      </relation>
+      <relation type="one" fk-name="SHCART_HIST_PROD" rel-entity-name="Product">
+        <key-map field-name="productId"/>
+      </relation>
+    </entity>
+    
+    	<!-- 首页设置 -->
+	<entity entity-name="HomePageSetter" package-name="org.ofbiz.page.pagesetting"
+		title="Page Setting Company Entity">
+		<description>Home Page Setting</description>
+		<field name="homePageId" type="id-ne"></field>
+		<field name="messageContentToOne" type="name"><description>站点底部信息.</description></field>
+		<field name="messageContentToTwo" type="name"><description>关于我们.</description></field>
+		<field name="messageContentToThree" type="name"><description>新手上路.</description></field>
+		<field name="messageContentToFour" type="name"><description>买家保护.</description></field>
+		<prim-key field="homePageId" />
+	</entity>
+	
+	
+	
+	
+	
+</entitymodel>
+
+
+
+
+
+
+

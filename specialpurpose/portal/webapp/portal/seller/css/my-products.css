@@ -1,0 +1,198 @@
+.mp-status {
+	width: 128px; text-align: center;
+}
+.mp-status ul {
+	display: inline-block;
+}
+.mp-status ul li {
+	padding: 2px 0px; width: 64px; text-align: center; float: left; display: inline;
+}
+.mp-control ul li {
+	padding: 2px 0px;
+}
+.mp-control ul li.li1 {
+	color: rgb(151, 151, 151);
+}
+.mp-info {
+	margin-left: 3px;
+}
+.mp-info .u1div {
+	width: 240px;
+}
+.mp-info .u1 {
+	margin: 5px 0px; height: 100%; position: relative;
+}
+.mp-info .u1 .saleicon {
+	background: url("http://image.dhgate.com/dhs/mos/image/public/supersale-list.png") no-repeat !important; border: currentColor; left: -3px; top: -3px; width: 71px; height: 35px; display: block; position: absolute; z-index: 99999; cursor: pointer;
+}
+.mp-info .u1 .mp-img {
+	float: left;
+}
+.mp-info .u1 .mp-text {
+	float: left;
+}
+.mp-img {
+	position: relative;
+}
+.mp-info .u1 .mp-img {
+	border: 1px solid rgb(204, 204, 204); width: 78px; height: 78px;
+}
+.mp-info .u1 .mp-img img {
+	display: block;
+}
+.mp-info .u1 .mp-text {
+	width: 145px; text-align: left; padding-left: 12px;
+}
+.mp-text .vertical {
+	height: 80px; vertical-align: top; display: table-cell; _height: 80px;
+}
+.mp-text .vertical-blank {
+	width: 0px; height: 100%; vertical-align: middle; display: inline; zoom: 1;
+}
+.mp-text .vertical-con {
+	width: 100%; vertical-align: middle; display: inline; zoom: 1;
+}
+#right table tr td .mp-control-more-button {
+	height: 25px; color: rgb(0, 0, 0); line-height: 25px; overflow: hidden; font-size: 12px; text-decoration: none; display: inline-block; cursor: pointer;
+}
+#right table tr td .mp-control-more-button span {
+	height: 25px; color: rgb(0, 0, 0); line-height: 25px; overflow: hidden; font-size: 12px; text-decoration: none; display: inline-block; cursor: pointer;
+}
+#right table tr td .mp-control-more-button {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/my-product.png") no-repeat 0px -30px rgb(255, 255, 255); padding-left: 11px; text-decoration: none; vertical-align: middle;
+}
+#right table tr td .mp-control-more-button span {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/my-product.png") no-repeat 100% -30px rgb(255, 255, 255); width: 79px; padding-right: 11px;
+}
+#right table tr td .mp-control-more-img {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/my-product.png") no-repeat -87px 10px; margin-left: 18px; vertical-align: middle; display: inline-block;
+}
+#right table tr td .mp-wbreak {
+	width: 100px; white-space: normal; word-break: break-all; word-wrap: break-word;
+}
+.mp-more-list-content {
+	background: rgb(255, 255, 255); width: 98px; display: none; position: absolute;
+}
+.mp-more-list-content a {
+	padding: 3px 0px 3px 10px; text-decoration: none; display: block;
+}
+.mp-control-more-href {
+	height: 25px; display: inline-block;
+}
+.m-notice {
+	padding: 0px 5px 5px 10px;
+}
+.m-notice p {
+	padding: 3px 0px;
+}
+.mp-td1 {
+	width: 100px; overflow: hidden;
+}
+.m-pop-content#content {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/my-product-bg.png") no-repeat; margin: 20px auto; width: 799px; height: 100%;
+}
+.m-pop-right#right {
+	background: url("http://image.dhgate.com/2008/web20/seller/img/my-product-bg1.png") no-repeat 0px 100%; padding: 0px 5px 0px 6px; height: 100%; float: none;
+}
+.m-pop-right-title {
+	font: bold 14px/23px ËÎÌו; padding: 15px 0px; text-align: center; font-size-adjust: none; font-stretch: normal;
+}
+#shenhe {
+	height: 25px; text-align: right; line-height: 25px;
+}
+.img-bor img {
+	border: 1px solid rgb(219, 219, 219); width: 46px; height: 46px;
+}
+.position-r {
+	position: relative;
+}
+.greencolor {
+	color: rgb(0, 102, 0);
+}
+.mic-activity {
+	padding-top: 5px;
+}
+#right table td span.greencolor {
+	color: rgb(0, 102, 0); font-size: 11px;
+}
+.batch {
+	overflow: visible;
+}
+.profloatright {
+	padding: 5px 0px; vertical-align: middle; float: right;
+}
+.tipstion01 {
+	display: inline-block;
+}
+.tipstion02 {
+	display: inline-block;
+}
+.tipstion01 .tiparrow-box {
+	width: 146px; display: inline-block;
+}
+.tipstion01 .tiparrow-posbox {
+	left: -50px; top: -53px;
+}
+.tipstion01 .tiparrow-b {
+	left: 80px;
+}
+.tipstion02 .tiparrow-box {
+	width: 157px; display: inline-block;
+}
+.tipstion02 .tiparrow-posbox {
+	left: -50px; top: -53px;
+}
+.tipstion02 .tiparrow-b {
+	left: 80px;
+}
+.tipstion03 .tiparrow-box {
+	width: 262px; display: inline-block;
+}
+.tipstion03 .tiparrow-posbox {
+	left: -50px; top: -53px;
+}
+.tipstion03 .tiparrow-b {
+	left: 80px;
+}
+.prieceline span {
+	margin-bottom: 5px; display: inline-block;
+}
+#right table td.prieceline {
+	text-align: left; padding-left: 10px;
+}
+#right table td.prieceline span {
+	color: rgb(68, 68, 68); display: block;
+}
+#right table td.prieceline span.retail {
+	background: url("http://www.dhresource.com/dhs/mos/image/micidentity/retailwho01.png") no-repeat 0px 0px; width: 15px; height: 15px; color: rgb(68, 68, 68); margin-right: 5px; margin-bottom: 0px; vertical-align: middle; display: inline-block;
+}
+#right table td.prieceline span.wholesale {
+	background: url("http://www.dhresource.com/dhs/mos/image/micidentity/retailwho01.png") no-repeat 0px 0px; width: 15px; height: 15px; color: rgb(68, 68, 68); margin-right: 5px; margin-bottom: 0px; vertical-align: middle; display: inline-block;
+}
+#right table td.prieceline span.proold {
+	background: url("http://www.dhresource.com/dhs/mos/image/micidentity/retailwho01.png") no-repeat 0px 0px; width: 15px; height: 15px; color: rgb(68, 68, 68); margin-right: 5px; margin-bottom: 0px; vertical-align: middle; display: inline-block;
+}
+#right table td.prieceline span.wholesale {
+	background-position: -17px 0px;
+}
+#right table td.prieceline span.proold {
+	background-position: -34px 0px;
+}
+#right table td.prieceline span.rightarrow {
+	background: url("http://www.dhresource.com//dhs/mos/image/public/directionarrow.png") no-repeat -3px 0px; width: 4px; height: 7px; margin-top: 3px; margin-left: 5px; vertical-align: middle; display: inline-block;
+}
+#right table td.prieceline div.mouseshowprice {
+	left: -7px; top: -6px; position: absolute; z-index: 999; background-color: rgb(229, 229, 229);
+}
+#right table td.prieceline div.mouseshowprice span {
+	color: rgb(68, 68, 68); display: block;
+}
+#right table td.prieceline div.mouseshowprice .mouseshowprice-box {
+	padding: 7px 5px 3px 8px; border: 1px solid rgb(239, 212, 145); left: -2px; top: -2px; width: 300px; text-align: left; color: rgb(68, 68, 68); position: relative; background-color: rgb(255, 255, 229);
+}
+#right table td.prieceline div.mouseshowprice .mouseshowprice-box span {
+	display: inline-block;
+}
+#right table td.prieceline div.mouseshowprice .mouseshowpricewid {
+	width: 48%;
+}

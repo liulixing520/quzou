@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>ebiz Services</description>
+	<vendor></vendor>
+	<version>1.0</version>
+
+	<!-- 添加商户信息 -->
+	<service name="createPersonInfo" default-entity-name="Person"
+		engine="simple" auth="true"
+		location="component://portal/script/org/ofbiz/product/customer/CustomerServices.xml"
+		invoke="createPersonInfo">
+		<description>Create a Person</description>
+		<auto-attributes include="pk" mode="INOUT" optional="true" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>
+
+	<!-- 更新商户信息 -->
+	<service name="updatePersonInfo" default-entity-name="Person"
+		engine="simple" auth="true"
+		location="component://portal/script/org/ofbiz/product/customer/CustomerServices.xml"
+		invoke="updatePersonInfo">
+		<description>update a Person</description>
+		<auto-attributes include="pk" mode="INOUT" optional="true" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>
+
+
+</services>

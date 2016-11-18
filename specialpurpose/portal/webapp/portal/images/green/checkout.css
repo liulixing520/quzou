@@ -1,0 +1,190 @@
+.checkout_box{width: 100%;}
+.checkout_box .btn{display: inline-block;width: 178px;height: 46px;border-radius: 2px;text-align: center;font-size: 16px;line-height: 46px;color: #ffffff;}
+.checkout_box .btn:hover{opacity: .8;text-decoration: none;}
+.checkout_box .btn_green{background: #2bbc69;width: 192px;}
+.checkout_box .btn_green:active{background-color: #1da758;opacity: 1;}
+.checkout_box .btn_orange{background: #e75f44;}
+.checkout_box .btn_orange:active{background-color: #d2482c;opacity: 1;}
+
+.checkout_box .checkout_box_left{float: left;width:710px;}
+.checkout_box_left .title{font-size: 34px;padding-top: 14px;height: 70px;padding-top: 10px;line-height: 70px;}
+.checkout_box_left .title_tip{background: #e5ffe5;border:1px solid #2bbc69;color: #2bbc69;line-height: 44px;padding-left: 10px;margin-bottom: 12px;border-radius: 4px;}
+.address_list .address_list_over{width: 710px;overflow: hidden;position: relative;}
+.address_list ul{width: 730px;}
+.address_list li{border: 1px solid #ededed;position: relative;padding-left: 30px;font-size: 14px;float: left;width: 295px;color: #999;padding-top: 13px;padding-bottom: 21px;padding-right: 23px;border-radius: 4px;margin: 0 10px 10px 0;height: 130px;}
+.address_list li strong{font-size: 16px;width: 78px;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;display: inline-block;vertical-align: top;font-weight: bold;}
+.address_list li h4{font-size: 16px;line-height: 30px;padding-bottom: 5px;}
+.address_list li h4 span{float: right;background: #ccc;padding: 0 5px;color: #fff;height: 23px;line-height: 23px;border-radius: 3px;margin-top: 3px;max-width:6.1em;max-width:6em\9;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.address_list li p{vertical-align: top;line-height: 21px;max-height:40px;overflow:hidden;}
+.address_list li .btn_box{line-height: 30px;position:absolute;bottom:15px;width:85%;}
+.address_list li .btn_box .btn{display: inline-block;background-color: #ffffff;border: 1px solid #2bbc69;color: #2bbc69;border-radius: 2px;text-align: center;height: 28px;line-height: 28px;width: 132px;font-size: 14px;}
+.address_list li .btn_box .btn:hover{opacity: .8;}
+.address_list li .btn_box a,.address_list li .btn_box span{color: #2bbc69;}
+.address_list li .btn_box span{margin: 0 10px;}
+.address_list li .btn_box .fr{float: right;}
+.address_list li .btn_box .success span{background: url(http://static.chunboimg.com/images/chunbo_icon2x.png) 1px -23px no-repeat;display: inline-block;vertical-align: middle;width: 20px;height: 20px;margin-right: 5px;margin-left: 0;background-size: 185px 165px;}
+.address_list li.cur{border:2px solid #2bbc69;padding: 12px 22px 20px 29px;color: #333;}
+.address_list li.cur h4 span{background-color: #fc0;}
+.address_list li.error_box{border-color: #e75f44;color: #333;}
+.address_list li.just_one{line-height: 120px;text-align: center;}
+.address_list li.just_one .just_one_a{color: #2bbc69;position: relative;top: 8px;}
+.address_list .bottom_btn{padding-left: 31px;}
+.address_list .bottom_btn span{margin: 0 10px;color: #cfcfcf;}
+.address_list .bottom_btn a{color: #2bbc69;height: 28px;line-height: 28px;font-size: 14px;}
+.address_list .bottom_btn a:hover{text-decoration: underline;}
+
+.checkout_box_left .edit_new_address{border-radius: 4px;border:1px solid #ededed;padding-left: 40px;padding-bottom: 25px;}
+.checkout_box_left .edit_new_address h4{font-size: 15px;height: 70px;line-height: 70px;}
+.checkout_box_left .edit_new_address li{padding-bottom: 20px;height: 46px;}
+.checkout_box_left .edit_new_address .li_left{float: left;width: 56px;line-height: 46px;font-size: 15px;}
+.checkout_box_left .edit_new_address .li_right{position: relative;width: 602px;zoom: 1;float: left;}
+.checkout_box_left .edit_new_address .li_right:after{clear:both;content:" ";display:block;font-size:0;height:0;visibility:hidden;}
+.checkout_box_left .edit_new_address .text{float: left;height:24px;line-height:24px;font-size: 16px;padding:10px 30px 10px 10px ;border:1px solid #c3c8cc;outline: none;border-radius: 2px;width:150px;color:#999;background: #fff;font-family: 'Microsoft yahei';}
+.checkout_box_left .edit_new_address .big_text .text{width: 340px;}
+.checkout_box_left .edit_new_address .select{border:1px solid #c3c8cc;border-radius: 2px;outline: none;height: 46px;width: 124px;float: left;margin-right: 5px;font-family: 'Microsoft yahei';font-size: 16px;color: #999;}
+.checkout_box_left .edit_new_address .tick{position:absolute;left:165px;width:24px;height:24px;background: url(http://static.chunboimg.com/images/input_sprite.png) no-repeat;top:11px;display: none;}
+.checkout_box_left .edit_new_address .big_text .tick{left: 355px;}
+.checkout_box_left .edit_new_address li.error .text{color:#e94d3c;border-color:#e94d3c;}
+.checkout_box_left .edit_new_address .error_tips{width:140px;height:44px;line-height:44px;background: url(http://static.chunboimg.com/images/input_sprite.png) 0 -34px no-repeat;float:left;margin-left:10px;color:#fff;text-align: center;font-size:13px;}
+.checkout_box_left .edit_new_address li.success .text{color:#2bbc69;border-color:#2bbc69;}
+.checkout_box_left .edit_new_address li.success .tick{display: block;}
+
+.delivery_select .delivery_list_li:last-child{border-bottom: 1px dashed #ededed;}
+.delivery_select .delivery_list_li table{width: 710px;color: #999;text-align: left;}
+.delivery_select .delivery_list_li table td{height: 44px;border-top: 1px dashed #ededed;}
+.delivery_select .delivery_list_li table thead td,.delivery_select .delivery_list_li table tbody tr:first-child td{border-top: 0;}
+.delivery_select .delivery_list_li table thead td{background-color: #f7f7f7;}
+.delivery_select .delivery_list_li table tbody td{padding-top: 12px;padding-bottom: 12px;height: auto;}
+.delivery_select .delivery_list_li table .td1{padding-left: 30px;width: 470px;color: #777;}
+.delivery_select .delivery_list_li table .td1 span{margin-right: 20px;color: #333;}
+.delivery_select .delivery_list_li table .td1 span.fr{margin-right: 5px;float: right;color: #777}
+.delivery_select .delivery_list_li table .td1 em{font-style: normal;margin-right: 20px;}
+.delivery_select .delivery_list_li table .td2{width:60px;}
+.delivery_select .delivery_list_li table .td3{width: 75px;}
+.delivery_select .delivery_list_li .peis_time{width: 176px;height: 34px;position: relative;}
+.delivery_select .delivery_list_li .btn{height: 32px;border:1px solid #2bbc69;color: #2bbc69;line-height: 32px;padding-left: 40px;position: relative;width: 134px;font-size: 14px;background-color: #fff;}
+.delivery_select .delivery_list_li .btn span{display: block;width: 40px;height: 32px;background:#2bbc69 url(http://static.chunboimg.com/images/chunbo_icon2x.png) -63px -92px no-repeat;position: absolute;left: 0;top: 0;}
+.delivery_select .delivery_list_li .privilege_slide{position: absolute;left: 0;top: 40px;background: #fff;border: 1px solid #2bbc69;border-radius: 2px;box-shadow: 1px 1px 3px #ddd,-1px 1px 3px #ddd;width: 174px;z-index: 5;}
+.delivery_select .delivery_list_li .privilege_slide li{padding:0px;width: 174px;border-bottom: 1px solid #c3c8cc;}
+.delivery_select .delivery_list_li .privilege_slide li:last-child{border-bottom: 0;}
+.delivery_select .delivery_list_li .privilege_slide li a{display: block;padding-left: 10px;height: 32px;line-height: 32px;color: #666;}
+.delivery_select .delivery_list_li .privilege_slide li a:hover{background-color: #f7f7f7;text-decoration: none;}
+
+.checkout_box_left .promp_msg{color: #999;line-height: 50px;margin-bottom: 15px;}
+
+.checkout_box_left .privilege_box{border-radius: 4px;border:1px solid #ededed;padding-top: 15px;}
+.checkout_box_left .privilege_box h4{padding-left: 40px;font-size: 20px;font-weight: normal;line-height: 40px;}
+.checkout_box_left .privilege_box li{float: left;padding-left: 40px;padding-bottom: 12px;width: 310px;}
+.checkout_box_left .privilege_box li .text{float: left;height:24px;line-height:24px;font-size: 14px;padding:5px 10px 5px 10px ;border:1px solid #c3c8cc;outline: none;border-radius: 2px;width:158px;color:#999;background: #fff;font-family: 'Microsoft yahei';margin-right: 10px;}
+.checkout_box_left .privilege_box li .privilege_box_title{line-height: 34px;font-size: 14px;color: #666;}
+.checkout_box_left .privilege_box li .privilege_box_title span{color: #2bbc69;}
+.checkout_box_left .privilege_box li .btn{height: 34px;border: 1px solid #2bbc69;line-height: 34px;width: 68px;display: block;float: left;}
+
+.checkout_box_left .privilege_box .user_p{line-height: 36px;}
+.checkout_box_left .privilege_box .user_p span{color: #999;margin-right: 10px;}
+.checkout_box_left .privilege_box .user_p .icon{width:24px;height:24px;background: url(http://static.chunboimg.com/images/input_sprite.png) no-repeat;display: inline-block;vertical-align: middle;}
+.checkout_box_left .privilege_box .user_p a{color: #2bbc69;}
+.checkout_box_left .privilege_box .select_box{position: relative;}
+.checkout_box_left .privilege_box .select_box .privilege_slide{position: absolute;left: 0;top: 40px;background: #fff;border: 1px solid #c3c8cc;border-radius: 2px;box-shadow: 1px 1px 3px #ddd,-1px 1px 3px #ddd;width: 178px;z-index: 5;}
+.checkout_box_left .privilege_box .select_box .privilege_slide li{padding:0px;width: 178px;border-bottom:1px solid #c3c8cc;}
+.checkout_box_left .privilege_box .select_box .privilege_slide li:last-child{border-bottom: 0;}
+.checkout_box_left .privilege_box .select_box .privilege_slide li a{display: block;padding-left: 10px;height: 32px;line-height: 32px;color: #666;}
+.checkout_box_left .privilege_box .select_box .privilege_slide li a:hover{background-color: #f7f7f7;text-decoration: none;}
+.checkout_box_left .privilege_box .text{position: relative;}
+.checkout_box_left .privilege_box .text span{position: absolute;right: 0;top: 0;border-left: 1px solid #c3c8cc;display: block;height: 34px;width: 34px;cursor: pointer;}
+.checkout_box_left .privilege_box .text span i{font-size: 0;width: 0;height: 0;border: 5px solid #999;position: absolute;left: 12px;border-color: #999 #fff #fff;top: 15px;}
+.checkout_box_left .privilege_box .bottom_a{display: inline-block;height: 30px;line-height: 30px;color: #2bbc69;font-size: 14px;}
+.checkout_box_left .password_pay{width: 610px;border-top: 1px solid #ececec;margin-left: 40px;font-size: 14px;line-height: 36px;padding: 25px 0 30px;}
+.checkout_box_left .password_pay .text{float: left;height:24px;line-height:24px;font-size: 14px;padding:5px 10px 5px 10px ;border:1px solid #c3c8cc;outline: none;border-radius: 2px;width:158px;color:#999;background: #fff;font-family: 'Microsoft yahei';margin-right: 15px;}
+.checkout_box_left .password_pay span{float: left;margin-right: 15px;}
+.checkout_box_left .password_pay a{float: left;color: #2bbc69;}
+
+.checkout_box_left .privilege_box li.disabled_li .text{border-color: #ededed;background: #f6f6f6;color: #d9d9d9;}
+.checkout_box_left .privilege_box li.disabled_li .text span{border-left-color: #ededed;cursor: default;}
+.checkout_box_left .privilege_box li.disabled_li .text span i{border-color: #d9d9d9 #f6f6f6 #f6f6f6;}
+.checkout_box_left .privilege_box li.disabled_li .btn,.checkout_box_left .privilege_box li.disabled_li .btn:hover,.checkout_box_left .privilege_box li.disabled_li .btn:active{border-color: #d9d9d9;background: #d9d9d9;color: #fff;cursor: default;opacity: 1;}
+
+.checkout_box_left .invoice_box{padding: 15px 0 45px;line-height: 36px;}
+.checkout_box_left .invoice_box .need_invoice{color: #2bbc69;font-size: 16px;}
+.checkout_box_left .invoice_box .invoice_box_msg{border-radius: 4px;border:1px solid #ededed;padding:15px 23px;width: 340px;line-height: 24px;margin-top: 8px;}
+.checkout_box_left .invoice_box .invoice_box_msg h4{font-size: 16px;line-height: 30px;}
+.checkout_box_left .invoice_box .invoice_box_msg h4 a{float: right;color: #2bbc69;font-size: 13px;}
+.checkout_box_left .invoice_box_disabled .need_invoice,.checkout_box_left .invoice_box_disabled .need_invoice:hover{color: #999;cursor: default;text-decoration: none;}
+.checkout_box_left .invoice_box_disabled .disabled_tip{display: inline-block;background:#f7f7f7 url(http://static.chunboimg.com/images/xiaosanjiao.jpg) left center no-repeat;padding-left: 15px;margin-left: 10px;}
+.checkout_box_left .invoice_box_disabled .disabled_tip span{display: inline-block;height: 34px;line-height: 34px;border:1px solid #ededed ;color: #666;border-left: 0;}
+
+.checkout_box .checkout_box_right{float: right;width:350px;padding-top: 80px;}
+.checkout_box_right .checkout_list{border-radius: 4px;border:1px solid #ededed;background-color: #f7f7f7;height: 491px;width: 348px;z-index: 150;}
+.checkout_box_right .checkout_list h3{color: #333;line-height: 46px;height: 46px;padding-left: 22px;border-bottom:1px solid #ededed;font-size: 15px;}
+.checkout_box_right .checkout_list li{height: 36px;line-height: 36px;overflow: hidden;padding:0 22px;border-bottom: 1px dashed #ededed;background-color: #fff;font-size: 14px;color: #777;}
+.checkout_box_right .checkout_list li span{float: right;color: #999;}
+.checkout_box_right .checkout_list li.last_child{height: 46px;line-height: 46px;border-bottom-style: solid;font-size: 15px;color: #333;font-weight: bold;}
+.checkout_box_right .checkout_list li.last_child span{color: #e75f44;font-weight: bold;font-size: 20px;}
+.checkout_box_right .checkout_list .checkbox_in{display: inline-block;padding-left: 30px;position: relative;color: #33495f;line-height: 34px;height: 34px;margin-top: 10px;margin-left: 22px;}
+.checkout_box_right .checkout_list .checkbox_in span{position: absolute;left: 0;top:6px;width: 21px;height: 20px;background: #fff url(http://static.chunboimg.com/images/chunbo_icon2x.png) -220px -56px no-repeat;border-radius: 3px;}
+.checkout_box_right .checkout_list .checkout_list_p{color: #e75f44;margin-left: 22px;margin-top: 10px;}
+.checkout_box_right .checkout_list .checkbox_in:hover{text-decoration: none;}
+.checkout_box_right .checkout_list .cur span{background-position: -250px -56px;}
+.checkout_box_right .checkout_list .btn_orange{width: 306px;margin: 10px auto 0;display: block;}
+.checkout_box_right .fixed_checkout{position: fixed;top: 96px;}
+
+
+/* ���� */
+.shade_box {position: fixed;top: 0px;left: 0px;right: 0px;bottom: 0px;width: 100%;height: 100%;z-index: 10000;background-color: #000;opacity: 0.7;border:1px solid #e9ecf0;}
+.pop_box{padding:10px 0px 28px 40px;background: #fff;width:540px;position: fixed;top:50%;left:50%;margin-left:-290px;margin-top:-250px;z-index:100001;border-radius: 4px;border:2px solid #e9ecf0;}
+.pop_box .btn{display: inline-block;width: 178px;height: 46px;border-radius: 2px;text-align: center;font-size: 16px;line-height: 46px;color: #ffffff;margin-right: 10px;}
+.pop_box .btn:hover{opacity: .8;text-decoration: none;}
+.pop_box .btn_green{background: #2bbc69;width: 192px;}
+.pop_box .btn_green:active{background-color: #1da758;opacity: 1;}
+.pop_box .btn_gray{background-color: #bdc3c7;}
+.pop_box .btn_gray:active{background-color: #afb4b7;opacity: 1;}
+.pop_box .title{height: 70px;line-height: 70px;color:#33495f;font-size: 30px;margin-bottom: 10px;text-indent: -5px;}
+.pop_box .title .disabled_tip{display: inline-block;background:#f7f7f7 url(http://static.chunboimg.com/images/xiaosanjiao.jpg) left center no-repeat;padding-left: 15px;margin-left: 10px;font-size: 14px;line-height: 34px;height: 36px;vertical-align: middle;text-indent: 0;}
+.pop_box .title .disabled_tip span{display: inline-block;height: 34px;line-height: 34px;border:1px solid #ededed ;color: #666;border-left: 0;background: #f7f7f7;width: 355px;text-indent: 0;}
+.pop_box .pop_name{line-height: 24px;margin: -12px 0 20px;}
+.pop_box .close{height:14px;width: 14px;background: url(http://static.chunboimg.com/images/input_sprite.png) 0 -86px;position: absolute;overflow: hidden;right:10px;top:10px;}
+.pop_box .edit_new_address li{padding-bottom: 20px;height: 46px;}
+.pop_box .edit_new_address .li_left{float: left;width: 56px;line-height: 46px;font-size: 15px;color: #000000;}
+.pop_box .edit_new_address .li_right{position: relative;width: 470px;zoom: 1;float: left;}
+.pop_box .edit_new_address .li_right:after{clear:both;content:" ";display:block;font-size:0;height:0;visibility:hidden;}
+.pop_box .edit_new_address .text{float: left;height:24px;line-height:24px;font-size: 14px;padding:10px 30px 10px 10px ;border:1px solid #c3c8cc;outline: none;border-radius: 2px;width:178px;color:#999;background: #fff;font-family: 'Microsoft yahei';}
+.pop_box .edit_new_address .big_text .text{width: 340px;}
+.pop_box .edit_new_address .little_text .text{padding-right: 10px;width: 118px;}
+.pop_box .edit_new_address .four_text .text{width: 62px;padding-right: 10px;}
+.pop_box .edit_new_address .four_text .input_m{color: #d5d5d5;float: left;line-height: 46px;width: 15px;text-align: center;}
+.pop_box .edit_new_address .select{border:1px solid #c3c8cc;border-radius: 2px;outline: none;height: 46px;width: 124px;float: left;margin-right: 5px;font-family: 'Microsoft yahei';font-size: 14px;color: #999;}
+.pop_box .edit_new_address .tick{position:absolute;left:165px;width:24px;height:24px;background: url(http://static.chunboimg.com/images/input_sprite.png) no-repeat;top:11px;display: none;}
+.pop_box .edit_new_address .big_text .tick{left: 355px;}
+.pop_box .edit_new_address li.error .text{color:#e94d3c;border-color:#e94d3c;}
+.pop_box .edit_new_address .error_tips{width:140px;height:44px;line-height:44px;background: url(http://static.chunboimg.com/images/input_sprite.png) 0 -34px no-repeat;float:left;margin-left:10px;color:#fff;text-align: center;font-size:13px;}
+.pop_box .edit_new_address li.success .text{color:#2bbc69;border-color:#2bbc69;}
+.pop_box .edit_new_address li.success .tick{display: block;}
+.pop_box .edit_new_address .certi_code{height:46px;margin-left:10px;float: left;}
+.pop_box .edit_new_address .certi_code img{height: 46px;}
+.pop_box .edit_new_address .certi_code a{color: #2bbc69;font-size: 14px;line-height: 46px;}
+.pop_box .edit_new_address .btn_radio{display: inline-block;padding-left: 30px;position: relative;margin-right: 24px;color: #33495f;height: 46px;line-height: 46px;font-size: 15px;}
+.pop_box .edit_new_address .btn_radio span{position: absolute;left: 0;top:10px;width: 23px;height: 22px;background: url(http://static.chunboimg.com/images/chunbo_icon2x.png) -146px -55px no-repeat;}
+.pop_box .edit_new_address .btn_radio:hover{text-decoration: none;}
+.pop_box .edit_new_address a.cur span{background-position: -185px -55px;}
+.pop_box .delivery_select .delivery_list_li table{width: 610px;}
+.pop_box .bottom_btns{padding: 30px 0 12px;}
+.pop_box2 .edit_new_address .li_left{width: 100px;}
+.pop_box2 .edit_new_address .li_right{width: 438px;}
+.pop_box3 .edit_new_address .li_left{width: 85px;}
+.pop_box3 .edit_new_address .li_right{width: 453px;}
+.pop_box3 .edit_new_address li{padding-bottom: 0;}
+.pop_box3 .btn_green{margin-top: 10px;}
+.pop_box4{width: 800px;margin-left: -360px;padding: 0px;}
+.pop_box4 .delivery_select .delivery_list_li table{width: 694px;}
+.pop_box4 .delivery_select .delivery_list_li:last-child{border-bottom: 0;}
+.pop_box4 .close{height:24px;width: 24px;background: url(http://static.chunboimg.com/images/chunbo_icon2x.png) -252px -204px no-repeat;position: absolute;overflow: hidden;right:-30px;top:-1px;border-radius: 20px;}
+.pop_box4 .pop_box_over{padding: 10px 0px 28px 50px;height: 500px;overflow-x: hidden;overflow-y: auto;}
+.pop_box5{width: 748px;margin-left: -355px;}
+
+/* qiancheng add for address pop */
+.pop_box h3.title small{font-size:14px;color:#999;padding:0 6px;}
+i.required{font: normal 12px/20px sans-serif;color:#E75F44;display:inline-block;*display:inline;*zoom:1;width:16px;text-align:center;}
+.pop_box .li_left i.required{margin-left:-16px;}
+
+
+.privilege_box_title .btn_green{color:#fff;}

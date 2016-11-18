@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+	<screen name="FindPartyGroup">
+		<section>
+			<actions>
+				<set field="titleProperty" value="企业信息" />
+				<set field="parameters.roleTypeId" value="DEPARTMENT" /><!-- 部门 -->
+				<set field="pCtx" from-field="parameters" />
+				<set field="searchAction" value="FindPartyGroup" />
+				<set field="searchForm" value="FindPartyGroup" />
+				<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/party/conditionChildGroup.groovy"></script>
+				<set field="operationButton[]" value="设置区域.icon-remove.FindCcmeCusRegion.dialog.LimsStudent_DELETE" />
+				<set field="operationButton[]" value="启用.edit.updatePartyStatus?statusId=PARTY_ENABLED###navTabId=sysCommon/control/FindPartyGroupTree.operSelected-确定启用吗.PartyGroup_UPDATE" />
+				<set field="operationButton[]" value="禁用.edit.updatePartyStatus?statusId=PARTY_DISABLED###navTabId=sysCommon/control/FindPartyGroupTree.operSelected-确定禁用吗.PartyGroup_UPDATE" />
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindPartyGroup" location="component://sysCommon/widget/PartyForms.xml" />
+							</decorator-section>
+							
+							<decorator-section name="search-results">
+								<include-form name="ListPartyGroup" location="component://sysCommon/widget/PartyForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindPartyGroupTree">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="parameters.roleTypeId" value="DEPARTMENT" /><!-- 部门 -->
+				<set field="pCtx" from-field="parameters" />
+				<set field="searchAction" value="FindPartyGroup" />
+				<set field="searchForm" value="FindPartyGroup" />
+					<!-- 
+				<entity-one entity-name="LimsClass" value-field="entity" />
+				<entity-condition list="partyGroupRoot" entity-name="PartyGroupAndParent">
+					<condition-list>
+					<condition-expr field-name="roleTypeId" from-field="parameters.roleTypeId"/>
+					<condition-expr field-name="parentPartyId" value=""/>
+					</condition-list>
+				</entity-condition>
+				<entity-condition list="partyGroup" entity-name="PartyGroupAndParent">
+					<condition-expr field-name="roleTypeId" from-field="parameters.roleTypeId"/>
+				</entity-condition>
+				-->
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/party/party_group_tree.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="EditPartyGroup">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="partyId" from-field="parameters.partyId" />
+				<set field="currentForm" value="EditPartyGroup" />
+				<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/partyGroupAndParent.groovy"></script>
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="detail-options">
+									<include-form name="EditPartyGroup" location="component://sysCommon/widget/PartyForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+						
+						 <!--
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/party/party_group_edit.ftl"/></html>
+				        </platform-specific> 
+				         -->
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="FindPerson">
+		<section>
+			<actions>
+				<set field="titleProperty" value="系统管理>用户列表" />
+				<set field="parameters.roleTypeId" value="EMPLOYEE" /><!-- 职员 -->
+				<set field="pCtx" from-field="parameters" />
+				<set field="searchAction" value="FindPerson" />
+				<set field="searchForm" value="FindPerson" />
+				<set field="operationButton[]" value="增加用户.icon-add.EditPerson.href.Person_ADD" />
+<!-- 				<set field="operationButton[]" value="批量删除.icon-remove.deletePerson.removeSelected.Person_DELETE" /> -->
+				<set field="operationButton[]" value="重置密码.ext-icon-czmm.initUserLoginPassword?newPassword=111111.href.Person_ADD" />
+<!-- 				<set field="operationButton[]" value="启用.ext-icon-qy.updateUserPartyStatus?statusId=PARTY_ENABLED###navTabId=sysCommon/control/FindPerson.operSelected-确定启用吗.PartyGroup_UPDATE" /> -->
+<!-- 				<set field="operationButton[]" value="禁用.ext-icon-jy.updateUserPartyStatus?statusId=PARTY_DISABLED###navTabId=sysCommon/control/FindPerson.operSelected-确定禁用吗.PartyGroup_UPDATE" /> -->
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindPerson" location="component://sysCommon/widget/PartyForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListPerson" location="component://sysCommon/widget/PartyForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="EditPerson">
+		<section>
+			<actions>
+				<set field="titleProperty" value="编辑用户" />
+				<set field="partyId" from-field="parameters.partyId" />
+				<set field="parameters.roleTypeId" value="DEPARTMENT" /><!-- 部门 -->
+				<set field="currentForm" value="EditPerson" />
+				<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/personAndPartyGroup.groovy"></script>
+				<entity-condition list="statusItems" entity-name="StatusItem">
+					<condition-list>
+						<condition-expr field-name="statusTypeId" value="PARTY_STATUS"/>
+					</condition-list>
+					<order-by field-name="sequenceId"/>		
+				</entity-condition>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<!--  
+						<decorator-screen name="DetailScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="detail-options">
+							<screenlet title="">
+									<include-form name="EditPerson" location="component://sysCommon/widget/PartyForms.xml" />
+						    </screenlet>	
+							</decorator-section>
+						</decorator-screen>
+						-->
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/party/person_edit.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditPassword">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="userLoginId" from-field="parameters.userLoginId" />
+				<set field="currentForm" value="EditPassword" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/party/password_edit.ftl"/></html>
+				        </platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+    <screen name="FindPermissionPerson">
+        <section>
+            <actions>
+            	<set field="titleProperty" value="用户授权" />
+            	<set field="pCtx" from-field="parameters" />
+            	<!-- 
+            	<set field="viewIndex" from-field="parameters.VIEW_INDEX_1" type="Integer" default-value="0" />
+				<set field="viewSize" from-field="parameters.VIEW_SIZE_1" type="Integer" default-value="20" />
+				<service service-name="performFindList" result-map="result">
+					<field-map field-name="inputFields" from-field="parameters" />
+					<field-map field-name="entityName" value="PersonAndUserLogin" />
+					<field-map field-name="orderBy" from-field="parameters.sortField" />
+					<field-map field-name="viewIndex" from-field="viewIndex" />
+					<field-map field-name="viewSize" from-field="viewSize" />
+				</service>
+				
+				
+				<service service-name="performFindList" result-map="perResult">
+					<field-map field-name="inputFields" from-field="parameters" />
+					<field-map field-name="entityName" value="UserLoginSecurityGroup" />
+					<field-map field-name="orderBy" from-field="parameters.sortField" />
+					<field-map field-name="viewIndex" from-field="viewIndex" />
+					<field-map field-name="viewSize" from-field="viewSize" />
+				</service>
+				
+				<set field="userLoginSecurityGroupList" from-field="perResult.list" />
+				<set field="perListSize" from-field="perResult.listSize" />
+				
+				
+				<set field="personList" from-field="result.list" />
+				<set field="listSize" from-field="result.listSize" />
+				 
+				<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/filterUserLogin.groovy"></script>
+				
+				 <service service-name="findPartyExt" auto-field-map="parameters"/>
+				 
+				 <script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/findParty.groovy"></script>
+				 <entity-condition list="userLoginSecurityGroupList" entity-name="UserLoginSecurityGroup">
+            		<condition-expr field-name="groupId" from-field="parameters.groupId"/>
+            	</entity-condition>-->
+            </actions>
+            <widgets>
+            	<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+					<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/party/assign_permission_person.ftl"/></html>
+				        </platform-specific>
+				    </decorator-section>
+				</decorator-screen>    
+            </widgets>
+        </section>
+    </screen>
+    <screen name="selectPartyGroupTree">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+			</actions>
+			<widgets>
+				<platform-specific>
+		          	<html><html-template location="component://sysCommon/webapp/sysCommon/party/select_party_group_tree.ftl"/></html>
+		        </platform-specific>
+			</widgets>
+		</section>
+	</screen>
+    <screen name="selectPerson">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+			</actions>
+			<widgets>
+				<platform-specific>
+		          	<html><html-template location="component://sysCommon/webapp/sysCommon/party/select_person.ftl"/></html>
+		        </platform-specific>
+			</widgets>
+		</section>
+	</screen>
+    <screen name="selectPersonSecurityGroup">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+			</actions>
+			<widgets>
+				<platform-specific>
+		          	<html><html-template location="component://sysCommon/webapp/sysCommon/party/select_person_securitygroup.ftl"/></html>
+		        </platform-specific>
+			</widgets>
+		</section>
+	</screen>
+    <screen name="selectCheckallPerson">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<set field="parameters.parentPartyId" value="${groovy:(parameters.myDepartment!=null)?session.deparmentIds:&quot;&quot;}" />
+				<entity-condition list="partyGroupList" entity-name="PartyGroup"></entity-condition>
+				<entity-condition list="personList" entity-name="PersonAndPartyGroup">
+					<condition-expr from-field="parameters.parentPartyId" field-name="parentPartyId"  operator="equals" ignore-if-empty="true"/>
+				</entity-condition>
+			</actions>
+			<widgets>
+			<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+		          			<html><html-template location="component://sysCommon/webapp/sysCommon/party/selectCheckallPerson.ftl"/></html>
+		        		</platform-specific>
+		        	</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+    <screen name="selectCheckallPersonMutil">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+			</actions>
+			<widgets>
+			<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+		          			<html><html-template location="component://sysCommon/webapp/sysCommon/party/selectCheckallPersonMutil.ftl"/></html>
+		        		</platform-specific>
+		        	</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+    <screen name="selectCheckallPartyGroup">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+				<entity-condition list="partyGroupList" entity-name="PartyGroup"></entity-condition>
+					
+			</actions>
+			<widgets>
+			<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+		          			<html><html-template location="component://sysCommon/webapp/sysCommon/party/selectCheckallPartyGroup.ftl"/></html>
+		        		</platform-specific>
+		        	</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+    <screen name="assignGroupLeader">
+		<section>
+			<actions>
+				<set field="titleProperty" value="" />
+			</actions>
+			<widgets>
+				<!-- 
+            	<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+					 -->
+					<platform-specific>
+				          	<html><html-template location="component://sysCommon/webapp/sysCommon/party/assign_group_leader.ftl"/></html>
+				        </platform-specific>
+				<!--         
+				    </decorator-section>
+				</decorator-screen>     -->
+            </widgets>
+		</section>
+	</screen>
+    <screen name="EditPersonName">
+        <section>
+            <actions>
+                <set field="titleProperty" value="" />
+                <set field="currentForm" value="EditPersonName" />
+                <set field="partyId" from-field="parameters.partyId" />
+                <set field="personName" from-field="parameters.personName" />
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sysCommon/webapp/sysCommon/party/edit_person_name.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>    
+    </screen>
+    <!-- 修改密码暂存  -->
+	<screen name="modifyPasswordWin">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://sysCommon/webapp/sysCommon/party/modifyPassword.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+</screens>

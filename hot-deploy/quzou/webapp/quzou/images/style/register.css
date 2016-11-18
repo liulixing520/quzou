@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+/*body{
+	background-color:#fff !important;
+}*/
+.bgwhite{
+	border-bottom:1px solid #d6d6d6;
+}
+#register{
+	margin:0 auto; width:960px; overflow:hidden;padding:40px 30px 100px 30px;background-color:#fff;box-shadow:0 0 10px #ccc;
+}
+.register_content{
+	padding-left:120px; position:relative; overflow:hidden;
+}
+.register_row{
+	margin-top:20px; height:36px; position:relative;
+}
+.register_row .kingkong-input{
+	width:300px;
+}
+.register_row .kingkong-input.ecode{
+	width:135px; margin-right:25px;
+}
+.register_row i{
+	display:block; position:absolute; height:36px; width:320px; line-height:36px;
+	left:0px; top:0px; text-indent:10px; color:#999; cursor:text;
+}
+.register_row .radio{
+	display:inline-block; height:30px; text-indent:49px; font-size:14px; color:#666; line-height:30px;
+	background:url(../images/employee/radio.png) no-repeat 8px -35px; margin-right:30px; cursor:pointer;
+}
+.register_row .radio.cur{
+	background:url(../images/employee/radio.png) no-repeat 8px 5px;
+}
+.xieyi{
+	height:20px; line-height:20px; margin-top:50px;
+}
+.xieyi span{
+	display:inline-block; height:20px; font-size:14px; color:#f83976;
+}
+.xieyi span a{
+	color:#f83976;
+}
+.regis_submit{
+	width:320px; height:40px; line-height:40px; text-align:center; font-size:17px; border:none; outline:none;
+	color:#fff; background-color:#f83976; margin-top:20px; cursor:pointer;
+}
+.regis_submit:hover{background-color:#dd2d65;}
+.regis_submit:active{background-color:#b21e4d;}
+
+.register_userphoto{
+	width:132px; position:absolute; top:20px; left:486px; text-align:center;
+}
+.register_userphoto .userphoto_view{
+	width:130px; height:130px; border:1px solid #bcbcbc; display:block;
+}
+.register_userphoto a{
+	margin-top:22px; font-size:19px; color:#999; display:inline-block; cursor:pointer;
+}
+.register_userphoto a:hover{
+	text-decoration:underline;
+}
+
+

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>Component Services</description>
+	<vendor>OFBiz</vendor>
+	<version>1.0</version>
+	<service name="createPartyGroupExt" default-entity-name="PartyGroup" engine="java" location="org.extErp.sysCommon.party.PartyServices" invoke="createPartyGroup" auth="true">
+		<description>Create a CmsCommentType</description>
+		<implements service="createPartyGroup"/>
+		<auto-attributes include="pk" mode="OUT" optional="false" />
+		<attribute name="parentPartyId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="roleTypeId" mode="IN" type="String" optional="true"></attribute>
+
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>
+	<service name="updatePartyGroupExt" default-entity-name="PartyGroup" engine="java" location="org.extErp.sysCommon.party.PartyServices" invoke="updatePartyGroup" auth="true">
+		<description>Update a CmsCommentType</description>
+		<auto-attributes include="pk" mode="INOUT" optional="false" />
+		<attribute name="parentPartyId" mode="IN" type="String" optional="true"></attribute>
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>
+
+	<service name="createPersonExt" default-entity-name="Person" engine="java" location="org.extErp.sysCommon.party.PartyServices" invoke="createPerson" auth="true">
+		<description>Create a CmsCommentType</description>
+		<auto-attributes include="pk" mode="OUT" optional="false" />
+		<attribute name="userLoginId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="currentPassword" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="currentPasswordVerify" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="parentPartyId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="attachment" mode="IN" type="String" optional="true"></attribute>
+
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>
+	<service name="updatePersonExt" default-entity-name="Person" engine="java" location="org.extErp.sysCommon.party.PartyServices" invoke="updatePerson" auth="true">
+		<description>Update a CmsCommentType</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="parentPartyId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="updatePasswordExt" default-entity-name="UserLogin" engine="java" location="org.extErp.sysCommon.party.PartyServices" invoke="updatePasswordExt" auth="true">
+		<description>Update a updatePasswordExt</description>
+		<attribute name="userLoginId" type="String" mode="IN" optional="true" />
+		<attribute name="currentPassword" type="String" mode="IN" optional="true" />
+		<attribute name="newPassword" type="String" mode="IN" optional="true" />
+		<attribute name="newPasswordVerify" type="String" mode="IN" optional="true" />
+	</service>
+	<service name="initUserLoginPassword" default-entity-name="Person" engine="java" location="org.extErp.sysCommon.party.PartyServices" invoke="initUserLoginPassword" auth="true">
+		<description>Update a CmsCommentType</description>
+		<attribute name="ids" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="newPassword" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="updatePartyStatus" default-entity-name="Party" engine="java" location="org.extErp.sysCommon.party.PartyServices" invoke="updatePartyStatus" auth="true">
+		<description>Update a CmsCommentType</description>
+		<attribute name="ids" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="statusId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="updateUserPartyStatus" default-entity-name="Party" engine="java" location="org.extErp.sysCommon.party.PartyServices" invoke="updateUserPartyStatus" auth="true">
+		<description>Update a CmsCommentType</description>
+		<attribute name="ids" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="statusId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="navTabId" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="assignGroupLeaderToGroup" default-entity-name="PartyGroup" engine="java" location="org.extErp.sysCommon.party.PartyServices" invoke="assignGroupLeaderToGroup" auth="true">
+		<description>分配部门负责人</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<attribute name="ids" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="unAssignGroupLeaderToGroup" default-entity-name="PartyGroup" engine="java" location="org.extErp.sysCommon.party.PartyServices" invoke="unAssignGroupLeaderToGroup" auth="true">
+		<description>Update a CmsCommentType</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<attribute name="ids" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="findPartyExt" engine="java" location="org.extErp.sysCommon.party.PartyServices" invoke="findPartyExt">
+		<description>General Party Find Service, Used in the findparty page in the Party Manager, etc</description>
+		<attribute name="extInfo" type="String" mode="IN" optional="true" />
+		<attribute name="roleTypeId" type="String" mode="IN" optional="true" /> <!-- can be null or ANY to include any -->
+		<attribute name="VIEW_INDEX_1" type="String" mode="IN" optional="true" />
+		<attribute name="VIEW_SIZE_1" type="String" mode="IN" optional="true" />
+		<attribute name="lookupFlag" type="String" mode="IN" optional="true" />
+		<attribute name="showAll" type="String" mode="IN" optional="true" />
+		<attribute name="partyId" type="String" mode="IN" optional="true" /> <!-- does a LIKE compare on this, can do partial, case insensitive, etc -->
+		<attribute name="partyTypeId" type="String" mode="IN" optional="true" />
+		<attribute name="userLoginId" type="String" mode="IN" optional="true" /> <!-- does a LIKE compare on this, can do partial, case insensitive, etc -->
+		<attribute name="groupName" type="String" mode="IN" optional="true" />
+		<attribute name="groupId" type="String" mode="IN" optional="true" />
+		<attribute name="firstName" type="String" mode="IN" optional="true" />
+		<attribute name="lastName" type="String" mode="IN" optional="true" />
+		<attribute name="address1" type="String" mode="IN" optional="true" />
+		<attribute name="address2" type="String" mode="IN" optional="true" />
+		<attribute name="city" type="String" mode="IN" optional="true" />
+		<attribute name="stateProvinceGeoId" type="String" mode="IN" optional="true" />
+		<attribute name="postalCode" type="String" mode="IN" optional="true" />
+		<attribute name="infoString" type="String" mode="IN" optional="true" /> <!-- the ContactMech infoString -->
+		<attribute name="countryCode" type="String" mode="IN" optional="true" />
+		<attribute name="areaCode" type="String" mode="IN" optional="true" />
+		<attribute name="contactNumber" type="String" mode="IN" optional="true" />
+		<attribute name="inventoryItemId" type="String" mode="IN" optional="true" /> <!-- does a LIKE compare on this -->
+		<attribute name="serialNumber" type="String" mode="IN" optional="true" /> <!-- does a LIKE compare on this -->
+		<attribute name="softIdentifier" type="String" mode="IN" optional="true" /> <!-- does a LIKE compare on this -->
+		<attribute name="partyRelationshipTypeId" type="String" mode="IN" optional="true" />
+		<attribute name="ownerPartyIds" type="List" mode="IN" optional="true" /><!-- Lead Owners Parties -->
+
+		<attribute name="roleTypes" type="List" mode="OUT" optional="true" />
+		<attribute name="partyTypes" type="List" mode="OUT" optional="true" />
+		<attribute name="currentRole" type="org.ofbiz.entity.GenericValue" mode="OUT" optional="true" />
+		<attribute name="currentPartyType" type="org.ofbiz.entity.GenericValue" mode="OUT" optional="true" />
+		<attribute name="currentStateGeo" type="org.ofbiz.entity.GenericValue" mode="OUT" optional="true" />
+		<attribute name="viewIndex" type="Integer" mode="OUT" optional="false" />
+		<attribute name="viewSize" type="Integer" mode="OUT" optional="false" />
+		<attribute name="partyList" type="List" mode="OUT" optional="false" />
+		<attribute name="partyListSize" type="Integer" mode="OUT" optional="false" />
+		<attribute name="paramList" type="String" mode="OUT" optional="true" />
+		<attribute name="highIndex" type="Integer" mode="OUT" optional="true" />
+		<attribute name="lowIndex" type="Integer" mode="OUT" optional="true" />
+	</service>
+    
+   	<!-- 重新包装系统服务,自己按照录入的省县市信息组成city字段,并将最后的全地址信息返回 -->
+	<service name="createUpdatePartyAddress" engine="simple" location="component://sysCommon/script/PartyServices.xml" invoke="createUpdatePartyAddress" auth="true">
+		<description>Create and Update a Party Postal Address</description>
+		<permission-service service-name="partyContactMechPermissionCheck" main-action="CREATE" />
+		<auto-attributes entity-name="PartyContactMech" include="all" mode="IN" optional="true" />
+		<auto-attributes entity-name="PostalAddress" include="nonpk" mode="IN" optional="true" />
+		<attribute name="contactMechPurposeTypeId" type="String" mode="IN" optional="true" />
+		<attribute name="contactMechId" type="String" mode="OUT" optional="false" />
+		<attribute name="addressGeoAllCn" type="String" mode="OUT" optional="true" />
+		<attribute name="postalCode" type="String" mode="OUT" optional="true" />
+		<override name="city" optional="true" />
+		<override name="address1" optional="false" />
+		<override name="postalCode" optional="false" />
+	</service>
+	<!-- 重新包装系统服务,将最后的电话号码 -->
+	<service name="createUpdatePartyPhoneNumber" engine="simple" location="component://sysCommon/script/PartyServices.xml" invoke="createUpdatePartyPhoneNumber" auth="true">
+		<description>Create and Update a Party Telecom Number</description>
+		<permission-service service-name="partyContactMechPermissionCheck" main-action="CREATE" />
+		<auto-attributes entity-name="PartyContactMech" include="all" mode="IN" optional="true" />
+		<auto-attributes entity-name="TelecomNumber" include="nonpk" mode="IN" optional="true" />
+		<attribute name="contactMechPurposeTypeId" type="String" mode="IN" optional="true" />
+		<attribute name="contactMechId" type="String" mode="OUT" optional="false" />
+		<attribute name="phoneNumber" type="String" mode="OUT" optional="true" />
+	</service>
+	<service name="disablePartyContactMech" engine="simple" location="component://sysCommon/script/PartyServices.xml" invoke="disablePartyContactMech" auth="true">
+		<description>删除当事人联系方式,有目的则一同禁用</description>
+		<permission-service service-name="partyContactMechPermissionCheck" main-action="DELETE" />
+		<attribute name="partyId" type="String" mode="IN" optional="true" />
+		<attribute name="contactMechId" type="String" mode="IN" optional="false" />
+	</service>
+	<service name="disablePartyContactMechPurposeAndContactMech" engine="simple" location="component://sysCommon/script/PartyServices.xml" invoke="disablePartyContactMechPurposeAndContactMech" auth="true">
+		<description>删除当事人联系方式目的,如果此联系方式无用,则一同禁用</description>
+		<permission-service service-name="partyContactMechPermissionCheck" main-action="DELETE" />
+		<attribute name="partyId" type="String" mode="IN" optional="true" />
+		<attribute name="contactMechId" type="String" mode="IN" optional="false" />
+        <attribute name="contactMechPurposeTypeId" type="String" mode="IN" optional="false" />
+	</service>
+	<service name="disablePartyContactMechPurpose" engine="simple" location="component://sysCommon/script/PartyServices.xml" invoke="disablePartyContactMechPurpose" auth="true" require-new-transaction="true">
+		<description>停用当前联系方式目的</description>
+		<attribute name="partyId" type="String" mode="IN" optional="false" />
+		<attribute name="contactMechId" type="String" mode="IN" optional="false" />
+		<attribute name="contactMechPurposeTypeId" type="String" mode="IN" optional="false" />
+	</service>
+	<service name="updatePersonName" engine="simple"  location="component://sysCommon/script/PartyServices.xml" invoke="updatePersonName" auth="true" require-new-transaction="true">
+        <description>更新人的姓名[nickname]</description>
+        <attribute name="partyId" type="String" mode="IN" optional="false" />
+        <attribute name="personName" type="String" mode="IN" optional="false" />
+	</service>
+</services>

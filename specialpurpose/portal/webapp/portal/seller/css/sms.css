@@ -1,0 +1,95 @@
+﻿/*公用部分 开始*/
+.sms-input{padding:9px; border:1px solid #dbdbdb;}
+.sms-radio{margin-right:5px; vertical-align:-2px;}
+.sms-checkbox{margin-right:5px; vertical-align:-2px; vertical-align:middle\9;}
+.sms-m-r{margin-right:10px;}
+.sms-m-l{margin-left:10px;}
+.sms-m-r5{margin-right:5px;}
+.sms-m-l5{margin-left:5px;}
+.sms-m-l20{margin-left:20px;}
+.sms-m-r20{margin-right:20px;}
+.sms-p-l20{padding-left:20px;}
+.sms-p-l40{padding-left:40px;}
+.sms-color1{color:#999;}
+.sms-text1{padding-top:5px; font-size:12px; font-weight:normal;}
+.sms-text2{padding-top:5px; color:#999;}
+.sms-text3{letter-spacing:6px;}
+/*公用部分 结束*/
+
+.sms-binding-start{padding:30px 0; text-align:center;}
+.sms-start-button{display:inline-block; margin-right:1px; width:237px; height:38px; background:url(http://www.dhresource.com/dhs/mos/image/public/btybtn.png) no-repeat 0 0;}
+.sms-start-button span{display:inline-block; margin-left:1px; width:237px; height:38px; line-height:36px; font-size:14px; color:#b25706; font-weight:700; cursor:pointer; border:none 0; background:none; background:url(http://www.dhresource.com/dhs/mos/image/public/btybtn.png) no-repeat right 0;}
+.sms-start-button:hover{text-decoration:none; background-position:0 -38px;}
+.sms-start-button:hover span{background-position:right -38px;}
+.sms-binding-area{padding:20px 10px 30px 275px;}
+.sms-binding-area li{margin-bottom:15px;}
+.sms-binding-title{font-size:14px; font-weight:700;}
+.sms-binding-w1{width:192px;}
+.sms-binding-w2{width:87px;}
+.sms-binding-w3{width:85px;}
+.sms-code-button,.sms-sixty-second{display:inline-block; margin-right:1px; width:104px; height:35px; cursor:pointer; background:url(http://www.dhresource.com/dhs/mos/image/public/bigbutton.png) no-repeat 0 -70px; vertical-align:top;}
+.sms-code-button input,.sms-sixty-second input{margin-left:1px; width:104px; height:35px; line-height:33px; color:#333; cursor:pointer; background:none; border:none 0; background:url(http://www.dhresource.com/dhs/mos/image/public/bigbutton.png) no-repeat right -70px;}
+@-moz-document url-prefix(){.sms-code-button input,.sms-sixty-second input { padding-bottom:2px; height:33px;}}
+.sms-code-button:hover{text-decoration:none; background-position:0 -105px;}
+.sms-code-button:hover input{background-position:right -105px;}
+.sms-sixty-second{background-position:0 -140px;}
+.sms-sixty-second input{background-position:right -140px;}
+.sms-sixty-second:hover{background-position:0 -140px;}
+.sms-sixty-second:hover input{background-position:right -140px;}
+.sms-checking-code{display:inline-block; margin-left:5px; width:100px; height:32px; border:1px solid #ddd; vertical-align:middle;}
+.sms-binding-button{display:inline-block; margin-right:1px; width:211px; height:38px; background:url(http://www.dhresource.com/dhs/mos/image/public/btybtn.png) no-repeat 0 0;}
+.sms-binding-button input{display:inline-block; margin-left:1px; width:211px; height:38px; line-height:36px; font-size:14px; color:#b25706; font-weight:700; cursor:pointer; border:none 0; background:none; background:url(http://www.dhresource.com/dhs/mos/image/public/btybtn.png) no-repeat right 0;}
+.sms-binding-button:hover{text-decoration:none; background-position:0 -38px;}
+.sms-binding-button:hover input{background-position:right -38px;}
+.sms-erroe-tip1{display:inline-block; padding:0 10px; width:170px; height:32px; border:1px solid #f7acac; background:#feeeee; vertical-align:middle;}
+.sms-erroe-tip1 span{display:inline-block; overflow:hidden; padding-left:20px; height:32px; line-height:31px; *line-height:35px; _line-height:32px; background:url(http://www.dhresource.com/dhs/mos/image/public/tip-error.png) no-repeat 0 center;}
+
+.sms-serve-wrap{margin:0 10px; padding:20px 0 15px; font-family:microsoft yahei,\5b8b\4f53; background:#f7f7f7;}
+.sms-serve-title{margin-bottom:20px; font-size:14px; font-weight:700; text-align:center;}
+.sms-serve-con{padding-left:40px;}
+.sms-serve-main{float:left; margin:0 20px 20px 0; padding:30px 0 20px 30px; width:300px; border:1px solid #eee; background:#fff;}
+.sms-serve-main dl{padding-left:80px; background:url(http://www.dhresource.com/dhs/mos/image/sms/serve-bg1.png) no-repeat 0 0;}
+.sms-serve-main dl.sms-serve-list2{background:url(http://www.dhresource.com/dhs/mos/image/sms/serve-bg2.png) no-repeat 0 0;}
+.sms-serve-main dl.sms-serve-list3{background:url(http://www.dhresource.com/dhs/mos/image/sms/serve-bg3.png) no-repeat 0 0;}
+.sms-serve-main dl.sms-serve-list4{background:url(http://www.dhresource.com/dhs/mos/image/sms/serve-bg4.png) no-repeat 0 0;}
+.sms-serve-main dl dt{margin-bottom:15px; font-weight:700; font-size:14px;}
+.sms-serve-main dl dd{margin-bottom:5px; padding-left:15px; background:url(http://www.dhresource.com/dhs/mos/image/sms/tick.png) no-repeat 0 center;}
+.sms-serve-h1{height:105px;}
+.sms-serve-h2{height:197px;}
+
+.sms-binding-success{padding:15px 10px;}
+.sms-success-title{padding-top:1px; border-top:1px solid #e5e5e5; border-bottom:1px solid #e6e6e6;}
+.sms-success-title ul{background:#f0f0f0;}
+.sms-success-title ul li{float:left; padding:8px 0 5px 15px; font-weight:700; color:#000;}
+.sms-success-w1{width:260px;}
+.sms-success-w2{width:145px;}
+
+/*表格 开始*/
+.sms-success-list{margin-bottom:20px;}
+#right .sms-success-list table th{overflow:hidden; padding:6px 0 5px 15px; text-align:left; border-bottom:1px solid #ccc; background:url(http://www.dhresource.com/dhs/mos/image/public/th_bg.png) repeat-x 0 0;}
+#right .sms-success-list table td{padding:8px 0 8px 15px; text-align:left; border-bottom:1px solid #e6e6e6;}
+#right .sms-success-list table td p{padding:0; background:none;}
+.sms-tick-icon{display:inline-block; width:16px; height:16px; background:url(http://www.dhresource.com/dhs/mos/image/public/tip-icon04.gif) no-repeat;}
+#right .sms-success-list table td p.sms-subscription-p{padding-bottom:10px;}
+#right .sms-success-list table td p.sms-subscription-p select{margin:0 2px; vertical-align:middle;}
+#right .sms-success-list table td span.sms-subscript-span{display:block; margin-bottom:8px; color:#444;}
+#right .sms-success-list table td span.sms-result-time{margin:0 2px; color:#444; vertical-align:middle;}
+#right .sms-success-list table td span.sms-m-b{margin-bottom:0;}
+#right .sms-success-list table td p.sms-p-l40{padding-left:40px;}
+#right .sms-success-list table td .yellowbutton1 span{color:#b25706;}
+#right .sms-success-list table td .yellowbutton1:hover span{color:#763800;}
+#right .sms-success-list table td .greybutton1 span{color:#444;}
+#right .sms-success-list table td .greybutton1:hover span{color:#000;}
+/*表格 结束*/
+
+/*我要退订弹层 开始*/
+.sms-unsubscribe-pop{position:absolute; z-index:999;}
+.sms-unsubscribe-pop iframe{display:none; _display:block; position:absolute; top:0; left:0; z-index:-2; width:185px; height:98px; border:0; filter:alpha(opacity="0"); opacity:0;}
+.sms-pop-inner{padding:10px 15px; width:180px; border:1px solid #efd392; background:#ffffe5;}
+.sms-pop-inner strong{color:#fb5501;}
+.sms-pop-inner p{padding:5px 0 10px;}
+.sms-pop-arrow{position:absolute; top:-5px; left:105px; width:11px; height:6px; background:url(http://www.dhresource.com/dhs/mos/image/public/seller-arrow.png) no-repeat 0 -48px;}
+.sms-pop-shadow{position:absolute; top:2px; left:2px; width:212px; height:96px; background:#e5e5e5; z-index:-1;}
+.sms-pop-close{position:absolute; top:5px; right:5px; overflow:hidden; width:11px; height:11px; background:url(http://www.dhresource.com/dhs/mos/image/public/seller-arrow.png) no-repeat 0 0;}
+.sms-pop-close:hover{background-position:0 -12px;}
+/*我要退订弹层 结束*/

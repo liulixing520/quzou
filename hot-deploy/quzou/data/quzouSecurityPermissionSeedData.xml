@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the quzou Component." permissionId="QUZOU_VIEW"/>
+    <SecurityPermission description="Create operations in the quzou Component." permissionId="QUZOU_CREATE"/>
+    <SecurityPermission description="Update operations in the quzou Component." permissionId="QUZOU_UPDATE"/>
+    <SecurityPermission description="Delete operations in the quzou Component." permissionId="QUZOU_DELETE"/>
+    <SecurityPermission description="ALL operations in the quzou Component." permissionId="QUZOU_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="QUZOU_ADMIN"/>
+
+</entity-engine-xml>

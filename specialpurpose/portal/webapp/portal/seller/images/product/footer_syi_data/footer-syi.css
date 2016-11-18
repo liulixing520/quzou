@@ -1,0 +1,42 @@
+﻿#footer p img {display:inline; float:none;}
+#footer{  padding-top:15px;}
+#foot{margin-bottom:12px; height:100%; overflow:hidden;}
+#foot i,#foot b,#foot #con{ height:40px; float:left}
+#foot i,#foot b{ display:block; width:3px}
+#foot i{ background:url(http://image.dhgate.com/2009/homepage/images/foot_2.gif) no-repeat}
+#foot b{ background:url(http://image.dhgate.com/2009/homepage/images/foot_1.gif) no-repeat}
+#foot #con{ background:url(http://image.dhgate.com/2009/homepage/images/foot_3.gif) repeat-x; width:944px; text-align:center; padding:6px 0 12px 0; overflow:hidden; height:22px}
+#foot #con *{vertical-align:middle}
+#foot #con span{ font:bold 14px/26px Arial, Helvetica, sans-serif; color:#6D6D71}
+#foot #con select{ width:200px; margin:0 10px}
+#foot #con input { padding:1px 0;}
+#foot #con input.sr{ width:300px;}
+#foot #con input.go{ background:url(http://image.dhgate.com/images/newhome/inputbg.gif) no-repeat; width:36px; height:26px; border:0; margin:0 10px}
+
+.foot_help{margin-bottom:12px; clear:both; overflow:hidden; padding-top:7px; background:url(http://image.dhgate.com/images/newhome/foot_help_tbg.gif) no-repeat top;}
+.foot_help_bor h2 ,.foot_help_bor h3{font:bold 13px/23px Arial, Helvetica, sans-serif; padding:4px 20px 8px 20px;}
+.foot_help_bor p{line-height:23px; padding:0 20px;}
+.foot_help_bor{border:solid 1px #DBDBDB; border-width:0 1px; overflow:hidden; height:100%; padding:8px 0;}
+.foot_help_bor dl{float:left; width:215px; padding-left:20px; display:inline;}
+.foot_help_bor dl.last{margin-left:30px; width:180px;}
+.foot_help_bor dl dt,.foot_help_bor dl dd{height:21px; line-height:21px;}
+.foot_help_bor dl dt{font-size:14px; font-weight:700; padding-bottom:3px;}
+.foot_help_bor dl dd{padding-left:16px; background:url(http://image.dhgate.com/images/newhome/foot_help_bg.gif) no-repeat 1px center; white-space:nowrap;}
+.foot_help span.foot_help_bot{height:7px; overflow:hidden; display:block; background:url(http://image.dhgate.com/images/newhome/foot_help_bbg.gif) no-repeat top;}
+#bottom_nav p{font-size:11px; text-align:center; padding:3px 0; line-height:20px; color:#000;}
+#bottom_nav p img{margin-top:20px;}
+#bottom_nav p a{margin:0 5px; color:#000;}
+#bottom_nav p a:hover{color:#900;}
+#bottom_nav{position:relative;}
+#bottom_nav span.verisign{ position:absolute; top:58px; right:230px;}
+#bottom_nav p.alphabet{font-size:9px;}
+#bottom_nav p.alphabet a{margin:0 1px;}
+
+* {	margin: 0; padding:0;}
+body{ font:12px/22px Arial, Helvetica, sans-serif; color:#444;}
+#footer{width:100%; padding-top:15px; text-align:center; border-top:solid 1px #D7D7D7}
+#footer a{ color:#444; text-decoration:none; margin:0 6px; display:inline;}
+#footer a:hover{ color:#900;}
+#footer p.p1{ font-size:11px;}
+
+

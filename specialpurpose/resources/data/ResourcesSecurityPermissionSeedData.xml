@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the Resources Component." permissionId="RESOURCES_VIEW"/>
+    <SecurityPermission description="Create operations in the Resources Component." permissionId="RESOURCES_CREATE"/>
+    <SecurityPermission description="Update operations in the Resources Component." permissionId="RESOURCES_UPDATE"/>
+    <SecurityPermission description="Delete operations in the Resources Component." permissionId="RESOURCES_DELETE"/>
+    <SecurityPermission description="ALL operations in the Resources Component." permissionId="RESOURCES_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="RESOURCES_ADMIN"/>
+
+</entity-engine-xml>

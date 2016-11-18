@@ -1,0 +1,27 @@
+#content {
+	background-color: rgb(255, 255, 255);
+}
+#content {
+	background: linear-gradient(rgb(241, 217, 200), rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255));
+}
+#hd .layout {
+	background-color: rgb(255, 255, 255);
+}
+#bd {
+	background-color: rgb(255, 255, 255);
+}
+.ui-box-wrap .ui-box-title {
+	background-color: rgb(245, 210, 210);
+}
+.m-sop-shop-nav {
+	background-color: rgb(174, 58, 53);
+}
+.m-sop-discount {
+	background-color: rgba(251, 233, 233, 0.3);
+}
+.m-sop-custom h3 {
+	background-color: rgb(245, 210, 210);
+}
+.ae-m-sop-seller-coupon h2 {
+	background-color: rgb(245, 210, 210);
+}

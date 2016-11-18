@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <description>Module Configuration File</description>
+    
+    <handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler"/>
+    <handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler"/>
+
+    <firstvisit></firstvisit>
+
+    <!-- Request Mappings -->
+    <request-map uri="search">
+		<description>商品搜索页面</description>
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="search"/>
+    </request-map>
+    <request-map uri="category">
+		<description>商品分类页面</description>
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="category"/>
+    </request-map>
+    <request-map uri="categoryProdType">
+		<description>分类下子商品类型</description>
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="categoryProdType"/>
+    </request-map>
+	
+    <request-map uri="register">
+		<description>注册页面</description>
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="register"/>
+    </request-map>
+	<request-map uri="register2">
+		<description>注册页面</description>
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="register2"/>
+    </request-map>
+	<request-map uri="registerValid">
+        <security https="false" auth="false"/>
+        <event type="java" path="com.mobileStore.common.CommonEvents" invoke="registerValid"/>
+        <response name="success" type="request" value="json"/>
+        <response name="error" type="request" value="json"/>
+    </request-map>
+	<request-map uri="registerMobileValid">
+		<description>注册页面手机验证</description>
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="registerMobileValid"/>
+    </request-map>
+    <request-map uri="sendSmsCode">
+        <security https="false" auth="false"/>
+        <event type="java" path="com.mobileStore.common.CommonEvents" invoke="sendSmsCode"/>
+        <response name="success" type="request" value="json"/>
+        <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="validSmsCode">
+        <security https="false" auth="false"/>
+        <event type="java" path="com.mobileStore.common.CommonEvents" invoke="validSmsCode"/>
+        <response name="success" type="request" value="createcustomer"/>
+    	<response name="error" type="request" value="json"/>
+    </request-map>
+	<request-map uri="createcustomer">
+        <security https="false" auth="false"/>
+        <!--<event type="simple" path="component://mobileStore/script/org/ofbiz/ebiz/customer/CustomerEvents.xml" invoke="createCustomer"/>-->
+		<event type="java" path="com.mobileStore.common.CommonEvents" invoke="createcustomer"/>
+        <response name="success" type="request" value="json"/>
+    	<response name="error" type="request" value="json"/>
+	</request-map>
+	
+    <request-map uri="findPassword">
+		<description>找回密码</description>
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="findPassword"/>
+    </request-map>
+	
+    <request-map uri="productDetail">
+		<description>单品页</description>
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="productDetail"/>
+    </request-map>
+    <request-map uri="productInfo">
+		<description>商品描述页面</description>
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="productInfo"/>
+    </request-map>
+    <request-map uri="productReviews">
+		<description>购买评价</description>
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="productReviews"/>
+    </request-map>
+    <request-map uri="shoppingCart">
+		<description>购物车页面</description>
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="shoppingCart"/>
+    </request-map>
+    <request-map uri="shippingAddressMgr">
+		<description>收货地址维护</description>
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="shippingAddressMgr"/>
+    </request-map>
+    <request-map uri="shippingAddressEdit">
+		<description>收货地址编辑</description>
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="shippingAddressEdit"/>
+    </request-map>
+    <request-map uri="shippingAddressCU">
+		<description>收货地址保存</description>
+        <security https="false" auth="true"/>
+		<event type="java" path="com.mobileStore.order.OrderEvents" invoke="shippingAddressCU" />
+        <response name="success" type="request" value="prodsSettlement"/>
+        <response name="error" type="request" value="shippingAddressEdit"/>
+    </request-map>
+	
+    <request-map uri="memberCenter">
+		<description>会员中心</description>
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="memberCenter"/>
+    </request-map>
+    <request-map uri="myOrders">
+		<description>订单管理</description>
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="myOrders"/>
+    </request-map>
+    <request-map uri="orderDetail">
+		<description>订单详情</description>
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="orderDetail"/>
+    </request-map>
+	
+    <request-map uri="orderAfterService">
+		<description>订单售后页面</description>
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="orderAfterService"/>
+    </request-map>
+    <request-map uri="afterServiceDetail">
+		<description>售后申请页面</description>
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="afterServiceDetail"/>
+    </request-map>
+    <request-map uri="afterServiceSuccess">
+		<description>售后申请成功</description>
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="afterServiceSuccess"/>
+    </request-map>
+    <request-map uri="afterServiceProgress">
+		<description>售后处理进度</description>
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="afterServiceProgress"/>
+    </request-map>
+    <request-map uri="afterServiceProgressDetail">
+		<description>进度明细</description>
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="afterServiceProgressDetail"/>
+    </request-map>
+	
+    <request-map uri="prodsSettlement">
+		<description>结算</description>
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="prodsSettlement"/>
+    </request-map>
+    <request-map uri="orderPayment">
+		<description>支付订单</description>
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="orderPayment"/>
+    </request-map>
+    <request-map uri="orderFailure">
+		<description>订单失败</description>
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="orderFailure"/>
+    </request-map>
+
+	<request-map uri="orderCancel">
+		<security https="false" auth="true"/>
+		<event type="java" path="com.mobileStore.order.OrderEvents" invoke="orderCancel" />
+		<response name="success" type="request" value="myOrders" />
+	</request-map>
+    <request-map uri="searchSuggestion">
+        <security https="false" auth="false"/>
+		<event type="java" path="com.mobileStore.product.ProductEvents" invoke="searchSuggestion"></event>
+        <response name="success" type="request" value="json"/>
+    </request-map>
+    <request-map uri="AjaxFilterProdList">
+        <security https="false" auth="false"/>
+		<event type="java" path="com.mobileStore.product.ProductEvents" invoke="AjaxFilterProdsList"></event>
+        <response name="success" type="view" value="AjaxFilterProdListReturn"/>
+        <response name="error" type="view" value="AjaxFilterWithLostData"/>
+    </request-map>
+	<request-map uri="addItemToCart">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.order.shoppingcart.MultiShoppingCartEvents" invoke="addToCart"/>
+        <response name="success" type="request" value="json"/>
+        <response name="error" type="request" value="json"/>
+        <response name="product" type="request" value="json"/>
+    </request-map>
+	<request-map uri="orderFromProdDetail">
+        <security https="false" auth="false"/>
+        <event type="java" path="com.mobileStore.product.ProductEvents" invoke="quickOrderInfo"/>
+        <response name="shipInfo" type="request-redirect" value="shippingAddressMgr"/>
+        <response name="prodsSettlement" type="request-redirect" value="prodsSettlement"/>
+        <response name="error" type="request" value="errorPage"/>
+	</request-map>
+	<request-map uri="checkoutCart">
+        <security https="false" auth="false"/>
+        <event type="java" path="com.mobileStore.product.ProductEvents" invoke="checkoutCart"/>
+        <response name="shipInfo" type="request-redirect" value="shippingAddressMgr"/>
+        <response name="success" type="request-redirect" value="prodsSettlement"/>
+        <response name="error" type="request" value="errorPage"/>
+	</request-map>
+	<request-map uri="modifyProductQuantity">
+		<security https="false" auth="false"/>
+		<event type="java" path="com.mobileStore.product.ProductEvents" invoke="modifyProductQuantity" />
+		<response name="success" type="request-redirect-noparam" value="shoppingCart" />
+	</request-map>
+	<request-map uri="modifyProductQuantityII">
+		<security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.order.shoppingcart.MultiShoppingCartEvents" invoke="modifyCart"/>
+		<response name="success" type="request-redirect-noparam" value="shoppingCart" />
+	</request-map>
+	<request-map uri="removeCartItem">
+		<security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.order.shoppingcart.MultiShoppingCartEvents" invoke="deleteFromCart"/>
+		<response name="success" type="request-redirect-noparam" value="shoppingCart" />
+	</request-map>
+	
+	<request-map uri="setDefaultContactMechId">
+    	<security https="false" auth="false"/>
+        <event type="java" path="com.mobileStore.product.ProductEvents" invoke="setDefaultContactMechId"/>
+        <response name="success" type="request-redirect" value="prodsSettlement"/>
+        <response name="error" type="request" value="errorPage"/>
+	</request-map>
+	
+	<request-map uri="createOrderFromMobile">
+    	<security https="false" auth="false"/>
+        <event type="java" path="com.mobileStore.checkout.MobileCheckOutEvents" invoke="prapareOoderOptions"/>
+        <response name="success" type="request" value="quickOrderChainCalcShipping"/>
+        <response name="cartSuccess" type="request" value="cartOrderChainCalcShipping"/>
+        <response name="shipAdrrNotFound" type="request" value="shippingAddressMgr"/>
+        <response name="productLost" type="request" value="main"/>
+        <response name="error" type="request" value="orderFailure"/>
+	</request-map>	
+	<!--商品快速下单-->
+	<request-map uri="quickOrderChainCalcShipping">
+        <security direct-request="false"/>
+        <!--<event type="java" path="org.ofbiz.order.shoppingcart.shipping.MultiShippingEvents" invoke="getShipEstimate"/>-->
+        <event type="java" path="com.mobileStore.checkout.MobileCheckOutEvents" invoke="getShipEstimate"/>
+        <response name="success" type="request" value="quickOrderChainCalcTax"/>
+        <response name="error" type="request" value="orderFailure"/>
+    </request-map>
+    <request-map uri="quickOrderChainCalcTax">
+        <security direct-request="false"/>
+        <!--<event type="java" path="org.ofbiz.order.shoppingcart.MultiCheckOutEvents" invoke="calcTax"/>-->
+        <event type="java" path="com.mobileStore.checkout.MobileCheckOutEvents" invoke="calcTax"/>
+        <response name="success" type="request" value="quickOrderCreate"/>
+        <response name="error" type="request" value="orderFailure"/>
+    </request-map>
+    
+    <request-map uri="quickOrderCreate">
+        <security https="false" auth="false"/>
+        <!--<event type="java" path="org.ofbiz.order.shoppingcart.MultiCheckOutEvents" invoke="createOrder"/>-->
+        <event type="java" path="com.mobileStore.checkout.MobileCheckOutEvents" invoke="createOrder"/>
+        <response name="success" type="request" value="orderPayment"/>
+        <response name="error" type="request" value="orderFailure"/>
+    </request-map>
+	<!--购物车结算-->
+	<request-map uri="cartOrderChainCalcShipping">
+        <security direct-request="false"/>
+        <event type="java" path="org.ofbiz.order.shoppingcart.shipping.MultiShippingEvents" invoke="getShipEstimate"/>
+        <response name="success" type="request" value="cartOrderChainCalcTax"/>
+        <response name="error" type="request" value="orderFailure"/>
+    </request-map>
+    <request-map uri="cartOrderChainCalcTax">
+        <security direct-request="false"/>
+        <event type="java" path="org.ofbiz.order.shoppingcart.MultiCheckOutEvents" invoke="calcTax"/>
+        <response name="success" type="request" value="cartOrderCreate"/>
+        <response name="error" type="request" value="orderFailure"/>
+    </request-map>
+    <request-map uri="cartOrderCreate">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.order.shoppingcart.MultiCheckOutEvents" invoke="createOrder"/>
+        <response name="success" type="request" value="clearcartfororder"/>
+        <response name="error" type="request" value="orderFailure"/>
+    </request-map>
+    <request-map uri="clearcartfororder">
+    	<security  https="false" />
+        <event type="java" path="org.ofbiz.order.shoppingcart.MultiShoppingCartEvents" invoke="clearCart"/>
+        <response name="success" type="request" value="orderPayment"/>
+        <response name="error" type="request" value="orderFailure"/>
+    </request-map>
+	<!--支付-->
+	
+	<request-map uri="payOrder">
+		<security https="false" />
+		<event type="java" path="com.mobileStore.checkout.MobileCheckOutEvents" invoke="paySingleOrder" />
+		<response name="success" type="request" value="callAlipay" />
+		<response name="error" type="request" value="myOrders" />
+	</request-map>
+	<request-map uri="paymentOrders">
+		<security https="false" />
+		<event type="java" path="com.mobileStore.checkout.MobileCheckOutEvents" invoke="checkExternalPayment_" />
+		<response name="success" type="request" value="callAlipay" />
+		<response name="alipay" type="request" value="callAlipay" />
+		<response name="abcpay" type="request" value="callAbcPay" />
+		<response name="cod" type="view" value="alipayReturn" />
+		<response name="error" type="view" value="congratulation" />
+		<response name="abcpay_reverse" type="request" value="callAbcEpayReversePay" />
+	</request-map>
+	<request-map uri="callAlipay">
+		<security https="false" />
+		<event type="java" path="com.alipay.AlipayEvents" invoke="callAlipay" />
+		<response name="success" type="none" />
+		<response name="error" type="request" value="myOrders" />
+	</request-map>
+	<request-map uri="alipayNotify">
+		<security https="false" />
+		<event type="java" path="com.alipay.AlipayEvents" invoke="alipayNotify" />
+		<response name="success" type="view" value="alipayNotify" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="alipayReturn">
+		<security https="false" />
+		<event type="java" path="com.alipay.AlipayEvents" invoke="alipayReturn" />
+		<response name="success" type="view" value="alipayReturn" />
+		<response name="error" type="none" />
+	</request-map>
+	
+    <view-map name="search" type="screen" page="component://mobileStore/widget/MobileScreens.xml#search"/>
+    <view-map name="category" type="screen" page="component://mobileStore/widget/MobileScreens.xml#category"/>
+    <view-map name="categoryProdType" type="screen" page="component://mobileStore/widget/MobileScreens.xml#categoryProdType"/>
+    <view-map name="register" type="screen" page="component://mobileStore/widget/MobileScreens.xml#register"/>
+    <view-map name="register2" type="screen" page="component://mobileStore/widget/MobileScreens.xml#register2"/>
+    <view-map name="registerMobileValid" type="screen" page="component://mobileStore/widget/MobileScreens.xml#registerMobileValid"/>
+    <view-map name="loginPage" type="screen" page="component://mobileStore/widget/MobileScreens.xml#loginPage"/>
+    <view-map name="productDetail" type="screen" page="component://mobileStore/widget/MobileScreens.xml#productDetail"/>
+    <view-map name="productReviews" type="screen" page="component://mobileStore/widget/MobileScreens.xml#productReviews"/>
+    <view-map name="findPassword" type="screen" page="component://mobileStore/widget/MobileScreens.xml#findPassword"/>
+    <view-map name="productInfo" type="screen" page="component://mobileStore/widget/MobileScreens.xml#productInfo"/>
+    <view-map name="shoppingCart" type="screen" page="component://mobileStore/widget/MobileScreens.xml#shoppingCart"/>
+    <view-map name="shippingAddressMgr" type="screen" page="component://mobileStore/widget/MobileScreens.xml#shippingAddressMgr"/>
+    <view-map name="shippingAddressEdit" type="screen" page="component://mobileStore/widget/MobileScreens.xml#shippingAddressEdit"/>
+
+	<view-map name="memberCenter" type="screen" page="component://mobileStore/widget/MobileScreens.xml#memberCenter"/>
+	<view-map name="myOrders" type="screen" page="component://mobileStore/widget/MobileScreens.xml#myOrders"/>
+	<view-map name="orderDetail" type="screen" page="component://mobileStore/widget/MobileScreens.xml#orderDetail"/>
+    
+	<view-map name="orderAfterService" type="screen" page="component://mobileStore/widget/MobileScreens.xml#orderAfterService"/>
+    <view-map name="afterServiceDetail" type="screen" page="component://mobileStore/widget/MobileScreens.xml#afterServiceDetail"/>
+    <view-map name="afterServiceSuccess" type="screen" page="component://mobileStore/widget/MobileScreens.xml#afterServiceSuccess"/>
+    <view-map name="afterServiceProgress" type="screen" page="component://mobileStore/widget/MobileScreens.xml#afterServiceProgress"/>
+    <view-map name="afterServiceProgressDetail" type="screen" page="component://mobileStore/widget/MobileScreens.xml#afterServiceProgressDetail"/>
+
+	<view-map name="prodsSettlement" type="screen" page="component://mobileStore/widget/MobileScreens.xml#prodsSettlement"/>
+	<view-map name="orderPayment" type="screen" page="component://mobileStore/widget/MobileScreens.xml#orderPayment"/>
+	<view-map name="orderFailure" type="screen" page="component://mobileStore/widget/MobileScreens.xml#orderFailure"/>
+	
+	<view-map name="AjaxFilterProdListReturn" type="screen" page="component://mobileStore/widget/MobileScreens.xml#AjaxFilterProdListReturn"/>
+	<view-map name="AjaxFilterWithLostData" type="screen" page="component://mobileStore/widget/MobileScreens.xml#AjaxFilterWithLostData"/>
+
+    <view-map name="orderview" type="screen" page="component://order/widget/ordermgr/MobileScreens.xml#OrderHeaderView"/>
+
+	<!-- end of view mappings -->
+</site-conf>

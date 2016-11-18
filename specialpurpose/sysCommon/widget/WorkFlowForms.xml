@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
+
+	<form name="FindWorkFlow" type="single" style="pageForm"
+		default-table-style="searchContent" target="FindWorkFlow"
+		default-entity-name="WorkflowProcess">
+		<field name="packageName" title="流程名称" position="1">
+			<text-find hide-options="true" />
+		</field>
+
+	</form>
+	<form name="ListWorkFlow" type="list" list-name="listIt"
+		group-columns="false" paginate-target="FindWorkFlow"
+		default-entity-name="WorkflowProcess" paginate-style="panelBar"
+		default-table-style="basic-table hover-bar">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="WorkflowProcess" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="CommSeq" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+
+		<field name="packageId" sort-field="true" title="流程ID">
+			<display />
+		</field>
+
+		<field name="objectName" sort-field="true" title="流程名称">
+			<display />
+		</field>
+
+		<field name="view" title="查看"
+			use-when="${groovy:security.hasEntityPermission(&quot;WorkFlow&quot;, &quot;_VIEW&quot;, session);}"
+			widget-style="btnView">
+			<hyperlink also-hidden="false" 
+				description="查看" target="EditWorkFlow">
+				<parameter param-name="packageId" from-field="packageId" />
+				<parameter param-name="processId" from-field="processId" />
+				<parameter param-name="packageVersion" from-field="packageVersion" />
+				<parameter param-name="processVersion" from-field="processVersion" />
+				<parameter param-name="oper" value="view" />
+			</hyperlink>
+		</field>
+		<field name="editParticipant" title="编辑参与者"
+			use-when="${groovy:security.hasEntityPermission(&quot;WorkFlow&quot;, &quot;_UPDATE&quot;, session);}"
+			widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="编辑" target="FindWorkflowParticipant">
+				<parameter param-name="packageId" from-field="packageId" />
+				<parameter param-name="processId" from-field="processId" />
+				<parameter param-name="packageVersion" from-field="packageVersion" />
+				<parameter param-name="processVersion" from-field="processVersion" />
+			</hyperlink>
+		</field>
+		<field name="edit" title="编辑"
+			use-when="${groovy:security.hasEntityPermission(&quot;WorkFlow&quot;, &quot;_UPDATE&quot;, session);}"
+			widget-style="btnEdit">
+			<hyperlink also-hidden="false" 
+				description="编辑" target="EditWorkFlow">
+				<parameter param-name="packageId" from-field="packageId" />
+				<parameter param-name="processId" from-field="processId" />
+				<parameter param-name="packageVersion" from-field="packageVersion" />
+				<parameter param-name="processVersion" from-field="processVersion" />
+			</hyperlink>
+		</field>
+
+	</form>
+
+
+	<form name="FindWorkflowParticipant" type="single" style="pageForm"
+		default-table-style="searchContent" target="FindWorkflowParticipant"
+		default-entity-name="WorkflowParticipant">
+		<field name="participantName" widget-style="" title="参与者名称"
+			position="5">
+			<text-find hide-options="true" />
+		</field>
+	</form>
+	<form name="ListWorkflowParticipant" type="list" list-name="listIt"
+		group-columns="false" paginate-target="FindWorkflowParticipant"
+		default-entity-name="WorkflowParticipant" paginate-style="panelBar"
+		default-table-style="basic-table hover-bar">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="WorkflowParticipant" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="CommSeq" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+		<field name="ids" widget-area-style="groupAll" id-name="groupAll"
+			title=" ">
+			<check>
+				<option key="${participantId}" />
+			</check>
+		</field>
+		<field name="participantName" sort-field="true" title="参与者名称">
+			<display />
+		</field>
+		<field name="roleTypeId" sort-field="true" title="角色">
+			<display-entity entity-name="RoleType" key-field-name="roleTypeId"
+				description="${description}" />
+		</field>
+		<field name="description" sort-field="true" title="描述">
+			<display />
+		</field>
+
+		<field name="participantTypeId" title="参与者类型">
+			<display-entity entity-name="WorkflowParticipantType"
+				key-field-name="participantTypeId" description="${description}" />
+		</field>
+		<field name="view" title="查看"
+			use-when="${groovy:security.hasEntityPermission(&quot;WorkflowParticipant&quot;, &quot;_VIEW&quot;, session);}"
+			widget-style="btnView">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="查看" target="EditWorkflowParticipant">
+				<parameter param-name="participantId" />
+				<parameter param-name="oper" value="view" />
+			</hyperlink>
+		</field>
+		<field name="edit" title="编辑" widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="编辑" target="EditWorkflowParticipant">
+				<parameter param-name="participantId" />
+				<parameter param-name="packageId" from-field="packageId" />
+				<parameter param-name="processId" from-field="processId" />
+				<parameter param-name="packageVersion" from-field="packageVersion" />
+				<parameter param-name="processVersion" from-field="processVersion" />
+			</hyperlink>
+		</field>
+		<field name="delete" title="删除" widget-style="btnDel">
+			<hyperlink also-hidden="false" 
+				target-type="plain" description="删除" target="javascript:deleteForms('deleteWorkflowParticipant">
+				<parameter param-name="participantId" />
+			</hyperlink>
+		</field>
+	</form>
+	<form name="EditWorkflowParticipant" type='single' style="single_table"
+		default-table-style="basic-table" target-type="plain" target="updateWorkflowParticipant"
+		default-map-name="entity" default-entity-name="WorkflowParticipant">
+		<alt-target use-when="entity==null" target="createWorkflowParticipant" />
+		<field name="participantId">
+			<hidden />
+		</field>
+		<field name="packageId">
+			<hidden />
+		</field>
+		<field name="packageVersion">
+			<hidden />
+		</field>
+		<field name="processId">
+			<hidden />
+		</field>
+		<field name="processVersion">
+			<hidden />
+		</field>
+		<field name="navTabId">
+			<hidden value="FindWorkflowParticipant" />
+		</field>
+		<field name="callbackType">
+			<hidden value="closeCurrent" />
+		</field>
+		<field name="participantName"
+			use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"
+			widget-style="" title="参与者名称">
+			<text disabled="true" />
+		</field>
+		<field name="participantName" use-when="${groovy:oper==null}"
+			widget-style="" title="参与者名称">
+			<text />
+		</field>
+		<field name="roleTypeId"
+			use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"
+			widget-style="" title="roleTypeId">
+			<text disabled="true" />
+		</field>
+		<field name="roleTypeId" use-when="${groovy:oper==null}"
+			widget-style="" title="roleTypeId">
+			<drop-down text-size="30">
+				<entity-options description="${description}"
+					entity-name="RoleType" key-field-name="roleTypeId"></entity-options>
+			</drop-down>
+		</field>
+		<field name="description"
+			use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"
+			widget-style="" title="描述">
+			<text disabled="true" />
+		</field>
+		<field name="description" use-when="${groovy:oper==null}"
+			widget-style="" title="描述">
+			<text />
+		</field>
+
+		<field name="participantTypeId"
+			use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"
+			widget-style=" " title="参与者类型">
+			<text disabled="true" />
+		</field>
+		<field name="participantTypeId" use-when="${groovy:oper==null}"
+			widget-style="" title="参与者类型">
+			<drop-down text-size="30">
+				<entity-options description="${description}"
+					entity-name="WorkflowParticipantType" key-field-name="participantTypeId"></entity-options>
+			</drop-down>
+		</field>
+	</form>
+
+</forms>

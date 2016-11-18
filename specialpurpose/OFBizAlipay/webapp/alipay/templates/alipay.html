@@ -1,0 +1,27 @@
+<html>
+	<body onLoad="javascript:document.alipaysubmit.submit()">
+		<form name="alipaysubmit" method="post" target="_self" action="https://www.alipay.com/cooperate/gateway.do?_input_charset=utf-8">
+			<input type="hidden" name="body" value="${alipay.body!}">
+			<input type="hidden" name="notify_url" value="${alipay.notify_url!}">
+			<input type="hidden" name="out_trade_no" value="${alipay.out_trade_no!}">
+			<input type="hidden" name="partner" value="${alipay.partner!}">
+			<input type="hidden" name="payment_type" value="${alipay.payment_type!}">
+			<input type="hidden" name="seller_email" value="${alipay.seller_email!}">
+			<input type="hidden" name="service" value="${alipay.service!}">
+			<input type="hidden" name="sign" value="${alipay.sign!}">
+			<input type="hidden" name="sign_type" value="${alipay.sign_type!}">
+			<input type="hidden" name="subject" value="${alipay.subject!}">
+			<input type="hidden" name="total_fee" value="${(alipay.total_fee)?string('#######0.00')}">
+			<input type="hidden" name="show_url" value="${alipay.show_url!}">
+			<input type="hidden" name="return_url" value="${alipay.return_url!}">
+			<input type="hidden" name="paymethod" value="${alipay.paymethod!}">
+			<input type="hidden" name="it_b_pay" value="${alipay.it_b_pay!}">
+			<#if alipay.defaultbank??>
+			<input type="hidden" name="defaultbank" value="${alipay.defaultbank!}">
+			</#if>
+			<#if alipay.token??>
+			<input type="hidden" name="token" value="${alipay.token!}">
+			</#if>
+		</form>
+	</body>
+</html>

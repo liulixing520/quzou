@@ -1,0 +1,694 @@
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,lengend,button,input,textarea,th,td
+	{
+	margin: 0;
+	padding: 0;
+}
+.clearfix:after { content: " "; display: block;font-size:0;line-height:0; height: 0; clear: both; visibility: hidden;}
+.clearfix {display: block;zoom:1;}
+body,button,input,select,textarea {
+	font: 12px/ 1 Arial, Helvetica, sans-serif;
+}
+
+body,table,td,div,p {
+	word-wrap: break-word;
+}
+
+h1 {
+	font-size: 18px;
+}
+
+h2 {
+	font-size: 16px;
+}
+
+h3{ font-size:18px;margin:10px auto;}
+h4{font-size:13px;margin:10px auto;}
+address,cite,dfn,em,var {
+	font-style: normal;
+}
+
+code,kbd,pre,samp,tt {
+	font-family: "Courier New", Courier, monospace;
+}
+
+small {
+	font-size: 12px;
+}
+
+ul,ol {
+	list-style: none;
+}
+
+abbr[title],acronym[title] {
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
+q:before,q:after {
+	content: '';
+}
+
+legend {
+	color: #000;
+}
+
+fieldset,img {
+	border: none;
+}
+
+button,input,select,textarea {
+	font-size: 100%;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+hr {
+	border: none;
+	height: 1px;
+}
+
+a:link {
+	color: #039;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #969;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #f60;
+	text-decoration: underline;
+}
+
+a:link .underline {
+	text-decoration: underline !important;
+}
+
+a:visited .underline {
+	text-decoration: underline !important;
+}
+
+.l {
+	font-size: 1.7em;
+}
+
+.m {
+	font-size: 1.3em;
+}
+
+.s {
+	font: .85em verdana;
+}
+
+.remark {
+	color: #999;
+	font: 10px verdana;
+}
+
+.displayNone {
+	display: none;
+}
+
+input.remark {
+	padding: 4px 0;
+}
+
+input.hint {
+	color: #B2B2B2;
+}
+
+input.L {
+	font: bold 14px arial;
+	padding: 3px 17px;
+	width: auto;
+	overflow: visible;
+}
+
+input.buttonSkinA {
+	color: #5E2708;
+	background: #FEEEB1 url(/images/buyer_aliexpress/buttonSkinAL.gif)
+		bottom repeat-x !important;
+	border-top: 1px solid #F1921F !important;
+	border-left: 1px solid #F1921F !important;
+	border-right: 1px solid #C96315 !important;
+	border-bottom: 1px solid #C34B0E !important;
+	cursor : pointer;
+}
+
+
+.tabsH h3 a:link,.tabsH h3 a:visited,.tabsH h3 a:hover,.win h3 a:link,.win h3 a:visited,.win h3 a:hover,.title a:link,.title a:visited,.title a:hover
+	{
+	color: #000;
+	padding-right: 20px;
+	background: url(/images/buyer_aliexpress/sprites_common.gif)
+		100% -67px no-repeat;
+}
+
+.dashed {
+	height: 1px;
+	font-size: 0;
+	line-height: 0;
+	border-bottom: 1px dashed #ccc;
+	margin: 8px 0;
+}
+
+ul.narrow {
+	margin: 0 0 0 4px;
+	padding: 0;
+	list-style: none;
+	list-style-image: none;
+}
+
+
+
+.tables.mainReg {
+	font-family: Tahoma;
+}
+
+.tables.mainReg a {
+	color: #038EFA;
+	text-decoration: underline;
+}
+
+.tables.mainReg th {
+	text-align: right;
+	padding: 10px 0 10px 5px;
+	vertical-align: middle;
+	font-weight: bold;
+}
+
+.tables.mainReg td td td {
+	padding: 0;
+}
+
+.tables.mainReg td td {
+	padding: 0;
+}
+
+.tables.mainReg td {
+	padding: 10px 10px 5px 10px;
+	text-align: left;
+}
+
+.tables.mainReg td .required {
+	font-size: 11px;
+	float: right;
+	margin-top: -5px;
+}
+
+.tables.mainReg h2 {
+	color: #777;
+	padding: 16px 0 0 10px;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: -4px;
+}
+
+.tables.mainReg input,.tables.mainReg select,.tables.mainReg textarea {
+	border: 1px solid #ccc;
+	font-size: 14px;
+	padding: 4px !important;
+}
+
+.tables.mainReg td .remark {
+	font-size: 12px;
+}
+
+.tables.mainReg td .fieldErrorMsg {
+	border: 1px solid #fcc4c7;
+	width: 290px;
+	color: #d60107;
+	background: #fdf0f7
+		url(/images/buyer_aliexpress/sprites_common.gif) no-repeat
+		2px -518px;
+	padding: 1px 1px 1px 23px;
+	position: absolute;
+	left: 11px;
+	z-index: 98;
+	font-size: 13px;
+	line-height: 19px;
+}
+
+.tables.mainReg td .fieldError {
+	padding: 0;
+}
+
+.tables.mainReg td .fieldTipsMsg {
+	border: 1px solid #fec600;
+	width: 290px;
+	color: #666;
+	background: #fbf8e9
+		url(/images/buyer_aliexpress/sprites_common.gif) no-repeat
+		2px -2728px;
+	padding: 1px 1px 1px 23px;
+	position: absolute;
+	left: 11px;
+	z-index: 98;
+	font-size: 13px;
+	line-height: 19px;
+}
+
+.tables.mainReg td .fieldTips {
+	padding: 0;
+}
+
+.tables.mainReg th .alert {
+	color: #D60107;
+}
+
+body#popUp #header {
+	margin: 0 !important;
+	height: auto;
+	background-color: #efefef;
+	background-image: none;
+	width: auto;
+}
+
+body#popUp #page {
+	margin: 6px;
+}
+
+#header {
+	height: 78px;
+	background: #fff
+		url(/images/buyer_aliexpress/headCap.gif) repeat-x 0
+		-2px;
+}
+
+.header960 {
+	width: 960px;
+	margin: auto;
+}
+
+.header960 div {
+	font-size: 20px;
+	font-family: Arial;
+	font-weight: bold;
+	color: #f47b12;
+}
+
+#aliLogo {
+	float: left;
+	margin:12px 15px 0 0;
+	font: bold 10px verdana;
+}
+
+#footer {
+	clear: both;
+	padding: 10px 0 10px 0;
+	text-align: center;
+	border-top: 1px solid #ccc;
+	margin-top: 15px;
+	font: .85em/ 14px verdana;
+}
+
+#footer p {
+	margin: 0;
+	padding: 0;
+}
+
+#page960 {
+	margin: auto;
+	text-align: left;
+	min-width: 760px;
+	max-width: 960px;
+	width: 960px;
+}
+
+.header960 #headSearch {
+	position: absolute;
+	top: 35px;
+	right: 100px;
+	width: 482px;
+}
+
+.regFlow {
+	margin: 0 30px 0 0;
+	padding: 0 0 30px 0;
+	border: none;
+	border-top: dashed 1px #d5d5d5;
+}
+
+.regFlow legend {
+	margin: 0;
+	padding: 3px 5px 3px 0;
+	font: bold 15px Arial;
+	color: #999;
+	background: white;
+}
+
+.succ {
+	width: 20px;
+	height: 20px;
+	background:
+		url(/images/buyer_aliexpress/successB.gif)
+		no-repeat;
+}
+
+#provinceDiv {
+	display: block;
+	padding: 10px 0 0 0;
+}
+
+#regFlowEN {
+	display: inline;
+	float: left;
+	width: 725px;
+}
+
+#regLeads {
+	float: right;
+	display: inline;
+	margin: 20px 0 0 0;
+	padding: 0 0 0 15px;
+	background:
+		url(/images/buyer_aliexpress/free_website_split.gif)
+		no-repeat left top;
+}
+
+.benefitsWrap {
+	background: #f6f9fd;
+	padding: 10px 0 10px 0;
+	border: solid 1px #c4d3e5;
+	width: 210px;
+}
+
+#regLeads h4 {
+	margin: 0;
+	padding: 0 10px;
+	line-height: 24px;
+	font-size: 17px;
+	font-weight: bold;
+	font-family: Arial;
+	color: #000;
+}
+
+#regLeads em {
+	margin: 0 0 0 5px;
+	font-size: 20px;
+	color: #6da311;
+	font-weight: bold;
+}
+
+#regLeads dl {
+	margin: 0;
+	padding: 5px 5px 20px 5px;
+}
+
+#regLeads dl dd,#regLeads dl dt {
+	display: block;
+	margin: 0;
+	padding: 0;
+	font-family: 'Tahoma';
+	color: #000;
+}
+
+#regLeads dl dt {
+	padding: 0 0 0 5px;
+	font-size: 13px;
+}
+
+#regLeads dl dd {
+	padding: 15px 0 10px 20px;
+	height: 15px;
+	line-height: 15px;
+	font-size: 12px;
+	background:
+		url(/images/buyer_aliexpress/w_icon12.gif)
+		no-repeat 0 12px;
+}
+
+#regLeads dl dd strong {
+	color: #ff5800;
+}
+
+.welcomeField {
+	padding: 10px 0 25px 0;
+	margin: 0;
+}
+
+.welcomeField h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: Arial;
+	color: #f47b12;
+}
+
+.welcomeField p {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#bgmain {
+	background: transparent
+		url(/images/buyer_aliexpress/bgshu.gif)
+		no-repeat scroll 21px 0;
+	height: 250px;
+	margin: 40px auto;
+	vertical-align: middle;
+	padding: 35px 0;
+}
+
+
+#login-main {
+	
+	width: 325px;
+	margin: 0 25px;
+}
+
+#login-main #mainbox { border:1px solid #dfdfdf;background-color:#f5f5f5}
+
+#login-main input {
+	display: block;
+	_height:20px;
+}
+
+#login-main #mainbox {
+	padding:13px 10px 5px 25px;
+}
+#login-main #mainbox p,#login-sub p{ line-height:18px;}
+
+#login-main #login-iframe {
+	border: 0;
+	width: 290px;
+}
+
+#mainbox p {
+	line-height: 18px;
+}
+
+.clearfix:after { content: " "; display: block;font-size:0;line-height:0; height: 0; clear: both; visibility: hidden;}
+.clearfix {display: block;zoom:1;}
+*{margin: 0;padding: 0;font-family:Arial}
+    body, button, input, select, textarea {font: 13px/1.5em Arial, Helvetica, "\5b8b\4f53", sans-serif;}
+    button, input, select, textarea { font-size: 100%; }
+  
+    a:link{color:#06c;text-decoration:none;}
+    a:visited{color:#039;text-decoration:none;}
+    a:hover{color:#f60;text-decoration:underline;}
+    a:active{color:#f60;text-decoration:underline;}
+ 
+    .nocookie-wrapper{overflow:hidden;}
+    .nocookie-form-wrapper{width:210px;float:left}
+    
+    .error-form{width:215px;}
+    .error-form .board.errorA{line-height:18px;!important;}
+   
+    .board{margin-bottom:10px; margin-top:10px !important;}
+    .board.errorB{background:#fde8e9 url(/images/eng/style/icon/icon_error_bc.gif) no-repeat 12px 10px;border:1px solid #fac5c8;line-height:16px;padding:10px 5px 10px 35px;font-size:10px;font-family:verdana;}
+  	h3{ font-size:18px;margin:10px auto;}
+	h4{font-size:13px;margin:10px auto;}
+	
+
+#passport, #password {line-height:14px;}
+
+.joinLink{font:bold 15px/20px Arial;}
+.joinLink:link{color:#039;text-decoration:underline;}
+.joinLink:visited{color:#039;text-decoration:underline;}
+.joinLink:hover{color:#f60;text-decoration:underline;}
+
+#pPasswT{display:block;height:17px;outline:medium none;text-indent:-9999px;width:305px;background:url(/images/buyer_aliexpress/buyer_signin_feild_bg.gif) right 0 no-repeat;}
+
+#signInField { position:relative; float:right; width:304px; padding:0 1px; font:12px Arial; border: 1px solid #c1cee0; overflow:hidden;}
+#signInField form{ padding-left:15px; width:280px;}
+#signInField #signInField_bottom { width:304px; height:2px; overflow:hidden; background:url(/images/eng/style/css_images/signin_feild_bg.gif) no-repeat -4px -40px; }
+#signInField #signin_line_middle { width:304px; height:1px; overflow:hidden; background:url(/images/eng/style/css_images/signin_feild_bg.gif) no-repeat -7px -37px;  }
+
+#signInField h3{margin-left:15px;font-size:22px;font-weight:bold;border-bottom:1px solid #cccccc;width:270px;padding-left:5px; padding-top:15px; padding-bottom:15px;}
+#signInField label{display:block;font-family:Arial;font-size:12px;margin:5px 0 5px 0;}
+#signInField hr{width:80%;height:1px;margin:0 auto;text-align:center;color:#bac8d3;}
+
+#remember { margin:10px 0;padding:10px 0;border-top:dashed 1px #ccc;border-bottom:dashed 1px #ccc;}
+#remember div{ display:inline-block;padding:0 0 0 5px;margin:0;}
+#remember input{margin:10px 0 0 0;+margin:5px 0 0 0;}
+
+#remember span {color:#666;}
+#remember .tip { padding: 0px; +padding: 0px 0px 0px 5px; margin: 0px; width: 100%;}
+
+.forgetpw{padding:0;}
+
+.leadToReg{padding:10px 0;border-top:1px dashed #cccccc;margin:10px 20px;}
+.leadToReg h4{margin:0;padding:0 0 10px 0;font-size:18px;font-family:Arial;font-weight:normal;}
+
+.leadToReg h6{margin:0;padding:0 0 10px 0;font-family:Arial;font-weight:normal;font-size:12px;display:inline;}
+.leadToReg a{font-size:14px;font-family:Arial;font-weight:bold;text-decoration:underline;}
+
+#alibaba-account-tip{margin-left:22px;color:#999999; padding-top:10px;}
+#third-party-login-wrapper{padding:12px 0;margin-top:12px;border-top:1px dashed #ccc;}
+#remember{border-bottom:none;}
+.xman-box-content .standard_signin #remember {padding-bottom:none;margin-bottom:none;}
+
+
+/* reset */
+body, h3, ul, li{padding:0; margin:0;}
+ul, li {list-style:none;}
+
+/* header */
+#headerReg {border-bottom:1px solid #e5e5e5; padding-top:15px; padding-bottom:5px;}
+.header990 {width:990px; margin:auto;}
+.header990 div {color:#f47b12;}
+#aliLogo {float:left; font:bold 10px verdana; height:53px; width:200px;}
+#aliLogo a {background:url(../images/logo-1x.png) no-repeat; display:block; height:40px; overflow:hidden; text-indent:-9999px; width:208px; float:left;}
+#aliLogo a:hover {background-position:0 0;}
+#aliLogo p {color:#999; font-weight:normal; font-size:12px;}
+
+
+/* page */
+.page {background:center top no-repeat #fbfbfb; width:100%;}
+.container {width:990px; margin:auto;}
+
+/* sign in field */
+.container #signInField {margin:50px 80px; background-color:#fff;}
+
+/* footer */
+#footer {clear:both; padding:10px 0 10px 0; text-align:center; border-top:2px solid #999; font:normal 12px verdana; color:#999; line-height:20px; background-color:#f8f8f8; margin-top:0;}
+#footer a {color:#999; text-decoration:none;}
+#footer a:hover {color:#333; text-decoration:underline;}
+
+/* 多语言切换 */
+.changelang {
+	float:left;
+	width: 90px;
+	margin-top: 20px;
+	display: inline;
+	position: relative;
+	z-index: 2011;
+}
+
+.currentlang {
+	position: absolute;
+	width: 90px;
+	border: none;
+	height: 25px;
+	line-height: 25px;
+	_padding-top: 5px;
+	_height: 16;
+	overflow: hidden;
+}
+
+.currentlang.hover .mn-rs {
+	top: -1px;
+    top: 1px\0;
+    *top: 2px;
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+.currentlang a {
+	color: #333; 
+	float: left;
+}
+
+.currentlang .mn-rs { 
+	position: relative;
+	margin-right: 1px;
+	top: 1px;
+	*top: 2px;
+	left: 5px;
+	border-color: #666 #fff #fff;
+	border-style: solid dashed dashed;
+	border-width: 4px;
+	display: inline-block;
+	*display : inline;
+	*zoom : 1;
+	height: 0;
+	width: 0;
+	text-indent: -9999px;
+	text-align: left;
+	line-height: 0;
+	vertical-align: middle;
+	-webkit-transition-duration: 200ms;
+	-moz-transition-duration: 200ms;
+	transition-duration: 200ms;
+	-webkit-transition-timing-function: linear;
+	-moz-transition-timing-function: linear;
+	transition-timing-function: linear;
+	transition-property: transform;
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	-webkit-transform-origin: 50% 30%;
+	-moz-transform-origin: 50% 30%;
+	transform-origin: 50% 30%;
+}
+
+.currentlang a {
+	text-decoration: none;
+}
+
+.langlist {
+	z-index: 2012;
+	position: absolute;
+	-moz-box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.13); 
+	-webkit-box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.13); 
+	box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.13); 
+	background-color: #fff!important; 
+	border: solid 1px #ccc;
+}
+
+.langlist ul {
+	margin: 0;
+	padding: 0;
+}
+
+.langlist li {
+	list-style: none;
+	line-height: 25px;
+	margin: 0;
+	padding: 0;
+	float: none; 
+	height: auto; 
+}
+
+.langlist li:hover {
+	background-color:#e8e8e8;
+}
+
+.langlist li a {
+	padding: 0 20px 0 10px!important;
+	color: #333; 
+	height: auto; 
+	_float: none; 
+	display: block; 
+	text-decoration: none;
+}
+
+.langlist .over {
+	background-color: #e8e8e8; 	
+}
+
+.langlist .google_translate_title{border-top:1px solid #ddd;color:#999;line-height:24px;font:thick 14px Arial; width:150px;}
+.langlist .google_translate_title a {cursor:default; color:#999;}
+.langlist li.google_translate_title:hover{background:#fff}
+.langlist li .ng-item {padding:3px 10px; height:18px;}
+.langlist li .ng-item a {display:inline;}

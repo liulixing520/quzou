@@ -1,0 +1,720 @@
+.col-linebom {
+	border-bottom-color: rgb(182, 182, 182); border-bottom-width: 2px; border-bottom-style: solid;
+}
+.col-linebom h2 {
+	color: rgb(0, 0, 0); line-height: 16px; font-size: 14px; display: block;
+}
+.col-boxpd {
+	padding: 10px;
+}
+.col-mglr10 {
+	margin-right: 10px; margin-left: 10px;
+}
+.col-mgtb10 {
+	margin-top: 10px; margin-bottom: 10px;
+}
+.col-mgright10 {
+	margin-right: 10px;
+}
+.col-mgbottom10 {
+	margin-bottom: 10px;
+}
+.col-flrig {
+	float: right;
+}
+.valmiddle {
+	vertical-align: middle;
+}
+.color-g {
+	color: rgb(0, 153, 0);
+}
+.color-ys {
+	color: rgb(252, 86, 2);
+}
+.gearycolor {
+	color: rgb(128, 128, 128);
+}
+.color999 {
+	color: rgb(153, 153, 153);
+}
+.lkundeline {
+	text-decoration: underline;
+}
+.col-main-warp {
+	margin: 0px 0px 0px 0px; width:974px; float: left; min-height: 1px; _display: inline;
+}
+.margintop5 {
+	margin-top: 5px;
+}
+.margintop10 {
+	margin-top: 10px;
+}
+.marginleft5 {
+	margin-left: 5px;
+}
+.marginleft10 {
+	margin-left: 10px;
+}
+.marginleft20 {
+	margin-left: 20px;
+}
+.marginright5 {
+	margin-right: 5px;
+}
+.marginright10 {
+	margin-right: 10px;
+}
+.marginright20 {
+	margin-right: 20px;
+}
+.marginbottom5 {
+	margin-bottom: 5px;
+}
+.marginbottom10 {
+	margin-bottom: 10px;
+}
+.addwid40 {
+	width: 40px;
+}
+.addwid100 {
+	width: 100px;
+}
+.addwid113 {
+	width: 113px;
+}
+.addwid113 option {
+	width: 113px; overflow: hidden;
+}
+.col-rigtit {
+	background: no-repeat 0px 0px; padding-left: 20px; float: right; display: inline-block;
+}
+.col-sailtips {
+	padding: 10px 10px 20px; color: rgb(68, 68, 68); line-height: 24px; position: relative;
+}
+.addheight {
+	height: 24px; overflow: hidden; display: block;
+}
+.col-sailtips .leftcol-tip {
+	width: 70px; color: rgb(0, 0, 0); float: left;
+}
+.col-sailtips .leftcol-tip2 {
+	width: 60px; color: rgb(0, 0, 0); float: left;
+}
+.col-sailtips .rightcol-tip {
+	width: 650px; color: rgb(102, 102, 102); float: left;
+}
+.col-sailtips .rightcol-tip2 {
+	width: 650px; color: rgb(102, 102, 102); float: left;
+}
+.col-sailtips .leftcol-tip2 {
+	width: 98px;
+}
+.col-sailtips .rightcol-tip2 {
+	width: 650px;
+}
+.col-sailtips span.viewticps {
+	background: url("http://www.dhresource.com/dhs/mos/image/sail/sailplanbg.png") no-repeat 28px -152px; top: 10px; width: 58px; height: 20px; right: 10px; color: rgb(47, 102, 203); padding-right: 13px; display: inline-block; position: absolute; z-index: 0; cursor: pointer;
+}
+.col-sailtips span.viewshow {
+	background-position: 28px -126px;
+}
+.rtab-warp ul li span b {
+	color: rgb(251, 85, 1); font-weight: 300;
+}
+.rtab-warp ul li.current span b {
+	font-weight: 700;
+}
+.rtab-warp ul li.libg span {
+	color: rgb(0, 0, 0);
+}
+.rtab-warp ul li.current span {
+	color: rgb(0, 0, 0);
+}
+.rtab-warp .propbox {
+	padding-top: 3px; float: right; position: relative;
+}
+#right .bg-list table {
+	font-size: 12px; border-top-color: rgb(230, 230, 230); border-top-width: 1px; border-top-style: solid;
+}
+#right .bg-list table th {
+	background: url("http://www.dhresource.com/dhs/mos/image/listpage/g-list.png") repeat-x 0px -88px; padding: 5px 0px; color: rgb(0, 0, 0); font-weight: 300; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;
+}
+#right .bg-list table th span {
+	background: url("http://www.dhresource.com/dhs/mos/image/listpage/g-list.png") no-repeat 101% -233px; height: 14px; line-height: 12px; padding-right: 17px; display: inline-block;
+}
+#right .bg-list table th.cursor {
+	background: url("http://www.dhresource.com/dhs/mos/image/listpage/g-list.png") repeat-x 0px -59px; border-right-color: rgb(230, 230, 230); border-left-color: rgb(230, 230, 230); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid; cursor: pointer;
+}
+.bg-list table th.cursorasc {
+	background: url("http://www.dhresource.com/dhs/mos/image/listpage/g-list.png") repeat-x 0px -59px; border-right-color: rgb(230, 230, 230); border-left-color: rgb(230, 230, 230); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid; cursor: pointer;
+}
+.bg-list table th.cursordesc {
+	background: url("http://www.dhresource.com/dhs/mos/image/listpage/g-list.png") repeat-x 0px -59px; border-right-color: rgb(230, 230, 230); border-left-color: rgb(230, 230, 230); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid; cursor: pointer;
+}
+#right .bg-list table th.cursor {
+	background: url("http://www.dhresource.com/dhs/mos/image/listpage/g-list.png") repeat-x 0px -88px;
+}
+#right .bg-list table th.cursorasc span {
+	background-position: 101% -294px;
+}
+#right .bg-list table th.cursordesc span {
+	background-position: 101% -264px;
+}
+#right .bg-list table th.txtleft {
+	text-align: left;
+}
+#right .bg-list table th b {
+	font-weight: 300;
+}
+#right .bg-list table th.last {
+	border-right-color: currentColor; border-right-width: medium; border-right-style: none;
+}
+#right .bg-list table tr.btngroup td {
+	padding: 6px 5px; vertical-align: middle; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;
+}
+#right .bg-list table tr.btngroup td * {
+	vertical-align: middle;
+}
+#right .bg-list table td {
+	padding: 20px 10px 15px; text-align: left; vertical-align: top; border-bottom-color: rgb(241, 241, 241); border-bottom-width: 1px; border-bottom-style: solid;
+}
+#right .bg-list table td.center {
+	text-align: center;
+}
+#right .bg-list table td.right {
+	text-align: right;
+}
+#right .bg-list table td.padimg {
+	text-align: center; padding-right: 5px; padding-left: 5px;
+}
+#right .bg-list table td.padimg .serveicon {
+	text-align: left; display: block;
+}
+#right .bg-list table td.padpro {
+	text-align: left; padding-right: 10px; padding-left: 5px;
+}
+#right .bg-list table td.padpro span.padright40 a {
+	width: 136px; overflow: hidden; word-spacing: normal; display: block; word-wrap: break-word;
+}
+#right .bg-list table td.pricerig {
+	text-align: right; padding-right: 10px;
+}
+#right .bg-list table td.padleft20 {
+	padding-right: 5px; padding-left: 20px; vertical-align: top;
+}
+#right .bg-list table tr.btngroup td.padleft20 {
+	padding-left: 20px; vertical-align: middle;
+}
+#right .bg-list table td span.padright40 {
+	color: rgb(51, 51, 51); overflow: hidden; display: inline;
+}
+#right .bg-list table td span.gearycolor {
+	overflow: hidden; display: inline-block;
+}
+#right .bg-list table tr.btngroup td span {
+	color: rgb(68, 68, 68);
+}
+#right .nothline table th {
+	border-right-color: currentColor; border-right-width: medium; border-right-style: none;
+}
+#right .bg-list table td span.gearycolor {
+	color: rgb(128, 128, 128);
+}
+#right .bg-list table td span.yellowcolor {
+	color: rgb(251, 85, 1);
+}
+#right .bg-list table td.marketingstatus {
+	padding: 20px 0px 15px;
+}
+#right .bg-list table td.marketingstatus span {
+	background: rgb(197, 197, 197); margin: 0px 2px 5px 3px; padding: 1px 0px; border-radius: 3px; width: 32px; height: 12px; text-align: center; color: rgb(255, 255, 255); line-height: 12px; vertical-align: middle; float: left; display: inline-block; cursor: default;
+}
+#right .bg-list table td.marketingstatus span.s-gold {
+	
+}
+#right .bg-list table td.marketingstatus span.s-move {
+	background-position: 0px -19px;
+}
+#right .bg-list table td.marketingstatus span.s-show {
+	background-position: 0px -38px;
+}
+#right .bg-list table td.marketingstatus span.s-bidding {
+	background-position: 0px -57px;
+}
+#right .bg-list table td.marketingstatus span.s-price {
+	background-position: 0px -76px;
+}
+#right .bg-list table td.marketingstatus span.sratus06 {
+	background-position: 0px -19px;
+}
+#right .bg-list table td.prieceline {
+	padding: 20px 5px 15px;
+}
+#right .bg-list table td.prieceline .tipstion03 {
+	width: 91px; display: block; word-wrap: break-word;
+}
+.condbox {
+	padding: 15px 0px 15px 15px; border: 1px solid rgb(240, 240, 240); font-size: 0px; position: relative; background-color: rgb(251, 251, 251);
+}
+.condbox input.cond-input {
+	padding: 1px; border: 1px solid rgb(126, 157, 186); height: 18px; color: rgb(51, 51, 51); line-height: 18px; text-indent: 2px; font-size: 12px; margin-right: 10px; vertical-align: middle;
+}
+.condbox select {
+	padding: 1px; border: 1px solid rgb(126, 157, 186); height: 18px; color: rgb(51, 51, 51); line-height: 18px; text-indent: 2px; font-size: 12px; margin-right: 10px; vertical-align: middle;
+}
+.condbox input.defaultcolor {
+	color: rgb(134, 134, 134);
+}
+.condbox select.defaultcolor {
+	color: rgb(134, 134, 134);
+}
+input.defaultcolor {
+	color: rgb(134, 134, 134);
+}
+select.defaultcolor {
+	color: rgb(134, 134, 134);
+}
+.condbox input.checkinput {
+	margin: 0px 8px 0px 0px; padding: 0px; vertical-align: middle;
+}
+.condbox .condwid1 {
+	width: 109px;
+}
+.condbox .condwid1s {
+	width: 125px;
+}
+.condbox .condwid2 {
+	width: 113px;
+}
+.condbox .condwid3 {
+	width: 75px;
+}
+.condbox .condwid4 {
+	width: 44px;
+}
+.condbox select {
+	height: 22px; text-indent: 0px;
+}
+.condbox span {
+	font-size: 12px; margin-right: 10px; vertical-align: middle; display: inline-block;
+}
+.condbox span.calendar_append {
+	display: none;
+}
+.condbox span.tname {
+	width: 72px; text-align: right; margin-right: 4px; display: inline-block;
+}
+.padline15 {
+	height: 15px;
+}
+select.publicselect {
+	padding: 1px; border: 1px solid rgb(126, 157, 186); height: 22px; color: rgb(51, 51, 51); font-size: 12px; vertical-align: middle;
+}
+.mksearchbox {
+	padding: 20px 10px; border-bottom-color: rgb(240, 240, 240); border-bottom-width: 1px; border-bottom-style: solid; background-color: rgb(251, 251, 251);
+}
+.mksearchbox * {
+	vertical-align: middle;
+}
+.mksearchinput {
+	border: 1px solid rgb(127, 157, 185); width: 182px; height: 21px; color: rgb(51, 51, 51); line-height: 20px; text-indent: 5px;
+}
+.mksearchinput2 {
+	border: 1px solid rgb(127, 157, 185); width: 100px; height: 21px; color: rgb(51, 51, 51); line-height: 20px; text-indent: 5px;
+}
+.mksearchselect {
+	border: 1px solid rgb(127, 157, 185); width: 116px; height: 23px;
+}
+.movekeyd {
+	padding: 5px 18px; color: rgb(0, 0, 0);
+}
+.tipmkbox {
+	padding: 20px; border: 1px solid rgb(253, 204, 127); text-align: center; background-color: rgb(255, 255, 229);
+}
+.promptcolor {
+	color: rgb(255, 86, 5);
+}
+.marg-r10 {
+	margin-right: 10px;
+}
+.viewmsg {
+	padding: 5px 10px; margin-bottom: 10px; position: relative;
+}
+.viewmsg .greenword {
+	color: rgb(37, 120, 0); font-size: 14px; font-weight: 700; margin-right: 10px;
+}
+.viewmsg .yellowword {
+	color: rgb(251, 85, 1); font-size: 14px; font-weight: 700; margin-right: 10px;
+}
+.viewmsg .redword {
+	color: rgb(255, 0, 0); font-size: 14px; font-weight: 700; margin-right: 10px;
+}
+.viewmsg .rightbtnbox {
+	top: 8px; right: 10px; position: absolute;
+}
+#right .bg-list table td.operation {
+	padding: 20px 5px 15px;
+}
+#right .bg-list table td.operation a {
+	word-break: keep-all;
+}
+.poplistbox {
+	padding: 0px 0px 2px 5px;
+}
+.poplistchange {
+	height: 100%; margin-left: -5px; position: relative; z-index: 0; background-color: rgb(255, 255, 255); _overflow: visable;
+}
+.poplistchange dt {
+	border-width: 1px 1px medium; border-style: solid solid none; border-color: rgb(255, 255, 255) rgb(255, 255, 255) currentColor; padding: 0px 4px 3px; top: 2px; width: 64px; height: 17px; color: rgb(51, 102, 204); float: left; display: inline-block; position: relative; z-index: 1; cursor: default; background-color: rgb(255, 255, 255); _overflow: hidden;
+}
+.poplistchange dt span {
+	background: url("http://www.dhresource.com/dhs/mos/image/listpage/g-list.png") no-repeat 104% -176px; width: 100%; float: left; display: block;
+}
+.poplistchange dd {
+	left: 2px; top: 25px; display: none; position: absolute; z-index: 0; background-color: rgb(227, 227, 227);
+}
+.poplistchange dd .directorybox {
+	padding: 1px 4px 2px; border: 1px solid rgb(110, 157, 252); left: -2px; top: -2px; margin-top: -1px; filter: alpha(opacity=100); position: relative; z-index: 2; opacity: 1; background-color: rgb(255, 255, 255);
+}
+.poplistchange dd.iebgbox {
+	left: 0px; top: 3px; width: 74px; height: 50px; position: absolute; z-index: -1;
+}
+.poplistchange dd a {
+	padding-top: 1px; display: block; word-break: keep-all;
+}
+.showHover {
+	z-index: 999;
+}
+.showHover dt {
+	border-width: 1px 1px medium; border-style: solid solid none; border-color: rgb(110, 157, 252) rgb(110, 157, 252) currentColor;
+}
+.showHover dt span {
+	background: url("http://www.dhresource.com/dhs/mos/image/listpage/g-list.png") no-repeat 104% -165px; float: left; display: block;
+}
+.showHover dd {
+	display: block;
+}
+#right .bg-list table td .poplistchange dt span {
+	color: rgb(51, 102, 204);
+}
+.prolayout {
+	border: 1px solid rgb(238, 238, 238); width: 54px; height: 54px; overflow: hidden; margin-bottom: 5px; float: left; display: table; position: relative; table-layout: fixed; background-color: rgb(255, 255, 255);
+}
+.prolayout a {
+	width: 54px; height: 54px; text-align: center; overflow: hidden; vertical-align: middle; display: table-cell;
+}
+.prolayout span {
+	width: 54px; height: 54px; text-align: center; overflow: hidden; vertical-align: middle; display: table-cell;
+}
+.prolayout a img {
+	vertical-align: middle; max-height: 54px; max-width: 54px;
+}
+.prolayout span img {
+	vertical-align: middle; max-height: 54px; max-width: 54px;
+}
+.prolayout b.selecticon {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/icon-01.png") no-repeat 0px 0px; left: 2px; top: 2px; width: 12px; height: 12px; position: absolute;
+}
+.attr-text-input {
+	padding: 2px 5px; border: 1px solid rgb(127, 157, 185); color: rgb(68, 68, 68); overflow: hidden; vertical-align: middle;
+}
+.attr-select {
+	color: rgb(68, 68, 68);
+}
+.attr-textarea {
+	color: rgb(68, 68, 68);
+}
+.ver-align-middle {
+	vertical-align: middle;
+}
+.copylink {
+	width: 222px; color: rgb(67, 67, 67); margin-right: 10px;
+}
+.conditions {
+	padding: 20px 10px;
+}
+.prompt {
+	padding: 10px;
+}
+.mksearchbox {
+	padding: 10px; border-bottom-color: currentColor; border-bottom-width: medium; border-bottom-style: none;
+}
+.sailhistory {
+	padding: 10px 0px 0px; text-align: right; color: rgb(68, 68, 68);
+}
+.commonpage .pageleft span select {
+	_margin-top: 3px;
+}
+#right .bg-list table td.tipmktd {
+	padding: 5px 0px; vertical-align: top; border-bottom-color: rgb(241, 241, 241); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.tipmkbox {
+	padding: 20px; border: 1px solid rgb(253, 204, 127); text-align: center; background-color: rgb(255, 255, 229);
+}
+.new-guide-step1 {
+	background: url("http://www.dhresource.com/dhs/mos/image/product/pngbg02.png") no-repeat -255px 0px; left: 50%; top: 50%; width: 400px; height: 253px; position: absolute; z-index: 99999;
+}
+.new-guide-step1 .txtcontent {
+	font: 16px/30px "Î¢ÈíÑÅºÚ"; padding: 65px 24px 20px; height: 80px; color: rgb(255, 99, 14); overflow: hidden; font-size-adjust: none; font-stretch: normal;
+}
+.new-guide-step1 .txtconval {
+	font: 18px/30px "Î¢ÈíÑÅºÚ"; padding: 20px 20px 20px 170px; color: rgb(255, 99, 14); font-size-adjust: none; font-stretch: normal;
+}
+.new-guide-step1 .txtconval .txtpagenum {
+	font: 24px/30px "Arial"; margin-top: 5px; vertical-align: middle; font-size-adjust: none; font-stretch: normal;
+}
+.new-guide-step1 .txtconval .txtcolor001 {
+	color: rgb(162, 69, 18); margin-right: 20px;
+}
+.new-guide-step1 .txtconval .txtcolor002 {
+	color: rgb(93, 93, 93); margin-left: 10px;
+}
+.guide-next-button {
+	cursor: pointer;
+}
+.guide-i-know {
+	color: rgb(93, 93, 93); margin-left: 10px; cursor: pointer;
+}
+.guide-close-button {
+	background: url("http://www.dhresource.com/dhs/mos/image/product/pngbg02.png") no-repeat -229px -119px; top: 34px; width: 24px; height: 24px; right: 28px; display: inline-block; position: absolute;
+}
+.guide-arrow1 {
+	background: url("http://www.dhresource.com/dhs/mos/image/product/pngbg02.png") no-repeat -127px 0px; left: -95px; top: 75px; width: 130px; height: 60px; position: absolute; z-index: 10000;
+}
+.guide-arrow2 {
+	background: url("http://www.dhresource.com/dhs/mos/image/product/pngbg02.png") no-repeat 0px -145px; left: -49px; width: 90px; height: 115px; bottom: -8px; position: absolute;
+}
+.guide-arrow22 {
+	background: url("http://www.dhresource.com/dhs/mos/image/product/pngbg02.png") no-repeat -187px -211px; left: 130px; width: 70px; height: 105px; bottom: -64px; position: absolute;
+}
+.guide-arrow3 {
+	background: url("http://www.dhresource.com/dhs/mos/image/product/pngbg02.png") no-repeat 0px 0px; left: 120px; top: -55px; width: 105px; height: 90px; position: absolute;
+}
+.guide-pos1 {
+	left: -193px; top: 54px; width: 150px; height: 150px; position: absolute; z-index: 9999;
+}
+.guide-pos2 {
+	left: -282px; width: 790px; height: 35px; bottom: -37px; position: absolute; z-index: 9999;
+}
+.guide-pos22 {
+	left: -66px; width: 205px; height: 45px; bottom: -84px; position: absolute; z-index: 9999;
+}
+.guide-pos3 {
+	left: -451px; top: -112px; width: 790px; height: 98px; position: absolute; z-index: 9999;
+}
+#newGuideMask {
+	background: rgb(0, 0, 0); left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; z-index: 9998;
+}
+#newGuideMaskIframe {
+	border: 0px currentColor; left: 0px; top: 0px; position: absolute; z-index: -1;
+}
+.addguidebg {
+	position: relative; z-index: 99998; background-color: rgb(255, 255, 255);
+}
+.addguidebg2 {
+	padding: 10px; position: relative; z-index: 99998; background-color: rgb(255, 255, 255);
+}
+.new-guide-step1 iframe {
+	width: 100%; height: 100%; filter: alpha(opacity=0); opacity: 0;
+}
+tr.btngroup select {
+	padding: 1px; border: 1px solid rgb(126, 157, 186); height: 22px; color: rgb(134, 134, 134); line-height: 18px; vertical-align: middle;
+}
+.bg-list {
+	
+}
+#right .bg-list table tr.up-error td {
+	padding: 0px 10px 10px; border-top-color: currentColor; border-top-width: 0px; border-top-style: none;
+}
+.tips-error {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/tip-icon03.gif") no-repeat 15px 8px rgb(254, 234, 227); padding: 4px 10px 6px 40px; border: 1px solid rgb(255, 136, 120); text-align: left; color: rgb(68, 68, 68); line-height: 22px; display: block;
+}
+.txterror {
+	text-align: left; color: rgb(255, 0, 0); margin-top: 5px; display: block;
+}
+#right .bg-list table tr td {
+	border-top-color: rgb(241, 241, 241); border-bottom-color: currentColor; border-top-width: 1px; border-bottom-width: medium; border-top-style: solid; border-bottom-style: none;
+}
+.bg-list table tr.up-error td {
+	padding: 0px 10px 10px; border-top-color: currentColor; border-top-width: 0px; border-top-style: none;
+}
+#right table td span.color-f00 {
+	color: rgb(255, 0, 0);
+}
+.progroupbox {
+	margin: 10px 0px; height: 200px; overflow: hidden; overflow-y: scroll;
+}
+.progroupbox li {
+	padding: 3px 10px 7px; height: 20px; line-height: 20px; border-bottom-color: rgb(230, 230, 230); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.progroupbox li input {
+	vertical-align: middle;
+}
+.progroupbox li label {
+	margin-left: 10px; vertical-align: middle;
+}
+.progroupbox li:hover {
+	background-color: rgb(245, 245, 245);
+}
+.progroupbox li.hover {
+	background-color: rgb(245, 245, 245);
+}
+.progroupbox li.selected {
+	background-color: rgb(245, 245, 245);
+}
+.clonelist {
+	border: 1px solid rgb(177, 177, 177); background-color: rgb(255, 255, 255);
+}
+.clonelist ul {
+	padding: 5px 0px; width: 148px; line-height: 26px; border-top-color: rgb(241, 241, 241); border-bottom-color: rgb(241, 241, 241); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+.clonelist li {
+	height: 26px; overflow: hidden; padding-left: 20px; display: block;
+}
+.clonelist li.current {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/bg.png") no-repeat -387px -71px rgb(255, 249, 225); height: 26px; color: rgb(251, 85, 1); overflow: hidden; padding-left: 20px; text-decoration: none; display: block; _background-position: -387px -70px;
+}
+.addwid130 {
+	width: 130px;
+}
+.amodifiedpop {
+	
+}
+.poptab-warp {
+	margin: 1px 1px 0px; padding: 5px 40px 0px; height: 34px; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid; position: relative; background-color: rgb(243, 243, 243);
+}
+.poptab-warp ul {
+	background: rgb(243, 243, 243); float: left;
+}
+.poptab-warp ul li {
+	font-weight: 700; margin-right: 25px; border-bottom-color: currentColor; border-bottom-width: medium; border-bottom-style: none; float: left;
+}
+.poptab-warp ul li:hover {
+	background-color: rgb(224, 224, 224);
+}
+.poptab-warp ul li a {
+	color: rgb(68, 68, 68);
+}
+.poptab-warp ul li a:hover {
+	color: rgb(68, 68, 68); text-decoration: none;
+}
+.poptab-warp ul li span {
+	padding: 0px 25px; height: 32px; text-align: center; line-height: 33px; border-top-color: rgb(243, 243, 243); border-top-width: 1px; border-top-style: solid; display: inline-block; cursor: pointer;
+}
+.poptab-warp ul li.current {
+	margin-bottom: -1px; border-top-color: rgb(252, 163, 91); border-right-color: rgb(205, 205, 205); border-left-color: rgb(205, 205, 205); border-top-width: 2px; border-right-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-left-style: solid; position: relative; z-index: 2;
+}
+.poptab-warp ul li.current span {
+	background: rgb(255, 255, 255); line-height: 31px; cursor: default;
+}
+.tripmarkmessage {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/tip-icon02.gif") no-repeat 0px 0px; padding: 0px 0px 0px 25px; text-align: left; color: rgb(255, 85, 0); line-height: 18px; margin-top: 10px; margin-left: 10px; display: block;
+}
+.padcontenttxt {
+	margin-top: 0px; margin-bottom: 15px; margin-left: 18px; display: block;
+}
+.removebtn {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/remove01.png") no-repeat 0px 0px; width: 13px; height: 13px; margin-right: 10px; vertical-align: middle; display: inline-block;
+}
+.removebtn:hover {
+	background-position: 0px -30px;
+}
+#right .bg-list table td.productgroup span.groupreline {
+	width: 65px; color: rgb(51, 51, 51); overflow: hidden; word-spacing: normal; display: block; word-wrap: break-word;
+}
+#right .bg-list table td.operation a.appealdisable {
+	color: rgb(153, 153, 153); text-decoration: none;
+}
+#right .bg-list table td.operation a.appealdisable:hover {
+	color: rgb(153, 153, 153); text-decoration: none;
+}
+#right table td.prieceline {
+	text-align: left; padding-left: 10px;
+}
+#right table td.prieceline span {
+	color: rgb(68, 68, 68); display: inline-block;
+}
+#right table td.prieceline span.oldicon {
+	background: url("http://www.dhresource.com/dhs/mos/image/product/oldornew.png") no-repeat 0px 0px; left: 0px; top: 0px; width: 18px; height: 15px; color: rgb(68, 68, 68); margin-right: 5px; margin-bottom: 0px; vertical-align: middle; display: inline-block; position: absolute;
+}
+#right table td.prieceline span.newicon {
+	background: url("http://www.dhresource.com/dhs/mos/image/product/oldornew.png") no-repeat 0px 0px; left: 0px; top: 0px; width: 18px; height: 15px; color: rgb(68, 68, 68); margin-right: 5px; margin-bottom: 0px; vertical-align: middle; display: inline-block; position: absolute;
+}
+#right table td.prieceline span.newicon {
+	background-position: 0px -40px;
+}
+.priceiconbox {
+	padding-left: 22px; position: relative;
+}
+.defaultstyle {
+	padding-left: 0px;
+}
+.defaultstyle .newicon {
+	display: none;
+}
+#right table td.prieceline span.newcolor span {
+	color: rgb(255, 107, 8);
+}
+#right table td.prieceline span.defaultstyle span {
+	color: rgb(51, 51, 51);
+}
+#right table td.prieceline span.pricebox {
+	font-size: 11px; display: inline;
+}
+#right table td.prieceline div.mouseshowprice {
+	left: -7px; top: -6px; position: absolute; z-index: 999; background-color: rgb(229, 229, 229);
+}
+#right table td.prieceline div.mouseshowprice span {
+	display: block;
+}
+#right table td.prieceline div.mouseshowprice .mouseshowprice-box {
+	padding: 7px 5px 3px 8px; border: 1px solid rgb(239, 212, 145); left: -2px; top: -2px; width: 350px; text-align: left; color: rgb(68, 68, 68); position: relative; background-color: rgb(255, 255, 229);
+}
+#right table td.prieceline div.mouseshowprice .mouseshowprice-box span {
+	display: inline-block;
+}
+#right table td.prieceline div.mouseshowprice .mouseshowpricewid {
+	width: 53%; margin-bottom: 5px; display: inline-block;
+}
+span.priceiconshowbox {
+	width: 45%; margin-bottom: 5px; vertical-align: top; display: inline-block;
+}
+.icon-help {
+	background: url("http://www.dhresource.com/dhs/mos/image/sellerstore/iconlistbg.gif") no-repeat -41px -1px; width: 15px; height: 14px; margin-top: 5px; vertical-align: middle; display: inline-block;
+}
+.viewmsg .green {
+	color: rgb(37, 120, 0);
+}
+.express-group {
+	display: inline-block; position: relative;
+}
+.express-group .caret {
+	background: url("http://www.dhresource.com/dhs/mos/image/public/arrow.png") no-repeat 0px 0px; width: 15px; height: 15px; vertical-align: middle; display: inline-block;
+}
+.express-dropdown {
+	background: rgb(229, 229, 229); left: 0px; top: 23px; position: absolute;
+}
+.express-dropdown ul {
+	background: rgb(255, 255, 255); padding: 5px 8px; border: 1px solid rgb(183, 183, 183); left: -2px; top: -2px; width: 120px; position: relative;
+}
+.express-dropdown ul li {
+	padding-bottom: 4px;
+}
+.guidetxtbox {
+	font: 12px/25px "Î¢ÈíÑÅºÚ"; padding: 75px 72px 20px 30px; color: rgb(102, 102, 102); font-size-adjust: none; font-stretch: normal;
+}
+.guidetxtbox .rcolor {
+	color: rgb(255, 99, 14);
+}
+.guide-iknow {
+	font: 700 18px/30px "Î¢ÈíÑÅºÚ"; color: rgb(255, 99, 14); margin-left: 200px; cursor: pointer; font-size-adjust: none; font-stretch: normal;
+}
+#right .bg-list table td.goldcategory {
+	padding: 20px 0px 15px; text-align: center;
+}
+#right .bg-list table td.goldcategory span {
+	color: rgb(68, 68, 68); display: block;
+}
+#right .bg-list table td.goldcategory span.color999 {
+	color: rgb(153, 153, 153);
+}

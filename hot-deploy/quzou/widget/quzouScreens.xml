@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="main">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+                <set field="curNav" value="jzrz"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="quzouCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="customerLogList">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <set field="curNav" value="jzrz"/>
+                <!-- 查找 -->
+                <set field="parameters.noConditionFind" default-value="Y" />
+                <set field="p_Ctx" from-field="parameters" />
+                <set field="p_Ctx.thruDate_op" value="empty" />
+
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="10"/>
+                <set field="sortField" from-field="parameters.sortField" default-value="-stepDate" />
+                
+                <service service-name="performFindList" result-map="result">
+                    <field-map field-name="inputFields" from-field="p_Ctx" />
+                    <field-map field-name="entityName" value="QzCustomerLogView" />
+                    <field-map field-name="orderBy" from-field="sortField" />
+                    <field-map field-name="viewIndex" from-field="viewIndex" />
+                    <field-map field-name="viewSize" from-field="viewSize" />
+                </service>
+                <set field="listIt" from-field="result.list" />
+                <set field="listSize" from-field="result.listSize" />
+                
+                <entity-and list="companyList" entity-name="QzCompany">
+                	<field-map field-name=""/>
+                	<order-by field-name="companyName"/>
+                </entity-and>
+            </actions>
+             <widgets>
+                <decorator-screen name="CustomerMenuHeaderDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://quzou/webapp/quzou/manager/customerLogList.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="customerList">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <set field="curNav" value="hygl"/>
+                <!-- 查找 -->
+                <set field="parameters.noConditionFind" default-value="Y" />
+                <set field="p_Ctx" from-field="parameters" />
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="10"/>
+                <set field="sortField" from-field="parameters.sortField" default-value="" />
+                <set field="partyids[]" value="admin"/>
+                <set field="partyids[]" value="system"/>
+                <set field="p_Ctx.partyId" from-field="partyids"  />
+                <set field="p_Ctx.partyId_op" value="not-in"  />
+                <service service-name="performFindList" result-map="result">
+                    <field-map field-name="inputFields" from-field="p_Ctx" />
+                    <field-map field-name="entityName" value="QzCustomer" />
+                    <field-map field-name="orderBy" from-field="sortField" />
+                    <field-map field-name="viewIndex" from-field="viewIndex" />
+                    <field-map field-name="viewSize" from-field="viewSize" />
+                </service>
+                <set field="listIt" from-field="result.list" />
+                <set field="listSize" from-field="result.listSize" />
+            </actions>
+             <widgets>
+                <decorator-screen name="CustomerMenuHeaderDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://quzou/webapp/quzou/manager/customerList.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="addCustomer">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <set field="curNav" value="hygl"/>
+                <entity-and list="customerList" entity-name="QzCustomer">
+                	<field-map field-name="partyId" from-field="parameters.customerId"/>
+                </entity-and>
+                <set field="customer" from-field="customerList[0]"/>
+                <entity-and list="companyList" entity-name="QzCompany">
+                	<field-map field-name=""/>
+                	<order-by field-name="companyName"/>
+                </entity-and>
+            </actions>
+             <widgets>
+                <decorator-screen name="CustomerMenuHeaderDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://quzou/webapp/quzou/manager/addCustomer.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="competitionList">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <set field="curNav" value="jcss"/>
+                <!-- 查找 -->
+                <set field="parameters.noConditionFind" default-value="Y" />
+                <set field="p_Ctx" from-field="parameters" />
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="10"/>
+                <set field="sortField" from-field="parameters.sortField" default-value="-startDate" />
+                <service service-name="performFindList" result-map="result">
+                    <field-map field-name="inputFields" from-field="p_Ctx" />
+                    <field-map field-name="entityName" value="QzCompetition" />
+                    <field-map field-name="orderBy" from-field="sortField" />
+                    <field-map field-name="viewIndex" from-field="viewIndex" />
+                    <field-map field-name="viewSize" from-field="viewSize" />
+                </service>
+                <set field="listIt" from-field="result.list" />
+                <set field="listSize" from-field="result.listSize" />
+            </actions>
+             <widgets>
+                <decorator-screen name="CustomerMenuHeaderDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://quzou/webapp/quzou/manager/competitionList.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="addCompetition">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <set field="curNav" value="jcss"/>
+                
+                <entity-one value-field="entity" entity-name="QzCompetition">
+                	<field-map field-name="cId" from-field="parameters.cId"/>
+                </entity-one>
+                <set field="plugin_ueditor_id" value="description"/>
+            </actions>
+             <widgets>
+                <decorator-screen name="CustomerMenuHeaderDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://quzou/webapp/quzou/manager/addCompetition.ftl"/></html></platform-specific>
+                        <platform-specific><html ><html-template location="component://quzou/webapp/quzou/includes/ueditor142.ftl"></html-template></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="uploadDialog">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <set field="curNav" value="jcss"/>
+            </actions>
+             <widgets>
+                <decorator-screen name="CommonDialogDecorator" location="${parameters.mainDecoratorLocation}">
+	                 <decorator-section name="body">
+	                 	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzou/webapp/quzou/manager/uploadDialog.ftl"/>
+		                    </html>
+	                	</platform-specific>
+	                 </decorator-section>
+	            </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="companyAndDeptList">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <set field="curNav" value="tdgl"/>
+                 <!-- 查找 -->
+                <set field="parameters.noConditionFind" default-value="Y" />
+                <set field="p_Ctx" from-field="parameters" />
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="10"/>
+                <set field="sortField" from-field="parameters.sortField" default-value="deptName" />
+                <service service-name="performFindList" result-map="result">
+                    <field-map field-name="inputFields" from-field="p_Ctx" />
+                    <field-map field-name="entityName" value="companyAndDept" />
+                    <field-map field-name="orderBy" from-field="sortField" />
+                    <field-map field-name="viewIndex" from-field="viewIndex" />
+                    <field-map field-name="viewSize" from-field="viewSize" />
+                </service>
+                <set field="listIt" from-field="result.list" />
+                <set field="listSize" from-field="result.listSize" />
+                
+                <entity-and list="companyList" entity-name="QzCompany">
+                	<field-map field-name=""/>
+                	<order-by field-name="companyName"/>
+                </entity-and>
+            </actions>
+             <widgets>
+                <decorator-screen name="CustomerMenuHeaderDecorator" location="${parameters.mainDecoratorLocation}">
+	                 <decorator-section name="body">
+	                 	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzou/webapp/quzou/manager/companyAndDeptList.ftl"/>
+		                    </html>
+	                	</platform-specific>
+	                 </decorator-section>
+	            </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+     <screen name="talentShowList">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <set field="curNav" value="drx"/>
+                 <!-- 查找 -->
+                <set field="parameters.noConditionFind" default-value="Y" />
+                <set field="p_Ctx" from-field="parameters" />
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="10"/>
+                <set field="sortField" from-field="parameters.sortField" default-value="-publishDate" />
+                <service service-name="performFindList" result-map="result">
+                    <field-map field-name="inputFields" from-field="p_Ctx" />
+                    <field-map field-name="entityName" value="QzTalentShow" />
+                    <field-map field-name="orderBy" from-field="sortField" />
+                    <field-map field-name="viewIndex" from-field="viewIndex" />
+                    <field-map field-name="viewSize" from-field="viewSize" />
+                </service>
+                <set field="listIt" from-field="result.list" />
+                <set field="listSize" from-field="result.listSize" />
+            </actions>
+             <widgets>
+                <decorator-screen name="CustomerMenuHeaderDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://quzou/webapp/quzou/manager/talentShowList.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="addTalentShow">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <set field="curNav" value="drx"/>
+                <entity-one value-field="entity" entity-name="QzTalentShow">
+                	<field-map field-name="showId" from-field="parameters.showId"/>
+                </entity-one>
+                 <set field="plugin_ueditor_id" value="detailContent"/>
+            </actions>
+             <widgets>
+                <decorator-screen name="CustomerMenuHeaderDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://quzou/webapp/quzou/manager/addTalentShow.ftl"/></html></platform-specific>
+                        <platform-specific><html ><html-template location="component://quzou/webapp/quzou/includes/ueditor142.ftl"></html-template></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="collectionDialog">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+            </actions>
+             <widgets>
+                <decorator-screen name="CommonDialogDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://quzou/webapp/quzou/manager/collectionDialog.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="addDept">
+        <section>
+            <actions>
+                <set field="curNav" value="tdgl"/>
+                 <entity-and list="companyAndDeptList" entity-name="companyAndDept">
+                 	<field-map field-name="deptId" from-field="parameters.deptId"/>
+                 </entity-and>
+                 <set field="dept" from-field="companyAndDeptList[0]"/>
+                 <entity-and list="companyList" entity-name="QzCompany">
+                	<field-map field-name=""/>
+                	<order-by field-name="companyName"/>
+                </entity-and>
+            </actions>
+             <widgets>
+                <decorator-screen name="CustomerMenuHeaderDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://quzou/webapp/quzou/manager/addDept.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="getDeptList">
+        <section>
+            <actions>
+                <set field="curNav" value="tdgl"/>
+                 <entity-and list="competiAndDeptViewList" entity-name="QzCompetiAndDeptView">
+                 	<field-map field-name="cId" from-field="parameters.cId"/>
+                 </entity-and>
+            </actions>
+             <widgets>
+                <decorator-screen name="CommonDialogDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://quzou/webapp/quzou/manager/getDeptList.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="addCustomerLog">
+        <section>
+             <actions>
+                <set field="headerItem" value="main"/>
+                <entity-one value-field="entity" entity-name="QzCustomerLog">
+                	<field-map field-name="logId" from-field="parameters.logId"/>
+                </entity-one>
+            </actions>
+             <widgets>
+                <decorator-screen name="CommonDialogDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://quzou/webapp/quzou/manager/addCustomerLog.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="deptAndCustomerList">
+        <section>
+             <actions>
+                <set field="curNav" value="tdgl"/>
+                 <!-- 查找 -->
+                <set field="parameters.noConditionFind" default-value="Y" />
+                <set field="p_Ctx" from-field="parameters" />
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="10"/>
+                <set field="sortField" from-field="parameters.sortField" default-value="" />
+                <service service-name="performFindList" result-map="result">
+                    <field-map field-name="inputFields" from-field="p_Ctx" />
+                    <field-map field-name="entityName" value="QzDeptAndCustomerView" />
+                    <field-map field-name="orderBy" from-field="sortField" />
+                    <field-map field-name="viewIndex" from-field="viewIndex" />
+                    <field-map field-name="viewSize" from-field="viewSize" />
+                </service>
+                <set field="listIt" from-field="result.list" />
+                <set field="listSize" from-field="result.listSize" />
+                
+                <entity-one value-field="entity" entity-name="QzDept">
+                	<field-map field-name="deptId" from-field="parameters.deptId"/>
+                </entity-one>
+            </actions>
+             <widgets>
+                <decorator-screen name="CustomerMenuHeaderDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://quzou/webapp/quzou/manager/deptAndCustomerList.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="addDeptCustomerDialog">
+         <section>
+             <actions>
+                <set field="headerItem" value="main"/>
+                <set field="curNav" value="tdgl"/>
+                 <entity-condition list="customerList" entity-name="QzCustomer">
+                	<condition-list>
+                		<condition-expr field-name="enabled" value="Y"/>
+                		<condition-expr field-name="userLoginId" operator="not-equals" value="admin"/>
+                	</condition-list>
+                </entity-condition>
+                <entity-one value-field="entity" entity-name="QzDept">
+                	<field-map field-name="deptId" from-field="parameters.deptId"/>
+                </entity-one>
+            </actions>
+             <widgets>
+                <decorator-screen name="CustomerMenuHeaderDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://quzou/webapp/quzou/manager/addDeptCustomerDialog.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="viewCustomers">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <set field="curNav" value="jcss"/>
+                <entity-one value-field="competition" entity-name="QzCompetition">
+                	<field-map field-name="cId" from-field="parameters.cId"/>
+                </entity-one>
+                   <!-- 查找 -->
+                <set field="parameters.noConditionFind" default-value="Y" />
+                <set field="p_Ctx" from-field="parameters" />
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="10"/>
+                <set field="sortField" from-field="parameters.sortField" default-value="" />
+                <service service-name="performFindList" result-map="result">
+                    <field-map field-name="inputFields" from-field="p_Ctx" />
+                    <field-map field-name="entityName" value="QzCompetiAndCustomerAndPersonView" />
+                    <field-map field-name="orderBy" from-field="sortField" />
+                    <field-map field-name="viewIndex" from-field="viewIndex" />
+                    <field-map field-name="viewSize" from-field="viewSize" />
+                </service>
+                <set field="listIt" from-field="result.list" />
+                <set field="listSize" from-field="result.listSize" />
+            </actions>
+             <widgets>
+                <decorator-screen name="CustomerMenuHeaderDecorator" location="${parameters.mainDecoratorLocation}">
+	                 <decorator-section name="body">
+	                 	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzou/webapp/quzou/manager/viewCustomers.ftl"/>
+		                    </html>
+	                	</platform-specific>
+	                 </decorator-section>
+	            </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="securityGroup">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <set field="curNav" value="qxz"/>
+                   <!-- 查找 -->
+                <set field="parameters.noConditionFind" default-value="Y" />
+                <set field="p_Ctx" from-field="parameters" />
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="10"/>
+                <set field="sortField" from-field="parameters.sortField" default-value="" />
+                <set field="p_Ctx.groupId" value="SUPER"/>
+                <set field="p_Ctx.userLoginId" value="system"/>
+                <set field="p_Ctx.userLoginId_op" value="not-contains"/>
+                <service service-name="performFindList" result-map="result">
+                    <field-map field-name="inputFields" from-field="p_Ctx" />
+                    <field-map field-name="entityName" value="UserLoginSecurityGroup" />
+                    <field-map field-name="orderBy" from-field="sortField" />
+                    <field-map field-name="viewIndex" from-field="viewIndex" />
+                    <field-map field-name="viewSize" from-field="viewSize" />
+                </service>
+                <set field="listIt" from-field="result.list" />
+                <set field="listSize" from-field="result.listSize" />
+            </actions>
+             <widgets>
+                <decorator-screen name="CustomerMenuHeaderDecorator" location="${parameters.mainDecoratorLocation}">
+	                 <decorator-section name="body">
+	                 	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzou/webapp/quzou/manager/securityGroup.ftl"/>
+		                    </html>
+	                	</platform-specific>
+	                 </decorator-section>
+	            </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+      <screen name="exportCompetitionDialog">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <set field="curNav" value="qxz"/>
+                <entity-one value-field="competition" entity-name="QzCompetition">
+                	<field-map field-name="cId" from-field="parameters.cId"/>
+                </entity-one>
+            </actions>
+             <widgets>
+                <decorator-screen name="CommonDialogDecorator" location="${parameters.mainDecoratorLocation}">
+	                 <decorator-section name="body">
+	                 	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzou/webapp/quzou/manager/exportCompetitionDialog.ftl"/>
+		                    </html>
+	                	</platform-specific>
+	                 </decorator-section>
+	            </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+      <screen name="addSecurityGroup">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <set field="curNav" value="qxz"/>
+                <entity-condition list="customerList" entity-name="QzCustomer">
+                	<condition-list>
+                		<condition-expr field-name="enabled" value="Y"/>
+                		<condition-expr field-name="userLoginId" operator="not-equals" value="admin"/>
+                	</condition-list>
+                </entity-condition>
+                <entity-and list="userLoginSecurityGroupList" entity-name="UserLoginSecurityGroup">
+                	<field-map field-name="groupId" from-field="parameters.groupId"/>
+                	<field-map field-name="userLoginId" from-field="parameters.userLoginId"/>
+                </entity-and>
+                <set field="entity" from-field="userLoginSecurityGroupList[0]" />
+            </actions>
+             <widgets>
+                <decorator-screen name="CustomerMenuHeaderDecorator" location="${parameters.mainDecoratorLocation}">
+	                 <decorator-section name="body">
+	                 	<platform-specific>
+		                    <html>
+		                        <html-template location="component://quzou/webapp/quzou/manager/addSecurityGroup.ftl"/>
+		                    </html>
+	                	</platform-specific>
+	                 </decorator-section>
+	            </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+</screens>

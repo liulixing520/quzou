@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+     <!-- 基本分类信息定义 -->
+    <!--  
+    <ProductCategory categoryName="室内精装" longDescription="室内精装" productCategoryId="YUNTOU000" productCategoryTypeId="CATALOG_CATEGORY"/>
+     -->
+    <ProductCategory categoryName="办公用品" longDescription="办公用品" productCategoryId="YUNTOU001" productCategoryTypeId="CATALOG_CATEGORY"/>
+    <ProductCategory categoryName="门牌、标牌" longDescription="门牌、标牌" productCategoryId="YUNTOU002" productCategoryTypeId="CATALOG_CATEGORY"/>
+    <ProductCategory categoryName="布草类" longDescription="布草类" productCategoryId="YUNTOU003" productCategoryTypeId="CATALOG_CATEGORY"/>
+    <ProductCategory categoryName="大堂用品" longDescription="大堂用品" productCategoryId="YUNTOU004" productCategoryTypeId="CATALOG_CATEGORY"/>   
+    <ProductCategory categoryName="电器类" longDescription="电器类" productCategoryId="YUNTOU005" productCategoryTypeId="CATALOG_CATEGORY"/> 
+    <ProductCategory categoryName="清洁剂" longDescription="清洁剂" productCategoryId="YUNTOU006" productCategoryTypeId="CATALOG_CATEGORY"/>  
+    <ProductCategory categoryName="易耗品" longDescription="易耗品" productCategoryId="YUNTOU007" productCategoryTypeId="CATALOG_CATEGORY"/>  
+    <ProductCategory categoryName="杂件" longDescription="杂件" productCategoryId="YUNTOU008" productCategoryTypeId="CATALOG_CATEGORY"/>  
+    <ProductCategory categoryName="工程工具" longDescription="工程工具" productCategoryId="YUNTOU009" productCategoryTypeId="CATALOG_CATEGORY"/>  
+   <!-- 
+    <ProdCatalogCategory productCategoryId="YUNTOU000" prodCatalogId="ytRootCatalog" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" fromDate="2014-05-01 12:00:00.0" />
+	 -->
+	 <ProdCatalogCategory productCategoryId="YUNTOU001" prodCatalogId="ytRootCatalog" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" fromDate="2014-05-01 12:00:00.0" />
+	<ProdCatalogCategory productCategoryId="YUNTOU002" prodCatalogId="ytRootCatalog" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" fromDate="2014-05-01 12:00:00.0" />
+	<ProdCatalogCategory productCategoryId="YUNTOU003" prodCatalogId="ytRootCatalog" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" fromDate="2014-05-01 12:00:00.0" />
+	<ProdCatalogCategory productCategoryId="YUNTOU004" prodCatalogId="ytRootCatalog" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" fromDate="2014-05-01 12:00:00.0" />
+	<ProdCatalogCategory productCategoryId="YUNTOU005" prodCatalogId="ytRootCatalog" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" fromDate="2014-05-01 12:00:00.0" />
+	<ProdCatalogCategory productCategoryId="YUNTOU006" prodCatalogId="ytRootCatalog" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" fromDate="2014-05-01 12:00:00.0" />
+	<ProdCatalogCategory productCategoryId="YUNTOU007" prodCatalogId="ytRootCatalog" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" fromDate="2014-05-01 12:00:00.0" />
+	<ProdCatalogCategory productCategoryId="YUNTOU008" prodCatalogId="ytRootCatalog" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" fromDate="2014-05-01 12:00:00.0" />
+	<ProdCatalogCategory productCategoryId="YUNTOU009" prodCatalogId="ytRootCatalog" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" fromDate="2014-05-01 12:00:00.0" />
+	<!-- 
+	<ProductCategory productCategoryId="YUNTOU00001" categoryName="内门" productCategoryTypeId="CATALOG_CATEGORY" />
+	 -->
+	<ProductCategory productCategoryId="YUNTOU00011" categoryName="非电子" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00012" categoryName="电子" productCategoryTypeId="CATALOG_CATEGORY" />
+
+	<ProductCategory productCategoryId="YUNTOU00021" categoryName="前厅" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00022" categoryName="餐饮部" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00023" categoryName="客房部" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00024" categoryName="办公区" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00025" categoryName="行政区" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00026" categoryName="公共区域" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00027" categoryName="康乐部" productCategoryTypeId="CATALOG_CATEGORY" />
+	
+	
+	<ProductCategory productCategoryId="YUNTOU00031" categoryName="毛巾" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00032" categoryName="地巾" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00033" categoryName="浴袍" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00034" categoryName="床单" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00035" categoryName="枕套" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00036" categoryName="床垫" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00037" categoryName="毯子" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00038" categoryName="被套" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00039" categoryName="窗帘" productCategoryTypeId="CATALOG_CATEGORY" />
+	
+	
+	<ProductCategory productCategoryId="YUNTOU00041" categoryName="车类" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00042" categoryName="其他" productCategoryTypeId="CATALOG_CATEGORY" />
+	
+	
+	<ProductCategory productCategoryId="YUNTOU00051" categoryName="电视" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00052" categoryName="空调" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00053" categoryName="洗衣机" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00054" categoryName="冰箱" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00055" categoryName="咖啡机" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00056" categoryName="毛巾柜" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00057" categoryName="红酒柜" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00058" categoryName="跑步机" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00059" categoryName="电话机" productCategoryTypeId="CATALOG_CATEGORY" />
+	
+	<ProductCategory productCategoryId="YUNTOU00061" categoryName="地毯清洁剂" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00062" categoryName="油污清洗液" productCategoryTypeId="CATALOG_CATEGORY" />
+	
+	<ProductCategory productCategoryId="YUNTOU00071" categoryName="圆珠笔" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00072" categoryName="拖鞋" productCategoryTypeId="CATALOG_CATEGORY" />
+	
+	
+	<ProductCategory productCategoryId="YUNTOU00081" categoryName="点火枪" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00082" categoryName="收银夹" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00083" categoryName="闹钟" productCategoryTypeId="CATALOG_CATEGORY" />
+	
+	
+	<ProductCategory productCategoryId="YUNTOU00091" categoryName="电动" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00092" categoryName="五金" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory productCategoryId="YUNTOU00093" categoryName="多功能" productCategoryTypeId="CATALOG_CATEGORY" />
+	
+	<!-- 分类与分类的关联 -->
+	<!-- 
+	<ProductCategoryRollup productCategoryId="YUNTOU00001" parentProductCategoryId="YUNTOU000" fromDate="2001-05-13 12:00:00.0"/>
+	 -->
+	<ProductCategoryRollup productCategoryId="YUNTOU00011" parentProductCategoryId="YUNTOU001" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00012" parentProductCategoryId="YUNTOU001" fromDate="2001-05-13 12:00:00.0"/>
+	
+	<ProductCategoryRollup productCategoryId="YUNTOU00021" parentProductCategoryId="YUNTOU002" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00022" parentProductCategoryId="YUNTOU002" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00023" parentProductCategoryId="YUNTOU002" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00024" parentProductCategoryId="YUNTOU002" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00025" parentProductCategoryId="YUNTOU002" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00026" parentProductCategoryId="YUNTOU002" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00027" parentProductCategoryId="YUNTOU002" fromDate="2001-05-13 12:00:00.0"/>
+	
+	<ProductCategoryRollup productCategoryId="YUNTOU00031" parentProductCategoryId="YUNTOU003" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00032" parentProductCategoryId="YUNTOU003" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00033" parentProductCategoryId="YUNTOU003" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00034" parentProductCategoryId="YUNTOU003" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00035" parentProductCategoryId="YUNTOU003" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00036" parentProductCategoryId="YUNTOU003" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00037" parentProductCategoryId="YUNTOU003" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00038" parentProductCategoryId="YUNTOU003" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00039" parentProductCategoryId="YUNTOU003" fromDate="2001-05-13 12:00:00.0"/>
+	
+	<ProductCategoryRollup productCategoryId="YUNTOU00041" parentProductCategoryId="YUNTOU004" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00042" parentProductCategoryId="YUNTOU004" fromDate="2001-05-13 12:00:00.0"/>
+	
+	<ProductCategoryRollup productCategoryId="YUNTOU00051" parentProductCategoryId="YUNTOU005" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00052" parentProductCategoryId="YUNTOU005" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00053" parentProductCategoryId="YUNTOU005" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00054" parentProductCategoryId="YUNTOU005" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00055" parentProductCategoryId="YUNTOU005" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00056" parentProductCategoryId="YUNTOU005" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00057" parentProductCategoryId="YUNTOU005" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00058" parentProductCategoryId="YUNTOU005" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00059" parentProductCategoryId="YUNTOU005" fromDate="2001-05-13 12:00:00.0"/>
+	
+	<ProductCategoryRollup productCategoryId="YUNTOU00061" parentProductCategoryId="YUNTOU006" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00062" parentProductCategoryId="YUNTOU006" fromDate="2001-05-13 12:00:00.0"/>
+	
+	<ProductCategoryRollup productCategoryId="YUNTOU00071" parentProductCategoryId="YUNTOU007" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00072" parentProductCategoryId="YUNTOU007" fromDate="2001-05-13 12:00:00.0"/>
+	
+	<ProductCategoryRollup productCategoryId="YUNTOU00081" parentProductCategoryId="YUNTOU008" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00082" parentProductCategoryId="YUNTOU008" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00083" parentProductCategoryId="YUNTOU008" fromDate="2001-05-13 12:00:00.0"/>
+	
+	<ProductCategoryRollup productCategoryId="YUNTOU00091" parentProductCategoryId="YUNTOU009" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00092" parentProductCategoryId="YUNTOU009" fromDate="2001-05-13 12:00:00.0"/>
+	<ProductCategoryRollup productCategoryId="YUNTOU00093" parentProductCategoryId="YUNTOU009" fromDate="2001-05-13 12:00:00.0"/>
+	
+    
+    
+    
+    <!-- 特征分类 -->
+    <!-- <ProductFeatureCategory productFeatureCategoryId="YUNTOU000" description="室内精装"/> -->
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU001" description="办公用品"/>
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU002" description="门牌、标牌"/>
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU003" description="布草类"/>
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU004" description="大堂用品"/>   
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU005" description="电器类"/> 
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU006" description="清洁剂"/>  
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU007" description="易耗品"/>  
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU008" description="杂件"/>  
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU009" description="工程工具"/>  
+	<!-- 
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00001" description="内门" />
+	 -->
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00011" description="非电子" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00012" description="电子" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00021" description="前厅" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00022" description="餐饮部" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00023" description="客房部" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00024" description="办公区" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00025" description="行政区" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00026" description="公共区域" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00027" description="康乐部" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00031" description="毛巾" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00032" description="地巾" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00033" description="浴袍" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00034" description="床单" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00035" description="枕套" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00036" description="床垫" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00037" description="毯子" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00038" description="被套" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00039" description="窗帘" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00041" description="车类" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00042" description="其他" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00051" description="电视" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00052" description="空调" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00053" description="洗衣机" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00054" description="冰箱" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00055" description="咖啡机" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00056" description="毛巾柜" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00057" description="红酒柜" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00058" description="跑步机" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00059" description="电话机" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00061" description="地毯清洁剂" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00062" description="油污清洗液" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00071" description="圆珠笔" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00072" description="拖鞋" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00081" description="点火枪" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00082" description="收银夹" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00083" description="闹钟" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00091" description="电动" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00092" description="五金" />
+	<ProductFeatureCategory productFeatureCategoryId="YUNTOU00093" description="多功能" />
+    <!-- 分类与特征分类的关联 -->
+    
+    <!-- <ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU000" productCategoryId="YUNTOU000" fromDate="2014-05-01 12:00:00.0"/> -->
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU001" productCategoryId="YUNTOU001" fromDate="2014-05-01 12:00:00.0"/>
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU002" productCategoryId="YUNTOU002" fromDate="2014-05-01 12:00:00.0"/>
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU003" productCategoryId="YUNTOU003" fromDate="2014-05-01 12:00:00.0"/>
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU004" productCategoryId="YUNTOU004" fromDate="2014-05-01 12:00:00.0"/> 
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU005" productCategoryId="YUNTOU005" fromDate="2014-05-01 12:00:00.0"/>
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU006" productCategoryId="YUNTOU006" fromDate="2014-05-01 12:00:00.0"/>
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU007" productCategoryId="YUNTOU007" fromDate="2014-05-01 12:00:00.0"/> 
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU008" productCategoryId="YUNTOU008" fromDate="2014-05-01 12:00:00.0"/>  
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU009" productCategoryId="YUNTOU009" fromDate="2014-05-01 12:00:00.0"/> 
+	<!-- 
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00001" productCategoryId="YUNTOU00001" fromDate="2014-05-01 12:00:00.0" />
+	 -->
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00011" productCategoryId="YUNTOU00011" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00012" productCategoryId="YUNTOU00012" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00021" productCategoryId="YUNTOU00021" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00022" productCategoryId="YUNTOU00022" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00023" productCategoryId="YUNTOU00023" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00024" productCategoryId="YUNTOU00024" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00025" productCategoryId="YUNTOU00025" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00026" productCategoryId="YUNTOU00026" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00027" productCategoryId="YUNTOU00027" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00031" productCategoryId="YUNTOU00031" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00032" productCategoryId="YUNTOU00032" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00033" productCategoryId="YUNTOU00033" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00034" productCategoryId="YUNTOU00034" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00035" productCategoryId="YUNTOU00035" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00036" productCategoryId="YUNTOU00036" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00037" productCategoryId="YUNTOU00037" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00038" productCategoryId="YUNTOU00038" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00039" productCategoryId="YUNTOU00039" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00041" productCategoryId="YUNTOU00041" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00042" productCategoryId="YUNTOU00042" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00051" productCategoryId="YUNTOU00051" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00052" productCategoryId="YUNTOU00052" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00053" productCategoryId="YUNTOU00053" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00054" productCategoryId="YUNTOU00054" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00055" productCategoryId="YUNTOU00055" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00056" productCategoryId="YUNTOU00056" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00057" productCategoryId="YUNTOU00057" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00058" productCategoryId="YUNTOU00058" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00059" productCategoryId="YUNTOU00059" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00061" productCategoryId="YUNTOU00061" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00062" productCategoryId="YUNTOU00062" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00071" productCategoryId="YUNTOU00071" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00072" productCategoryId="YUNTOU00072" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00081" productCategoryId="YUNTOU00081" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00082" productCategoryId="YUNTOU00082" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00083" productCategoryId="YUNTOU00083" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00091" productCategoryId="YUNTOU00091" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00092" productCategoryId="YUNTOU00092" fromDate="2014-05-01 12:00:00.0" />
+	<ProductFeatureCategoryAppl productFeatureCategoryId="YUNTOU00093" productCategoryId="YUNTOU00093" fromDate="2014-05-01 12:00:00.0" />
+  	
+  	
+  	<ProductFeature productFeatureId="fe-10000" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00012" description="&#40657;&#33394;" lastUpdatedStamp="2014-12-14 17:44:53.06" lastUpdatedTxStamp="2014-12-14 17:44:52.96" createdStamp="2014-12-14 17:44:53.06" createdTxStamp="2014-12-14 17:44:52.96"/>
+    <ProductFeature productFeatureId="fe-10001" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00012" description="&#30333;&#33394;" lastUpdatedStamp="2014-12-14 17:48:40.199" lastUpdatedTxStamp="2014-12-14 17:48:40.19" createdStamp="2014-12-14 17:48:40.199" createdTxStamp="2014-12-14 17:48:40.19"/>
+    <ProductFeature productFeatureId="fe-10002" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00012" description="&#40644;&#33394;" lastUpdatedStamp="2014-12-14 17:48:45.906" lastUpdatedTxStamp="2014-12-14 17:48:45.904" createdStamp="2014-12-14 17:48:45.906" createdTxStamp="2014-12-14 17:48:45.904"/>
+    <ProductFeature productFeatureId="fe-10003" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00012" description="&#38738;&#33394;" lastUpdatedStamp="2014-12-14 17:48:49.231" lastUpdatedTxStamp="2014-12-14 17:48:49.231" createdStamp="2014-12-14 17:48:49.231" createdTxStamp="2014-12-14 17:48:49.231"/>
+    <ProductFeature productFeatureId="fe-10004" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00012" description="&#32418;&#33394;" lastUpdatedStamp="2014-12-14 17:48:52.26" lastUpdatedTxStamp="2014-12-14 17:48:52.243" createdStamp="2014-12-14 17:48:52.26" createdTxStamp="2014-12-14 17:48:52.243"/>
+    <ProductFeature productFeatureId="fe-10005" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00012" description="&#32043;&#33394;" lastUpdatedStamp="2014-12-14 17:48:56.931" lastUpdatedTxStamp="2014-12-14 17:48:56.93" createdStamp="2014-12-14 17:48:56.931" createdTxStamp="2014-12-14 17:48:56.93"/>
+    <ProductFeature productFeatureId="fe-10006" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00012" description="&#32511;&#33394;" lastUpdatedStamp="2014-12-14 17:48:59.944" lastUpdatedTxStamp="2014-12-14 17:48:59.944" createdStamp="2014-12-14 17:48:59.944" createdTxStamp="2014-12-14 17:48:59.944"/>
+    <ProductFeature productFeatureId="fe-10007" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00012" description="&#27721;&#29579;" lastUpdatedStamp="2014-12-14 17:54:58.964" lastUpdatedTxStamp="2014-12-14 17:54:58.957" createdStamp="2014-12-14 17:54:58.964" createdTxStamp="2014-12-14 17:54:58.957"/>
+    <ProductFeature productFeatureId="fe-10008" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00012" description="&#32654;&#30340;" lastUpdatedStamp="2014-12-14 17:55:02.959" lastUpdatedTxStamp="2014-12-14 17:55:02.958" createdStamp="2014-12-14 17:55:02.959" createdTxStamp="2014-12-14 17:55:02.958"/>
+    <ProductFeature productFeatureId="fe-10009" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00012" description="&#26494;&#19979;" lastUpdatedStamp="2014-12-14 17:55:06.2" lastUpdatedTxStamp="2014-12-14 17:55:06.2" createdStamp="2014-12-14 17:55:06.2" createdTxStamp="2014-12-14 17:55:06.2"/>
+    <ProductFeature productFeatureId="fe-10010" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00012" description="&#24800;&#26222;" lastUpdatedStamp="2014-12-14 17:55:26.893" lastUpdatedTxStamp="2014-12-14 17:55:26.645" createdStamp="2014-12-14 17:55:26.893" createdTxStamp="2014-12-14 17:55:26.645"/>
+    <ProductFeature productFeatureId="fe-10011" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00012" description="&#29702;&#20809;" lastUpdatedStamp="2014-12-14 17:55:31.486" lastUpdatedTxStamp="2014-12-14 17:55:31.486" createdStamp="2014-12-14 17:55:31.486" createdTxStamp="2014-12-14 17:55:31.486"/>
+    <ProductFeature productFeatureId="fe-10012" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00012" description="&#22269;&#20135;" lastUpdatedStamp="2014-12-14 18:01:15.995" lastUpdatedTxStamp="2014-12-14 18:01:15.987" createdStamp="2014-12-14 18:01:15.995" createdTxStamp="2014-12-14 18:01:15.987"/>
+    <ProductFeature productFeatureId="fe-10013" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00012" description="&#27431;&#32654;" lastUpdatedStamp="2014-12-14 18:01:21.204" lastUpdatedTxStamp="2014-12-14 18:01:21.203" createdStamp="2014-12-14 18:01:21.204" createdTxStamp="2014-12-14 18:01:21.203"/>
+    <ProductFeature productFeatureId="fe-10014" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00012" description="&#26085;&#26412;" lastUpdatedStamp="2014-12-14 18:01:26.974" lastUpdatedTxStamp="2014-12-14 18:01:26.965" createdStamp="2014-12-14 18:01:26.974" createdTxStamp="2014-12-14 18:01:26.965"/>
+    <ProductFeature productFeatureId="fe-10015" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00012" description="&#38889;&#22269;" lastUpdatedStamp="2014-12-14 18:01:29.852" lastUpdatedTxStamp="2014-12-14 18:01:29.852" createdStamp="2014-12-14 18:01:29.852" createdTxStamp="2014-12-14 18:01:29.852"/>
+    <ProductFeature productFeatureId="fe-10016" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00012" description="&#28595;&#22823;&#21033;&#20122;" lastUpdatedStamp="2014-12-14 18:01:37.975" lastUpdatedTxStamp="2014-12-14 18:01:37.967" createdStamp="2014-12-14 18:01:37.975" createdTxStamp="2014-12-14 18:01:37.967"/>
+    <ProductFeature productFeatureId="fe-10017" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00011" description="&#24471;&#21147;" lastUpdatedStamp="2014-12-14 18:12:25.748" lastUpdatedTxStamp="2014-12-14 18:12:25.739" createdStamp="2014-12-14 18:12:25.748" createdTxStamp="2014-12-14 18:12:25.739"/>
+    <ProductFeature productFeatureId="fe-10018" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00011" description="&#24191;&#21338;" lastUpdatedStamp="2014-12-14 18:12:34.031" lastUpdatedTxStamp="2014-12-14 18:12:34.03" createdStamp="2014-12-14 18:12:34.031" createdTxStamp="2014-12-14 18:12:34.03"/>
+    <ProductFeature productFeatureId="fe-10019" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00011" description="&#27721;&#29579;" lastUpdatedStamp="2014-12-14 18:12:38.149" lastUpdatedTxStamp="2014-12-14 18:12:38.141" createdStamp="2014-12-14 18:12:38.149" createdTxStamp="2014-12-14 18:12:38.141"/>
+    <ProductFeature productFeatureId="fe-10020" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00011" description="180*180*40" lastUpdatedStamp="2014-12-14 18:13:26.57" lastUpdatedTxStamp="2014-12-14 18:13:26.561" createdStamp="2014-12-14 18:13:26.57" createdTxStamp="2014-12-14 18:13:26.561"/>
+    <ProductFeature productFeatureId="fe-10021" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00011" description="329*258*278" lastUpdatedStamp="2014-12-14 18:13:33.406" lastUpdatedTxStamp="2014-12-14 18:13:33.405" createdStamp="2014-12-14 18:13:33.406" createdTxStamp="2014-12-14 18:13:33.405"/>
+    <ProductFeature productFeatureId="fe-10022" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00011" description="&#22810;&#33394;" lastUpdatedStamp="2014-12-14 18:13:40.969" lastUpdatedTxStamp="2014-12-14 18:13:40.961" createdStamp="2014-12-14 18:13:40.969" createdTxStamp="2014-12-14 18:13:40.961"/>
+    <ProductFeature productFeatureId="fe-10023" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00011" description="&#22810;&#24425;&#26465;&#32441;" lastUpdatedStamp="2014-12-14 18:13:45.13" lastUpdatedTxStamp="2014-12-14 18:13:45.129" createdStamp="2014-12-14 18:13:45.13" createdTxStamp="2014-12-14 18:13:45.129"/>
+    <!-- 
+    <ProductFeature productFeatureId="fe-10024" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00001" description="&#23433;&#27915;" lastUpdatedStamp="2014-12-14 18:16:03.362" lastUpdatedTxStamp="2014-12-14 18:16:03.355" createdStamp="2014-12-14 18:16:03.362" createdTxStamp="2014-12-14 18:16:03.355"/>
+    <ProductFeature productFeatureId="fe-10025" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00001" description="2100*820*40" lastUpdatedStamp="2014-12-14 18:16:14.846" lastUpdatedTxStamp="2014-12-14 18:16:14.838" createdStamp="2014-12-14 18:16:14.846" createdTxStamp="2014-12-14 18:16:14.838"/>
+     -->
+    <ProductFeature productFeatureId="fe-10026" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00042" description="&#30021;&#26032;" lastUpdatedStamp="2014-12-14 18:17:13.682" lastUpdatedTxStamp="2014-12-14 18:17:13.673" createdStamp="2014-12-14 18:17:13.682" createdTxStamp="2014-12-14 18:17:13.673"/>
+    <ProductFeature productFeatureId="fe-10027" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00042" description="&#40614;&#31319;" lastUpdatedStamp="2014-12-14 18:17:19.575" lastUpdatedTxStamp="2014-12-14 18:17:19.574" createdStamp="2014-12-14 18:17:19.575" createdTxStamp="2014-12-14 18:17:19.574"/>
+    <ProductFeature productFeatureId="fe-10028" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00042" description="800*530*300" lastUpdatedStamp="2014-12-14 18:17:34.348" lastUpdatedTxStamp="2014-12-14 18:17:34.34" createdStamp="2014-12-14 18:17:34.348" createdTxStamp="2014-12-14 18:17:34.34"/>
+    <ProductFeature productFeatureId="fe-10029" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00042" description="310*260*685" lastUpdatedStamp="2014-12-14 18:17:39.957" lastUpdatedTxStamp="2014-12-14 18:17:39.956" createdStamp="2014-12-14 18:17:39.957" createdTxStamp="2014-12-14 18:17:39.956"/>
+    <ProductFeature productFeatureId="fe-10030" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00042" description="&#40657;&#33394;" lastUpdatedStamp="2014-12-14 18:17:49.12" lastUpdatedTxStamp="2014-12-14 18:17:49.111" createdStamp="2014-12-14 18:17:49.12" createdTxStamp="2014-12-14 18:17:49.111"/>
+    <ProductFeature productFeatureId="fe-10031" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00042" description="&#30333;&#33394;" lastUpdatedStamp="2014-12-14 18:17:51.979" lastUpdatedTxStamp="2014-12-14 18:17:51.979" createdStamp="2014-12-14 18:17:51.979" createdTxStamp="2014-12-14 18:17:51.979"/>
+    <ProductFeature productFeatureId="fe-10032" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00042" description="&#32418;&#33394;" lastUpdatedStamp="2014-12-14 18:17:55.964" lastUpdatedTxStamp="2014-12-14 18:17:55.963" createdStamp="2014-12-14 18:17:55.964" createdTxStamp="2014-12-14 18:17:55.963"/>
+    <ProductFeature productFeatureId="fe-10033" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00042" description="&#32511;&#33394;" lastUpdatedStamp="2014-12-14 18:17:59.098" lastUpdatedTxStamp="2014-12-14 18:17:59.097" createdStamp="2014-12-14 18:17:59.098" createdTxStamp="2014-12-14 18:17:59.097"/>
+    <ProductFeature productFeatureId="fe-10034" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00042" description="&#37329;&#33394;" lastUpdatedStamp="2014-12-14 18:18:02.298" lastUpdatedTxStamp="2014-12-14 18:18:02.29" createdStamp="2014-12-14 18:18:02.298" createdTxStamp="2014-12-14 18:18:02.29"/>
+    <ProductFeature productFeatureId="fe-10035" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00042" description="&#22269;&#20135;" lastUpdatedStamp="2014-12-14 18:18:12.004" lastUpdatedTxStamp="2014-12-14 18:18:12.004" createdStamp="2014-12-14 18:18:12.004" createdTxStamp="2014-12-14 18:18:12.004"/>
+    <ProductFeature productFeatureId="fe-10036" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00042" description="&#27431;&#32654;" lastUpdatedStamp="2014-12-14 18:18:16.108" lastUpdatedTxStamp="2014-12-14 18:18:16.1" createdStamp="2014-12-14 18:18:16.108" createdTxStamp="2014-12-14 18:18:16.1"/>
+    <ProductFeature productFeatureId="fe-10037" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00041" description="&#28145;&#36745;" lastUpdatedStamp="2014-12-14 18:19:23.397" lastUpdatedTxStamp="2014-12-14 18:19:23.389" createdStamp="2014-12-14 18:19:23.397" createdTxStamp="2014-12-14 18:19:23.389"/>
+    <ProductFeature productFeatureId="fe-10038" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00041" description="&#24425;&#33394;" lastUpdatedStamp="2014-12-14 18:19:35.232" lastUpdatedTxStamp="2014-12-14 18:19:35.224" createdStamp="2014-12-14 18:19:35.232" createdTxStamp="2014-12-14 18:19:35.224"/>
+    <ProductFeature productFeatureId="fe-10039" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00041" description="&#22810;&#33394;" lastUpdatedStamp="2014-12-14 18:21:39.411" lastUpdatedTxStamp="2014-12-14 18:21:39.403" createdStamp="2014-12-14 18:21:39.411" createdTxStamp="2014-12-14 18:21:39.403"/>
+    <ProductFeature productFeatureId="fe-10040" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00041" description="&#28145;&#33394;" lastUpdatedStamp="2014-12-14 18:21:42.223" lastUpdatedTxStamp="2014-12-14 18:21:42.222" createdStamp="2014-12-14 18:21:42.223" createdTxStamp="2014-12-14 18:21:42.222"/>
+    <ProductFeature productFeatureId="fe-10041" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00041" description="&#22269;&#20135;" lastUpdatedStamp="2014-12-14 18:21:52.768" lastUpdatedTxStamp="2014-12-14 18:21:52.76" createdStamp="2014-12-14 18:21:52.768" createdTxStamp="2014-12-14 18:21:52.76"/>
+    <ProductFeature productFeatureId="fe-10042" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00041" description="&#26085;&#26412;" lastUpdatedStamp="2014-12-14 18:21:57.749" lastUpdatedTxStamp="2014-12-14 18:21:57.748" createdStamp="2014-12-14 18:21:57.749" createdTxStamp="2014-12-14 18:21:57.748"/>
+    <ProductFeature productFeatureId="fe-10043" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00041" description="&#38889;&#22269;" lastUpdatedStamp="2014-12-14 18:22:00.784" lastUpdatedTxStamp="2014-12-14 18:22:00.784" createdStamp="2014-12-14 18:22:00.784" createdTxStamp="2014-12-14 18:22:00.784"/>
+    <ProductFeature productFeatureId="fe-10044" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00092" description="&#26480;&#31185;&#32654;" lastUpdatedStamp="2014-12-14 18:28:42.377" lastUpdatedTxStamp="2014-12-14 18:28:42.369" createdStamp="2014-12-14 18:28:42.377" createdTxStamp="2014-12-14 18:28:42.369"/>
+    <ProductFeature productFeatureId="fe-10045" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00092" description="&#30333;&#33394;" lastUpdatedStamp="2014-12-14 18:28:47.945" lastUpdatedTxStamp="2014-12-14 18:28:47.945" createdStamp="2014-12-14 18:28:47.945" createdTxStamp="2014-12-14 18:28:47.945"/>
+    <ProductFeature productFeatureId="fe-10046" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00092" description="&#40657;&#33394;" lastUpdatedStamp="2014-12-14 18:28:51.036" lastUpdatedTxStamp="2014-12-14 18:28:51.036" createdStamp="2014-12-14 18:28:51.036" createdTxStamp="2014-12-14 18:28:51.036"/>
+    <ProductFeature productFeatureId="fe-10047" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00092" description="&#22269;&#20135;" lastUpdatedStamp="2014-12-14 18:29:02.83" lastUpdatedTxStamp="2014-12-14 18:29:02.822" createdStamp="2014-12-14 18:29:02.83" createdTxStamp="2014-12-14 18:29:02.822"/>
+    <ProductFeature productFeatureId="fe-10048" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00092" description="&#26085;&#26412;" lastUpdatedStamp="2014-12-14 18:29:07.29" lastUpdatedTxStamp="2014-12-14 18:29:07.289" createdStamp="2014-12-14 18:29:07.29" createdTxStamp="2014-12-14 18:29:07.289"/>
+    <ProductFeature productFeatureId="fe-10049" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00093" description="&#21345;&#22827;&#23041;&#23572;" lastUpdatedStamp="2014-12-14 18:29:30.241" lastUpdatedTxStamp="2014-12-14 18:29:30.233" createdStamp="2014-12-14 18:29:30.241" createdTxStamp="2014-12-14 18:29:30.233"/>
+    <ProductFeature productFeatureId="fe-10050" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00091" description="&#21338;&#19990;" lastUpdatedStamp="2014-12-14 18:35:51.414" lastUpdatedTxStamp="2014-12-14 18:35:51.404" createdStamp="2014-12-14 18:35:51.414" createdTxStamp="2014-12-14 18:35:51.404"/>
+    <ProductFeature productFeatureId="fe-10051" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00091" description="450w" lastUpdatedStamp="2014-12-14 18:36:04.7" lastUpdatedTxStamp="2014-12-14 18:36:04.688" createdStamp="2014-12-14 18:36:04.7" createdTxStamp="2014-12-14 18:36:04.688"/>
+    <ProductFeature productFeatureId="fe-10052" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00091" description="&#22269;&#20135;" lastUpdatedStamp="2014-12-14 18:36:15.232" lastUpdatedTxStamp="2014-12-14 18:36:15.223" createdStamp="2014-12-14 18:36:15.232" createdTxStamp="2014-12-14 18:36:15.223"/>
+    <ProductFeature productFeatureId="fe-10053" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00032" description="&#20159;&#20016;" lastUpdatedStamp="2014-12-14 18:36:52.728" lastUpdatedTxStamp="2014-12-14 18:36:52.719" createdStamp="2014-12-14 18:36:52.728" createdTxStamp="2014-12-14 18:36:52.719"/>
+    <ProductFeature productFeatureId="fe-10054" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00032" description="&#24917;&#26031;" lastUpdatedStamp="2014-12-14 18:37:22.605" lastUpdatedTxStamp="2014-12-14 18:37:22.597" createdStamp="2014-12-14 18:37:22.605" createdTxStamp="2014-12-14 18:37:22.597"/>
+    <ProductFeature productFeatureId="fe-10055" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00032" description="&#30333;&#33394;" lastUpdatedStamp="2014-12-14 18:37:34.133" lastUpdatedTxStamp="2014-12-14 18:37:34.122" createdStamp="2014-12-14 18:37:34.133" createdTxStamp="2014-12-14 18:37:34.122"/>
+    <ProductFeature productFeatureId="fe-10056" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00032" description="&#32511;&#33394;" lastUpdatedStamp="2014-12-14 18:37:37.285" lastUpdatedTxStamp="2014-12-14 18:37:37.285" createdStamp="2014-12-14 18:37:37.285" createdTxStamp="2014-12-14 18:37:37.285"/>
+    <ProductFeature productFeatureId="fe-10057" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00032" description="&#22269;&#20135;" lastUpdatedStamp="2014-12-14 18:37:56.042" lastUpdatedTxStamp="2014-12-14 18:37:56.034" createdStamp="2014-12-14 18:37:56.042" createdTxStamp="2014-12-14 18:37:56.034"/>
+    <ProductFeature productFeatureId="fe-10058" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00034" description="&#20159;&#20016;" lastUpdatedStamp="2014-12-14 18:38:17.114" lastUpdatedTxStamp="2014-12-14 18:38:17.106" createdStamp="2014-12-14 18:38:17.114" createdTxStamp="2014-12-14 18:38:17.106"/>
+    <ProductFeature productFeatureId="fe-10059" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00034" description="&#24658;&#28304;&#31077;" lastUpdatedStamp="2014-12-14 18:38:28.415" lastUpdatedTxStamp="2014-12-14 18:38:28.406" createdStamp="2014-12-14 18:38:28.415" createdTxStamp="2014-12-14 18:38:28.406"/>
+    <ProductFeature productFeatureId="fe-10060" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00036" description="&#20159;&#20016;" lastUpdatedStamp="2014-12-14 18:38:37.559" lastUpdatedTxStamp="2014-12-14 18:38:37.558" createdStamp="2014-12-14 18:38:37.559" createdTxStamp="2014-12-14 18:38:37.558"/>
+    <ProductFeature productFeatureId="fe-10061" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00036" description="&#40657;&#33394;" lastUpdatedStamp="2014-12-14 18:38:43.291" lastUpdatedTxStamp="2014-12-14 18:38:43.282" createdStamp="2014-12-14 18:38:43.291" createdTxStamp="2014-12-14 18:38:43.282"/>
+    <ProductFeature productFeatureId="fe-10062" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00036" description="&#30333;&#33394;" lastUpdatedStamp="2014-12-14 18:38:47.018" lastUpdatedTxStamp="2014-12-14 18:38:47.018" createdStamp="2014-12-14 18:38:47.018" createdTxStamp="2014-12-14 18:38:47.018"/>
+    <ProductFeature productFeatureId="fe-10063" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00035" description="&#24917;&#26031;" lastUpdatedStamp="2014-12-14 18:39:00.351" lastUpdatedTxStamp="2014-12-14 18:39:00.343" createdStamp="2014-12-14 18:39:00.351" createdTxStamp="2014-12-14 18:39:00.343"/>
+    <ProductFeature productFeatureId="fe-10064" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00035" description="&#20159;&#20016;" lastUpdatedStamp="2014-12-14 18:39:03.608" lastUpdatedTxStamp="2014-12-14 18:39:03.608" createdStamp="2014-12-14 18:39:03.608" createdTxStamp="2014-12-14 18:39:03.608"/>
+    <ProductFeature productFeatureId="fe-10065" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00035" description="55*82cm" lastUpdatedStamp="2014-12-14 18:39:30.982" lastUpdatedTxStamp="2014-12-14 18:39:30.975" createdStamp="2014-12-14 18:39:30.982" createdTxStamp="2014-12-14 18:39:30.975"/>
+    <ProductFeature productFeatureId="fe-10066" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00035" description="&#22269;&#20135;" lastUpdatedStamp="2014-12-14 18:39:38.249" lastUpdatedTxStamp="2014-12-14 18:39:38.249" createdStamp="2014-12-14 18:39:38.249" createdTxStamp="2014-12-14 18:39:38.249"/>
+    <ProductFeature productFeatureId="fe-10067" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00035" description="&#38889;&#22269;" lastUpdatedStamp="2014-12-14 18:39:41.644" lastUpdatedTxStamp="2014-12-14 18:39:41.636" createdStamp="2014-12-14 18:39:41.644" createdTxStamp="2014-12-14 18:39:41.636"/>
+    <ProductFeature productFeatureId="fe-10068" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00031" description="&#20159;&#20016;" lastUpdatedStamp="2014-12-14 18:39:51.436" lastUpdatedTxStamp="2014-12-14 18:39:51.435" createdStamp="2014-12-14 18:39:51.436" createdTxStamp="2014-12-14 18:39:51.435"/>
+    <ProductFeature productFeatureId="fe-10069" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00037" description="&#26031;&#22025;&#20029;" lastUpdatedStamp="2014-12-14 18:40:06.259" lastUpdatedTxStamp="2014-12-14 18:40:06.247" createdStamp="2014-12-14 18:40:06.259" createdTxStamp="2014-12-14 18:40:06.247"/>
+    <ProductFeature productFeatureId="fe-10070" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00037" description="&#24658;&#28304;&#31077;" lastUpdatedStamp="2014-12-14 18:40:10.275" lastUpdatedTxStamp="2014-12-14 18:40:10.267" createdStamp="2014-12-14 18:40:10.275" createdTxStamp="2014-12-14 18:40:10.267"/>
+    <ProductFeature productFeatureId="fe-10071" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00037" description="1.8*2.3" lastUpdatedStamp="2014-12-14 18:40:14.475" lastUpdatedTxStamp="2014-12-14 18:40:14.474" createdStamp="2014-12-14 18:40:14.475" createdTxStamp="2014-12-14 18:40:14.474"/>
+    <ProductFeature productFeatureId="fe-10072" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00033" description="&#20159;&#20016;" lastUpdatedStamp="2014-12-14 18:40:26.756" lastUpdatedTxStamp="2014-12-14 18:40:26.748" createdStamp="2014-12-14 18:40:26.756" createdTxStamp="2014-12-14 18:40:26.748"/>
+    <ProductFeature productFeatureId="fe-10073" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00033" description="&#22025;&#19997;&#20029;" lastUpdatedStamp="2014-12-14 18:40:33.445" lastUpdatedTxStamp="2014-12-14 18:40:33.444" createdStamp="2014-12-14 18:40:33.445" createdTxStamp="2014-12-14 18:40:33.444"/>
+    <ProductFeature productFeatureId="fe-10074" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00039" description="&#20159;&#20016;" lastUpdatedStamp="2014-12-14 18:40:42.007" lastUpdatedTxStamp="2014-12-14 18:40:42.0" createdStamp="2014-12-14 18:40:42.007" createdTxStamp="2014-12-14 18:40:42.0"/>
+    <ProductFeature productFeatureId="fe-10075" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00039" description="&#22025;&#19997;&#20029;" lastUpdatedStamp="2014-12-14 18:40:43.256" lastUpdatedTxStamp="2014-12-14 18:40:43.255" createdStamp="2014-12-14 18:40:43.256" createdTxStamp="2014-12-14 18:40:43.255"/>
+    <ProductFeature productFeatureId="fe-10076" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00038" description="&#20159;&#20016;" lastUpdatedStamp="2014-12-14 18:40:50.395" lastUpdatedTxStamp="2014-12-14 18:40:50.395" createdStamp="2014-12-14 18:40:50.395" createdTxStamp="2014-12-14 18:40:50.395"/>
+    <ProductFeature productFeatureId="fe-10077" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00038" description="&#22025;&#19997;&#20029;" lastUpdatedStamp="2014-12-14 18:40:51.355" lastUpdatedTxStamp="2014-12-14 18:40:51.355" createdStamp="2014-12-14 18:40:51.355" createdTxStamp="2014-12-14 18:40:51.355"/>
+    <ProductFeature productFeatureId="fe-10078" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00071" description="&#32500;&#36798;" lastUpdatedStamp="2014-12-14 18:41:18.516" lastUpdatedTxStamp="2014-12-14 18:41:18.508" createdStamp="2014-12-14 18:41:18.516" createdTxStamp="2014-12-14 18:41:18.508"/>
+    <ProductFeature productFeatureId="fe-10079" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00071" description="&#30333;&#33394;" lastUpdatedStamp="2014-12-14 18:41:25.899" lastUpdatedTxStamp="2014-12-14 18:41:25.899" createdStamp="2014-12-14 18:41:25.899" createdTxStamp="2014-12-14 18:41:25.899"/>
+    <ProductFeature productFeatureId="fe-10080" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00071" description="&#40657;&#33394;" lastUpdatedStamp="2014-12-14 18:41:28.349" lastUpdatedTxStamp="2014-12-14 18:41:28.347" createdStamp="2014-12-14 18:41:28.349" createdTxStamp="2014-12-14 18:41:28.347"/>
+    <ProductFeature productFeatureId="fe-10081" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00071" description="&#32418;&#33394;" lastUpdatedStamp="2014-12-14 18:41:31.011" lastUpdatedTxStamp="2014-12-14 18:41:31.002" createdStamp="2014-12-14 18:41:31.011" createdTxStamp="2014-12-14 18:41:31.002"/>
+    <ProductFeature productFeatureId="fe-10082" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00072" description="&#32654;&#29579;" lastUpdatedStamp="2014-12-14 18:41:42.409" lastUpdatedTxStamp="2014-12-14 18:41:42.401" createdStamp="2014-12-14 18:41:42.409" createdTxStamp="2014-12-14 18:41:42.401"/>
+    <ProductFeature productFeatureId="fe-10083" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00072" description="&#22269;&#20135;" lastUpdatedStamp="2014-12-14 18:41:50.01" lastUpdatedTxStamp="2014-12-14 18:41:50.01" createdStamp="2014-12-14 18:41:50.01" createdTxStamp="2014-12-14 18:41:50.01"/>
+    <ProductFeature productFeatureId="fe-10084" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00072" description="&#26085;&#26412;" lastUpdatedStamp="2014-12-14 18:41:53.354" lastUpdatedTxStamp="2014-12-14 18:41:53.345" createdStamp="2014-12-14 18:41:53.354" createdTxStamp="2014-12-14 18:41:53.345"/>
+    <ProductFeature productFeatureId="fe-10085" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00082" description="&#21345;&#22900;" lastUpdatedStamp="2014-12-14 18:42:24.078" lastUpdatedTxStamp="2014-12-14 18:42:24.07" createdStamp="2014-12-14 18:42:24.078" createdTxStamp="2014-12-14 18:42:24.07"/>
+    <ProductFeature productFeatureId="fe-10086" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00082" description="&#28779;&#36718;" lastUpdatedStamp="2014-12-14 18:42:32.648" lastUpdatedTxStamp="2014-12-14 18:42:32.648" createdStamp="2014-12-14 18:42:32.648" createdTxStamp="2014-12-14 18:42:32.648"/>
+    <ProductFeature productFeatureId="fe-10087" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00082" description="&#40657;&#33394;" lastUpdatedStamp="2014-12-14 18:42:39.814" lastUpdatedTxStamp="2014-12-14 18:42:39.806" createdStamp="2014-12-14 18:42:39.814" createdTxStamp="2014-12-14 18:42:39.806"/>
+    <ProductFeature productFeatureId="fe-10088" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00082" description="&#30333;&#33394;" lastUpdatedStamp="2014-12-14 18:42:42.527" lastUpdatedTxStamp="2014-12-14 18:42:42.527" createdStamp="2014-12-14 18:42:42.527" createdTxStamp="2014-12-14 18:42:42.527"/>
+    <ProductFeature productFeatureId="fe-10089" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00082" description="14*23*2" lastUpdatedStamp="2014-12-14 18:42:53.451" lastUpdatedTxStamp="2014-12-14 18:42:53.444" createdStamp="2014-12-14 18:42:53.451" createdTxStamp="2014-12-14 18:42:53.444"/>
+    <ProductFeature productFeatureId="fe-10090" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00081" description="&#32676;&#20896;" lastUpdatedStamp="2014-12-14 18:43:12.968" lastUpdatedTxStamp="2014-12-14 18:43:12.952" createdStamp="2014-12-14 18:43:12.968" createdTxStamp="2014-12-14 18:43:12.952"/>
+    <ProductFeature productFeatureId="fe-10091" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00081" description="&#27779;&#23572;&#22827;" lastUpdatedStamp="2014-12-14 18:43:16.37" lastUpdatedTxStamp="2014-12-14 18:43:16.369" createdStamp="2014-12-14 18:43:16.37" createdTxStamp="2014-12-14 18:43:16.369"/>
+    <ProductFeature productFeatureId="fe-10092" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00081" description="&#20159;&#20016;" lastUpdatedStamp="2014-12-14 18:43:20.162" lastUpdatedTxStamp="2014-12-14 18:43:20.162" createdStamp="2014-12-14 18:43:20.162" createdTxStamp="2014-12-14 18:43:20.162"/>
+    <ProductFeature productFeatureId="fe-10093" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00083" description="&#20159;&#20016;" lastUpdatedStamp="2014-12-14 18:43:34.859" lastUpdatedTxStamp="2014-12-14 18:43:34.851" createdStamp="2014-12-14 18:43:34.859" createdTxStamp="2014-12-14 18:43:34.851"/>
+    <ProductFeature productFeatureId="fe-10094" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00083" description="10.4*3.7*13" lastUpdatedStamp="2014-12-14 18:43:39.777" lastUpdatedTxStamp="2014-12-14 18:43:39.776" createdStamp="2014-12-14 18:43:39.777" createdTxStamp="2014-12-14 18:43:39.776"/>
+    <ProductFeature productFeatureId="fe-10095" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00083" description="&#37329;&#33394;" lastUpdatedStamp="2014-12-14 18:43:44.174" lastUpdatedTxStamp="2014-12-14 18:43:44.173" createdStamp="2014-12-14 18:43:44.174" createdTxStamp="2014-12-14 18:43:44.173"/>
+    <ProductFeature productFeatureId="fe-10096" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00083" description="&#30333;&#33394;" lastUpdatedStamp="2014-12-14 18:43:46.811" lastUpdatedTxStamp="2014-12-14 18:43:46.803" createdStamp="2014-12-14 18:43:46.811" createdTxStamp="2014-12-14 18:43:46.803"/>
+    <ProductFeature productFeatureId="fe-10097" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00083" description="&#40657;&#33394;" lastUpdatedStamp="2014-12-14 18:43:49.594" lastUpdatedTxStamp="2014-12-14 18:43:49.594" createdStamp="2014-12-14 18:43:49.594" createdTxStamp="2014-12-14 18:43:49.594"/>
+    <ProductFeature productFeatureId="fe-10098" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00083" description="&#32418;&#33394;" lastUpdatedStamp="2014-12-14 18:43:52.818" lastUpdatedTxStamp="2014-12-14 18:43:52.817" createdStamp="2014-12-14 18:43:52.818" createdTxStamp="2014-12-14 18:43:52.817"/>
+    <ProductFeature productFeatureId="fe-10099" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00061" description="&#20122;&#23792;&#38451;&#20809;" lastUpdatedStamp="2014-12-14 19:14:36.052" lastUpdatedTxStamp="2014-12-14 19:14:36.043" createdStamp="2014-12-14 19:14:36.052" createdTxStamp="2014-12-14 19:14:36.043"/>
+    <ProductFeature productFeatureId="fe-10100" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00062" description="&#39034;&#21338;" lastUpdatedStamp="2014-12-14 19:14:50.998" lastUpdatedTxStamp="2014-12-14 19:14:50.986" createdStamp="2014-12-14 19:14:50.998" createdTxStamp="2014-12-14 19:14:50.986"/>
+    <ProductFeature productFeatureId="fe-10101" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00062" description="&#24110;&#21495;" lastUpdatedStamp="2014-12-14 19:14:56.109" lastUpdatedTxStamp="2014-12-14 19:14:56.109" createdStamp="2014-12-14 19:14:56.109" createdTxStamp="2014-12-14 19:14:56.109"/>
+    <ProductFeature productFeatureId="fe-10102" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00054" description="&#19996;&#33437;" lastUpdatedStamp="2014-12-14 19:15:12.073" lastUpdatedTxStamp="2014-12-14 19:15:12.065" createdStamp="2014-12-14 19:15:12.073" createdTxStamp="2014-12-14 19:15:12.065"/>
+    <ProductFeature productFeatureId="fe-10103" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00054" description="&#26494;&#19979;" lastUpdatedStamp="2014-12-14 19:15:15.782" lastUpdatedTxStamp="2014-12-14 19:15:15.782" createdStamp="2014-12-14 19:15:15.782" createdTxStamp="2014-12-14 19:15:15.782"/>
+    <ProductFeature productFeatureId="fe-10104" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00054" description="&#28023;&#23572;" lastUpdatedStamp="2014-12-14 19:15:21.466" lastUpdatedTxStamp="2014-12-14 19:15:21.466" createdStamp="2014-12-14 19:15:21.466" createdTxStamp="2014-12-14 19:15:21.466"/>
+    <ProductFeature productFeatureId="fe-10105" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00054" description="430*510*480" lastUpdatedStamp="2014-12-14 19:15:31.631" lastUpdatedTxStamp="2014-12-14 19:15:31.622" createdStamp="2014-12-14 19:15:31.631" createdTxStamp="2014-12-14 19:15:31.622"/>
+    <ProductFeature productFeatureId="fe-10106" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00054" description="&#22269;&#20135;" lastUpdatedStamp="2014-12-14 19:15:39.706" lastUpdatedTxStamp="2014-12-14 19:15:39.706" createdStamp="2014-12-14 19:15:39.706" createdTxStamp="2014-12-14 19:15:39.706"/>
+    <ProductFeature productFeatureId="fe-10107" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00054" description="&#26085;&#26412;" lastUpdatedStamp="2014-12-14 19:15:42.866" lastUpdatedTxStamp="2014-12-14 19:15:42.858" createdStamp="2014-12-14 19:15:42.866" createdTxStamp="2014-12-14 19:15:42.858"/>
+    <ProductFeature productFeatureId="fe-10108" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00054" description="&#38134;&#33394;" lastUpdatedStamp="2014-12-14 19:15:48.023" lastUpdatedTxStamp="2014-12-14 19:15:48.022" createdStamp="2014-12-14 19:15:48.023" createdTxStamp="2014-12-14 19:15:48.022"/>
+    <ProductFeature productFeatureId="fe-10109" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00054" description="&#37329;&#33394;" lastUpdatedStamp="2014-12-14 19:15:50.584" lastUpdatedTxStamp="2014-12-14 19:15:50.583" createdStamp="2014-12-14 19:15:50.584" createdTxStamp="2014-12-14 19:15:50.583"/>
+    <ProductFeature productFeatureId="fe-10110" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00054" description="&#30333;&#33394;" lastUpdatedStamp="2014-12-14 19:15:53.254" lastUpdatedTxStamp="2014-12-14 19:15:53.244" createdStamp="2014-12-14 19:15:53.254" createdTxStamp="2014-12-14 19:15:53.244"/>
+    <ProductFeature productFeatureId="fe-10111" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00054" description="&#28784;&#33394;" lastUpdatedStamp="2014-12-14 19:15:55.795" lastUpdatedTxStamp="2014-12-14 19:15:55.794" createdStamp="2014-12-14 19:15:55.795" createdTxStamp="2014-12-14 19:15:55.794"/>
+    <ProductFeature productFeatureId="fe-10112" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00055" description="&#20255;&#22025;" lastUpdatedStamp="2014-12-14 19:16:05.897" lastUpdatedTxStamp="2014-12-14 19:16:05.889" createdStamp="2014-12-14 19:16:05.897" createdTxStamp="2014-12-14 19:16:05.889"/>
+    <ProductFeature productFeatureId="fe-10113" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00055" description="&#30333;&#33394;" lastUpdatedStamp="2014-12-14 19:16:10.719" lastUpdatedTxStamp="2014-12-14 19:16:10.719" createdStamp="2014-12-14 19:16:10.719" createdTxStamp="2014-12-14 19:16:10.719"/>
+    <ProductFeature productFeatureId="fe-10114" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00055" description="&#32418;&#33394;" lastUpdatedStamp="2014-12-14 19:16:13.84" lastUpdatedTxStamp="2014-12-14 19:16:13.839" createdStamp="2014-12-14 19:16:13.84" createdTxStamp="2014-12-14 19:16:13.839"/>
+    <ProductFeature productFeatureId="fe-10115" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00056" description="&#24247;&#23453;" lastUpdatedStamp="2014-12-14 19:16:27.109" lastUpdatedTxStamp="2014-12-14 19:16:27.101" createdStamp="2014-12-14 19:16:27.109" createdTxStamp="2014-12-14 19:16:27.101"/>
+    <ProductFeature productFeatureId="fe-10116" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00053" description="&#28023;&#23572;" lastUpdatedStamp="2014-12-14 19:16:47.966" lastUpdatedTxStamp="2014-12-14 19:16:47.958" createdStamp="2014-12-14 19:16:47.966" createdTxStamp="2014-12-14 19:16:47.958"/>
+    <ProductFeature productFeatureId="fe-10117" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00053" description="&#23567;&#22825;&#40517;" lastUpdatedStamp="2014-12-14 19:16:53.066" lastUpdatedTxStamp="2014-12-14 19:16:53.065" createdStamp="2014-12-14 19:16:53.066" createdTxStamp="2014-12-14 19:16:53.065"/>
+    <ProductFeature productFeatureId="fe-10118" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00053" description="803*285*222" lastUpdatedStamp="2014-12-14 19:17:00.5" lastUpdatedTxStamp="2014-12-14 19:17:00.492" createdStamp="2014-12-14 19:17:00.5" createdTxStamp="2014-12-14 19:17:00.492"/>
+    <ProductFeature productFeatureId="fe-10119" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00053" description="430*510*480" lastUpdatedStamp="2014-12-14 19:17:04.163" lastUpdatedTxStamp="2014-12-14 19:17:04.162" createdStamp="2014-12-14 19:17:04.163" createdTxStamp="2014-12-14 19:17:04.162"/>
+    <ProductFeature productFeatureId="fe-10120" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00053" description="&#22269;&#20135;" lastUpdatedStamp="2014-12-14 19:17:09.907" lastUpdatedTxStamp="2014-12-14 19:17:09.905" createdStamp="2014-12-14 19:17:09.907" createdTxStamp="2014-12-14 19:17:09.905"/>
+    <ProductFeature productFeatureId="fe-10121" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00053" description="&#26085;&#26412;" lastUpdatedStamp="2014-12-14 19:17:22.224" lastUpdatedTxStamp="2014-12-14 19:17:22.216" createdStamp="2014-12-14 19:17:22.224" createdTxStamp="2014-12-14 19:17:22.216"/>
+    <ProductFeature productFeatureId="fe-10122" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00053" description="&#32654;&#22269;" lastUpdatedStamp="2014-12-14 19:17:25.137" lastUpdatedTxStamp="2014-12-14 19:17:25.137" createdStamp="2014-12-14 19:17:25.137" createdTxStamp="2014-12-14 19:17:25.137"/>
+    <ProductFeature productFeatureId="fe-10123" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00051" description="&#24247;&#20339;" lastUpdatedStamp="2014-12-14 19:17:34.537" lastUpdatedTxStamp="2014-12-14 19:17:34.528" createdStamp="2014-12-14 19:17:34.537" createdTxStamp="2014-12-14 19:17:34.528"/>
+    <ProductFeature productFeatureId="fe-10124" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00051" description="&#38271;&#34425;" lastUpdatedStamp="2014-12-14 19:17:37.947" lastUpdatedTxStamp="2014-12-14 19:17:37.947" createdStamp="2014-12-14 19:17:37.947" createdTxStamp="2014-12-14 19:17:37.947"/>
+    <ProductFeature productFeatureId="fe-10125" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00051" description="&#32852;&#24819;" lastUpdatedStamp="2014-12-14 19:17:41.174" lastUpdatedTxStamp="2014-12-14 19:17:41.173" createdStamp="2014-12-14 19:17:41.174" createdTxStamp="2014-12-14 19:17:41.173"/>
+    <ProductFeature productFeatureId="fe-10126" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00051" description="&#20048;&#35270;" lastUpdatedStamp="2014-12-14 19:17:46.229" lastUpdatedTxStamp="2014-12-14 19:17:46.218" createdStamp="2014-12-14 19:17:46.229" createdTxStamp="2014-12-14 19:17:46.218"/>
+    <ProductFeature productFeatureId="fe-10127" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00051" description="32&#23544;" lastUpdatedStamp="2014-12-14 19:17:52.96" lastUpdatedTxStamp="2014-12-14 19:17:52.96" createdStamp="2014-12-14 19:17:52.96" createdTxStamp="2014-12-14 19:17:52.96"/>
+    <ProductFeature productFeatureId="fe-10128" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00051" description="39&#23544;" lastUpdatedStamp="2014-12-14 19:17:56.356" lastUpdatedTxStamp="2014-12-14 19:17:56.348" createdStamp="2014-12-14 19:17:56.356" createdTxStamp="2014-12-14 19:17:56.348"/>
+    <ProductFeature productFeatureId="fe-10129" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00051" description="45&#23544;" lastUpdatedStamp="2014-12-14 19:17:59.78" lastUpdatedTxStamp="2014-12-14 19:17:59.779" createdStamp="2014-12-14 19:17:59.78" createdTxStamp="2014-12-14 19:17:59.779"/>
+    <ProductFeature productFeatureId="fe-10130" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00051" description="50&#23544;" lastUpdatedStamp="2014-12-14 19:18:03.556" lastUpdatedTxStamp="2014-12-14 19:18:03.554" createdStamp="2014-12-14 19:18:03.556" createdTxStamp="2014-12-14 19:18:03.554"/>
+    <ProductFeature productFeatureId="fe-10131" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00051" description="60&#23544;" lastUpdatedStamp="2014-12-14 19:18:06.644" lastUpdatedTxStamp="2014-12-14 19:18:06.636" createdStamp="2014-12-14 19:18:06.644" createdTxStamp="2014-12-14 19:18:06.636"/>
+    <ProductFeature productFeatureId="fe-10132" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00059" description="&#20159;&#20016;" lastUpdatedStamp="2014-12-14 19:18:24.754" lastUpdatedTxStamp="2014-12-14 19:18:24.745" createdStamp="2014-12-14 19:18:24.754" createdTxStamp="2014-12-14 19:18:24.745"/>
+    <ProductFeature productFeatureId="fe-10133" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00059" description="&#26494;&#19979;" lastUpdatedStamp="2014-12-14 19:18:28.391" lastUpdatedTxStamp="2014-12-14 19:18:28.391" createdStamp="2014-12-14 19:18:28.391" createdTxStamp="2014-12-14 19:18:28.391"/>
+    <ProductFeature productFeatureId="fe-10134" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00059" description="&#26085;&#26412;" lastUpdatedStamp="2014-12-14 19:18:35.291" lastUpdatedTxStamp="2014-12-14 19:18:35.283" createdStamp="2014-12-14 19:18:35.291" createdTxStamp="2014-12-14 19:18:35.283"/>
+    <ProductFeature productFeatureId="fe-10135" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00059" description="&#22269;&#20135;" lastUpdatedStamp="2014-12-14 19:18:38.311" lastUpdatedTxStamp="2014-12-14 19:18:38.311" createdStamp="2014-12-14 19:18:38.311" createdTxStamp="2014-12-14 19:18:38.311"/>
+    <ProductFeature productFeatureId="fe-10136" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00052" description="&#26494;&#19979;" lastUpdatedStamp="2014-12-14 19:18:46.86" lastUpdatedTxStamp="2014-12-14 19:18:46.852" createdStamp="2014-12-14 19:18:46.86" createdTxStamp="2014-12-14 19:18:46.852"/>
+    <ProductFeature productFeatureId="fe-10137" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00052" description="&#32654;&#30340;" lastUpdatedStamp="2014-12-14 19:18:50.255" lastUpdatedTxStamp="2014-12-14 19:18:50.255" createdStamp="2014-12-14 19:18:50.255" createdTxStamp="2014-12-14 19:18:50.255"/>
+    <ProductFeature productFeatureId="fe-10138" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00052" description="&#32034;&#23612;" lastUpdatedStamp="2014-12-14 19:18:58.057" lastUpdatedTxStamp="2014-12-14 19:18:58.049" createdStamp="2014-12-14 19:18:58.057" createdTxStamp="2014-12-14 19:18:58.049"/>
+    <ProductFeature productFeatureId="fe-10139" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00052" description="&#30333;&#33394;" lastUpdatedStamp="2014-12-14 19:19:08.456" lastUpdatedTxStamp="2014-12-14 19:19:08.448" createdStamp="2014-12-14 19:19:08.456" createdTxStamp="2014-12-14 19:19:08.448"/>
+    <ProductFeature productFeatureId="fe-10140" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00052" description="&#40657;&#33394;" lastUpdatedStamp="2014-12-14 19:19:12.051" lastUpdatedTxStamp="2014-12-14 19:19:12.049" createdStamp="2014-12-14 19:19:12.051" createdTxStamp="2014-12-14 19:19:12.049"/>
+    <ProductFeature productFeatureId="fe-10141" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00052" description="&#26085;&#26412;" lastUpdatedStamp="2014-12-14 19:19:17.428" lastUpdatedTxStamp="2014-12-14 19:19:17.428" createdStamp="2014-12-14 19:19:17.428" createdTxStamp="2014-12-14 19:19:17.428"/>
+    <ProductFeature productFeatureId="fe-10142" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00052" description="&#22269;&#20135;" lastUpdatedStamp="2014-12-14 19:19:20.705" lastUpdatedTxStamp="2014-12-14 19:19:20.697" createdStamp="2014-12-14 19:19:20.705" createdTxStamp="2014-12-14 19:19:20.697"/>
+    <ProductFeature productFeatureId="fe-10143" productFeatureTypeId="ORIGIN" productFeatureCategoryId="YUNTOU00052" description="&#32654;&#22269;" lastUpdatedStamp="2014-12-14 19:19:24.604" lastUpdatedTxStamp="2014-12-14 19:19:24.604" createdStamp="2014-12-14 19:19:24.604" createdTxStamp="2014-12-14 19:19:24.604"/>
+    <ProductFeature productFeatureId="fe-10144" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00057" description="&#32500;&#35834;&#21345;&#22827;" lastUpdatedStamp="2014-12-14 19:19:50.745" lastUpdatedTxStamp="2014-12-14 19:19:50.737" createdStamp="2014-12-14 19:19:50.745" createdTxStamp="2014-12-14 19:19:50.737"/>
+    <ProductFeature productFeatureId="fe-10145" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00057" description="&#28023;&#23572;&#21345;&#33832;&#24093;" lastUpdatedStamp="2014-12-14 19:19:55.774" lastUpdatedTxStamp="2014-12-14 19:19:55.773" createdStamp="2014-12-14 19:19:55.774" createdTxStamp="2014-12-14 19:19:55.773"/>
+    <ProductFeature productFeatureId="fe-10146" productFeatureTypeId="BRAND" productFeatureCategoryId="YUNTOU00058" description="&#29233;&#24247;" lastUpdatedStamp="2014-12-14 19:20:05.027" lastUpdatedTxStamp="2014-12-14 19:20:05.019" createdStamp="2014-12-14 19:20:05.027" createdTxStamp="2014-12-14 19:20:05.019"/>
+    <ProductFeature productFeatureId="fe-10147" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00026" description="&#30333;&#33394;" lastUpdatedStamp="2014-12-14 19:20:21.679" lastUpdatedTxStamp="2014-12-14 19:20:21.672" createdStamp="2014-12-14 19:20:21.679" createdTxStamp="2014-12-14 19:20:21.672"/>
+    <ProductFeature productFeatureId="fe-10148" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00026" description="&#40657;&#33394;" lastUpdatedStamp="2014-12-14 19:20:24.286" lastUpdatedTxStamp="2014-12-14 19:20:24.285" createdStamp="2014-12-14 19:20:24.286" createdTxStamp="2014-12-14 19:20:24.285"/>
+    <ProductFeature productFeatureId="fe-10149" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00026" description="625*510*1280mm" lastUpdatedStamp="2014-12-14 19:20:31.461" lastUpdatedTxStamp="2014-12-14 19:20:31.46" createdStamp="2014-12-14 19:20:31.461" createdTxStamp="2014-12-14 19:20:31.46"/>
+    <ProductFeature productFeatureId="fe-10150" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00026" description="560*475*620mm" lastUpdatedStamp="2014-12-14 19:20:36.136" lastUpdatedTxStamp="2014-12-14 19:20:36.122" createdStamp="2014-12-14 19:20:36.136" createdTxStamp="2014-12-14 19:20:36.122"/>
+    <ProductFeature productFeatureId="fe-10151" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00021" description="&#30333;&#33394;" lastUpdatedStamp="2014-12-14 19:20:45.62" lastUpdatedTxStamp="2014-12-14 19:20:45.62" createdStamp="2014-12-14 19:20:45.62" createdTxStamp="2014-12-14 19:20:45.62"/>
+    <ProductFeature productFeatureId="fe-10152" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00021" description="&#32418;&#33394;" lastUpdatedStamp="2014-12-14 19:20:48.249" lastUpdatedTxStamp="2014-12-14 19:20:48.24" createdStamp="2014-12-14 19:20:48.249" createdTxStamp="2014-12-14 19:20:48.24"/>
+    <ProductFeature productFeatureId="fe-10153" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00021" description="200*100mm" lastUpdatedStamp="2014-12-14 19:20:57.758" lastUpdatedTxStamp="2014-12-14 19:20:57.757" createdStamp="2014-12-14 19:20:57.758" createdTxStamp="2014-12-14 19:20:57.757"/>
+    <ProductFeature productFeatureId="fe-10154" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00024" description="200*300mm" lastUpdatedStamp="2014-12-14 19:21:09.983" lastUpdatedTxStamp="2014-12-14 19:21:09.976" createdStamp="2014-12-14 19:21:09.983" createdTxStamp="2014-12-14 19:21:09.976"/>
+    <ProductFeature productFeatureId="fe-10155" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00024" description="&#32418;&#33394;" lastUpdatedStamp="2014-12-14 19:21:15.365" lastUpdatedTxStamp="2014-12-14 19:21:15.365" createdStamp="2014-12-14 19:21:15.365" createdTxStamp="2014-12-14 19:21:15.365"/>
+    <ProductFeature productFeatureId="fe-10156" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00024" description="&#28145;&#33394;" lastUpdatedStamp="2014-12-14 19:21:18.38" lastUpdatedTxStamp="2014-12-14 19:21:18.379" createdStamp="2014-12-14 19:21:18.38" createdTxStamp="2014-12-14 19:21:18.379"/>
+    <ProductFeature productFeatureId="fe-10157" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00023" description="560*475*620mm" lastUpdatedStamp="2014-12-14 19:21:34.612" lastUpdatedTxStamp="2014-12-14 19:21:34.604" createdStamp="2014-12-14 19:21:34.612" createdTxStamp="2014-12-14 19:21:34.604"/>
+    <ProductFeature productFeatureId="fe-10158" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00023" description="&#40657;&#33394;" lastUpdatedStamp="2014-12-14 19:21:40.146" lastUpdatedTxStamp="2014-12-14 19:21:40.145" createdStamp="2014-12-14 19:21:40.146" createdTxStamp="2014-12-14 19:21:40.145"/>
+    <ProductFeature productFeatureId="fe-10159" productFeatureTypeId="COLOR" productFeatureCategoryId="YUNTOU00023" description="&#37329;&#33394;" lastUpdatedStamp="2014-12-14 19:21:43.51" lastUpdatedTxStamp="2014-12-14 19:21:43.509" createdStamp="2014-12-14 19:21:43.51" createdTxStamp="2014-12-14 19:21:43.509"/>
+    <ProductFeature productFeatureId="fe-10160" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00022" description="500*300mm" lastUpdatedStamp="2014-12-14 19:22:09.534" lastUpdatedTxStamp="2014-12-14 19:22:09.522" createdStamp="2014-12-14 19:22:09.534" createdTxStamp="2014-12-14 19:22:09.522"/>
+    <ProductFeature productFeatureId="fe-10161" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00022" description="200*100mm" lastUpdatedStamp="2014-12-14 19:22:14.038" lastUpdatedTxStamp="2014-12-14 19:22:14.037" createdStamp="2014-12-14 19:22:14.038" createdTxStamp="2014-12-14 19:22:14.037"/>
+    <ProductFeature productFeatureId="fe-10162" productFeatureTypeId="SIZE" productFeatureCategoryId="YUNTOU00022" description="100*150mm" lastUpdatedStamp="2014-12-14 19:22:19.395" lastUpdatedTxStamp="2014-12-14 19:22:19.395" createdStamp="2014-12-14 19:22:19.395" createdTxStamp="2014-12-14 19:22:19.395"/>
+    
+  
+</entity-engine-xml>

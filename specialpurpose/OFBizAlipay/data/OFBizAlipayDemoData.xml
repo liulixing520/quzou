@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+<!-- 	<PaymentGatewayAlipay notifyUrl="http://124.207.53.211:8080/shoproi/control/alipayNotify" partner="2088101843323539" partnerKey="lxx1j3u4r80ubg4hj7flf49qg13bd0un" paymentGatewayConfigId="ALIPAY_CONFIG" returnUrl="http://124.207.53.211:8080/shoproi/control/alipayReturn" sellerEmail="pay@haotehao.com" /> -->
+</entity-engine-xml>

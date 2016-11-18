@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods-v2.xsd">
+
+	<!-- 添加商户信息 -->
+	<simple-method method-name="createPersonInfo"
+		short-description="创建商户信息">
+		<check-errors />
+		<log level="info" message="parameters======${parameters}" />
+		<make-value value-field="newEntity" entity-name="Person" />
+		<set-nonpk-fields map="parameters" value-field="newEntity" />
+		<set-pk-fields value-field="newEntity" map="parameters"/>
+		<log level="info" message="lookedUpValue======${lookedUpValue}" />
+
+		<create-value value-field="newEntity" />
+	</simple-method>
+
+	<!-- 修改商户信息 -->
+	<simple-method method-name="updatePersonInfo"
+		short-description="修改商户信息">
+		<check-errors />
+
+		<log level="info" message="parameters======${parameters}" />
+
+		<make-value value-field="lookupKeyValue" entity-name="Person" />
+		<set-pk-fields map="parameters" value-field="lookupKeyValue" />
+		<find-by-primary-key entity-name="Person" map="lookupKeyValue"
+			value-field="lookedUpValue" />
+		<set-nonpk-fields map="parameters" value-field="lookedUpValue" />
+
+		<log level="info" message="lookedUpValue======${lookedUpValue}" />
+
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+
+</simple-methods>

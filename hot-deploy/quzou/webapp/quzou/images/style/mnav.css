@@ -1,0 +1,66 @@
+@charset "utf-8";
+/*定位*/
+.tl { text-align:left; }
+.tc { text-align:center; }
+.tr { text-align:right; }
+.bc { margin-left:auto; margin-right:auto; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.vt { vertical-align:top; }
+.vm { vertical-align:middle; }
+.vb { vertical-align:bottom; }
+.pr { position:relative; }
+.pa { position:absolute; }
+/* 通用背景图片 */
+#topnav, .searchbox, .topmenu li, .menulink b, .ftrline, .promisebox li, .select-segments, .select-segments b,.gocart,.btnsmall,.backtop a{background:url(../images/index-ui-x.gif) repeat-x 0 0;}
+.search-btn,.telnum b,.ico,.service b,.i-topcart,.i-errer,.i16,.shopnum,.backtop b,.sideservice b{background:url(../images/header-ui.png) no-repeat 0 0;_background:url(../images/header-ui.gif) no-repeat 0 0;}
+.mainnav li a:hover,.mainnav li a:hover span{ background:url(../images/index-button.png) repeat-x 0 0}
+.i-discount{background:url(../images/index-ui.png) no-repeat;_background:url(../images/index-ui.gif) no-repeat}
+.categorylist li,.carousel-btn a,.tabx2,.tabbg,.main-hedging,.adsc-btn a,.adsc-btn b,.floor-menu a,.alist,.listx1 li{background:url(../images/index-ui-x.gif) repeat-x}
+.categorylist b,.gomygome b,.gomycart b{background:url(../images/index-ico.gif) no-repeat}
+.fullcategory {background:url(../images/index-ui-y.gif) repeat-y}
+/* 通用hover链接色 */
+.topmenu a:hover,.login-top a:hover,.hotkeyword a:hover,.ftrhelp a:hover,.segmentslist a:hover{color:#F00}
+/* 宽度限制模块 */
+.wbox{width:960px;margin:0 auto;clear:both;margin-bottom:10px}
+.wbox:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
+.wbox { display:inline-block; }/* Hides from IE-mac \*/
+* html .wbox { zoom:1; }
+.wbox { display:block; }/* End hide from IE-mac */
+/* 顶部导航 */
+#topnav{height:30px;line-height:29px;background-position:0 0;position:relative;z-index:9996;_margin-bottom:-10px}
+.login-top,.gome-logo,.topsearch{float:left;display:inline;}
+.login-top a.color-b{color:#0066CC;margin:0 5px}
+.topmenu{float:right;display:inline;margin-right:-1px;}
+.login-top a{color:#666;display:inline-block;margin-left:8px}
+.topmenu a {color:#333}
+.topmenu li{float:left;display:inline;background-repeat:no-repeat;background-position: right -131px;margin-left:-1px}
+.topmenu li.last{ padding:0px 5px;}
+.topmenu li.last2{ padding:0px 10px 0 5px;background:none}
+.menulink{float:left;display:inline;padding:0 24px 0 8px;margin:3px 0 0 0;_margin:2px 0 0 0;height:24px;line-height:24px;position:relative;z-index:9997;}
+.menulink span{font-weight:700}
+.menulink b{width:7px;height:4px;position:absolute;background-repeat:no-repeat;background-position: right -170px;top:9px;right:9px;}
+.menulink.shopcart{padding-left:33px}
+.i-topcart{width:17px;height:13px;position:absolute;top:5px;left:7px;background-position:-370px -70px}
+/* 菜单 */
+.menuhide{position:absolute;background:#fff;border:1px solid #d8d8d8;top:27px;_top:25px;left:0}
+.menuhide{display:none;padding:0 10px 10px;width:78px;line-height:22px}
+.menuhide li{background:none}
+.hover .menulink{border:1px solid #d8d8d8;border-bottom:1px solid #fff;margin:2px 0 0;height:24px;line-height:24px;_height:22px;_line-height:22px;padding:0 23px 0 7px;background:#FFF}
+.hover .menulink.shopcart{padding:0 23px 0 32px;}
+.hover .menulink.shopcart .i-topcart{_top:4px;left:6px;background-position:-370px -40px}
+.hover .menulink b{background-position: right -220px;}
+.hover .menuhide{display:block}
+.telnum{float:left;display:inline;padding:0 8px 0 34px;color:#F00;font-weight:700;display:inline;float:left;height:23px;line-height:23px;margin-top:4px;position:relative}
+.telnum b{background-position:-280px 0;width:18px;height:18px;position:absolute;left:8px;top:4px}
+.shopcartbox .menuhide{width:350px;left:0;padding:0}
+.service{padding:0 8px 0 25px}
+.service b{background-position:-280px -23px;width:12px;height:17px;position:absolute;left:8px;top:5px}
+.service.hover b{background-position:-280px -23px;}
+.maintopl1,.maintopl2,.maintopl3,.maintopl4{ float:left; color:#7d7d7d;}
+.maintopl2{ padding:5px 5px 0 5px;float:left;}
+.maintopl3 a{ color:#ff7801; text-decoration:underline;}
+.maintopr{ width:190px; padding:2px 25px 0 0 ; float:right; color:#a6a6a6;}
+.maintopr a{ color:#a6a6a6;}
+.maintopl4{padding:0px 4px;}
+.maintopl4 a{color:#a6a6a6;}

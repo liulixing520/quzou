@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
+
+	<form name="FindPartyGroup" type="single" style="pageForm"
+		default-table-style="searchContent" target="FindPartyGroup"
+		default-entity-name="PartyGroup">
+		<field name="groupName" title="企业名称" position="1">
+			<text-find hide-options="true" />
+		</field>
+		<field name="statusId" title="状态" position="2">
+			<drop-down allow-empty="true">
+				<!-- 已启用的组织企业 -->
+				<entity-options description="${description}"
+					key-field-name="statusId" entity-name="StatusItem">
+					<entity-constraint name="statusTypeId" value="PARTY_STATUS" />
+					<entity-order-by field-name="sequenceId" />
+				</entity-options>
+			</drop-down>
+		</field>
+		<field name="submitButton" title="查询" position="3" widget-style="btn btn-primary">
+            <submit/>
+        </field>
+	</form>
+	<form name="ListPartyGroup" type="list" list-name="listIt"
+		group-columns="false" paginate-target="FindPartyGroup"
+		default-entity-name="PartyGroupAndParent" paginate-style="panelBar"
+		default-table-style="table table-bordered table-striped table-condensed">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="PartyGroupAndParent" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		
+		<field name="ids" widget-area-style="groupAll" id-name="groupAll"
+			title=" ">
+			<check>
+				<option key="${partyId}" description=" "/>
+			</check>
+		</field>
+		<field name="CommSeq" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+		<field name="groupName" etc="width=200" sort-field="true" title="企业名称">
+			<display />
+		</field>
+	   <!-- 
+		<field name="parentGroupName" etc="width=200" sort-field="true" title="父企业名称">
+			<display />
+		</field> 
+		<field name="principalPartyId" etc="width=200" sort-field="true" title="部门负责人">
+			<display-entity entity-name="Person" key-field-name="partyId"
+				description="${firstName}" />
+		</field> -->
+		<field name="statusId" sort-field="true" title="状态">
+			<display-entity entity-name="StatusItem"
+				key-field-name="statusId" description="${description}" />
+		</field>
+		<field name="edit" title="编辑"
+			use-when="${groovy:security.hasEntityPermission(&quot;PartyGroup&quot;, &quot;_UPDATE&quot;, session);}"
+			widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-window="dialog"
+				description="编辑" target="EditPartyGroup">
+				<parameter param-name="partyId" />
+			</hyperlink>
+		</field>
+
+	</form>
+	<form name="EditPartyGroup" type='single' style="single_table"
+		default-table-style="basic-table" target-type="plain" target="updatePartyGroup"
+		default-map-name="entity" default-entity-name="PartyGroupAndParent">
+		<alt-target use-when="partyId==null" target="createPartyGroup" />
+		<field name="partyId">
+			<hidden />
+		</field>
+		<field name="navTabId">
+			<hidden value="FindPartyGroupTree" />
+		</field>
+		<field name="roleTypeId">
+			<hidden value="DEPARTMENT" />
+		</field>
+		<field name="callbackType">
+			<hidden value="closeCurrent" />
+		</field>
+		<field name="groupName" widget-style="required" title="企业名称">
+			<text />
+		</field>
+		<field name="parentPartyId" title="父组织企业">
+			<drop-down allow-empty="true">
+				<!-- 已启用的组织企业 -->
+				<entity-options description="${groupName}"
+					key-field-name="partyId" entity-name="PartyGroupAndPartyAndRole">
+					<entity-constraint name="roleTypeId" value="DEPARTMENT" />
+					<!-- <entity-constraint name="statusId" value="PARTY_ENABLED" /> -->
+					<entity-order-by field-name="partyId" />
+				</entity-options>
+			</drop-down>
+
+		</field>
+		<field name="principalPartyId" title="部门负责人">
+			<drop-down allow-empty="true">
+				<!-- 已启用的组织企业 -->
+				<entity-options description="${firstName}"
+					key-field-name="partyId" entity-name="Person">
+					<entity-order-by field-name="partyId" />
+				</entity-options>
+			</drop-down>
+
+		</field>
+		<field name="save" title="保存" position='1' use-when="${groovy:oper==null}"  widget-style="btn btn-primary"><submit/></field>
+	</form>
+	<form name="FindPerson" type="single" style="pageForm"
+		default-table-style="searchContent" target="FindPerson"
+		default-entity-name="Person">
+		<field name="userLoginId" title="用户名" position="1">
+			<text-find hide-options="true" />
+		</field>
+		<field name="firstName" title="姓名" position="2">
+			<text-find hide-options="true" />
+		</field>
+		<field name="statusId" title="状态" position="1">
+			<drop-down allow-empty="true">
+				<!-- 已启用的组织企业 -->
+				<entity-options description="${description}"
+					key-field-name="statusId" entity-name="StatusItem">
+					<entity-constraint name="statusTypeId" value="PARTY_STATUS" />
+					<entity-order-by field-name="sequenceId" />
+				</entity-options>
+			</drop-down>
+		</field>
+		<field name="departmentId" title="所属部门" position="2">
+			<drop-down allow-empty="true">
+				<entity-options description="${groupName}" key-field-name="partyId" entity-name="PartyGroupAndParent">
+					<entity-constraint operator="equals" value="DEPARTMENT" name="roleTypeId"/>
+					<!-- <entity-constraint name="parentPartyId" operator="not-equals"/> -->
+				</entity-options>
+			</drop-down>
+		</field>
+		<field name="submitButton" title="查询" position="3" widget-style="btn btn-primary">
+            <submit/>
+        </field>
+	</form>
+	<form name="ListPerson" type="list" list-name="listIt"
+		group-columns="false" paginate-target="FindPerson"
+		default-entity-name="PersonAndUserLoginAndRole" paginate-style="panelBar"
+		default-table-style="table table-bordered table-striped table-condensed">
+		<actions>
+			<!-- <set field="pCtx.partyId_op" value="in" />
+			<set field="deptList" type="List" value="${groovy:org.extErp.sysCommon.party.CommonWorkers.getChildPartyGroupAndCurrentByGroupIds(delegator,pCtx.departmentId==null?&quot;10000&quot;:pCtx.departmentId)}"/>
+			<set field="pCtx.partyId" type="List" value="${groovy:org.extErp.sysCommon.party.CommonWorkers.getUserPartyIdByGroupIds(delegator,null,deptList)}"/>
+			
+			<set field="pCtx.departmentId_op" value="in" />
+			<set field="pCtx.departmentId"/> -->
+			<script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/groupConditionOper.groovy"/>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="PersonAndUserLoginAndRole" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		
+		<field name="ids" etc="width=30px"  widget-area-style="groupAll" id-name="groupAll"
+			title=" ">
+			<check>
+				<option key="${userLoginId}"  description=" "/>
+			</check>
+		</field>
+		<field name="CommSeq" etc="width=35px"  title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+		<field name="userLoginId" sort-field="true" title="用户名">
+			<display />
+		</field>
+		<field name="firstName" sort-field="true" title="姓名">
+			<display />
+		</field>
+
+		<field name="departmentId" sort-field="true" title="企业名称">
+			<display
+				description="${groovy:org.extErp.sysCommon.party.PartyServices.getPartyGroupsNameByParty(delegator,partyId);}"></display>
+		</field>
+		<field name="statusId" sort-field="true" title="状态">
+			<display-entity entity-name="StatusItem"
+				key-field-name="statusId" description="${description}" />
+		</field>
+		<field name="edit" etc="width=35px" title="编辑"
+			use-when="${groovy:security.hasEntityPermission(&quot;Person&quot;, &quot;_UPDATE&quot;, session);}"
+			widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="编辑人员" target="EditPerson">
+				<parameter param-name="partyId" />
+			</hyperlink>
+		</field>
+
+	</form>
+	<form name="EditPerson" type='single' style="single_table"
+		default-table-style="basic-table" target-type="plain" target="updatePerson"
+		default-map-name="entity" default-entity-name="PersonAndPartyGroup">
+		<alt-target use-when="partyId==null" target="createPerson" />
+		<field name="partyId">
+			<hidden />
+		</field>
+		<field name="navTabId">
+			<hidden value="FindPerson" />
+		</field>
+		<field name="callbackType">
+			<hidden value="closeCurrent" />
+		</field>
+		<field name="userLoginId" widget-style="required" title="用户名">
+			<text />
+		</field>
+		<field name="firstName" widget-style="required" title="姓名">
+			<text />
+		</field>
+		<field name="password" use-when="partyId==null" widget-style="password"
+			title="密码" tooltip="默认111111">
+			<password default-value="111111"></password>
+		</field>
+		<field name="parentPartyId" title="父组织企业">
+			<drop-down allow-empty="true">
+				<!-- 已启用的组织企业 -->
+				<entity-options description="${groupName}"
+					key-field-name="partyId" entity-name="PartyGroup">
+					<!-- <entity-constraint name="statusId" value="PARTY_ENABLED" /> -->
+					<entity-order-by field-name="partyId" />
+				</entity-options>
+			</drop-down>
+		</field>
+	</form>
+
+	<form name="FindInnerPerson" type="single" style="pageForm"
+		default-table-style="searchContent" target="FindInnerPerson"
+		default-entity-name="Person">
+		<field name="firstName" title="姓名" position="1">
+			<text-find hide-options="true" />
+		</field>
+
+	</form>
+	<form name="ListInnerPerson" type="list" list-name="personList"
+		group-columns="false" paginate-target="FindPerson"
+		default-entity-name="Person" paginate-style="panelBar"
+		default-table-style="table table-bordered table-striped table-condensed">
+		
+		<field name="ids" widget-area-style="groupAll" id-name="groupAll"
+			title=" ">
+			<check>
+				<option key="${partyId}"  description=" "/>
+			</check>
+		</field>
+		<field name="CommSeq" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+		<field name="firstName" sort-field="true" title="姓名">
+			<display />
+		</field>
+
+	</form>
+</forms>

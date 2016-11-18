@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entity-engine-xml>
+    <!-- PartyClassification -->
+    <PartyClassificationType description="卖家分类" hasTable="N" parentTypeId="" partyClassificationTypeId="SELLER_CLASSIFY"/>
+    <PartyClassificationGroup partyClassificationGroupId="SELLER_PERSONAL"  partyClassificationTypeId="SELLER_CLASSIFY" description="个人"/>
+    <PartyClassificationGroup partyClassificationGroupId="SELLER_DOMECORP"  partyClassificationTypeId="SELLER_CLASSIFY" description="大陆企业"/>
+    <PartyClassificationGroup partyClassificationGroupId="SELLER_INDIVBIZ"  partyClassificationTypeId="SELLER_CLASSIFY" description="个体工商户"/>
+
+    <ShipmentMethodType description="Express" shipmentMethodTypeId="EXPRESS"/>
+    
+    <Party partyId="RUSTON" partyTypeId="PARTY_GROUP"/>
+    <PartyGroup partyId="RUSTON" groupName="Ruston Express"/>
+    <PartyRole partyId="RUSTON" roleTypeId="CARRIER"/>
+    <CarrierShipmentMethod partyId="RUSTON" roleTypeId="CARRIER" shipmentMethodTypeId="EXPRESS" sequenceNumber="17" carrierServiceCode="RUSTONEXPRESSSAVER"/> 
+    <ProductStoreShipmentMeth productStoreShipMethId="PSSM9014" productStoreId="9000" partyId="RUSTON" includeNoChargeItems="N" allowUspsAddr="N" requireUspsAddr="N" roleTypeId="CARRIER" shipmentMethodTypeId="EXPRESS" sequenceNumber="1"/>
+    <ShipmentCostEstimate productStoreShipMethId="PSSM9014" productStoreId="9000" orderFlatPrice="0.0" orderItemFlatPrice="0.0" orderPricePercent="0.0" shipmentCostEstimateId="SCE9207" shipmentMethodTypeId="EXPRESS" carrierPartyId="RUSTON" carrierRoleTypeId="CARRIER"/>
+	
+	<Party partyId="CHINA_POST" partyTypeId="PARTY_GROUP"/>
+    <PartyGroup partyId="CHINA_POST" groupName="China POST"/>
+    <PartyRole partyId="CHINA_POST" roleTypeId="CARRIER"/>
+    <CarrierShipmentMethod partyId="CHINA_POST" roleTypeId="CARRIER" shipmentMethodTypeId="EXPRESS" sequenceNumber="17" carrierServiceCode="CNPOSTEXPRESSSAVER"/> 
+    <ProductStoreShipmentMeth productStoreShipMethId="PSSM8014" productStoreId="9000" partyId="CHINA_POST" includeNoChargeItems="N" allowUspsAddr="N" requireUspsAddr="N" roleTypeId="CARRIER" shipmentMethodTypeId="EXPRESS" sequenceNumber="1"/>
+    <ShipmentCostEstimate shipmentCostEstimateId="SCE8207" productStoreShipMethId="PSSM8014" productStoreId="9000" orderFlatPrice="0.0" orderItemFlatPrice="0.0" orderPricePercent="0.0" shipmentMethodTypeId="EXPRESS" carrierPartyId="CHINA_POST" carrierRoleTypeId="CARRIER"/>
+    
+	<Party partyId="YANDEX" partyTypeId="PARTY_GROUP"/>
+    <PartyGroup partyId="YANDEX" groupName="Payment"/>
+    
+    <Party partyId="PAYEASE" partyTypeId="PARTY_GROUP"/>
+    <PartyGroup partyId="PAYEASE" groupName="Platform"/>
+	
+	<Party partyId="BOC_SUIFENHE" partyTypeId="PARTY_GROUP"/>
+    <PartyGroup partyId="BOC_SUIFENHE" groupName="黑龙江省绥芬河中行"/>
+	
+	<RoleType description="Seller" hasTable="N" parentTypeId="" roleTypeId="SELLER"/>
+	
+	<!-- PartyContent -->
+	<PartyContentType description="法定代表人手持身份证正面头部照片"  parentTypeId="" partyContentTypeId="LEGPOID_PHOTO"/>
+	<PartyContentType description="法定代表人手持身份证反面头部照片"  parentTypeId="" partyContentTypeId="LEGOPID_PHOTO"/>
+	<PartyContentType description="联系人手持身份证正面照片"  parentTypeId="" partyContentTypeId="CTAPOID_PHOTO"/>
+	<PartyContentType description="联系人手持身份证反面照片"  parentTypeId="" partyContentTypeId="CTAOPID_PHOTO"/>
+	<PartyContentType description="公司门头照"  parentTypeId="" partyContentTypeId="CORPDOOR_PHOTO"/>
+	<PartyContentType description="营业执照照片"  parentTypeId="" partyContentTypeId="BIZLIC_PHOTO"/>
+	<PartyContentType description="经营场所图片"  parentTypeId="" partyContentTypeId="ESTMNT_PHOTO"/>
+
+</entity-engine-xml>

@@ -1,0 +1,1 @@
+${screens.render("component://portal/widget/user/UserScreens.xml#content")}

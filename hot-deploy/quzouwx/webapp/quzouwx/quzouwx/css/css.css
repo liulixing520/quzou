@@ -1,0 +1,258 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/*一家计划*/
+.plan_list_box{ width:100%; margin:0 auto 3% auto; overflow:hidden;}
+.plan_list{ width:90%; border-radius:10px; box-shadow:0px 0px 8px #dfdfdf; margin:5% auto 2% auto; background-color:#FFF;}
+.plan_title{ font-weight: bold; color: #000; font-size:1.2em; padding:5% 4% 3% 4%;}
+.plan_data{ font-size:0.8em; color:#9f9f9f; padding:0% 4%;}
+.plan_img{ width:92%; padding:5% 4%;}
+.plan_main{ color:#858585; font-size:0.9em; padding:0% 4%; line-height:24px;}
+.plan_link{ color:#000; font-size:0.9em; padding:4% 4%;}
+.plan_link:visited{ color:#000;}
+
+.plan_main_box{ width:100%; margin:0 auto 3% auto; overflow:hidden;}
+.plan_name{ width:90%; margin:3% auto; overflow:hidden; }
+.plan_name td{ text-align:center;}
+.plan_name p{ font-size:1.5em; color:#81b11d; font-family: "方正准圆_GBK", "方正大黑_GBK", "微软雅黑";}
+.adimg1{ width:100%;}
+.plan_main_list{ width:100%; overflow:hidden; color:#595757;font-size:0.9em; }
+.plan_main_list dt,.plan_main_list dd{ width:94%; padding:4% 3%; overflow:hidden;}
+.plan_main_list dt div,.plan_main_list dd div{ float:left; width:10%;}
+.plan_main_list dt div img,.plan_main_list dd div img{ width:70%;}
+.plan_main_list dt p,.plan_main_list dd p{ float:left; width:60%;}
+.plan_main_list dt span,.plan_main_list dd span{ display:block; float:right; text-align:right; margin-right:2%;}
+.plan_main_list dd { background-color:#FFF;}
+
+.rule{ width:100%; margin:3% auto; overflow:hidden; position:relative; height:170px;}
+.rule_icon{ width:11%; position:absolute; top:0; left:2%; z-index:100;}
+.rule_box{ width:88%; border:2px solid #82b11d; border-radius:10px; position:absolute; top:10%; right:5%; z-index:1;}
+.rule_title{color:#595757;font-size:1.0em; text-align:center; padding:3% 0 2% 0;}
+.rule_main{ color:#858585; font-size:0.8em; line-height:24px; padding:0 4%;}
+.rule_link{ color:#337ab7; text-align:center; padding:3% 0; font-size:0.8em;}
+
+.check_box{ width:86%; overflow:hidden; padding:3% 7%;}
+.checkbox{ width:10%; float:left; background:url(../images/checkbox.gif) no-repeat; background-size:60%; margin-top:1%;}
+.check_box p{ float:left; width:90%; color:#595757; font-size:0.8em; line-height:24px;}
+.check_box p span{ color:#82b11d;}
+
+.button_table{ width:90%; overflow:hidden; padding:3% 0; margin:0 auto;}
+.button_table td{ text-align:center; width:50%;}
+.button1{ background-color:#94ca20; color:#FFF; font-size:1.0em; text-align:center; border-radius:5px; height:36px; line-height:36px; font-weight:bold; width:85%; margin:0 auto;}
+.button2{ background-color:#ff9900; color:#FFF; font-size:1.0em; text-align:center; border-radius:5px; height:36px; line-height:36px; font-weight:bold; width:85%; margin:0 auto;}
+.button1:visited,.button2:visited{ color:#FFF;}
+
+.question{ width:96%; margin:3% auto 0 auto; padding:1% 0 3% 0; overflow:hidden; background-color:#FFF;}
+.question_title{ width:100%; color:#595757;font-size:1.0em; text-align:center; padding:3% 0; border-bottom:2px dotted #d7d7d7;}
+.question_one{ width:96%; padding:2%}
+.question_q,.question_a{ width:100%; margin:2% auto; overflow:hidden;}
+.question_img{ width:10%; float:left;}
+.question_img img{ width:55%;}
+.question_q p,.question_a p{ width:90%; float:left; color:#666666; font-size:0.8em;}
+.question_link{ color:#337ab7; text-align:center; padding:3% 0; font-size:0.8em;}
+.question_link:visited{ color:#337ab7;}
+
+.plan_tip_box{ width:100%; margin:0 auto 3% auto; overflow:hidden;}
+.tip_text1{ width:86%; margin:0 auto; padding:10% 0 0 0; }
+.tip_name{ display:inline; color:#82b11d; font-size:1.2em;}
+.tip_title{ display:inline; font-size:1.5em; color:#ff7e00; padding-left:3%;}
+.tip_text2{ width:86%; margin:0 auto; padding:10% 0; color:#82b11d; text-align:center; font-size:1.7em; }
+.tip_text2 img{ width:20%; display:inline; vertical-align:middle;}
+.tip_icon{ width:26%; margin:3% auto 15% auto;}
+
+.button3{ background:#fff url(../images/share_icon1.gif) no-repeat 12px 9px; background-size:14%; color:#595757; font-size:0.8em; text-align:left; border-radius:5px; height:36px; line-height:36px; width:90%; margin:0 auto; box-shadow:0px 0px 8px #dfdfdf;}
+.button4{ background:#fff url(../images/share_icon2.gif) no-repeat 12px 8px; background-size:15%; color:#595757; font-size:0.8em; text-align:left; border-radius:5px; height:36px; line-height:36px; width:90%; margin:0 auto; box-shadow:0px 0px 8px #dfdfdf;}
+.button3:visited,.button4:visited{ color:#595757;}
+
+/*我的*/
+.my_box{ width:100%; height:90%; margin:0 auto 0 auto;overflow:hidden;}
+.my_wechat{ width:100%;height:100%; overflow:hidden; z-index:301;position: absolute;top:0px;left:0px;}
+.my_photo{ width:22%;margin-top:3em;margin-right:auto;margin-left:auto; border-radius:50%; border:0px solid #ffffff; overflow:hidden;}
+.my_shezhi{ width:8%; right:2em;top:2em; border-radius:20%;position: absolute; z-index: 300; border:0px solid #fa6352; overflow:hidden;}
+.my_wechat p{ font-size:0.9em;background:-webkit-linear-gradient(left,#deff00,#6cff00 50%);  -webkit-background-clip:text;color:transparent;
+  margin-top:1em; padding:0% 0 0% 0; text-align:center;}
+.my_wechat span { font-size:0.9em; color:#fff; padding:3% 0 6% 0; text-align:center;}
+.my_wechat span span{ font-size:0.9em; color:#6cff00;text-align:center;}
+.my_span { font-size:0.9em;color:#6cff00;}
+.my_div1{ margin-top:3%;width:100%; height:20%;}
+.my_div1 table{width:100%;height:100%; } 
+.my_div1 table td{height:24%; width:50%;}
+.my_div2{ margin-top:4%;width:100%; height:26%;}
+.my_div2 table{width:100%;height:100%; } 
+.my_div2 table td{height:25%; width:50%;}
+.my_div3{ margin-top:2%;width:100%; height:12%;margin-left:1.25em}
+.my_div3 table{width:100%;height:100%; } 
+.my_div3 table td{height:25%; width:50%;}
+.my_div3 table td div span{ font-size:0.9em;color:#6cff00;}
+.my_divleft{ margin-left:1.25em}
+.my_divkf{ margin-top:3em;width:100%;}
+.my_divkf table{width:100%;}
+.my_divkf table td{height:4.735em; width:50%;}
+.my_divkf table td div{ margin-left:1.25em}
+.my_divkf table td div span{ font-size:0.9em;color:#6cff00;}
+
+.my_list{ width:100%; overflow:hidden; color:#595757;font-size:0.9em; border-top:1px solid #dddddd; background-color:#FFF;}
+.my_list a{ width:100%; color:#595757;}
+.my_list dd{ width:94%; padding:4% 3%; overflow:hidden; border-bottom:1px solid #dddddd;}
+.my_list dd div{ float:left; width:10%;}
+.my_list dd div img{ width:60%;}
+.my_list dd p{ float:left; width:50%;}
+.my_list dd span{ display:block; float:right; text-align:right; margin-right:2%;}
+.perfect_icon{ font-size:0.9em; color:#fff; background-color:#fa6352; padding:0 2%; border-radius:3px}
+.phone_link{color:#337ab7; text-align:center; margin:3% auto 1% auto; font-size:0.8em; width:34%; background:url(../images/phone_icon.gif) no-repeat 0 3px; background-size:14%; height:30px; }
+.phone_link:visited{ color:#337ab7;}
+.btn_arrow{ position:absolute; top:30%; right:7%; width:10%;}
+.my_family{ width:37%; overflow:hidden; position:absolute; top:41%; right:9%; background-color:#ff9900;}
+.my_family dd{ width:90%; margin:0 auto; padding:3% 0;}
+.my_family dd a{ font-size:0.9em; color:#FFF;}
+
+.infor_list{ width:100%; overflow:hidden; color:#595757;font-size:0.9em; border-top:1px solid #dddddd; background-color:#FFF;}
+.infor_list dd{ width:94%; padding:2% 3%; overflow:hidden; border-bottom:1px solid #dddddd;}
+.infor_list dd p{ float:left; width:35%; line-height:30px;}
+.infor_input{ display:block; float:right; margin-right:2%; width:58%; background-color:#efefef; border:1px solid #dddddd; border-radius:5px; height:30px; line-height:30px; padding-left:2%; color:#595757;}
+.infor_input2{display:block; float:right; width:30%; background-color:#efefef; border:1px solid #dddddd; border-radius:5px; height:30px; line-height:30px; padding-left:2%; color:#595757; border-right:0 none; border-bottom-right-radius:0;border-top-right-radius:0;}
+.yzm{ float:right; width:28%; background-color:#fff9d1; border:1px solid #dddddd; border-radius:5px; height:30px; line-height:30px; color:#a9a9a9; border-left:0 none; border-bottom-left-radius:0;border-top-left-radius:0;margin-right:2%; border-left:1px solid #dddddd; text-align:center;}
+.bigbutton{ background-color:#ff9900; color:#FFF; font-size:1.0em; text-align:center; border-radius:5px; height:36x; line-height:36px; font-weight:bold; width:90%; margin:8% auto 4% auto;}
+.bigbutton:visited{ color:#FFF;}
+
+.wallet_table{ width:100%; overflow:hidden; padding:3% 0; background-color:#FFF;}
+.wallet_table td{ text-align:center; width:50%;}
+.wallet_table td img{ width:30%; margin:0 auto;}
+.wallet_table td p{ font-size:0.8em; color:#000; margin:3% 0; }
+.wallet_table td span{ font-size:1.3em; color:#000;font-family:Arial, Helvetica, sans-serif; font-weight:bold;}
+.wallet_list{ width:100%; overflow:hidden; color:#595757;font-size:0.9em; border-top:1px solid #dddddd; background-color:#FFF;}
+.wallet_list dd{ width:86%; padding:2% 7%; overflow:hidden; border-bottom:1px solid #dddddd;}
+.wallet_list_left{ width:70%; float:left;}
+.wallet_data{ font-size:0.8em; color:#9f9f9f; margin-top:2%;}
+.wallet_name span{ color:#ff7e00;}
+.money1{ float:right; color:#d65645; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; font-weight:bold; margin-top:3%;}
+.money2{ float:right; color:#82b11d; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; font-weight:bold; margin-top:3%;}
+
+.plan_infor_list{width:100%; overflow:hidden; font-size:0.9em; border-top:1px solid #dddddd;}
+.plan_infor_list dt{ width:94%; padding:4% 3%; ; overflow:hidden; border-bottom:1px solid #dddddd;}
+.plan_infor_list dt p{ font-size:1.0em; color:#000; width:60%; float:left;}
+.plan_infor_list img{ float:right; width:5%;}
+.plan_infor_list dd{ width:94%; padding:4% 3%; ; overflow:hidden; border-bottom:1px solid #dddddd; background-color:#FFF; }
+.plan_infor_name{ font-size:0.9em; color:#595757; width:40%; float:left; background:url(../images/arrow2.gif) no-repeat 1% 45%; background-size:6%; padding-left:6%;}
+.plan_infor_money{ font-size:0.9em; color:#82b11d; width:25%; float:left;}
+.plan_infor_fet1{ font-size:0.9em; color:#fff; float:left; background-color:#a1d5ed; padding:0 2%; border-radius:3px;}
+.plan_infor_fet2{ font-size:0.9em; color:#a1d5ed; float:left;}
+.plan_join_btn{ font-size:0.9em; color:#fff; float:left; background-color:#ff9900; padding:0 4%; border-radius:3px; margin-left:25%;}
+.plan_join_btn:visited{ color:#fff;}
+.button5{ background:#fff url(../images/list_icon3.png) no-repeat 12px 9px; background-size:13%; color:#595757; font-size:0.8em; text-align:left; border-radius:5px; height:36px; line-height:36px; width:40%; margin:5% auto; box-shadow:0px 0px 8px #dfdfdf;}
+.button5:visited{ color:#595757;}
+
+.my_plan_infor{ width:100%; overflow:hidden; padding:3% 0; border-top:1px solid #dddddd; border-bottom:1px solid #dddddd;}
+.plan_wechat{ width:32%; float:left; overflow:hidden;}
+.plan_wechat_photo{ width:40%; margin:7% auto 0 auto; border-radius:50%; border:3px solid #ffffff; overflow:hidden;}
+.plan_wechat p{ font-size:0.8em; color:#595757; padding:3% 0 6% 0; text-align:center;}
+.my_plan_list{ width:60%; float:left; overflow:hidden;}
+.my_plan_list td{ font-size:0.8em; color:#595757; height:30px;}
+.button6{ background-color:#72bed6; color:#FFF; font-size:1.0em; text-align:center; border-radius:5px; height:36px; line-height:36px; font-weight:bold; width:85%; margin:0 auto;}
+.button7{ background-color:#fa6352; color:#FFF; font-size:1.0em; text-align:center; border-radius:5px; height:36px; line-height:36px; font-weight:bold; width:85%; margin:0 auto;}
+.button6:visited,button7:visited{ color:#FFF;}
+
+.upwindow{ width:70%; position:fixed; top:30%; left:15%; border-radius:10px; box-shadow:0px 0px 8px #dfdfdf; background-color:#FFF; z-index:600; overflow:hidden;}
+.upwindow_title{ width:100%; border-bottom:1px solid #95ca20;}
+.upwindow_title p{ padding:2% 0 2% 3%; font-size:1.0em; color:#95ca20;}
+.upwindow_text{ width:80%; padding:10%;}
+.upwindow_table{ width:100%; background-color:#dddddd;}
+.upwindow_table td{ background-color:#FFF; text-align:center; height:40px;}
+.upwindow_table td a{ color:#000; font-size:0.8em;}
+.upwindow_table td a:visited{ color:#000;}
+.black_overlay {display: block;position: absolute;top: 0%;left: 0%;width: 100%;height: 100%;background-color:#000;z-index:500;
+ -moz-opacity: 0.8;opacity:.80;filter: alpha(opacity=80);}
+ 
+.heart_infor{ width:92%; padding:5% 4%; overflow:hidden;}
+.heart_infor img{ width:45%; float:left; margin-top:2%;}
+.heart_infor p{ width:52%; float:right; text-align:left; font-size:0.8em; color:#666; line-height:24px;}
+
+.ranking_box{ width:100%; height:100%; background:url(../images/ranking_bg.jpg) 0 0 fixed; background-size:100%; overflow:hidden;}
+.my_ranking{ width:94%;border-radius:10px; margin:5% auto 2% auto; background-color:#a6d074;-moz-opacity: 0.8;opacity:.80;filter: alpha(opacity=80);}
+.ranking_wechat{ width:35%; overflow:hidden; margin:0 auto;}
+.ranking_photo{ width:40%; margin:7% auto 0 auto; border-radius:50%; overflow:hidden;}
+.ranking_wechat p{ font-size:0.8em; color:#000; padding:3% 0 6% 0; text-align:center;}
+.ranking_table{ width:100%; border-top:1px solid #81b11d; padding:2% 0;}
+.ranking_table td{ text-align:center;}
+.ranking_table td p{ font-size:0.8em; color:#000; padding:1px 0;}
+.ranking_table td span{ font-size:1.0em; color:#595757; padding:1px 0;}
+
+.ranking_list{ width:94%;border-radius:10px; margin:5% auto 2% auto; background-color:#dbe7bf;-moz-opacity: 0.8;opacity:.80;filter: alpha(opacity=80);}
+.ranking_list dd{ padding:3% 0; border-bottom:1px solid #9cc14b;}
+.ranking_list table{ width:96%; margin:0 auto; overflow:hidden;}
+.ranking_number{ color:#81b11d; font-size:1.0em; font-weight:bold; font-family:Arial, Helvetica, sans-serif; text-align:center;}
+.ranking_allphoto1{ width:80%; border-radius:50%; overflow:hidden; margin:0 auto;}
+.ranking_allname{ font-size:0.9em; color:#000;}
+.ranking_money{ font-size:0.9em; color:#000;}
+.heart_number{ font-size:1.0em; color:#000; font-family:Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; margin:0 auto;}
+.heart_icon{ width:40%; margin:2% auto 0 auto;}
+
+.infor_textarea{ display:block; float:right; margin-right:2%; width:58%; background-color:#efefef; border:1px solid #dddddd; border-radius:5px; height: 100px; line-height:22px; padding-left:2%; color:#595757;}
+.uploading{float:right; margin-right:2%; width:61%; height:30px; overflow:hidden;}
+.uploading li{ width:20%; float:left;}
+.uploading li a{ width:70%; background:#efefef url(../images/camera_icon.png) no-repeat 48% 41%; background-size:65%; border:1px solid #dddddd; border-radius:5px; height:26px;}
+
+.recommend_box{ width:100%; margin:0 auto 3% auto; overflow:hidden;}
+.recommend{ width:100%; margin:3% auto; overflow:hidden; position:relative; height:170px;}
+.recommend_title{ width:50%; position:absolute; top:0; left:25%; z-index:100; background:url(../images/tiptitle.png) no-repeat 1% 1%; background-size:100%; text-align:center; height:35px; color:#fff; font-size:1.0em; padding-top:1%;}
+.recommend_div{ width:88%; border:2px solid #82b11d; border-radius:10px; position:absolute; top:12%; right:5%; z-index:1;}
+.recommend_main{ color:#858585; font-size:0.8em; line-height:24px; padding:5% 4% 3% 4%;}
+
+.redpacket_box{ width:100%; margin:0 auto 3% auto; overflow:hidden;}
+.redpacket_div1{ width:86%; margin:5% auto 0 auto; overflow:hidden; background-color:#FFF; border-radius:10px; padding:5% 0; }
+.redpacket_title{ width:30%; float:left; font-size:1.0em; color:#000; padding-left:5%;}
+.redpacket_text{ width:10%; float:right; font-size:1.0em; color:#000; padding-right:5%;}
+.redpacket_input{ display:block; width:25%; float:right; font-size:1.2em; color:#000; font-weight:bold; text-align:center; border:0 none; margin-right:2%;}
+.redpacket_div2{ width:86%; margin:3% auto 0 auto; overflow:hidden; background-color:#FFF; border-radius:10px; padding:5% 0; }
+.redpacket_input2{ display:block; width:55%; float:right; font-size:1.0em; color:#000; text-align:center; border:0 none; margin-right:5%;}
+.redpacket_tip{ text-align:center; font-size:0.8em; color:#595757; padding:3% 0;}
+.redpacket_tip a{ display:inline; color:#337ab7;}
+.redpacket_money{ font-size:2.0em; color:#000; font-weight:bold; font-family:Arial, Helvetica, sans-serif; margin:10% auto 5% auto; text-align:center;}
+.bigbutton2{ background-color:#fa6352; color:#FFF; font-size:1.0em; text-align:center; border-radius:5px; height:36x; line-height:36px; font-weight:bold; width:90%; margin:8% auto 4% auto;}
+.bigbutton2:visited{ color:#FFF;}
+
+.public_title{  width:96%; margin:0 auto; border-bottom:1px solid #dddddd; padding:3% 0;}
+.public_main_div{ width:90%; margin:3% auto; padding:2% 3%; background-color:#efefef;}
+.public_main_title{ font-size:0.9em; color:#000; font-weight:bold; padding:1% 0;}
+.public_main_text{ font-size:0.8em; color:#858585; line-height:22px; padding:0 0 1% 0;}
+.public_main_img{ max-width:90%; margin:0 auto; padding:1% 0;}
+.comment_title{ width:100%; padding:3% 0; overflow:hidden; border-bottom:1px solid #dddddd; background-color:#fff;}
+.comment_green{ width:6px; background-color:#82b11d; float:left; overflow:hidden;}
+.comment_title p{font-size:0.9em; color:#000; font-weight:bold; float:left; margin-left:2%;}
+.comment_div{ width:94%; padding:3% 3% 2% 3%; border-bottom:1px solid #dddddd; background-color:#FFF; overflow:hidden;}
+.comment_photo{ width:15%; border-radius:50%; overflow:hidden; float:left;}
+.comment_main{ width:80%; float:left; margin-left:2%; overflow:hidden;}
+.comment_name{ font-size:0.9em; color:#858585; padding:2% 0 1% 0;}
+.comment_text{ font-size:0.9em; color:#595757; line-height:20px; padding:1% 0;}
+.comment_main_div{ width:100%; overflow:hidden; padding:1% 0;}
+.comment_data{ font-size:0.8em; color:#c5c5c5; float:left; width:35%;}
+.comment_icon{ width:50%; float:right; overflow:hidden;}
+.comment_icon li{ width:32%; float:right; overflow:hidden; margin-right:1%;}
+.comment_icon li p{ color:#777777; float:left; font-size:0.8em; width:56%; text-align:center;}
+.comment_icon li img{ float:left; width:40%; margin:4% 0 0 0;}
+.revert_box{ width:98%; margin:2% auto; overflow:hidden;}
+.revert_box dd{ padding:2% 0; overflow:hidden;}
+.revert_photo{ width:12%; border-radius:50%; overflow:hidden; float:left;}
+.revert_text{ width:85%; font-size:0.8em; color:#858585; float:left; margin:2% 0 0 2%; line-height:22px;}
+.my_comment{ width:100%; padding:3% 0; overflow:hidden; position:fixed; bottom:45px;  background-color:#ffffff; border-top:1px solid #dddddd;box-top-shadow:0px 0px 8px #dfdfdf; }
+.my_comment td{ text-align:center;}
+.my_comment_input{ width:90%; margin:0 auto; background-color:#efefef; border:1px solid #dddddd; border-radius:5px; height:30px; line-height:30px; color:#595757;}
+.send_btn{ background-color:#ff9900; color:#FFF; font-size:0.8em; text-align:center; border-radius:5px; height:32px; line-height:32px; font-weight:bold; width:85%; margin:0 auto;}
+.send_btn:visited{ color:#FFF;}
+
+.message_box{ width:100%; margin:0 auto 3% auto; overflow:hidden;}
+.message_one{ width:86%; margin:2% auto 0 auto; overflow:hidden; background-color:#FFF; border-radius:10px; padding:2% 3%; }
+.message_text{ font-size:0.9em; color:#595757; line-height:24px; padding:1% 0;}
+.message_data{ font-size:0.8em; color:#9f9f9f; padding:1% 0;text-align:right; }
+
+.code{ max-width:50%; margin:0 auto 8% auto;}
+
+.share_box{ width:100%; margin:0 auto 3% auto; overflow:hidden; z-index:700; position:absolute; }
+.share_img{ width:90%; margin:5% auto 0 auto;}
+.share_btn{ color:#ec7e03; font-size:1.0em; text-align:center; border-radius:5px; border:2px #ec7e03 solid; height:36x; line-height:36px; font-weight:bold; width:50%; margin:13% auto 3% auto; background:none;}
+
+.window_table{ width:90%; margin:5% auto 15% auto;}
+.upwindow_text2{ width:98%; font-size:1.2em; color:#ff7e00; }
+.tip_icon2{ width:70%;}
+
+.plan_time  {font-size:0.8em; color:#9f9f9f;text-align:center;background-color:gray; width:20%; margin:2% auto  2% auto; overflow:hidden;}

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+	<description>Module Configuration File</description>
+
+	<handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler" />
+	<handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler" />
+
+	<firstvisit></firstvisit>
+
+	<!-- Request Mappings -->
+	<request-map uri="view">
+		<security https="false" auth="false" />
+		<response name="success" type="request" value="FindSystemConfig" />
+	</request-map>
+
+	<request-map uri="FindSystemConfig">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindSystemConfig" />
+	</request-map>
+
+	<request-map uri="menuTreeByModelId">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="MenuTreeByModelId" />
+		<response name="error" type="view" value="MenuTreeByModelId" />
+	</request-map>
+	<request-map uri="FindDistributionRegion">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindDistributionRegion" />
+	</request-map>
+	<request-map uri="EditDistributionRegion">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditDistributionRegion" />
+	</request-map>
+	<request-map uri="setDistributionRegionByUnit">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="SetDistributionRegionByUnit" />
+	</request-map>
+	<request-map uri="setDistributionRegionByWeight">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="SetDistributionRegionByWeight" />
+	</request-map>
+	<request-map uri="setDistributionRegionUser">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="SetDistributionRegionUser" />
+	</request-map>
+	<request-map uri="createDistributionRegion">
+		<security https="false" auth="true" />
+		<event type="service" invoke="createDistributionRegion" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="deleteDistributionRegion">
+		<event type="service" invoke="deleteDistributionRegion" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="getIfExistsByGeoId">
+		<security https="false" auth="true" />
+		<event type="groovy" path="component://itea/webapp/iteamgr/WEB-INF/actions/system/get_if_exists_geo.groovy" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="ShowDistributionRegion">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="ShowDistributionRegion" />
+	</request-map>
+	<!-- 仓库管理 -->
+	<request-map uri="FindFacility">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindFacility" />
+	</request-map>
+	<request-map uri="EditFacility">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditFacility" />
+	</request-map>
+	<request-map uri="createFacility">
+		<security https="false" auth="false" />
+		<event type="java" path="org.ofbiz.system.FacilityEvents" global-transaction="true" invoke="createFacility" />
+		<response name="success" type="request" value="json" />
+	</request-map>
+	<request-map uri="updateFacility">
+		<event type="java" path="org.ofbiz.inventory.FacilityEvents" invoke="updateFacility" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="delFacility">
+		<event type="service" invoke="deleteFacility" />
+		<response name="success" type="request" value="json" />
+	</request-map>
+
+	<!-- 库存调整 -->
+	<request-map uri="toProductInventory">
+		<security auth="true" />
+		<response name="success" type="view" value="toProductInventory" />
+	</request-map>
+	<request-map uri="updateProductInventory">
+		<security auth="true" />
+		<event type="java" path="org.ofbiz.inventory.FacilityEvents" invoke="updateProductInventory" />
+		<response name="success" type="request" value="FindProductEn" />
+		<response name="error" type="request" value="FindProductEn" />
+	</request-map>
+	<!-- SEO管理 -->
+	<request-map uri="SEOMgr">
+		<security auth="true" />
+		<response name="success" type="view" value="SEOMgr" />
+	</request-map>
+	<request-map uri="setSeoMSG">
+		<security auth="true" />
+		<event type="java" path="org.ofbiz.system.SystemEvents" invoke="setSeoMSG" />
+		<response name="success" type="request" value="json"></response>
+		<response name="error" type="request" value="json"></response>
+	</request-map>
+
+	<!-- 邮件日志 -->
+	<request-map uri="FindCommunicationEvents">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindCommunicationEvents" />
+	</request-map>
+
+	<request-map uri="ViewCommunicationEvent">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="ViewCommunicationEvent" />
+	</request-map>
+	<!-- 短信邮件模版 -->
+	<request-map uri="autoSendMgr">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="autoSendMgr" />
+	</request-map>
+	<request-map uri="editNoteAndEmailModel">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="editNoteAndEmailTemplate" />
+	</request-map>
+	<request-map uri="sendMail">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="sendMail" />
+	</request-map>
+	<request-map uri="findUsersInfoByCondition">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="findUsersInfoByCondition" />
+	</request-map>
+	
+	
+	<request-map uri="templateList">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="templateList" />
+	</request-map>
+	<request-map uri="updateTemplate">
+		<security https="false" auth="true" />
+		<event type="java" path="org.ofbiz.system.SystemEvents" invoke="updateTemplate" />
+		<response name="success" type="request" value="json" />
+	</request-map>
+	<request-map uri="createTemplate">
+		<security https="false" auth="true" />
+		<event type="java" path="org.ofbiz.system.SystemEvents" invoke="createTemplate" />
+		<response name="success" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="deleteTemplate">
+		<security https="false" auth="true" />
+		<event type="java" path="org.ofbiz.system.SystemEvents" invoke="deleteTemplate" />
+		<response name="success" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="updateAutoSend">
+		<security https="false" auth="true" />
+		<event type="java" path="org.ofbiz.system.SystemEvents" invoke="setAutoSend" />
+		<response name="success" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="sendManualMail">
+		<security https="false" auth="true" />
+		<event type="java" path="org.ofbiz.system.SystemEvents" invoke="sendManualMail" />
+		<response name="success" type="request" value="json" />
+	</request-map>	
+	<request-map uri="manualMailList">
+		<security https="false" auth="true" />
+		<response name="success" type="request" value="json" />
+	</request-map>
+	<!-- 地区管理 -->
+	<request-map uri="FindRegion">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindRegion" />
+	</request-map>
+	<request-map uri="EditRegion">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditRegion" />
+	</request-map>
+	<request-map uri="createRegion">
+		<security https="false" auth="true" />
+		<event type="service" invoke="createRegion" />
+		<response name="success" type="request" value="json" />
+	</request-map>
+	<request-map uri="updateRegion">
+		<security https="false" auth="true" />
+		<event type="java" path="org.ofbiz.system.SystemServices" invoke="updateRegion" />
+		<response name="success" type="request" value="json" />
+	</request-map>
+	<request-map uri="getChildGeos">
+        <security https="false" auth="true"/>
+        <event type="groovy" path="component://itea/webapp/ebiz/WEB-INF/actions/system/get_child_geos.groovy"/>
+        <response name="success" type="request" value="json"/>
+        <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="deleteRegion">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="deleteRegion"/>
+        <response name="success" type="request" value="json"></response>
+        <response name="error" type="request" value="json"></response>
+    </request-map>
+    <request-map uri="EditImageSetting">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditImageSetting"></response>
+        <response name="error" type="view" value="EditImageSetting"></response>
+    </request-map>
+    <request-map uri="uploadProductImageSetting">
+        <event type="java" path="org.ofbiz.system.SystemServices" invoke="uploadProductImageSetting"/>
+        <response name="success" type="request" value="json"/>
+        <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="uploadProductImageWater">
+        <event type="java" path="org.ofbiz.system.SystemServices" invoke="uploadProductImageWater"/>
+        <response name="success" type="request" value="json"/>
+        <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="imageSettingDo">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="imageSettingDo"/>
+        <response name="success" type="request" value="json"></response>
+        <response name="error" type="request" value="json"></response>
+    </request-map>
+    
+    <request-map uri="EditPaymentGatewayConfig">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditPaymentGatewayConfig"/>
+    </request-map>
+    <request-map uri="UpdatePaymentGatewayConfig">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updatePaymentGatewayConfig"/>
+        <response name="success" type="view" value="EditPaymentGatewayConfig"/>
+        <response name="error" type="view" value="EditPaymentGatewayConfig"/>
+    </request-map>
+    <request-map uri="UpdatePaymentGatewayConfigAlipay">
+        <security https="false" auth="true"/>
+        <event type="java" invoke="updatePaymentGatewayConfigAlipay" path="org.ofbiz.system.SystemEvents" />
+        <response name="success" type="request" value="json"/>
+        <response name="error" type="request" value="json"/>
+    </request-map>
+   
+    <request-map uri="CreditsSetting">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="CreditsSetting"></response>
+    </request-map>
+    
+    <!-- 积分设置 -->
+    <request-map uri="SetCreditsReward">
+        <security https="false" auth="true"/>
+        <event type="java" path="org.ofbiz.system.SystemEvents" invoke="setCreditsReward"/>
+        <response name="success" type="request" value="json"/>
+    </request-map>
+    
+    <request-map uri="SetPartyClasRatio">
+        <security https="false" auth="true"/>
+        <event type="java" path="org.ofbiz.system.SystemEvents" invoke="setPartyClasRatio"/>
+        <response name="success" type="request" value="json"/>
+    </request-map>
+    
+    <request-map uri="SetOrderRatio">
+        <security https="false" auth="true"/>
+        <event type="java" path="org.ofbiz.system.SystemEvents" invoke="SetOrderRatio"/>
+        <response name="success" type="request" value="json"/>
+    </request-map>
+    
+	<!-- View Mappings -->
+	<view-map name="FindSystemConfig" type="screen" page="component://portal/widget/seller/SystemScreens.xml#FindSystemConfig" />
+	<view-map name="MenuTreeByModelId" type="screen" page="component://portal/widget/seller/SystemScreens.xml#MenuTreeByModelId" />
+	<view-map name="FindDistributionRegion" type="screen" page="component://portal/widget/seller/SystemScreens.xml#FindDistributionRegion" />
+	<view-map name="EditDistributionRegion" type="screen" page="component://portal/widget/seller/SystemScreens.xml#EditDistributionRegion" />
+	<view-map name="SetDistributionRegionByUnit" type="screen" page="component://portal/widget/seller/SystemScreens.xml#SetDistributionRegionByUnit" />
+	<view-map name="SetDistributionRegionByWeight" type="screen" page="component://portal/widget/seller/SystemScreens.xml#SetDistributionRegionByWeight" />
+	<view-map name="SetDistributionRegionUser" type="screen" page="component://portal/widget/seller/SystemScreens.xml#SetDistributionRegionUser" />
+	<view-map name="ShowDistributionRegion" type="screen" page="component://portal/widget/seller/SystemScreens.xml#ShowDistributionRegion" />
+
+	<view-map name="FindFacility" type="screen" page="component://portal/widget/seller/SystemScreens.xml#FindFacility" />
+	<view-map name="EditFacility" type="screen" page="component://portal/widget/seller/SystemScreens.xml#EditFacility" />
+	<view-map name="toProductInventory" type="screen" page="component://portal/widget/seller/SystemScreens.xml#ProductInventory" />
+	<view-map name="SEOMgr" type="screen" page="component://portal/widget/seller/SystemScreens.xml#SeoMgr"></view-map>
+	<view-map name="FindCommunicationEvents" type="screen" page="component://portal/widget/seller/SystemScreens.xml#FindCommunicationEvents" />
+	<view-map name="ViewCommunicationEvent" type="screen" page="component://portal/widget/seller/SystemScreens.xml#ViewCommunicationEvent" />
+	<view-map name="editNoteAndEmailTemplate" type="screen" page="component://portal/widget/seller/SystemScreens.xml#editNoteAndEmailTemplate" />
+	<view-map name="templateList" type="screen" page="component://portal/widget/seller/SystemScreens.xml#templateList" />
+	<view-map name="autoSendMgr" type="screen" page="component://portal/widget/seller/SystemScreens.xml#autoSendMgr" />
+	<view-map name="sendMail" type="screen" page="component://portal/widget/seller/SystemScreens.xml#sendMail" />
+	<view-map name="findUsersInfoByCondition" type="screen" page="component://portal/widget/seller/SystemScreens.xml#findUsersInfoByCondition" />
+	<view-map name="FindRegion" type="screen" page="component://portal/widget/seller/SystemScreens.xml#FindRegion" />
+	<view-map name="EditRegion" type="screen" page="component://portal/widget/seller/SystemScreens.xml#EditRegion" />
+	<view-map name="EditImageSetting" type="screen" page="component://portal/widget/seller/SystemScreens.xml#EditImageSetting" />
+	<view-map name="FindProductStore" type="screen" page="component://portal/widget/seller/SystemScreens.xml#FindProductStore" />
+	<view-map name="EditProductStore" type="screen" page="component://portal/widget/seller/SystemScreens.xml#EditProductStore" />
+	<view-map name="LookupProductStoreManager" type="screen" page="component://portal/widget/seller/SystemScreens.xml#LookupProductStoreManager" />
+	<view-map name="CreditsSetting" type="screen" page="component://portal/widget/seller/SystemScreens.xml#CreditsSetting" />
+	<!-- end of view mappings -->
+	<view-map name="EditPaymentGatewayConfig" page="component://portal/widget/seller/SystemScreens.xml#EditPaymentGatewayConfig" type="screen"/>
+</site-conf>

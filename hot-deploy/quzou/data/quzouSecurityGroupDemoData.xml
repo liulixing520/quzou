@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="QUZOU_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="QUZOU_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="QUZOU_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="QUZOU_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="QUZOU_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="QUZOU_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="QUZOU_ADMIN"/>
+</entity-engine-xml>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entity-engine-xml>
+	<ChinaGeo geoId="C01"  geoName="中国"  geoType="COUNTRY"  parentGeoId=""></ChinaGeo>
+	<!-- 省级别（直辖市） -->
+	<ChinaGeo geoId="C001"  geoName="北京"  geoType="PROVINCE"  parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C002" geoName="重庆" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C003" geoName="上海" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C004" geoName="天津" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C005" geoName="黑龙江" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C006" geoName="吉林" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C007" geoName="辽宁" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C008" geoName="青海" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C009" geoName="甘肃" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C010" geoName="陕西" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C011" geoName="山西" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C012" geoName="河北" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C013" geoName="四川" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C014" geoName="湖北" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C015" geoName="河南" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C016" geoName="山东" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C017" geoName="安徽" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C018" geoName="江苏" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C019" geoName="云南" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C020" geoName="贵州" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C021" geoName="湖南" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C022" geoName="江西" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C023" geoName="浙江" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C024" geoName="海南" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C025" geoName="广东" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C026" geoName="福建" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C027" geoName="台湾" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C028" geoName="广西" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C029" geoName="内蒙古" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C030" geoName="宁夏" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C031" geoName="新疆" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C032" geoName="西藏" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C033" geoName="台湾" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C034" geoName="香港" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<ChinaGeo geoId="C035" geoName="澳门" geoType="PROVINCE" parentGeoId="C01"></ChinaGeo>
+	<!-- geoId="C001"  geoName="北京" 下面的城市级分类 -->
+	<ChinaGeo geoId="C00101"  geoName="东城区"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00102"  geoName="西城区"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00103"  geoName="朝阳区"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00104"  geoName="丰台区"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00105"  geoName="石景山区"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00106"  geoName="海淀区"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00107"  geoName="门头沟区"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00108"  geoName="房山区"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00109"  geoName="通州区"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00110"  geoName="顺义区"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00111"  geoName="昌平区"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00112"  geoName="大兴区"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00113"  geoName="怀柔区"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00114"  geoName="平谷区"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00115"  geoName="密云县"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<ChinaGeo geoId="C00116"  geoName="延庆县"  geoType="CITY"  parentGeoId="C001"></ChinaGeo>
+	<!--geoId="C00101"  geoName="东城区" 下面小区级分类  -->
+	<ChinaGeo geoId="C0010101"  geoName="安馨园"  geoType="COUNTY"  parentGeoId="C00101"></ChinaGeo>
+	<ChinaGeo geoId="C0010102"  geoName="安瑞嘉园"  geoType="COUNTY"  parentGeoId="C00101"></ChinaGeo>
+	<ChinaGeo geoId="C0010103"  geoName="宝钞苑"  geoType="COUNTY"  parentGeoId="C00101"></ChinaGeo>
+	<ChinaGeo geoId="C0010104"  geoName="华府景园"  geoType="COUNTY"  parentGeoId="C00101"></ChinaGeo>
+	<ChinaGeo geoId="C0010105"  geoName="海晟国际公寓"  geoType="COUNTY"  parentGeoId="C00101"></ChinaGeo>
+	<ChinaGeo geoId="C0010106"  geoName="和平新城 "  geoType="COUNTY"  parentGeoId="C00101"></ChinaGeo>
+	<ChinaGeo geoId="C0010107"  geoName="京香福苑"  geoType="COUNTY"  parentGeoId="C00101"></ChinaGeo>
+	<ChinaGeo geoId="C0010108"  geoName="森豪公寓"  geoType="COUNTY"  parentGeoId="C00101"></ChinaGeo>
+	<ChinaGeo geoId="C0010109"  geoName="阳光都市"  geoType="COUNTY"  parentGeoId="C00101"></ChinaGeo>
+	<ChinaGeo geoId="C0010110"  geoName="中景濠庭"  geoType="COUNTY"  parentGeoId="C00101"></ChinaGeo>
+	<!-- geoId="C00102"  geoName="西城区" 下面小区级分类-->
+	<ChinaGeo geoId="C0010201"  geoName="爱民里小区"  geoType="COUNTY"  parentGeoId="C00102"></ChinaGeo>
+	<ChinaGeo geoId="C0010202"  geoName="百万庄小区"  geoType="COUNTY"  parentGeoId="C00102"></ChinaGeo>
+	<ChinaGeo geoId="C0010203"  geoName="北京尊府"  geoType="COUNTY"  parentGeoId="C00102"></ChinaGeo>
+	<ChinaGeo geoId="C0010204"  geoName="北营房西里"  geoType="COUNTY"  parentGeoId="C00102"></ChinaGeo>
+	<ChinaGeo geoId="C0010205"  geoName="北广家园"  geoType="COUNTY"  parentGeoId="C00102"></ChinaGeo>
+	<ChinaGeo geoId="C0010206"  geoName="百万庄寅区 "  geoType="COUNTY"  parentGeoId="C00102"></ChinaGeo>
+	<ChinaGeo geoId="C0010207"  geoName="椿树园"  geoType="COUNTY"  parentGeoId="C00102"></ChinaGeo>
+	<ChinaGeo geoId="C0010208"  geoName="德胜里一区"  geoType="COUNTY"  parentGeoId="C00102"></ChinaGeo>
+	<ChinaGeo geoId="C0010209"  geoName="大院胡同"  geoType="COUNTY"  parentGeoId="C00102"></ChinaGeo>
+	<ChinaGeo geoId="C0010210"  geoName="德胜新城"  geoType="COUNTY"  parentGeoId="C00102"></ChinaGeo>
+	<!-- geoId="C00103"  geoName="朝阳区" 下面小区级分类-->
+	<ChinaGeo geoId="C0010301"  geoName="朝阳小区1"  geoType="COUNTY"  parentGeoId="C00103"></ChinaGeo>
+	<ChinaGeo geoId="C0010302"  geoName="朝阳小区2"  geoType="COUNTY"  parentGeoId="C00103"></ChinaGeo>
+	<ChinaGeo geoId="C0010303"  geoName="朝阳小区3"  geoType="COUNTY"  parentGeoId="C00103"></ChinaGeo>
+	<ChinaGeo geoId="C0010304"  geoName="朝阳小区4"  geoType="COUNTY"  parentGeoId="C00103"></ChinaGeo>
+	<ChinaGeo geoId="C0010305"  geoName="朝阳小区5"  geoType="COUNTY"  parentGeoId="C00103"></ChinaGeo>
+	<ChinaGeo geoId="C0010306"  geoName="朝阳小区6 "  geoType="COUNTY"  parentGeoId="C00103"></ChinaGeo>
+	<ChinaGeo geoId="C0010307"  geoName="朝阳小区7"  geoType="COUNTY"  parentGeoId="C00103"></ChinaGeo>
+	<ChinaGeo geoId="C0010308"  geoName="朝阳小区8"  geoType="COUNTY"  parentGeoId="C00103"></ChinaGeo>
+	<ChinaGeo geoId="C0010309"  geoName="朝阳小区9"  geoType="COUNTY"  parentGeoId="C00103"></ChinaGeo>
+	<ChinaGeo geoId="C0010310"  geoName="朝阳小区10"  geoType="COUNTY"  parentGeoId="C00103"></ChinaGeo>
+	<!-- geoId="C002"  geoName="重庆" 下面的城市级分类 -->
+	<ChinaGeo geoId="C00201"  geoName="重庆1"  geoType="CITY"  parentGeoId="C002"></ChinaGeo>
+	<ChinaGeo geoId="C00202"  geoName="重庆2"  geoType="CITY"  parentGeoId="C002"></ChinaGeo>
+	<ChinaGeo geoId="C00203"  geoName="重庆3"  geoType="CITY"  parentGeoId="C002"></ChinaGeo>
+	<ChinaGeo geoId="C00204"  geoName="重庆4"  geoType="CITY"  parentGeoId="C002"></ChinaGeo>
+	<ChinaGeo geoId="C00205"  geoName="重庆5"  geoType="CITY"  parentGeoId="C002"></ChinaGeo>
+	<ChinaGeo geoId="C00206"  geoName="重庆6"  geoType="CITY"  parentGeoId="C002"></ChinaGeo>
+	<ChinaGeo geoId="C00207"  geoName="重庆7"  geoType="CITY"  parentGeoId="C002"></ChinaGeo>
+	<!--geoId="C00201"  geoName="重庆1" 下面小区级分类  -->
+	<ChinaGeo geoId="C0020101"  geoName="chong1"  geoType="COUNTY"  parentGeoId="C00201"></ChinaGeo>
+	<ChinaGeo geoId="C0020102"  geoName="chong2"  geoType="COUNTY"  parentGeoId="C00201"></ChinaGeo>
+	<ChinaGeo geoId="C0020103"  geoName="chong3"  geoType="COUNTY"  parentGeoId="C00201"></ChinaGeo>
+	<ChinaGeo geoId="C0020104"  geoName="chong4"  geoType="COUNTY"  parentGeoId="C00201"></ChinaGeo>
+	<ChinaGeo geoId="C0020105"  geoName="chong5"  geoType="COUNTY"  parentGeoId="C00201"></ChinaGeo>
+	<ChinaGeo geoId="C0020106"  geoName="chong6 "  geoType="COUNTY"  parentGeoId="C00201"></ChinaGeo>
+	<ChinaGeo geoId="C0020107"  geoName="chong7"  geoType="COUNTY"  parentGeoId="C00201"></ChinaGeo>
+	
+</entity-engine-xml>

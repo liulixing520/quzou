@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <property key="OfbizToolsApplication">
+        <value xml:lang="en">OfbizTools Application</value>
+        <value xml:lang="zh">OfbizTools应用程序</value>
+    </property>
+    <property key="OfbizToolsCompanyName">
+        <value xml:lang="en">OFBiz: OfbizTools</value>
+    </property>
+    <property key="OfbizToolsCompanySubtitle">
+        <value xml:lang="en">Part of the Open For Business Family of Open Source Software</value>
+        <value xml:lang="it">Un modulo della famiglia di software open source Open For Business</value>
+        <value xml:lang="zh">开源软件OFBiz的组成部分</value>
+    </property>
+    <property key="OfbizToolsViewPermissionError">
+        <value xml:lang="en">You are not allowed to view this page.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    
+    
+    <property key="EcApplication">
+        <value xml:lang="en">Ecommerce</value>
+        <value xml:lang="zh">云彩购平台</value>
+    </property>
+    
+    <property key="MyShop">
+        <value xml:lang="en">MyShop</value>
+        <value xml:lang="zh">我的云彩购平台</value>
+    </property>
+    <property key="WebSiteFisrtPage">
+        <value xml:lang="en">FisrtPage</value>
+        <value xml:lang="zh">云彩购平台首页</value>
+    </property>
+    
+</resource>

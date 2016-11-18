@@ -1,0 +1,74 @@
+
+#node-contacts {
+    width: 960px
+}
+
+#node-contacts .node-inner .hd h3 {
+    line-height: 35px;
+    background: #efefef;
+    padding: 0 15px
+}
+
+#node-contacts .tablefixed {
+    width: 960px
+}
+
+#node-contacts .tablefixed .c-photo img {
+    max-width: 120px;
+    max-height: 120px
+}
+
+#node-contacts .tablefixed .c-info-l {
+    float: left
+}
+
+#node-contacts .tablefixed .c-info-r {
+    float: left;
+    padding-left: 20px
+}
+
+#node-contacts .tablefixed .c-info-r a {
+    display: inline-block;
+    font-size: 12px;
+    color: #333
+}
+
+#node-contacts .tablefixed .c-info-r a.ui-atm:hover {
+    color: #f90
+}
+
+#node-contacts .tablefixed .divide-line {
+    border-bottom: 1px solid #ddd;
+    height: 20px
+}
+
+#node-contacts .tablefixed th {
+    color: #999;
+    text-align: right;
+    line-height: 30px;
+    width: 150px
+}
+
+#node-contacts .tablefixed td {
+    text-align: left;
+    line-height: 30px;
+    padding-left: 25px
+}
+
+#node-contacts .tablefixed .contactName {
+    font-size: 14px;
+    font-weight: 700;
+    color: #036
+}
+
+#node-contacts .tablefixed .send-mail-btn {
+    background: url(../images/shopsite-icons.png?t=eced2e0_0) no-repeat scroll 0 5px transparent;
+    color: #333;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 25px
+}
+
+#node-contacts .tablefixed .send-mail-btn:hover {
+    color: #f90
+}

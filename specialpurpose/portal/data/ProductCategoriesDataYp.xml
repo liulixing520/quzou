@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entity-engine-xml>
+
+<ProductCategory productCategoryId="Y001" categoryName="医疗器械" primaryParentCategoryId="PortalRootCat" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001001" categoryName="体温检测" primaryParentCategoryId="Y001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001001001" categoryName="电子体温计" primaryParentCategoryId="Y001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001001002" categoryName="额温枪" primaryParentCategoryId="Y001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001001003" categoryName="耳温枪" primaryParentCategoryId="Y001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001001004" categoryName="婴儿体温计" primaryParentCategoryId="Y001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001001005" categoryName="奶嘴型" primaryParentCategoryId="Y001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001001006" categoryName="水银体温计" primaryParentCategoryId="Y001001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001002" categoryName="血糖检测" primaryParentCategoryId="Y001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001002001" categoryName="血糖仪套装" primaryParentCategoryId="Y001002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001002002" categoryName="血糖试纸" primaryParentCategoryId="Y001002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001002003" categoryName="血糖仪" primaryParentCategoryId="Y001002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001002004" categoryName="手指消毒" primaryParentCategoryId="Y001002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001002005" categoryName="胰岛素针头" primaryParentCategoryId="Y001002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001003" categoryName="血压检测" primaryParentCategoryId="Y001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001003001" categoryName="上臂式血压计" primaryParentCategoryId="Y001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001003002" categoryName="腕式血压计" primaryParentCategoryId="Y001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001003003" categoryName="语音式血压计" primaryParentCategoryId="Y001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001003004" categoryName="水银血压计" primaryParentCategoryId="Y001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001003005" categoryName="听诊式配件" primaryParentCategoryId="Y001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y001003006" categoryName="降压仪" primaryParentCategoryId="Y001003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+
+
+<ProductCategory productCategoryId="Y002" categoryName="药品专区" primaryParentCategoryId="PortalRootCat" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001" categoryName="神经科" primaryParentCategoryId="Y002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001001" categoryName="帕金森病" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001002" categoryName="老年性痴呆" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001003" categoryName="小儿多动症" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001004" categoryName="癫痫" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001005" categoryName="神经损伤" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001006" categoryName="偏头痛" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001007" categoryName="运动神经元病" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001008" categoryName="面瘫" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001009" categoryName="神经性疼痛" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001010" categoryName="小儿脑瘫" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001011" categoryName="肌肉萎缩" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001012" categoryName="睡眠障碍" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001013" categoryName="抑郁症" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001014" categoryName="焦虑症" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001015" categoryName="神经衰弱" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001016" categoryName="戒烟" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001017" categoryName="精神分裂症" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001018" categoryName="失眠" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002001019" categoryName="养心安神" primaryParentCategoryId="Y002001" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002002" categoryName="内分泌科" primaryParentCategoryId="Y002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002002001" categoryName="I型糖尿病" primaryParentCategoryId="Y002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002002002" categoryName="II型糖尿病" primaryParentCategoryId="Y002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002002003" categoryName="糖尿病其他并发症" primaryParentCategoryId="Y002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002002004" categoryName="甲亢/甲减" primaryParentCategoryId="Y002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002002005" categoryName="其他" primaryParentCategoryId="Y002002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003" categoryName="眼科" primaryParentCategoryId="Y002" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003001" categoryName="黄斑变性" primaryParentCategoryId="Y002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003002" categoryName="视网膜病变" primaryParentCategoryId="Y002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003003" categoryName="玻璃体混浊" primaryParentCategoryId="Y002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003004" categoryName="白内障" primaryParentCategoryId="Y002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003005" categoryName="青光眼" primaryParentCategoryId="Y002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003006" categoryName="葡萄膜炎" primaryParentCategoryId="Y002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003007" categoryName="干眼症" primaryParentCategoryId="Y002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003008" categoryName="结膜炎" primaryParentCategoryId="Y002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003009" categoryName="角膜炎" primaryParentCategoryId="Y002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003010" categoryName="近视弱视" primaryParentCategoryId="Y002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003011" categoryName="视疲劳" primaryParentCategoryId="Y002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003012" categoryName="眼睛干涩" primaryParentCategoryId="Y002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003013" categoryName="视网膜炎" primaryParentCategoryId="Y002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+<ProductCategory productCategoryId="Y002003014" categoryName="其他" primaryParentCategoryId="Y002003" productCategoryTypeId="CATALOG_CATEGORY" showInHome="Y"/>
+
+<ProductCategoryRollup productCategoryId="Y001" parentProductCategoryId="PortalRootCat" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001001" parentProductCategoryId="Y001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001001001" parentProductCategoryId="Y001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001001002" parentProductCategoryId="Y001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001001003" parentProductCategoryId="Y001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001001004" parentProductCategoryId="Y001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001001005" parentProductCategoryId="Y001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001001006" parentProductCategoryId="Y001001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001002" parentProductCategoryId="Y001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001002001" parentProductCategoryId="Y001002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001002002" parentProductCategoryId="Y001002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001002003" parentProductCategoryId="Y001002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001002004" parentProductCategoryId="Y001002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001002005" parentProductCategoryId="Y001002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001003" parentProductCategoryId="Y001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001003001" parentProductCategoryId="Y001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001003002" parentProductCategoryId="Y001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001003003" parentProductCategoryId="Y001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001003004" parentProductCategoryId="Y001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001003005" parentProductCategoryId="Y001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y001003006" parentProductCategoryId="Y001003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002" parentProductCategoryId="PortalRootCat" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001" parentProductCategoryId="Y002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001001" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001002" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001003" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001004" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001005" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001006" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001007" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001008" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001009" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001010" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001011" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001012" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001013" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001014" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001015" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001016" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001017" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001018" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002001019" parentProductCategoryId="Y002001" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002002" parentProductCategoryId="Y002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002002001" parentProductCategoryId="Y002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002002002" parentProductCategoryId="Y002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002002003" parentProductCategoryId="Y002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002002004" parentProductCategoryId="Y002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002002005" parentProductCategoryId="Y002002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003" parentProductCategoryId="Y002" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003001" parentProductCategoryId="Y002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003002" parentProductCategoryId="Y002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003003" parentProductCategoryId="Y002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003004" parentProductCategoryId="Y002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003005" parentProductCategoryId="Y002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003006" parentProductCategoryId="Y002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003007" parentProductCategoryId="Y002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003008" parentProductCategoryId="Y002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003009" parentProductCategoryId="Y002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003010" parentProductCategoryId="Y002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003011" parentProductCategoryId="Y002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003012" parentProductCategoryId="Y002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003013" parentProductCategoryId="Y002003" fromDate="2001-05-13 12:00:00.0"/>
+<ProductCategoryRollup productCategoryId="Y002003014" parentProductCategoryId="Y002003" fromDate="2001-05-13 12:00:00.0"/>
+</entity-engine-xml>

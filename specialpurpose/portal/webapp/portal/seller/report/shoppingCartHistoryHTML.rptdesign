@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.1.v201408290142 Build &lt;4.4.1.v20140916-1320></property>
+    <property name="units">in</property>
+    <method name="initialize"><![CDATA[importPackage(Packages.org.ofbiz.base.util)
+
+    module = "shoppingCartHistoryHTML.rptdesign";]]></method>
+    <property name="iconFile">/templates/simple_listing.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.simplelisting</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <data-sources>
+        <script-data-source name="OFBiz" id="46"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="ShoppingCartHistory" id="47">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">0</property>
+                    <property name="name">productId</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">modifiedPrice</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">fromDate</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">partyId</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">quantity</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">productId</property>
+                    <text-property name="displayName">productId</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">modifiedPrice</property>
+                    <text-property name="displayName">modifiedPrice</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">fromDate</property>
+                    <text-property name="displayName">fromDate</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">partyId</property>
+                    <text-property name="displayName">partyId</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">quantity</property>
+                    <text-property name="displayName">quantity</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">productId</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">modifiedPrice</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">fromDate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">partyId</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">quantity</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">OFBiz</property>
+            <method name="open"><![CDATA[
+            examples = null;
+try {
+    shoppingCartHistorys = delegator.findList("ShoppingCartHistory", null, null, null, null, false);
+} catch (e) {
+    Debug.logError(e, module);
+}
+totalRow = 0;
+countOfRow = 0;
+if (shoppingCartHistorys) {
+    totalRow = shoppingCartHistorys.size();
+}]]></method>
+            <method name="fetch"><![CDATA[if (countOfRow == totalRow - 0) return false;
+
+shoppingCartHistory = shoppingCartHistorys.get(countOfRow);
+productId = shoppingCartHistory.getString("productId");
+modifiedPrice = shoppingCartHistory.getString("modifiedPrice");
+fromDate = shoppingCartHistory.getString("fromDate");
+partyId = shoppingCartHistory.getString("partyId");
+quantity = shoppingCartHistory.getString("quantity");
+
+row["productId"] = productId;
+row["modifiedPrice"] = modifiedPrice;
+row["fromDate"] = fromDate;
+row["partyId"] = partyId;
+row["quantity"] = quantity;
+
+countOfRow ++;
+return true;]]></method>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="24">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="25">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="26">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="4">
+            <property name="width">100%</property>
+            <property name="dataSet">ShoppingCartHistory</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">productId</property>
+                    <text-property name="displayName">productId</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["productId"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">modifiedPrice</property>
+                    <text-property name="displayName">modifiedPrice</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["modifiedPrice"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">quantity</property>
+                    <text-property name="displayName">quantity</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["quantity"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">fromDate</property>
+                    <text-property name="displayName">fromDate</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["fromDate"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">partyId</property>
+                    <text-property name="displayName">partyId</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["partyId"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">50</property>
+            <column id="20"/>
+            <column id="21"/>
+            <column id="22"/>
+            <column id="23"/>
+            <column id="40"/>
+            <header>
+                <row id="5">
+                    <cell id="6">
+                        <label id="27">
+                            <text-property name="text">商品</text-property>
+                        </label>
+                    </cell>
+                    <cell id="7">
+                        <label id="28">
+                            <text-property name="text">价格</text-property>
+                        </label>
+                    </cell>
+                    <cell id="8">
+                        <label id="30">
+                            <text-property name="text">数量</text-property>
+                        </label>
+                    </cell>
+                    <cell id="9">
+                        <label id="31">
+                            <text-property name="text">加入时间</text-property>
+                        </label>
+                    </cell>
+                    <cell id="37">
+                        <label id="45">
+                            <text-property name="text">客户</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="10">
+                    <cell id="11">
+                        <data id="48">
+                            <property name="resultSetColumn">productId</property>
+                        </data>
+                    </cell>
+                    <cell id="12">
+                        <data id="49">
+                            <property name="resultSetColumn">modifiedPrice</property>
+                        </data>
+                    </cell>
+                    <cell id="13">
+                        <data id="50">
+                            <property name="resultSetColumn">quantity</property>
+                        </data>
+                    </cell>
+                    <cell id="14">
+                        <data id="51">
+                            <property name="resultSetColumn">fromDate</property>
+                        </data>
+                    </cell>
+                    <cell id="38">
+                        <data id="52">
+                            <property name="resultSetColumn">partyId</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="32">
+                    <cell id="33"/>
+                    <cell id="34"/>
+                    <cell id="35"/>
+                    <cell id="36"/>
+                    <cell id="39"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-engine-xml>
+
+	<HospitalGeo geoId="C01"  geoName="中国"  geoType="COUNTRY"  parentGeoId=""></HospitalGeo>
+	<!-- 省级别（直辖市） -->
+	<HospitalGeo geoId="C001"  geoName="北京"  geoType="PROVINCE"  parentGeoId="C01"></HospitalGeo>
+	<HospitalGeo geoId="C002" geoName="重庆" geoType="PROVINCE" parentGeoId="C01"></HospitalGeo>
+	<HospitalGeo geoId="C003" geoName="上海" geoType="PROVINCE" parentGeoId="C01"></HospitalGeo>
+
+	<!-- geoId="C001"  geoName="北京" 下面的城市级分类 -->
+	<HospitalGeo geoId="C00101"  geoName="东城区"  geoType="CITY"  parentGeoId="C001"></HospitalGeo>
+	<HospitalGeo geoId="C00102"  geoName="西城区"  geoType="CITY"  parentGeoId="C001"></HospitalGeo>
+	<HospitalGeo geoId="C00103"  geoName="朝阳区"  geoType="CITY"  parentGeoId="C001"></HospitalGeo>
+
+	<!--geoId="C00101"  geoName="东城区" 下面小区级分类  -->
+	<HospitalGeo geoId="C0010101"  geoName="301医院"  geoType="COUNTY"  parentGeoId="C00101"></HospitalGeo>
+	<HospitalGeo geoId="C0010102"  geoName="302医院"  geoType="COUNTY"  parentGeoId="C00101"></HospitalGeo>
+	<HospitalGeo geoId="C0010103"  geoName="303医院"  geoType="COUNTY"  parentGeoId="C00101"></HospitalGeo>
+
+	<!-- geoId="C00102"  geoName="西城区" 下面小区级分类-->
+	<HospitalGeo geoId="C0010201"  geoName="武警医院"  geoType="COUNTY"  parentGeoId="C00102"></HospitalGeo>
+	<HospitalGeo geoId="C0010202"  geoName="航天医院"  geoType="COUNTY"  parentGeoId="C00102"></HospitalGeo>
+	<HospitalGeo geoId="C0010203"  geoName="儿童医院"  geoType="COUNTY"  parentGeoId="C00102"></HospitalGeo>
+	
+	<!-- geoId="C00103"  geoName="朝阳区" 下面小区级分类-->
+	<HospitalGeo geoId="C0010301"  geoName="朝阳医院1"  geoType="COUNTY"  parentGeoId="C00103"></HospitalGeo>
+	<HospitalGeo geoId="C0010302"  geoName="朝阳医院2"  geoType="COUNTY"  parentGeoId="C00103"></HospitalGeo>
+	<HospitalGeo geoId="C0010303"  geoName="朝阳医院3"  geoType="COUNTY"  parentGeoId="C00103"></HospitalGeo>
+
+    
+    
+    <!-- 医院的信息 -->		
+    <Hospital  holId="C0010101301"  holName="301医院" depId="C0010101301001"  geoId="C0010101"></Hospital>
+    
+    
+    <!-- 科室的信息 -->
+    <Departments depId="C0010101301001"  depName="外科"   treId="C0010101301001201401"></Departments>
+	<Departments depId="C0010101301002"  depName="肠胃科" treId="C0010101301001201402"></Departments>
+	
+	
+    <!-- 就诊时间的信息 -->		
+    <Treatmenttime   treId="C0010101301001201401"  time="2015-02-13 12:00:00.0" sctId="2014010001"></Treatmenttime>
+	<Treatmenttime   treId="C0010101301001201402"  time="2015-06-13 09:00:00.0" sctId="2014010002"></Treatmenttime>
+	
+	<!-- 排班的信息 -->		
+    <Schedulingtime   sctId="2014010001" sctName="张三" sctExpertitle="主任医师"  scttime="2015-02-13 12:00:00.0"  scttype="专家门诊"  sctRegistrationfee="100" ></Schedulingtime>
+    <Schedulingtime   sctId="2014010001" sctName="李四" sctExpertitle="主任医师"  scttime="2015-02-13 12:00:00.0"  scttype="专家门诊"  sctRegistrationfee="100" ></Schedulingtime>
+    <Schedulingtime   sctId="2014010001" sctName="王五" sctExpertitle="主任医师"  scttime="2015-02-13 12:00:00.0"  scttype="专家门诊"  sctRegistrationfee="100" ></Schedulingtime>
+    <Schedulingtime   sctId="2014010001" sctName="赵六" sctExpertitle="主任医师"  scttime="2015-02-13 12:00:00.0"  scttype="专家门诊"  sctRegistrationfee="100" ></Schedulingtime>
+    <Schedulingtime   sctId="2014010001" sctName="老梦" sctExpertitle="主任医师"  scttime="2015-02-13 12:00:00.0"  scttype="专家门诊"  sctRegistrationfee="100" ></Schedulingtime>
+    <Schedulingtime   sctId="2014010001" sctName="老羊" sctExpertitle="主任医师"  scttime="2015-02-13 12:00:00.0"  scttype="专家门诊"  sctRegistrationfee="100" ></Schedulingtime>
+    
+	<!-- 物业公司表-->		
+    <PropertyCompany   prcId="PC1"  prcName="北京神户物业有限公司"  ></PropertyCompany>	
+    <PropertyCompany   prcId="PC2"  prcName="北京平安物业有限公司"  ></PropertyCompany>	
+    <PropertyCompany   prcId="PC3"  prcName="北京嘉华物业有限公司"  ></PropertyCompany>	
+    
+    <!-- 物业公司负责市  县区  小区表  -->
+        <!-- 全国 -->
+    <PropertyCity ptcId="P01"   geoName="全国"  geoType="COUNTRY"  parentGeoId=""></PropertyCity>
+        <!-- 市-->
+    <PropertyCity ptcId="P001"  ptcName="北京"  ptcType="PROVINCE"  parentPtcId="P01"  prcId="PC1"></PropertyCity>	
+	<PropertyCity ptcId="P002"  ptcName="天津"  ptcType="PROVINCE"  parentPtcId="P01"  prcId="PC1"></PropertyCity>		
+	<PropertyCity ptcId="P003"  ptcName="上海"  ptcType="PROVINCE"  parentPtcId="P01"  prcId="PC2"></PropertyCity>
+	<PropertyCity ptcId="P004"  ptcName="深圳"  ptcType="PROVINCE"  parentPtcId="P01"  prcId="PC3"></PropertyCity>	
+		
+	<!-- ptcId="P001"  北京  下面的城市级分类 -->
+	<PropertyCity ptcId="P00101"  ptcName="东城区"  ptcType="CITY"  parentPtcId="P001"></PropertyCity>
+	<PropertyCity ptcId="P00102"  ptcName="西城区"  ptcType="CITY"  parentPtcId="P001"></PropertyCity>
+	<PropertyCity ptcId="P00103"  ptcName="朝阳区"  ptcType="CITY"  parentPtcId="P001"></PropertyCity>	
+		
+	<!-- ptcId="P002"  天津  下面的城市级分类 -->
+	<PropertyCity ptcId="P00201"  ptcName="1城区"  ptcType="CITY"  parentPtcId="P002"></PropertyCity>
+	<PropertyCity ptcId="P00202"  ptcName="2城区"  ptcType="CITY"  parentPtcId="P002"></PropertyCity>
+	<PropertyCity ptcId="P00203"  ptcName="3阳区"  ptcType="CITY"  parentPtcId="P002"></PropertyCity>		
+		
+		
+	<!--ptcId="P0010101"  东城区 下面小区 -->
+	<PropertyCity ptcId="P0010101"  ptcName="东1小区"  ptcType="COUNTY"  parentPtcId="P00101"></PropertyCity>
+	<PropertyCity ptcId="P0010102"  ptcName="东2小区"  ptcType="COUNTY"  parentPtcId="P00101"></PropertyCity>
+	
+    <PropertyCity ptcId="P0010201"  ptcName="西1小区"  ptcType="COUNTY"  parentPtcId="P00102"></PropertyCity>
+	<PropertyCity ptcId="P0010202"  ptcName="西2小区"  ptcType="COUNTY"  parentPtcId="P00102"></PropertyCity>
+		
+		
+	<!-- 此物业小区 常居住人员信息表  -->	
+	<PropertyUser pruId="PU0001"  houseHolder="张三"  idCard="510811198808232369"  ptcId="P0010101"></PropertyUser>	
+	<PropertyUser pruId="PU0002"  houseHolder="张2"  idCard="510811198808232362"   ptcId="P0010101"></PropertyUser>	
+	<PropertyUser pruId="PU0003"  houseHolder="张3"  idCard="510811198808232363"   ptcId="P0010101"></PropertyUser>	
+	<PropertyUser pruId="PU0004"  houseHolder="张4"  idCard="510811198808232364"   ptcId="P0010101"></PropertyUser>		
+
+	<PropertyUser pruId="PU0005"  houseHolder="李四"  idCard="510811198808232369"  ptcId="P0010102"></PropertyUser>	
+	<PropertyUser pruId="PU0006"  houseHolder="李2"  idCard="5108111988082323622"  ptcId="P0010102"></PropertyUser>	
+	<PropertyUser pruId="PU0007"  houseHolder="李3"  idCard="5108111988082323633"  ptcId="P0010102"></PropertyUser>	
+	<PropertyUser pruId="PU0008"  houseHolder="李4"  idCard="5108111988082323644"  ptcId="P0010102"></PropertyUser>	
+
+	<!-- 缴费   信息表  -->
+    <PropertyPayment prpId="PP0001"  billNo="20150100001"  timeBilling="2015-02-13 12:00:00.0"  prtId="PPT1"  money="130"  pruId="PU0001"></PropertyPayment>	
+    <PropertyPayment prpId="PP0002"  billNo="20150100002"  timeBilling="2015-03-13 02:00:00.0"  prtId="PPT2"  money="210"  pruId="PU0001"></PropertyPayment>	
+    <PropertyPayment prpId="PP0003"  billNo="20150100003"  timeBilling="2015-06-13 15:00:00.0"  prtId="PPT3"  money="305"  pruId="PU0001"></PropertyPayment>	
+	
+	
+	<!--缴费类型   信息表  -->
+	<PropertyPaymentType prtId="PPT1"  paymentTypeName="水费" ></PropertyPaymentType>	
+	<PropertyPaymentType prtId="PPT2"  paymentTypeName="电费" ></PropertyPaymentType>
+	<PropertyPaymentType prtId="PPT3"  paymentTypeName="物业管理费" ></PropertyPaymentType>
+		
+		
+		
+		
+</entity-engine-xml>
+
+
+

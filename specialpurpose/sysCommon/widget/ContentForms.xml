@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
+	<form name="FindCmsCatalog" type="single"
+		client-autocomplete-fields="true" style="pageForm"
+		default-table-style="searchContent" target="FindCmsCatalog"
+		default-entity-name="CmsCatalog">
+
+		<field name="catalogName" title="${uiLabelMap.cmsCatalogName}"
+			position="1">
+			<text-find hide-options="true" />
+		</field>
+	</form>
+
+	<form name="FindCmsCatalogAdvanced" type="single"
+		header-row-style="main_title" style="pageForm" target="FindCmsCatalog"
+		default-entity-name="CmsCatalog">
+		<field name="catalogName" title="${uiLabelMap.cmsCatalogName}"
+			position="1">
+			<text-find hide-options="true" />
+		</field>
+	</form>
+	<form name="ListCmsCatalog" type="list" etc="www='ssssf' close='aaa'"
+		list-name="listIt" group-columns="false" separate-columns="false"
+		use-row-submit="false" paginate-target="FindCmsCatalog"
+		default-entity-name="CmsCatalog" paginate-style="panelBar"
+		default-table-style="basic-table hover-bar">
+		<actions>
+			<set field="parameters.sortField" value='sortNum' />
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="CmsCatalog" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="CommSeq" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+
+		<field name="ids" widget-area-style="groupAll" id-name="groupAll"
+			title="${uiLabelMap.CommSelectAll}">
+			<check>
+				<option key="${catalogId}" description=" " />
+			</check>
+		</field>
+
+
+		<field name="catalogName" title="${uiLabelMap.cmsCatalogName}"
+			sort-field="true">
+			<display />
+		</field>
+		<field name="parentId" title="${uiLabelMap.cmsParentId}"
+			sort-field="false">
+			<display-entity entity-name="CmsCatalog"
+				key-field-name="catalogId" description="${parentId=='8000'?'':'----'}${catalogName}" />
+		</field>
+		<field name="isDisplay" title="${uiLabelMap.cmsIsDisplay}"
+			sort-field="false">
+			<display />
+		</field>
+		<field name="edit" etc="rel='container'" title="${uiLabelMap.CommonEdit}"
+			widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-window="dialog"
+				description="${uiLabelMap.CommonEdit}" target="EditCmsCatalog">
+				<parameter param-name="catalogId" />
+			</hyperlink>
+		</field>
+		<field name="delete" title="${uiLabelMap.CommonDelete}"
+			widget-style="btnDel">
+			<hyperlink also-hidden="false" 
+				target-type="plain" description="${uiLabelMap.CommonDelete}" target="delCmsCatalog">
+				<parameter param-name="catalogId" />
+
+			</hyperlink>
+		</field>
+	</form>
+	<form name="EditCmsCatalog" type="single" style="single_table"
+		default-table-style="basic-table" target-type="plain" target="updateCmsCatalog"
+		title="" default-map-name="entity" default-entity-name="CmsCatalog">
+		<alt-target use-when="entity==null" target="createCmsCatalog" />
+		<field name="catalogId">
+			<hidden />
+		</field>
+		<field name="navTabId">
+			<hidden value="FindCmsCatalog" />
+		</field>
+		<field name="callbackType">
+			<hidden value="closeCurrent" />
+		</field>
+		<!-- <field name="websiteId" title="${uiLabelMap.cmsWebSiteId}" event="onchange=changeSelect(this,'EditCmsCatalog_parentId')"> 
+			<drop-down allow-empty="false" no-current-selected-key="cmsroi"> <entity-options 
+			description="${websiteName}" entity-name="CmsWebSite" key-field-name="websiteId"></entity-options> 
+			</drop-down> </field> -->
+		<field name="websiteId" etc="websiteName" title="${uiLabelMap.cmsWebSiteId}">
+			<lookup target-form-name="LookupCmsWebSite"></lookup>
+		</field>
+
+
+		<field name="parentId" title="${uiLabelMap.cmsParentId}">
+			<drop-down allow-empty="true">
+				<entity-options description="${catalogName}"
+					entity-name="CmsCatalog" key-field-name="catalogId">
+				</entity-options>
+			</drop-down>
+		</field>
+
+
+		<field name="catalogName" etc="alt='请输入分类名称'" title="${uiLabelMap.cmsCatalogName}"
+			widget-style="required">
+			<text />
+		</field>
+		<field name="isDisplay" etc="ref='combox_city'" widget-style=""
+			title="${uiLabelMap.cmsIsDisplay}">
+			<drop-down allow-empty="false" no-current-selected-key="Y">
+				<option key="Y" description="${uiLabelMap.CommonYes}" />
+				<option key="N" description="${uiLabelMap.CommonFalse}" />
+			</drop-down>
+		</field>
+
+	</form>
+
+	<form name="LookupFindCmsCatalog" type="single"
+		client-autocomplete-fields="true" style="pageForm"
+		default-table-style="searchContent" target="LookupCmsCatalog"
+		default-entity-name="CmsCatalog">
+
+		<field name="catalogName" title="${uiLabelMap.cmsCatalogName}"
+			position="1">
+			<text-find hide-options="true" />
+		</field>
+	</form>
+	<form name="LookupCmsCatalog" type="list" list-name="listIt"
+		group-columns="false" separate-columns="false" use-row-submit="false"
+		paginate-target="LookupCmsCatalog" default-entity-name="CmsCatalog"
+		paginate-style="panelBar" default-table-style="basic-table hover-bar">
+		<actions>
+			<set field="parameters.sortField" value='sortNum' />
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="CmsCatalog" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+
+		<!-- <field name="catalogId" widget-area-style="groupAll" id-name="catalogId" 
+			title="${uiLabelMap.CommSelectAll}"> <check> <option key="${catalogId}" description=" 
+			" /> </check> </field> -->
+		<field name="catalogId" id-name="catalogId" title="${uiLabelMap.CommSelectAll}">
+			<check>
+				<option key="${catalogId}" description=" " />
+			</check>
+		</field>
+		<field name="catalogName" title="${uiLabelMap.cmsCatalogName}"
+			sort-field="true">
+			<display />
+		</field>
+	</form>
+	<form name="LookupFindCmsWebSite" type="single"
+		client-autocomplete-fields="true" style="pageForm"
+		default-table-style="searchContent" target="LookupCmsWebSite"
+		default-entity-name="CmsWebSite">
+		<field name="websiteName" title="站点名称" position="1">
+			<text-find hide-options="true" />
+		</field>
+	</form>
+	<form name="LookupCmsWebSite" type="list" list-name="listIt"
+		group-columns="false" separate-columns="false" use-row-submit="false"
+		paginate-target="LookupCmsWebSite" default-entity-name="CmsWebSite"
+		paginate-style="panelBar" default-table-style="basic-table hover-bar">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="CmsWebSite" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="websiteId" id-name="websiteId" title="${uiLabelMap.CommSelectAll}">
+			<check>
+				<option
+					key="{websiteId:\'${websiteId}\',websiteName:\'${websiteName}\'}"
+					description=" " />
+			</check>
+		</field>
+		<field name="websiteName" title="站点名称" sort-field="true">
+			<display />
+		</field>
+	</form>
+	<form name="LookupFindCmsWebSite1" type="single"
+		client-autocomplete-fields="true" style="pageForm"
+		default-table-style="searchContent" target="LookupCmsWebSite"
+		default-entity-name="CmsWebSite">
+
+		<field name="websiteName" title="${uiLabelMap.CmsWebSiteName}"
+			position="1">
+			<text-find hide-options="true" />
+		</field>
+	</form>
+	<form name="LookupCmsWebSite1" type="list" list-name="listIt"
+		group-columns="false" separate-columns="false" use-row-submit="false"
+		paginate-target="LookupCmsWebSite" default-entity-name="CmsWebSite"
+		paginate-style="panelBar" default-table-style="basic-table hover-bar">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="CmsWebSite" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+
+		<!-- <field name="websiteId" widget-area-style="groupAll" id-name="websiteId" 
+			title="${uiLabelMap.CommSelectAll}"> <check> <option key="${websiteId}" description=" 
+			" /> </check> </field> -->
+		<field name="websiteId" id-name="websiteId" title="${uiLabelMap.CommSelectAll}">
+			<check>
+				<option
+					key="{websiteId:\'${websiteId}\',websiteName:\'${websiteName}\'}"
+					description=" " />
+			</check>
+		</field>
+		<field name="websiteName" title="${uiLabelMap.websiteName}"
+			sort-field="true">
+			<display />
+		</field>
+
+
+	</form>
+
+	<form name="FindCmsArticle" type="single" header-row-style="main_title"
+		style="pageForm" target="FindCmsArticle" default-entity-name="CmsArticle">
+		<field name="noConditionFind">
+			<hidden value="Y" />
+		</field>
+		<field name="websiteId" title="${uiLabelMap.cmsWebSiteId}"
+			position="1" event="onchange=changeSelect(this,'FindCmsArticle_catalogId')">
+			<drop-down allow-empty="false" no-current-selected-key="cmsroi">
+				<entity-options description="${websiteName}"
+					entity-name="CmsWebSite" key-field-name="websiteId"></entity-options>
+			</drop-down>
+		</field>
+		<field name="catalogId" title="${uiLabelMap.cmsCategory}"
+			position="2">
+			<drop-down>
+				<option key="" />
+				<entity-options description="${parentId=='8000'?'':'----'}${catalogName}"
+					entity-name="CmsCatalog">
+					<entity-order-by field-name="sortNum"></entity-order-by>
+				</entity-options>
+			</drop-down>
+		</field>
+		<field name="title" title="${uiLabelMap.cmsTitle}" position="3">
+			<text-find hide-options="true" />
+		</field>
+	</form>
+	<form name="ListCmsArticle" type="list" list-name="listIt"
+		paginate-target="FindCmsArticle" default-entity-name="CmsArticle"
+		separate-columns="true" paginate-style="panelBar" default-table-style="basic-table hover-bar">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="CmsArticle" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="title" title="${uiLabelMap.cmsTitle}">
+			<display />
+		</field>
+
+
+		<field name="catalogId" title="${uiLabelMap.cmsCategory}">
+			<display-entity description="${parentId=='8000'?'':'----'}${catalogName}"
+				entity-name="CmsCatalog" />
+		</field>
+		<field name="sortNum" title="${uiLabelMap.CommonSortOrder}"
+			sort-field="true">
+			<display />
+		</field>
+		<!-- <field name="isDisplay" title="${uiLabelMap.cmsIsDisplay}"> <display 
+			type="text" /> </field> -->
+
+		<field name="edit" title="${uiLabelMap.CommonEdit}"
+			widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="${uiLabelMap.CommonEdit}" target="EditCmsArticle">
+				<parameter param-name="articleId" />
+			</hyperlink>
+		</field>
+		<field name="delete" title="${uiLabelMap.CommonDelete}"
+			widget-style="btnDel">
+			<hyperlink also-hidden="false" 
+				target-type="plain" description="${uiLabelMap.CommonDelete}" target="deleteCmsArticle">
+				<parameter param-name="articleId" />
+			</hyperlink>
+		</field>
+	</form>
+	<form name="EditCmsArticle" type="upload" style="single_table"
+		default-table-style="basic-table" target-type="plain" target="updateCmsArticle"
+		title="${uiLabelMap.CommonDelete}" default-map-name="entity"
+		default-entity-name="CmsArticle">
+		<alt-target use-when="entity==null" target="createCmsArticle" />
+		<field name="articleId">
+			<hidden />
+		</field>
+		<field name="navTabId">
+			<hidden value="FindCmsArticle" />
+		</field>
+		<field name="callbackType">
+			<hidden value="closeCurrent" />
+		</field>
+		<field name="ajax">
+			<hidden value="1" />
+		</field>
+		<field name="title" widget-style="required" title="${uiLabelMap.cmsTitle}">
+			<text size="30" maxlength="255" />
+		</field>
+		<field name="websiteId" widget-style="" title="站点">
+			<drop-down allow-empty="false" no-current-selected-key="cmsroi">
+				<entity-options description="${websiteName}"
+					entity-name="CmsWebSite" key-field-name="websiteId"></entity-options>
+			</drop-down>
+		</field>
+		<field name="cardType" title="枚举">
+			<drop-down allow-empty="true">
+				<entity-options entity-name="Enumeration" cache="true"
+					description="${enumCode}" key-field-name="enumCode">
+					<entity-constraint name="enumTypeId" operator="equals"
+						value="EXAM_TYPE" />
+					<entity-order-by field-name="enumId" />
+				</entity-options>
+			</drop-down>
+		</field>
+		<field name="articleTypeId" widget-style=""
+			title="${uiLabelMap.cmsCatalogTypeId}">
+			<drop-down>
+				<entity-options description="${displayName}"
+					entity-name="CmsArticleType"></entity-options>
+			</drop-down>
+		</field>
+		<field name="catalogId" widget-style=""
+			title="${uiLabelMap.cmsCatalogName}">
+			<drop-down text-size="30">
+				<entity-options description="${catalogName}"
+					entity-name="CmsCatalog"></entity-options>
+			</drop-down>
+		</field>
+
+		<field name="isDisplay" widget-style=""
+			title="${uiLabelMap.cmsIsDisplay}">
+			<drop-down text-size="30" allow-empty="false"
+				no-current-selected-key="Y">
+				<option key="Y" description="${uiLabelMap.CommonYes}" />
+				<option key="N" description="${uiLabelMap.CommonFalse}" />
+			</drop-down>
+		</field>
+		<field name="sortNum" title="${uiLabelMap.CommonSortOrder}"
+			widget-style="number">
+			<text />
+		</field>
+		<field
+			use-when="${groovy:entity!=null&amp;&amp;entity.getString(&quot;fileUrl&quot;)!=null}"
+			name="" title=" ">
+			<hyperlink also-hidden="false" target-window="_BLANK"
+				target-type="plain" description="${adName}" target="/cms/cms/queryAdvertise">
+				<parameter param-name="adId" />
+			</hyperlink>
+		</field>
+		<field name="fileUrl" title="附件路径">
+			<file />
+		</field>
+		<field name="content" title="${uiLabelMap.cmsContent}">
+			<textarea />
+		</field>
+		<!-- <field name="content" title="${uiLabelMap.cmsContent}" widget-style="editor"> 
+			<textarea /> </field> -->
+	</form>
+
+
+
+
+	<form name="FindAdvertise" type="single" header-row-style="main_title"
+		style="pageForm" target="FindAdvertise" default-entity-name="CmsAdvertise">
+		<field name="noConditionFind">
+			<hidden value="Y" />
+		</field>
+		<field name="adName" title="${uiLabelMap.AdName}">
+			<text-find hide-options="true" />
+		</field>
+
+	</form>
+	<form name="ListAdvertise" type="list" list-name="listIt"
+		paginate-target="FindAdvertise" default-entity-name="CmsAdvertise"
+		separate-columns="true" paginate-style="panelBar" default-table-style="basic-table hover-bar">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="CmsAdvertise" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="adName" title="${uiLabelMap.AdName}" sort-field="false">
+			<hyperlink also-hidden="false" target-window="_BLANK"
+				target-type="plain" description="${adName}" target="/cms/cms/queryAdvertise">
+				<parameter param-name="adId" />
+			</hyperlink>
+		</field>
+
+		<field name="url" title="${uiLabelMap.AdUrl}" sort-field="false">
+			<display />
+		</field>
+
+		<field name="edit" title="${uiLabelMap.CommonEdit}"
+			widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="${uiLabelMap.CommonEdit}" target="EditAdvertise">
+				<parameter param-name="adId" />
+			</hyperlink>
+		</field>
+		<field name="delete" title="${uiLabelMap.CommonDelete}"
+			widget-style="btnDel">
+			<hyperlink also-hidden="false" 
+				target-type="plain" description="${uiLabelMap.CommonDelete}" target="deleteAdvertise">
+				<parameter param-name="adId" />
+			</hyperlink>
+		</field>
+	</form>
+	<form name="EditAdvertise" type="upload" style="single_table"
+		default-table-style="basic-table" target-type="plain" target="updateAdvertise"
+		title="" default-map-name="entity" default-entity-name="CmsAdvertise">
+		<alt-target use-when="entity==null" target="createAdvertise" />
+		<field name="navTabId">
+			<hidden value="FindAdvertise" />
+		</field>
+		<field name="callbackType">
+			<hidden value="closeCurrent" />
+		</field>
+		<field name="adId">
+			<hidden />
+		</field>
+		<field name="adName" title="${uiLabelMap.AdName}" widget-style="required"
+			title-style="background_tr">
+			<text />
+		</field>
+		<field name="url" title="${uiLabelMap.AdUrl}" widget-style="required">
+			<text />
+		</field>
+		<field name="content" title="${uiLabelMap.cmsContent}"
+			widget-style="editor">
+			<textarea />
+		</field>
+	</form>
+
+</forms>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
+
+<form name="FindCarUseApplyRegister" type="single" style="pageForm"
+		default-table-style="searchContent" target="FindCarUseApplyRegister"
+		default-entity-name="CarUseApplyRegister">
+		<field name="carNo" widget-style="required" title="车牌号码">
+			<text-find hide-options="true" />
+		</field>
+	</form>
+	<form name="ListCarUseApplyRegister" type="list" list-name="listIt"
+		group-columns="false" paginate-target="FindCarUseApplyRegister"
+		default-entity-name="CarUseApplyRegister" paginate-style="panelBar"
+		default-table-style="basic-table hover-bar">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="CarUseApplyRegister" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="ids" widget-area-style="groupAll" id-name="groupAll"
+			title=" ">
+			<check>
+				<option key="${carUseId}"  description=" "/>
+			</check>
+		</field>
+		<field name="CommSeq" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+		<field name="carNo" sort-field="true" title="车牌号码">
+			<display />
+		</field>
+		<field name="status" sort-field="true" title="状态">
+			<display />
+		</field>
+		<field name="joinPersonId" sort-field="true" title="工作流第一步参与人">
+			<display />
+		</field>
+		<field name="nextActive" sort-field="true" title="工作流第一步活动">
+			<display />
+		</field>
+		<field name="areaId" sort-field="true" title="域ID">
+			<display />
+		</field>
+		<field name="edit" title="编辑" widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="编辑" target="EditCarUseApplyRegister">
+				<parameter param-name="carUseId" />
+			</hyperlink>
+		</field>
+		<field name="delete" title="删除" widget-style="btnDel">
+			<hyperlink also-hidden="false" 
+				target-type="plain" description="删除" target="deleteCarUseApplyRegister">
+				<parameter param-name="carUseId" />
+			</hyperlink>
+		</field>
+		<field name="start" title="启动" use-when="${groovy:status==&quot;NOT_START&quot;}"  widget-style="btnEdit">
+			<hyperlink also-hidden="false" 
+				target-type="plain" description="启动" target="startCommonWorkFlow">
+				<parameter param-name="entityName" value="CarUseApplyRegister"/>
+				<parameter param-name="entityIdName" value="carUseId"/>
+				<parameter param-name="entityIdValue" from-field="carUseId"/>
+				<parameter param-name="workflowProcessServices" value="useCarWorkFlowSimple"/>
+				<parameter param-name="areaId" value="10000"/>
+			</hyperlink> 
+		</field>
+		<field name="trace" title="跟踪" widget-style="btnView">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="跟踪" target="EditCarUseApplyRegister">
+				<parameter param-name="sourceReferenceId" from-field="carUseId" />
+				<parameter param-name="oper" value="view" />
+				<parameter param-name="carUseId" />
+			</hyperlink>
+		</field>
+	</form>
+	<form name="EditCarUseApplyRegister" type='single' style="single_table"
+		default-table-style="basic-table" target-type="plain" target="updateCarUseApplyRegister"
+		default-map-name="entity" default-entity-name="CarUseApplyRegister">
+		<alt-target use-when="entity==null" target="createCarUseApplyRegister" />
+		<field name="carUseId">
+			<hidden />
+		</field>
+		<field name="navTabId">
+			<hidden value="FindCarUseApplyRegister" />
+		</field>
+		<field name="callbackType">
+			<hidden value="closeCurrent" />
+		</field>
+		<field name="carNo" widget-style="required" title="车牌号码">
+			<text />
+		</field>
+		<field name="status" widget-style="" title="状态">
+			<text />
+		</field>
+		<field name="joinPersonId" widget-style="" title="工作流第一步参与人">
+			<text />
+		</field>
+		<field name="nextActive" widget-style="" title="工作流第一步活动">
+			<text />
+		</field>
+		<field name="articleId">
+			<hidden />
+		</field>
+	</form>
+	<form name="ExamineCarUseApplyList" type="list" list-name="partyWorkEfforts"
+		group-columns="false" paginate-target="FindCarUseApplyRegister"
+		paginate-style="panelBar" default-table-style="basic-table hover-bar">
+
+		<row-actions>
+			<set field="carUseId" from-field="sourceReferenceId"/>
+			<entity-one entity-name="CarUseApplyRegister"  value-field="carUseApplyRegister"></entity-one>
+		</row-actions>
+
+		<field name="sourceReferenceId" sort-field="true" title="数据源ID">
+			<display />
+		</field>
+		<field name="carNo" widget-style="required" title="车牌号码">
+			<display description="${carUseApplyRegister.carNo}"/>
+		</field>
+		<field name="workEffortName" sort-field="true" title="任务名称">
+			<display />
+		</field>
+
+		<field name="start" title="处理" widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="处理" target="EditCarUseApplyRegister">
+				<parameter param-name="carUseId" from-field="sourceReferenceId"/>
+				<parameter param-name="workEffortId" />
+				<parameter param-name="sourceReferenceId"/>
+			</hyperlink>
+		</field>
+	</form>
+
+
+</forms>

@@ -1,0 +1,33 @@
+.loading {
+    height: 64px;
+    width: 64px;
+    margin: 0 auto;
+    background: url('img/uploading.gif') no-repeat center center transparent;
+    opacity: 1;
+    text-align: center;
+    overflow: hidden;
+}
+
+.loading-panel {
+    height: 42px;
+    width: 300px;
+    border: 2px solid #305178;
+    background: #ffffff;
+    padding: 2px;
+}
+
+.loading-panel .loading-content {
+    text-align: center;
+    margin: 5px;
+    line-height: 14px;
+}
+
+.loading-panel .loading-alert {
+    height: 10px;
+    width: 284px;
+    margin: 0 auto;
+    background: url('img/loading_bar.gif') no-repeat center center transparent;
+    opacity: 1;
+    text-align: center;
+    overflow: hidden;
+}

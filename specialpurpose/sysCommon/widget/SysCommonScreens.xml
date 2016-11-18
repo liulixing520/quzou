@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+ 
+<screen name="main-decorator">
+		<section>
+            <actions>
+<!--             	<set field="layoutSettings.javaScripts[+0]" value="/${groovy:webSiteId}/images/js/lookup_user_func.js" global="true" /> -->
+            	<set field="layoutSettings.javaScripts[]" value="/images/selectall.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/fieldlookup.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/common.js" global="true" />
+<!--                 <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/fjTimer/jquerytimer-min.js" global="true" /> -->
+            	<set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/datetimepicker/jquery-ui-timepicker-addon-0.9.7.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/ui/development-bundle/ui/i18n/jquery.ui.datepicker-zh-CN.js" global="true" />
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/ui/development-bundle/ui/jquery.ui.datepicker.js" global="true" />
+            	<set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/js/html_entity.js" global="true"/>
+            	<set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/My97DatePicker/WdatePicker.js" global="true"/>
+            	<set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/localization/messages_cn.js" global="true" />
+            	<set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/lib/jquery.form.js" global="true" />
+            	<set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/jquery.validate.min.js" global="true" />
+            	<set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/dialog1.0.js" global="true" />
+<!--                 <set field="layoutSettings.javaScripts[+0]" value="/images/jquery-easyui-1.3.3/plugins/jquery.validatebox.ext.min.js" global="true" /> -->
+<!--                 <set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/jquery-easyui-1.3.3/jquery.easyui.min-1.3.3.js" global="true" /> -->
+            	<set field="layoutSettings.javaScripts[+0]" value="/images/jquery/ui/js/jquery-ui-1.8.16.custom.min.js" global="true" />
+            	<set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-1.7.min.js" global="true" />
+            	<set field="layoutSettings.rtlStyleSheets[+0]" value="/sysCommon/images/jquery-easyui-1.3.3/themes/icon.css" global="true"/>
+            	<set field="layoutSettings.rtlStyleSheets[+0]" value="/${groovy:webSiteId}/images/css/ext.css" global="true"/>
+            	<set field="layoutSettings.rtlStyleSheets[+0]" value="/flatgrey/maincss.css" global="true"/>
+            	<set field="layoutSettings.rtlStyleSheets[+0]" value="/flatgrey/javascript.css" global="true"/>
+                <set field="systemName" value="管理系统" global="true"/><!--  各项目中定义 --> 
+                <set field="copyright" value="xxx有限公司" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/> 
+                <property-map resource="SysCommonUiLabels" map-name="uiLabelMap" global="true"/> 
+                <!-- 
+                <set field="initialLocaleComplete" type="String" value="${groovy:parameters?.userLogin?.lastLocale}" default-value="${groovy:locale.toString()}"/>
+                <property-map resource="SysCommonUiLabels" map-name="uiLabelMap" global="true"/> 
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="layoutSettings.commonHeaderImageLinkUrl" from-field="layoutSettings.commonHeaderImageLinkUrl" default-value="main" global="true"/>
+                <set field="visualThemeId" from-field="userPreferences.VISUAL_THEME" global="true"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="iconsLocation" from-field="layoutSettings.VT_ICONS_LOC[0]" default-value="/images/icons/famfamfam" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]"/>
+                <set field="appbarTemplateLocation" from-field="layoutSettings.VT_NAV_TMPLT_LOC[0]"/>
+                <set field="appbarOpenTemplateLocation" from-field="layoutSettings.VT_NAV_OPEN_TMPLT[0]"/>
+                <set field="appbarCloseTemplateLocation" from-field="layoutSettings.VT_NAV_CLOSE_TMPLT[0]"/>
+                <set field="messagesTemplateLocation" from-field="layoutSettings.VT_MSG_TMPLT_LOC[0]"/>
+                 -->
+            </actions>
+            <widgets>	
+             	<platform-specific>
+             		<html>
+             			<html-template location="component://sysCommon/webapp/sysCommon/includes/mainHeader.ftl"/>
+             			<html-template location="component://sysCommon/webapp/sysCommon/includes/messages.ftl"/>
+             		</html>
+             	</platform-specific>
+             <decorator-section-include name="body"/>
+                          
+                <!-- render footer
+                <section name="Render-Footer">
+                    <condition>
+                        <if-empty field="applicationFooterTemplate"/>
+                    </condition>
+                    
+                    <widgets>
+                        <platform-specific><html><html-template location="${footerTemplateLocation}"/></html></platform-specific>
+                    </widgets>
+                    <fail-widgets>
+                         <platform-specific><html><html-template location="${applicationFooterTemplate}"/></html></platform-specific>
+                    </fail-widgets>
+                </section>
+                 -->
+            </widgets>
+        </section>
+	</screen>
+  	<screen name="jeasy-decorator">
+		<section>
+			<actions>
+				<set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/js/lookup_user_func.js" global="true" />
+				<set field="layoutSettings.javaScripts[+0]" value="/images/jquery/ui/development-bundle/external/jquery.bgiframe-2.1.2.js" global="true" />
+				<set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js" global="true"/>
+				<set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/jquery-easyui-1.3.3/jquery.easyui.min-1.3.3.js" global="true" /> 
+				<set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/js/commonJeasy.js" global="true" /> 
+				<set field="layoutSettings.javaScripts[+0]" value="/images/common.js" global="true" /> 
+				<set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-1.7.min.js" global="true" />
+				<set field="layoutSettings.rtlStyleSheets[+0]" value="/sysCommon/images/jquery-easyui-1.3.3/themes/default/easyui.css" global="true"/>
+				<set field="layoutSettings.rtlStyleSheets[+0]" value="/sysCommon/images/jquery-easyui-1.3.3/themes/icon.css" global="true"/>
+			</actions>
+			 <widgets>	
+	             <platform-specific>
+	             	<html>
+	             		<html-template location="component://sysCommon/webapp/sysCommon/includes/jeasyHeader.ftl"/>
+	             	</html>
+	             </platform-specific>
+	              <decorator-section-include name="body"/>
+			</widgets>
+		</section>
+	</screen>
+   <screen name="jeasy-single-decorator">
+		<section>
+			<actions>
+			</actions>
+			 <widgets>	
+	             <platform-specific>
+	             	<html>
+	             		<html-template location="component://sysCommon/webapp/sysCommon/includes/jeasyHeader.ftl"/>
+	             	</html>
+	             </platform-specific>
+	              <decorator-section-include name="body"/>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="login">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleLogin" />
+            </actions>
+            <widgets>
+                        <platform-specific>
+                            <html><html-template location="component://sysCommon/webapp/sysCommon/login.ftl"/></html>
+                        </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+   
+    <screen name="CommonDecorator">
+        <section>
+            <actions>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="component://sysCommon/widget/SysCommonScreens.xml">
+                    <decorator-section name="body">
+                        <section>
+                            
+                            <widgets>
+                                <decorator-section-include name="body"/>
+                            </widgets>
+                            <fail-widgets>
+                                <label style="h3">${uiLabelMap.SupplierNetworkViewPermissionError}</label>
+                            </fail-widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+ 
+    <screen name="FindScreenDecorator">
+	<section>
+
+		<widgets>
+			<include-screen name="operatingInstructions" />
+
+
+			<platform-specific>
+				<html>
+					<html-template
+						location="component://sysCommon/webapp/sysCommon/includes/action/easyui_layout_start.ftl" />
+				</html>
+			</platform-specific>
+			<include-screen name="search-options" />
+			<platform-specific>
+				<html>
+					<html-template
+						location="component://sysCommon/webapp/sysCommon/includes/action/div_search_end.ftl" />
+				</html>
+			</platform-specific>
+			<platform-specific>
+						<html>
+							<html-template
+								location="component://sysCommon/webapp/sysCommon/includes/action/end_form.ftl" />
+						</html>
+			</platform-specific>
+			<platform-specific>
+				<html>
+					<html-template
+						location="component://sysCommon/webapp/sysCommon/includes/action/easyui_center_start.ftl" />
+				</html>
+			</platform-specific>
+			<!-- <platform-specific> <html> <html-template location="component://sysCommon/webapp/sysCommon/includes/action/button.ftl" 
+				/> </html> </platform-specific> <include-screen name="operationAction" /> -->
+
+
+			<include-screen name="search-results" />
+			<platform-specific>
+				<html>
+					<html-template
+						location="component://sysCommon/webapp/sysCommon/includes/action/div_end.ftl" />
+				</html>
+			</platform-specific>
+			<platform-specific>
+				<html>
+					<html-template
+						location="component://sysCommon/webapp/sysCommon/includes/action/div_end.ftl" />
+				</html>
+			</platform-specific>
+		</widgets>
+	</section>
+</screen>
+	<!--dialog高级查询 -->
+	<screen name="FindDialogDecorator">
+		<section>
+
+			<widgets>
+				<container style="easyui-window">
+					<include-screen name="search-form" />
+					<platform-specific>
+						<html>
+							<html-template
+								location="component://sysCommon/webapp/sysCommon/includes/action/find_dialog_button.ftl" />
+						</html>
+					</platform-specific>
+				</container>
+
+
+			</widgets>
+		</section>
+	</screen>
+	<!-- 弹出窗口内查询 -->
+	<screen name="FindDialogInnerDecorator">
+		<section>
+			<widgets>
+				<container style="pageHeader">
+					<include-screen name="searchDia-options" />
+				</container>
+				<container style="pageContent">
+					<include-screen name="search-results" />
+				</container>
+			</widgets>
+		</section>
+	</screen>
+	<!-- 弹出窗口内查询-并查找带回 -->
+	<screen name="LookupScreenDecorator">
+		<section>
+			<widgets>
+				<container style="pageHeader">
+					<include-screen name="lookup-options" />
+				</container>
+				<container style="pageContent">
+					<include-screen name="search-results" />
+				</container>
+			</widgets>
+		</section>
+	</screen>
+	<!-- 内嵌查询 -->
+	<screen name="InnerScreenDecorator">
+		<section>
+			<widgets>
+				<container style="pageHeader">
+					<include-screen name="searchDia-options" />
+				</container>
+				<container style="pageContent">
+					<include-screen name="search-results" />
+				</container>
+			</widgets>
+		</section>
+	</screen>
+	<!--无搜索条件的列表 -->
+	<screen name="FindNoOptionScreenDecorator">
+		<section>
+			<widgets>
+				<include-screen name="operatingInstructions" />
+				<container style="pageContent">
+					<container style="panelBar">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://sysCommon/webapp/sysCommon/includes/action/button.ftl" />
+							</html>
+						</platform-specific>
+						<include-screen name="operationAction" />
+					</container>
+					<include-screen name="search-results" />
+				</container>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="DetailScreenDecorator">
+		<section>
+			<actions>
+				<set field="dialogId" from-field="parameters.dialogId" />
+			</actions>
+			<widgets>
+
+				<container style="detailContent" id="detailContent">
+					<platform-specific>
+						<html>
+							<html-template
+								location="component://sysCommon/webapp/sysCommon/includes/detail/formHeader_jeasy.ftl" />
+						</html>
+					</platform-specific>
+
+					<decorator-section-include name="detail-options" />
+					
+					<!--几种通用操作ftl 单纯form 带附件form 返回ajax处理等 -->
+					<section>
+						<condition>
+							<if-empty field="dialogId" />
+						</condition>
+
+						<widgets>
+							<platform-specific>
+								<html>
+									<html-template
+										location="component://sysCommon/webapp/sysCommon/includes/action/common_edit_button.ftl" />
+								</html>
+							</platform-specific>
+						</widgets>
+						<fail-widgets>
+							<platform-specific>
+								<html>
+									<html-template
+										location="component://sysCommon/webapp/sysCommon/includes/action/common_edit_dialog_button.ftl" />
+								</html>
+							</platform-specific>
+						</fail-widgets>
+					</section>
+				</container>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/includes/detail/formFooter.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+			<fail-widgets>
+
+			</fail-widgets>
+		</section>
+	</screen>
+	<!-- 弹出框编辑表单 -->
+	<screen name="DetailDialogScreenDecorator">
+		<section>
+			<actions>
+				<set field="dialogId" from-field="parameters.dialogId" />
+			</actions>
+
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/includes/detail/formHeader.ftl" />
+					</html>
+				</platform-specific>
+
+				<container style="screenlet-body" id="screenlet-body">
+					<decorator-section-include name="detail-options" />
+					<platform-specific>
+						<html>
+							<html-template
+								location="component://sysCommon/webapp/sysCommon/includes/action/common_edit_upload_button.ftl" />
+						</html>
+					</platform-specific>
+					<platform-specific>
+						<html>
+							<html-template
+								location="component://sysCommon/webapp/sysCommon/includes/action/common_edit_dialog_button.ftl" />
+						</html>
+					</platform-specific>
+				</container>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/includes/detail/formFooter.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+
+		</section>
+	</screen>
+	<!-- 带附件上传scrrens -->
+	<screen name="DetailUploadScreenDecorator">
+		<section>
+			<actions>
+				<set field="dialogId" from-field="parameters.dialogId" />
+			</actions>
+
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/includes/detail/formHeader_jeasy.ftl" />
+					</html>
+				</platform-specific>
+				<!-- <platform-specific><html><html-template location="component://sysCommon/webapp/sysCommon/includes/messages.ftl"/></html></platform-specific> -->
+
+				<container style="screenlet-body" id="screenlet-body">
+					<decorator-section-include name="detail-options" />
+					<!--几种通用操作ftl 单纯form 带附件form 返回ajax处理等 -->
+					<section>
+						<condition>
+							<if-empty field="dialogId" />
+						</condition>
+
+						<widgets>
+							<platform-specific>
+								<html>
+									<html-template
+										location="component://sysCommon/webapp/sysCommon/includes/action/common_edit_upload_button.ftl" />
+								</html>
+							</platform-specific>
+						</widgets>
+						<fail-widgets>
+							<platform-specific>
+								<html>
+									<html-template
+										location="component://sysCommon/webapp/sysCommon/includes/action/common_edit_upload_dialog_button.ftl" />
+								</html>
+							</platform-specific>
+						</fail-widgets>
+					</section>
+				</container>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/includes/detail/formFooter.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+
+		</section>
+	</screen>
+	<!-- 带工作流 -->
+	<screen name="DetailWorkflowScreenDecorator">
+		<section>
+			<actions>
+				<set field="dialogId" from-field="parameters.dialogId" />
+			</actions>
+			<widgets>
+
+				<container style="detailContent" id="detailContent">
+					<platform-specific>
+						<html>
+							<html-template
+								location="component://sysCommon/webapp/sysCommon/includes/detail/formHeader_jeasy.ftl" />
+						</html>
+					</platform-specific>
+
+					<decorator-section-include name="detail-options" />
+
+					<platform-specific>
+						<html>
+							<html-template
+								location="component://sysCommon/webapp/sysCommon/includes/action/common_wf.ftl" />
+						</html>
+					</platform-specific>
+					<platform-specific>
+						<html>
+							<html-template
+								location="component://sysCommon/webapp/sysCommon/includes/action/end_form.ftl" />
+						</html>
+					</platform-specific>
+					<!--几种通用操作ftl 单纯form 带附件form 返回ajax处理等 -->
+					<section>
+						<condition>
+							<if-empty field="dialogId" />
+						</condition>
+						<widgets>
+							<platform-specific>
+								<html>
+									<html-template
+										location="component://sysCommon/webapp/sysCommon/includes/action/common_edit_button.ftl" />
+								</html>
+							</platform-specific>
+						</widgets>
+						<fail-widgets>
+							<platform-specific>
+								<html>
+									<html-template
+										location="component://sysCommon/webapp/sysCommon/includes/action/common_edit_dialog_button.ftl" />
+								</html>
+							</platform-specific>
+						</fail-widgets>
+					</section>
+				</container>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/includes/detail/formFooter.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+			<fail-widgets>
+
+			</fail-widgets>
+		</section>
+	</screen>
+	<screen name="operationHeader">
+		<section>
+			<actions>
+				<set field="OperationLayout" value="header" />
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/includes/detail/operationButton.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="main">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://sysCommon/webapp/sysCommon/main.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="homePage">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/homePage.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="Error">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator"
+					location="component://sysCommon/widget/SysCommonScreens.xml">
+					<decorator-section name="body">
+						<include-screen name="common_error"
+							location="component://sysCommon/widget/SysCommonScreens.xml" />
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="Success">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator"
+					location="component://sysCommon/widget/SysCommonScreens.xml">
+					<decorator-section name="body">
+						<include-screen name="common_success"
+							location="component://sysCommon/widget/SysCommonScreens.xml" />
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="Welcome">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/welcome.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="Intro">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://sysCommon/webapp/sysCommon/intro.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="operationAction">
+		<section>
+			<condition>
+				<if-empty field="operationAction" />
+			</condition>
+			<widgets></widgets>
+			<fail-widgets>
+				<platform-specific>
+					<html>
+						<html-template location="${operationAction}"></html-template>
+					</html>
+				</platform-specific>
+			</fail-widgets>
+		</section>
+	</screen>
+
+	<screen name="operatingInstructions">
+		<section>
+			<condition>
+				<if-empty field="operatingInstructions" />
+			</condition>
+			<widgets></widgets>
+			<fail-widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/includes/tip/tip.ftl"></html-template>
+					</html>
+				</platform-specific>
+			</fail-widgets>
+		</section>
+	</screen>
+
+
+	<screen name="search-options">
+		<section>
+			<widgets>
+
+				<decorator-section-include name="search-options" />
+
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/includes/action/find_button.ftl" />
+					</html>
+				</platform-specific>
+
+
+			</widgets>
+		</section>
+	</screen>
+	<!-- dialog内部查询 -->
+	<screen name="searchDia-options">
+		<section>
+			<widgets>
+				<container id="search-options" style="searchBar">
+					<decorator-section-include name="search-options" />
+
+					<platform-specific>
+						<html>
+							<html-template
+								location="component://sysCommon/webapp/sysCommon/includes/action/find_dialog_inner_button.ftl" />
+						</html>
+					</platform-specific>
+
+				</container>
+
+
+			</widgets>
+		</section>
+	</screen>
+	<!-- dialog内部查询-lookup -->
+	<screen name="lookup-options">
+		<section>
+			<widgets>
+				<container id="search-options" style="searchBar">
+					<decorator-section-include name="lookup-options" />
+
+					<platform-specific>
+						<html>
+							<html-template
+								location="component://sysCommon/webapp/sysCommon/includes/action/lookup_dialog_button.ftl" />
+						</html>
+					</platform-specific>
+
+				</container>
+
+
+			</widgets>
+		</section>
+	</screen>
+	<screen name="inner-options">
+		<section>
+			<widgets>
+				<container id="search-options" style="searchBar">
+					<decorator-section-include name="inner-options" />
+
+				</container>
+
+
+			</widgets>
+		</section>
+	</screen>
+	<screen name="search-results">
+		<section>
+			<widgets>
+
+				<decorator-section-include name="search-results" />
+
+			</widgets>
+		</section>
+	</screen>
+	<screen name="search-form">
+		<section>
+			<widgets>
+
+				<container style="screenlet-body">
+					<decorator-section-include name="search-form" />
+				</container>
+
+			</widgets>
+		</section>
+	</screen>
+	<screen name="ListResults">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="${resultFtl}" />
+					</html>
+				</platform-specific>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/includes/action/simple_pagin.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="extendAttribute">
+		<section>
+			<actions>
+				<script
+					location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/extendAttribute.groovy"></script>
+			</actions>
+			<widgets>
+
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/includes/extendAttribute.ftl" />
+					</html>
+				</platform-specific>
+
+			</widgets>
+		</section>
+	</screen>
+	<screen name="remarkDialog">
+
+		<section>
+			<actions>
+				<set field="currentForm" value="remarkDialog" />
+
+			</actions>
+			<widgets>
+				<decorator-screen name="jeasy-decorator"
+					location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="">
+							<include-form name="remarkDialog"
+								location="component://extErp/widget/forms/TaskForms.xml" />
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="returnDialog">
+
+		<section>
+			<actions>
+				<set field="currentForm" value="returnDialog" />
+				<script
+					location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/returnStatus.groovy"></script>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator"
+					location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="DetailDialogScreenDecorator"
+							location="${parameters.sysCommonDecoratorLocation}">
+							<decorator-section name="detail-options">
+								<screenlet title="">
+									<include-form name="returnDialog"
+										location="component://sysCommon/widget/TaskForms.xml" />
+								</screenlet>
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+
+	<screen name="headerFrame">
+		<section>
+			<actions>
+				<!-- <script location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/getMenuTreeAll.groovy"></script> -->
+				<property-map resource="SysCommonUiLabels" map-name="uiLabelMap"
+					global="true" />
+
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/headerFrame.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="leftFrame">
+		<section>
+			<actions>
+				<property-map resource="SysCommonUiLabels" map-name="uiLabelMap"
+					global="true" />
+				<script
+					location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/findMenuTree.groovy"></script>
+				<!-- <set field="parentMenuId" from-field="parameters.parentMenuId" default-value="SystemModel"/> 
+					<entity-and list="leftFirstMenus" entity-name="MenuTree"> <field-map field-name="parentItemId" 
+					from-field="parentMenuId" /> <order-by field-name="rank"/> </entity-and> -->
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/leftFrame.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="centerFrame">
+		<section>
+			<actions>
+				<property-map resource="SysCommonUiLabels" map-name="uiLabelMap"
+					global="true" />
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/centerFrame.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="navFrame">
+		<section>
+			<actions>
+				<property-map resource="SysCommonUiLabels" map-name="uiLabelMap"
+					global="true" />
+				<entity-and list="rootMenus" entity-name="MenuTree">
+					<field-map field-name="parentItemId" value="root" />
+					<order-by field-name="rank" />
+				</entity-and>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/navFrame.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="portal">
+		<section>
+			<actions>
+				<property-map resource="SysCommonUiLabels" map-name="uiLabelMap"
+					global="true" />
+			</actions>
+			<widgets>
+				<decorator-screen name="jeasy-decorator"
+					location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://sysCommon/webapp/sysCommon/portal.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="moveFrame">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/moveFrame.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="test">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/test.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="bottomFrame">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/bottomFrame.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="uploadBack">
+		<section>
+			<widgets>
+				<decorator-screen name="main-decorator"
+					location="${parameters.sysCommonDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://sysCommon/webapp/sysCommon/uploadBack.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="selectDate">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/includes/selectDate.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="commonUpload">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/includes/action/common_upload.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+</screens>

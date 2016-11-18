@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>ebiz Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+	
+	<service name="updatePorUserInfo" default-entity-name="Person" engine="simple" auth="true"
+            location="component://portal/script/org/ofbiz/user/UserServices.xml" invoke="updatePorUserInfo">
+        <description>Create a Product Store</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    
+</services>

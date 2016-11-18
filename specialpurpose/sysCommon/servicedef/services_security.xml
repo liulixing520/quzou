@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>Component Services</description>
+	<vendor>OFBiz</vendor>
+	<version>1.0</version>
+    <service name="createSecurityGroupExt" default-entity-name="SecurityGroup" engine="java" location="org.extErp.sysCommon.security.SecurityServices" invoke="createSecutiryGroup"  auth="true">
+        <description>Create a CmsCommentType</description>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <attribute name="permissionIds" mode="IN" type="String"   optional="true"></attribute>
+        <attribute name="userLoginId" mode="IN" type="String"   optional="true"></attribute>
+        
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    <service name="updateSecurityGroupExt" default-entity-name="SecurityGroup" engine="java" location="org.extErp.sysCommon.security.SecurityServices" invoke="updateSecutiryGroup"  auth="true">
+        <description>Update a CmsCommentType</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <attribute name="permissionIds" mode="IN" type="String"   optional="true"></attribute>
+        <attribute name="description" mode="IN" type="String"   optional="true"></attribute>
+        
+    </service>
+    <service name="deleteSecutiryGroupExt" default-entity-name="SecurityGroup" engine="java" location="org.extErp.sysCommon.security.SecurityServices" invoke="deleteSecutiryGroup"  auth="true">
+        <description>Delete a CmsCommentType</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+       
+    </service>
+     <service name="deleteSecutiryGroupAllExt" default-entity-name="SecurityGroup" engine="java" location="org.extErp.sysCommon.security.SecurityServices" invoke="deleteSecutiryGroupAll"  auth="true">
+        <description>Delete a CmsCommentType</description>
+        
+        <attribute name="ids" mode="IN" type="String"   optional="true"></attribute>
+    </service>
+    <service name="permissionToParty" default-entity-name="SecurityGroup" engine="java" location="org.extErp.sysCommon.security.SecurityServices" invoke="permissionToParty"  auth="true">
+        <description>Update a CmsCommentType</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <attribute name="ids" mode="IN" type="String"   optional="true"></attribute>
+    </service>
+     <service name="removePermissionToParty" default-entity-name="SecurityGroup" engine="java" location="org.extErp.sysCommon.security.SecurityServices" invoke="removePermissionToParty"  auth="true">
+        <description>Update a CmsCommentType</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <attribute name="ids" mode="IN" type="String"   optional="true"></attribute>
+    </service>
+     <service name="roleToParty" engine="java" location="org.extErp.sysCommon.security.SecurityServices" invoke="roleToParty"  auth="true">
+        <description>Update a CmsCommentType</description>
+        <attribute name="roleTypeId" mode="IN" type="String"   optional="false"></attribute>
+        <attribute name="ids" mode="IN" type="String"   optional="true"></attribute>
+    </service>
+     <service name="removeRoleToParty" engine="java" location="org.extErp.sysCommon.security.SecurityServices" invoke="removeRoleToParty"  auth="true">
+        <description>Update a CmsCommentType</description>
+        <attribute name="roleTypeId" mode="IN" type="String"   optional="false"></attribute>
+        <attribute name="ids" mode="IN" type="String"   optional="true"></attribute>
+    </service>
+    <service name="removeSecurityPermissionFromSecurityGroupAll" engine="entity-auto" invoke="delete" default-entity-name="SecurityGroupPermission" auth="true">
+        <description>Remove a SecurityPermission from a SecurityGroup</description>
+        <permission-service service-name="securityPermissionCheck" main-action="DELETE"/>
+        <attribute name="groupId" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="removeUserLoginFromSecurityGroupAll" engine="entity-auto" invoke="delete" default-entity-name="UserLoginSecurityGroup" auth="true">
+        <description>Remove a UserLogin from a SecurityGroup</description>
+        <permission-service service-name="securityPermissionCheck" main-action="DELETE"/>
+        <attribute name="groupId" type="String" mode="IN" optional="false"/>
+    </service>
+    	<service name="createRoleType" engine="simple" default-entity-name="RoleType"
+             location="component://sysCommon/script/RoleServices.xml" invoke="createRoleType" auth="true">
+        <description>Create RoleType-Role Type Entity</description>
+        <auto-attributes include="pk" mode="OUT" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+     <service name="updateRoleType" engine="simple" default-entity-name="RoleType"
+             location="component://sysCommon/script/RoleServices.xml" invoke="updateRoleType" auth="true">
+        <description>Update RoleType-Role Type Entity</description>
+        <auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+    <service name="deleteRoleType" engine="simple" default-entity-name="RoleType"
+             location="component://sysCommon/script/RoleServices.xml" invoke="deleteRoleType" auth="true">
+        <description>Delete RoleType-Role Type Entity</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+    </service>
+    <service name="updateSecurityGroupEnabled" engine="simple" default-entity-name="SecurityGroup"
+             location="component://sysCommon/script/RoleServices.xml" invoke="updateSecurityGroupEnabled" auth="true">
+        <description>enable/unabled SecurityGroup-权限组</description>
+        <attribute name="ids" mode="IN" type="String"   optional="true"/>
+        <attribute name="enabled" mode="IN" type="String"   optional="true"/>
+    </service>	
+</services>

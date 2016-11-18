@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	<PaymentGatewayConfigType createdStamp="2012-04-13 14:07:22.0" createdTxStamp="2012-04-13 14:07:22.0" description="Alipay payment Gateway Config" hasTable="N" lastUpdatedStamp="2012-04-13 14:07:22.0" lastUpdatedTxStamp="2012-04-13 14:07:22.0" paymentGatewayConfigTypeId="ALIPAY" />
+    <PaymentMethodType createdStamp="2012-04-13 10:07:21.484" createdTxStamp="2012-04-13 10:07:21.484" defaultGlAccountId="122000" description="支付宝" lastUpdatedStamp="2012-04-13 10:07:21.484" lastUpdatedTxStamp="2012-04-13 10:07:21.484" paymentMethodTypeId="EXT_ALIPAY"/>
+    <PaymentGatewayConfig createdStamp="2012-04-13 14:14:04.0" createdTxStamp="2012-04-13 14:14:04.0" description="Alipay Config" lastUpdatedStamp="2012-04-13 14:14:04.0" lastUpdatedTxStamp="2012-04-13 14:14:04.0" paymentGatewayConfigId="ALIPAY_CONFIG" paymentGatewayConfigTypeId="ALIPAY"/>
+    
+    <PaymentMethodType paymentMethodTypeId="EXT_NETPAY" defaultGlAccountId="122000" description="银联支付"/>
+    <PaymentGatewayConfigType  description="Alipay payment Gateway Config" hasTable="N"  paymentGatewayConfigTypeId="EXT_NETPAY" />
+    <PaymentGatewayConfig  description="Alipay Config"  paymentGatewayConfigId="EXT_NETPAY_CONFIG" paymentGatewayConfigTypeId="EXT_NETPAY"/>
+    
+    
+    <PaymentGateway baseId="NT"  typeId="platform" partnerId="808080201307468" 
+     paymentReturnUrl="http://127.0.0.1/control/returnNtUrl"
+     paymentReturnErrorUrl="http://127.0.0.1/control/returnErrorUrl" 
+     paymentNotifyUrl = "http://127.0.0.1/control/returnNtNotifyUrl"
+     paymentUrl="https://payment.chinapay.com/pay/TransGet" 
+     currencyType="156" gatewayType="0001" description="20070129"  />
+	
+	<PaymentGateway baseId="Alipay"  typeId="platform"
+	paymentUrl="https://mapi.alipay.com/gateway.do?" 
+	paymentReturnUrl="http://127.0.0.1/control/returnAliUrl"  
+	paymentNotifyUrl = "http://127.0.0.1/control/returnAliUrl"
+	paymentReturnErrorUrl="http://127.0.0.1/control/paymentReturnError" 
+	currencyType="RMB" gatewayType="01" paymentTimeout="60" paymentLang="utf-8" paymentEncodeType="MD5" 
+	paymentRetEncodeType="17"  partnerId="2088812192150430" sellerUserLoginId="wangyungang2000@163.com" 
+	paymentMerKey="9awwhsps3a26xe6axrvchfom3cmbe2rt" 
+	paymentRetType="0"  paymentRetSts="" logo="bank/alipay.jpg"  description="支付宝"
+	/>
+</entity-engine-xml>

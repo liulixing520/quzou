@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+
+	<screen name="OrderDetail">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleFindProduct" />
+				<set field="titleProperty" value="OrderLookupOrder" />
+				<set field="headerItem" value="orderlist" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderView.groovy" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderOther.groovy" />
+				<script location="component://order/webapp/ordermgr/WEB-INF/actions/order/OrderViewWebSecure.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+
+						<platform-specific>
+							<html>
+								<html-template location="component://manage/webapp/manage/order/order_detail.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+
+			</widgets>
+
+		</section>
+	</screen>
+
+
+</screens>

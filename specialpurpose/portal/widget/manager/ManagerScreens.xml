@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	<!-- 
+    <screen name="manager-main-decorator">
+        <section>
+            <actions>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin5.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/admin.css" global="true"/>
+
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery/jquery-2.1.1.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/bootstrap/3.2.0/js/bootstrap.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery-ui.custom.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/jquery.ui.touch-punch.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/flot/jquery.flot.resize.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-elements.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/seller/js/ace-extra.min.js" global="true" />
+
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/manager/includes/header.ftl" />
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/manager/includes/footer.ftl" />
+            </actions>
+            <widgets>
+                <section>
+                    <widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="body" style="skin-5">
+                            <container id="navbar" style="navbar navbar-default">
+                                <container id="navbar-container" style="navbar-container container">
+                                    <platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific>
+                                </container>
+                            </container>
+                            <container id="main-container" style="main-container container">
+                                <container id="breadcrumbs" style="breadcrumbs">
+                                    <platform-specific><html><html-template location="component://portal/webapp/portal/manager/includes/breadcrumbs.ftl"/></html></platform-specific>
+                                </container>
+                                <container id="sidebar" style="sidebar responsive">
+                                    <platform-specific><html><html-template location="component://portal/webapp/portal/manager/includes/left.ftl"/></html></platform-specific>
+                                </container>
+                                <container style="main-content">
+                                    <container style="page-content">
+                                        <container style="page-content-area">
+                                            <container style="row">
+                                                <container style="col-xs-12">
+                                                    <decorator-section-include name="body"/>
+                                                </container>
+                                            </container>
+                                        </container>
+                                    </container>
+                                </container>
+                                <container style="footer">
+                                    <platform-specific><html><html-template location="${footerTemplateLocation}" /></html></platform-specific>
+                                </container>
+                            </container>
+                        </container>
+                    </widgets>
+                </section>
+            </widgets>
+        </section>
+    </screen>
+ -->
+    <screen name="main">
+        <section>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/manager/main.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="content">
+        <section>
+        	<actions>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/mannager/order/SysCountStoreOrders.groovy"/>
+        	</actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/manager/content.ftl" /></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+	<!-- 审核卖家申请 -->
+	 <screen name="mng_sellerExamine">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleFindParty"/>
+                <set field="headerItem" value="find"/>
+                <set field="tabButtonItem" value="findparty"/>
+
+                <service service-name="findParty" auto-field-map="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <condition>
+                                <if-service-permission service-name="partyBasePermissionCheck" main-action="VIEW"/>
+                            </condition>
+                            <widgets>
+                                <platform-specific>
+                                    <html><html-template location="component://portal/widget/manager/mng_sellerExamine.ftl"/></html>
+                                </platform-specific>
+                            </widgets>
+                            <fail-widgets>
+                                <label style="h3" text="${uiLabelMap.PartyMgrViewPermissionError}"/>
+                            </fail-widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	
+	
+
+    <!-- 查询目录信息 -->
+    <screen name="mng_FindCategory">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleFindCategory"/>
+                <set field="headerItem" value="categories"/>
+                <set field="tabButtonItem" value="mng_FindCategory"/>
+                <set field="labelTitleProperty" value="ProductCategory"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <widgets>
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindCategory" location="component://portal/widget/manager/CategoryForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListCategory" location="component://portal/widget/manager/CategoryForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                            </widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+
+    <screen name="mng_EditCategory">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleEditProductCategories"/>
+                <set field="headerItem" value="categories"/>
+                <set field="tabButtonItem" value="EditCategory"/>
+                <set field="labelTitleProperty" value="ProductCategory"/>
+                <set field="productCategoryId" from-field="parameters.productCategoryId"/>
+                <entity-one entity-name="ProductCategory" value-field="productCategory"/>
+                <entity-condition entity-name="ProductCategoryType" list="productCategoryTypes">
+                    <order-by field-name="description"/>
+                </entity-condition>
+                <script location="component://product/webapp/catalog/WEB-INF/actions/category/EditCategory.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://common/webcommon/includes/messages.ftl"/></html>
+                        </platform-specific>
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/manager/EditCategory.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <!-- 查询产品信息 -->
+    <screen name="mng_FindProduct">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleFindProduct"/>
+                <set field="headerItem" value="products"/>
+                <set field="tabButtonItem" value="mng_FindProduct"/>
+                <set field="labelTitleProperty" value="Product"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <widgets>
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindProduct" location="component://portal/widget/manager/ProductForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListProducts" location="component://portal/widget/manager/ProductForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                            </widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="mng_showorder">
+    	<section>
+      		<actions>
+<!--                 <set field="MainColumnStyle" value="content"/>
+                <set field="leftbarScreenName" value="orderLeftbar"/> -->
+               <!--  <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/> 
+                <script location="component://portal/webapp/portal/WEB-INF/actions/mannager/order/SysFindOrders.groovy"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin4.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/seller/css/skin5.css" global="true"/>-->
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/manager/order/sysmyorder.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+     <screen name="mng_pagesetting">
+    	<section>
+      		<actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/imageSet/PageTallList.groovy"/>
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/manager/order/homePageMapSetting.ftl"/></html> 
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="create_mng_Pages">
+    	<section>
+    	    <actions>
+    	        <set field="titleProperty" value="PageTitleEditProductCategories"/>
+                <set field="headerItem" value="categories"/>
+                <set field="tabButtonItem" value="Pages"/>
+                <set field="labelTitleProperty" value="ProductCategory"/>
+				<set field="pageSettingId" from-field="parameters.pageSettingId" />
+                <entity-one entity-name="PageSetting" value-field="PageSetting"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/imageSet/GetPageSetter.groovy"/>
+            </actions>
+    		<widgets>
+    		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/manager/order/createPagemanage.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+        <screen name="mng_EditCategory">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleEditProductCategories"/>
+                <set field="headerItem" value="categories"/>
+                <set field="tabButtonItem" value="EditCategory"/>
+                <set field="labelTitleProperty" value="ProductCategory"/>
+                <set field="productCategoryId" from-field="parameters.productCategoryId"/>
+                <entity-one entity-name="ProductCategory" value-field="productCategory"/>
+                <entity-condition entity-name="ProductCategoryType" list="productCategoryTypes">
+                    <order-by field-name="description"/>
+                </entity-condition>
+                <script location="component://product/webapp/catalog/WEB-INF/actions/category/EditCategory.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://common/webcommon/includes/messages.ftl"/></html>
+                        </platform-specific>
+                        <platform-specific>
+                            <html><html-template location="component://portal/webapp/portal/manager/EditCategory.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+    <screen name="mng_announcementSetting">
+    	<section>
+      		<actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/imageSet/PageTallList.groovy"/>
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/manager/order/announcementSetting.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    <screen name="create_mng_Announcement">
+    	<section>
+    	    <actions>
+                <set field="titleProperty" value="PageTitleEditProductStore"/>
+                <set field="headerItem" value="store"/>
+                <set field="tabButtonItem" value="EditProductStore"/>
+                <set field="labelTitleProperty" value="ProductStore"/>
+				
+				<set field="messageId" from-field="parameters.messageId" />
+                <script location="component://portal/webapp/portal/WEB-INF/actions/imageSet/GetMessageSetter.groovy"/>
+                <entity-one entity-name="MessageSet" value-field="MessageSet" auto-field-map="true"/>
+            </actions>
+    		<widgets>
+    		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/manager/order/createMessage.ftl"/></html>
+		    			</platform-specific>
+		    		</decorator-section>
+		    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+    
+    
+    
+    <screen name="mng_Home_pagesetting">
+    	<section>
+      		<actions>
+      		    <entity-one entity-name="HomePageSetter" value-field="productStore" auto-field-map="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/imageSet/HomePageSettingForList.groovy"/>
+            </actions>
+    		<widgets>
+	    		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+		    			<platform-specific>
+		    				<html><html-template location="component://portal/webapp/portal/manager/order/homepagesetting.ftl"/></html>
+		    			</platform-specific>
+    			    </decorator-section>
+	    	    </decorator-screen>
+    		</widgets>
+    	</section>
+    </screen>
+
+</screens>

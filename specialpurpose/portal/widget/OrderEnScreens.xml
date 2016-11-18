@@ -1,0 +1,1809 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+	<screen name="order-decorator">
+		<section>
+			<actions>
+				<property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+				<property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+
+                 <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="SecurityUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PortalUserUiLabels" map-name="uiLabelMap" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/style.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/ui-dialog.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/my_chunbo.css" global="true"/>
+               
+                <set field="layoutSettings.styleSheets[]" value="/portal/images/green/style_002.css" global="true"/>
+                 <set field="layoutSettings.styleSheets[]" value="/portal/images/green/dui.css" global="true"/>
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/z.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/jquery-1_002.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/jquery-1.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/my_chunbo.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/review.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/dialog-plus-min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/dui.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/common_002.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/portal/images/green/common_003.js" global="true" />
+
+				
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+               
+				<set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/header.ftl" />
+				<set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://portal/webapp/portal/seller/sellermain/footer.ftl" />
+			</actions>
+			 <widgets>
+                <section>
+                    <widgets>
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/includes/headerHead.ftl"/></html></platform-specific>
+                                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/sellermain/toplink.ftl"/></html></platform-specific>
+                                <platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific>
+                                <platform-specific><html><html-template location="component://portal/webapp/portal/seller/includes/left.ftl"/></html></platform-specific>
+                                <container style="main-content">
+                                      <decorator-section-include name="body"/>
+                                </container>
+                    </widgets>
+                </section>
+            </widgets>
+        </section>
+	</screen>
+	<screen name="FindOrder">
+		<section>
+			<actions>
+				<!--<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />-->
+				 <set field="NavigationLi" value="FindOrder"/>
+				<set field="Navigation1" value="交易管理"/>
+                <set field="Navigation2" value="订单列表"/>
+				
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<set field="parameters.hideFields" value="N" />
+				<set field="operationButton[]" value="增加.icon-add.EditProduct.href.ProductTypeAdd" />
+	            <set field="operationButton[]" value="将产品上架.icon-add.saleableY().jsFunction.ProductTypeAdd" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/FindOrders.groovy" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+                    <decorator-section name="body">
+               			<platform-specific><html><html-template location="component://portal/webapp/portal/seller/order/findOrders.ftl"/></html></platform-specific>
+               	 	</decorator-section>
+                </decorator-screen>       
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindOrderDx">
+		<section>
+			<actions>
+				<script location="component://portal/webapp/portal/WEB-INF/actions/store/GetProductStore.groovy"/>
+                <set field="parameters.dxStoreId" from-field="productStoreId" />
+                <set field="parameters.productStoreId" value="" />
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="parameters.sortField" value="${parameters.sortField}" default-value="-orderDate"/>
+                <set field="viewIndex" from-field="parameters.VIEW_INDEX_1" type="Integer" default-value="0"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE_1" type="Integer" default-value="20"/>
+                <service service-name="performFindList" result-map="result">
+	                <field-map field-name="inputFields" from-field="parameters"/>
+	                <field-map field-name="entityName" value="OrderHeader"/>
+	                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+	                <field-map field-name="viewIndex" from-field="viewIndex" />
+	                <field-map field-name="viewSize"  from-field="viewSize"/>
+	            </service>
+	            <set field="orderList" from-field="result.list"/>
+	            <set field="listSize" from-field="result.listSize"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+                    <decorator-section name="body">
+               			<platform-specific><html><html-template location="component://portal/webapp/portal/seller/order/findOrdersDx.ftl"/></html></platform-specific>
+               	 	</decorator-section>
+                </decorator-screen>       
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindCreatedOrder">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleFindProduct" />
+				<set field="titleProperty" value="OrderLookupOrder" />
+				<set field="headerItem" value="OrderCreatedList" />
+                <set field="searchForm" value="OrderCreatedList"/>
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<set field="searchAction" value="FindCreatedOrder"/>
+				<set field="parameters.hideFields" value="N" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/FindOrders.groovy" />
+				<set field="resultFtl" value="component://portal/webapp/portal/seller/order/findCreatedOrders.ftl" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<decorator-screen name="ListResults" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="list-results">
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindApprovedOrder">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleFindProduct" />
+				<set field="titleProperty" value="OrderLookupOrder" />
+				<set field="headerItem" value="OrderApprovedList" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<set field="parameters.hideFields" value="N" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/FindOrders.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/findApprovedOrders.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindProcessingOrder">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleFindProduct" />
+				<set field="titleProperty" value="OrderLookupOrder" />
+				<set field="headerItem" value="OrderProcessingList" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<set field="parameters.hideFields" value="N" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/FindOrders.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/findProcessingOrders.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindCancelOrder">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleFindProduct" />
+				<set field="titleProperty" value="OrderLookupOrder" />
+				<set field="headerItem" value="OrderCancelList" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<set field="parameters.hideFields" value="N" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/FindOrders.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/findCancelOrders.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindShippedOrder">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleFindProduct" />
+				<set field="titleProperty" value="OrderLookupOrder" />
+				<set field="headerItem" value="OrderShippedList" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<set field="parameters.hideFields" value="N" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/FindOrders.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/findShippedOrders.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindCancelShippedOrder">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleFindProduct" />
+				<set field="titleProperty" value="OrderLookupOrder" />
+				<set field="headerItem" value="OrderCancelShippedList" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<set field="parameters.hideFields" value="N" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/FindOrders.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/findCancelShippedOrders.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindCompletedOrder">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleFindProduct" />
+				<set field="titleProperty" value="OrderLookupOrder" />
+				<set field="headerItem" value="OrderCompletedList" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<set field="parameters.hideFields" value="N" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/FindOrders.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/findCompletedOrders.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="ChangeShippingContactMechFromAjax">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/ChangeShippingContactMechFromAjax.groovy" />
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://portal/webapp/portal/seller/order/changeshippingcontactmechfromajax.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="GetProductPromoUseInfoDiv">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/GetProductPromoUseInfoDiv.groovy" />
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://portal/webapp/portal/seller/order/getproductpromoUseinfodiv.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindOrderAdvanced">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<entity-condition list="facilityList" entity-name="Facility">
+             		<condition-expr field-name="facilityTypeId" value="WAREHOUSE"/>
+             	</entity-condition>
+				<entity-condition list="productStores" entity-name="ProductStore"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/order_adv_search.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindCreatedOrderAdvanced">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<entity-condition list="facilityList" entity-name="Facility">
+             		<condition-expr field-name="facilityTypeId" value="WAREHOUSE"/>
+             	</entity-condition>
+             	<entity-condition list="productStores" entity-name="ProductStore"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/created_order_adv_search.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindApprovedOrderAdvanced">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<entity-condition list="facilityList" entity-name="Facility">
+             		<condition-expr field-name="facilityTypeId" value="WAREHOUSE"/>
+             	</entity-condition>
+             	<entity-condition list="productStores" entity-name="ProductStore"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/approved_order_adv_search.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindProcessingOrderAdvanced">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<entity-condition list="facilityList" entity-name="Facility">
+             		<condition-expr field-name="facilityTypeId" value="WAREHOUSE"/>
+             	</entity-condition>
+             	<entity-condition list="productStores" entity-name="ProductStore"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/processing_order_adv_search.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindCancelOrderAdvanced">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<entity-condition list="facilityList" entity-name="Facility">
+             		<condition-expr field-name="facilityTypeId" value="WAREHOUSE"/>
+             	</entity-condition>
+             	<entity-condition list="productStores" entity-name="ProductStore"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/cancel_order_adv_search.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindShippedOrderAdvanced">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<entity-condition list="facilityList" entity-name="Facility">
+             		<condition-expr field-name="facilityTypeId" value="WAREHOUSE"/>
+             	</entity-condition>
+             	<entity-condition list="productStores" entity-name="ProductStore"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/shipped_order_adv_search.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindCancelShippedOrderAdvanced">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<entity-condition list="facilityList" entity-name="Facility">
+             		<condition-expr field-name="facilityTypeId" value="WAREHOUSE"/>
+             	</entity-condition>
+             	<entity-condition list="productStores" entity-name="ProductStore"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/shipped_cancel_order_adv_search.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindCompletedOrderAdvanced">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<entity-condition list="facilityList" entity-name="Facility">
+             		<condition-expr field-name="facilityTypeId" value="WAREHOUSE"/>
+             	</entity-condition>
+             	<entity-condition list="productStores" entity-name="ProductStore"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/completed_order_adv_search.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindPosOrderAdvanced">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<entity-condition list="facilityList" entity-name="Facility">
+					<condition-list>
+						<condition-expr field-name="facilityTypeId" value="WAREHOUSE"/>
+					</condition-list>
+				</entity-condition>
+				<script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/CheckInits.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/order_pos_adv_search.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!-- 快速下单添加 -->
+	<screen name="EditOrder">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="EcommerceOnePageCheckout" />
+				<!--productStoreId-需要改成当前站点默认店铺，因目前其他店铺没有测试数据，暂用9000 changeto0821 10000 -->
+				<set field="parameters.productStoreId" default-value="10000" />
+				<set field="productStoreId" value="parameters.productStoreId" />
+				<set field="layoutSettings.javaScripts[]" value="/itea/images/itea/js/order_quick_add.js" global="true" />
+				<script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/cart/ShowCart.groovy" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/Orderentry.groovy" />
+				<script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/CheckInits.groovy" />
+
+				<script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/customer/EditShippingAddress.groovy" />
+				<script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/customer/EditBillingAddress.groovy" />
+				<script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/customer/EditEmailAndTelecomNumber.groovy" />
+				<!-- 配送方式 -->
+				<script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/CheckoutOptions.groovy"/>
+				<set field="tabButtonItem" value="member" />
+				<set field="currentForm" value="AddMember" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/order_quick_add.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!-- 快速下单修改 -->
+	<screen name="OrderEdit">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="EcommerceOnePageCheckout" />
+				<set field="layoutSettings.javaScripts[]" value="/images/itea/js/order_quick_edit.js" global="false" />
+				<set field="parameters.productStoreId" default-value="9000" />
+				<set field="productStoreId" value="parameters.productStoreId" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/Orderentry.groovy" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderOther.groovy" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderView.groovy" />
+				<script location="component://order/webapp/ordermgr/WEB-INF/actions/order/OrderViewWebSecure.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/order_quick_edit.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="LookupBulkAddProducts">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer" default-value="0" />
+				<set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="10" /> <!-- 10 rows seems more appropriate given screen size, etc. -->
+				<set field="searchAction" value="LookupBulkAddProducts" />
+				<set field="searchForm" value="FindProductDialog" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/LookupBulkAddProducts.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+
+						<decorator-screen name="FindDialogInnerDecorator" location="${parameters.mainDecoratorLocation}">
+
+							<decorator-section name="search-options">
+								<include-form name="FindProductDialog" location="component://itea/widget/iteamgr/ProductForms.xml" />
+							</decorator-section>
+
+							<decorator-section name="search-results">
+								<include-form name="LookupBulkAddProducts" location="component://itea/widget/iteamgr/OrderForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/product_add_action.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="LookupBulkEditProducts">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="viewIndex" from-field="parameters.VIEW_INDEX" type="Integer" default-value="0" />
+				<set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="10" /> <!-- 10 rows seems more appropriate given screen size, etc. -->
+				<set field="searchAction" value="LookupBulkAddProducts" />
+				<set field="searchForm" value="FindProductDialog" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/LookupBulkAddProducts.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+
+						<decorator-screen name="FindDialogInnerDecorator" location="${parameters.mainDecoratorLocation}">
+
+							<decorator-section name="search-options">
+								<include-form name="FindProductDialog" location="component://itea/widget/iteamgr/ProductForms.xml" />
+							</decorator-section>
+
+							<decorator-section name="search-results">
+								<include-form name="LookupBulkEditProducts" location="component://itea/widget/iteamgr/OrderForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/product_add_action.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="toChangeOrderStatus">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="orderId" from-field="parameters.orderId" />
+				<set field="statusId" from-field="parameters.statusId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/tochange_order_status.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="toPaymentOrder">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="orderId" from-field="parameters.orderId" />
+				<set field="statusId" from-field="parameters.statusId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/to_payment_order.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="toBackPaymentOrder">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="orderId" from-field="parameters.orderId" />
+				<set field="statusId" from-field="parameters.statusId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/toback_payment_order.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="toQuickShipOrder">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="orderId" from-field="parameters.orderId" />
+				<set field="statusId" from-field="parameters.statusId" />
+				<entity-condition list="carrierList" entity-name="CarrierShipmentMethod">
+					<condition-list>
+						<condition-expr field-name="roleTypeId" value="CARRIER"/>
+					</condition-list>
+					<order-by field-name="+partyId"/>
+				</entity-condition>
+				<set field="carrierList" from-field="carrierList"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/toquick_ship_order.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="toQuickShipPosOrder">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="orderId" from-field="parameters.orderId" />
+				<set field="statusId" from-field="parameters.statusId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/toquick_ship_pos_order.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="toShippedOrder">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="shipmentId" from-field="parameters.shipmentId"/>
+				<set field="statusId" from-field="parameters.statusId" />
+				<set field="orderId" from-field="parameters.orderId" />
+				<entity-one entity-name="Shipment" value-field="shipment"/>
+                <set field="shipmentId" from-field="shipment.shipmentId"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/shipped_order.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="toReturnOrder">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="orderId" from-field="parameters.orderId" />
+				<set field="statusId" from-field="parameters.statusId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/return_order.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="printOrderItem">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="orderId" from-field="parameters.orderId" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderView.groovy" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderOther.groovy" />
+				<script location="component://order/webapp/ordermgr/WEB-INF/actions/order/OrderViewWebSecure.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/print_order_item.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="printOrderShip">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="orderId" from-field="parameters.orderId" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderView.groovy" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderOther.groovy" />
+				<script location="component://order/webapp/ordermgr/WEB-INF/actions/order/OrderViewWebSecure.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/print_order_ship.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="printOrderAll">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="orderId" from-field="parameters.orderId" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderView.groovy" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderOther.groovy" />
+				<script location="component://order/webapp/ordermgr/WEB-INF/actions/order/OrderViewWebSecure.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/print_order_all.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!-- 打印快递单 -->
+	<screen name="printShipment">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="orderId" from-field="parameters.orderId" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/ViewShipment.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/print_order_shipment.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="printReturnOrder">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="orderId" from-field="parameters.orderId" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderView.groovy" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderOther.groovy" />
+				<script location="component://order/webapp/ordermgr/WEB-INF/actions/order/OrderViewWebSecure.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/print_return_order.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindOrderReturn">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleFindReturn" />
+				<set field="headerItem" value="return" />
+				<set field="statusId" from-field="parameters.statusId" />
+				<set field="returnTypeId" from-field="parameters.returnTypeId" />
+				<set field="parameters.noConditionFind" value="Y" />
+				<set field="searchAction" value="FindOrderReturn" />
+				<set field="searchForm" value="FindOrderReturn" />
+				<!-- <set field="layoutSettings.javaScripts[]" value="/images/itea/js/returnOrder.js" /> -->
+				<!-- <set field="commonButton[]" value="CommAccepte.add.javascript:updateReturnAll('RETURN_ACCEPTED');" /> <set field="commonButton[]" value="CommReceive.add.javascript:updateReturnAll('RETURN_RECEIVED');" /> <set field="commonButton[]" value="CommComplete.add.javascript:updateReturnAll('RETURN_COMPLETED');" /> <set field="commonButton[]" value="CommCancell.add.javascript:updateReturnAll('RETURN_CANCELLED');" /> -->
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="search-options">
+								<include-form name="FindOrderReturn" location="component://itea/widget/iteamgr/OrderForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListReturns" location="component://itea/widget/iteamgr/OrderForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+
+		</section>
+	</screen>
+	<screen name="OrderReturnDetail">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleFindProduct" />
+				<set field="titleProperty" value="OrderLookupOrder" />
+				<set field="headerItem" value="orderlist" />
+				<set field="returnId" from-field="parameters.returnId" />
+				<entity-and entity-name="ReturnStatus" list="orderReturnStatusHistories">
+					<field-map field-name="returnId" />
+					<field-map field-name="returnItemSeqId" value=""/>
+				</entity-and>
+ 				<script location="component://order/webapp/ordermgr/WEB-INF/actions/return/ReturnItems.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/order_return_detail.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+
+			</widgets>
+
+		</section>
+	</screen>
+	<screen name="orderReturnDetailAjax">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleFindProduct" />
+				<set field="titleProperty" value="OrderLookupOrder" />
+				<set field="headerItem" value="orderlist" />
+				<set field="returnId" from-field="parameters.returnId" />
+				<entity-and entity-name="ReturnStatus" list="orderReturnStatusHistories">
+					<field-map field-name="returnId" />
+					<field-map field-name="returnItemSeqId" value=""/>
+				</entity-and>
+ 				<script location="component://order/webapp/ordermgr/WEB-INF/actions/return/ReturnItems.groovy" />
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://portal/webapp/portal/seller/order/order_return_detail.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="toChangeReturnStatus">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="returnId" from-field="parameters.returnId" />
+				<set field="statusId" from-field="parameters.statusId" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/ReturnDetail.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/tochange_return_status.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="OrderDetail">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleFindProduct" />
+				<set field="titleProperty" value="OrderLookupOrder" />
+				<set field="headerItem" value="orderlist" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderView.groovy" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderOther.groovy" />
+				<script location="component://order/webapp/ordermgr/WEB-INF/actions/order/OrderViewWebSecure.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/order_detail.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+
+			</widgets>
+
+		</section>
+	</screen>
+
+	<!-- 直营店下单添加 -->
+	<screen name="AddOrderPos">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="EcommerceOnePageCheckout" />
+
+				<set field="parameters.productStoreId" default-value="9000" />
+				<set field="productStoreId" value="parameters.productStoreId" />
+				<set field="layoutSettings.javaScripts[]" value="/images/itea/js/order_quick_add.js" global="false" />
+				<set field="layoutSettings.javaScripts[]" value="/ecommerce/images/checkoutProcess.js" global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/ordermgr/images/js/geoAutoCompleter.js" global="true" />
+				<script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/cart/ShowCart.groovy" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/Orderentry.groovy" />
+				<script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/CheckInits.groovy" />
+
+				<script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/customer/EditShippingAddress.groovy" />
+				<script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/customer/EditBillingAddress.groovy" />
+				<script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/customer/EditEmailAndTelecomNumber.groovy" />
+				<set field="currentForm" value="AddOrderPos" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+					<container id='order_pos_print_div' style="grid">
+	                       <platform-specific>
+	                      		<html><html-template location="component://portal/webapp/portal/seller/order/order_pos_toPrint.ftl"/></html>
+	                       </platform-specific>
+                      </container>
+						<container id='order_pos_div' style="pageContent">
+	                      <platform-specific>
+	                           <html><html-template location="component://portal/webapp/portal/seller/order/order_pos_quick_add.ftl"/></html>
+	                      </platform-specific>
+                      </container>
+                        
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="pay_suc_to_print">
+		<section>
+			 <actions>
+            	<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="titleProperty" value="PageTitleEditPersonalInformation"/>
+                <set field="tabButtonItem" value="member"/>
+                <set field="partyId" from-field="parameters.partyId"/>
+                <set field="ownerPartyId" from-field="parameters.ownerPartyId"/>
+                <set field="contactMechTypeId"  value="POSTAL_ADDRESS"/>
+                <set field="currentForm" value="addFinAccount"/>
+                <set field="productStoreId" value="parameters.productStoreId"/>
+                <set field="orderId" value="parameters.orderId" />
+				<script location="component://party/webapp/partymgr/WEB-INF/actions/party/ToTranOrderId.groovy"/>
+            </actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+					<container id='order_pos_print_div' style="grid">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/order_pos_toPrint.ftl" />
+							</html>
+						</platform-specific>
+						</container>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="pos_suc_to_print">
+		<section>
+			 <actions>
+            	<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="orderId"  value="${groovy: requestAttributes.orderId}"/>
+               
+            </actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://portal/webapp/portal/seller/order/order_pos_toPrint.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<!-- 直营店下单列表 -->
+	<screen name="FindOrderPos">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleFindProduct" />
+				<set field="titleProperty" value="OrderLookupOrder" />
+				<set field="headerItem" value="orderlist" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<set field="parameters.hideFields" value="N" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/FindOrdersPos.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/order_pos_list.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+
+			</widgets>
+
+		</section>
+	</screen>
+	<!-- 财务管理 -->
+	<screen name="FindAP">
+		<section>
+			<actions>
+				<property-map resource="AccountingUiLabels" map-name="uiLabelMap" />
+				<set field="headerItem" value="cmsCategory" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="parameters.noConditionFind" value="Y" />   <!--默认无条件查询 -->
+				<set field="searchAction" value="FindAP" /><!--列表查询url -->
+				<set field="searchForm" value="FindApPayments" />  <!-- 查询 form id -->
+				<!-- 按钮操作区 按钮显示名称.按钮图标CSS样式.按钮连接href(可为js函数).dwz操作方式(tab页、弹出框、批量选择操作等) 多个按钮为多个变量 -->
+				<!-- <set field="operationButton[]" value="CommDeleteAll.delete.delContentCategoryAll.removeSelected" /> <set field="operationButton[]" value="增加.icon-add.EditContentCategory.navTab" /> -->
+
+				<set field="titleProperty" value="AccountingFindApPayments" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="search-options">
+								<!-- <container style="button-bar"> <link target="newPayment" text="${uiLabelMap.CommonCreateNew}" style="buttontext create" /> </container> -->
+								<include-form name="FindApPayments" location="component://itea/widget/iteamgr/OrderForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListApPayments" location="component://itea/widget/iteamgr/OrderForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="FindAr">
+		<section>
+			<actions>
+				<property-map resource="AccountingUiLabels" map-name="uiLabelMap" />
+				<set field="headerItem" value="payments" />
+				<set field="tabButtonItem" value="findPayments" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="parameters.noConditionFind" value="Y" />   <!--默认无条件查询 -->
+				<set field="searchAction" value="FindAr" /><!--列表查询url -->
+				<set field="searchForm" value="FindArPayments" />  <!-- 查询 form id -->
+				<!-- 按钮操作区 按钮显示名称.按钮图标CSS样式.按钮连接href(可为js函数).dwz操作方式(tab页、弹出框、批量选择操作等) 多个按钮为多个变量 -->
+				<!-- <set field="operationButton[]" value="CommDeleteAll.delete.delContentCategoryAll.removeSelected" /> <set field="operationButton[]" value="增加.icon-add.EditContentCategory.navTab" /> -->
+
+				<set field="titleProperty" value="AccountingFindApPayments" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator" location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="search-options">
+								<!-- <container style="button-bar"> <link target="newPayment" text="${uiLabelMap.CommonCreateNew}" style="buttontext create" /> </container> -->
+								<include-form name="FindArPayments" location="component://itea/widget/iteamgr/OrderForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListArPayments" location="component://itea/widget/iteamgr/OrderForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="PaymentOverview">
+		<section>
+			<actions>
+				<property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="headerItem" value="payments" />
+				<set field="pCtx" from-field="parameters" />
+				<set field="titleProperty" value="PageTitlePaymentOverview" />
+				<set field="tabButtonItem" value="paymentOverview" />
+				<set field="labelTitleProperty" value="PageTitlePaymentOverview" />
+				<set field="paymentId" from-field="parameters.paymentId" />
+				<entity-one entity-name="Payment" value-field="payment" />
+				<set field="finAccountTransId" from-field="payment.finAccountTransId" />
+				<entity-one entity-name="FinAccountTrans" value-field="finAccountTrans" />
+				<set field="appliedAmount" value="${bsh:org.ofbiz.accounting.payment.PaymentWorker.getPaymentApplied(payment).toString()}" />
+				<set field="notAppliedAmount" value="${bsh:org.ofbiz.accounting.payment.PaymentWorker.getPaymentNotApplied(payment).toString()}" />
+				<entity-condition entity-name="AcctgTransAndEntries" list="AcctgTransAndEntries">
+					<condition-expr field-name="paymentId" from-field="paymentId" />
+					<order-by field-name="acctgTransId" />
+					<order-by field-name="acctgTransEntrySeqId" />
+				</entity-condition>
+			</actions>
+			<widgets>
+
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-compare field="payment.statusId" operator="equals" value="PMNT_NOT_PAID" />
+							</condition>
+							<widgets>
+								<container style="lefthalf">
+									<screenlet title="${uiLabelMap.AccountingPaymentHeader}">
+										<link target="editPayment" text="${uiLabelMap.CommonUpdate}" style="buttontext">
+											<parameter param-name="paymentId" />
+										</link>
+										<include-form name="paymentHeader" location="component://itea/widget/iteamgr/OrderForms.xml" />
+									</screenlet>
+								</container>
+
+								<container style="righthalf">
+									<screenlet title="${uiLabelMap.AccountingPaymentsApplied} ${appliedAmount?currency(${payment.currencyUomId})} ${uiLabelMap.AccountingOpenPayments} ${notAppliedAmount?currency(${payment.currencyUomId})}">
+										<link target="editPaymentApplications" text="${uiLabelMap.CommonUpdate}" style="buttontext">
+											<parameter param-name="paymentId" />
+										</link>
+										<include-form name="paymentApplications" location="component://itea/widget/iteamgr/OrderForms.xml" />
+									</screenlet>
+									<section>
+										<condition>
+											<not>
+												<if-empty field="finAccountTransId" />
+											</not>
+										</condition>
+										<widgets>
+											<screenlet title="${uiLabelMap.AccountingFinAccountTransaction}">
+												<include-form name="FinAccountTransAssociatedWithPayment" location="component://itea/widget/iteamgr/OrderForms.xml" />
+											</screenlet>
+										</widgets>
+									</section>
+								</container>
+								<container style="clear" />
+								<screenlet title="${uiLabelMap.AccountingTransactions}" navigation-form-name="AcctgTransAndEntries">
+									<include-form name="AcctgTransAndEntries" location="component://itea/widget/iteamgr/OrderForms.xml" />
+								</screenlet>
+							</widgets>
+							<fail-widgets>
+
+								<container style="lefthalf">
+									<screenlet title="${uiLabelMap.AccountingPaymentHeader}">
+										<include-form name="paymentHeader" location="component://itea/widget/iteamgr/OrderForms.xml" />
+									</screenlet>
+								</container>
+								<container style="righthalf">
+									<screenlet title="${uiLabelMap.AccountingPaymentsApplied} ${appliedAmount?currency(${payment.currencyUomId})} ${uiLabelMap.AccountingOpenPayments} ${notAppliedAmount?currency(${payment.currencyUomId})}">
+										<include-form name="paymentApplications" location="component://itea/widget/iteamgr/OrderForms.xml" />
+									</screenlet>
+									<section>
+										<condition>
+											<not>
+												<if-empty field="finAccountTransId" />
+											</not>
+										</condition>
+										<widgets>
+											<screenlet title="${uiLabelMap.AccountingFinAccountTransaction}">
+												<include-form name="FinAccountTransAssociatedWithPayment" location="component://itea/widget/iteamgr/OrderForms.xml" />
+											</screenlet>
+										</widgets>
+									</section>
+								</container>
+								<container style="clear" />
+								<screenlet title="${uiLabelMap.AccountingTransactions}" navigation-form-name="AcctgTransAndEntries">
+									<include-form name="AcctgTransAndEntries" location="component://itea/widget/iteamgr/OrderForms.xml" />
+								</screenlet>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="OrderStats">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="OrderOrderStatisticsPage" />
+				<set field="headerItem" value="stats" />
+				<entity-condition list="productStoreList" entity-name="ProductStore"/>
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderStats.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/orderstats.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="OrderStatisticsReport">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="OrderOrderStatisticsPage" />
+				<set field="headerItem" value="stats" />
+				<entity-condition list="productStoreList" entity-name="ProductStore"/>
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderStats.groovy" />
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://portal/webapp/portal/seller/order/orderstats.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="OrderProSaleStats">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true" />
+				<entity-condition list="productTypeList" entity-name="ProdCatalogCategory" filter-by-date="true">
+                	<condition-expr field-name="prodCatalogId" value="ProductType"/>
+                	<order-by field-name="productCategoryId"/>
+                </entity-condition>
+				<entity-condition list="productCategoryList" entity-name="ProdCatalogCategoryView" filter-by-date="true">
+                	<condition-expr field-name="prodCatalogId" value="productCategory"/>
+                	<order-by field-name="productCategoryId"/>
+                </entity-condition>
+                <entity-condition list="productBrandList" entity-name="ProductBrand"/>
+                <entity-condition list="productStoreList" entity-name="ProductStore"/>
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderProSaleStats.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/orderprosalestats.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="AjaxOrderProSaleStats">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true" />
+				<entity-condition list="productTypeList" entity-name="ProdCatalogCategory" filter-by-date="true">
+                	<condition-expr field-name="prodCatalogId" value="ProductType"/>
+                	<order-by field-name="productCategoryId"/>
+                </entity-condition>
+				<entity-condition list="productCategoryList" entity-name="ProdCatalogCategoryView" filter-by-date="true">
+                	<condition-expr field-name="prodCatalogId" value="productCategory"/>
+                	<order-by field-name="productCategoryId"/>
+                </entity-condition>
+                <entity-condition list="productBrandList" entity-name="ProductBrand"/>
+                <entity-condition list="productStoreList" entity-name="ProductStore"/>
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderProSaleStats.groovy" />
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://portal/webapp/portal/seller/order/orderprosalestats.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="InvalidOrderStats">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true" />
+                <entity-condition list="productStoreList" entity-name="ProductStore"/>
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/InvalidOrderStats.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/invalidorderstats.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!-- added by dongyc 20120710 直营店小票打印-->
+	<screen name="printPosOrderItem">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleLookupBulkAddProduct" />
+				<set field="orderId" from-field="parameters.orderId" />
+				<set field="filterDate" type="Timestamp" from-field="parameters.filterDate" />
+				<!-- added by dongyc 20120907 店铺地址 -->
+				<entity-one value-field="orderheader" entity-name="OrderHeader"></entity-one>				
+				<set field="productStoreId" from-field="orderheader.productStoreId"/>
+				<entity-one value-field="productStore" entity-name="ProductStore"></entity-one>
+				
+				<set field="entity" from-field="productStore"/>
+				<entity-condition list="productStoreGroupList" entity-name="ProductStoreGroup"/>
+				<entity-condition list="productStoreRoleList" entity-name="ProductStoreRole" filter-by-date="true">
+					<condition-list>
+						<condition-expr field-name="roleTypeId" value="MANAGER"/>
+						<condition-expr field-name="productStoreId" from-field="orderheader.productStoreId"/>
+					</condition-list>
+				</entity-condition>
+				<set field="productStoreRoleId" from-field="productStoreRoleList[0].partyId"/>
+				<entity-condition list="mobileList" entity-name="PartyContactMechPurpose" filter-by-date="true">
+					<condition-list>
+						<condition-expr field-name="partyId" from-field="productStoreRoleId"/>
+						<condition-expr field-name="contactMechPurposeTypeId" value="PHONE_MOBILE"/>
+					</condition-list>
+				</entity-condition>
+				<set field="mobileContactMechId" from-field="mobileList[0].contactMechId"/>
+				<entity-one entity-name="TelecomNumber" value-field="telecomMobileNumber">
+					<field-map field-name="contactMechId" from-field="mobileContactMechId"/>
+				</entity-one>
+				<entity-condition list="phoneList" entity-name="PartyContactMechPurpose" filter-by-date="true">
+					<condition-list>
+						<condition-expr field-name="partyId" from-field="productStoreRoleId"/>
+						<condition-expr field-name="contactMechPurposeTypeId" value="PHONE_WORK"/>
+					</condition-list>
+				</entity-condition>
+				<set field="phoneContactMechId" from-field="phoneList[0].contactMechId"/>
+				<entity-one entity-name="TelecomNumber" value-field="telecomPhoneNumber">
+					<field-map field-name="contactMechId" from-field="phoneContactMechId"/>
+				</entity-one>
+				<!-- product_store_facility -->
+				<entity-condition list="productStoreFacilityList" entity-name="ProductStoreFacility" filter-by-date="true">
+					<condition-list>
+						<condition-expr field-name="productStoreId" from-field="orderheader.productStoreId"/>
+					</condition-list>
+				</entity-condition>
+				<set field="productStoreFacility" from-field="productStoreFacilityList[0]"/>
+				<entity-condition list="facilityContactMechPurposeList" entity-name="FacilityContactMechPurpose" filter-by-date="true">
+					<condition-list>
+						<condition-expr field-name="facilityId" from-field="productStoreFacility.facilityId"/>
+						<condition-expr field-name="contactMechPurposeTypeId" value="GENERAL_LOCATION"/>
+					</condition-list>
+				</entity-condition>
+				<set field="contactMechId" from-field="facilityContactMechPurposeList[0].contactMechId"/>
+				<entity-one entity-name="PostalAddress" value-field="postalAddressView" />
+
+				<!-- added by dongyc 20120907 店铺地址 -->
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderView.groovy" />
+				<script location="component://portal/webapp/portal/WEB-INF/actions/orderEn/OrderOther.groovy" />
+				<script location="component://order/webapp/ordermgr/WEB-INF/actions/order/OrderViewWebSecure.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://portal/webapp/portal/seller/order/print_pos_order_item.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!-- added by dongyc 20120710 直营店小票打印-->
+	<!-- added by dongyc 20120731 会员卡批量处理 -->
+	<screen name="to_add_batch_FinAccount">
+		<section>
+			 <actions>
+            	<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/> 
+                <set field="titleProperty" value="PageTitleEditPersonalInformation"/>
+                <set field="tabButtonItem" value="member"/>
+                <set field="partyId" from-field="parameters.partyId"/>
+                <set field="ownerPartyId" from-field="parameters.ownerPartyId"/>
+                <set field="contactMechTypeId"  value="POSTAL_ADDRESS"/>
+                <set field="currentForm" value="addFinAccount"/>
+                <set field="productStoreId" value="parameters.productStoreId"/>
+                <script location="component://itea/webapp/iteamgr/WEB-INF/actions/memberCard/MemberCardList.groovy"/>
+            </actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+					<container id='add_batch_FinAccount_div' style="grid">
+						<platform-specific>
+							<html>
+								<html-template location="component://itea/webapp/iteamgr/member/add_batch_FinAccount.ftl" />
+							</html>
+						</platform-specific>
+	                    <platform-specific>
+	                      		<html><html-template location="component://itea/webapp/iteamgr/member/memberCard_excel_list.ftl"/></html>
+	                    </platform-specific>
+                      </container>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="to_BatchFinAccount_list">
+		<section>
+			<actions>
+				   <property-map resource="AdminUiLabels" map-name="uiLabelMap" global="true"/> 
+	                <set field="parameters.noConditionFind" value="Y"/>
+	                <set field="parameters.finAccountTypeId" value="STORE_USER_CARD"/>
+	                <set field="parameters.sortField" value="${parameters.sortField}" default-value="-createdStamp"/>
+	                <set field="searchAction" value="to_BatchFinAccount_list"/>
+	                <set field="searchForm" value="to_BatchFinAccount_list"/>
+	                <set field="viewIndex" from-field="parameters.VIEW_INDEX_1" type="Integer" default-value="0"/>
+	                <set field="viewSize" from-field="parameters.VIEW_SIZE_1" type="Integer" default-value="20"/>
+	                <service service-name="performFindList" result-map="result">
+		                <field-map field-name="inputFields" from-field="parameters"/>
+		                <field-map field-name="entityName" value="FinAccount"/>
+		                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+		                <field-map field-name="viewIndex" from-field="viewIndex" />
+		                <field-map field-name="viewSize"  from-field="viewSize"/>
+		            </service>
+		            <set field="memberCardList" from-field="result.list"/>
+		            <set field="listSize" from-field="result.listSize"/>
+	        </actions>
+             <widgets>
+              <decorator-screen name="order-decorator">
+                    <decorator-section name="body">
+                      <container id='FinaccountCard_list_div' style="grid">
+	                       <platform-specific>
+	                      		<html><html-template location="component://itea/webapp/iteamgr/member/membercard_list.ftl"/></html>
+	                       </platform-specific>
+                      </container>
+					</decorator-section>
+			  </decorator-screen>
+            </widgets>
+        </section>
+	</screen>
+	<screen name="EditMemberCardDetail">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleEditPersonalInformation" />
+				<set field="tabButtonItem" value="member" />
+				
+				<set field="finAccountId" from-field="parameters.finAccountId" />
+				<set field="currentForm" value="EditMemberCardDetail" />
+				<entity-one entity-name="FinAccount" value-field="FinAccountView" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+					<container id='memberCard_Deposit'>
+						<platform-specific>
+							<html>
+								<html-template location="component://itea/webapp/iteamgr/member/EditMemberCardDetail.ftl"/>
+							</html>
+						</platform-specific>
+					</container>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+
+		</section>
+	</screen>
+	<!-- added by dongyc 20120731 会员卡批量处理 -->
+	<!--  合并会员卡 added by dongyc 20120909 -->
+	<screen name="EditMemberCardPsw">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleEditPersonalInformation" />
+				<set field="tabButtonItem" value="member" />
+				<set field="finAccountId" from-field="parameters.finAccountId" />
+				<set field="currentForm" value="EditMemberCardPsw" />
+				<entity-one entity-name="FinAccount" value-field="FinAccountView" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+					<container id='memberCard_Deposit'>
+						<platform-specific>
+							<html>
+								<html-template location="component://itea/webapp/iteamgr/member/EditMemberCardPsw.ftl"/>
+							</html>
+						</platform-specific>
+					</container>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+
+		</section>
+	</screen>
+	<!--  合并会员卡 added by dongyc 20120909 -->
+	<screen name="toMergeMemberCard">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleEditPersonalInformation" />
+				<set field="tabButtonItem" value="member" />
+				<set field="finAccountId" from-field="parameters.finAccountId" />
+				<set field="currentForm" value="EditMemberCardDetail" />
+				<entity-one entity-name="FinAccount" value-field="FinAccountView" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+					<container id='memberCard_Deposit'>
+						<platform-specific>
+							<html>
+								<html-template location="component://itea/webapp/iteamgr/member/MergeMemberCard.ftl"/>
+							</html>
+						</platform-specific>
+					</container>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+
+		</section>
+	</screen>
+	<!-- 补办 -->
+	<screen name="toMakeUpMemberCard">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleEditPersonalInformation" />
+				<set field="tabButtonItem" value="member" />
+				<set field="finAccountId" from-field="parameters.finAccountId" />
+				<set field="currentForm" value="EditMemberCardDetail" />
+				<entity-one entity-name="FinAccount" value-field="FinAccountView" />
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+					<container id='memberCard_Deposit'>
+						<platform-specific>
+							<html>
+								<html-template location="component://itea/webapp/iteamgr/member/MakeUpMemberCard.ftl"/>
+							</html>
+						</platform-specific>
+					</container>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!-- 挂失 -->
+	<screen name="toReportLossMemberCard">
+		<section>
+			<actions>
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<set field="titleProperty" value="PageTitleEditPersonalInformation" />
+				<set field="tabButtonItem" value="member" />
+				<set field="finAccountId" from-field="parameters.finAccountId" />
+				<set field="currentForm" value="EditMemberCardDetail" />
+				<entity-one entity-name="FinAccount" value-field="FinAccountView" />
+				<set field="partyId" from-field="parameters.partyId" />
+				<script location="component://itea/webapp/iteamgr/WEB-INF/actions/member/memberInfo.groovy"></script>
+				<script location="component://itea/webapp/iteamgr/WEB-INF/actions/member/contactMechPrimary.groovy"></script>
+			</actions>
+			<widgets>
+				<decorator-screen name="order-decorator">
+					<decorator-section name="body">
+					<container id='memberCard_Deposit'>
+						<platform-specific>
+							<html>
+								<html-template location="component://itea/webapp/iteamgr/member/ReportLossMemberCard.ftl"/>
+							</html>
+						</platform-specific>
+					</container>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!-- added by dongyc 20120914 提货卡使用记录2 -->
+	<screen name="giftcardUsedList">
+		<section>
+			<actions>
+				   <property-map resource="AdminUiLabels" map-name="uiLabelMap" global="true"/> 
+	                <set field="parameters.noConditionFind" value="Y"/>
+	                <set field="parameters.paymentMethodTypeId" value="FINACT_VOUCHER"/><!-- finAccountTypeId 提货卡-->
+	                <set field="parameters.sortField" from-field="parameters.sortField" default-value="-createdStamp"/>
+	                <set field="searchAction" value="to_BatchFinAccount_list"/>
+	                <set field="searchForm" value="to_BatchFinAccount_list"/>
+	                <set field="viewIndex" from-field="parameters.VIEW_INDEX_1" type="Integer" default-value="0"/>
+	                <set field="viewSize" from-field="parameters.VIEW_SIZE_1" type="Integer" default-value="2"/>
+	                <service service-name="performFindList" result-map="result">
+		                <field-map field-name="inputFields" from-field="parameters"/>
+		                <field-map field-name="entityName" value="OrderPaymentPreference"/>
+		                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+		                <field-map field-name="viewIndex" from-field="viewIndex" />
+		                <field-map field-name="viewSize"  from-field="viewSize"/>
+		            </service>
+		            <set field="voucherCardList" from-field="result.list"/>
+		            <set field="listSize" from-field="result.listSize"/>
+	        </actions>
+             <widgets>
+              <decorator-screen name="order-decorator">
+                    <decorator-section name="body">
+                      <container id='giftcard_list_div' style="grid">
+	                       <platform-specific>
+	                      		<html><html-template location="component://itea/webapp/iteamgr/member/giftcard_list.ftl"/></html>
+	                       </platform-specific>
+                      </container>
+					</decorator-section>
+			  </decorator-screen>
+            </widgets>
+        </section>
+	</screen>
+	<screen name="requestreturn">
+        <section>
+            <actions>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="rightonly"/>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" />
+				<property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true" />
+                <set field="titleProperty" value="PageTitleRequestReturn"/>
+                <script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/order/RequestReturn.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="order-decorator">
+                    <decorator-section name="body">
+                        <platform-specific><html><html-template location="component://portal/webapp/portal/seller/order/requestreturn.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+</screens>

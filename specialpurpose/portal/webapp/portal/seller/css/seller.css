@@ -1,0 +1,1490 @@
+body{background:#fff;font:12px/1.5 tahoma,arial,\5b8b\4f53;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}button,input,select,textarea{font:100% tahoma,arial,\5b8b\4f53;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}em{font-style:normal;}ul,ol{list-style:none;}fieldset,img{border:0;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}table{border-collapse:collapse;border-spacing:0;}a{color:#444;text-decoration:none;}a:hover{color:#900;text-decoration:underline;}.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}.clearfix{*zoom:1;}
+/* research entrance */
+.research{overflow:hidden;position:fixed!important;position:absolute;z-index:999;width:28px;}
+.research a, .research span{display:block;width:20px;line-height:14px;background:url(http://image.dhgate.com/2008/web20/seller/img/research-bg.jpg);cursor:pointer;}
+.research a{padding-top:8px;width:28px;color:#AC480C;text-decoration:none;background-position:0 0;}
+.research a span{padding-bottom:10px;padding-left:8px;background-position:0 100%;}
+.research a:hover{color:#AC480C;text-decoration:none;}
+/* color */
+.s-color1{color:#FF5A0B;}
+.s-color2{color:#444;}
+.s-color3{color:#f00;}
+.s-color4{color:#673800;}
+.s-color5{color:#589B00;}
+.s-color6{color:#E52300;}
+.s-color7{color:#0000B9;}
+.s-color8{color:#008000;}
+.s-color9{color:#F00;font-weight:bold;font-size:14px;margin-right:10px;}
+.s-color10{color:#ffa906;}
+.s-color11{color:#959595;}
+/* size */
+.s-size1{font-size:11px;}
+.s-size2{font-size:14px;}
+/* padding */
+.s-padding1{padding:10px 5px;}
+.s-padding2{padding:20px 0;}
+.s-padding3{padding-bottom:5px;}
+.s-padding4{padding:10px 0 10px 20px;}
+/* margin */
+.s-margin1{margin-left:10px;}
+.s-margin2{margin-bottom:10px;}
+.s-margin3{margin-right:10px;}
+.s-margin4{margin:10px 0;}
+.s-margin5{margin:20px 0;}
+.s-margin6{margin-top:10px;}
+.s-margin7{margin:5px 0;}
+.s-margin8{margin:5px 0 5px 10px;}
+.s-margin9{margin-bottom:5px;}
+/* input radio */
+.in-ra{margin-right:5px; vertical-align:-2px;}
+/* text-align */
+.s-right{text-align:right;}
+.s-left{text-align:left;}
+.s-center{text-align:center;}
+.lkunline{text-decoration:underline;}
+.lkthline{text-decoration:line-through;}
+/* a */
+a{color:#003D74;text-decoration:underline;}
+a:hover{color:#900;}
+/* center */
+.center_950{margin:0 auto;width:950px;}
+/* mian bao xue */
+#welcome{height:21px;line-height:21px;padding:9px 0 9px 12px;color:#2E2E2E;}
+#welcome a{margin-right:10px;color:#003D74;zoom:1;}
+#welcome a:hover{color:#900;}
+#welcome a.highlight{display:inline-block;width:94px;height:21px;vertical-align:middle;background:url(http://image.dhgate.com/2008/web20/seller/img/nav-highlight.gif);}
+.welcome-lt{float:left;}
+.welcome-ri{float:right;margin-right:5px;color:#000;}
+/* line */
+.line1{height:1px;overflow:hidden;background:#DFE5EB;margin:10px 0;}
+/* form search */
+.form-search-bg{position:relative;padding:8px 16px;color:#444;background:#F0F0F0;border:solid 1px #fff;}
+.form-search-bg .viewashow{position:absolute;bottom:10px;right:40px;z-index:1;line-height:14px;}
+.form-search{border:solid 1px #D3DAE0;}
+.form-search p{padding:3px 0;}
+.form-search input, .form-search select{vertical-align:middle;}
+.form-search input.txt{padding:1px 0;}
+.form-search .label1, .form-search .label2{display:inline-block;}
+.form-search .label1{width:60px;text-align:right;}
+.form-search .label2{margin:0 10px 0 3px;width:100px;}
+.form-search-button{margin:10px 0 5px 0;text-align:center;}
+.form-search-control{position:relative;margin:-2px 0 5px 0;text-align:center;}
+.form-search-control .open,.form-search-control .close{display:inline-block;width:82px;height:15px;cursor:pointer;background:url(http://image.dhgate.com/2008/web20/seller/img/my-product.png);}
+.form-search-control .close{background-position:0 -15px;}
+/* list Batch operations */
+.batch{padding:5px 8px;color:#444;border:solid 1px #C8D9E9;background:#E1EEF7;overflow:hidden;height:100%;}
+.batch:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.batch{*zoom:1;}
+.batch input,.batch select{vertical-align:middle;}
+.batch dl dt{float:left;font-size:14px;font-weight:bold;padding:7px 40px 0;}
+/* table list */
+.table-list{border:solid 1px #C8D9E9;}
+.table-list tr td{text-align:center;border:solid 1px #C8D9E9;background:#fff;}
+.table-list tr td input, .table-list tr td select{vertical-align:middle;}
+.table-list tr.head-bg td{background:#F9F9F9;}
+.table-list tr.head-bgc td{background:#e1eef7;}
+.table-list tr.ddh-bg td{color:#003E73;background:#ECF6FF;}
+.table-list tr.tr-bg td{background:#ecf6ff;}
+/*my-profuct.css*/
+.mp-more-list-content{border:solid 1px #C8D9E9;}
+.mp-more-list-content a:hover{color:#fff;background:#5D99CD;}
+/* movingtools.css */
+.renling{position:relative;width:80px;height:80px;}
+#right .movingtools-table{border-collapse:separate;border:solid 1px #c8d9e9;border-width:0 1px 1px 1px;}
+#right .movingtools-table td{padding:8px;border-top:solid 1px #c8d9e9;}
+/* network-enterprises.css */
+#right .edit-category{border:solid 1px #c8d9e9;border-width:0 1px 1px 1px;}
+.network-enterprises-box{background:#ECF6FF;}
+.template-list-a{border:solid 1px #DFE8ED;background:#EFF9FB;}
+.network-enterprises-content table tr td{border:solid 1px #c8d9e9;}
+.network-enterprises-content table tr.bbg td{background:#ECF6FF;}
+/* index.css */
+.m-top{background:url(http://image.dhgate.com/2008/web20/seller/img/seller-index.png);}
+.m-con{border:solid 1px #C1DBEA;}
+.m-u1{border-bottom:solid 1px #C1DBEA;background:#E8F6FF;}
+.m-ul3{border-bottom:solid 1px #C1DBEA;}
+.m-attention dl .title1{background:url(http://image.dhgate.com/2008/web20/seller/img/seller-index.png) 0 -29px;}
+.m-attention dl .title2{border:solid 1px #C2D5E6;background:#E8F6FF;}
+.m-attention dl .items{background:#F4FBFF;}
+.m-attention dl .items ul{border:solid 1px #C2D5E6;}
+.m-attention .m-statistics{border:solid 1px #C2D5E6;}
+#right .new_right{background:#ECF6FF;}
+.box_title{background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/seller_index_bg10.gif) no-repeat;}
+.box_title dl dt{color:#005298;}
+.box_list{border:solid 1px #D1E3F4;background:#fff;}
+.box_list_gg a img{border:solid 1px #D1E3F4;}
+/* dispute.css */
+#right .d_refund dl dd.bbg{background:#ecf6ff;}
+
+
+#content,#footer{width:950px;margin:auto}
+#right{width:788px;float:right}
+#right #text{padding:0 13px;}
+#right #text p{line-height:18px;}
+#right #text p.p1{padding-left:13px;}
+#right #text p.p2{margin-bottom:15px;}
+#right #text p.p3{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_11.gif) no-repeat 0 3px;width:510px;padding-left:18px;}
+#right #text p.p4{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_12.gif) no-repeat ;width:510px;padding-left:18px;}
+#right #text p.p5{padding-left:18px;}
+#right #text p.p5 a{color:#003d74;}
+#right #text p.p5 a:hover{color:#900;text-decoration:none;}
+#right #text ul{list-style:none;}
+#right #text ul.dhrz{border:solid 1px #c8d9e9;background-color:#ecf6ff;padding:8px 8px 0 8px;width:486px;margin:5px 0 15px 0;}
+#right #text li{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_05.gif) no-repeat 0 5px;padding-left:20px;height:35px;}
+#right #text li.lib{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_06.gif) no-repeat 0 5px;}
+#right #text li a{color:#003d74;}
+#right #text li a:hover{color:#900;text-decoration:none;}
+#right #text ul.liw li{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_04.gif) no-repeat 0 5px;}
+#right #text .butt{padding:10px 0;}
+#right #text b{display:block;margin-top:20px;}
+#right #text b a{color:#c36a00;}
+#right #text b a:hover{text-decoration:none;}
+#right #shop{border:solid 1px #e4db92;background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_02.gif) no-repeat 11px 9px;background-color:#fefad5;margin-bottom:15px;height:37px;font:bold 14px/37px "宋体";color:#c36a00;padding-left:35px;overflow:hidden;}
+#right #shop.a1{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_09.gif) no-repeat 11px 5px;padding-left:40px;background-color:#fefad5;}
+#right #shop.a2{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_10.gif) no-repeat 11px 8px;padding-left:40px;background-color:#fefad5;}
+#right #shop3{border:solid 1px #e4db92;background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_13.gif) no-repeat 12px 6px;padding-left:40px;background-color:#fefad5;color:#d00101;margin-bottom:15px;height:37px;font:bold 14px/37px "宋体";padding-left:38px;overflow:hidden;}
+#right #top{background:url(http://image.dhgate.com/2008/web20/seller/newimages/page_bg.gif) no-repeat 0 -232px;margin-bottom:2px;}
+#right #to{background:url(http://image.dhgate.com/2008/web20/seller/newimages/page_bg.gif) no-repeat right -260px;height:28px;line-height:28px;color:#004789;overflow:hidden;}
+#right #to span{float:left;display:block;padding-left:20px;margin-right:20px;font-weight:700}
+#right #to span.jg{background:url(http://image.dhgate.com/2008/web20/seller/newimages/page_bg.gif) no-repeat 0 -291px;color:#f28500;color:#c36a00;margin-right:0;}
+#right #to span.wh{background:none;padding-left:10px;}
+#right #to a{color:#004789;font-weight:100}
+#right #to a:hover{color:#900}
+#right #to dl{float:right;padding-right:10px;}
+#right #to dl dt{padding-right:10px;}
+#right #to dl dt,#right #to dl dd{float:left}
+#right #to dl dd.jl{padding-right:10px;}
+#right .nrz{border:solid 1px #e4db92;background:#fefad5;margin-bottom:2px;height:25px;line-height:25px;overflow:hidden;padding-left:18px;}
+#right .nrz span{float:left;display:block;margin:0;}
+#right .nrz span.rz{background:url(http://image.dhgate.com/2008/web20/seller/newimages/page_bg.gif) no-repeat 0 -342px;font-weight:700;padding-left:23px}
+#right .nrz span.hy{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_01.gif) no-repeat 0 6px;padding-left:20px;margin-left:30px;}
+#right .nrz span.hy a{font-weight:700;}
+#right .nrz span.hy a:hover{color:#900;}
+#right .nrz span.rzw{background:url(http://image.dhgate.com/2008/web20/seller/newimages/page_bg.gif) no-repeat 0 -366px;padding-left:20px;float:right;margin-right:15px;}
+#right .nrz span.ml{background:url(http://image.dhgate.com/2008/web20/seller/newimages/page_bg.gif) no-repeat 0 -390px;padding-left:25px;}
+#right .nrz span.ml a{font-weight:700;}
+#right .nrz span.ml a:hover{color:#900;}
+#right .nrs{border:solid 1px #e4db92;background:#fefad5;padding:5px 0;margin-bottom:5px;line-height:18px;height:100%;overflow:hidden;}
+#right .nrs p{color:#f28500;margin-left:35px;display:block;}
+#right .nrs p a{color:#f28500;}
+#right .nrs span{float:left;display:inline;margin-left:10px;}
+#right .nrs p.p1{color:#f00;margin:0;padding:0 8px;}
+#right .gg{overflow:hidden;margin-top:5px;}
+#right .gg dl{}
+#right .gg dl dt{overflow:hidden;height:25px;line-height:27px;border:solid 1px #C3E7FF;border:solid 1px #AEDEEA;padding-left:15px;color:#333;font-family:Arial, Helvetica, sans-serif;font-weight:700;background:url(http://image.dhgate.com/2008/web20/seller/newimages/newright_bg.gif) repeat-x;}
+#right .gg dl dt span{float:right;font-weight:normal;padding-right:10px;margin-top:-25px;}
+#right .gg dl dt span a{color:#000;text-decoration:none;}
+#right .gg dl dt span a:hover{color:#900;text-decoration:underline;}
+#right .gg dl dd{border:solid 1px #9CDAE9;border-top:none;padding:15px;margin-bottom:2px;}
+#right .gg dl dd ul{list-style:none;}
+#right .gg dl dd ul li{line-height:30px;color:#6897c2;background:url(http://image.dhgate.com/2008/web20/seller/img/li.gif) 0 50% no-repeat;padding-left:8px;} 
+#right .gg dl dd ul li a{color:#004789;text-decoration:none;}
+#right .gg dl dd ul li a:hover{color:#900;text-decoration:underline;}
+#right .gg dl.gleft{width:440px;float:left;}
+#right .gg dl.gright{width:341px;float:right;}
+#right .gg dl.gcon{clear:both;}
+#right .gg dl.gleft ul,#right .gg dl.gright ul{height:100%;overflow:hidden;}
+#right .gg dl.gleft li,#right .gg dl.gright li{color:#65a401;font-weight:700;}
+#right .gg dl.gleft li{width:180px;float:left;}
+#right .gg dl.gleft li a,#right .gg dl.gright li a{text-decoration:underline;font-weight:normal;}
+#right .se{padding:2px 10px;color:#444;}
+#right .se u{text-decoration:none;}
+#right .se *{vertical-align:middle;}
+#right .se .but,#right .se .but2{width:150px;vertical-align:middle;cursor:pointer;}
+#right .se .but{cursor:text;}
+#right .se .but2{width:100px;}
+#right .se .but3{width:80px;height:18px;line-height:18px;font-size:12px;}
+#right .se span .iput,#right .se span .iput2{width:73px;height:22px;cursor:pointer;border:0;line-height:22px;font-weight:700;}
+#right .se span .iput{background:url(http://image.dhgate.com/2008/web20/seller/img/but.gif);color:#fff;}
+#right .se span .iput2{background:url(http://image.dhgate.com/2008/web20/seller/img/but2.gif);color:#6c6c6c;}
+#right .sea{padding:0 10px;*margin-bottom:-10px}
+#right ul#tbt{clear:both;overflow:hidden;margin-bottom:5px;padding:4px 0 0 5px;height:23px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg1.gif) repeat-x;}
+#right #tbt li{float:left;display:block;overflow:hidden;width:83px;height:23px;line-height:25px;margin-right:1px;text-align:center;color:#003d74;background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg2.gif) no-repeat;}
+#right #tbt li.libg{margin-top:-2px;width:83px;height:25px;line-height:29px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg3.gif) no-repeat;}
+#right #tbt li a{color:#004F9C;text-decoration:none;}
+#right #tbt li a:hover{color:#27537a;}
+#right #tbt li.libg a{color:#000;}
+#right #tbt li.libg a:hover{color:#27537a;}
+#right #tbt li.lili{width:140px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg6.gif) no-repeat;}
+#right table{border-collapse:collapse;color:#444;}
+#right table tr td{padding:5px;text-align:center;line-height:18px;font-size:12px;font-family:arial,\5b8b\4f53,sans-serif;}
+#right table tr td.arial{font-family:Arial, Helvetica, sans-serif;}
+#right table tr.d-bg td{background:url(http://image.dhgate.com/2008/web20/seller/img/table_bg.gif) repeat-x;}
+#right table tr.bbg,table td.bbgg{background:#ecf6ff;}
+#right table tr.bbggg{background:#fefad5;}
+#right table tr.newbg td{background:#FDA400;}
+#right table tr td.yellow{background:#E4DB92;}
+#right table td a.a1{color:#65A401;}
+#right table td a.a_red{color:#f00;text-decoration:underline;}
+#right table td a.a_red:hover{color:#f00;text-decoration:underline;}
+#right table td.le{text-align:left;}
+#right table.pingjia td.le .appraise-content{overflow:hidden;width:400px;word-wrap:break-word;}
+#right table td.white{background-color:#fff}
+#right table td.ri{text-align:right}
+#right table td span{color:#003d74;}
+#right table td span.return{color:#444;}
+#right table td.cc{background:url(http://image.dhgate.com/2008/web20/seller/img/img_3.gif) no-repeat 70px 43% ;background-color:#ecf6ff;}
+#right table td.ccb{background:url(http://image.dhgate.com/2008/web20/seller/img/img_3.gif) no-repeat 62px 23% ;background-color:#ecf6ff;padding-right:18px;text-align:right;}
+#right table td.cca{background:url(http://image.dhgate.com/2008/web20/seller/img/img_3.gif) no-repeat 60px 20% ;}
+#right table tr th a.up{}
+#right table td.dd{background:url(http://image.dhgate.com/2008/web20/seller/img/img_6.gif) no-repeat 5px 30%;padding-left:18px;} 
+#right #page{padding:15px 5px;text-align:center;font-weight:700;clear:both;}
+#right #page span{padding:0 3px;color:#003d74;}
+#right #page span.tt1{background:url(http://image.dhgate.com/2008/web20/seller/img/img_10.gif) no-repeat 0 50%;padding-left:10px;}
+#right #page span.tt2{background:url(http://image.dhgate.com/2008/web20/seller/img/img_11.gif) no-repeat 0 35%;padding-left:10px;}
+#right #page span.tt3{background:url(http://image.dhgate.com/2008/web20/seller/img/img_12.gif) no-repeat right 35%;padding-right:10px;}
+#right #page span.tt4{background:url(http://image.dhgate.com/2008/web20/seller/img/img_13.gif) no-repeat right 50%;padding-right:10px;}
+#right #page span a{color:#003d74;text-decoration:underline;}
+#right #page span a:hover{color:#900;text-decoration:none;}
+#right #tbg{height:30px;line-height:30px;color:#003d74;margin:0;vertical-align:middle;}
+#right #tbg p{padding-left:15px;line-height:18px;}
+#right #tbg dl{overflow:hidden;}
+#right #tbg dl dt{padding-left:2px;color:#000;float:left;}
+#right #tbg dl dd{float:right;padding-right:10px;}
+/*
+#right #tbg dl dd span{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_20.gif) no-repeat;height:22px;display:block;float:right;margin-left:5px;line-height:22px;margin-top:5px;}
+#right #tbg dl dd span input{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_20.gif) no-repeat right -22px;height:22px;border:0;cursor:pointer;line-height:22px;}
+*/
+#right #tbg dl dt span{font-weight:700;color:#65a401;padding:0 5px;}
+#right #tbg .butt{width:89px;background:url(http://image.dhgate.com/2008/web20/seller/img/but3.gif) no-repeat;height:22px;line-height:22px;text-align:center;border:0;font-size:12px;cursor:pointer;}
+#right #tbg .buttt{width:137px;background:url(http://image.dhgate.com/2008/web20/seller/img/but5.gif) no-repeat;height:22px;line-height:22px;text-align:center;border:0;font-size:12px;cursor:pointer;}
+#right #tbg .butt2{width:105px;background:url(http://image.dhgate.com/2008/web20/seller/img/but4.gif) no-repeat;line-height:22px;text-align:right;padding-right:18px;border:0;height:22px;cursor:pointer;}
+#right #tbg .butt,#right #tbg .butt2{margin-top:3px;/* for Ie6*/}
+#right #web{border:solid 1px #e4db92;padding:7px;margin-bottom:5px;background:#fefad5;overflow:hidden;line-height:18px;height:100%}
+#right #web #webleft{width:700px;float:left;line-height:18px;background:url(http://image.dhgate.com/2008/web20/seller/img/img_4.gif) no-repeat 0 1px;padding-left:15px;}
+#right #web #webleft a{color:#f48500;text-decoration:underline;}
+#right #web #webleft a:hover{color:#900;text-decoration:none;}
+#right #web a.a1,#right #web a.a2{display:inline-block;margin-left:10px;padding-left:23px;color:#FE7800;}
+#right #web a.a1:hover,#right #web a.a2:hover{color:#900;}
+#right #web a.a1{background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/newindex_mail.gif) no-repeat left top;}
+#right #web a.a2{background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/newindex_mob.gif) no-repeat left top;}
+#right #web #webright{width:15px;height:15px;float:right;}
+
+#right .web1{border:solid 1px #e4db92;padding:10px 10px 10px 40px;background:url(http://image.dhgate.com/2008/web20/seller/img/alert.gif)  no-repeat 10px 5%;background-color:#fefad5;}
+.red{color:#FF0000;}
+.red a{color:#FF0000;}
+.red a:hover{text-decoration:underline;}
+#right .web2{margin-top:10px;border:solid 1px #e4db92;background-color:#fefad5;padding:10px;}
+#right .web2 ul{list-style:none;}
+#right #gbi{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_bg.gif) no-repeat left 0;height:38px;}
+#right .gbi{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_bg_2.gif) no-repeat left 0;height:38px;}
+#right #gby{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_bg.gif) no-repeat right -38px;height:38px;overflow:hidden;line-height:38px;padding:0 13px;color:#004789;}
+#right .gby{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_bg_2.gif) no-repeat right -38px;height:38px;overflow:hidden;line-height:38px;padding:0 13px;color:#004789;}
+#right #gby a,#right .gby a{color:#004789;}
+#right #gby a:hover,#right .gby a:hover{color:#900;text-decoration:none;}
+#right #gby span,#right .gby span{display:block;float:left;}
+#right .gby span b{color:#d00101;}
+#right #gby span.n1,#right .gby span.n1{margin-left:45px;padding-top:8px;}
+#right #gby span.n2,#right .gby span.n2{float:right;background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_15.gif) no-repeat 0 8px;padding-left:22px;margin-right:25px;}
+#right #gby span.n3,#right .gby span.n3{float:right;background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_16.gif) no-repeat 0 10px;padding-left:22px;}
+#right #newbt{margin:5px 0;height:27px;line-height:27px;}
+#right #newbt.clearmargintop{margin-top:0;}
+#right #newbt b{color:#fff;}
+#right #newbt ul{margin-bottom:5px;padding:4px 0 0 5px;height:23px;font-family:Arial, Helvetica, sans-serif;background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg1.gif) repeat-x;}
+#right #newbt li{overflow:hidden;float:left;margin-left:1px;padding-left:12px;height:23px;line-height:25px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg5.gif) no-repeat left top;}
+#right #newbt li span{float:left;padding-right:12px;height:23px;line-height:25px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg5.gif) no-repeat right top;}
+#right #newbt li span img,#right #newbt li b{float:left;}
+#right #newbt li span img{display:block;margin-top:3px;}
+#right #newbt li.btli{margin-top:-2px;height:25px;line-height:29px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg4.gif) no-repeat left top;}
+#right #newbt li.btli span{height:25px;line-height:29px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg4.gif) no-repeat right top;}
+#right #newbt li a{color:#004789;text-decoration:none;}
+#right #newbt li a:hover{color:#900;}
+#right #newbt li img{margin-left:3px;}
+#right #zs{overflow:hidden;border:solid 1px #e4db92;padding:10px;height:100%;background-color:#fefad5;margin-bottom:10px}
+#right #zs.marginbottom{margin-bottom:5px;}
+#right #zs span{display:block;background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_11.gif) no-repeat 0 6px;background-color:#fefad5;padding-left:18px;float:left;}
+#right #zs span.algorithm{line-height:22px;}
+#right #zs span.algorithm a{color:#003D74} 
+#right #zs span.algorithm a:hover{color:#990000;text-decoration:underline} 
+#right #zs strong{color:#65a401;}
+#right #zs span u{color:#c36a00;text-decoration:none;}
+#right #zs span u a{color:#c36a00;}
+#right #zs span u a:hover{text-decoration:none;}
+#right #zs span.nn1{padding:5px 0;}
+#right #cpcc{height:33px;background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_18.gif) repeat-x;line-height:33px;color:#8e8e8e;}
+#right #cpcc strong{color:#65a401;}
+#right #cpcc span,#right #cpcc input,#right #cpcc select,#right #cpcc img{float:left;}
+#right #cpcc span{margin-left:50px;}
+#right #cpcc input,#right #cpcc select,#right #cpcc img{margin:5px 0 0 3px;}
+#right #cpcc select{width:150px;}
+#right #cpcc dl dt{float:left;padding-left:6px;}
+#right #cpcc dl dd{float:right;padding-right:10px;}
+#right #cpcc dl dd input.pp{width:115px;height:14px;border:solid 1px #a5acb2;background:#fff;color:#8e8e8e;line-height:14px;padding:3px 3px 2px 3px;}
+#right table.newtab{border:solid 1px #c8d9e9;}
+#right table.newtab td{border-right:solid 1px #c8d9e9;border-bottom:solid 1px #c8d9e9;}
+#right table.newtab td .sleft{width:460px;float:left;padding-left:5px;color:#666;text-align:left;}
+#right table.newtab td .sleft  b{text-align:left;height:15px;overflow:hidden;display:block;margin-bottom:5px;}
+#right table.newtab td .sleft  b a{color:#000;text-decoration:underline;}
+#right table.newtab td .sleft  b a:hover{color:#900;text-decoration:none;}
+#right table.newtab td .sleft dl.conn{width:305px;float:left;}
+#right table.newtab td .sleft dl.conn dd.codd{height:38px;overflow:hidden;}
+#right table.newtab td .sleft ul.rightt{width:128px;float:right;display:block;list-style:none;}
+#right table.newtab td .sleft ul.rightt li.i1{color:#F00;font-weight:700;}
+#right table.newtab td .sright{width:115px;}
+#right table.newtab td .sright p{background:none;padding:0;color:#000;text-align:right;}
+#right table.newtab td .sright p.p1{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_12.gif) no-repeat 3px 0;padding-left:15px;color:#666;}
+#right table.newtab td .sright b{clear:both;float:right;margin-top:3px;}
+#right table.newtab td .sright b a{overflow:hidden;float:left;height:11px;width:13px;display:inline-block;padding:2px 2px 3px 2px;vertical-align:middle;}
+#right table.newtab td .sright b a:hover{border:solid 1px #7bacd9;padding:1px 1px 2px 1px;}
+#right #cpcc_1{text-align:center;padding-top:100px;}
+#right #cpcc_1 p{margin-bottom:10px;}
+#right #textt{color:#8e8e8e;margin-top:5px;padding-left:10px;}
+#right #xtt{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_02.gif) no-repeat 220px 62px;padding:60px 0 60px 250px;font-size:14px;}
+#right .store_but{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_but.gif) no-repeat;height:22px;line-height:22px;}
+#right .store_butt{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_but.gif) no-repeat right -22px;height:22px;line-height:22px;border:0;}
+table tr.strore_bg{background:url(http://image.dhgate.com/2008/web20/seller/img/store/table_bg.gif);}
+table td.sbg{background:#fff;}
+#right .text_a{overflow:hidden;color:#c36a00;margin-bottom:5px;margin-top:3px;}
+#right .text_a dl{height:29px;position:relative;}
+#right .text_a dl dt{float:right;height:29px;width:15px;background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_324.gif) right no-repeat;}
+#right .text_a dl dt .boxx{width:11px;height:11px;position:absolute;top:2px;right:2px;}
+#right .text_a dl dd{border:solid 1px #e4db92;border-right-width:0;height:27px;line-height:27px;padding:0 10px;float:right;background:#fefad5;}
+#right .text_b{overflow:hidden;color:#c36a00;margin:3px 9px 5px;}
+#right .text_b dl{height:29px;position:relative;}
+#right .text_b dl dt{float:left;height:29px;width:15px;background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_324.gif) right no-repeat;}
+#right .text_b dl dt .boxx{width:11px;height:11px;position:absolute;top:0;margin-left:2px;}
+#right .text_b dl dd{border:solid 1px #e4db92;border-right-width:0;height:27px;line-height:27px;padding:0 10px;float:left;background:#fefad5;}
+#right .text_c{background-color:#efe481;text-align:center;font-weight:700;margin:3px 0px 5px;}
+#right .text_c a{font-weight:100;color:#c36a00;}
+#bbooxx{width:788px;margin:auto;}
+#bbooxx .an{text-align:right;padding:8px 0;}
+#bbooxx .but{width:73px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/store/but.gif);text-align:center;color:#fff;font-weight:700;border:0;line-height:22px;}
+#bbooxx .buut{width:73px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/store/but2.gif);text-align:center;border:0;line-height:22px;}
+#bbooxx table td div.oxn{cursor:pointer;display:block;}
+#bbooxx table td div.oxup{text-align:right;margin-right:8px;background:#ecf6ff url(http://image.dhgate.com/2008/web20/seller/img/store/img1.gif) no-repeat right;padding-right:15px;cursor:pointer;銆€}
+#bbooxx table td div.oxdown{text-align:right;margin-right:15px;background:#ecf6ff url(http://image.dhgate.com/2008/web20/seller/img/store/img2.gif) no-repeat  right;padding-right:15px;cursor:pointer;}
+.six{color:#666;}
+.list,.list1{width:350px;background:#f8f8f8;border:solid 1px #9d9da1;padding:5px;clear:both;margin:0 auto;}
+.list ul,.list1 ul{list-style:none;line-height:25px;}
+.list ul li,.list1 ul li{clear:both}
+.list ul li p,.list1 ul li p{padding-left:20px;color:#555;}
+.list ul li .but,.list1 ul li .but{width:110px;}
+.list ul li.mb,.list1 ul li.mb{padding-bottom:5px;overflow:hidden;height:100%}
+.list ul li.mb span,.list ul li.mb select,.list1 ul li.mb span,.list1 ul li.mb select{float:right;display:block;height:21px !important;height:23px;line-height:23px}
+.list ul li table,.list1 ul li table{border-left:solid 1px #cbdbea;border-top:solid 1px #cbdbea}
+.list ul li table td,.list1 ul li table td{padding-left:5px;border-bottom:solid 1px #cbdbea;border-right:solid 1px #cbdbea}
+.list ul li table tr.ee,.list1 ul li table tr.ee{background:#ecf6ff;}
+.list ul li table td span,.list1 ul li table td span{margin-right:15px}
+.list ul li table td span,.list ul li table td input,.list1 ul li table td span,.list1 ul li table td input{float:left;line-height:25px;display:block;height:25px}
+.list ul li table td input,.list1 ul li table td input{margin-right:3px}
+.list ul li a,.list1 ul li a{color:#f48500;text-decoration:underline;}
+.list ul li a:hover,.list1 ul li a:hover{color:#900;text-decoration:none;}
+.list ul li .bot,.list1 ul li .bot{width:89px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/but3.gif) no-repeat;line-height:22px;text-align:center;border:0;font-size:12px;cursor:pointer;}
+.list ul li.mm,.list1 ul li.mm{text-align:right;margin-top:5px!important;margin-top:0;}
+.list ul li.mm b,.list1 ul li.mm b{float:left;}
+.pricewidth{width:300px;padding-left:10px;}
+#footer{background:url(http://image.dhgate.com/2008/web20/seller/newimages/page_bg.gif) repeat-x 0 -420px;height:96px;clear:both;text-align:center;}
+#footer b{font-weight:normal;color:#fff;}
+#footer p{color:#555;padding:10px 0;background:url(http://image.dhgate.com/2008/web20/seller/img/img_9.gif) no-repeat 680px 50%;}
+#footer p a{color:#555;text-decoration:none;}
+#footer p a:hover{color:#900;text-decoration:underline;}
+.progress{	width: 1px;height: 14px;color: white;font-size: 12px;overflow: hidden;background-color: navy;padding-left: 5px;}
+#right table tr td.bbgg span.red,#right table tr td.le span.red{color:red}
+#right table tr td.le span.redd{text-decoration:line-through;color:#004789;}
+#right #icon{padding:5px;border-top:dashed 1px #737e82;height:100%;overflow:hidden;color:#575757;}
+#right #icon ul{list-style:none;}
+#right #icon ul li{line-height:24px;}
+#right #icon #icon1,#right #icon #icon2,#right #icon #icon3,#right #icon #icon4{float:left;}
+#right #icon #icon1{width:75px;}
+#right #icon #icon2{width:95px;}
+#right #icon #icon4{width:125px;}
+#right #icon ul li.li1{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 -1%;padding-left:18px;}
+#right #icon ul li.li2{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 4%;padding-left:18px;}
+#right #icon ul li.li3{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 9%;padding-left:18px;}
+#right #icon ul li.li4{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 14%;padding-left:18px;}
+#right #icon ul li.li5{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 19%;padding-left:18px;}
+#right #icon ul li.li6{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 24%;padding-left:22px;}
+#right #icon ul li.li7{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 30%;padding-left:22px;}
+#right #icon ul li.li8{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 35%;padding-left:22px;}
+#right #icon ul li.li9{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 40%;padding-left:22px;}
+#right #icon ul li.li10{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 46%;padding-left:22px;}
+#right #icon ul li.li11{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 51%;padding-left:18px;}
+#right #icon ul li.li12{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 56%;padding-left:18px;}
+#right #icon ul li.li13{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 62%;padding-left:18px;}
+#right #icon ul li.li14{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 68%;padding-left:18px;}
+#right #icon ul li.li15{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 74%;padding-left:18px;}
+#right #icon ul li.li16{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 80%;padding-left:18px;}
+#right #icon ul li.li17{background:url(http://image.dhgate.com/2008/web20/seller/img/icon.gif) no-repeat 0 86%;padding-left:22px;}
+#right table td u{text-decoration:none;display:block;background:url(http://image.dhgate.com/images/useroffline.gif) no-repeat 5px 50%;padding-left:10px;}
+#right table td u.uu{background:none;}
+
+#right table td p{background:url(http://image.dhgate.com/images/post.gif) no-repeat 12px 2%;padding-left:30px;}
+#right table td p.clear{background:none;padding-left:0;}
+#right table td.clear{text-align:left;}
+.iippuutt{border:solid 1px #ecf6ff;background:#ecf6ff;}
+.homeban{margin:5px 0 ;}
+table tr td span.sbt,table tr td span.szw,
+table tr td span.sbt1,table tr td span.szw1{float:left;padding-left:25px;display:block;}
+table tr td span.sbt{height:22px;width:168px;background:url(http://image.dhgate.com/2008/web20/buyer/img/b1.gif) no-repeat 0 40%;font:bold 12px/22px Verdana, Arial, Helvetica, sans-serif;margin-left:10px;}
+table tr td span.sbt1{height:22px;width:168px;background:url(http://image.dhgate.com/2008/web20/buyer/img/b2.gif) no-repeat 0 40%;font:bold 12px/22px Verdana, Arial, Helvetica, sans-serif;margin-left:10px;}
+table tr td span.szw{background:url(http://image.dhgate.com/2008/web20/buyer/img/b3.gif) no-repeat 0 40%;}
+table tr td span.szw1{background:url(http://image.dhgate.com/2008/web20/buyer/img/b4.gif) no-repeat 0 40%;}
+span.fontt a{color:#003d74;text-decoration:none;}
+span.fontt a:hover{color:#900;text-decoration:underline;}
+#right #tbg dl.ridl{background:url(http://image.dhgate.com/2008/web20/seller/img/ri_bg.gif) ;height:25px;line-height:25px;}
+#right #tbg dl.ridl dt{padding:0 5px;font-weight:bold;} 
+#right #tbg dl.ridl dt.aa{color:#000;background:url(http://image.dhgate.com/2008/web20/seller/img/cross.gif) no-repeat 8px 50%;padding-left:28px;} 
+#right #tbg dl.ridl dt.bb{color:#000;background:url(http://image.dhgate.com/2008/web20/seller/img/tick.gif) no-repeat 8px 50%;padding-left:28px;}
+#right #tbg dl.ridl dd{height:25px;background:#fff;padding-left:5px;border-left:solid 1px #e4db92;}
+.div1{width:180px;}
+
+/*small new*/
+#new{overflow:hidden;clear:both;height:32px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg1.gif) repeat-x;}
+#new ul{float:left;margin:0;}
+#new span.new{float:right;display:block;height:25px;line-height:25px;color:#000;padding:0 10px 0 25px;font-size:12px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/news_2.gif) no-repeat left top;line-height:28px;}
+#new span.new a{color:#27537A;text-decoration:none;line-height:28px;}
+#new span.new a:hover{text-decoration:underline;}
+#right td.new{width:215px;text-align:right;}
+#right td.new span{display:block;float:right;width:180px;color:#255174;padding:0 0 0 15px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/news_2.gif) no-repeat left;text-align:right;}
+#right td.new span a{color:#255174;font-weight:700;text-decoration:none;}
+#right td.new span a:hover{text-decoration:underline;}
+#right .gg dl.gleft li.new{clear: both;BORDER-TOP: #c8d9e9 1px solid;MARGIN-TOP: 4px;FONT-WEIGHT: normal;BACKGROUND: none transparent scroll repeat 0% 0%;WIDTH: 98%;COLOR: #003d74;LINE-HEIGHT: 15px;padding:10px 0 0 0;text-indent:19px;display:block;background:url(http://image.dhgate.com/2008/web20/seller/img/news_3.gif) no-repeat left 13px;}
+#right .gg dl.gleft li.new_a{clear: both;BORDER-TOP: #c8d9e9 1px solid;MARGIN-TOP: 4px;FONT-WEIGHT: normal;BACKGROUND: none transparent scroll repeat 0% 0%;WIDTH: 98%;COLOR: #003d74;LINE-HEIGHT: 18px;padding:10px 0 5px 8px;display:block;background:none;}
+#right .gg dl.gleft li.new_a a.a1{color:#C36A00;}
+#right .gg dl.gleft li.new_a a.a1:hover{color:#900;}
+
+/** 20080924 **/
+#header{overflow:hidden;}
+#header #top{height:25px;overflow:hidden;margin-right:-1px;}
+#header #top ul{list-style-type:none;}
+#header #top ul li{float:right;background:url(http://image.dhgate.com/2008/web20/seller/img/se_line.gif) no-repeat right center;display:block;}
+#header #top ul li a{display:block;margin:0;padding:0 8px;}
+#header #top ul li a.new{background:url(http://image.dhgate.com/images/cnhome/new_icon.gif) no-repeat 45px 0;padding-right:32px;}
+
+/** 20081210 **/
+table td.arrow_a{background:#ECF6FF url(http://image.dhgate.com/2008/web20/seller/img/arrow.gif) no-repeat 96% 2px;cursor:pointer;}
+table td.arrow_b{background:#ECF6FF url(http://image.dhgate.com/2008/web20/seller/img/arrow.gif) no-repeat 96% -20px;cursor:pointer;}
+table td.arrow_c{background:#ECF6FF url(http://image.dhgate.com/2008/web20/seller/img/arrow.gif) no-repeat 96% -40px;cursor:pointer;}
+#right #cpcc dt.addmember input{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_335.gif) no-repeat 0 0;width:78px;height:22px;border:0;cursor:pointer;font-size:12px;}
+
+/* 20081213 ChenTao */
+#right #tbt li.jt{background:none;width:20px;color:#b6d8f7;font-weight:100}
+#right .nop{background-color:#efe481;font-weight:700;text-align:center}
+#right .nop a{color:#c36a00;font-weight:100;margin-left:10px}
+#right .nop a:hover{color:#900;text-decoration:none}
+#right .bs{text-align:right;padding:5px 10px 10px 5px}
+#right .bs input{font-size:14px;padding:0 10px}
+#right .bs input.next{font-weight:700}
+
+/* 20081216 GuoHua */
+#right #xtt a{color:#F48500;}
+#right #xtt a:hover{text-decoration:none;}
+#right #xtt span{color:#F48500;}
+#right #zs b{color:#f00;}
+#right #zs a{color:#000;}
+#right #zs a:hover{text-decoration:none;}
+#right .se u a{color:#f48500;padding-left:15px;}
+#right .se u a:hover{text-decoration:none;}
+#right .se span.rig{float:right;overflow:hidden;}
+.bbot{margin-bottom:10px;}
+div.why{padding:5px 20px;position:relative;text-align:left;}
+div.why ul{list-style:none;}
+div.why li{vertical-align:middle;}
+div.why li*{vertical-align:middle;}
+div.why span{margin-right:8px;}
+div.why span.newitem{padding-right:25px;background:url("http://image.dhgate.com/b/ewallet/img/newicon.gif") no-repeat right center;}
+div.why .why_text{padding-left:20px;position:absolute;top:8px;right:15px;}
+div.why .why_bg{background:url(http://image.dhgate.com/2008/web20/seller/img/icon_01.gif) no-repeat;}
+div.why .why_text a{color:#f48500;}
+
+/* 弹出框样式 */
+div.tc .red{color:#FF0000;}
+div.tc .ri{text-align:right;}
+div.tc{width:557px;color:#004889;margin:auto;}
+div.tc .tc_top{height:31px;background:url(http://image.dhgate.com/2008/web20/seller/img/tc_01.gif);font:bold 14px/31px "宋体";color:#fff;padding:0 15px;overflow:hidden;}
+div.tc .tc_top span{float:left;}
+div.tc .tc_top a{float:right;}
+div.tc .tc_bottom{height:9px;background:url(http://image.dhgate.com/2008/web20/seller/img/tc_03.gif);overflow:hidden;clear:both;}
+div.tc .tc_text{background:url(http://image.dhgate.com/2008/web20/seller/img/tc_04.gif) repeat-y;padding:8px 20px;}
+#editid table td{padding:2px 0;}
+div.tc table span{margin:0 2px;float:left;color:#7c7d7d;}
+div.tc table .anbg{display:block;float:left;background:url(http://image.dhgate.com/2008/web20/seller/img/icon_02.gif) no-repeat;padding-left:20px;color:#F00;}
+div.tc table .onSuccess{margin:0 2px;padding:2px 0 2px 20px;height:20px;line-height:20px;color:#7c7d7d;background:url(http://image.dhgate.com/2008/web20/seller/img/d.gif) no-repeat left center;}
+div.tc table .onError{margin:0 2px;padding:2px 0 2px 20px;height:20px;line-height:20px;color:#f00;background:url(http://image.dhgate.com/2008/web20/seller/img/icon_02.gif) no-repeat left center;}
+div.tc table .onFocus{margin:0 2px;padding:2px 0 2px 20px;height:20px;line-height:20px;color:#666;background:url(http://image.dhgate.com/2008/web20/seller/img/onfocus.gif) no-repeat left center;}
+div.tc table input,div.tc table select{float:left;}
+div.tc table input.win1{width:120px;}
+div.tc table input.win2{width:90px;}
+div.tc table input.win3{width:300px;}
+div.tc div.an_but{text-align:center;padding:10px;}
+div.tc div.an_but span{background:url(http://image.dhgate.com/2008/web20/seller/img/tc_but.gif);line-height:22px;border:0;}
+div.tc div.an_but input{background:url(http://image.dhgate.com/2008/web20/seller/img/tc_but.gif);width:72px;height:22px;line-height:22px;border:0;padding:0 5px;cursor:pointer;}
+div.tc p*{vertical-align:middle;}
+div.tc p span{color:#7c7d7d;}
+div.tc p span.nei{padding-left:20px;}
+div.tc #xtt{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_02.gif) no-repeat 80px 50px;font-size:14px;padding:50px 50px 50px 110px;color:#000;}
+div.tc #xtt2{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_09.gif) no-repeat 100px 50px;font-size:14px;padding:50px 50px 50px 130px;color:#f48500;font-weight:bold;}
+div.tc #xtt2 p{font-size:12px;font-weight:100;color:#7c7d7d;}
+div.tc #xtt3{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_09.gif) no-repeat 100px 50px;padding:50px 50px 50px 130px;font-size:12px;font-weight:100;color:#7c7d7d;}
+div.tc #xtt4{font-size:14px;color:#000;}
+div.tc #xtt4 textarea{width:300px;height:100px;}
+div.tc #xtt4 p{font-size:12px;font-weight:100;color:#7c7d7d;}
+.onSuccess{margin:0 2px;padding:2px 0 2px 20px;height:20px;line-height:20px;color:#7c7d7d;background:url(http://image.dhgate.com/2008/web20/seller/img/d.gif) no-repeat left center;}
+.onError{margin:0 2px;padding:2px 0 2px 20px;height:20px;line-height:20px;color:#f00;background:url(http://image.dhgate.com/2008/web20/seller/img/icon_02.gif) no-repeat left center;}
+.onFocus{margin:0 2px;padding:2px 0 2px 20px;height:20px;line-height:20px;color:#666;background:url(http://image.dhgate.com/2008/web20/seller/img/onfocus.gif) no-repeat left center;}
+
+
+
+
+/* 20081216 XiaoNing*/
+#right td div.why .why_text a{color:#f48500;}
+#right table tr td ul.icoli span.red,#right table tr td ul.cinfo span.red{color:red;font-weight:700;width:8px;}
+#right table tr td span.black{color:#444;}
+#right table tr td span.red{color:#f00;}
+#right table tr td span.notice{background:transparent url(http://image.dhgate.com/2008/web20/factory/img/wrong.gif) no-repeat 5px 50%;color:#FF0000;padding-left:25px;}
+#right table tr td span.color{color:#900;}
+#right table tr td span.color1{color:#65A401;}
+#right td ul.icoli li *{vertical-align:middle;}
+#right td ul.icoli li{padding-left:6px;line-height:26px;overflow:hidden;clear:both;}
+#right td ul.icoli li.star{padding-left:0;}
+#right td ul.cinfo li{clear:both;overflow:hidden;line-height:26px;}
+#right td ul.cinfo li *{vertical-align:middle;}
+#right td ul.cinfo li span.cinfo_le{display:block;float:left;width:64px;color:#444;}
+#right td ul.cinfo li span,#right td ul.cinfo li input,#right td ul.cinfo li select{float:left;}
+#right .bs input.next_b{margin-right:3px;}
+#right #success{padding:60px 130px;}
+#right #success a{color:#444;}
+#right #success b{background:url(http://image.dhgate.com/2008/web20/seller/img/tc_right.gif) no-repeat 0 0;padding-left:30px;display:block;font-size:14px;line-height:30px;}
+#right #success p{text-indent:2em;}
+#right #success p.but{margin-left:80px;}
+#right #success p.but input{margin:10px 10px 0 0;font-weight:700;font-size:14px;padding:0 10px;}
+#right td.addre{display:block;background:#ECF6FF  url(http://image.dhgate.com/2008/web20/seller/img/right_b.gif) no-repeat 3px 4px;}
+#right input.adddz{background:url(http://image.dhgate.com/2008/web20/seller/img/address.gif) no-repeat 0 0;border:0;color:#fff;cursor:pointer;height:22px;padding-left:11px;width:93px;}
+#right #xtt input.adddz{margin:20px 0 0 70px;}
+#right .nop{margin-bottom:1px;}
+#right a.cor{background:url(http://image.dhgate.com/2008/web20/seller/img/tc_right_b.gif) no-repeat 0 -2px;padding-left:24px;}
+#right table.queren{border:1px solid #ccc;}
+#right table.queren td.bbgg{border-right:1px solid #ccc;}
+
+/* 20081216 ChenChuan*/
+#fhxq{width:675px;margin:0 auto;color:#003D74;}
+#fhxq table tr td a{color:#003D74;}
+#fhxq table tr td a:hover{color:#900;}
+#fhxq table tr th{text-align:right;padding-right:5px;}
+#fhxq table tr td{padding-left:5px;background:#FFF;}
+#fhxq table tr.tr1 td,#fhxq table tr.tr1 th{background:#ECF6FF;}
+#fhxq table tr td.title{height:28px;font:bold 12px/28px "宋体";padding-left:10px;color:#fff;background:url(http://image.dhgate.com/2008/web20/seller/img/fhxq_bg1.gif) repeat-x;}
+#fhxq table tr td span{color:#444;}
+#fhxq table tr td input{width:93px;height:22px;line-height:22px;color:#000;font-weight:700;}
+div.hyinfo_table{color:#003D74;}
+div.hyinfo_table a{color:#003D74;}
+div.hyinfo_table a:hover{color:#900;}
+div.hyinfo_table table{clear:both;}
+div.hyinfo_table table tr td{padding-left:8px;background:#fff;}
+div.hyinfo_table table tr.bg td{background:#ECF6FF;}
+div.hyinfo_table table tr td span{color:#888;}
+div.hyinfo_table table tr td b{color:#f00;font-weight:normal;}
+div.hyinfo_table table tr td input,div.hyinfo_table table tr td select,div.hyinfo_table table tr td textarea{font-size:12px;vertical-align:middle;}
+div.hyinfo_table table tr td input.a{width:63px;}
+div.hyinfo_table table tr td input.b{width:154px;padding:1px 0;}
+div.hyinfo_table table tr td select{width:120px;}
+div.hyinfo_table table tr td textarea{width:379px;height:83px;}
+div.hyinfo_table h3{height:27px;line-height:27px;background:url(http://image.dhgate.com/2008/web20/seller/img/fhxq_bg2.gif) repeat-x;font-size:12px;padding-left:8px;margin-top:5px;}
+div.hyinfo_table h1{float:left;}
+div.hyinfo_table u{float:right;}
+
+/* 20081220 ChenChuan */
+#content #right table.dingdan tr td{text-align:right;height:33px;line-height:33px;}
+#content #right table.dingdan tr td select{vertical-align:middle;width:120px;}
+#content #right table.dingdan_list{border:solid 1px #C8D9E9;border-width:1px 0 0 1px;}
+#content #right table.dingdan_list tr th,#content #right table.dingdan_list tr td{border:solid 1px #C8D9E9;border-width:0 1px 1px 0;}
+#content #right table.dingdan_list tr th{font-weight:normal;background:#ECF6FF;}
+#content #right table.dingdan_list tr td span{color:#999;}
+#content #right table.dingdan_list tr td span img{vertical-align:middle;}
+#content #right table.dingdan_list tr td span.span1{color:#C36A00;}
+#content #right table.dingdan_list tr td span.span2{color:#090;}
+#content #right table.dingdan_list tr td a.dingdan_but{display:block;width:58px;height:22px;line-height:22px;color:#fff;background:url(http://image.dhgate.com/2008/web20/seller/img/dingdan_but.gif) no-repeat;margin:0 auto;text-decoration:none;}
+#content #right table.dingdan_list tr td a.dingdan_but:hover{color:#900;}
+
+#dd_tbt{list-style-type:none;padding:7px 0 0 6px;clear:both;overflow:hidden;height:100%;background:url(http://image.dhgate.com/2008/web20/seller/newimages/page_bg.gif) repeat-x 0 -418px}	
+#dd_tbt li{float:left;height:25px;margin-right:1px;}
+#dd_tbt li a{float:left;overflow:hidden;height:21px;line-height:23px;font-weight:700;padding-left:9px;background:url(http://image.dhgate.com/2008/web20/seller/img/cc_dingdan_tbt1.gif) no-repeat left top;color:#27537A;text-decoration:none;}
+#dd_tbt li a:hover{text-decoration:underline;}
+#dd_tbt li a span{float:left;line-height:23px;padding-right:9px;background:url(http://image.dhgate.com/2008/web20/seller/img/cc_dingdan_tbt1.gif) no-repeat right -21px;}
+#dd_tbt li.dd_btb_li a{background:url(http://image.dhgate.com/2008/web20/seller/img/cc_dingdan_tbt.gif) no-repeat left top;}
+#dd_tbt li.dd_btb_li a span{background:url(http://image.dhgate.com/2008/web20/seller/img/cc_dingdan_tbt.gif) no-repeat right -21px;}
+
+/* 20081222 lgh*/
+#right .Orders{width:391px;float:left;margin-right:3px;margin-bottom:9px;color:#003D74;}
+#right .Orders .bt{height:29px;background:url(http://image.dhgate.com/2008/web20/seller/img/orders_bg.jpg);border:solid 1px #C8D9E9;line-height:29px;font-weight:700;padding-left:9px;}
+#right .Orders .Orders_box1{border:solid 1px #C8D9E9;padding:9px;height:155px;overflow:hidden;}
+#right .Orders .Orders_box2{border:solid 1px #E4DB92;background-color:#FEFAD5;padding:9px;height:155px;overflow:hidden;}
+#right .Orders .Orders_box3{border:solid 1px #C8D9E9;background-color:#ECF6FF;padding:9px;height:100px;overflow:hidden;}
+#right .Orders .Or_img{width:50px;float:left;}
+#right .Orders .Orders_box1 dl,#right .Orders .Orders_box2 dl{float:left;width:300px;padding-left:10px;list-style:none;}
+#right .Orders .Orders_box1 dt,#right .Orders .Orders_box2 dt{height:26px;line-height:normal;padding:0;color:#003D74;background:none;overflow:hidden;}
+#right .Orders .Orders_box1 dd,#right .Orders .Orders_box2 dd{border:none;padding:0;margin:0;line-height:22px;}
+#right .Orders .Orders_box1 dd b,#right .Orders .Orders_box2 dd b{color:#C36A00;}
+#right .Orders .Orders_box2 dd textarea{width:220px;height:30px;float:left;padding:2px;color:#999;font-size:12px;}
+#right .Orders .Orders_box2 dd span{width:60px;float:left;}
+#right .Orders .Orders_box2 dd a{color:#C36A00;}
+#right .Orders .Orders_box2 dd input{float:right;margin-top:-20px;}
+#right .Orders .Orders_box2 p{text-align:center;padding:40px 0 20px 0;}
+#right .Orders .Orders_box2 p.p1{padding:0;}
+#right .Orders .Orders_box3 p{line-height:20px;}
+#right .Orders .Orders_box3 p strong{font-family:Arial, Helvetica, sans-serif;}
+#right .Orders .Orders_box3 p b{color:#C36A00;font-family:Arial, Helvetica, sans-serif;}
+#right .Orders .Orders_box3 p a{color:#C36A00;padding-left:10px;}
+#right .bbs{text-align:center;padding:40px 0 10px 0}
+#right .zs_or{border:solid 1px #e4db92;background:#fefad5 url(http://image.dhgate.com/2008/web20/seller/img/zs_orbg.gif) no-repeat 8px 7px;overflow:hidden;height:30px;padding:3px 3px 3px 35px;font-size:16px;font-weight:bold;color:#C36A00;line-height:30px;}
+#right .zs_or*{vertical-align:middle;}
+#right .zs_or.orbg{background:#fefad5 url(http://image.dhgate.com/2008/web20/seller/img/zs_orbg2.gif) no-repeat 8px 7px;}
+#right #xzcp{background:url(http://image.dhgate.com/2008/web20/seller/newimages/page_bg.gif) repeat-x 0 -418px;overflow:hidden;padding-left:10px;color:#fff;font-weight:bold;margin-bottom:2px;}
+div.an{text-align:right;padding:8px 0;}
+div.an .but{width:73px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/store/but.gif);text-align:center;color:#fff;font-weight:700;border:0;line-height:22px;}
+div.an .buut{width:73px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/store/but2.gif);text-align:center;border:0;line-height:22px;}
+
+/*20081225*/
+#header #nav{background:url(http://image.dhgate.com/2008/web20/seller/img/promotion/promotion_nav_bg.gif) no-repeat 0 0;}
+#nav a{margin:0;}
+#header #top ul li.none{display:block;_padding-top:5px;background:url(http://image.dhgate.com/2008/web20/seller/img/se_line.gif) no-repeat right 7px;}
+#header #top ul li strong{color:#c00;}
+#header #top ul li.none ol{list-style:none;display:none;}
+#header #top ul li.none ol.aac{display:block;position:absolute;background:#fff;border:1px #ccc solid;border-width:1px 0;width:140px}
+#header #top ul li.none ol.aac li{height:25px;border:1px #ccc solid;border-width:0 1px;margin:0;padding:0;float:none;width:138px;background:none;text-align:left;overflow:hidden}
+#header #top ul li.none ol.aac li a{background:none;border-right:0;height:25px;line-height:25px;overflow:hidden;color:#555;background:url(http://image.dhgate.com/2008/web20/seller/img/im_04.gif) no-repeat 5px 5px;padding-left:25px;}
+#header #top ul li.none ol.aac li a:hover{background:#EAEAEA url(http://image.dhgate.com/2008/web20/seller/img/im_04.gif) no-repeat 5px 5px;}
+#right #zs_new{border:solid 1px #e4db92;padding:5px 7px;background-color:#fefad5;overflow:hidden;line-height:16px;}
+#right #zs_new span{display:block;background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_11.gif) no-repeat 0 2px;background-color:#fefad5;padding-left:18px;float:left;width:500px;}
+#right #zs_new a{float:right;color:#003D74}
+#right table td span{color:#ABABAB;}
+/*20081229*/
+#right .gg dl.ports{margin-bottom:10px;clear:both;padding-top:8px;}
+#right .gg dl.ports dt{background:url(http://image.dhgate.com/2008/web20/seller/img/ports_bg.gif) repeat-x 0 0;height:28px;color:#2f2f2f;font-weight:100;border:1px solid #FFC91E;border-bottom:0;}
+#right .gg dl.ports dt a{color:#FF5001;font-weight:100;text-decoration:underline;}
+#right .gg dl.ports dt a:hover{color:#900;}
+#right .gg dl.ports dd{overflow:hidden;height:100%;padding:0;border:solid 1px #FFC91E;}
+#right .gg dl.ports dd img{display:block;margin-bottom:10px;width:170px;height:127px;}
+#right .gg dl.ports dd p a{color:#2f2f2f;text-decoration:none;display:block;background:url(http://image.dhgate.com/2008/web20/seller/img/ports_ico.gif) no-repeat 1px 7px;padding-left:8px;height:20px;line-height:20px;overflow:hidden;}
+#right .gg dl.ports dd p a:hover{text-decoration:underline;}
+#right .gg dl.ports dd .box{width:170px;float:left;padding:15px 13px 10px;display:inline;}
+
+#right .gg dl dt{position:relative;}
+#right .gg dl dt span{position:absolute;margin-top:1px;right:10px;float:none;*margin-top:-5px;}
+
+/*20081230 ChenChuan*/
+#content #right table.ddpj{border-collapse:separate;background:#C8D9E9;}
+#content #right table.ddpj tr td{padding:5px 0 0 5px;line-height:18px;background:#fff;}
+#content #right table.ddpj tr td.td1{background:#ECF6FF;}
+#content #right table.ddpj tr td strong{color:#f00;font-size:14px;font-family:Arial, Helvetica, sans-serif;}
+#content #right table.ddpj tr td span strong{font-size:12px;color:#8E8E8E;}
+#content #right table.ddpj tr td b{font-weight:normal;color:#f00;}
+#content #right table.ddpj tr td.textarea{width:380px;height:84px;}
+#content #right table.ddpj tr td input{vertical-align:middle;}
+#content #right table.ddpj tr td input.a{width:72px;height:22px;text-align:center;}
+#content #right table.ddpj tr td label{color:#000;font-size:12px;margin:0 5px 0 2px;}
+#content #right table.ddpj tr td a.a1,#content #right table.ddpj tr th a.a1{font-weight:normal;color:#C36A00;}
+#content #right table.ddpj tr td a.a1:hover,#content #right table.ddpj tr th a.a1:hover{color:#900;}
+#content #right table.ddpj tr th{background:url(http://image.dhgate.com/2008/web20/seller/img/feedback/ddpj_bg1.gif) repeat-x;text-align:left;padding-left:15px;}
+#content #right table.ddpj tr th div.time{float:right;margin-top:-29px;line-height:29px;padding-right:5px;font-weight:normal;}
+
+/*20081230xiaoning*/
+#right #credit_l{float:left;width:575px;}
+#right #credit_r{float:right;width:206px;}
+#right #credit_l table{margin-bottom:5px;}
+#right #credit_l table td{height:18px;}
+#right #credit_l table td.credit_h{border-bottom:1px #c8d9e9 solid;;background:url(http://image.dhgate.com/2008/web20/seller/img/feedback/credit_bg_h.gif) repeat-x 0 0;font-weight:700;padding:0 0 0 10px;height:26px;text-align:left;line-height:26px;}
+#right #credit_l table td.credit_h span{font-weight:100;color:#003D74;}
+#right .cleartop{clear:both;margin-top:20px;}
+#right #credit_r table{border-bottom:1px solid #C8D9E9;}
+#right #credit_r table td{border-left:1px solid #C8D9E9;border-right:1px solid #C8D9E9;text-align:left;height:18px;padding:2px 5px;}
+#right #credit_r td.seller_title{background:url(http://image.dhgate.com/2008/web20/seller/img/feedback/credit_bg_seller0.gif) repeat-x 0 0;font-weight:700;padding:0 0 0 10px;color:#fff;height:28px;line-height:28px;border-color:#004B91;border-bottom:0;}
+#right #credit_r td b{color:#65A401;}
+#right #credit_r td span a{color:#ABABAB;}
+#right #credit_r td span a:hover{color:#900;}
+#right #credit_r ul{list-style:none;line-height:23px;padding:12px 0;border-top:1px solid #C8D9E9;}
+*+html #right #credit_r ul{padding:9px 0;}
+#right #credit_r td.bordernone{border-bottom:0;}
+#right .pingjia span.reds{color:#f00;}
+#right .pingjia td.date_a{background:#ECF6FF url(http://image.dhgate.com/2008/web20/seller/img/arrow.gif) no-repeat  90% -40px;cursor:pointer;}
+#right .pingjia td.date_b{background:#ECF6FF url(http://image.dhgate.com/2008/web20/seller/img/arrow.gif) no-repeat  90% -20px;cursor:pointer;}
+#right .pingjia td.date_c{background:#ECF6FF url(http://image.dhgate.com/2008/web20/seller/img/arrow.gif) no-repeat  90% 2px;cursor:pointer;}
+#right #credit_l table td.stars a{position:relative;display:block;}
+#right #credit_l table td.stars a span{display:none;position:absolute;right:0;top:0;}
+#right #credit_l table td.stars a:hover{background:#fff;}
+#right #credit_l table td.stars a:hover span{display:block;background:url(http://image.dhgate.com/2008/web20/seller/img/feedback/credit_num.gif) no-repeat 0 0;width:37px;height:16px;padding-left:4px;color:#444;}
+div.tc .tc_credit{background:url(http://image.dhgate.com/2008/web20/seller/img/tc_04.gif) repeat-y;padding:8px 20px;}
+div.tc .tc_credit p{text-indent:2em;line-height:18px;margin-bottom:16px;text-align:justify;text-justify:newspaper;}
+div.tc .tc_credit h5{font-size:12px;}
+div.tc .tc_credit ul{list-style:none;margin-left:40px;}
+div.tc .tc_credit li img{margin-right:5px;}
+div.tc .tc_credit li span{margin-right:36px;}
+div.tc .tc_credit li.sec span{margin-right:30px;}
+
+#right #credit_l table td.stars div{background:url(http://image.dhgate.com/2008/web20/seller/img/feedback/jdt_002.gif) no-repeat 0 0;width:119px;height:7px;text-align:left;margin:auto;cursor:pointer;}
+#right #credit_l table td.stars div b{display:block;background:url(http://image.dhgate.com/2008/web20/seller/img/feedback/jdt_001.gif) no-repeat 0 0;height:7px;overflow:hidden;}
+
+#right .Orders .Orders_box2 input.in1{width:121px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/orders_but.jpg);cursor:pointer;border:0;}
+#right .Orders .Orders_box2 input.in2{width:86px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/orders_but6.jpg);cursor:pointer;border:0;}
+#right div.bbs input.in3{width:121px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/orders_but2.jpg);cursor:pointer;border:0;}
+#content #right table.grey,#content #right .grey, #content #right table.grey tr td.grey label,#content #right table.grey tr td b{color:#bababa;}
+#content #right table.ddpj tr th a.bb{margin-right:10px;}
+#right #credit_r td b.vip{color:#f00;font-size:13px;margin-left:2px;font-family:Verdana, Arial, Helvetica, sans-serif}
+#right table.cleartop td.feebackbiaoqiang{font-weight:700;}
+
+
+/*20090107*/
+#right .gg dl.ports_b{clear:both;padding-top:8px;}
+#right .gg dl.ports_b dt{background:url(http://image.dhgate.com/2008/web20/seller/img/ports_bg.gif) repeat-x 0 0;height:28px;color:#2f2f2f;font-weight:100;border:1px solid #C8D9E9;border-bottom:0;}
+#right .gg dl.ports_b dt a{color:#2f2f2f;font-weight:100;text-decoration:underline;}
+#right .gg dl.ports_b dd{overflow:hidden;height:100%;padding:0;}
+#right .gg dl.ports_b dd img{display:block;margin-bottom:10px;width:170px;height:127px;}
+#right .gg dl.ports_b dd p a{color:#2f2f2f;text-decoration:none;display:block;background:url(http://image.dhgate.com/2008/web20/seller/img/ports_ico.gif) no-repeat 1px 7px;padding-left:8px;height:20px;line-height:20px;overflow:hidden;}
+#right .gg dl.ports_b dd p a:hover{text-decoration:underline;}
+#right .gg dl.ports_b dd .box{width:170px;float:left;padding:15px 13px 10px;display:inline;}
+.homeban_b{margin-bottom:10px;}
+.homeban_b ul li{float:left;margin-right:7px;padding:1px;border:solid 1px #D5D5D5;}
+.homeban_b ul li.last{margin:0;}
+.homeban_b ul li a img{display:block;}
+
+#right .Orders .Orders_box2 input.in1{width:121px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/orders_but.jpg);cursor:pointer;border:0;}
+#right .Orders .Orders_box2 input.in2{width:86px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/orders_but6.jpg);cursor:pointer;border:0;}
+#right div.bbs input.in3{width:121px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/orders_but2.jpg);cursor:pointer;border:0;}
+#right .zs_or.orbg input.in4{width:86px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/orders_but7.jpg);cursor:pointer;border:0;}
+#right input.in5{width:46px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_28.gif) no-repeat 0 0;cursor:pointer;border:0;}
+#right td input.ainput ,#right td a.ainput,#right td a.bbinput,#right td input.bbinput{background:url(http://image.dhgate.com/2008/web20/seller/img/but.gif);color:#fff;width:73px;height:22px;line-height:22px;text-align:center;text-decoration:none;border:0;cursor:pointer;}
+#right td a.ainput,#right td a.bbinput{display:block;float:left;margin-right:8px}
+#right td a.bbinput,#right td input.bbinput{background:url(http://image.dhgate.com/2008/web20/seller/img/butbb.gif);width:100px;}
+
+/*20090203*/
+#right .youj{margin:8px 0;border:solid 1px #C8D9E9;}
+
+/*********20090209lgh******************/
+.bluekuang{border: 1px solid #C8D9E9;}
+.red{color: #990000;text-decoration:none;}
+.orange{color: #FF7700;}
+.orange_bg{color: #FF7700;padding-left:53px;height:30px;background:url(http://image.dhgate.com/2008/web20/seller/img/party/or.gif) no-repeat 32px -3px ;}
+.bigorange{color: #FF7700;font-size:14px;padding-left:25px;font-weight:bold;}
+.bigblue{color: #003D74;font-size:14px;padding-left:25px;font-weight:bold;}
+.blue{color: #003D74;}
+.dblue{color:#0000FF;text-decoration: none;}
+.dblue a{color:#990000;text-decoration: none;}
+.dblue a:hover{color:#990000;text-decoration: none;}
+.orangekuang{border: 1px solid #E1D788;}
+.baifont{color: #fff;}
+.tongyong{border: 1px solid #333333;}
+.biaokuang{border-top-width: 1px;border-left-width: 1px;border-top-style: solid;border-left-style: solid;border-top-color: #C2D5E6;border-left-color: #C2D5E6;}
+.biaokuang2{border-right-width: 1px;border-bottom-width: 1px;border-right-style: solid;border-bottom-style: solid;border-right-color: #C2D5E6;border-bottom-color: #C2D5E6;}
+.heise{font-size:12px;line-height:22px;text-decoration: none;color:#000000;}
+.baisefont{font-size:12px;line-height:22px;text-decoration: none;color:#fff;}
+.juse{font-size: 12px;line-height: 24px;color: #C36A00;text-decoration: underline;}
+.juse a{font-size: 12px;line-height: 24px;color: #C36A00;text-decoration: underline;}
+.juse a:hover{font-size: 12px;line-height: 24px;color: #990000;text-decoration: none;}
+.tab_input,.tab_input2{height:22px;line-height:22px;text-align:center;cursor:pointer;border:0;}
+.tab_input{width:62px;background:url(http://image.dhgate.com/2008/web20/seller/img/party/bg.jpg) no-repeat;display:block;}
+.tab_input2{width:85px;background:url(http://image.dhgate.com/2008/web20/seller/img/party/bg2.jpg) no-repeat;color:#fff;}
+
+/*********20090216xiaoning******************/
+#right .title_b{background:#ecf6fe;line-height:28px;font-weight:700;height:27px;line-height:27px;padding-left:8px;color:#003D74;margin:10px 0;}
+#right .sms{margin:6px 0 6px 48px;}
+#right .sms *{vertical-align:middle;}
+#right .sms input{margin:0 2px;}
+#right .sms input.first,#right .bs  input.first{width:121px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/sms_but.gif);cursor:pointer;border:0;color:#fff;font-size:12px;}
+#right .sms input.sec{background: url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_335.gif) no-repeat 0 0;cursor:pointer;border:0;height:22px;line-height:22px;width:78px;height:22px;}
+#content #right .sms input.grey{color:#999;}
+#right #zs .notice{background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store2_12.gif) no-repeat 0 50%;}
+#right .smswrong{border:solid 1px #e4db92;padding:2px 7px;background-color:#fefad5;overflow:hidden;}
+#right .smswrong span{background:url(http://image.dhgate.com/2008/web20/factory/img/wrong.gif) no-repeat 0 0;padding-left:30px;font-size:14px;font-weight:700;color:#c36a00;}
+#right table caption.cap{margin-top:10px;text-align:left;}
+#right input.smsbu{background: url(http://image.dhgate.com/2008/web20/seller/img/sms_but2.gif) no-repeat 0 0;cursor:pointer;border:0;height:22px;line-height:22px;width:121px;height:22px;margin:0 4px;}
+#right .sms a{color:#333;}
+#right .sms a:hover{color:#900;}
+
+/*********20090302chenchuan******************/
+.common_tab{position:relative;clear:both;overflow:hidden;height:27px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg1.gif) repeat-x;}
+.common_tab ul{padding:4px 0 0 5px;list-style-type:none;}
+.common_tab ul li{float:left;margin-left:1px;}
+.common_tab ul li a{color:#2f2f2f;text-decoration:none;}
+.common_tab ul li a,.common_tab ul li span{overflow:hidden;float:left;height:23px;line-height:25px;color:#27537A;cursor:pointer;}
+.common_tab ul li a{padding-left:12px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg5.gif) left top;}
+.common_tab ul li span{padding-right:12px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg5.gif) right top;}
+.common_tab ul li.common_tab_current{margin-top:-2px;}
+.common_tab ul li.common_tab_current a,.common_tab li.common_tab_current span{height:25px;line-height:29px;}
+.common_tab ul li.common_tab_current a{background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg4.gif) left top;}
+.common_tab ul li.common_tab_current span{background:url(http://image.dhgate.com/2008/web20/seller/newimages/tab/common_bg4.gif) right top;}
+.tab_help{position:absolute;right:0;top:0;padding:0 6px 0 15px;height:29px;line-height:29px;color:#2f2f2f;text-decoration:none;background:url(http://image.dhgate.com/2008/web20/seller/img/seller-bicon.gif) no-repeat 0 8px;}
+#right .virtual_currencies{padding:15px;border:solid 1px #C8D9E9;border-top:0;}
+#right .virtual_currencies table{border:solid 1px #C8D9E9;border-width:1px 1px 0 0;}
+#right .virtual_currencies table tr th{background:#ECF6FF;}
+#right .virtual_currencies table tr td a{color:#003D74;text-decoration:underline;}
+#right .virtual_currencies table tr td a:hover{color:#900;text-decoration:none;}
+#right .virtual_currencies table tr th,#right .virtual_currencies table tr td{padding:0;height:20px;line-height:20px;font-weight:normal;border:solid 1px #C8D9E9;border-width:0 0 1px 1px;}
+#right .virtual_currencies table tr th.lt,#right .virtual_currencies table tr td.lt{padding-left:5px;text-align:left;}
+
+/****20090304******/
+div.non{display:none}
+div.blo{display:block}
+div#tcys,
+div#tcys_1,div#tcys_2,div#tcys_3,div#tcys_4,div#tcys_5,div#tcys_6,div#tcys_7,div#tcys_8,
+div#tcys_9{position:absolute;text-align:left;width:273px;background:url(http://image.dhgate.com/2008/web20/seller/img/tc_bg.gif) left top;}
+div#tcys{margin-left:540px;}
+div#tcys_1{margin-left:580px;}
+div#tcys_2{margin-left:230px;}
+div#tcys_3{margin-left:180px;}
+div#tcys_4{margin-left:540px;}
+div#tcys_5{margin-left:50px;}
+div#tcys_6{margin-left:50px;}
+div#tcys_7{margin-left:100px;}
+div#tcys_8{margin-left:160px;}
+div#tcys_9{margin-left:365px;}
+div.tcys{background:url(http://image.dhgate.com/2008/web20/seller/img/tc_bg.gif) right bottom;padding:3px 8px;position:relative;}
+div.tcys .del_gb{position:absolute;right:10px;top:8px;width:10px;height:10px;background:url(http://image.dhgate.com/2008/web20/seller/img/del.gif);cursor:pointer;}
+div.tcys h4{color:#888;font:12px/18px "宋体";font-weight:100;padding-left:15px;}
+div.tcys p{line-height:20px;padding:3px 0;}
+div.tcys u{text-align:right;display:block;color:#F48500;}
+div.tcys u a{color:#F48500;}
+div.tcys u a:hover{color:#900;}
+#content dl#wenxin dt.rig p{padding:3px 0;font-size:13px;}
+#content dl#wenxin dt.rig p *{vertical-align:middle;}
+#content dl#wenxin dt.rig p input{margin-right:3px;}
+#con .rig{padding:0 0 5px 0;text-align:right;}
+#con .rig *{vertical-align:middle;}
+
+/*20090407cc*/
+.seller_dispute{position:relative;}
+.seller_dispute p{padding-left:15px;}
+.seller_dispute table tr td{border:solid 1px #ccc;}
+.seller_dispute_a{position:absolute;top:75px;right:0;}
+.dispute-con{overflow:hidden;clear:both;margin:10px 0;height:100%;}
+.disppute-left{float:left;width:538px;}
+.disppute-right{float:right;width:242px;}
+.disppute-right dl.a dt, .disppute-right dl.b dt{overflow:hidden;padding-left:13px;height:28px;line-height:30px;color:#805509;background:url(http://image.dhgate.com/2008/web20/seller/img/seller_dispute/dispute-title-bg.gif);}
+.disppute-right dl.a dd, .disppute-right dl.b dd{margin-bottom:10px;padding:8px 0;border:solid 1px #FFD199;border-width:0 1px 1px 1px;}
+.disppute-right dl.a dd ul li{padding:3px 0 3px 27px;line-height:18px;background:url(http://image.dhgate.com/2008/web20/seller/img/seller_dispute/dispute-icon-bg.gif) no-repeat 15px 10px;}
+.disppute-right dl.a dd ul li a{color:#444;text-decoration:none;}
+.disppute-right dl.a dd ul li a:hover{color:#900;text-decoration:underline;}
+.disppute-right dl.b dd{padding:8px 12px;}
+#right .disppute-left table td span.wap{overflow:hidden;display:block;height:18px;}
+#right .disppute-left table td span.icon{display:inline-block;padding-left:25px;color:#444;background:url(http://image.dhgate.com/images/useroffline.gif) no-repeat 5px 50%;}
+#right .disppute-left table td p.p1{background:none;overflow:hidden;padding:3px 0 3px 5px;height:100%;}
+#right .disppute-left table td p.p1 span{display:block;margin:5px 0;color:#444;}
+#right .disppute-left table td p.p2 span{margin:0 0 5px 0;}
+
+/*20090416XN*/
+#right label.sty1{width:170px;margin-right:5px;}
+#right .butsty1{display:block;float:left;width:73px;height:22px;background:url(http://image.dhgate.com/2008/web20/seller/img/store/but2.gif);text-align:center;border:0;line-height:22px;text-decoration:none;}
+#right .yanzheng *{float:left;display:bloc;margin-right:5px;}
+#right .cap1{text-align:left;}
+
+/*20090424XN*/
+
+#right .details,#right .details_open{color:#003D74;background:url(http://image.dhgate.com/2008/web20/seller/img/img_12.gif) no-repeat left 35%;padding-left:12px;text-align:left;font-weight:700;cursor:pointer;}
+#right .details_open{background:url(http://image.dhgate.com/2008/web20/seller/img/img_12_2.gif) no-repeat left 35%;}
+#right td.countory span{float:left;color:#003D74;}
+#right td.countory a{float:right;color:#f00;}
+#right #zs_new span.sty2{width:720px;float:none;}
+#right th.le{text-align:left;font-weight:700;padding:5px;}
+#right th.le span{color:#ABABAB;}
+
+/****chentao facrory zhu ce******/
+dl.jba,dl.jbb,dl.jbc{background:url(http://image.dhgate.com/2009/factory/register/img/jb_1.gif);width:739px;height:103px;margin:6px auto}
+dl.jbb{background:url(http://image.dhgate.com/2009/factory/register/img/jb_2.gif)}
+dl.jbc{background:url(http://image.dhgate.com/2009/factory/register/img/jb_3.gif)}
+#gmfw{border:1px #ccc solid;height:100%;overflow:hidden;padding:8px 20px;margin-top:10px}
+#gmfw dl dt{float:right;padding:30px 15px 0 0}
+#gmfw dl dd{float:left;padding:50px 0 0 19px;width:510px}
+#gmfw dl dd span{display:block}
+#gmfw dl dd span a{font-weight:700;color:#222}
+#gmfw dl dd span a:hover{color:#900;text-decoration:none}
+#gmfw .want{text-align:right;padding-right:10px}
+#gmfw .fuwu{font-size:16px;font-weight:700}
+#gmfw table.sear td{text-align:left}
+#gmfw table.sear td *{vertical-align:middle}
+#gmfw table.sear td input.sr{margin:0 3px;line-height:18px;height:18px;border:1px #ccc solid}
+#gmfw table.sear td input.seaa{line-height:19px}
+#gmfw table.sear td span{padding-left:20px;color:#000}
+#gmfw table.shuju{border:1px #ccc solid;border-bottom:0}
+#gmfw table.shuju td{border-bottom:1px #ccc solid}
+#gmfw table.shuju tr.btt td{background:#f1f1f1;font-weight:700}
+#gmfw table.shuju td a{color:#f70}
+#gmfw table.shuju td a:hover{color:#900}
+
+/*20090515XN messages */
+.messagesbtn{position:fixed;right:0;bottom:0;_position:absolute;height:161px;_top:expression(eval(document.compatMode &&
+        document.compatMode=='CSS1Compat') ?
+        documentElement.scrollTop
+        +(documentElement.clientHeight-this.clientHeight) - 1
+        : document.body.scrollTop
+        +(document.body.clientHeight-this.clientHeight) - 1);}
+.messagesbtn dl dt a{display:block;background:url(http://image.dhgate.com/2008/web20/seller/img/messages_btn.gif ) no-repeat 0 0;width:104px;height:31px;right:0;position:absolute;bottom:0;}
+.messagesbtn dl dd{background:url(http://image.dhgate.com/2008/web20/seller/img/messages_bg.gif) no-repeat 0 0;width:227px;height:95px;padding:15px 5px 17px 10px;visibility:hidden;margin-bottom:34px;}
+.messagesbtn dl dd ul{height:95px;overflow-y:auto;line-height:23px;}
+.messagesbtn dl dd a.close{display:block;background:url(http://image.dhgate.com/2008/web20/seller/img/messages_arrow.gif) no-repeat 0 0;width:13px;height:11px;right:5px;top:4px;position:absolute;}
+.messagesbtn dl dd.aaa{visibility:visible}
+.messagesbtn li.dels span.del2{display:inline;color:#f60;margin-left:10px;cursor:pointer;}
+.messagesbtn li span.del2{display:none;}
+
+#right table td span.icon_haiyun{background:#2f58a6;padding:2px 5px;color:#fff;}
+#right table td span.red1{color:#f00;}
+#right table td span.red2{color:#900;}
+.pic{border:1px solid #efefef;width:95px;height:95px;background:url(http://image.dhgate.com/2008/web20/seller/img/nopic.jpg) no-repeat 0 0;}
+/*20090616XN messages */
+.sound{position:absolute;top:1px;right:18px;cursor:pointer;}
+
+/*button*/
+button{overflow:visible;padding:0;margin:0;border:0;background:none;text-indent:inherit;vertical-align:middle;cursor:pointer;font-size:12px;}
+.btn_lt{background:url(http://image.dhgate.com/2008/web20/seller/img/syi/syi_button.gif) top left;}
+.btn_ri{background:url(http://image.dhgate.com/2008/web20/seller/img/syi/syi_button.gif) top right;}
+.h_btn_lt{background:url(http://image.dhgate.com/2008/web20/seller/img/syi/syi_h_button.gif) top left;}
+.h_btn_ri{background:url(http://image.dhgate.com/2008/web20/seller/img/syi/syi_h_button.gif) top right;}
+.btn_lt,.btn_ri{color:#fff;}
+.h_btn_lt,.h_btn_ri{color:#000;}
+.btn_lt,.btn_ri,.h_btn_lt,.h_btn_ri{display:block;white-space:nowrap;height:22px;line-height:22px;}
+.btn_lt,.h_btn_lt{padding-left:6px;}
+.btn_ri,.h_btn_ri{padding:0 20px 0 14px;}
+
+/*letter_stations*/
+.letter_warp{width:788px;margin:20px auto;}
+.letter_title{overflow:hidden;padding-left:17px;height:32px;font:bold 14px/34px "宋体";background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_bgg.gif) no-repeat;}
+.letter_title1{overflow:hidden;margin:3px 0 12px 0;padding-left:17px;height:29px;line-height:29px;border:solid 1px #F9F2CD;background:#FEFDEB;}
+.letter_title1 span{color:#C46300;}
+.letter_info p{line-height:25px;padding:0 17px;}
+.letter_info p a{color:#E73D00;}
+.letter_info p a:hover{color:#900;}
+.letter_info p strong{font-size:14px;}
+.letter_button{margin:10px 0;text-align:center;}
+.letter_button1{padding:0 0 8px 8px;}
+.letter_button1 input{width:107px;height:23px;border:0;}
+.letter_button1 .input1{background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_button1.gif);}
+.letter_button1 .input2{background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_button7.gif);}
+.letter_top,.letter_bottom{overflow:hidden;height:10px;background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_bg1.gif);}
+.letter_bottom{margin-bottom:12px;background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_bg2.gif);}
+.letter_con{overflow:hidden;height:100%;padding:0 10px;border:solid 1px #dbdbdb;border-width:0 1px;}
+.letter_template_title{overflow:hidden;padding-left:8px;line-height:24px;height:48px;font-family:Arial, Helvetica, sans-serif;background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_bg3.gif) repeat-x;}
+.letter_template_title_a{background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_bg11.gif) repeat-x;}
+.letter_template_title dd{float:left;color:#fff;}
+.letter_template_title dd strong{color:#E5FF00;}
+.letter_template_title_a dd strong{color:#E5FF00;}
+.letter_template_title dd a{font-size:11px;color:#fff;}
+.letter_template_title dt{float:right;margin:0 8px;padding-top:12px;}
+.letter_template_title dt a{color:#fff;}
+.letter_template_title1{margin:8px 0;height:43px;font:bold 26px/42px Arial, Helvetica, sans-serif;color:#FF3000;text-align:center;cursor:pointer;border:solid 1px #FFE2A3;background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_bg4.gif) repeat-x;}
+.letter_template_title1_active{padding-left:14px;color:#fff;text-align:left;border:solid 1px #DBDBDB;background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_bg12.gif) no-repeat;}
+.letter_pro{float:left;margin-bottom:12px;width:253px;}
+.letter_tag{list-style-type:none;}
+.letter_tag li{margin:0 6px;width:243px;height:36px;font:bold 16px/36px Arial, Helvetica, sans-serif;cursor:pointer;text-align:center;color:#5d5d5d;background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_bg5.gif);cursor:pointer;}
+.letter_tag li.current{background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_bg15.gif);color:#F48941;}
+.letter_tag li a{font-size:16px;color:#fff;text-decoration:none;font-weight:700;font-family:Arial, Helvetica, sans-serif;}
+.letter_tag li a.current{padding-right:24px;background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_bg7.gif) no-repeat right center;}
+.letter_box{overflow:hidden;margin:8px 6px 0 6px;width:241px;height:300px;border:solid 1px #ECECEC;}
+.letter_box .letter_add{margin:1px;padding-top:120px;height:178px;background:#F7F7F7;}
+.letter_box .letter_add a{display:block;margin:0 auto;width:145px;height:33px;background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_button5.gif);}
+.letter_box .letter_step_one,.letter_box .letter_step_two{margin:1px;padding-top:40px;background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_bg8.gif) repeat-x;}
+.letter_box .letter_step_one p{padding:5px 0 0 18px;}
+.letter_box .letter_step_one p input{padding:1px 0;font-family:Arial, Helvetica, sans-serif;}
+.letter_box .letter_step_one p a{color:#E73D00;}
+.letter_box .letter_step_one p a:hover{color:#900;}
+.letter_box .letter_step_two p{padding:0 20px;}
+.letter_box .letter_step_two p span{font-size:14px;color:#E73D00;}
+.letter_step_three{padding:0 20px;height:300px;}
+.letter_step_three ul{list-style-type:none;}
+.letter_step_three ul li{padding:3px 0;line-height:16px;text-align:left;font-family:Arial, Helvetica, sans-serif;font-size:14px;}
+.letter_step_three ul li.title{overflow:hidden;height:32px;width:191px;}
+.letter_step_three ul li.icon img{margin-right:8px;}
+.letter_step_three ul li.price{font-weight:700;color:#E73D00;}
+.letter_step_three ul li.cen{margin-top:5px;text-align:center;}
+.letter_step_three ul li.cen a{color:#000;}
+.letter_loading{margin:120px auto 0 auto;width:32px;height:32px;}
+.letter_message{margin:0 auto;padding:120px 0 0 60px;width:565px;height:101px;color:#3B3B3B;background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_bg9.gif);}
+.letter_message1{background:url(http://image.dhgate.com/2008/web20/seller/img/letter_stations/letter_bg10.gif);}
+.letter_big_title{position:absolute;z-index:2;display:none;padding:10px 15px;width:734px;height:380px;border:solid 1px #DBDBDB;border-top:0;background:#fff;}
+.letter_big_title select,.letter_big_title input{font-size:12px;font-family:Arial, Helvetica, sans-serif;}
+.letter_big_title ul li *{vertical-align:middle;}
+.letter_big_title ul li{padding:5px 0;height:20px;font:14px/20px Arial, Helvetica, sans-serif;list-style-type:none;}
+.letter_big_title ul li .red{color:#f00;}
+.letter_big_title ul li select.select1{width:120px;}
+.letter_big_title ul li select.select2{width:180px;}
+.letter_big_title ul li.button{text-align:center;padding-top:40px;}
+.letter_big_title ul li.button input{width:80px;padding:2px 0;}
+.letter_small_title{position:absolute;z-index:1;display:none;width:241px;border:solid 1px #AFAFAF;border-top-width:0;background:#fff;}
+.letter_small_title ul{padding:5px 0 15px 0;list-style-type:none;}
+.letter_small_title ul li a{display:block;padding-left:14px;height:23px;color:#444;text-decoration:none;font:14px/23px Arial, Helvetica, sans-serif;}
+.letter_small_title ul li a:hover{background:#f1f1f1;}
+
+/*20090623XN album */
+#right .album{padding:10px 25px;}
+#right .album a{color:#000;}
+#right .album a:hover{color:#900;}
+#right .album tr.nopass td, #right .album tr td.picnopass{border:1px solid #ff8244;background:#fff5f1;}
+#right .album tr.nopass td.notice{color:#fff;background:#fff5f1 url(http://image.dhgate.com/2008/web20/seller/img/album/pass_pink.gif) no-repeat 100% 0;}
+#right .album tr.passing td{border:1px solid #3bbcff;background:#f0fbff;}
+#right .album tr.passing td.notice{color:#fff;background:#f0fbff url(http://image.dhgate.com/2008/web20/seller/img/album/pass_blue.gif) no-repeat 100% 0;}
+#right .album .btn01{background: url(http://image.dhgate.com/2008/web20/seller/img/but.gif) no-repeat 0 0;color:#fff;border:0;cursor:pointer;font-weight:700;height:22px;line-height:22px;width:73px;margin:0 2px;}
+#right .album a.btn01{display:block;text-align:center;margin:0;text-decoration:none;}
+#right .album a.btn01:hover{color:#fff;}
+#right .album  p.uplaod1{text-align:center;padding:30px 0;border-bottom:1px solid #ccc;}
+#right .album  p.uplaod1 input.add1{background: url(http://image.dhgate.com/2008/web20/factory/img/upload_bg.gif) no-repeat 0 0;border:0;color:#999;display:inline;height:22px;line-height:20px;width:49px;margin:0 4px;}
+#right .mintro .btn2{clear:both;overflow:hidden;height:100%;}
+#right .mintro .btn2 input{display:block;background:url(http://image.dhgate.com/2008/web20/seller/img/store/Store_mbu.gif) no-repeat 0 0;height:22px;width:197px;border:0;cursor:pointer;line-height:22px;color:#fff;padding-left:20px;margin:8px;text-decoration:none;float:right;}
+#right .mintro .btn2 a.btn01{float:right;padding-left:0}
+#right .mintro .btn2 a.fanhui{float:left;background:none;color:#000;width:auto;text-decoration:underline;padding-left:0;}
+#right .album table.albumlist{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin-top:10px;}
+#right .album table.albumlist td{padding:20px 5px 5px;}
+#right .album table.albumlist td a.listimgs{display:block;width:152px;height:150px;background:url(http://image.dhgate.com/2008/web20/seller/img/album/album.gif) no-repeat 0 0;padding:35px 0 0 33px;margin:auto;text-align:left;}
+#right .album table.albumlist td a.listimgs img{display:block;}
+#right .album table.albumlist td p{background:none;padding:15px 0;line-height:26px;text-align:center;}
+#right .album table.albumlist td .orange{color:#f60;}
+#right .album .photodetail{border:1px solid #ccc;background:#fffdf6;padding:20px;margin-bottom:15px;}
+#right .album .photodetail li{list-style:none;line-height:26px;width:410px;word-wrap: break-word;word-break: normal;}
+#right .album .photodetail a.up1{display:block;float:right;width:129px;height:82px;background:url(http://image.dhgate.com/2008/web20/seller/img/album/album_upload.gif) no-repeat 0 0;}
+#right .album .photodetail a.up2{display:block;float:right;width:129px;height:82px;background:url(http://image.dhgate.com/2008/web20/seller/img/album/upload_yingyong.gif) no-repeat 0 0;margin-right:10px;}
+#right .album .photodetail li a{color:#999;}
+#right .album .photodetail li a:hover{color:#900;}
+#right .album table.albumlist tr td .picnopass{background:#fff5f1 url(http://image.dhgate.com/2008/web20/seller/img/album/pass_pink.gif) no-repeat 100% 0;border:1px solid #ff8244;padding:23px 5px 0;margin:0 10px;}
+#right .album table.albumlist tr td .picpassing{border:1px solid #3bbcff;background:#f0fbff;background:#f0fbff url(http://image.dhgate.com/2008/web20/seller/img/album/pass_blue.gif) no-repeat 100% 0;}
+#right .album table.albumlist tr td div img{border:1px solid #ccc;}
+#right .album table.albumlist tr td div{margin:10px;padding:23px 5px 0;text-align:center;}
+.vediolist{display:block;background:url(http://image.dhgate.com/2008/web20/seller/img/album/vedio_bg.gif) repeat-x 0 0;padding-top:21px;height:128px;width:163px;margin:auto;}
+/*#left .greys{color:#999;}*/
+
+/*数据管家*/
+.data_manager_box{margin-bottom:5px;border:1px solid #aaa;}
+/*20090721XN*/
+#right .gg dl.gleft li a.urgent{background:url(http://image.dhgate.com/2008/web20/seller/img/urgent.gif) no-repeat 0 0;padding:0  0 2px 18px;color:#fff;margin-left:2px;}
+#right .gg dl.gleft li a.urgent:hover{color:#fff;}
+#right #zs span.urgent{background:url(http://image.dhgate.com/2008/web20/seller/img/urgent.gif) no-repeat 0 4px;padding-left:23px;}
+#right table td .urgentimg{cursor:pointer;padding-left:2px;}
+.paixu{padding:3px;}
+#right #helpid1.tc{position:absolute;width:290px;border:solid 1px #FFBB5A;background-color:#fff;padding:15px;font:12px/20px Arial, Helvetica, sans-serif;color:#444;top:56px;margin-left:202px;}
+#right #helpid1.tcno{display:none;}
+#right table.tablesorter td.arial{text-align:left;}
+#right table.tablesorter td .p_freight{text-align:left;}
+#right table.tablesorter td .p_freight p{background:none;}
+#right table.tablesorter td .p_freight span{color:#000;}
+#right table.g_list,#right table.g_list td{border:0;}
+#right table.tablesorter td.p_freight_a,#right table.tablesorter td.p_freight_a .p_freight span,#right table.tablesorter td.p_freight_a a,#right table.tablesorter td.p_freight_a a:hover{color:#8E8E8E;}
+#right #tbg dl.ridl dt.selgroup{padding-top:2px;line-height:16px;}
+
+/*自己的买家*/
+#right table tr td.evaluate_title table tr td.td1,#right table tr td.evaluate_title table tr td.td2,#right table tr td.evaluate_sum table tr td.td1{border:solid 1px #C3DAEA;}
+
+/*seller new left*/
+.newleft_top{overflow:hidden;height:2px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/newleft6.gif) no-repeat left top;}
+.newleft_bottom{overflow:hidden;margin-bottom:10px;height:18px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/newleft6.gif) no-repeat left -2px;}
+#left_new{width:152px;float:left;color:#003d74;}
+#left_new a{color:#005298;text-decoration:none}
+#left_new a:hover{color:#900}
+#left_new #top{background:#EEF9FB;border:solid 1px #BBD3EB;padding-left:25px;line-height:28px;margin-bottom:4px;}
+#left_new #top.current{height:30px;line-height:32px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/newleft_zy.gif) no-repeat;border:0;}
+#left_new #top.current a{color:#8C5900;}
+#left_new #top.current a:hover{color:#900;}
+#left_new dl{border:1px #94C5E3 solid;border-width:0 1px;}
+#left_new dl dt{color:#000;background:url(http://image.dhgate.com/2008/web20/seller/newimages/newleft4.gif) repeat-x;}
+#left_new dl dt.new{background:url(http://image.dhgate.com/2008/web20/seller/newimages/newleft5.gif) repeat-x;}
+#left_new dl dt span b{font-weight:normal;padding-right:30px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/new_icon.gif) no-repeat right center;}
+#left_new dl dt span{overflow:hidden;display:block;padding-left:10px;height:25px;line-height:27px;cursor:pointer;}
+#left_new dl dt span.open{background:url(http://image.dhgate.com/2008/web20/seller/newimages/newleft1.gif) no-repeat 133px 8px;}
+#left_new dl dt span.close{background:url(http://image.dhgate.com/2008/web20/seller/newimages/newleft2.gif) no-repeat 133px 8px;border-bottom:solid 2px #fff;}
+#left_new dl dt.one{background-position:left -2px;}
+#left_new dl dt.one span{height:23px;line-height:23px;}
+#left_new dl dt.one span sup{line-height:12px;}
+#left_new dl dt.one span.open{background-position:133px 6px;}
+#left_new dl dt.one span.close{background-position:133px 6px;}
+#left_new dl dd{display:none;padding:5px 0;background-color:#F2FAFD;}
+#left_new dl dd a{display:block;padding-left:24px;height:23px;line-height:23px}
+#left_new dl dd a.dq{background:#FFF9E1 url(http://image.dhgate.com/2008/web20/seller/newimages/newleft3.gif) no-repeat 15px center;color:#E52300;}
+#left_new dl dd a.dq a{color:#fff;}
+#left_new dl dd ul{list-style:none;}
+#left_new dl dd ul li{height:20px;line-height:20px;overflow:hidden}
+#left_new dl dd ul li a{line-height:20px;height:20px;overflow:hidden;padding-left:40px}
+#left_new dl dd ul li a.dq{background-position:25px center;}
+#left_new dl dd ul li.one{background:url(http://image.dhgate.com/2008/web20/seller/img/xb.gif) no-repeat 25px top}
+#left_new dl dd ul li.two{background:url(http://image.dhgate.com/2008/web20/seller/img/xb_1.gif) no-repeat 25px top}
+#left_new dl dd span.new{font-weight:normal;padding-right:30px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/new_icon.gif) no-repeat right center;}
+#left_new p.p1{text-align:center;margin-bottom:5px;}
+
+/* new index right */
+#right .verification{margin-top:6px;height:100%;border:solid 1px #C3E5A0;}
+#right .verification p{padding:3px 5px 3px 52px;line-height:20px;border:solid 1px #fff;background:#EBFFD6 url(http://image.dhgate.com/2008/web20/seller/img/index_verification_icon.gif) no-repeat 6px 3px;}
+#right .verification p a.a1{color:#900;}
+#right .business_title{overflow:hidden;padding:0 16px;height:28px;line-height:28px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/seller_index_bg1.gif) no-repeat;font-family:Arial, Helvetica, sans-serif;}
+#right .business_title ul li{float:left;}
+#right .business_title ul li.name{margin-right:20px;}
+#right .business_title ul li.name strong{margin-right:12px;}
+#right .business_title ul li.name a{text-decoration:none;}
+#right .business_title ul li.rank{margin-top:6px;}
+#right .business_title ul li.rank span,#right .business_title ul li.rank span b{overflow:hidden;display:block;height:16px;line-height:17px;color:#fff;}
+#right .business_title ul li.rank span{float:left;padding-left:20px;}
+#right .business_title ul li.rank span b{float:left;padding-right:20px;font-weight:normal;}
+#right .business_title ul li.rankbg1 span{background:#E8F6FF url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg1.gif) left top}
+#right .business_title ul li.rankbg1 span b{background:#E8F6FF url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg1.gif) right top;}
+#right .business_title ul li.rankbg2 span{background:#E8F6FF url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg1.gif) left -21px}
+#right .business_title ul li.rankbg2 span b{background:#E8F6FF url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg1.gif) right -21px;}
+#right .business_title ul li.rankbg3 span{background:#E8F6FF url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg1.gif) left -42px}
+#right .business_title ul li.rankbg3 span b{background:#E8F6FF url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg1.gif) right -42px;}
+#right .business_title ul li.rank span b a{color:#fff;text-decoration:none;}
+#right .business_title ul li.rank span b a:hover{color:#900;}
+#right .process{margin-top:6px;}
+#right .process_top,#right .process_bottom{overflow:hidden;height:4px;}
+#right .process_top{background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg.gif) left top;}
+#right .process_bottom{margin-bottom:10px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg.gif) left -4px;}
+#right .process_con{overflow:hidden;padding:8px 0;height:100%;border:solid 1px #C2DAEA;background:#E9F6FF;border-width:0 1px;}
+#right .process_con h3{padding-left:15px;font:bold 14px/18px Arial, Helvetica, sans-serif;color:#555;}
+#right .process_con ul.step{overflow:hidden;height:100%;margin:15px 0 15px 5px;}
+#right .process_con ul.step li{overflow:hidden;float:left;padding-left:32px;height:29px;line-height:31px;color:#666;}
+#right .process_con ul.step li.li1{width:70px;color:#BA5D02;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg.gif) left -8px;}
+#right .process_con ul.step li.li2{width:61px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg.gif) -102px -8px;}
+#right .process_con ul.step li.li3{width:61px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg.gif) -195px -8px;}
+#right .process_con ul.step li.li4{width:61px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg.gif) -288px -8px;}
+#right .process_con ul.step li.li5{width:61px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg.gif) -381px -8px;}
+#right .process_con ul.step li.step_icon{padding:0;width:21px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg.gif) 5px -98px;}
+#right .process_con ul.process_list{margin-left:25px;}
+#right .process_con ul.process_list li{padding:3px 0 3px 8px;line-height:18px;color:#444;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/seller_index_bg4.gif) no-repeat left 10px;}
+#right .process_con ul.process_list li b{color:#FE7800;}
+#right .process_con ul.process_list li a{margin:0 3px;color:#FE7800;}
+#right .process_con ul.process_list li a:hover{color:#900;}
+#right .process_con p.p1{padding:3px 0 3px 25px;line-height:18px;color:#444;}
+#right .process_con p.p1 a{color:#FE7800;}
+#right .process_con p.p1 a:hover{color:#900;}
+#right .process_con p.p2{margin-bottom:10px;padding-left:15px;line-height:18px;font-size:14px;color:#003251;}
+#right .process_con p.p3{padding:9px 0 9px 8px;}
+#right .process_con p.p4{padding:3px 0 3px 25px;line-height:18px;color:#000;}
+#right .process_con p.p4 a.a1,#right .process_con p.p4 a.a2{display:inline-block;margin-left:10px;padding-left:23px;color:#FE7800;}
+#right .process_con p.p4 a.a1:hover,#right .process_con p.p4 a.a2:hover{color:#900;}
+#right .process_con p.p4 a.a1{background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/newindex_mail.gif) no-repeat left top;}
+#right .process_con p.p4 a.a2{background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/newindex_mob.gif) no-repeat left top;}
+#right .new_middle{overflow:hidden;height:100%;float:left;width:570px;}
+#right .new_notice{padding:0 0 10px 26px;color:#444;}
+#right .new_notice p.p1{padding:3px 0;line-height:18px;}
+#right .new_notice p.p1 a{color:#444;}
+#right .new_notice p.p1 a:hover{color:#900;}
+#right .new_notice li{padding:3px 0 3px 8px;line-height:18px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/seller_index_bg4.gif) no-repeat left 10px;}
+#right .new_notice li a{color:#444;}
+#right .new_notice li a:hover{color:#900;}
+#right .new_notice li strong.red{margin:0 7px;color:#f00;}
+#right .concern_title{overflow:hidden;padding:0 11px 0 16px;height:25px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/seller_index_bg2.jpg) no-repeat;}
+#right .concern_title dl dt,#right .concern_title dl dd{line-height:27px;}
+#right .concern_title dl dt{float:left;color:#000;}
+#right .concern_title dl dd{float:right;}
+#right .concern_title dl dd a{color:#444;text-decoration:none;}
+#right .concern_title dl dd a:hover{color:#900;}
+#right .concern_title dl dd a span{font-size:10px;}
+#right .concern_title_bg{height:24px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg.gif) no-repeat left -37px;}
+#right .concern_list{overflow:hidden;margin-bottom:10px;height:100%;border:solid 1px #FFD199;border-width:0 1px 1px 1px;}
+#right .concern_list ul{overflow:hidden;padding:8px 0;height:100%;}
+#right .concern_list ul li{float:left;overflow:hidden;padding-left:36px;width:248px;height:24px;line-height:24px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/seller_index_bg5.gif) no-repeat 25px 10px;}
+#right .concern_list ul li a{color:#444;text-decoration:none;}
+#right .concern_list ul li a:hover{color:#900;}
+#right .concern_list ul li a strong{margin-left:5px;}
+#right .concern_list ul li a strong.green{color:#65A401;}
+#right .concern_list_bg{border:solid 1px #c7c7c7;border-width:1px;}
+#right .concern_list_bg ul li{padding-left:25px;width:259px;background:none;}
+#right .concern_reday{overflow:hidden;margin-bottom:10px;padding:8px 0 8px 25px;height:100%;border:solid 1px #c7c7c7;}
+#right .grab{overflow:hidden;clear:both;padding-left:25px;height:31px;line-height:35px;color:#C8730D;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/seller_index_bg6.gif) repeat-x;}
+#right .grab a{color:#BD0A01;text-decoration:underline;}
+#right .grab a:hover{color:#900;}
+#right .entrance{overflow:hidden;margin-bottom:10px;height:100%;}
+#right .buy_title{overflow:hidden;clear:both;padding:0 11px 0 16px;height:29px;line-height:27px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/seller_index_bg3.jpg) no-repeat;}
+#right .buy_title dl dt{float:left;color:#005298;}
+#right .buy_title dl dd{float:right;}
+#right .buy_title dl dd a{color:#444;text-decoration:none;}
+#right .buy_title dl dd a:hover{color:#900;}
+#right .buy_title dl dd a span{font-size:10px;}
+#right .buy_list{overflow:hidden;margin-bottom:10px;height:100%;border:solid 1px #C8D9E9;border-width:0 1px 1px 1px;}
+#right .buy_study{overflow:hidden;height:100%;margin-bottom:10px;}
+#right .buy_study_left{float:left;width:280px;}
+#right .buy_study_right{float:right;width:280px;}
+#right .buy_study_title{padding:0 11px 0 16px;height:28px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/business_bg.gif) no-repeat left -61px;}
+#right .buy_study_title dl dt,#right .buy_study_title dl dd{height:25px;line-height:27px;}
+#right .buy_study_title dl dt{float:left;color:#005298;}
+#right .buy_study_title dl dd{float:right;}
+#right .buy_study_title dl dd a{color:#444;text-decoration:none;}
+#right .buy_study_title dl dd a:hover{color:#900;}
+#right .buy_study_title dl dd a span{font-size:10px;}
+#right .buy_study_list{height:100%;border:solid 1px #C8D9E9;border-width:0 1px 1px 1px;}
+#right .new_right{overflow:hidden;float:right;margin:6px 0 10px 0;padding:11px 7px;width:195px;height:100%;background:#ECF6FF;}
+#right .novice_title{overflow:hidden;padding:0 9px 0 12px;height:28px;line-height:30px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/seller_index_bg8.gif) no-repeat;}
+#right .novice_title dl dt{float:left;color:#000;}
+#right .novice_title dl dd{float:right;}
+#right .novice_title dl dd a{color:#444;text-decoration:none;}
+#right .novice_title dl dd a:hover{color:#900;}
+#right .novice_title dl dd a span{font-size:11px;}
+#right .novice_list{height:100%;border:solid 1px #DCE0E1;border-width:0 1px 1px 1px;background:#fff;}
+#right .splitline{overflow:hidden;margin:8px 0;height:2px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/seller_index_bg9.gif) no-repeat center top;}
+#right .box_title{overflow:hidden;padding:0 9px 0 12px;height:24px;line-height:26px;background:url(http://image.dhgate.com/2008/web20/seller/img/newindex/seller_index_bg10.gif) no-repeat;}
+#right .box_title dl dt{float:left;color:#005298;}
+#right .box_title dl dd{float:right;}
+#right .box_title dl dd a{color:#444;text-decoration:none;}
+#right .box_title dl dd a:hover{color:#900;}
+#right .box_title dl dd a span{font-size:11px;}
+#right .box_list{height:100%;margin-bottom:10px;border:solid 1px #D1E3F4;border-width:0 1px 1px 1px;background:#fff;}
+#right .box_list ul{padding:8px 0;}
+#right .box_list ul li{padding-left:17px;line-height:24px;}
+#right .box_list ul li a{color:#444;text-decoration:none;}
+#right .box_list ul li a:hover{color:#900;}
+#right .box_list_gg{text-align:center;}
+#right .box_list_gg a img{margin-top:10px;padding:1px;border:solid 1px #D1E3F4;}
+#right .new_right_banner{margin-bottom:12px;}
+#right .statistics{overflow:hidden;margin-bottom:10px;padding:10px 20px;height:100%;border:solid 1px #C7C7C7;}
+#right .statistics_left{float:left;width:264px;}
+#right .statistics_right{float:right;width:224px;}
+#right .statistics_left p, #right .statistics_right p{padding-bottom:12px;line-height:18px;}
+#right .statistics_left p a, #right .statistics_right p a{margin-right:20px;color:#E66A08;text-decoration:underline;font-weight:700;}
+#right .statistics_left p a:hover, #right .statistics_right p a:hover{color:#900;}
+
+/*new form style*/
+.oform{padding:5px 0;}
+#right .oform table tr td{padding:0;height:23px;line-height:23px;}
+.oinput1{padding:1px 0;border:solid 1px #7F9DB9;}
+.ver{vertical-align:middle;}
+.dInput{font-size:12px;font-family:Arial, Helvetica, sans-serif;padding:0 5px;line-height:18px;height:21px;}
+
+/*在线发货*/
+#right .zxfh{border-top:solid 1px #DDE7EF;padding:20px 15px;margin-top:15px;}
+#right .zxfh strong{color:#00529C;display:block;}
+#right .zxfh p{text-indent:25px;}
+#right .zxfh a{color:#00f;display:block;padding-left:400px;}
+
+/*cupon*/
+#right table tr td a.down{padding-right:12px;text-decoration:none;color:#444;background:url(http://image.dhgate.com/2008/web20/seller/img/cupon/cupon_icon1.gif) no-repeat right center;}
+#right table tr td a.up{padding-right:12px;text-decoration:none;color:#444;background:url(http://image.dhgate.com/2008/web20/seller/img/cupon/cupon_icon2.gif) no-repeat right center;}
+
+/*Provided false*/
+.provided_false{display:inline-block;margin-top:5px;padding:0 5px 0 18px;height:18px;line-height:18px;vertical-align:middle;border:solid 1px #FF7271;text-decoration:none;color:#C30706;background:#FEEAE9 url(http://image.dhgate.com/2008/web20/seller/img/icon1211.gif) no-repeat 3px 1px;}
+
+/*da ti*/
+.maincontent{padding:5px 0 5px 15px;font:12px/22px Arial, Helvetica, sans-serif;border:solid 1px #94c5e3;}
+.questions{padding-bottom:15px;}
+#content .questions dt{font-weight:700;line-height:16px;color:#222;}
+#content .maincontent h3{font-size:14px;line-height:22px;}
+#content .maincontent h4{color:#900;font-size:12px;line-height:22px;padding:12px 0;}
+.questions .notice{color:#900;}
+#content .questions dd{margin-left:20px;text-indent:-20px;line-height:16px;}
+.questions dd label{display:block;padding:4px 0;}   
+.questions dd input{margin-right:4px;}
+.questions dd *{vertical-align:middle;}
+.btn input{font-size:12px;padding:0 6px;margin-right:20px;}
+#right .qa_con{background:url(http://image.dhgate.com/seller/images/bg_qa.jpg) no-repeat 0 0;width:788px;height:628px;position:relative;padding-top:105px;}#right .score{background:url(http://image.dhgate.com/seller/images/bg_score.jpg) no-repeat 0 0;height:42px;width:200px;line-height:40px;color:#f60;font-size:36px;margin:auto;}#right .score strong{padding-left:105px;}#right .qa_con .pass{background:url(http://image.dhgate.com/seller/images/qa_pass.jpg) no-repeat 0 0;width:483px;height:91px;margin:39px auto 0;}#right .qa_con .nopass{background:url(http://image.dhgate.com/seller/images/qa_nopass.jpg) no-repeat 0 0;width:358px;height:26px;margin:39px auto 0;padding:64px 0 0 125px;}.qa_con .nopass a{display:block;background:url(http://image.dhgate.com/seller/images/btn_faq.gif) no-repeat 0 0;width:80px;height:20px;}#right .qa_intro{position:absolute;right:5px;bottom:15px;width:480px;}#right .qa_intro p{padding-bottom:22px;color:#2f2f2f;}#right .qa_con .qa_info{display:block;width:222px;height:52px;background:url(http://image.dhgate.com/seller/images/btn_info.gif) no-repeat 0 0;margin:auto;}#right .qa_con .nopasserror{background:url(http://image.dhgate.com/seller/images/qa_nopass2.jpg) no-repeat 0 0;width:358px;height:26px;margin:39px auto 0;padding:64px 0 0 125px;}.lp_maijia{position:relative;}.lp_maijia .link_faq{display:block;width:94px;height:35px;font-size:0;position:absolute;left:417px;top:555px;text-decoration:none;background:url(http://image.dhgate.com/seller/images/faq_a.jpg) no-repeat 0 0;height:50px;width:95px;}.lp_maijia .link_dt{display:block;width:217px;height:50px;font-size:0;position:absolute;left:479px;top:638px;text-decoration:none;background:url(http://image.dhgate.com/seller/images/btn_enter.gif) no-repeat 0 0;border:0;height:50px;width:217px;}.lp_maijia img{display:block;}
+
+/*在线客服*/
+#zxkf{width:786px;border:solid 1px #9cdae9;font-family:Arial, Helvetica, sans-serif}
+#zxkf .zxbt{background:url(http://image.dhgate.com/2008/web20/seller/newimages/newright_bg.gif);height:25px;line-height:25px;border-bottom:solid 1px #aedeea;padding-left:15px;font-weight:700;color:#333;}
+#zxkf .zxbt2{height:32px;line-height:32px;background-color:#f1f1f1;border-bottom:solid 1px #eaeaea;border-left:solid 1px #fff;border-right:solid 1px #fff;padding-left:15px;}
+#zxkf .zxtext{padding:10px 15px;}
+#zxkf .cent{text-align:center;}
+#zxkf .zxtext a.zxa{color:#0012fe;text-decoration:none;padding:0 5px;}
+#zxkf .zxtext a.zxa:hover{color:#900;}
+#zxkf .zxtext table{width:100%;border-collapse:collapse;}
+#zxkf .zxtext td,#zxkf .zxtext th{padding:3px 0 3px 28px;border:1px solid #ccc;line-height:20px;}
+#zxkf .zxtext th{background:url(http://image.dhgate.com/seller/helpcenter/img/contact_bg.gif) repeat-x 0 0;color:#000;text-align:center;padding:0;height:25px;line-height:25px;font-weight:100;}
+#zxkf .zxtext td {color:#444;}
+#zxkf .zxtext td a{color:#900;text-decoration:none;}
+#zxkf .zxtext td a:hover{text-decoration:underline;}
+#zxkf .zxtext tr.grey td{background:#eee;}
+#zxkf .zxbg{background:url(http://image.dhgate.com/seller/images/tel.gif) no-repeat 30px 15px;padding:60px 30px 25px;}
+#zxkf .zxtext input.i_kf{width:199px;height:29px;background:url(http://image.dhgate.com/seller/images/tel_but.gif) no-repeat;border:0;cursor:pointer;position:relative;}
+#zxkf .zxtext .blo{display:block;}
+#zxkf .zxtext .yc{display:none}
+#zxkf .zxtext #kf_tc{width:326px;height:30px;line-height:30px;background:#fefad5 url(http://image.dhgate.com/seller/images/kf_tc.gif) no-repeat 5px 5px;border:solid 1px #e4db92;padding-left:25px;position:relative;left:226px;top:-30px}
+#zxkf .zxtext #kf_tc span{color:#f00;padding:0 4px;}
+
+/* common notice */
+.s_notice{overflow:hidden;padding:5px 17px 12px 17px;line-height:23px;border:solid 1px #F9F2CD;background:#FEFDEB;}
+.s_notice p{padding:3px 0;line-height:25px;}
+#content .s_notice table{border:solid 1px #F9F2CD;border-width:1px 0 0 1px;border-collapse:separate;color:#000;}
+.s_notice table tr th{height:28px;line-height:28px;font-weight:normal;background:url(http://image.dhgate.com/2008/web20/seller/img/sku/sku_linebg.gif) repeat-x;}
+.s_notice table tr td,.s_notice table tr th{border:solid 1px #F9F2CD;border-width:0 1px 1px 0;}
+.s_notice table tr td{background:#fff;}
+.s_notice_1{position:relative;overflow:hidden;padding:3px 15px;line-height:18px;height:100%;border:solid 1px #E4DB92;background:#FEFAD5;}
+.s_notice_1 dl{overflow:hidden;clear:both;height:100%;}
+.s_notice_1 dl dd,.s_notice_1 dl dt{line-height:18px;}
+.s_notice_1 dl dd{float:left;}
+.s_notice_1 dl dd b{color:#65A401;}
+.s_notice_1 dl dt{float:right;}
+.s_notice_1 dl dt a{color:#900;}
+.s_notice_1 p{padding:3px 0;line-height:18px;}
+.s_notice_1 p img{vertical-align:middle;}
+.s_notice_1 p.p1{padding-left:18px;}
+.s_notice_1 p.p2{padding-left:19px;}
+.s_notice_1 span.close{position:absolute;right:5px;top:10px;overflow:hidden;width:10px;height:10px;cursor:pointer;background:url(http://image.dhgate.com/2008/web20/seller/img/seller-icon.gif) -190px 0;}
+.sNotice-letter, .sNotice-more{padding-right:13px;background:url(http://image.dhgate.com/2008/web20/seller/img/s_notice_icon.png) no-repeat 30px 5px;}
+.sNotice-more{background-position:30px -13px;}
+
+/* form */
+.seller-form{overflow:hidden;clear:both;margin:10px 0;height:100%;}
+.seller-form input, .seller-form select{vertical-align:middle;}
+.seller-form .input1{padding:1px 0;}
+.seller-form .button1{padding:0 5px;}
+.seller-form .button2{padding:0 10px;}
+.seller-form .color1{color:#888;}
+.seller-form p{padding:5px;}
+.seller-form a{color:#444;}
+.seller-form dl dt{float:left;}
+.seller-form dl dd{float:right;}
+
+/* newMessagePop */
+.new-Message{display:none;overflow:hidden;position:fixed;right:0;bottom:0;z-index:1000;padding:0 6px 8px 6px;width:289px;background:#ACDAF5 url(http://image.dhgate.com/2008/web20/seller/img/newMessage-bg.gif) repeat-x 0 -13px;}
+.new-Message dl{overflow:hidden;height:22px;}
+.new-Message dl dt{overflow:hidden;float:left;height:22px;line-height:24px;color:#000;}
+.new-Message dl dd{float:right;padding-top:5px;}
+.new-Message dl dd span{overflow:hidden;display:block;width:26px;height:13px;cursor:pointer;background:url(http://image.dhgate.com/2008/web20/seller/img/newMessage-bg.gif);}
+.new-Message-main{padding:8px 10px;line-height:20px;color:#2F4B63;border:solid 1px #6BADD2;background:#fff;}
+
+/* icon */
+.seller-icon1, .seller-icon2, .seller-icon3, .seller-icon4, .seller-icon5, .seller-icon6, .seller-icon7, .seller-icon8, .seller-icon9, .seller-icon10, .seller-icon11, .seller-icon12, .seller-icon13, .seller-icon14, .seller-icon15, .seller-icon16, .seller-icon17, .seller-icon18, .seller-icon19, .seller-icon20, .seller-icon21, .seller-icon22, .seller-icon22, .seller-icon23, .seller-icon24, .seller-icon25, .seller-icon26, .seller-icon27, .seller-icon28, .seller-icon29, .seller-icon30, .seller-icon31, .seller-icon32, .seller-icon33, .seller-icon34, .seller-icon35{display:inline-block;vertical-align:middle;background:url(http://image.dhgate.com/2008/web20/seller/img/seller-icon.gif) no-repeat;}
+.seller-icon1{margin-right:3px;width:24px;height:11px;}
+.seller-icon2{margin-right:3px;width:18px;height:10px;background-position:-24px 0;}
+.seller-icon3{margin-right:3px;width:24px;height:11px;background-position:-42px 0;}
+.seller-icon4{margin-right:3px;width:23px;height:11px;background-position:-66px 0;}
+.seller-icon5{margin-right:3px;width:23px;height:11px;background-position:-89px 0;}
+.seller-icon6{background-position:-112px 0;}
+.seller-icon7{margin-right:5px;background-position:0 -20px;}
+.seller-icon8{margin-right:10px;width:14px;height:15px;background-position:-138px 0;}
+.seller-icon9{margin-right:10px;height:10px;width:10px;background-position:-152px 0;}
+.seller-icon10{margin-right:5px;background-position:-162px 0;}
+.seller-icon11{margin-right:5px;background-position:-176px 0;}
+.seller-icon12{margin-right:3px;width:18px;height:10px;background-position:-32px -20px;}
+.seller-icon13{width:10px;height:10px;cursor:pointer;background-position:-55px -20px;}
+.seller-icon14{margin-right:5px;background-position:-70px -16px;}
+.seller-icon15{margin-right:5px;background-position:-89px -16px;}
+.seller-icon16{position:absolute;right:0;top:0;background-position:-134px -20px;}
+.seller-icon17{margin-left:5px;background-position:-152px 0;}
+.seller-icon18{margin-left:5px;cursor:pointer;background-position:-126px 0;}
+.seller-icon19{background-position:-141px -53px;}
+.seller-icon20{background-position:-162px -53px;}
+.seller-icon21{background-position:-178px -53px;}
+.seller-icon22{background-position:-156px -71px;}
+.seller-icon23{background-position:-170px -71px;}
+.seller-icon24{background-position:-141px -88px;}
+.seller-icon25{background-position:-157px -88px;}
+.seller-icon26{background-position:0 -118px;}
+.seller-icon27{background-position:-19px -118px;}
+.seller-icon28{background-position:-38px -118px;}
+.seller-icon29{background-position:-57px -118px;}
+.seller-icon30{background-position:-76px -118px;}
+.seller-icon31{background-position:-95px -118px;}
+.seller-icon32{background-position:-109px -118px;}
+.seller-icon33{background-position:-119px -118px;}
+.seller-icon34{background-position:-133px -118px;}
+.seller-icon35{background-position:-152px -118px;}
+
+.seller-bicon1{background:url(http://image.dhgate.com/2008/web20/seller/img/seller-bicon.gif) no-repeat;}
+.seller-bicon1{padding-right:13px;background-position:right 0;}
+
+/* popTitle */
+.s-pop-rtitle, .s-pop-ltitle,.s-pop-ttitle{position:absolute;z-index:100;top:0;left:100px;padding:12px 18px;color:#444;border:solid 1px #E4DB92;background:#FEFAD5;}
+.s-pop-rtitle p, .s-pop-ltitle p, .s-pop-ttitle p{padding:3px 0;line-height:20px;}
+.s-pop-rtitle .s-close, .s-pop-ltitle .s-close, .s-pop-ttitle .s-close{position:absolute;right:7px;top:7px;z-index:101;width:10px;height:10px;cursor:pointer;background:url(http://image.dhgate.com/2008/web20/seller/img/seller-icon.gif) -190px 0;}
+.s-pop-rtitle .s-pointer, .s-pop-ltitle .s-pointer, .s-pop-ttitle .s-pointer{position:absolute;width:14px;height:18px;top:5px;}
+.s-pop-rtitle .s-pointer{left:0;margin-left:-14px;background:url(http://image.dhgate.com/2008/web20/seller/img/seller-icon.gif) -172px -20px;}
+.s-pop-ltitle .s-pointer{right:0;margin-right:-14px;background:url(http://image.dhgate.com/2008/web20/seller/img/seller-icon.gif) -186px -20px;}
+.s-pop-ttitle .s-pointer{top:0;margin-top:-14px;width:18px;height:14px;background:url(http://image.dhgate.com/2008/web20/seller/img/seller-icon.gif) -111px -20px;}
+/*PYF20101028product_change_price */
+.changep{position:relative;}
+.changep a.close{width:89px;*width:88px;display:block;height:18px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/icoclose.gif) #fff no-repeat 70px 6px;position:absolute;top:-19px;right:-5px;_right:43px;border-top:1px solid #fff;cursor:pointer;}
+.changep a.open{width:89px;*width:88px;display:block;height:18px;background:url(http://image.dhgate.com/2008/web20/seller/newimages/icoopen.gif) #fff no-repeat 70px 6px;border-width:1px 1px 0 1px;border-color:#aaa;border-style:solid;z-index:999;position:absolute;top:-18px;right:-5px;_right:43px;cursor:pointer;}
+.changeprice{width:470px;background:#fff;padding:10px;border:1px solid #aaa;position:absolute;top:0;right:-5px;_right:43px;text-align:left;z-index:900;}
+.changeprice .changetable{margin:10px 0;height:208px;OVERFLOW-y: scroll;OVERFLOW-x: hidden;}
+.changeprice table{border-style:solid;border-color:#d8d8d8;border-width:1px 0 0 1px;}
+.changeprice table tr td{border-right:1px solid #d8d8d8;border-bottom:1px solid #d8d8d8;}
+.changeprice table input{width:70px;}
+/*PYF20101216sunflower*/
+#sunbt{height:32px;line-height:32px;border:1px solid #bcdef2;background:url(http://image.dhgate.com/2008/web20/seller/img/sun/sun_bg.gif) repeat-x left top;padding-left:15px;}
+.sun_box{height:100%;border:3px solid #bcdef2;padding:0 25px 15px;margin-bottom:10px;}
+.sun-da{border: 1px solid #bcccee;clear:both;overflow:hidden;}
+.sun-da-tit{background:url(http://image.dhgate.com/2008/web20/seller/img/sun/sun_bg.gif) repeat-x left top;height:32px;line-height:32px;}
+.sun-da-tit div{background:url(http://image.dhgate.com/2008/web20/seller/img/sun/sun_tbg.gif) no-repeat left -66px;padding-left:30px;float:left;overflow:hidden;margin-left:10px;}
+.sun-da-tit div span{background:url(http://image.dhgate.com/2008/web20/seller/img/sun/sun_tbg.gif) no-repeat right -66px;float:left;padding-right:30px;}
+.sun-sea-tit{background-color:#d3f0ff;height:30px;line-height:30px;padding:0 15px;}
+.sun-sea-con{border:1px solid #bcdef2;margin-bottom:10px;padding:8px 16px;}
+.da-bg{background-color:#f6f9ff;}
+.da-bg p{padding:5px 0;}
+.seabg{padding:5px 10px;background:url(http://image.dhgate.com/2008/web20/seller/img/sun/sun_bg.gif) repeat-x left bottom;height:22px;line-height:22px;border:1px solid #bdd8ee;margin:-1px 0 10px;}
+/*anquanbaohu 2011luyang*/
+#right .aqbh,.szaq{height:30px;line-height:30px;vertical-align:middle;color:#444;width:768px;height:100%;padding:10px 0 20px 20px;}
+#right .aqbh{margin-bottom:10px;border-bottom:1px dashed #bebebe;}
+#right .aqbh table td.aqtd,#right .szaq table td.aqtd{width:100px;text-align:right;}
+#right .aqbh span,#right .szaq span{color:#F00;}
+#right .aqbh table tr td.aqtd1,#right .szaq table tr td.aqtd1{text-align:left;}
+.aq-help{padding-left:20px;color:#444;}
+#right .aq-grey{width:768px;height:27px;line-height:27px;vertical-align:middle;border-bottom:1px dashed #bebebe;background:#f4f4f4;padding-left:20px;color:#444;}
+.mail-tx{width:471px;height:53px;border:1px solid #dedede;background:#f2f2f2;text-align:center;padding-top:8px 0;line-height:25px;}
+/*cuxiaochanpingku*/
+#right table td.le1{text-align:left;padding-left:50px;line-height:24px;}
+#right table td.le3{text-align:left;padding-left:20px;}
+#right table td.le4{padding-top:30px;line-height:24px;}
+#right table tr td.le2{padding:10px;text-align:center;line-height:24px;font-size:12px;font-family:arial,\5b8b\4f53,sans-serif;}
+.cxcp-title{border-bottom:1px solid #cacaca;line-height:24px;padding-bottom:5px;position:relative;}
+.cxcp-title strong{font-size:14px;}
+.cxcp-title a{display:block;position:absolute;right:0;bottom:0;padding-bottom:5px;}
+.cxcp-nr{padding-top:5px;position:relative;left:0;top:0;}
+.cxcp-nr p{line-height:24px;}
+/*.cxcp-nr b,.cxcp-tijiao b{color:#65a401;font-weight:normal;}*/
+.cxcp-nr b.b1{color:#F00;font-weight:normal;}
+.cxcp-nr button{position:absolute;right:0;top:0;margin-top:5px;}
+.cxcp-tijiao{border:1px solid #c8d9e9;border-bottom:none;color:#444;padding-bottom:30px;}
+.tj-title{height:24px;line-height:24px;vertical-align:middle;padding-left:20px;background:#ecf6ff;border:1px solid #c8d9e9;border-bottom:none;overflow:hidden;}
+.cxcp-tijiao p{padding-left:40px;}
+.cxcp-tijiao p input,#cxcp-anniu input{font-weight:normal;font-size:12px;}
+.cxcp-jiqiao{border:1px solid #e4db92;background:#fefad5;height:30px;line-height:30px;vertical-align:middle;padding-left:20px;color:#444;}
+.cxcp-bottom{border-bottom:1px solid #c8d9e9;}
+.tj-titleh{border:1px solid #c8d9e9;background:#ecf6ff;height:45px;line-height:20px;padding-top:5px;padding-left:20px;color:#444;}
+.zhekou-input{height:25px;width:70px;color:#444;text-align:right;overflow:hidden;}
+.title-pink{border:1px solid #fac5c8;background:#fde8e9;padding-left:20px;height:28px;line-height:28px;margin:10px 0;color:#444;}
+#cxcp-anniu{margin-top:20px;text-align:center;}
+#cxcp-anniu input{font-weight:normal;font-size:12px;}
+.cxcp-p{display:inline-block;float:left;margin-left:10px;padding-top:20px;line-height:24px;text-align:left;}
+.cxcp-bggray{background:#f4f4f4;}
+/*20111026 NewPage luhongtao*/
+/*分页样式  开始 */
+.commonpage{overflow:hidden;margin-top:10px;height:100%;line-height:22px;padding:3px 10px 3px 10px ;background-color:#f3f3f3;}
+.commonpage *{vertical-align:middle;}
+.commonpage .pageleft{overflow:hidden;display:inline-block;float:left;height:22px;line-height:22px;vertical-align:middle;}
+.commonpage .pageleft span{line-height:26px;}
+
+.commonpage .pageright{float:right;}
+.commonpage .pageright a{display:inline-block;padding:2px 5px 2px 5px;height:16px;line-height:16px;border:1px solid #aeaeae;color:#444;text-decoration:none;background-color:#fff;}
+.commonpage .pageright b.selected{display:inline-block;height:16px;line-height:16px;padding: 3px 6px 3px 5px;color:#fff;background-color:#9b9b9b;}
+.commonpage .pageright a:hover{padding:2px 5px;border:1px solid #aeaeae;color:#900;text-decoration:none;background-color:#e8e9eb;}
+.commonpage .pageright span.disablebtn{display:inline-block;padding:2px 5px 2px 5px;height:16px;line-height:16px;border:1px solid #aeaeae;color:#ababab;text-decoration:none;background-color:#fff;}
+
+/* 分页重写 开始  *考虑后期删除* */
+#right .commonpage .pageright a{display:inline-block;padding:2px 5px 2px 5px;height:16px;line-height:16px;border:1px solid #aeaeae;color:#444;background-color:#fff;}
+#right .commonpage .pageright a:hover{padding:2px 5px;border:1px solid #aeaeae;color:#900;text-decoration:none;background-color:#e8e9eb;}
+#right .commonpage .pageright b.selected{display:inline-block;height:16px;line-height:16px;padding: 3px 6px 3px 5px;color:#fff;background-color:#9b9b9b;}
+#right .commonpage .pageright span.disablebtn{display:inline-block;padding:2px 5px 2px 5px;height:16px;line-height:16px;border:1px solid #aeaeae;color:#ababab;text-decoration:none;background-color:#fff;}
+/* 分页重写 结束 */
+/*分页样式  结束 */
+/*提示标样式 开始*/
+.tips-common{padding-bottom:5px;}
+.tips-common span{display:block;padding:4px 10px 6px 40px;line-height:22px;border:1px solid #e4db92;color:#444;}
+.tips-common .tips-information{border:1px solid #c0d6e0;background:url(http://image.dhgate.com/dhs/mos/image/public/tip-icon01.gif) #ebf2f6 15px 8px no-repeat;} /*信息提示*/
+.tips-common .tips-warning{border:1px solid #e4db92;background:url(http://image.dhgate.com/dhs/mos/image/public/tip-icon02.gif) #fefad5 15px 8px no-repeat;} /*警告提示*/
+.tips-common .tips-error{border:1px solid #fac5c8;background:url(http://image.dhgate.com/dhs/mos/image/public/tip-icon03.gif) #fde8e9 15px 8px no-repeat;} /*错误提示*/
+.tips-common .tips-correct{border:1px solid #aee9a3;background:url(http://image.dhgate.com/dhs/mos/image/public/tip-icon04.gif) #e4fed5 15px 8px no-repeat;} /*正确提示*/
+.tips-common .tips-warmtip{border:1px solid #e4db92;background:url(http://image.dhgate.com/dhs/mos/image/public/tip-icon05.gif) #fefad5 15px 8px no-repeat;} /*温馨提示*/
+.tips-common .tips-editing{border:1px solid #e4db92;background:url(http://image.dhgate.com/dhs/mos/image/public/tip-icon06.gif) #fefad5 15px 8px no-repeat;} /*编辑提示*/
+.without-remind{padding:10px;height:40px;line-height:40px;border:1px solid #fdcc7f;background:#ffffe5;text-align:center}/*没有内容提示添加*/
+.tipstion{position:relative;}
+.tipstion .tips-correct{height:100%;}
+.tips-common .tipsclose{overflow:hidden;position:absolute;top:11px;right:10px;width:13px;height:13px;background:url(http://image.dhgate.com/dhs/mos/image/public/pop-close.png) no-repeat;}
+.tips-common .tipsclose:hover{background-position:0 -13px;}
+/*提示标样式 结束*/
+
+/*运费模板修改 开始20111102*/
+.transport-management h3{line-height:30px;font-size:14px;font-weight:bold;border-bottom:2px solid #BBD3EB;}
+.transport-management dl{position:relative;padding:10px 0 10px 52px;}
+.transport-management dt{position:absolute;left:0;_left:-52px;top:13px;color:#000000;}
+.transport-management dd{line-height:22px;color:#444;}
+.transport-management dd b{font-size:14px;margin-left:10px;}
+/*运费模板修改 结束*/
+/*站内信与客服留言未读*/
+.old-letter{margin-left:10px;padding-left:17px;color:#fe7800;text-decoration:underline;font-weight:700;background:url(http://image.dhgate.com/dhs/mos/image/customservice/old-message.png) no-repeat 0 2px;}
+.old-custom-service{margin-left:10px;padding-left:15px;color:#fe7800;text-decoration:underline;font-weight:700;background:url(http://image.dhgate.com/dhs/mos/image/customservice/old-message.png) no-repeat 0 -22px;}
+
+
+/*错误提示20120508*/
+span.editerror{display:block;color:#444;padding:0px 10px 0px 40px;line-height:22px;border:1px solid #fac5c8;background:url(http://image.dhgate.com/dhs/mos/image/public/tip-icon03.gif) #fde8e9 15px 3px no-repeat;}
+ /*错误提示*/
+ 
+ /*催款与延长付款*/
+.payment-deadline .choose-reason{margin-top:10px;}
+.payment-deadline .choose-reason li{float:left;padding:10px 20px;}
+.payment-deadline .choose-reason li input{margin:-2px 5px 0 0;vertical-align:middle;}
+.payment-deadline2 li{padding-bottom:10px;}
+.payment-deadline2 li select{width:90px;}
+.payment-deadline-set{margin-top:20px;text-align:center;}
+
+/*产品组 级联增加宽度限制 */
+.addwid113{width:113px;}
+.addwid113 option{ overflow:hidden; width:113px;}

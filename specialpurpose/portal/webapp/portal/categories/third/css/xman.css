@@ -1,0 +1,320 @@
+/* --------xman-join-signIn css */
+html{-webkit-text-size-adjust:none;}
+.join-signIn { position:absolute;z-index:1000002;top:-999px;left:50%; width:430px; padding:8px; margin-left:-250px; font:12px arial; }
+.embedded-join-signIn { z-index:1000002;width:411px;margin:0 auto;padding:0 auto;text-align:center;font:12px arial; display:none; }
+.xman_box_inner { position:relative; background:#fff;border:solid 1px #96b8cc; zoom:1;}
+.embedded-join-signIn .xman_box_inner { border:none; }
+.xman_box_inner table, .xman_box_inner td, .xman_box_inner div , .xman_box_inner form, .xman_box_inner ul, .xman_box_inner li{list-style:none; word-wrap:break-word; margin:0; padding:0;}
+.xman_box_inner .xman-input { height:18px; padding:1px 0 !important; font:12px Arial; border:1px solid #9f9f9f;}
+.xman_box_inner select {font:12px Arial; border:1px solid #9f9f9f;}
+.xman_box_inner input.radio_input {vertical-align:top;margin:0 3px 0 5px;border:0;}
+.xman_box_inner label { font:12px Arial; }
+.xman_box_inner .hint {color:#B2B2B2;}
+.xman_box_inner  h4 { height:28px;line-height:28px;margin:0px;padding:0 10px;font-size:12px;background:#E9F4F4; }
+.xman_box_inner  h4 span { float:left;height:27px;line-height:27px; }
+.xman_box_inner  #boxClose { float:right;width:15px;height:15px; cursor:pointer; margin:5px -3px 0 0; background:url(/images/xman/xman_images.gif) no-repeat -2px -161px;}
+
+.xman_box_inner .xman-box-content { padding:8px 6px; text-align:left; }
+.joinSignBox .xman_box_inner .xman-box-content {   padding:10px 15px 15px 15px;  }
+.xman-box-content .unit-wrapper { width:auto; background-color:#FDE8E9; border:1px solid #FCC4C7;padding:1px; }
+.xman-box-content table { margin:0 auto; padding:0 auto; }
+.xman-box-content .no-error { background-color:#FFF; border:1px solid #FFFFFF; }
+.xman-box-content th { width:115px; color:#333333;padding:4px 8px 4px 0;text-align:right; vertical-align:top; }
+.xman-box-content #signInTable th{ width:130px;padding:4px 4px 4px 0; }
+.xman-box-content #signInTable td{ width:235px; }
+.xman-box-content #signInTable.standard_signin td, .xman-box-content #signInTable.standard_signin_express td{ width:auto; }
+#xman_loading_div { position: absolute; z-index:1000012; background:url(/images/xman/loading.gif) no-repeat 0px 4px; display:none; }
+#xman_loading_iframe { position:absolute;z-index:1000010;top:1px;left:2px;_left:0;margin:0;padding:0;background-color:#fff;border:none; filter:alpha(opacity=85); opacity:0.85; display:none; } 
+#xman_background_iframe { position:absolute;top:0;left:0;margin:0;padding:0;background-color:#fff;border:none; filter:alpha(opacity=0); opacity:0; display:none; } 
+#xman_background_div { z-index:10001; position:absolute; top:0;left:0; background-color:#000; filter:alpha(opacity=30); opacity:0.3;  }
+#xman_mask_ie6 { position:absolute; top:8px;left:8px; z-index:-1; }
+
+.xman-box-content .font12{ font:11px Tahoma; color:#2a2a2a; font-weight:normal;  }
+.xman-box-content a, .xman-box-content a:hover { text-decoration:none; }
+.xman-box-content .required {background:url(/images/xman/xman_images.gif) no-repeat scroll -2px -87px transparent;padding-left:15px;}
+.xman-box-content td { padding:1px 0; } 
+.xman-box-content td strong { font-size:12px; }
+.xman-box-content td strong.email{display:inline-block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:220px;}
+.xman-box-content span.alert { font-weight:bold;color:#D60107; }
+.xman-box-content .tips-msg { margin-left:3px; font:11px Tahoma; color:#898989; }
+.xman-box-content .errorMsg { display:none; width:auto; margin:0 !important; padding:5px 5px 5px 25px; border:0}
+.xman-box-content .xman-validate-error { color:#D60107; ;}
+.xman-box-content .server-error strong{ font:bold 10px verdana;}
+.xman-box-content .server-error li{ margin-top:10px; padding:0; }
+.xman-box-content .board.errorB { border:0; margin:0; background:url(/images/xman/xman_images.gif) no-repeat 5px -191px #FDE8E9; *background-position:5px -188px; font-family:verdana;font-size:10px;line-height:16px;padding:6px 5px 5px 26px;}
+.xman-box-content #xsignIn .board.server-error.alertB{ background:url(/images/xman/xman_images.gif) no-repeat 5px -327px #FFFDEB; border:1px solid #FAD388;margin:0;font-family:verdana;font-size:10px;line-height:16px;padding:6px 5px 5px 30px;}
+.xman-box-content .formAction { padding:5px 0 10px 2px; }
+.xman-box-content .notice { border-top:1px solid #d1d6dc; padding:5px 0 10px 20px;margin:0; font:11px Tahoma !important; color:#898989; line-height:14px; }
+.xman-box-content .notice ul{  margin: 0; padding: 5px 0 0 15px;}
+
+.xman-box-content .last-name, .xman-box-content .first-name{ width:108px; }
+.xman-box-content .company-name{ width:220px; }
+.xman-box-content .email, .xman-box-content .password{ width:220px; }
+.xman-box-content .country{ width:170px;height:20px;overflow:hidden;vertical-align: top; }
+.xman-box-content .phone-country, .xman-box-content .phone-area{ width:40px; }
+.xman-box-content .phone-number{ width:130px; }
+.xman-box-content .check-code{ width:45px; }
+.xman-box-content .xman_buttonDPL { display:inline-block; height:27px; *width:105px; *height:25px; padding:5px 28px; background:url(../images/xman_images.gif) repeat-x 0 -48px;border-color:#fff #F5A23C #C7B59D #F29722; border-style:solid; border-width:0 1px 1px; *border:none; *background-position:0 -49px; color:#6C2300 !important; cursor:pointer; font:bold 12px/17px Arial;}
+.xman-box-content .xman_buttonWrap { *display:inline-block; *border-bottom:1px solid #C7B59D; *border-left:1px solid #F29722; *border-right:1px solid #F5A23C; *border-top:1px solid #f09928;}
+.xman-box-content .forgetpw { margin-top:5px; margin-bottom:10px; }
+.xman-box-content #forgotPwId { display:inline-block; margin:5px 0 0 0; font:12px Verdana;}
+.xman-box-content .check-code-link { margin-left:5px;}
+.xman-box-content .check-code-link img, .xman-box-content .standard-check-code img{border:1px solid #C5D2DF;vertical-align:middle;}
+.xman-box-content .check-code-link font{ font:11px Tahoma}
+.xman-box-content .standard-check-code font{font:11px verdana; }
+.xman-box-content a:link { color:#0033cc;}
+.xman-box-content a:visited { color:#0033cc;}
+.xman-box-content a:hover { color:#FF6600;}
+.xman-box-content .standard-check-code {display:inline-block; margin-top:8px;}
+
+/* xman-join-signIn tab css */
+.xman_box_inner .yui-navset .yui-nav { position:relative;zoom:1; margin:0; padding:0 0 0 8px; border:0; font:12px arial; word-wrap:normal; word-break:normal;line-height:17px;}
+.xman_box_inner .yui-navset .yui-nav li{  display:inline-block; display:-moz-inline-stack; *display:inline; margin:0 4px 0 0 ; padding:1px 0 0; zoom:1; font-style:normal; font-size:13px; cursor:pointer; vertical-align:bottom; }
+.xman_box_inner .yui-navset .yui-nav .selected { margin:0 4px -1px 0; }
+.xman_box_inner .yui-navset .yui-nav a{ position:relative; display:inline-block; background:url(/images/xman/xman_images.gif) repeat-x 0 -23px; border:solid #d1d6dc 1px; border-bottom:none; vertical-align:bottom;color:#000; text-decoration:none; }
+.xman_box_inner .yui-navset .yui-nav a em { display:block; border:solid #fff; border-width:1px 1px 0; cursor:pointer; font-style:normal; padding:2px 12px; position:relative; }
+.xman_box_inner .yui-navset .yui-nav .selected a,
+.xman_box_inner .yui-navset .yui-nav a:hover{ background:url(/images/xman/xman_images.gif) repeat-x; outline:none; }
+.xman_box_inner .yui-navset .yui-nav .selected a em {padding:3px 12px; color:#000;border:none; font-weight:bold;}
+.xman_box_inner .yui-navset .yui-content{ margin:0px; padding:10px 8px 0px; border:1px solid #d1d6dc; background-color:#fff; zoom:1; }
+/* --------xman-join-signIn */
+
+/* -------- standard sign in css */
+.xman-box-content .standard_signin { margin:0 auto; padding:0 auto; }
+.xman-box-content .board.standard_signin_error, .xman-box-content .board.server-error { width:auto; background-color:#FEEEEF; border:1px solid #FFCBCD;margin:5px 0px 0 0; display:none;}
+.xman-box-content .standard_signin .board.standard_signin_error, .xman-box-content .standard_signin .board.server-error {margin:5px 15px 0 0;}
+.xman-box-content .express .board.errorB{font:12px Arial; *background-position:5px -191px;}
+.xman-box-content .express .board.errorB strong{font:bold 12px Arial ; }
+.xman-box-content .standard_signin label{ display:block; margin:5px 0 5px; color:#2a2a2a; font:12px Arial;}
+.xman-box-content .standard_signin .login-input{ padding:2px; width:185px; height:18px; border:1px solid #9f9f9f;}
+.xman-box-content .express .login-input{ border-color: #7B9EBD; padding:1px; width:185px;}
+.xman-box-content .standard_signin #remember { width:270px; margin:12px 0; padding:10px 0; border-top:dashed 1px #ccc; border-bottom:dashed 1px #ccc; font:11px Verdana;}
+.xman-box-content .standard_signin #remember .tm-checkbox{ margin:0; vertical-align:text-top; vertical-align:top\0; *vertical-align:middle;}
+.xman-box-content #remember label { display:inline-block; margin:0 0 0 3px;}
+.xman-box-content #remember div.tip { color: #888888; margin: 10px 0 5px; }
+.xman-box-content #remember a { display:inline-block;  margin-left:15px; padding-left:23px;  line-height:20px; text-decoration:none; background:url(/images/xman/xman_images.gif) no-repeat 0 -122px;}	
+.xman-box-content #xman_join_btn { display:inline-block; margin:8px 0 0 15px; font:bold 12px Verdana; text-decoration:underline;}
+.xman-box-content .leadToReg { border-top:1px dashed #CCCCCC; margin:10px 0 12px; padding:10px 0 0; width:240px; }
+.xman-box-content .leadToReg a { font-family:Arial;font-size:14px;font-weight:bold;text-decoration:underline; line-height:20px; color:#003399;}
+.xman-box-content .leadToReg a:visited { color:#996699; }
+.xman-box-content .leadToReg a:hover { color:#FF6600; }
+/* -------- standard sign in css */	
+
+/* -------- partner sign in css */
+.xman_box_inner .xman-bind-guide{color:#666666;font-weight:bold;padding:10px 0;}
+.xman-box-content #xloginPartnerTR #xloginPartnerWrapper{padding-top:10px;margin-top:12px;border-top:1px dashed #CCCCCC;}
+.xman-box-content #xloginPartnerTR #xloginFacebook{padding:2px 0 0 20px;margin-left:5px;background:transparent url(/images/eng/style/icon/facebook.png) scroll no-repeat 0 0;}
+/* -------- partner sign in css */
+
+.firebugResetStyles {
+    z-index: 2147483646 !important;
+    top: 0 !important;
+    left: 0 !important;
+    display: block !important;
+    border: 0 none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    outline: 0 !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    position: fixed !important;
+    transform: rotate(0deg) !important;
+    transform-origin: 50% 50% !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: transparent none !important;
+    pointer-events: none !important;
+    white-space: normal !important;
+}
+style.firebugResetStyles {
+    display: none !important;
+}
+
+.firebugBlockBackgroundColor {
+    background-color: transparent !important;
+}
+
+.firebugResetStyles:before, .firebugResetStyles:after {
+    content: "" !important;
+}
+/**actual styling to be modified by firebug theme**/
+.firebugCanvas {
+    display: none !important;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.firebugLayoutBox {
+    width: auto !important;
+    position: static !important;
+}
+
+.firebugLayoutBoxOffset {
+    opacity: 0.8 !important;
+    position: fixed !important;
+}
+
+.firebugLayoutLine {
+    opacity: 0.4 !important;
+    background-color: #000000 !important;
+}
+
+.firebugLayoutLineLeft, .firebugLayoutLineRight {
+    width: 1px !important;
+    height: 100% !important;
+}
+
+.firebugLayoutLineTop, .firebugLayoutLineBottom {
+    width: 100% !important;
+    height: 1px !important;
+}
+
+.firebugLayoutLineTop {
+    margin-top: -1px !important;
+    border-top: 1px solid #999999 !important;
+}
+
+.firebugLayoutLineRight {
+    border-right: 1px solid #999999 !important;
+}
+
+.firebugLayoutLineBottom {
+    border-bottom: 1px solid #999999 !important;
+}
+
+.firebugLayoutLineLeft {
+    margin-left: -1px !important;
+    border-left: 1px solid #999999 !important;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.firebugLayoutBoxParent {
+    border-top: 0 none !important;
+    border-right: 1px dashed #E00 !important;
+    border-bottom: 1px dashed #E00 !important;
+    border-left: 0 none !important;
+    position: fixed !important;
+    width: auto !important;
+}
+
+.firebugRuler{
+    position: absolute !important;
+}
+
+.firebugRulerH {
+    top: -15px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 14px !important;
+    background: url("") repeat-x !important;
+    border-top: 1px solid #BBBBBB !important;
+    border-right: 1px dashed #BBBBBB !important;
+    border-bottom: 1px solid #000000 !important;
+}
+
+.firebugRulerV {
+    top: 0 !important;
+    left: -15px !important;
+    width: 14px !important;
+    height: 100% !important;
+    background: url("") repeat-y !important;
+    border-left: 1px solid #BBBBBB !important;
+    border-right: 1px solid #000000 !important;
+    border-bottom: 1px dashed #BBBBBB !important;
+}
+
+.overflowRulerX > .firebugRulerV {
+    left: 0 !important;
+}
+
+.overflowRulerY > .firebugRulerH {
+    top: 0 !important;
+}
+
+.fbProxyElement {
+    position: fixed !important;
+    pointer-events: auto !important;
+}
+#signInField #pPasswT2 { display:block; width: 304px; height:17px; background:url(images/signin_feild_bg.gif) no-repeat -8px 17px;}
+		#signInField #pPasswT2 img { position:absolute; right:1px; top:1px; height:48px; width:48px;}
+.batman-login-loading {
+	width: 32px; 
+	display: block;
+	margin: 0 auto;
+	padding: 105px 0;
+}
+
+/* active box */
+#wslogin-active-box {
+	font-family: Tahoma, Arial, 'Hiragino Sans GB', '宋体';
+}
+#wslogin-active-box .active-btn,
+#wslogin-active-box .validate-btn {
+	margin-bottom: 10px;
+}
+#wslogin-active-box .wslogin-active-message {
+	height: 60px;
+	color: #4d4d4d;
+	display: block;
+	line-height: 20px;
+}
+#wslogin-active-box .wslogin-active-message strong {
+	color: #f60;
+}
+#wslogin-active-box label {
+	color: #f60;
+	font-weight: bold;
+	margin: 25px auto;
+}
+#wslogin-active-box input { 
+	margin-right: 8px;
+}
+#wslogin-active-box #other-account {
+	color: #08c;
+	margin-top: 10px;
+}
+
+/* error */
+.ws-login-error-tip {
+	color: red;
+	margin: 10px 20px;
+}
+/* 兼容5v xman登陆框的样式 */
+#xman-login-wrapper #wslogin-active-box,
+#xman-login-wrapper #alibaba-login-box {
+	margin: 0 60px;
+	width: 350px;
+}
+.banner {display:none; padding:25px; color:#666; font-family:Arial; height:450px; width:990px; margin:auto;}
+.banner .banner-title {font-weight:bold; font-size:24px; padding:0 15px; line-height:30px;}
+.banner .banner-text {font-size:12px; margin-top:10px; line-height:20px; padding:0 15px;}
+.banner-1 {padding:50px 0 0 0;}
+.banner-1 .banner-title {padding-left:0px;}
+.banner-1 .banner-text {padding-left:0px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

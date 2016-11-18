@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
+	<form name="FindTypeAttribute" type="single"  style="pageForm" default-table-style="searchContent" target="${searchAction}" default-entity-name="TypeAttribute">
+		
+		<field name="productCategoryId" title="商品类型" position="1">
+			<drop-down>
+			<option key="" description="请选择"/>
+				<list-options key-name="productCategoryId" description="${categoryName}" list-name="productCategories"/>
+			</drop-down>
+		</field>
+		<field name="attributeName" title="属性名称" position="2">
+			<text-find hide-options="true" />	
+		</field>
+		<field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button"/>
+        </field>
+	</form>
+	<form name="EditTypeAttribute" id="${currentForm}" type='single' style="single_table" 
+	    default-table-style="basic-table" target="updateTypeAttribute"  default-map-name="entity" default-entity-name="TypeAttribute">
+		<alt-target use-when="entity==null" target="createTypeAttribute" />
+		<field name="attributeGroupId">
+			<hidden />
+		</field>
+		<field name="productCategoryId" position='1' required-field="false"  title="产品类型" >
+			<drop-down >
+				<list-options key-name="productCategoryId" description="${categoryName}" list-name="productCategories"/>
+			</drop-down>
+		</field>
+		<field name="attributeName" position='1' required-field="false"  title="属性名称" >
+			<text/>
+		</field>
+	</form>
+	<!-- ProductLab -->
+    <form name="AddProductLab" type="single" target="createProductLab" title=""
+        header-row-style="header-row" default-table-style="basic-table">
+        <auto-fields-service service-name="createProductLab"/>
+        <field name="productStoreId"><hidden value="shopStore" /></field>
+        <field name="labId"><hidden/></field>
+        <field name="relevancyWeight"><text default-value="1"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
+    </form>
+    <form name="UpdateProductLab" type="list" target="deleteProductLab" title="" list-name="productLabs"
+        odd-row-style="alternate-row" default-table-style="table">
+        <auto-fields-entity entity-name="ProductLab" default-field-type="display"/>
+        <!--  
+        <field name="productStoreId"><hidden/></field>
+        -->
+        <field name="submitButton" title="${uiLabelMap.CommonDelete}"><submit button-type="button"/></field>
+    </form>
+	<form name="FindProductLab" type="single" target="FindProductLab" title="">
+        <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
+        <field name="labName" title="${uiLabelMap.ProductLabName}:" position="1">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button"/>
+        </field>
+    </form>
+    <form name="ListProductLab" list-name="listIt" target="" title="" type="list" separate-columns="true" view-size="20"
+        paginate-target="FindProductLab" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table-bordered">
+        <actions>
+            <set field="entityName" value="ProductLab"/>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" from-field="entityName"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize"  from-field="viewSize" />
+            </service>
+        </actions>
+       
+        <field name="labName" sort-field="true" title="${uiLabelMap.ProductLabName}">
+            <display/>
+        </field>
+        <field name="relevancyWeight" sort-field="true" title="${uiLabelMap.DisplaySort}">
+            <display/>
+        </field>
+        <field name="edit" title="${uiLabelMap.CommonEdit}"   widget-style="btnEdit" >
+            <hyperlink also-hidden="false"    description="${uiLabelMap.CommonEdit}" target="EditProductLab">
+                <parameter param-name="labId"/>
+            </hyperlink>
+        </field>
+        <field name="delete" title="${uiLabelMap.CommonDelete}"  widget-style="btnDel">
+            <hyperlink also-hidden="false" target-window="navTabTodo" target-type="plain" description="${uiLabelMap.CommonDelete}" target="deleteProductLab">
+                <parameter param-name="labId"/>
+            </hyperlink>
+        </field>
+    </form> 
+    <form name="EditProductLab" type="single" default-table-style="basic-table"   target-type="plain" style="single_table" target="updateProductLab" default-map-name="entity" default-entity-name="ProductLab">
+        <alt-target use-when="entity==null" target="createProductLab"/>
+        <field name="labId"><hidden/></field>
+        <field name="navTabId"><hidden value="FindProductLab"/></field>
+        <field name="callbackType"><hidden value="closeCurrent"/></field>
+      
+        <field name="labName" title="${uiLabelMap.ProductLabName}:" widget-style="required">
+	      	<text size="30" maxlength="60"/>
+	  	</field>
+	  	 <field name="relevancyWeight" sort-field="true" title="${uiLabelMap.DisplaySort}" widget-style="number"><text maxlength="10" /></field>
+
+    </form>
+    
+    
+    <!-- 查询品牌列表 -->
+	<form name="FindProductBrand" type="single" target="FindProductBrand" title="">
+        <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
+        <field name="brandName" title="${uiLabelMap.ProductBrandName}:" position="1">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="description" title="${uiLabelMap.ProductBrandDescription}:" position="1">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button"/>
+        </field>
+    </form>
+    <form name="ListProductsBrand" list-name="listIt" target="" title="" type="list" separate-columns="true" view-size="20"
+        paginate-target="FindProductBrand" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table-bordered">
+        <actions>
+            <set field="entityName" value="ProductBrand"/>
+            <service service-name="performFind" result-map="result" result-map-list="listIt" >
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" from-field="entityName"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize"  from-field="viewSize" />
+                <field-map field-name="filterByDate" value="Y" />
+            </service>
+        </actions>
+        <!--
+        <field name="editProductBrand" sort-field="true" title=" ">
+            <hyperlink also-hidden="false" description="${uiLabelMap.CommonUpdate}" target="EditProductBrand" image-title="${uiLabelMap.CommonUpdate}">
+                <parameter param-name="id"/>
+            </hyperlink>
+        </field>
+        <field name="deleteProductBrand" sort-field="true" title=" ">
+            <hyperlink also-hidden="false" description="${uiLabelMap.CommonDelete}" target="deleteProductBrand" image-title="${uiLabelMap.CommonDelete}">
+                <parameter param-name="id"/>
+            </hyperlink>
+        </field>
+        <field name="brandName" sort-field="true" title="${uiLabelMap.ProductBrandName}">
+            <hyperlink also-hidden="false" description="${brandName}" target="EditProductBrand" image-title="${brandName}">
+                <parameter param-name="id"/>
+            </hyperlink>
+        </field> 
+        -->
+        <field name="brandName" sort-field="true" title="${uiLabelMap.ProductBrandName}">
+            <display/>
+        </field>
+        <field name="description" sort-field="true" title="${uiLabelMap.ProductBrandDescription}"><display/></field>
+        <field name="displaySort" sort-field="true" title="${uiLabelMap.DisplaySort}"><display/></field>
+        <field name="isDisplay" sort-field="true" title="${uiLabelMap.IsDisplay}"  use-when="${isDisplay=='Y'}" ><display description="${uiLabelMap.CommonYes}"/></field>
+        <field name="isDisplay" sort-field="true" title="${uiLabelMap.IsDisplay}"  use-when="${isDisplay=='N'}" ><display description="${uiLabelMap.CommonFalse}"/></field>
+        <field name="edit" title="${uiLabelMap.CommonEdit}"   widget-style="btnEdit">
+            <hyperlink also-hidden="false"    description="${uiLabelMap.CommonEdit}" target="EditProductBrand">
+                <parameter param-name="id"/>
+            </hyperlink>
+        </field>
+        <field name="delete" title="${uiLabelMap.CommonDelete}"  widget-style="btnDel">
+            <hyperlink also-hidden="false" target-window="navTabTodo" target-type="plain" description="${uiLabelMap.CommonDelete}" target="deleteProductBrand">
+                <parameter param-name="id"/>
+            </hyperlink>
+        </field>
+    </form> 
+    <!-- 编辑品牌 -->
+    <form name="EditProductBrand" type="upload" focus-field-name="brandName"  style="single_table" default-table-style="basic-table" target-type="plain" target="updateProductBrand" default-map-name="entity" default-entity-name="ProductBrand">
+        <alt-target use-when="entity==null" target="createProductBrand"/>
+        <field name="id"><hidden/></field>
+        <field name="navTabId"><hidden value="FindProductBrand"/></field>
+        <field name="callbackType"><hidden value="closeCurrent"/></field>
+        <!-- <field name="ajax"><hidden value="1"/></field> -->
+        <field name="brandName" required-field="true" title="${uiLabelMap.ProductBrandName}:" widget-style="required">
+	      	<text size="30" maxlength="60"/>
+	  	</field>
+	  	<field name="brandUrl" title="${uiLabelMap.ProductBrandUrl}:" tooltip="请输入以http://开头的网址" widget-style="url">
+	      	<text size="30" maxlength="60"/>
+	  	</field>
+        <field use-when="${groovy:entity&amp;&amp;entity.brandLogo}" name="brandImgDisplay" title=" "><image value="${entity.brandLogo}" height="40" width="40" description=""></image></field>
+        <field name="brandLogo" title="${uiLabelMap.ProductBrandLogo}:"><file/></field> 
+        <field name="description" title="${uiLabelMap.ProductBrandDescription}:" widget-style="rangeLength:[3,5]"><textarea/></field> 
+        <field name="displaySort" sort-field="true" title="${uiLabelMap.DisplaySort}" widget-style="number"><text maxlength="10" default-value="1" /></field>
+		<field name="isDisplay" title="${uiLabelMap.IsDisplay}:" >
+			<radio no-current-selected-key="Y">
+				<option key="Y" description="${uiLabelMap.CommonYes}"/>
+                <option key="N" description="${uiLabelMap.CommonFalse}"/>
+			</radio>
+	  	</field>
+		<!-- 
+		<field name="submitButton" use-when="entity==null" position="1" widget-style="smallSubmit" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
+        <field name="submitButton" use-when="entity!=null" position="1" widget-style="smallSubmit" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field> 
+        -->
+    </form>
+    <!-- 查询规格列表 -->
+    <form name="FindProductFeatureCategory" type="single" target="FindProductFeatureCategory" title="">
+        <field name="noConditionFind"><hidden value="Y"/></field>
+        <field name="description" title="${uiLabelMap.ProductFeatureCategoryName}:" position="1">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button"/>
+        </field>
+    </form>
+    <form name="ListProductFeatureCategory" list-name="listIt" target="" title="" type="list" separate-columns="true" view-size="100"
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table-bordered">
+        <actions>
+            <set field="entityName" value="ProductFeatureCategory"/>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" from-field="entityName"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize"  from-field="viewSize" />
+            </service>
+        </actions>
+        <field name="description" sort-field="true" title="${uiLabelMap.ProductFeatureCategoryName}"><display/></field>
+        <field name="edit" title="${uiLabelMap.CommonEdit}"   widget-style="btnEdit" >
+            <hyperlink also-hidden="false"    description="${uiLabelMap.CommonEdit}" target="EditProductsFeatureCategory">
+                <parameter param-name="productFeatureCategoryId"/>
+            </hyperlink>
+        </field>
+    </form>
+    <!-- 新建规格 -->
+    <form name="CreateProductFeature" type="single" target="CreateFeatureCategory" default-map-name="entity" default-entity-name="ProductFeatureCategory">
+        <alt-target use-when="entity!=null" target="UpdateFeatureCategory"/>
+        <field name="productFeatureCategoryId"><hidden/></field>
+        <field name="navTabId" ><hidden value="EditProductsFeatureCategory" /></field>
+        <!-- <field name="callbackType" ><hidden value="closeCurrent" /></field> -->
+        <field name="description" title="${uiLabelMap.ProductFeatureCategoryName}"><text size="25"></text></field>
+        <field name="productCategoryId" title="${uiLabelMap.ProductParentCategory}">
+            <drop-down allow-empty="true" no-current-selected-key="${productCategoryId}">
+                <entity-options description="${categoryName}" entity-name="ProductCategory" key-field-name="productCategoryId">
+                </entity-options>
+            </drop-down>
+        </field>
+        <!-- 
+        <field name="parentCategory" title="${uiLabelMap.ProductParentCategory}">
+            <drop-down allow-empty="true">
+                <entity-options description="${description}" entity-name="ProductFeatureCategory" key-field-name="description">
+                </entity-options>
+            </drop-down>
+        </field>
+        -->
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit" event="onclick" action="javascript:submitForms('CreateProductFeature')"><submit button-type="button"/></field>
+    </form> 
+    <form name="FindProductAdvanced" type="single" target="FindProduct"  header-row-style="main_title" style="pageForm" default-map-name="product" >
+        <field name="productName" title="${uiLabelMap.ProductName}:" position="2">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="productName" title="${uiLabelMap.ProductName}:" position="2">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="brandName" title="${uiLabelMap.ProductBrandName}:" position="2">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="goodsNo" title="${uiLabelMap.ProductGoodsNo}:" position="2">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="categoryName" title="${uiLabelMap.ProductType}:" position="2">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button"/>
+        </field>
+    </form>
+    <form name="FindProduct" type="single" target="FindProduct" title="" default-map-name="product" >
+        <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
+        <field name="productId" title="${uiLabelMap.ProductProductId}" position="1">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="productName" title="${uiLabelMap.ProductName}" position="2">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <!--  
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button"/>
+        </field>
+        -->
+    </form>
+    <form name="FindProductDialog" type="single" target="LookupBulkAddProducts" title="" default-map-name="product" >
+        <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
+        <field name="productId" title="商品ID" position="1">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="productName" title="商品名称" position="2">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button"/>
+        </field>
+    </form>
+   <form name="ListProducts" list-name="listIt" title="" type="list" separate-columns="true" view-size="20" paginate-target="FindProduct"
+         odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table-bordered">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="Product"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize"  from-field="viewSize" />
+            </service>
+        </actions>
+       <field name="seq" title="序号">
+        	<display description="${itemIndex+1+viewSize*viewIndex}" ></display>
+        </field>
+        <field name="productId" sort-field="true"><hidden/></field>
+        <field name="productName" sort-field="true" title="${uiLabelMap.ProductName}"><display/></field>
+        <field name="brandName" sort-field="true" title="${uiLabelMap.ProductBrandName}"><display-entity entity-name="ProductBrand" description="${brandName}" key-field-name="id"/></field>
+        <field name="description" sort-field="true"><display/></field>
+        <field name="edit" title="${uiLabelMap.CommonEdit}"   widget-style="btnEdit" >
+            <hyperlink also-hidden="false"    description="${uiLabelMap.CommonEdit}" target="EditProduct">
+                <parameter param-name="productId"/>
+            </hyperlink>
+        </field>
+    </form>
+    <form name="LookupProductCategory" type="single" target="LookupProductCategory" title="" default-map-name="product">
+        <field name="noConditionFind"><hidden value="Y"/></field>
+        <field name="categoryName" title="分类名称：">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+    </form>
+    <form name="ListGetProductCategory" list-name="listIt" title="" type="list" separate-columns="true" view-size="20" paginate-target="LookupProductCategory"
+        default-map-name="productCategory" default-entity-name="ProductCategory"  paginate-style="panelBar_dialog" default-table-style="table">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="ProdCatalogCategoryView"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize"  from-field="viewSize" />
+                <field-map field-name="filterByDate" value="Y" />
+            </service>
+        </actions>
+        <row-actions>
+        	<entity-one entity-name="ProductCategory" value-field="pcGv"><field-map field-name="productCategoryId" from-field="productCategoryId"></field-map></entity-one>
+        </row-actions>
+        <field name="categoryName" sort-field="true" title="分类名称："><display description="${pcGv.categoryName}"/></field>
+        <field name="edit" title="选择" widget-style="btnSelect">
+            <!-- <hyperlink description="${uiLabelMap.FindBack}" target="javascript:$.bringBack({primaryProductCategoryId:'${productCategoryId}', productCategoryName:'${pcGv.categoryName}'});" target-type="plain"/> -->
+            <hyperlink description="${uiLabelMap.FindBack}" target="javascript:categoryBringBack('${productCategoryId}', '${pcGv.categoryName}');" target-type="plain"/>
+        </field>
+    </form>
+    <!--  -->
+    <form name="FindProductType" type="single" target="FindProductType" title="">
+        <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
+        <field name="decription" title="${uiLabelMap.CommonDescription}：">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button"/>
+        </field>
+    </form>
+   <form name="ListProductTypes" list-name="listIt" title="" type="list" separate-columns="true" view-size="20" paginate-target="FindProductType"
+        list-entry-name="productType" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table-bordered">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="ProdCatalogCategory"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize"  from-field="viewSize" />
+            </service>
+        </actions>
+        <row-actions>
+        	<entity-one entity-name="ProductCategory" value-field="productCategory">
+        		<field-map field-name="productCategoryId" from-field="productType.productCategoryId"/>
+        	</entity-one>
+        </row-actions>
+       <field name="seq" title="序号">
+        	<display description="${itemIndex+1+viewSize*viewIndex}" ></display>
+        </field>
+        <field name="description" sort-field="true">
+        <display description="${productCategory.categoryName}"/></field>
+        <field name="count" title="${uiLabelMap.CommonEdit}${uiLabelMap.Attribute}"  widget-style="btnEdit">
+			<hyperlink also-hidden="false"    description="${uiLabelMap.CommonEdit}" target="FindTypeAttribute">
+                <parameter param-name="productCategoryId" from-field="productType.productCategoryId"/>
+            </hyperlink>
+		</field>
+        <field name="edit" title="${uiLabelMap.CommonEdit}" widget-style="btnEdit">
+            <hyperlink also-hidden="false"    description="${uiLabelMap.CommonEdit}" target="EditProductType">
+                <parameter param-name="productCategoryId" from-field="productType.productCategoryId"/>
+            </hyperlink>
+        </field>
+    </form>
+   <form name="ListProductTypeAttributes" list-name="listIt" title="" type="list" separate-columns="true" view-size="20" paginate-target="FindTypeAttribute"
+        list-entry-name="typeAttribute" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table-bordered">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="TypeAttribute"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize"  from-field="viewSize" />
+            </service>
+        </actions>
+        <row-actions>
+        	<entity-condition entity-name="AttrOptionalValue" list="attributeOptionalList">
+        		<condition-expr field-name="attributeId" from-field="typeAttribute.attributeId"/>
+        	</entity-condition>
+        	<set field="optionalName" value="${groovy:
+        		String attrStr ='';
+        		for(attributeOptional in attributeOptionalList)
+	        			attrStr = attrStr + attributeOptional.getString(&quot;optionalName&quot;) + ' / ';
+	            if(attrStr.endsWith('/ '))attrStr = attrStr.substring(0,attrStr.length()-2);
+        	return attrStr;
+        	}"/>
+        	<entity-one entity-name="ProductCategory" value-field="productCategory">
+        		<field-map field-name="productCategoryId" from-field="typeAttribute.productCategoryId"/>
+        	</entity-one>
+        </row-actions>
+       <field name="seq" title="序号" widget-style="width:300%">
+        	<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+       </field>
+       <field name="attributeName" title="${uiLabelMap.FormFieldTitle_attrName}"><display description="${typeAttribute.attributeName}"/></field>
+       <!-- 
+       <field name="productCategoryId" title="商品类型">
+       		<display description="${productCategory.categoryName}"></display>
+       </field> -->
+       <field name="entryWay" title="${uiLabelMap.InputType}">
+       	<display description="${groovy:
+       	if(typeAttribute.getString(&quot;entryWay&quot;)=='SELECT')return'列表';
+       	else if(typeAttribute.getString(&quot;entryWay&quot;)=='TEXT')return'手工录入';
+       	else if(typeAttribute.getString(&quot;entryWay&quot;)=='TEXTAREA')return'多行文本框';
+       	}"/>
+       </field>
+       <field name="optionalName" title="${uiLabelMap.OptionalList}"><display/></field>
+       <field name="edit" title="${uiLabelMap.CommonEdit}"   widget-style="btnEdit">
+            <hyperlink also-hidden="false"    description="${uiLabelMap.CommonEdit}" target="EditProductTypeAttribute">
+                <parameter param-name="attributeId" from-field="typeAttribute.attributeId"/>
+                <parameter param-name="productCategoryId" from-field="typeAttribute.productCategoryId"/>
+            </hyperlink>
+        </field>
+       <field name="delete" title="删除"   widget-style="btnEdit">
+            <hyperlink also-hidden="false"    description="删除" target="DeleteProductTypeAttribute">
+                <parameter param-name="attributeId" from-field="typeAttribute.attributeId"/>
+                <parameter param-name="productCategoryId" from-field="typeAttribute.productCategoryId"/>
+            </hyperlink>
+        </field>
+    </form>
+    <form name="EditProductReviewSetting" type="single" target="updateProductReviewSetting" style="single_table"  default-table-style="basic-table" >
+        <field name="navTabId"><hidden value="EditProductReviewSetting"/></field>
+        <!--商品详细页显示条数  -->
+        <field name="showItem" title="商品详细页显示条数:" widget-style="required digits"><text default-value="${ShowItemGv.description}"/></field>
+        <!--评论页显示条数  -->
+        <field name="showNumber" title="评论页显示条数:" widget-style="required digits"><text default-value="${ShowINumberGv.description}"/></field>
+        <!-- 是否开启评论功能 Y:开启 N：不开启   -->
+        <field name="reviewOpen" title="是否开启评论功能">
+            <radio no-current-selected-key="${OpenGv.description}">
+            	<option key="Y" description="开启"/>
+            	<option key="N" description="不开启"/>
+            </radio>
+        </field>
+        <!-- 发表评论权限 1：非会员可发表评论:2：注册会员可发表评论:3：只有购买过此商品的会员才可以发表评论 -->
+        <field name="reviewPermission" title="发表评论权限">
+            <radio no-current-selected-key="${PermissionGv.description}">
+            	<option key="1" description="非会员可发表评论"/>
+            	<option key="2" description="注册会员可发表评论"/>
+            	<option key="3" description="只有购买过此商品的会员才可以发表评论"/>
+            </radio>
+        </field>
+        <!-- 发表成功提示文字 -->
+        <field name="successInfo" title="发表成功提示文字：" widget-style="required">
+            <text default-value="${SuccessInfoGv.description}" size="60" maxlength="120"/>
+        </field>
+        <sort-order>
+            <field-group title="显示条数设置" collapsible="true" initially-collapsed="false">
+                <sort-field name="showItem"/>
+                <sort-field name="showNumber"/>
+            </field-group>
+            <field-group title="其他设置" collapsible="true" initially-collapsed="false">
+                <sort-field name="reviewOpen"/>
+                <sort-field name="reviewPermission"/>
+                <sort-field name="successInfo"/>
+            </field-group>
+        </sort-order>
+    </form>
+    <form name="EditProductCommunicationSetting" type="single" target="updateProductCommunicationSetting" style="single_table"  default-table-style="basic-table" >
+        <field name="navTabId"><hidden value="EditProductCommunicationSetting"/></field>
+        <!--商品详细页显示条数  -->
+        <field name="showItem" title="商品详细页显示条数:" widget-style="required digits"><text default-value="${ShowItemGv.description}"/></field>
+        <!--评论页显示条数  -->
+        <field name="showNumber" title="咨询页显示条数:" widget-style="required digits"><text default-value="${ShowINumberGv.description}"/></field>
+        <!-- 是否开启评论功能 Y:开启 N：不开启   -->
+        <field name="reviewOpen" title="是否开启咨询功能">
+            <radio no-current-selected-key="${OpenGv.description}">
+            	<option key="Y" description="开启"/>
+            	<option key="N" description="不开启"/>
+            </radio>
+        </field>
+        <!-- 发表咨询权限 1：非会员可发表咨询:2：注册会员可发表咨询:3：只有购买过此商品的会员才可以发表咨询 -->
+        <field name="reviewPermission" title="发表咨询权限">
+            <radio no-current-selected-key="${PermissionGv.description}">
+            	<option key="1" description="非会员可发表咨询"/>
+            	<option key="2" description="注册会员可发表咨询"/>
+            	<option key="3" description="只有购买过此商品的会员才可以发表咨询"/>
+            </radio>
+        </field>
+        <!-- 发表成功提示文字 -->
+        <field name="successInfo" title="发表成功提示文字：" widget-style="required">
+            <text default-value="${SuccessInfoGv.description}" size="60" maxlength="120"/>
+        </field>
+        <sort-order>
+            <field-group title="显示条数设置" collapsible="true" initially-collapsed="false">
+                <sort-field name="showItem"/>
+                <sort-field name="showNumber"/>
+            </field-group>
+            <field-group title="其他设置" collapsible="true" initially-collapsed="false">
+                <sort-field name="reviewOpen"/>
+                <sort-field name="reviewPermission"/>
+                <sort-field name="successInfo"/>
+            </field-group>
+        </sort-order>
+    </form>
+    <form name="FindProductCommunications" type="single" target="FindProductCommunications" title="">
+        <field name="noConditionFind"><hidden value="Y"/></field>
+        <field name="content" title="${uiLabelMap.CommonContent}：">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="isReplied" title="${uiLabelMap.CommonStatus}:" position="2">
+            <drop-down allow-empty="false">
+                <option key="" description="全部"/>
+                <option key="Y" description="已回复"/>
+                <option key="N" description="未回复"/>
+            </drop-down>
+        </field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button"/>
+        </field>
+    </form>
+   <form name="ListProductCommunications" list-name="listIt" title="" type="list" separate-columns="true" view-size="20" paginate-target="FindProductCommunications"
+        group-columns="false" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table-bordered">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="CommunicationEventProductView"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize"  from-field="viewSize" />
+            </service>
+        </actions>
+        <row-actions>
+        	<entity-and entity-name="UserLogin" list="userLoginList">
+        		<field-map field-name="partyId" from-field="partyIdFrom"/>
+        	</entity-and>
+        	<set field="uid" value="${groovy:userLoginList[0].userLoginId}"/>
+        </row-actions>
+        <field name="ids"   widget-area-style="groupAll"   id-name="groupAll"   title=" "  >
+			<check >  
+				<option key="${communicationEventId}" description=" " />
+			</check>
+		</field>
+        <field name="uid" sort-field="true" title="用户名"><display/></field>
+		<field name="productId" sort-field="true" title="咨询${uiLabelMap.ProductProductName}"><display-entity entity-name="Product" description="${productName}"/></field>
+        <field name="isReplied" title="是否回复"><display description="${groovy: isReplied == 'Y'? '已回复 ': '未回复'}"/></field>
+        <field name="entryDate" sort-field="true" title="咨询时间"><display type="date" /></field>
+        <field name="content" sort-field="true" title="${uiLabelMap.CommonContent}"><display/></field>
+        <field name="edit" title="回复"   widget-style="btnEdit" >
+            <hyperlink also-hidden="false"    description="${uiLabelMap.CommonEdit}" target="EditReplyProductCommunication">
+                <parameter param-name="parentCommEventId" from-field="communicationEventId"/>
+                <parameter param-name="action" value="REPLY"/>
+                <parameter param-name="partyIdFrom" value="${userLogin.userLoginId}"/>
+            </hyperlink>
+        </field>
+		<field name="delete" title="${uiLabelMap.CommonDelete}"  widget-style="btnDel">
+            <hyperlink also-hidden="false" target-window="navTabTodo" target-type="plain" description="${uiLabelMap.CommonDelete}" target="deleteProductCommunicationsAll">
+                <parameter param-name="orderIndexs" from-field="communicationEventId"/>
+            </hyperlink>
+        </field>
+        <!-- <field name="ds" title="ds"><display description="${communicationEventList}"/></field> -->
+    </form>
+    <form name="FindPendingReviews" type="single" target="pendingReviews" title="">
+        <field name="noConditionFind"><hidden value="Y"/></field>
+        <field name="userLoginId" title="用户："><text-find  default-option="contains" hide-options="true"></text-find></field>
+        <field name="statusId" title="${uiLabelMap.CommonStatus}:" position="2">
+            <drop-down allow-empty="false">
+                <option key="" description="请选择"/>
+                <option key="PRR_PENDING" description="未批准"/>
+                <option key="PRR_APPROVED" description="批准"/>
+            </drop-down>
+        </field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button"/>
+        </field>
+    </form>
+   <form name="ListPendingReviews" list-name="listIt" title="" type="list" separate-columns="true" view-size="20" paginate-target="pendingReviews"
+        group-columns="false" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table-bordered">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="ProductReviewView"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize"  from-field="viewSize" />
+            </service>
+        </actions>
+        <row-actions>
+        	<entity-and entity-name="ProductReview" list="productReviewList">
+        		<field-map field-name="parentProdReviewId" from-field="productReviewId"/>
+        	</entity-and>
+        	<set field="productReviewSize" value="${groovy:productReviewList.size()}"/>
+        </row-actions>
+        <field name="navTabId"><hidden value="pendingReviews"/></field>
+     
+		<field name="ids" widget-area-style="groupAll" id-name="groupAll" title=" ">
+			<check>
+				<option key="${productReviewId}"  description=" "/>
+			</check>
+		</field>
+        <field name="postedDateTime" sort-field="true" title="发表评论时间"><display/></field>
+        <field name="userLoginId" sort-field="true" title="用户"><display/></field>
+       	<field name="postedAnonymous" id-name="postedAnonymous" sort-field="true" title="是否匿名">
+        	<hidden value="N"/>
+       	</field>
+        <field name="productId" sort-field="true" title="评价商品名称"><display-entity entity-name="Product" description="${productName}"/></field>
+        <field name="statusId" sort-field="true" title="${uiLabelMap.CommonStatus}">
+        	<display-entity entity-name="StatusItem" description="${description}"/>
+        </field>
+        <field name="productReviewSize" title="回复条数"><display/></field>
+        <field name="edit" title="查看"   widget-style="btnEdit">
+            <hyperlink also-hidden="false"  description="查看回复" image-title="查看回复" target="showReplyProductReview">
+                <parameter param-name="parentProdReviewId" from-field="productReviewId"/>
+            </hyperlink>
+        </field>
+        <field name="productRating" id-name="productRating" sort-field="true" title="评分"><text size="5"/></field>
+        <field name="productReview" id-name="productReview" sort-field="true" title="${uiLabelMap.ProductReviews}"><textarea/></field>
+    </form>
+   <form name="ListReplyPendingReviews" list-name="listIt" title="" type="list" separate-columns="true" view-size="20" paginate-target="showReplyProductReview"
+        group-columns="false" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table-bordered">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="ProductReview"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize"  from-field="viewSize" />
+            </service>
+        </actions>
+        <field name="postedDateTime" sort-field="true" title="发表评论时间"><display/></field>
+        <field name="userLoginId" sort-field="true" title="用户"><display/></field>
+        <field name="productId" sort-field="true" title="评价商品名称"><display-entity entity-name="Product" description="${productName}"/></field>
+        <field name="productRating" id-name="productRating" sort-field="true" title="评分"><display/></field>
+        <field name="productReview" id-name="productReview" sort-field="true" title="${uiLabelMap.ProductReviews}"><display/></field>
+    </form>
+    <form name="EditReplyProductCommunication" type="single" target="createShopCommunicationEvent" default-map-name="entity" style="single_table"  default-table-style="basic-table">
+        <alt-target target="createShopCommunicationEvent" use-when="entity==null"/>
+        <field name="navTabId"><hidden value="EditReplyProductCommunication"/></field>
+        <field name="callbackType"><hidden value="closeCurrent"/></field>
+        <field name="action"><hidden value="REPLY"/></field>
+        <field name="communicationEventId" use-when="communicationEvent!=null"><hidden/></field>
+        <field name="my"><hidden value="${my}"/></field>
+        <field name="parentCommEventId" position="2">
+           <hidden/>
+        </field>
+        <field name="communicationEventTypeId" >
+            <hidden/>
+        </field>
+
+        <!-- status -->
+        <field name="statusId" title="${uiLabelMap.CommonStatus}" position="2">
+            <hidden/>
+        </field>
+        <!-- party ID fields -->
+        <field name="partyIdFrom" title="${uiLabelMap.PartyPartyFrom}" position="1">
+            <hidden/>
+        </field>
+        <field name="partyIdTo" title="${uiLabelMap.PartyPartyTo}" position="2">
+            <hidden/>
+        </field>
+
+        <field name="contactMechTypeId">
+            <hidden/>
+        </field>
+
+        <!-- this is an example of how to display different types of contact mech to the user -->
+        <field name="contactMechIdFrom" title="${uiLabelMap.PartyFromContactMech}" position="1">
+            <hidden/>
+        </field>
+        <field name="contactMechIdTo" title="${uiLabelMap.PartyToContactMech}" position="2">
+            <hidden/>
+        </field>
+
+        <field name="roleTypeIdFrom" position="1">
+            <hidden/>
+        </field>
+
+        <field name="roleTypeIdTo" position="2">
+            <hidden/>
+        </field>
+
+        <!-- contact list -->
+        <field name="contactListId">
+            <hidden/>
+        </field>
+        <field name="datetimeStarted" title="${uiLabelMap.CommonStartDate}"><hidden/></field>
+        <field name="datetimeEnded" title="${uiLabelMap.CommonFinishDate}" position="2"><hidden/></field>
+
+        <field name="subject"><hidden/></field>
+
+        <field name="reasonEnumId" position="2">
+           <hidden/>
+        </field>
+        <field name="contentMimeTypeId">
+            <hidden/>
+        </field>
+
+        <!-- 
+        <field name="content" title="${uiLabelMap.CommonContent}"><textarea cols="60" rows="10"/></field>
+        <field name="note" title="${uiLabelMap.CommonNote}"><textarea cols="60" rows="3"/></field>
+ 		-->
+        <field name="content" title="${uiLabelMap.CommonContent}" widget-style="required"><textarea cols="60" rows="3"/></field>
+        <field name="messageId"><hidden/></field>
+        <field name="isRepliedTo"><hidden value="Y"/></field>
+    </form>
+    <form name="FindProductAssoc" type="single" target="FindProductAssoc" title="">
+        <field name="noConditionFind"><hidden value="Y"/></field>
+        <field name="productName" title="商品名称：">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button"/>
+        </field>
+    </form>
+    <form name="ListProductAssoc" list-name="listIt" title="" group-columns="false" type="list" separate-columns="true" view-size="20" paginate-target="FindProductAssoc"
+        paginate-style="panelBar_dialog" default-table-style="table">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="FilterProductView"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize"  from-field="viewSize" />
+                <field-map field-name="filterByDate" value="Y" />
+            </service>
+        </actions>
+        <field name="orderIndexs"   widget-area-style="groupAll"   id-name="groupAll"   title="${uiLabelMap.CommSelectAll}">
+			<check >  
+				<option key="${productId}" description="${uiLabelMap.CommonEmptyHeader}" />
+			</check>
+		</field>
+        <field name="productName" sort-field="true" title="商品名称："><display/></field>
+        <field name="brandName" sort-field="true" title="品牌："><display/></field>
+        <field name="goodsNo" sort-field="true" title="货号："><display/></field>
+        <field name="categoryName" sort-field="true" title="分类名称："><display/></field>
+        <field name="description" sort-field="true" title="描述："><display/></field>
+    </form>
+    <form name="FindProductConfig" type="single" target="FindProductConfig" title="">
+        <field name="noConditionFind"><hidden value="Y"/></field>
+        <field name="productName" title="商品名称：">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+    </form>
+    <form name="ListProductConfig" list-name="listIt" title="" type="list" group-columns="false" separate-columns="true" view-size="20" paginate-target="FindProductConfig"
+        paginate-style="panelBar_dialog" default-table-style="table">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="FilterProductView"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize"  from-field="viewSize" />
+                <field-map field-name="filterByDate" value="Y" />
+            </service>
+        </actions>
+        <field name="orderIndexs"   widget-area-style="groupAll"   id-name="groupAll"   title="${uiLabelMap.CommSelectAll}">
+			<check >  
+				<option key="${productId}" description="${uiLabelMap.CommonEmptyHeader}" />
+			</check>
+		</field>
+        <field name="productName" sort-field="true" title="商品名称："><display/></field>
+        <field name="brandName" sort-field="true" title="品牌："><display/></field>
+        <field name="goodsNo" sort-field="true" title="货号："><display/></field>
+        <field name="categoryName" sort-field="true" title="分类名称："><display/></field>
+        <field name="description" sort-field="true" title="描述："><display/></field>
+    </form>
+    <form name="FindProductCatrgoryMember" type="single" target="FindProductCatrgoryMember" title="">
+        <field name="noConditionFind"><hidden value="Y"/></field>
+        <field name="categroyName" title="分类名称：">
+        	<text-find default-option="contains" hide-options="true"></text-find>
+        </field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button"/>
+        </field>
+    </form>
+    <form name="ListProductCatrgoryMember" list-name="listIt" title="" type="list" group-columns="false" separate-columns="true" view-size="20" paginate-target="FindProductCatrgoryMember"
+        paginate-style="panelBar_dialog" default-table-style="table">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="ProdCatalogCategoryView"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize"  from-field="viewSize" />
+                <field-map field-name="filterByDate" value="Y" />
+            </service>
+        </actions>
+        <field name="orderIndexs"   widget-area-style="groupAll"   id-name="groupAll"   title="${uiLabelMap.CommSelectAll}">
+			<check >  
+				<option key="${productCategoryId}" description="${uiLabelMap.CommonEmptyHeader}" />
+			</check>
+		</field>
+        <field name="categoryName" id-name="categoryName" sort-field="true" title="分类名称："><display/></field>
+    </form>
+</forms>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>quzou Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+    
+    <!--精彩赛事 -->
+    <service name="createQzCompetition" engine="java" default-entity-name="QzCompetition"
+     		location="org.ofbiz.quzou.QzCompetitionServices" invoke="createQzCompetition" auth="false">
+        <description>Create QzCompetition-精彩赛事</description>
+        <auto-attributes include="pk" mode="INOUT" optional="true" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" allow-html="any"/>
+		
+		<attribute mode="IN" name="mediumFile" type="java.nio.ByteBuffer" optional="true" />
+		<attribute mode="IN" name="mediumFileBase64" type="String" optional="true" />
+		<attribute mode="IN" name="_mediumFile_contentType" type="String" optional="true"/>
+		<attribute mode="IN" name="_mediumFile_fileName" type="String" optional="true"/>
+		<attribute mode="IN" name="newImageFolder" type="String" optional="true"/>
+		
+    </service>
+     <service name="updateQzCompetition" engine="java" default-entity-name="QzCompetition"
+             location="org.ofbiz.quzou.QzCompetitionServices" invoke="updateQzCompetition" auth="false">
+        <description>Update QzCompetition-精彩赛事</description>
+        <auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" allow-html="any"/>
+		
+		<attribute mode="IN" name="mediumFile" type="java.nio.ByteBuffer" optional="true" />
+		<attribute mode="IN" name="mediumFileBase64" type="String" optional="true" />
+		<attribute mode="IN" name="_mediumFile_contentType" type="String" optional="true"/>
+		<attribute mode="IN" name="_mediumFile_fileName" type="String" optional="true"/>
+		<attribute mode="IN" name="newImageFolder" type="String" optional="true"/>
+    </service>
+	<!--批量修改赛事 -->
+    <service name="updateBatchCompetition" engine="java" default-entity-name="QzCompetition"
+              location="org.ofbiz.quzou.QzCompetitionServices" invoke="updateBatchCompetition" auth="true">
+        <description>updateBatch Competition-精彩赛事</description>
+        <attribute name="ids"  mode="IN" type="String" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true" allow-html="any"/>
+    </service>
+    <!--定时修改赛事为已完成-->
+    <service name="updateCompeStatus" engine="java" default-entity-name="QzCompetition"
+              location="org.ofbiz.quzou.QzCompetitionServices" invoke="updateCompeStatus" auth="true">
+        <description>updateCompeStatus Competition-精彩赛事</description>
+    </service>
+    
+    <service name="deleteQzCompetition" engine="java" default-entity-name="QzCompetition"
+             location="org.ofbiz.quzou.QzCompetitionServices" invoke="deleteQzCompetition" auth="false">
+        <description>Delete QzCompetition-精彩赛事</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+    </service>
+    <service name="deleteAllQzCompetition" engine="java" default-entity-name="QzCompetition"
+              location="org.ofbiz.quzou.QzCompetitionServices" invoke="deleteAllQzCompetition" auth="false">
+        <description>Delete Competition-精彩赛事</description>
+        <attribute name="ids"  mode="IN" type="String" optional="false"/>
+    </service>
+    <!--客户信息 -->
+    <service name="deleteQzCustomer" engine="java" default-entity-name="QzCustomer"
+             location="org.ofbiz.quzou.QzCustomerServices" invoke="deleteQzCustomer" auth="false">
+        <description>Delete QzCompetition-客户信息</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+    </service>
+    <service name="deleteAllQzCustomer" engine="java" default-entity-name="QzCustomer"
+              location="org.ofbiz.quzou.QzCustomerServices" invoke="deleteAllQzCustomer" auth="false">
+        <description>Delete QzCompetition-客户信息</description>
+        <attribute name="ids"  mode="IN" type="String" optional="false"/>
+    </service>
+    
+    <!--客户计步器信息 -->
+    <service name="createQzCustomerLogService" engine="simple" default-entity-name="QzCustomerLog" auth="true" location="component://quzou/script/QuzouServices.xml"  invoke="createQzCustomerLogService">
+        <description>Create QzCustomerLog-客户信息</description>
+        <auto-attributes include="pk" mode="INOUT" optional="true" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="startDate" mode="IN" type="String"></attribute>
+		<attribute name="endDate" mode="IN" type="String"></attribute>
+		<attribute name="stepAvg" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="listIds" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="earlyDate" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="lastDate" mode="OUT" type="String" optional="true"></attribute>
+    </service>
+    
+    <service name="createQzCustomerLog" engine="java" default-entity-name="QzCustomerLog"
+     		location="org.ofbiz.quzou.QzCustomerLogServices" invoke="createQzCustomerLog" auth="false">
+        <description>Create QzCustomerLog-客户信息</description>
+        <auto-attributes include="pk" mode="INOUT" optional="true" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+    </service>
+     <service name="updateQzCustomerLog" engine="java" default-entity-name="QzCustomerLog"
+             location="org.ofbiz.quzou.QzCustomerLogServices" invoke="updateQzCustomerLog" auth="false">
+        <description>Update QzCustomerLog-客户信息</description>
+        <auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="listIds" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="earlyDate" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="lastDate" mode="OUT" type="String" optional="true"></attribute>
+    </service>
+    <service name="deleteQzCustomerLog" engine="java" default-entity-name="QzCustomerLog"
+             location="org.ofbiz.quzou.QzCustomerLogServices" invoke="deleteQzCustomerLog" auth="false">
+        <description>Delete QzCompetition-客户信息</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+        <attribute name="listIds" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="earlyDate" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="lastDate" mode="OUT" type="String" optional="true"></attribute>
+    </service>
+    <service name="deleteAllQzCustomerLog" engine="java" default-entity-name="QzCustomerLog"
+              location="org.ofbiz.quzou.QzCustomerLogServices" invoke="deleteAllQzCustomerLog" auth="false">
+        <description>Delete QzCompetition-客户信息</description>
+        <attribute name="ids"  mode="IN" type="String" optional="false"/>
+        <attribute name="listIds" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="earlyDate" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="lastDate" mode="OUT" type="String" optional="true"></attribute>
+    </service>
+    
+    <service name="uploadedFileSimple" engine="simple" location="component://quzou/script/QuzouServices.xml" invoke="uploadedFileSimple" auth="true">
+        <description>Delete上传图片</description>
+        <attribute mode="IN" name="mediumFile" type="java.nio.ByteBuffer" optional="true" />
+		<attribute mode="IN" name="mediumFileBase64" type="String" optional="true" />
+		<attribute mode="IN" name="_mediumFile_contentType" type="String" optional="true"/>
+		<attribute mode="IN" name="_mediumFile_fileName" type="String" optional="true"/>
+		<attribute mode="IN" name="newImageFolder" type="String" optional="true"/>
+		<attribute mode="OUT" name="imagePath" type="String" optional="true"/>
+    </service>
+    
+    	<!--上传图片的服务 -->
+	<service name="uploadedFile" engine="java" location="org.extErp.sysCommon.upload.UploadUtils" invoke="uploadedFile" auth="false">
+		<description>uploadedFile</description>
+		<attribute name="uploadedFile" type="java.nio.ByteBuffer" mode="IN" optional="true" />
+		<!--相对于ofbiz.home的路径，服务的代码里去获取了这个参数，却没暴露出接口，给留出来吧，或许以后要用呢？ -->
+		<attribute name="imageFolder" type="String" mode="IN" optional="true" />
+		<attribute name="mediumFileBase64" type="String" mode="IN" optional="true" /><!-- 支持Base64方式传入文件数据 -->
+		<attribute name="_uploadedFile_fileName" type="String" mode="IN" optional="true" />
+		<attribute name="_uploadedFile_contentType" type="String" mode="IN" optional="true" />
+		<attribute name="imagePath" mode="OUT" type="String"></attribute>
+		<attribute name="imageName" mode="OUT" type="String"></attribute>
+	</service>
+	
+ 	<!--上传数据，app端调用 -->
+	<service name="uploadDaTa" engine="java" location="org.ofbiz.quzou.QzCustomerLogServices" invoke="uploadDaTa" auth="true">
+		<description>uploadDaTa</description>
+		<attribute name="customerLogList" mode="IN" type="List" optional="true"></attribute>
+		<attribute name="responseMessage" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="errorMessage" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="nowDateString" mode="OUT" type="String" ></attribute>
+		<attribute name="listIds" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="earlyDate" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="lastDate" mode="OUT" type="String" optional="true"></attribute>
+		
+	</service>
+	<!-- 	创建人员 -->
+	<service name="createQzCustomer" default-entity-name="Person" auth="true" engine="simple" location="component://quzou/script/QuzouServices.xml" invoke="createQzCustomer">
+		<description>创建人员</description>
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+		<attribute name="userLoginId" type="String" mode="IN" optional="false" />
+		<attribute name="currentPassword" type="String" mode="IN" optional="true" />
+		<attribute name="currentPasswordVerify" type="String" mode="IN" optional="true" />
+		<attribute name="enabled" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="companyName" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="customerId" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+	<!-- 	修改人员 -->
+	<service name="updateQzCustomer" default-entity-name="Person" auth="true" engine="simple" location="component://quzou/script/QuzouServices.xml" invoke="updateQzCustomer">
+		<description>创建人员</description>
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+		<attribute name="userLoginId" type="String" mode="IN" optional="false" />
+		<attribute name="currentPassword" type="String" mode="IN" optional="true" />
+		<attribute name="currentPasswordVerify" type="String" mode="IN" optional="true" />
+		<attribute name="enabled" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="companyName" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="partyId" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<!-- 检查登陆用户名是否存在	 -->
+	<service name="checkUserLoginId" engine="simple" auth="true"  location="component://quzou/script/QuzouServices.xml"  invoke="checkUserLoginId">
+        <description>checkUserLoginId</description>
+        <attribute name="userLoginId" mode="IN" type="String" optional="true" ></attribute>
+        <attribute name="isExist" mode="OUT" type="String"></attribute>
+    </service>
+	<!-- 检查计步器号是否存在	 -->
+	<service name="checkCardId" engine="simple" auth="true"  location="component://quzou/script/QuzouServices.xml"  invoke="checkCardId">
+        <description>checkCardId</description>
+        <attribute name="cardId" mode="IN" type="String" optional="true" ></attribute>
+        <attribute name="isExist" mode="OUT" type="String"></attribute>
+    </service>
+	<!-- 创建单位跟团队     -->
+	<service name="createCompanyAndDept" engine="simple" auth="true" default-entity-name="companyAndDept" location="component://quzou/script/QuzouServices.xml"  invoke="createCompanyAndDept">
+        <description>checkUserLoginId</description>
+        <auto-attributes include="pk" mode="INOUT" optional="true" />
+        <auto-attributes include="nonpk" mode="IN" optional="true" allow-html="any"/>
+        <attribute name="deptId" mode="OUT" type="String" optional="true"></attribute>
+    </service>
+	<!-- 创建人员跟团队     -->
+	<service name="createPersonAndDept" engine="simple" auth="true" default-entity-name="QzDeptAndCustomer" location="component://quzou/script/QuzouServices.xml"  invoke="createPersonAndDept">
+        <description></description>
+        <attribute name="deptId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="customerId" mode="IN" type="String" optional="true"></attribute>
+    </service>
+	<!-- 创建团队跟赛事关联，人跟赛事关联，团队跟人关联     -->
+	<service name="createRelationShip" engine="simple" auth="true" location="component://quzou/script/QuzouServices.xml"  invoke="createRelationShip">
+        <description>checkUserLoginId</description>
+        <attribute name="deptId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="cId" mode="IN" type="String" optional="true"></attribute>
+    </service>
+	<!-- 创建达人秀 -->
+	<service name="createTalentShow" engine="simple" default-entity-name="QzTalentShow" auth="true" location="component://quzou/script/QuzouServices.xml"  invoke="createTalentShow">
+        <description>checkUserLoginId</description>
+        <auto-attributes include="pk" mode="INOUT" optional="true" />
+        <auto-attributes include="nonpk" mode="IN" optional="true" allow-html="any"/>
+        
+        <attribute mode="IN" name="mediumFile" type="java.nio.ByteBuffer" optional="true" />
+		<attribute mode="IN" name="mediumFileBase64" type="String" optional="true" />
+		<attribute mode="IN" name="_mediumFile_contentType" type="String" optional="true"/>
+		<attribute mode="IN" name="_mediumFile_fileName" type="String" optional="true"/>
+		<attribute mode="IN" name="newImageFolder" type="String" optional="true"/>
+    </service>
+	<!-- 修改达人秀 -->
+	<service name="updateTalentShow" engine="simple" default-entity-name="QzTalentShow" auth="true" location="component://quzou/script/QuzouServices.xml"  invoke="updateTalentShow">
+        <description></description>
+        <auto-attributes include="pk" mode="INOUT" optional="true" />
+        <auto-attributes include="nonpk" mode="IN" optional="true" allow-html="any"/>
+        
+        <attribute mode="IN" name="mediumFile" type="java.nio.ByteBuffer" optional="true" />
+		<attribute mode="IN" name="mediumFileBase64" type="String" optional="true" />
+		<attribute mode="IN" name="_mediumFile_contentType" type="String" optional="true"/>
+		<attribute mode="IN" name="_mediumFile_fileName" type="String" optional="true"/>
+		<attribute mode="IN" name="newImageFolder" type="String" optional="true"/>
+    </service>
+    <!--批量修改达人秀-->
+    <service name="updateBatchTalentShow" engine="java" default-entity-name="QzCompetition"
+              location="org.ofbiz.quzou.QzTalentShowServices" invoke="updateBatchTalentShow" auth="true">
+        <description>updateBatch TalentShow-达人秀</description>
+        <attribute name="ids"  mode="IN" type="String" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true" allow-html="any"/>
+    </service>
+    
+	<!--统计步数 -->
+    <service name="reportStat" engine="simple" auth="true" location="component://quzou/script/QuzouServices.xml"  invoke="reportStat">
+        <description>reportStat</description>
+        <attribute name="listIds" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="earlyDate" mode="INOUT" type="String" optional="true"></attribute>
+        <attribute name="lastDate" mode="INOUT" type="String" optional="true"></attribute>
+    </service>
+	<!--统计积分 -->
+    <service name="reportStatTotal" engine="simple" auth="true" location="component://quzou/script/QuzouServices.xml"  invoke="reportStatTotal">
+        <description>reportStatTotal</description>
+        <attribute name="listIds" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="earlyDate" mode="INOUT" type="String" optional="true"></attribute>
+        <attribute name="lastDate" mode="INOUT" type="String" optional="true"></attribute>
+    </service>
+	<!--重新排名-->
+    <service name="reOrder" engine="simple" auth="true" location="component://quzou/script/QuzouServices.xml"  invoke="reOrder">
+        <description>reOrder</description>
+        <attribute name="cId" mode="IN" type="String" optional="true"></attribute>
+    </service>
+	<!--重新排名积分-->
+    <service name="reOrderTotal" engine="simple" auth="true" location="component://quzou/script/QuzouServices.xml"  invoke="reOrderTotal">
+        <description>reOrderTotal</description>
+    </service>
+	<!--设置会员状态-->
+    <service name="setPartysStatus" engine="java" auth="true" location="org.ofbiz.quzou.QzCustomerServices"  invoke="setPartysStatus">
+        <description>setPartysStatus</description>
+        <attribute name="partyIds" mode="IN" type="String" />
+		<attribute name="partyStatusId" mode="IN" type="String" />
+    </service>
+	<!--删除团队-->
+    <service name="deletCompanyAndDept" engine="simple" auth="true" location="component://quzou/script/QuzouServices.xml"  invoke="deletCompanyAndDept">
+        <description>deletCompanyAndDept</description>
+        <attribute name="deptIds" mode="IN" type="String" />
+    </service>
+	<!--删除团队中的人-->
+    <service name="deleteFromDept" engine="simple" auth="true" location="component://quzou/script/QuzouServices.xml"  invoke="deleteFromDept">
+        <description>deleteFromDept</description>
+        <attribute name="customerIds" mode="IN" type="String" />
+        <attribute name="deptId" mode="IN" type="String" />
+    </service>
+	<!--解绑用户-->
+    <service name="unbundling" engine="simple" auth="true" location="component://quzou/script/QuzouServices.xml"  invoke="unbundling">
+        <description>deleteFromDept</description>
+        <attribute name="partyId" mode="IN" type="String" />
+    </service>
+	<!--分配权限-->
+    <service name="createUserSecurityGroup" engine="simple" auth="true" location="component://quzou/script/QuzouServices.xml"  invoke="createUserSecurityGroup">
+        <description>createUserSecurityGroup</description>
+        <attribute name="groupId" mode="IN" type="String" />
+        <attribute name="userLoginId" mode="IN" type="String" />
+    </service>
+	<!--删除权限-->
+    <service name="delSecurityGroup" engine="simple" auth="true" location="component://quzou/script/QuzouServices.xml"  invoke="delSecurityGroup">
+        <description>delSecurityGroup</description>
+        <attribute name="groupId" mode="IN" type="String" />
+        <attribute name="userLoginId" mode="IN" type="String" />
+    </service>
+	<!--获取导出excel数据集-->
+    <service name="getExportData" engine="groovy" location="component://quzou/webapp/quzou/WEB-INF/actions/getExportData.groovy"  >
+        <description>getExportData</description>
+        <attribute name="cId" mode="IN" type="String"  />
+        <attribute name="startDate" mode="IN" type="String" />
+        <attribute name="endDate" mode="IN" type="String" />
+        <attribute name="outputList" mode="OUT" type="List"></attribute>
+        <attribute name="outputList2" mode="OUT" type="List"></attribute>
+    </service>
+<!--     修改头像 -->
+     <service name="updateCustomerPic" engine="simple" auth="false" location="component://quzou/script/QuzouServices.xml" invoke="updateCustomerPic"  >
+        <description>updateCustomerPic</description>
+    </service>
+
+</services>

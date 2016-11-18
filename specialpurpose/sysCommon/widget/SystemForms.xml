@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
+	<form name="FindExtendAttribute" type="single" style="pageForm"
+		default-table-style="searchContent" target="FindExtendAttribute"
+		default-entity-name="ExtendAttribute">
+		<field name="extendAttributeName" widget-style="" title="属性名称"
+			position="1">
+			<text-find hide-options="true" />
+		</field>
+		<field name="submitButton" title="查询" position="3" widget-style="btn btn-primary">
+            <submit/>
+        </field>
+	</form>
+	<form name="ListExtendAttribute" type="list" list-name="listIt"
+		group-columns="false" paginate-target="FindExtendAttribute"
+		default-entity-name="ExtendAttribute" paginate-style="panelBar"
+		default-table-style="table table-bordered table-striped table-condensed">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="ExtendAttribute" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<row-actions>
+            <set field="extendAttributeTypeCode" value="${bsh:org.ofbiz.entity.util.EntityUtil.getFirst(delegator.findByAnd(&quot;Enumeration&quot;,org.ofbiz.base.util.UtilMisc.toMap(&quot;enumCode&quot;,extendAttributeType,&quot;enumTypeId&quot;,&quot;EXTEND_ATT_TYPE&quot;))).get(&quot;description&quot;);}"/>
+        </row-actions>
+		<field name="ids" etc="width=30px" widget-area-style="groupAll" id-name="groupAll"
+			title=" ">
+			<check>
+				<option key="${extendAttributeId}" description=" "/>
+			</check>
+		</field>
+		<field name="CommSeq" etc="width=35px" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+		<field name="extendAttributeName" sort-field="true" title="属性名称">
+			<display />
+		</field>
+		
+		<field name="extendAttributeTypeCode" title="属性类型">
+			<display />
+		</field>
+
+		<field name="extendAttributeEnum" title="枚举类型">
+			<display-entity entity-name="EnumerationType"
+				key-field-name="enumTypeId" description="${description}" />
+				
+		</field>
+		<field name="relEntityName" sort-field="true" title="实体名称">
+			<display />
+		</field>
+		<field name="sortNo" sort-field="true" title="排序">
+			<display />
+		</field>
+		<field name="view" etc="width=35px" title="查看"
+			use-when="${groovy:security.hasEntityPermission(&quot;ExtendAttribute&quot;, &quot;_VIEW&quot;, session);}"
+			widget-style="btnView">
+			<hyperlink also-hidden="false"  target-type="plain"
+				description="查看" target="EditExtendAttribute">
+				<parameter param-name="extendAttributeId" />
+				<parameter param-name="oper" value="view" />
+			</hyperlink>
+		</field>
+		<field name="edit" etc="width=35px" title="编辑"
+			use-when="${groovy:security.hasEntityPermission(&quot;ExtendAttribute&quot;, &quot;_UPDATE&quot;, session);}"
+			widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="编辑" target="EditExtendAttribute">
+				<parameter param-name="extendAttributeId" />
+			</hyperlink>
+		</field>
+		<field name="delete" etc="width=35px" title="删除"
+			use-when="${groovy:security.hasEntityPermission(&quot;ExtendAttribute&quot;, &quot;_DELETE&quot;, session);}"
+			widget-style="btnDel">
+			<hyperlink also-hidden="false" 
+				target-type="plain" description="删除" target="deleteExtendAttribute">
+				<parameter param-name="extendAttributeId" />
+			</hyperlink>
+		</field>
+	</form>
+	<form name="EditExtendAttribute"
+		id="${groovy:(entity==null)?&quot;CreateExtendAttribute&quot;:&quot;EditExtendAttribute&quot;}"
+		type='single' style="single_table" default-table-style="basic-table"
+		target-type="plain" target="updateExtendAttribute" default-map-name="entity"
+		default-entity-name="ExtendAttribute">
+		<alt-target use-when="entity==null" target="createExtendAttribute" />
+		<field name="extendAttributeId">
+			<hidden />
+		</field>
+		<field name="navTabId">
+			<hidden value="FindExtendAttribute" />
+		</field>
+		<field name="callbackType">
+			<hidden value="closeCurrent" />
+		</field>
+		<field name="extendAttributeName"
+			use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"
+			widget-style="" title="属性名称">
+			<text disabled="true" />
+		</field>
+		<field name="extendAttributeName" use-when="${groovy:oper==null}"
+			widget-style="required" title="属性名称">
+			<text />
+		</field>
+		
+		<field name="extendAttributeType" 
+			widget-style="" title="属性类型">
+			<drop-down allow-empty="true">
+				<entity-options entity-name="Enumeration" cache="true"
+					description="${description}" key-field-name="enumCode">
+					<entity-constraint name="enumTypeId" operator="equals"
+						value="EXTEND_ATT_TYPE" />
+					<entity-order-by field-name="enumId" />
+				</entity-options>
+			</drop-down>
+		</field>
+
+		
+		<field name="extendAttributeEnum" 
+			widget-style="" title="枚举类型">
+			<drop-down text-size="30" allow-empty="true">
+				<entity-options description="${description}"
+					entity-name="EnumerationType" key-field-name="enumTypeId"></entity-options>
+			</drop-down>
+		</field>
+		<field name="relEntityName"
+			use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"
+			widget-style="" title="实体名称">
+			<text disabled="true" />
+		</field>
+		<field name="relEntityName" use-when="${groovy:oper==null}"
+			widget-style="" title="实体名称">
+			<text />
+		</field>
+		<field name="sortNo"
+			use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}"
+			widget-style=" number" title="排序">
+			<text disabled="true" />
+		</field>
+		<field name="sortNo" use-when="${groovy:oper==null}" widget-style=" number"
+			title="排序">
+			<text />
+		</field>
+		<field name="save" title="保存" position='1' use-when="${groovy:oper==null}"   widget-style="btn btn-primary"><submit/></field>
+	</form>
+<form name="FindEnumerationType" type="single" style="pageForm"
+		default-table-style="searchContent" target="FindEnumerationType"
+		default-entity-name="EnumerationType">
+		<field name="description" widget-style="" title="类型描述">
+			<text-find hide-options="true" />
+		</field>
+		<field name="submitButton" title="查询" position="3" widget-style="btn btn-primary">
+            <submit/>
+        </field>
+	</form>
+	<form name="ListEnumerationType" type="list" list-name="listIt"
+		group-columns="false" paginate-target="FindEnumerationType"
+		default-entity-name="EnumerationType" paginate-style="panelBar"
+		default-table-style="table table-bordered table-striped table-condensed">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="EnumerationType" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		
+		<field name="ids" etc="width=30px" widget-area-style="groupAll" id-name="groupAll"
+			title=" ">
+			<check>
+				<option key="${enumTypeId}" description=" "/>
+			</check>
+		</field>
+		<field name="CommSeq" etc="width=35px" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+		<field name="enumTypeId" sort-field="true" title="类型ID">
+			<display />
+		</field>
+		<field name="description" sort-field="true" title="类型描述">
+			<display />
+		</field>
+		<!-- 暂不需要
+		<field name="parentTypeId" title="父类型">
+			<display-entity entity-name="EnumerationType"
+				key-field-name="enumTypeId" description="${description}" />
+		</field>  -->
+		<field name="edit" etc="width=35px" title="编辑" widget-style="btnEdit">
+			<hyperlink also-hidden="false"  target-type="plain"
+				description="编辑" target="EditEnumerationType">
+				<parameter param-name="enumTypeId" />
+			</hyperlink>
+		</field>
+		<field name="delete" etc="width=35px" title="删除" widget-style="btnDel">
+			<hyperlink also-hidden="false" 
+				target-type="plain" description="删除" target="deleteEnumerationType">
+				<parameter param-name="enumTypeId" />
+			</hyperlink>
+		</field>
+	</form>
+	<form name="EditEnumerationType" type='single' style="single_table"
+		default-table-style="basic-table" target-type="plain" target="updateEnumerationType"
+		default-map-name="entity" default-entity-name="EnumerationType">
+		<alt-target use-when="entity==null" target="createEnumerationType" />
+		
+		<field name="enumTypeId" required-field="true"  title="类型ID">
+			<text />
+		</field>
+		<field name="description" required-field="true" title="类型描述">
+			<text />
+		</field>
+		<!--  暂不需要
+		<field name="parentTypeId" widget-style="" title="父类型">
+			<drop-down allow-empty="true">
+				<entity-options description="${description}"
+					entity-name="EnumerationType" key-field-name="enumTypeId"></entity-options>
+			</drop-down>
+		</field>
+		 -->
+		 <field name="save" title="保存" position='1' use-when="${groovy:oper==null}"   widget-style="btn btn-primary"><submit/></field>
+	</form>
+
+	<form name="FindEnumeration" type="single" style="pageForm"
+		default-table-style="searchContent" target="FindEnumeration"
+		default-entity-name="Enumeration">
+		<!-- 
+		<field name="enumId" widget-style="" title="枚举编号" position="1">
+			<text-find hide-options="true" />
+		</field>
+		 -->
+		<field name="enumTypeId" widget-style="" title="枚举类型">
+			<drop-down text-size="30" allow-empty="true">
+				<entity-options description="${description}"
+					entity-name="EnumerationType" key-field-name="enumTypeId"></entity-options>
+			</drop-down>
+		</field>
+		<field name="description" widget-style="" title="枚举值描述"  
+			position="2">
+			<text-find hide-options="true" />
+		</field>
+		<field name="submitButton" title="查询" position="3" widget-style="btn btn-primary">
+            <submit/>
+        </field>
+	</form>
+	<form name="ListEnumeration" type="list" list-name="listIt"
+		group-columns="false" paginate-target="FindEnumeration"
+		default-entity-name="Enumeration" paginate-style="panelBar"
+		default-table-style="table table-bordered table-striped table-condensed">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="Enumeration" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		
+		<field name="ids" etc="width=30px" widget-area-style="groupAll" id-name="groupAll"
+			title=" ">
+			<check>
+				<option key="${enumId}" description=" "/>
+			</check>
+		</field>
+		<field name="CommSeq" etc="width=35px" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+		
+		<field name="enumId" sort-field="true" title="枚举编号">
+			<display />
+		</field>
+		<field name="enumCode" sort-field="true" title="简码">
+			<display />
+		</field>
+		<field name="sequenceId" sort-field="true" title="顺序">
+			<display />
+		</field>
+		<field name="description" sort-field="true" title="枚举值描述">
+			<display />
+		</field>
+		<field name="enumTypeId" title="枚举类型">
+			<display-entity entity-name="EnumerationType"
+				key-field-name="enumTypeId" description="${description}" />
+		</field>
+		<field name="edit" etc="width=35px" title="编辑" widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="编辑" target="EditEnumeration">
+				<parameter param-name="enumId" />
+			</hyperlink>
+		</field>
+		<field name="delete" etc="width=35px" title="删除" widget-style="btnDel">
+			<hyperlink also-hidden="false" 
+				target-type="plain" description="删除" target="deleteEnumeration">
+				<parameter param-name="enumId" />
+			</hyperlink>
+		</field>
+	</form>
+	<form name="EditEnumeration" type='single' style="single_table"
+		default-table-style="basic-table" target-type="plain" target="updateEnumeration"
+		default-map-name="entity" default-entity-name="Enumeration">
+		<alt-target use-when="entity==null" target="createEnumeration" />
+		<field name="enumId">
+			<hidden />
+		</field>
+		<field name="navTabId">
+			<hidden value="FindEnumeration" />
+		</field>
+		<field name="callbackType">
+			<hidden value="closeCurrent" />
+		</field>
+
+		<field name="enumTypeId" widget-style="" title="枚举类型">
+			<drop-down text-size="30">
+				<entity-options description="${description}"
+					entity-name="EnumerationType" key-field-name="enumTypeId"></entity-options>
+			</drop-down>
+		</field>
+		<field name="enumCode" widget-style="" title="简码">
+			<text />
+		</field>
+		<field name="sequenceId" widget-style="" title="顺序">
+			<text />
+		</field>
+		<field name="description"  widget-style="" required-field="true" title="枚举值描述">
+			<text />
+		</field>
+		<field name="save" title="保存" position='1' use-when="${groovy:oper==null}"   widget-style="btn btn-primary"><submit/></field>
+	</form>
+
+	<form name="FindMenuTree" type="single" style="pageForm"
+		default-table-style="searchContent" target="FindMenuTree"
+		default-entity-name="MenuTree">
+		<field name="itemName"  title="菜单名称"
+			position="1">
+			<text-find hide-options="true" />
+		</field>
+		<field name="urlLocation" widget-style="" title="链接地址" position="2">
+			<text-find hide-options="true" />
+		</field>
+		<field name="submitButton" title="查询" position="3" widget-style="btn btn-primary">
+            <submit/>
+        </field>
+	</form>
+	<form name="ListMenuTree" type="list" list-name="listIt"
+		group-columns="false" paginate-target="FindMenuTree"
+		default-entity-name="MenuTree" paginate-style="panelBar"
+		default-table-style="table table-bordered table-striped table-condensed" odd-row-style="alternate-row">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="MenuTree" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		
+		<field name="ids" etc="width=20px" widget-area-style="groupAll" id-name="groupAll"
+			title=" ">
+			<check>
+				<option key="${id}" description=" "/>
+			</check>
+		</field>
+		<field name="CommSeq" etc="width=5%"  title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}"></display>
+		</field>
+		<!--  
+		<field name="id" sort-field="true" title="菜单ID">
+			<display />
+		</field>
+		 -->
+		<field name="itemName" etc="width=10%"  sort-field="true" title="菜单名称">
+			<display />
+		</field>
+		<field name="urlLocation" sort-field="true" title="链接地址">
+			<display />
+		</field>
+		<field name="parentItemId" sort-field="true" title="父菜单">
+			<display-entity entity-name="MenuTree"
+				key-field-name="id" description="${itemName}" />
+		</field>
+		<field name="permission" sort-field="true" title="权限">
+			<display />
+		</field>
+		<field name="rank" etc="width=50px" sort-field="true" title="排序">
+			<display />
+		</field>
+		<field name="edit" etc="width=35px" title="编辑" widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"
+				description="编辑" target="EditMenuTree">
+				<parameter param-name="id" />
+			</hyperlink>
+		</field>
+		<field name="delete" etc="width=35px" title="删除" widget-style="btnDel">
+			<hyperlink also-hidden="false" 
+				target-type="plain" description="删除" target="deleteMenuTree">
+				<parameter param-name="id" />
+			</hyperlink>
+		</field>
+	</form>
+	<form name="EditMenuTree" type='single' style="single_table"
+		default-table-style="basic-table" target-type="plain" target="updateMenuTree"
+		default-map-name="entity" default-entity-name="MenuTree">
+		<alt-target use-when="entity==null" target="createMenuTree" />
+		<field name="id">
+			<hidden />
+		</field>
+		<field name="navTabId">
+			<hidden value="FindMenuTree" />
+		</field>
+		<field name="callbackType">
+			<hidden value="closeCurrent" />
+		</field>
+		<field name="itemName"  required-field="true" title="菜单名称">
+			<text />
+		</field>
+		<field name="urlLocation" widget-style="" title="链接地址">
+			<text />
+		</field>
+		<field name="parentItemId" widget-style="" title="父菜单">
+			<drop-down allow-empty="true">
+				<entity-options entity-name="MenuTree" cache="true"
+					description="${itemName}" key-field-name="id">
+				</entity-options>
+			</drop-down>
+		</field>
+		<field name="permission" widget-style="" title="权限">
+			<text />
+		</field>
+		<field name="rank"  required-field="true" widget-style="digits" title="节点排序标识">
+			<text />
+		</field>
+		<field name="save" title="保存" position='1' use-when="${groovy:oper==null}"   widget-style="btn btn-primary"><submit/></field>
+	</form>
+			
+		
+		
+		<form name="FindOperLogs" type="single"  style="pageForm" default-table-style="searchContent" target="FindOperLogs" default-entity-name="OperLogs">
+				<field name="modelName" widget-style="" title="实体名称" position="2">
+					<text-find hide-options="true" />	
+				</field>
+				<field name="submitButton" title="查询" position="3" widget-style="btn btn-primary">
+		            <submit/>
+		        </field>
+		</form>
+		<form name="ListOperLogs" type="list" list-name="listIt" group-columns="false"   paginate-target="FindOperLogs"
+	       default-entity-name="OperLogs" paginate-style="panelBar" default-table-style="table table-bordered table-striped table-condensed">
+			<actions>
+				<service service-name="performFind" result-map="result" result-map-list="listIt">
+					<field-map field-name="inputFields" from-field="pCtx" />
+					<field-map field-name="entityName" value="OperLogs" />
+					<field-map field-name="orderBy" from-field="sortField" />
+					<field-map field-name="viewIndex" from-field="viewIndex" />
+					<field-map field-name="viewSize" from-field="viewSize" />
+				</service>
+			</actions>
+			<field name="ids" etc="width=30px" widget-area-style="groupAll" id-name="groupAll" title=" ">
+				<check>
+					<option key="${logId}"  description=" "/>
+				</check>
+			</field>
+			<field name="CommSeq" etc="width=35px" title="序号">
+				<display description="${itemIndex+1+viewSize*viewIndex}" ></display>
+			</field>
+			
+			<field name="userLoginId" sort-field="true" title="操作用户" >
+				<display />
+			</field>
+			<field name="modelName" sort-field="true" title="实体名称" >
+				<display />
+			</field>
+			<field name="entityId" sort-field="true" title="实体ID" >
+				<display />
+			</field>
+			<field name="createdStamp" sort-field="true" title="创建时间" >
+				<display type="date-time"/>
+			</field>
+			<field name="description" sort-field="true" title="操作详细" >
+				<display type="text"/>
+			</field>
+			<field name="view" etc="width=35px" title="查看" use-when="${groovy:security.hasEntityPermission(&quot;OperLogs&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnView">
+				<hyperlink also-hidden="false" target-type="plain" description="查看" target="EditOperLogs">
+					<parameter param-name="logId" />
+					<parameter param-name="oper" value="view"/>
+				</hyperlink>
+			</field>		
+			<!-- 
+			<field name="edit" title="编辑" use-when="${groovy:security.hasEntityPermission(&quot;OperLogs&quot;, &quot;_UPDATE&quot;, session);}" widget-style="btnEdit">
+				<hyperlink also-hidden="false" target-type="plain" description="编辑" target="EditOperLogs">
+					<parameter param-name="logId" />
+				</hyperlink>
+			</field>
+			 -->
+			<field name="delete" etc="width=35px" title="删除" use-when="${groovy:security.hasEntityPermission(&quot;OperLogs&quot;, &quot;_DELETE&quot;, session);}" widget-style="btnDel">
+				<hyperlink also-hidden="false"  target-type="plain" description="删除" target="deleteOperLogs">
+					<parameter param-name="logId" />
+				</hyperlink>
+			</field>
+		</form>
+		<form name="EditOperLogs" id="${groovy:(entity==null)?&quot;CreateOperLogs&quot;:&quot;EditOperLogs&quot;}" type='single' style="single_table" default-table-style="basic-table" target-type="plain" target="updateOperLogs"  default-map-name="entity" default-entity-name="OperLogs">
+			<alt-target use-when="entity==null" target="createOperLogs" />
+			<field name="logId">
+				<hidden />
+			</field>
+			<field name="navTabId">
+				<hidden value="FindOperLogs" />
+			</field>
+			<field name="callbackType">
+				<hidden value="closeCurrent" />
+			</field>
+				<field name="userLoginId" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="操作用户" >
+					<text  disabled="true"/>
+				</field>
+				<field name="userLoginId" use-when="${groovy:oper==null}" widget-style="" title="操作用户">
+					<text  />
+				</field>
+				<field name="modelName" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="实体名称" >
+					<text  disabled="true"/>
+				</field>
+				<field name="modelName" use-when="${groovy:oper==null}" widget-style="" title="实体名称">
+					<text  />
+				</field>
+				<field name="entityId" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="实体ID" >
+					<text  disabled="true"/>
+				</field>
+				<field name="entityId" use-when="${groovy:oper==null}" widget-style="" title="实体ID">
+					<text  />
+				</field>
+				<field name="description" use-when="${groovy:(oper!=null&amp;&amp;oper.equals(&quot;view&quot;));}" widget-style="" title="操作详细" >
+					<textarea />
+				</field>
+				<field name="description" use-when="${groovy:oper==null}" widget-style="" title="操作详细">
+					<textarea/>
+				</field>
+		</form>
+		<!--自定义表单 -->
+	<form name="FindDesignForm" type="single"  style="pageForm" default-table-style="searchContent" target="FindDesignForm" default-entity-name="DesignForm">
+		<field name="designFormName" widget-style="false" title="表单名称" position="1">
+			<text-find hide-options="true" />	
+		</field>
+		<field name="submitButton" title="查询" position="3" widget-style="btn btn-primary">
+            <submit/>
+        </field>
+	</form>
+	<form name="ListDesignForm" type="list" list-name="listIt" group-columns="false"   paginate-target="FindDesignForm"
+   		default-entity-name="DesignForm" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-bordered table-striped table-condensed">
+		<actions>
+			<service service-name="performFind" result-map="result" result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="pCtx" />
+				<field-map field-name="entityName" value="DesignForm" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="ids" widget-area-style="groupAll" id-name="groupAll" title=" ">
+			<check>
+				<option key="${designFormId}"  description=" "/>
+			</check>
+		</field>
+		<field name="CommSeq" title="序号">
+			<display description="${itemIndex+1+viewSize*viewIndex}" ></display>
+		</field>
+		<field name="designFormName" sort-field="true" title="表单名称" >
+			<display />
+		</field>
+		<field name="designFormType" sort-field="true" title="表单类型" >
+			<display />
+		</field>
+		<field name="designFormEnum" sort-field="true" title="属性枚举类型" >
+			<display />
+		</field>
+		<field name="relEntityName" sort-field="true" title="实体名称" >
+			<display />
+		</field>
+		<field name="sortNo" sort-field="true" title="排序" >
+			<display />
+		</field>
+		<field name="view" title="查看" use-when="${groovy:security.hasEntityPermission(&quot;DesignForm&quot;, &quot;_VIEW&quot;, session);}" widget-style="btnView">
+			<hyperlink also-hidden="false" target-type="plain"  description="查看" target="EditDesignForm">
+				<parameter param-name="designFormId" />
+				<parameter param-name="oper" value="view"/>
+			</hyperlink>
+		</field>		
+		<field name="editDesin" title="编辑" use-when="${groovy:designFormType==&quot;ckedit&quot;;}" widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"  description="编辑" target="EditDesignForm">
+				<parameter param-name="designFormId" />
+				<parameter from-field="relEntityName" param-name="entityName" />
+			</hyperlink>
+		</field>
+		<field name="edit" title="编辑" use-when="${groovy:designFormType==&quot;stand&quot;;}" widget-style="btnEdit">
+			<hyperlink also-hidden="false" target-type="plain"  description="编辑" target="ViewCodeSetJeasy">
+				<parameter param-name="designFormId" />
+				<parameter from-field="relEntityName" param-name="entityName" />
+			</hyperlink>
+		</field>
+		
+		<field name="delete" title="删除" use-when="${groovy:security.hasEntityPermission(&quot;DesignForm&quot;, &quot;_DELETE&quot;, session);}" widget-style="btnDel">
+			<hyperlink also-hidden="false" target-type="plain" description="删除" target="deleteDesignForm">
+				<parameter param-name="designFormId" />
+			</hyperlink>
+		</field>
+	</form>
+	<form name="lookupDesignForm" target="LookupDesignForm" title="" type="single"
+	    header-row-style="header-row" default-table-style="basic-table">
+	    <field name="designFormId" ><text-find/></field>
+	    <field name="designFormName" ><text-find/></field>
+	    <field name="noConditionFind"><hidden value="Y"/></field>
+	    <field name="submitButton" title="查询" widget-style="smallSubmit"><submit button-type="button"/></field>
+	</form>
+	<form name="listDesignForms" list-name="listIt" title="" type="list" target="LookupDesignForm"
+	    odd-row-style="alternate-row" default-table-style="table table-bordered table-striped table-condensed">
+	    <actions>
+	        <service service-name="performFind" result-map="result" result-map-list="listIt">
+	            <field-map field-name="inputFields" from-field="parameters"/>
+	            <field-map field-name="entityName" value="DesignForm"/>
+	        </service>
+	    </actions>
+	    <field name="designFormId" widget-style="buttontext">
+	        <hyperlink also-hidden="false" target-type="plain" description="${designFormId}" target="javascript:set_value('${designFormId}')"/>
+	    </field>
+		<field name="designFormName" title="表单名称">
+			<hyperlink also-hidden="false" target-type="plain" description="${designFormName}" target="javascript:set_value('${designFormId}')"/>
+		</field>
+	</form>
+	
+	
+</forms>

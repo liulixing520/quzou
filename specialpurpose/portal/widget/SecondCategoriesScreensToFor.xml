@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="gallerytoFor">
+        <section>
+             <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+				 
+                <set field="productsummaryScreen" value="component://portal/widget/SecondCategoriesScreensToFor.xml#productsummary"/>
+				
+				<!-- solr 查询三级分类的分类Id 和 下属的产品Id  -->
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.VIEW_SIZE" value="10"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/galleryTofor.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+    
+   <screen name="productsummary">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/CategoryToSecond.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/categories/second/galleryTofor2.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+        
+        
+    <screen name="bestSellingtoFor">
+        <section>
+             <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+                <set field="productsummaryScreen2" value="component://portal/widget/SecondCategoriesScreensToFor.xml#productsummary2"/>
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.orderByName" value="lastModifiedDate"/>
+                <set field="parameters.sortByReverse" value="true" type="Boolean"/>
+                <set field="parameters.VIEW_SIZE" value="5"/>
+                <set field="parameters.optProductCategoryId" from-field="parameters.categoryId"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/bestSellingToFor.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+    
+   <screen name="productsummary2">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/CategoryToSecond.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/categories/second/bestSellingToFor2.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+    
+     <screen name="recommendedtoFor">
+        <section>
+             <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+                <set field="newproductsummaryScreen2" value="component://portal/widget/SecondCategoriesScreensToFor.xml#newproductsummary2"/>
+                
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.VIEW_SIZE" value="5"/>
+                <set field="parameters.SEARCH_CATEGORY_ID" from-field="requestAttributes.productCategoryId"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/recommendedToFor.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+    
+   <screen name="newproductsummary2">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/categories/second/recommendedToFor2.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>  
+    
+    <screen name="bannertoFor">
+        <section>
+             <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+                <set field="bannerproductsummaryScreen2" value="component://portal/widget/SecondCategoriesScreensToFor.xml#bannerproductsummary2"/>
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.orderByName" value="lastModifiedDate"/>
+                <set field="parameters.sortByReverse" value="true" type="Boolean"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="5"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/bannerToFor.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+    
+   <screen name="bannerproductsummary2">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/categories/second/bannerToFor2.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+    
+      <screen name="topSellertoFor">
+        <section>
+             <actions>
+                <set field="leftbarScreenName" value="leftbar"/>
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+                <set field="topSellerummaryScreen2" value="component://portal/widget/SecondCategoriesScreensToFor.xml#productCummary"/>
+                <set field="titleProperty" value="PageTitleSearchResults"/>
+                <set field="parameters.orderByName" value="lastModifiedDate"/>
+                <set field="parameters.sortByReverse" value="true" type="Boolean"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="5"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/KeywordSearchSolr.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/bestSellingToFor.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+    
+   <screen name="productCummary">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/catalog/CategoryToSecond.groovy"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/product/ProductSummary.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://portal/webapp/portal/categories/second/oneSeller.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>  
+    
+    <screen name="onesellertoFor">
+        <section>
+             <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/store/StoreId.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://portal/webapp/portal/categories/second/oneSeller.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen> 
+        
+</screens>
+

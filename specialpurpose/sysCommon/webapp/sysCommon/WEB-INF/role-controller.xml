@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <description>Module Configuration File</description>
+    
+    <handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler"/>
+    <handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler"/>
+
+    <firstvisit></firstvisit>
+
+    <!-- Request Mappings -->
+    <request-map uri="view">
+        <security https="false" auth="false"/>
+        <response name="success" type="request" value="FindRole"/>
+    </request-map>
+    
+	<request-map uri="FindSecurityGroup">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="FindSecurityGroup"/>
+    </request-map>
+    <request-map uri="EditSecurityGroup">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="EditSecurityGroup"/>
+    </request-map>
+    <request-map uri="updateSecurityGroupEnabled">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updateSecurityGroupEnabled"/>
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map uri="ajaxGetPermissionTree">
+		<event type="groovy" path="component://sysCommon/webapp/sysCommon/WEB-INF/actions/system/ajaxGetPermissionTree.groovy" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+    <request-map uri="permissionToParty">
+       <event type="service" path="" invoke="permissionToParty"/>
+       <response name="success" type="request" value="json"/>
+       <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="removePermissionToParty">
+       <event type="service" path="" invoke="removePermissionToParty"/>
+       <response name="success" type="request" value="json"/>
+       <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="roleToParty">
+       <event type="service" path="" invoke="roleToParty"/>
+       <response name="success" type="request" value="json"/>
+       <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="removeRoleToParty">
+       <event type="service" path="" invoke="removeRoleToParty"/>
+       <response name="success" type="request" value="json"/>
+       <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="createSecurityGroup">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="createSecurityGroupExt"/>
+       <response name="success" type="request"  value="FindSecurityGroup"/>
+       <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="updateSecurityGroup">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="updateSecurityGroupExt"/>
+       <response name="success" type="request"  value="FindSecurityGroup"/>
+       <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="removeSecurityGroupFromUserLogin">
+        <security https="false" auth="true"/>
+        <event type="service" path="" invoke="createSecurityGroupExt"/>
+       <response name="success" type="request" value="json"/>
+       <response name="error" type="request" value="json"/>
+    </request-map>
+    <request-map uri="LookupPermission">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="LookupPermission"/>
+    </request-map>
+    <request-map uri="LookupUserLogin">
+        <security https="false" auth="true"/>
+        <response name="success" type="view" value="LookupUserLogin"/>
+    </request-map>
+    	<request-map uri="FindRoleType">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindRoleType" />
+	</request-map>
+	<request-map uri="EditRoleType">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditRoleType" />
+	</request-map>
+	<request-map uri="createRoleType">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="createRoleType"/>
+        <response name="success" type="request" value="FindRoleType" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map uri="updateRoleType">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="updateRoleType"/>
+        <response name="success" type="request" value="FindRoleType" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map uri="deleteRoleType">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="deleteRoleType"/>
+        <response name="success" type="request" value="FindRoleType" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    <request-map uri="EditRoleTypePerson">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="EditRoleTypePerson" />
+	</request-map>
+    <request-map uri="FindRoleParty">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="FindRoleParty" />
+	</request-map>
+    <!-- View Mappings -->
+     <view-map name="FindSecurityGroup" type="screen" page="component://sysCommon/widget/RoleScreens.xml#FindSecurityGroup"/>
+     <view-map name="LookupPermission" type="screen" page="component://sysCommon/widget/RoleScreens.xml#LookupPermissions"/>
+     <view-map name="LookupUserLogin" type="screen" page="component://sysCommon/widget/RoleScreens.xml#LookupUserLogin"/>
+     <view-map name="EditSecurityGroup" type="screen" page="component://sysCommon/widget/RoleScreens.xml#EditSecurityGroup"/>
+     <view-map name="PermissionToParty" type="screen" page="component://sysCommon/widget/RoleScreens.xml#PermissionToParty"/>
+     
+     <view-map name="FindRoleType" type="screen" page="component://sysCommon/widget/RoleScreens.xml#FindRoleType" />
+	 <view-map name="EditRoleType" type="screen" page="component://sysCommon/widget/RoleScreens.xml#EditRoleType" />
+	 <view-map name="EditRoleTypePerson" type="screen" page="component://sysCommon/widget/RoleScreens.xml#EditRoleTypePerson" />
+	 <view-map name="FindRoleParty" type="screen" page="component://sysCommon/widget/RoleScreens.xml#FindRoleTypeParty" />
+	
+    <!-- end of view mappings -->
+</site-conf>

@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	<!-- 
+    <screen name="main-decorator">
+        <section>
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ManageUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+
+                <set field="layoutSettings.shortcutIcon" value="/portal/images/TradeEase.ico" global="true"/>
+
+                <set field="layoutSettings.styleSheets[]" value="/manage/images/css/bootstrap.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/manage/images/font-awesome/4.1.0/css/font-awesome.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/manage/images/css/jquery-ui.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/manage/images/css/ace.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/manage/images/css/ace-skins.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/manage/images/css/ace-rtl.min.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/manage/images/css/skin4.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/manage/images/css/skin5.css" global="true"/>
+
+                <set field="layoutSettings.javaScripts[]" value="/manage/images/js/jquery/jquery-2.1.1.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/manage/images/bootstrap/3.2.0/js/bootstrap.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/manage/images/js/jquery-ui.custom.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/manage/images/js/jquery.ui.touch-punch.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/manage/images/js/flot/jquery.flot.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/manage/images/js/flot/jquery.flot.resize.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/manage/images/js/ace-elements.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/manage/images/js/ace.min.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/manage/images/js/ace-extra.min.js" global="true" />
+
+                <set field="layoutSettings.javaScripts[]" value="/images/selectall.js" global="true" />
+                <set field="layoutSettings.javaScripts[]" value="/images/fieldlookup.js" global="true" />
+
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://manage/webapp/manage/includes/header.ftl" />
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://manage/webapp/manage/includes/footer.ftl" />
+            </actions>
+            <widgets>
+                <section>
+                    <widgets>
+                        <platform-specific><html><html-template location="component://manage/webapp/manage/includes/headerHead.ftl"/></html></platform-specific>
+                        <container id="body" style="skin-5">
+                            <container id="navbar" style="navbar navbar-default">
+                                <container id="navbar-container" style="navbar-container">
+                                    <platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific>
+                                </container>
+                            </container>
+                            <container id="main-container" style="main-container">
+                                <container id="breadcrumbs" style="breadcrumbs">
+                                    <platform-specific><html><html-template location="component://manage/webapp/manage/includes/breadcrumbs.ftl"/></html></platform-specific>
+                                </container>
+                                <container id="sidebar" style="sidebar responsive">
+                                    <include-screen name="${left}" location="component://manage/widget/CommonScreens.xml"/>
+
+                                </container>
+                                <container style="main-content">
+                                    <container style="page-content">
+                                        <container style="page-content-area">
+                                            <container style="row">
+                                                <container style="col-xs-12">
+                                                    <decorator-section-include name="body"/>
+                                                </container>
+                                            </container>
+                                        </container>
+                                    </container>
+                                </container>
+                                <container style="footer">
+                                    <platform-specific><html><html-template location="${footerTemplateLocation}" /></html></platform-specific>
+                                </container>
+                            </container>
+                        </container>
+                    </widgets>
+                </section>
+            </widgets>
+        </section>
+    </screen>
+     -->
+      <screen name="tradeleft">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://manage/webapp/manage/includes/left.ftl" /></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+	<screen name="goodsLeft">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://manage/webapp/manage/includes/goodsLeft.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+
+
+	<screen name="logisticsLeft">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://manage/webapp/manage/includes/logisticsLeft.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+    
+	<screen name="safeSetLeft">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://manage/webapp/manage/includes/safeSetLeft.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="sellerLeft">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://manage/webapp/manage/includes/sellerLeft.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="websiteMngLeft">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://manage/webapp/manage/includes/websiteMngLeft.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+    <screen name="login">
+        <section>
+            <actions>
+            	<property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ManageUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map map-name="uiLabelMap" resource="PortalUiLabels" global="true"/>
+                <set field="titleProperty" value="PageTitleLogin"/>
+                <set field="headerItem" value="login"/>
+                <script location="component://manage/webapp/manage/WEB-INF/actions/Login.groovy"/>
+            </actions>
+            <widgets>
+<!--                 <decorator-screen name="main-decorator">
+                    <decorator-section name="body"> -->
+<!--                         <platform-specific>
+                            <html><html-template location="component://common/webcommon/includes/messages.ftl"/></html>
+                        </platform-specific> -->
+                        <platform-specific>
+                            <html><html-template location="component://manage/webapp/manage/login.ftl"/></html>
+                        </platform-specific>
+<!--                     </decorator-section>
+                </decorator-screen> -->
+            </widgets>
+        </section>
+    </screen>
+	<screen name="main">
+		<section>
+			<widgets>
+				<decorator-screen name="main-decorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://manage/webapp/manage/main.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+    <screen name="main-decorator">
+		<section>
+			<actions>
+				<property-map resource="SysCommonUiLabels" map-name="uiLabelMap" global="true"/> 
+				<script
+					location="component://sysCommon/webapp/sysCommon/WEB-INF/actions/findMenuTree.groovy"></script>
+				<!-- js开始 -->
+				<set field="layoutSettings.javaScripts[+0]" value="/sysCommon/images/My97DatePicker/WdatePicker.js" global="true" />
+				<set field="layoutSettings.javaScripts[+0]"
+					value="/sysCommon/images/bootstrap/jquery-ui-1.8.21.custom.min.js"
+					global="true" />
+				<set field="layoutSettings.javaScripts[+0]"
+					value="/sysCommon/images/bootstrap/bootstrap.js"
+					global="true" />
+				<set field="layoutSettings.javaScripts[+0]"
+					value="/sysCommon/images/bootstrap/bootstrap-modal-hack2.js"
+					global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/images/selectall.js"
+					global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/images/util.js" global="true" />	
+				<set field="layoutSettings.javaScripts[]" value="/images/fieldlookup.js"
+					global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/sysCommon/images/js/common.js"
+					global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/sysCommon/images/jquery/plugins/dialog1.0.js"
+					global="true" />
+				<set field="layoutSettings.javaScripts[]" value="/sysCommon/images/js/html_entity.js"
+					global="true" />
+				<set field="layoutSettings.javaScripts[+0]"
+					value="/images/jquery/plugins/validate/localization/messages_cn.js"
+					global="true" />
+				<set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/lib/jquery.form.js"
+					global="true" />
+				<set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/jquery.validate.js"
+					global="true" />
+				<set field="layoutSettings.javaScripts[+0]"
+					value="/sysCommon/images/jquery.jqGrid-4.4.3/js/i18n/grid.locale-cn.js"
+					global="true" />
+				<set field="layoutSettings.javaScripts[+0]"
+					value="/sysCommon/images/jquery.jqGrid-4.4.3/js/jquery.jqGrid.src.js"
+					global="true" />
+				<!-- <set field="layoutSettings.javaScripts[+0]"
+					value="/sysCommon/images/jquery.jqGrid-4.4.3/js/jquery.jqGrid.min.js"
+					global="true" /> -->
+				<set field="layoutSettings.javaScripts[+0]"
+					value="/sysCommon/images/jquery/jquery-1.7.min.js"
+					global="true" />
+
+
+				<set field="layoutSettings.rtlStyleSheets[+0]"
+					value="/sysCommon/images/bootstrap/jqGrid.overrides.css"
+					global="true" />
+				<set field="layoutSettings.rtlStyleSheets[+0]"
+					value="/sysCommon/images/jquery.jqGrid-4.4.3/css/ui.jqgrid.css"
+					global="true" />
+				<set field="layoutSettings.rtlStyleSheets[+0]"
+					value="/sysCommon/images/bootstrap/jquery-ui-1.8.21.custom.css"
+					global="true" />
+				<set field="layoutSettings.rtlStyleSheets[+0]"
+					value="/sysCommon/images/bootstrap/osf.css"
+					global="true" />
+				<set field="layoutSettings.rtlStyleSheets[+0]"
+					value="/sysCommon/images/bootstrap/style.css"
+					global="true" />
+				<set field="layoutSettings.rtlStyleSheets[+0]"
+					value="/sysCommon/images/bootstrap/web-osf.css"
+					global="true" />
+				<set field="layoutSettings.rtlStyleSheets[+0]"
+					value="/sysCommon/images/bootstrap/web.css"
+					global="true" />
+				<set field="layoutSettings.rtlStyleSheets[+0]"
+					value="/sysCommon/images/bootstrap/bootstrap-extends.css"
+					global="true" />
+				<set field="layoutSettings.rtlStyleSheets[+0]"
+					value="/sysCommon/images/bootstrap/common.css"
+					global="true" />
+				
+				<!-- <set field="layoutSettings.rtlStyleSheets[+0]" value="/flatgrey/maincss.css" 
+					global="true"/> -->
+				<!-- <set field="layoutSettings.rtlStyleSheets[+0]" value="/flatgrey/javascript.css" 
+					global="true"/> -->
+				<set field="dialogId" from-field="parameters.dialogId" />
+				<!-- changeBy xueyb -->
+				<set field="layoutSettings.rtlStyleSheets[]" value='/disease/images/css/bootstrap-theme-dcp.css'  global="true"/>
+				<set field="layoutSettings.rtlStyleSheets[]" value='/disease/images/Font-Awesome-3.2.1/css/font-awesome.min.css'  global="true"/>
+				<set field="layoutSettings.rtlStyleSheets[]" value='/disease/images/css/inside.css'  global="true"/>
+				<set field="layoutSettings.rtlStyleSheets[]" value='/disease/images/css/my-survey.css'  global="true"/>
+				<!-- end -->
+			</actions>
+
+
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://sysCommon/webapp/sysCommon/includes/bootstrap/bootStrapHeader.ftl" />
+						<html-template location="component://sysCommon/webapp/sysCommon/includes/messages.ftl"/>
+					</html>
+				</platform-specific>
+				<section>
+					<condition>
+						<if-empty field="dialogId" />
+					</condition>
+					<widgets>
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://manage/webapp/manage/bootStrapTop.ftl" />
+							</html>
+						</platform-specific>
+					</widgets>
+				</section>
+		<container style="container ptz" id="content-container">		
+				<container style="row ">
+						<section>
+							<widgets>
+								<container id="content" style="">
+							    	
+										<decorator-section-include name="body" />
+									</container>	
+							</widgets>
+							
+						</section>
+						
+					</container>
+				</container>
+				<section>
+					<condition>
+						<if-empty field="dialogId" />
+					</condition>
+					<widgets>
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://manage/webapp/manage/bootStrapFooter.ftl" />
+							</html>
+						</platform-specific>
+					</widgets>
+				</section>
+			</widgets>
+		</section>
+	</screen>
+
+    <screen name="content">
+        <section>        	
+        <actions>
+        		<script location="component://manage/webapp/manage/WEB-INF/actions/imageSet/GetManagerMessage.groovy"/>
+        		<script location="component://manage/webapp/manage/WEB-INF/actions/order/OrderCount.groovy"/>
+        	</actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://manage/webapp/manage/content.ftl" /></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- 首页下方注意 -->
+    <screen name="look_abouteus">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/system/aboutus.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="look_newbieonroad">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/system/newbieonroad.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="look_buyerprotection">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/seller/system/buyerprotection.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="lastPagesetter">
+        <section>
+            <actions>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/system/GetPageForSellers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://portal/webapp/portal/includes/footer.ftl" />
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+</screens>

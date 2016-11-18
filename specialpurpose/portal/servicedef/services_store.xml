@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>ebiz Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+	
+	<service name="createSellerProductStore" default-entity-name="ProductStore" engine="simple" auth="true"
+            location="component://portal/script/org/ofbiz/product/store/StoreServices.xml" invoke="createSellerProductStore">
+        <description>Create a Product Store</description>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        
+        <attribute name="companyName" type="String" mode="IN" optional="true"/>
+        <attribute name="businessType" type="String" mode="IN" optional="true"/>
+        <attribute name="createTime" type="Timestamp" mode="IN" optional="true"/>
+  		<attribute name="registeredAddress" type="String" mode="IN" optional="true"/>
+        <attribute name="scaleCompany" type="String" mode="IN" optional="true"/>
+        <attribute name="shopsKeywords" type="String" mode="IN" optional="true"/>
+   		<attribute name="productKeywords" type="String" mode="IN" optional="true"/>
+   		<attribute name="productStoreLogo" type="String" mode="IN" optional="true"/>
+   		<attribute name="productStoreBanner" type="String" mode="IN" optional="true"/>
+  		<override name="storeName" optional="false"/>
+    </service>
+    
+    <service name="updateSellerProductStore" default-entity-name="ProductStore" engine="simple" auth="true"
+            location="component://portal/script/org/ofbiz/product/store/StoreServices.xml" invoke="updateSellerProductStore">
+        <description>Create a Product Store</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        
+        <attribute name="companyName" type="String" mode="IN" optional="true"/>
+        <attribute name="businessType" type="String" mode="IN" optional="true"/>
+        <attribute name="createTime" type="Timestamp" mode="IN" optional="true"/>
+  		<attribute name="registeredAddress" type="String" mode="IN" optional="true"/>
+        <attribute name="scaleCompany" type="String" mode="IN" optional="true"/>
+        <attribute name="shopsKeywords" type="String" mode="IN" optional="true"/>
+   		<attribute name="productKeywords" type="String" mode="IN" optional="true"/>
+   		<attribute name="productStoreLogo" type="String" mode="IN" optional="true"/>
+   		<attribute name="productStoreBanner" type="String" mode="IN" optional="true"/>
+  
+    </service>
+    
+	<!-- WebSiteProductStore Services -->
+    <service name="addProductStoreToWebSite" default-entity-name="WebSiteProductStore" engine="simple"
+            location="component://portal/script/org/ofbiz/product/store/StoreServices.xml" invoke="addProductStoreToWebSite" auth="true">
+        <description>Create ProductStoreToWebSite</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="fromDate" optional="true"/>
+    </service>
+    <service name="updateProductStoreToWebSite" default-entity-name="WebSiteProductStore" engine="simple"
+            location="component://portal/script/org/ofbiz/product/store/StoreServices.xml" invoke="updateProductStoreToWebSite" auth="true">
+        <description>Update ProductStoreToWebSite</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    <service name="removeProductStoreFromWebSite" default-entity-name="WebSiteProductStore" engine="simple"
+            location="component://portal/script/org/ofbiz/product/store/StoreServices.xml" invoke="removeProductStoreFromWebSite" auth="true">
+        <description>Delete ProductStoreToWebSite</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service>
+    
+    <!-- ProductProductStore Services -->
+    <service name="addProductToProductStore" default-entity-name="ProductProductStore" engine="simple"
+            location="component://portal/script/org/ofbiz/product/store/StoreServices.xml" invoke="addProductToProductStore" auth="true">
+        <description>Create ProductProductStore</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="fromDate" optional="true"/>
+    </service>
+    <service name="updateProductToProductStore" default-entity-name="ProductProductStore" engine="simple"
+            location="component://portal/script/org/ofbiz/product/store/StoreServices.xml" invoke="updateProductToProductStore" auth="true">
+        <description>Update ProductProductStore</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    <service name="removeProductFromProductStore" default-entity-name="ProductProductStore" engine="simple"
+            location="component://portal/script/org/ofbiz/product/store/StoreServices.xml" invoke="removeProductFromProductStore" auth="true">
+        <description>Delete ProductProductStore</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service>
+	
+	<!--  -->
+	<service name="safeAddProductCategoryToStoreCategory" engine="simple"
+                location="component://portal/script/org/ofbiz/product/store/StoreServices.xml" invoke="addProductCategoryToStoreCategory" auth="true">
+        <description>Safe Add ProductCategory To Category (requires fromDate)</description>
+        <attribute name="productStoreId" type="String" mode="IN" optional="false"/>
+        <attribute name="prodCatalogCategoryTypeId" type="String" mode="IN" optional="false"/>
+        <attribute name="productCategoryId" type="String" mode="IN" optional="false"/>
+        <attribute name="parentProductCategoryId" type="String" mode="IN" optional="false"/>
+        <attribute name="fromDate" type="Timestamp" mode="IN" optional="false"/>
+        <attribute name="thruDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="sequenceNum" type="Long" mode="IN" optional="true"/>
+    </service>
+
+    <service name="addProductCategoryToStoreCategory" engine="simple"
+                location="component://portal/script/org/ofbiz/product/store/StoreServices.xml" invoke="addProductCategoryToStoreCategory" auth="true">
+        <description>Add ProductCategory To Category</description>
+        <attribute name="productStoreId" type="String" mode="IN" optional="false"/>
+        <attribute name="prodCatalogCategoryTypeId" type="String" mode="IN" optional="false"/>
+        <attribute name="productCategoryId" type="String" mode="IN" optional="false"/>
+        <attribute name="parentProductCategoryId" type="String" mode="IN" optional="false"/>
+        <attribute name="fromDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="thruDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="sequenceNum" type="Long" mode="IN" optional="true"/>
+    </service>
+    <service name="addProductCategoryToStoreCategories" engine="simple"
+                location="component://portal/script/org/ofbiz/product/store/StoreServices.xml" invoke="addProductCategoryToStoreCategories" auth="true">
+        <description>Add ProductCategory To Categories</description>
+        <attribute name="productStoreId" type="String" mode="IN" optional="false"/>
+        <attribute name="prodCatalogCategoryTypeId" type="String" mode="IN" optional="false"/>
+        <attribute name="productCategoryId" type="String" mode="IN" optional="false"/>
+        <attribute name="categories" type="Object" mode="IN" optional="false"/>
+        <attribute name="fromDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="thruDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="sequenceNum" type="Long" mode="IN" optional="true"/>
+    </service>
+    <service name="updateProductCategoryToStoreCategory" engine="simple"
+                location="component://portal/script/org/ofbiz/product/store/StoreServices.xml" invoke="updateProductCategoryToStoreCategory" auth="true">
+        <description>Update ProductCategory To Category</description>
+        <attribute name="productStoreId" type="String" mode="IN" optional="false"/>
+        <attribute name="prodCatalogCategoryTypeId" type="String" mode="IN" optional="false"/>
+        <attribute name="productCategoryId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="parentProductCategoryId" type="String" mode="IN" optional="false"/>
+        <attribute name="fromDate" type="Timestamp" mode="IN" optional="false"/>
+        <attribute name="thruDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="sequenceNum" type="Long" mode="IN" optional="true"/>
+    </service>
+    <service name="removeProductCategoryFromStoreCategory" engine="simple"
+                location="component://portal/script/org/ofbiz/product/store/StoreServices.xml" invoke="removeProductCategoryFromStoreCategory" auth="true">
+        <description>Remove ProductCategory From Category</description>
+        <attribute name="productStoreId" type="String" mode="IN" optional="false"/>
+        <attribute name="prodCatalogCategoryTypeId" type="String" mode="IN" optional="false"/>
+        <attribute name="productCategoryId" type="String" mode="IN" optional="false"/>
+        <attribute name="parentProductCategoryId" type="String" mode="IN" optional="false"/>
+        <attribute name="fromDate" type="Timestamp" mode="IN" optional="false"/>
+    </service>
+    
+	<!-- 开店铺 -->
+	<service name="createShop" default-entity-name="ProductStore"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/store/ProductStoreServices.xml"
+		invoke="createProductStore">
+		<description>Create a Product Store</description>
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<auto-attributes include="pk" mode="OUT" optional="false" />
+		<override name="storeName" optional="false" />
+	</service>
+
+    <service name="createStoreCatagory" engine="simple"
+             location="component://portal/script/org/ofbiz/product/store/StoreServices.xml"
+             invoke="createStoreCatagory" auth="true">
+        <description>Add ProductCategory To Categories</description>
+        <attribute name="categoryName" type="String" mode="IN" optional="false"/>
+        <attribute name="productStoreId" type="String" mode="IN" optional="false"/>
+        <attribute name="primaryParentCategoryId" type="String" mode="IN" optional="true"/>
+        <attribute name="productCategoryTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="prodCatalogCategoryTypeId" type="String" mode="IN" optional="true"/>
+    </service>
+    
+    
+   	<!-- 删除产品组 -->
+	<service name="removeProductCatagory" default-entity-name="ProductCategory"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/store/StoreServices.xml"
+		invoke="removeProductCatagory" auth="true">
+		<description>Remove a 产品组  Method</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+        <attribute name="productStoreId" type="String" mode="IN" optional="false"/>
+		
+	</service>
+
+	<!-- 保存送货方式 -->
+	<service name="createProductStoreShipMeth" default-entity-name="ProductStoreShipmentMeth"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/store/StoreServices.xml"
+		invoke="createProductStoreDelivery" auth="true">
+		<description>Create a Product Store Shipment Method</description>
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<override name="productStoreId" optional="false" />
+		<override name="shipmentMethodTypeId" optional="false" />
+		<override name="partyId" optional="false" />
+		<override name="roleTypeId" optional="false" />
+	</service>
+
+	<!-- 修改送货方式 -->
+	<service name="updateProductStoreShipMeth" default-entity-name="ProductStoreShipmentMeth"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/store/StoreServices.xml"
+		invoke="updateProductStoreShipMeth" auth="true">
+		<description>Update a Product Store Shipment Method</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>
+	<!-- 删除联系方式 -->
+	<service name="removeProductStoreShipMeth" default-entity-name="ProductStoreShipmentMeth"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/store/StoreServices.xml"
+		invoke="removeProductStoreShipMeth" auth="true">
+		<description>Remove a Product Store Shipment Method</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+	</service>
+	
+	
+		<!-- 保存 品牌-->
+	<service name="addBrandmanage" default-entity-name="ProductStoreBrand"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/store/StoreServices.xml"
+		invoke="createProductStoreBrandmanage" auth="true">
+		<description>Create a Product Store Shipment Method</description>
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="productStoreId" type="String" mode="IN" optional="false"/>
+	</service>
+	
+			<!-- 修改 品牌-->
+	<service name="editBrandmanage" default-entity-name="ProductStoreBrand"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/store/StoreServices.xml"
+		invoke="editProductStoreBrandmanage" auth="true">
+		<description>Create a Product Store Shipment Method</description>
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<attribute name="productStoreId" type="String" mode="IN" optional="false"/>
+		<attribute name="productStoreBrandId" type="String" mode="IN" optional="false"/>
+		
+	</service>
+
+	<!-- 删除品牌 -->
+	<service name="removeProductStoreBrand" default-entity-name="ProductStoreBrand"
+		engine="simple"
+		location="component://portal/script/org/ofbiz/product/store/StoreServices.xml"
+		invoke="removeProductStoreBrand" auth="true">
+		<description>Remove a Brand Method</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+	</service>
+	
+	<service name="updatePartySellerStatus" engine="simple"
+		location="component://portal/script/org/ofbiz/ebiz/seller/SellerServices.xml"
+		invoke="updatePartySellerStatus" auth="true">
+		<description>卖家审核用</description>
+		<attribute name="partyId" type="String" mode="IN" optional="false"/>
+		<attribute name="sellerStatusId" type="String" mode="IN" optional="false"/>
+		<!--  
+		<attribute name="examineDate" type="Timestamp" mode="IN" optional="false"/>
+		 -->
+	</service>
+	
+    <service name="createEnterpriseQual" default-entity-name="EnterpriseQual" auth="true" engine="simple"
+                invoke="createEnterpriseQual" location="component://portal/script/org/ofbiz/ebiz/seller/SellerServices.xml">
+        <description>创建 商家资质</description>
+        <auto-attributes mode="IN" include="all" optional="true"/>
+        <attribute mode="IN" name="uploadedFile" type="java.nio.ByteBuffer" optional="true" />
+        <attribute mode="IN" name="_uploadedFile_contentType" type="String" optional="true"/>
+        <attribute mode="IN" name="_uploadedFile_fileName" type="String" optional="true"/>
+        <override name="partyQualTypeId" optional="false"/>
+        <override name="partyId" optional="false"/>
+    </service>
+    <service name="updateEnterpriseQual" default-entity-name="EnterpriseQual" auth="true" engine="simple" 
+                invoke="updateEnterpriseQual" location="component://portal/script/org/ofbiz/ebiz/seller/SellerServices.xml">
+        <description>更新 商家资质</description>
+        <auto-attributes mode="IN" include="all" optional="true"/>
+        <attribute mode="IN" name="uploadedFile" type="java.nio.ByteBuffer" optional="true" />
+        <attribute mode="IN" name="_uploadedFile_contentType" type="String" optional="true"/>
+        <attribute mode="IN" name="_uploadedFile_fileName" type="String" optional="true"/>
+        <override name="partyQualTypeId" optional="false"/>
+        <override name="partyId" optional="false"/>
+        <override name="fromDate" optional="false"/>
+    </service>
+    <service name="deleteEnterpriseQual" default-entity-name="EnterpriseQual" auth="true" engine="simple" 
+                invoke="deleteEnterpriseQual" location="component://portal/script/org/ofbiz/ebiz/seller/SellerServices.xml">
+        <description>删除 商家资质</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+    </service>
+    <service name="auditEnterpriseQual" default-entity-name="EnterpriseQual" auth="true" engine="simple" 
+                invoke="auditEnterpriseQual" location="component://portal/script/org/ofbiz/ebiz/seller/SellerServices.xml">
+        <description>批量审核 商家资质</description>
+        <attribute mode="IN" name="partyId" type="String" optional="false" />
+        <attribute mode="IN" name="approveStatusId" type="String" optional="false" />
+    </service>
+    <!-- 运费计算 -->
+	<service name="calculateShipCost" engine="java"
+            location="org.ofbiz.product.store.StoreServices" invoke="calculateShipCost" auth="false" use-transaction="false">
+        <description>Generic Shipment Cost Estimate Calc Service - Use ShipmentCostEstimate Entities</description>
+        <implements service="calcShipmentEstimateInterface"/>
+    </service>
+    <service name="createDxSupplierProtocol" default-entity-name="DxSupplierProtocol"
+		 engine="entity-auto" invoke="create"  auth="true">
+		<description>代销协议</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>
+    <service name="updateDxSupplierProtocol" default-entity-name="DxSupplierProtocol"
+		 engine="entity-auto" invoke="update" auth="true">
+		<description>代销协议</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>	
+    <service name="createDxProduct" default-entity-name="DxProduct"
+		 engine="entity-auto" invoke="create" auth="true">
+		<description>代销商品</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>
+    <service name="updateDxProduct" default-entity-name="DxProduct"
+		  engine="entity-auto" invoke="update" auth="true">
+		<description>代销商品</description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+	</service>
+    
+</services>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- take care: later requests/views will overwrite earlier ones in the controller.xml list -->
+    <include location="component://mobileStore/webapp/mobileStore/WEB-INF/mobile-controller.xml"/>
+    <include location="component://sysCommon/webapp/sysCommon/WEB-INF/controller.xml"/>
+    <!-- so the order should be from most common to most specific-->
+    <description>Show portal information in the system</description>
+
+	<handler name="java" type="request" class="org.ofbiz.webapp.event.JavaEventHandler"/>
+    <handler name="service" type="request" class="org.ofbiz.webapp.event.ServiceEventHandler"/>
+    <handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler"/>
+    <handler name="simple" type="request" class="org.ofbiz.webapp.event.SimpleEventHandler"/>
+    <handler name="groovy" type="request" class="org.ofbiz.webapp.event.GroovyEventHandler"/>    
+    <handler name="jsp" type="view" class="org.ofbiz.webapp.view.JspViewHandler"/>
+    <handler name="screen" type="view" class="org.ofbiz.widget.renderer.macro.MacroScreenViewHandler"/>
+    <handler name="screenfop" type="view" class="org.ofbiz.widget.renderer.fo.ScreenFopViewHandler"/>
+    
+    <!-- Events run from here for the first hit in a visit -->
+    <firstvisit>
+        <event name="autoLoginCheck" type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="autoLoginCheck"/>
+        <event name="checkTrackingCodeCookies" type="java" path="org.ofbiz.marketing.tracking.TrackingCodeEvents" invoke="checkTrackingCodeCookies"/>
+        <event name="setDefaultStoreSettings" type="java" path="org.ofbiz.product.product.ProductEvents" invoke="setDefaultStoreSettings"/>
+        <event name="createGuestShoppingListCookies" type="java" path="org.ofbiz.order.shoppinglist.MultiShoppingListEvents" invoke="createGuestShoppingListCookies"/>
+        <event name="restoreAutoSaveList" type="java" path="org.ofbiz.order.shoppinglist.MultiShoppingListEvents" invoke="restoreAutoSaveList"/>
+    </firstvisit>
+    
+    <after-login>
+    	<event name="setDefaultStoreSettings" type="java" path="org.ofbiz.product.product.ProductEvents" invoke="setDefaultStoreSettings"/>
+        <event name="keepCartUpdated" type="java" path="org.ofbiz.order.shoppingcart.MultiShoppingCartEvents" invoke="keepCartUpdated"/>
+        <event name="restoreAutoSaveList" type="java" path="org.ofbiz.order.shoppinglist.MultiShoppingListEvents" invoke="restoreAutoSaveList"/>
+        <event name="saveCartToAutoSaveList" type="java" path="org.ofbiz.order.shoppinglist.MultiShoppingListEvents" invoke="saveCartToAutoSaveList"/>
+        <event name="clearGuestShoppingListCookies" type="java" path="org.ofbiz.order.shoppinglist.MultiShoppingListEvents" invoke="clearGuestShoppingListCookies"/>
+        <event name="updateProductVisit" type="java" path="org.ofbiz.product.product.ProductVisitWorker" invoke="updateProductVisit"/>
+    </after-login>
+    
+    <request-map uri="main">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="main" save-current-view="true"/>
+    </request-map>
+    
+    <request-map uri="img">
+        <security auth="false" https="false"/>
+        <event type="java" path="org.ofbiz.content.data.DataEvents" invoke="serveImage"/>
+        <response name="success" type="none"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+    
+    <!-- Common json reponse events, chain these after events to send json reponses -->
+    <!-- Standard json response, For security reason (OFBIZ-5409) tries to keep only the initially called service attributes -->
+    <request-map uri="json">
+        <security direct-request="false"/>
+        <event type="java" path="org.ofbiz.common.CommonEvents" invoke="jsonResponseFromRequestAttributes"/>
+        <response name="success" type="none"/>
+    </request-map> 
+	<request-map uri="errorPage">
+    	<security direct-request="false"/>
+        <response name="success" type="view" value="errorPage"/>
+    </request-map>
+    <request-map uri="captcha_.jpg">
+        <security https="false" auth="false"/>
+        <event type="java" path="com.mobileStore.common.CommonEvents" invoke="getCaptcha"/>
+        <response name="success" type="none"/>
+    </request-map>
+    <!-- 个人验证 -->
+    <request-map uri="upCertificateContentForPerson">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="uploadPartyContentFile"/>
+        <response name="success" type="request" value="stor_certification4"/>
+        <response name="error" type="view" value="stor_certification4"/>
+    </request-map>
+	<!-- 企业验证 -->
+    <request-map uri="upCertificateContentForCompany">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="uploadPartyContentFile"/>
+        <response name="success" type="request" value="store"/>
+        <response name="error" type="view" value="store"/>
+    </request-map>
+    <!-- 个体户验证 -->
+    <request-map uri="upCertificateContentForSelfEmployed">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="uploadPartyContentFile"/>
+        <response name="success" type="request" value="stor_certification3"/>
+        <response name="error" type="view" value="stor_certification3"/>
+    </request-map>
+    
+    <request-map uri="view">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="main"/>
+    </request-map>
+	
+  	<request-map uri="loginCheck">
+		<description>查找绑定账户</description>
+        <security https="false" auth="false"/>
+        <event type="java" path="com.mobileStore.common.CommonEvents" invoke="loginCheck"/>
+        <response name="success" type="request" value="login"/>
+        <response name="error" type="view" value="loginPage"/>
+    </request-map>
+  	<request-map uri="login">
+		<description>登录</description>
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.securityext.login.LoginEvents" invoke="storeLogin"/>
+        <response name="success" type="request-redirect-noparam" value="main"/>
+        <response name="error" type="request" value="loginCheck"/>
+    </request-map>
+	<request-map uri="logout">
+		<description>退出登录</description>
+        <security https="false" auth="true"/>
+        <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="logout"/>
+        <response name="success" type="request-redirect" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+	
+    <request-map uri="checkLogin" edit="false">
+        <description>Verify a user is logged in.</description>
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.securityext.login.LoginEvents" invoke="storeCheckLogin"/>
+        <response name="success" type="view" value="main"/>
+        <response name="error" type="view" value="loginPage"/>
+    </request-map>
+
+    <request-map uri="autoLogout">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="autoLoginRemove"/>
+        <response name="success" type="request-redirect" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+	<!-- View Mappings -->
+    <view-map name="error" page="/error/error.jsp"/>
+    <view-map name="main" type="screen" page="component://mobileStore/widget/CommonScreens.xml#main"/>
+    <view-map name="buyerlogin" type="screen" page="component://portal/widget/CommonScreens.xml#buyerlogin"/>
+    <view-map name="login" type="screen" page="component://portal/widget/CommonScreens.xml#login"/>
+    <view-map name="newcustomer" type="screen" page="component://portal/widget/CustomerScreens.xml#newcustomer"/>
+    <view-map name="getPassword" type="screen" page="component://portal/widget/CustomerScreens.xml#getPassword"/>
+    <view-map name="keywordsearch" type="screen" page="component://portal/widget/CatalogScreens.xml#keywordsearch"/>
+    
+    <view-map name="orderstatus" type="screen" page="component://ecommerce/widget/OrderScreens.xml#orderstatus"/>
+    <view-map name="orderhistory" type="screen" page="component://ecommerce/widget/OrderScreens.xml#orderhistory"/>
+    
+    <view-map name="errorPage" type="screen" page="component://mobileStore/widget/CommonScreens.xml#errorPage"/>
+    
+</site-conf>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of an Open For Business Project Component</title>
+	<description>None</description>
+	<version>1.0</version>
+
+	<!-- ========================================================= -->
+	<!-- ======================== Data Model ===================== -->
+	<view-entity entity-name ="PersonAndSecurityGroup"
+                package-name ="org.ofbiz.security.securitygroup"
+          never-cache ="true"
+          title= "UserLogin And SecurityGroup View Entity" >
+        <member-entity entity-alias= "ULASG" entity-name ="UserLoginAndSecurityGroup" />
+        <member-entity entity-alias= "PS" entity-name = "Person"/>
+        <alias-all entity-alias= "ULASG" />
+        <alias-all entity-alias= "PS" />
+        <view-link entity-alias= "ULASG" rel-entity-alias = "PS">
+               <key-map field-name ="partyId" />
+        </view-link >
+    </view-entity >
+	
+</entitymodel>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods.xsd">
+	<simple-method method-name="createExtendAttribute"
+		short-description="Create ExtendAttribute">
+		<make-value entity-name="ExtendAttribute" value-field="newEntity" />
+		<if-empty field="parameters.extendAttributeId">
+			<sequenced-id sequence-name="ExtendAttribute"
+				field="newEntity.extendAttributeId" />
+		</if-empty>
+
+		<set-pk-fields map="parameters" value-field="newEntity" />
+		<set-nonpk-fields map="parameters" value-field="newEntity" />
+		<field-to-result field="newEntity.extendAttributeId"
+			result-name="extendAttributeId" />
+		<create-value value-field="newEntity" />
+
+
+		<check-errors />
+	</simple-method>
+	<simple-method method-name="updateExtendAttribute"
+		short-description="Update ExtendAttribute">
+		<entity-one entity-name="ExtendAttribute" value-field="lookedUpValue" />
+		<set-nonpk-fields value-field="lookedUpValue" map="parameters" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	<simple-method method-name="deleteExtendAttribute"
+		short-description="Delete ExtendAttribute">
+		<entity-one entity-name="ExtendAttribute" value-field="ExtendAttribute" />
+		<remove-value value-field="ExtendAttribute" />
+	</simple-method>
+
+	<!-- 枚举和枚举类型 -->
+	<simple-method method-name="createEnumerationType"
+		short-description="Create EnumerationType">
+		<make-value entity-name="EnumerationType" value-field="newEntity" />
+		<if-empty field="parameters.enumTypeId">
+			<sequenced-id sequence-name="EnumerationType" field="newEntity.enumTypeId" />
+			<else>
+                <set field="newEntity.enumTypeId" from-field="parameters.enumTypeId"/>
+            </else>
+		</if-empty>
+
+		<set-pk-fields map="parameters" value-field="newEntity" />
+		<set-nonpk-fields map="parameters" value-field="newEntity" />
+		<field-to-result field="newEntity.enumTypeId"
+			result-name="enumTypeId" />
+		<create-value value-field="newEntity" />
+		<check-errors />
+	</simple-method>
+	<simple-method method-name="updateEnumerationType"
+		short-description="Update EnumerationType">
+		<entity-one entity-name="EnumerationType" value-field="lookedUpValue" />
+		<set-nonpk-fields value-field="lookedUpValue" map="parameters" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	<simple-method method-name="deleteEnumerationType"
+		short-description="Delete EnumerationType">
+		<entity-one entity-name="EnumerationType" value-field="EnumerationType" />
+		<remove-value value-field="EnumerationType" />
+		<if-not-empty field="error_list">
+			<add-error>
+				<fail-message message="删除失败,已经被使用的类型不能被删除"></fail-message>
+			</add-error>
+		</if-not-empty>
+		<check-errors />
+	</simple-method>
+	<simple-method method-name="createEnumeration"
+		short-description="Create Enumeration">
+		<make-value entity-name="Enumeration" value-field="newEntity" />
+		<if-empty field="parameters.enumId">
+			<sequenced-id sequence-name="Enumeration" field="newEntity.enumId" />
+		</if-empty>
+
+		<set-pk-fields map="parameters" value-field="newEntity" />
+		<set-nonpk-fields map="parameters" value-field="newEntity" />
+		<field-to-result field="newEntity.enumId" result-name="enumId" />
+		<create-value value-field="newEntity" />
+		<check-errors />
+	</simple-method>
+	<simple-method method-name="updateEnumeration"
+		short-description="Update Enumeration">
+		<entity-one entity-name="Enumeration" value-field="lookedUpValue" />
+		<set-nonpk-fields value-field="lookedUpValue" map="parameters" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	<simple-method method-name="deleteEnumeration"
+		short-description="Delete Enumeration">
+		<entity-one entity-name="Enumeration" value-field="Enumeration" />
+		<remove-value value-field="Enumeration" />
+	</simple-method>
+	<!-- 清除缓存 -->
+	<simple-method method-name="clearCacheEnumeration"
+		short-description="clearCacheEnumeration">
+		<clear-cache-line entity-name="Enumeration" />
+	</simple-method>
+
+	<!-- 系统菜单 -->
+	<simple-method method-name="createMenuTree"
+		short-description="Create MenuTree">
+		<make-value entity-name="MenuTree" value-field="newEntity" />
+		<if-empty field="parameters.id">
+			<sequenced-id sequence-name="MenuTree" field="newEntity.id" />
+		</if-empty>
+
+		<set-pk-fields map="parameters" value-field="newEntity" />
+		<set-nonpk-fields map="parameters" value-field="newEntity" />
+		<field-to-result field="newEntity.id" result-name="id" />
+		<create-value value-field="newEntity" />
+
+
+		<check-errors />
+	</simple-method>
+	<simple-method method-name="updateMenuTree"
+		short-description="Update MenuTree">
+		<entity-one entity-name="MenuTree" value-field="lookedUpValue" />
+		<set-nonpk-fields value-field="lookedUpValue" map="parameters" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	<simple-method method-name="deleteMenuTree"
+		short-description="Delete MenuTree">
+		<entity-one entity-name="MenuTree" value-field="MenuTree" />
+		<remove-value value-field="MenuTree" />
+	</simple-method>
+	<!-- 清除缓存 -->
+	<simple-method method-name="clearCacheMenuTree"
+		short-description="clearCacheMenuTree">
+		<clear-cache-line entity-name="MenuTree" />
+	</simple-method>
+
+	<simple-method method-name="updateOperLogs"
+		short-description="Update OperLogs">
+		<entity-one entity-name="OperLogs" value-field="lookedUpValue" />
+		<set-nonpk-fields value-field="lookedUpValue" map="parameters" />
+		<store-value value-field="lookedUpValue" />
+	</simple-method>
+	<simple-method method-name="deleteOperLogs"
+		short-description="Delete OperLogs">
+		<entity-one entity-name="OperLogs" value-field="OperLogs" />
+		<remove-value value-field="OperLogs" />
+	</simple-method>
+	<simple-method method-name="deleteAllOperLogs"
+		short-description="Delete select OperLogs">
+		<call-bsh><![CDATA[
+               ids = org.ofbiz.base.util.StringUtil.split(parameters.get("ids"),",");
+               parameters.put("ids", ids);
+        ]]></call-bsh>
+		<if-not-empty field="parameters.ids">
+			<iterate entry="thisId" list="parameters.ids">
+				<set from-field="thisId" field="thisMap.logId" />
+				<call-service service-name="deleteOperLogs"
+					in-map-name="thisMap"></call-service>
+			</iterate>
+		</if-not-empty>
+	</simple-method>
+
+</simple-methods>

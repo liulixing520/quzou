@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE file distributed with this work for additional information regarding copyright ownership. The ASF licenses this file to you under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and 
+	limitations under the License. -->
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of syscommon Component</title>
+	<description>系统中用到的文档相关的实体定义,比如规程、章程以及证书等附件,可以是word,excel或者pdf等类型的资源文件</description>
+	<version>1.0</version>
+
+	<!-- ========================================================= -->
+	<!-- org.extErp.sysCommon.document -->
+	<!-- 文档相关实体 -->
+	<!-- ========================================================= -->
+
+	<entity entity-name="SysDocSource" package-name="org.extErp.sysCommon.document" title="文档资源" >
+		<description>文档资源,描述了在系统的存储情况.</description>
+
+		<field name="sysDocSourceId" type="id-ne">
+			<description>标识ID</description>
+		</field>
+		<field name="docName" type="name">
+			<description>文档名称</description>
+		</field>
+		<field name="createdByUserLogin" type="id-vlong">
+			<description>创建人登陆ID</description>
+		</field>
+		<field name="objectInfo" type="long-varchar">
+			<description></description>
+		</field>
+		<field name="mimeTypeId" type="id-vlong-ne">
+			<description>文档的类型</description>
+		</field>
+		<field name="remark" type="comment">
+			<description>备注</description>
+		</field>
+
+		<prim-key field="sysDocSourceId" />
+
+		<relation type="one" fk-name="DOC_CREATED_BY" title="创建人" rel-entity-name="UserLogin">
+			<key-map field-name="createdByUserLogin" rel-field-name="userLoginId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="SysDocPurpose" package-name="org.extErp.sysCommon.document" title="文档使用目的" >
+		<description>文档资源使用目的,描述了在什么情况下使用那种文档.</description>
+
+		<field name="sysDocPurposeId" type="id-ne">
+			<description>标识ID</description>
+		</field>
+		<field name="entiyName" type="name">
+			<description>关联实体名称</description>
+		</field>
+		<field name="relatedDetailId" type="id-long">
+			<description>关联实体主键</description>
+		</field>
+		<field name="description" type="description">
+			<description>用途描述</description>
+		</field>
+		<field name="mimeTypeId" type="id-vlong-ne">
+			<description>这个用途文档的类型</description>
+		</field>
+		<field name="path" type="long-varchar">
+			<description>这种用途的文档的存储路径</description>
+		</field>
+		<field name="inApp" type="indicator">
+			<description>是否存储在webapp下,Y:N</description>
+		</field>
+		<field name="appName" type="name">
+			<description>存储在webapp</description>
+		</field>
+
+		<prim-key field="sysDocPurposeId" />
+
+		<relation type="one" fk-name="SDP_MT" title="文件类型" rel-entity-name="MimeType">
+			<key-map field-name="mimeTypeId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="SysDocRef" package-name="org.extErp.sysCommon.document" title="文档关联">
+		<description>描述文档的具体使用的实体</description>
+
+		<field name="sysDocRefId" type="id-ne">
+			<description>文档关联ID</description>
+		</field>
+		<field name="sysDocSourceId" type="id-ne">
+			<description>文档ID</description>
+		</field>
+		<field name="sysDocPurposeId" type="id-ne">
+			<description>文档使用目的ID</description>
+		</field>
+		<field name="relatedIdValue" type="id-ne">
+			<description>关联实体主键值</description>
+		</field>
+		<field name="fromDate" type="date-time">
+			<description>开始时间</description>
+		</field>
+		<field name="thruDate" type="date-time">
+			<description>终止时间</description>
+		</field>
+
+		<prim-key field="sysDocRefId" />
+
+		<relation type="one" fk-name="SDR_SDS" rel-entity-name="SysDocSource">
+			<key-map field-name="sysDocSourceId" />
+		</relation>
+		<relation type="one" fk-name="SDR_SDP" rel-entity-name="SysDocPurpose">
+			<key-map field-name="sysDocPurposeId" />
+		</relation>
+	</entity>
+
+	<view-entity entity-name="SysDocRefAllInfo" package-name="org.extErp.sysCommon.document" title="文档全部信息">
+		<description>以SysDocRef为中心展示文档详细信息</description>
+
+		<member-entity entity-alias="SDR" entity-name="SysDocRef" />
+		<member-entity entity-alias="SDS" entity-name="SysDocSource" />
+		<member-entity entity-alias="SDP" entity-name="SysDocPurpose" />
+
+		<alias-all entity-alias="SDR" />
+		<alias-all entity-alias="SDS" />
+		<alias-all entity-alias="SDP" />
+
+		<view-link entity-alias="SDR" rel-entity-alias="SDS" rel-optional="true">
+			<key-map field-name="sysDocSourceId" />
+		</view-link>
+		<view-link entity-alias="SDR" rel-entity-alias="SDP" rel-optional="true">
+			<key-map field-name="sysDocPurposeId" />
+		</view-link>
+	</view-entity>
+</entitymodel>

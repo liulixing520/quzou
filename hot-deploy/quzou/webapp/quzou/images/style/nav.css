@@ -1,0 +1,22 @@
+@charset "utf-8";
+/*nav style*/
+#mainnav{ background-color:#6CF; height:30px;}
+#mainnav ul li{ position:relative; margin-left:14px;;float:left;z-index:100;line-height:30px; height:30px;width:100px;}
+#mainnav ul li a {display:block;background:#EEEEEE; font-weight:bold;padding:0 8px; }
+#mainnav ul li a:hover {background-color: #88C366;color:#fff;}
+#mainnav ul li ul{position: absolute;width: 100px;overflow:hidden;display:none;background-color: #88C366;}
+#mainnav ul li:hover ul{background-color: #f00;position: absolute;width: 100px;display:block;}
+#mainnav ul li ul li{border-bottom: 1px solid #BBB;width:100%; margin:0;height:24px; line-height:24px;}
+/*下拉导航2开始*/
+/*menu*/
+#menu{background-color: #996699;display: block;}
+#nav {width:1080px;display:block;margin-top: 0;margin-right: auto;margin-left: auto;margin-bottom: 0px;}
+#nav .jquery_out {float:left;line-height:32px;display:block; border-right:1px solid #fff; text-align:center; color:#fff;font:18px/32px "微软雅黑"; background:#062723 url(../images/slide-panel_03.png) 0 0 repeat-x;}
+#nav .jquery_out .smile {padding-left:1em;}
+#nav .jquery_inner {margin-left:16px;}
+#nav .jquery {margin-right:1px;padding:0 2em;}
+#nav .mainlevel {background:#ffe60c; float:left; border-right:1px solid #fff; width:100px;/*IE6 only*/}
+#nav .mainlevel a {color:#000; text-decoration:none; line-height:32px; display:block; padding:0 20px; width:60px;}
+#nav .mainlevel a:hover {color:#fff; text-decoration:none; background:#062723 url(../images/slide-panel_03.png) 0 0 repeat-x;}
+#nav .mainlevel ul {display:none; position:absolute;}
+#nav .mainlevel li {border-top:1px solid #fff; background:#ffe60c; width:100px;/*IE6 only*/}

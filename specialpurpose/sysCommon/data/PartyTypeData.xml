@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<entity-engine-xml>
+    <PartyRole partyId="admin" roleTypeId="EMPLOYEE"/>
+	<!-- 部门于职员之间的部门领导关系 -->
+	<RoleType roleTypeId="DEP_LEADER" parentTypeId="" hasTable="N" description="部门负责人" />
+	<PartyRelationshipType partyRelationshipName="领导关系" description="部门于职员的领导关系" partyRelationshipTypeId="DEP_LEADER_REL"  hasTable="N" parentTypeId=""/>
+	
+	<RoleType roleTypeId="CHECK_PERSON" description="车队队长" hasTable="N" />
+    
+	<PartyRole partyId="admin" roleTypeId="CHECK_PERSON"/>
+</entity-engine-xml>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods.xsd">
+
+	<simple-method method-name="createLogs"
+		short-description="createLogs">
+		<log level="info"
+			message="[${parameters.logDescription}], partyAcctgPreference: ${logDescription}" />
+		<!-- 校验 -->
+		<if-empty field="parameters.logDescription">
+			<set field="logId" value="1000000" type="String" />
+			<field-to-result field="logId" result-name="logId" />
+
+			<return />
+		</if-empty>
+		<set field="logDescription" from-field="parameters.logDescription" />
+
+		<check-errors />
+		<call-bsh><![CDATA[
+            logDescription = parameters.get("logDescription");
+            if(logDescription != null){
+               arr = logDescription.split( "@@@" );
+               parameters.put("modelName", arr[0]);
+               parameters.put("description", arr[1]);
+               parameters.put("entityId", arr[2]);
+               parameters.put("userLoginId", arr[3]);
+            }
+        ]]></call-bsh>
+		<make-value entity-name="OperLogs" value-field="newEntity" />
+		<if-empty field="parameters.logId">
+			<sequenced-id sequence-name="OperLogs" field="newEntity.logId" />
+		</if-empty>
+		<set-pk-fields map="parameters" value-field="newEntity" />
+		<set-nonpk-fields map="parameters" value-field="newEntity" />
+		<field-to-result field="newEntity.logId" result-name="logId" />
+		<create-value value-field="newEntity" />
+		<check-errors />
+	</simple-method>
+
+
+</simple-methods>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of ebiz Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+
+	<entity entity-name="ProductStoreShipConfig"
+            package-name="org.ofbiz.product.category"
+            title="店铺快递价格配置表">
+      	<field name="productStoreShipMethId" type="id-ne"></field>
+      	<field name="shippingCountry" type="id-ne"><description></description></field>
+      	<field name="shippingProvince" type="id-ne"><description></description></field>
+      	<field name="firstWeight" type="currency-precise"><description></description></field>
+      	<field name="firstCost" type="currency-precise"><description></description></field>
+      	<field name="addWeight" type="currency-precise"></field>
+      	<field name="addCost" type="currency-precise"></field>
+	  	<field name="currencyUomId" type="id"></field>
+      	<prim-key field="productStoreShipMethId"/>
+      	<prim-key field="shippingCountry"/>
+      	<prim-key field="shippingProvince"/>
+      	<relation type="one" fk-name="PSSC_PS" rel-entity-name="ProductStoreShipmentMeth">
+        	<key-map field-name="productStoreShipMethId"/>
+      	</relation>
+      	<relation type="one" fk-name="PSSC_CT" rel-entity-name="Geo">
+        	<key-map field-name="shippingCountry" rel-field-name="geoId"/>
+      	</relation>
+      	<relation type="one" fk-name="PSSC_PV" rel-entity-name="Geo">
+        	<key-map field-name="shippingProvince" rel-field-name="geoId"/>
+      	</relation>
+    </entity>
+    
+    <entity entity-name="EnterpriseQual" package-name="org.ofbiz.store" title="Enterprise Qualification Entity">
+        <description>企[事]业单位/公司 资质</description>
+        <field name="partyId" type="id-ne"><description>会员标识</description></field>
+        <field name="partyQualTypeId" type="id-ne"><description>资质类型标识</description></field>
+        <field name="qualificationDesc" type="id-long"><description>资质描述</description></field>
+        <field name="title" type="id-long"><description>标题</description></field>
+        <field name="statusId" type="id"><description>状态标识(statusTypeId="IMAGE_MANAGEMENT_ST")</description></field>
+        <field name="verifStatusId" type="id"><description>审核状态</description></field>
+        <field name="fromDate" type="date-time"><description>起始时间(默认:创建时间)</description></field>
+        <field name="thruDate" type="date-time"><description>截止时间</description></field>
+        <field name="imagePath" type="url"><description>图片路径</description></field>
+        <field name="createdByLoginId" type="id-vlong-ne"><description>创建人userLoginId</description></field>
+        <prim-key field="partyId"/>
+        <prim-key field="partyQualTypeId"/>
+        <prim-key field="fromDate"/>
+        <relation type="one" fk-name="ENTERPRISE_QUAL_PRTY" rel-entity-name="Party">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation type="one" fk-name="ENTERPRISE_QUAL_TYPE" rel-entity-name="EnterpriseQualType">
+            <key-map field-name="partyQualTypeId"/>
+        </relation>
+        <relation type="one" fk-name="ENTERPRISE_QUAL_STA" rel-entity-name="StatusItem">
+            <key-map field-name="statusId"/>
+        </relation>
+        <relation type="one" title="Verification" fk-name="ENTERPRISE_QUAL_VERI" rel-entity-name="StatusItem">
+            <key-map field-name="verifStatusId" rel-field-name="statusId"/>
+        </relation>
+    </entity>
+    <entity entity-name="EnterpriseQualType" package-name="org.ofbiz.store" title="Enterprise Qualification Type Entity">
+        <description>企[事]业单位/公司 资质类型</description>
+        <field name="partyQualTypeId" type="id-ne"><description>资质类型标识</description></field>
+        <field name="parentTypeId" type="id-ne"><description>资质父类型标识</description></field>
+        <field name="description" type="description"><description>描述</description></field>
+        <prim-key field="partyQualTypeId"/>
+        <relation type="one-nofk" fk-name="ENTERPRISE_QUAL_TPAR" title="Parent" rel-entity-name="EnterpriseQualType">
+            <key-map field-name="parentTypeId" rel-field-name="partyQualTypeId"/>
+        </relation>
+    </entity>
+    <!-- 退款表 -->
+    <entity entity-name="OrderRefund" package-name="">
+    	<field name="orderId" type="id-ne"><description>id</description></field>
+    	<field name="buyDescription" type="description"><description>买家描述</description></field>
+        <field name="sellerDescription" type="description"><description>卖家描述</description></field>
+        <field name="manageDescription" type="description"><description>商城描述</description></field>
+        <field name="statusId" type="id-ne"><description>已申请 已处理 已驳回  申诉</description></field>
+    	<field name="imageUrl" type="description"><description>附件</description></field>
+    	<prim-key field="orderId"/>
+    </entity>
+</entitymodel>

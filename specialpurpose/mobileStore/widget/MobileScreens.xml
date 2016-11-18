@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+	<screen name="search">
+    	<section>
+			<actions>
+				<set field="title" value="搜索列表 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base2013.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/search_html5.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/chapter.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/zepto.min.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.min.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.11.1.js" global="true"/>
+                <script location="component://mobileStore/webapp/mobileStore/WEB-INF/actions/prod/searchProducts.groovy"/>
+			</actions>
+            <widgets>
+            	<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/product/search.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="category">
+    	<section>
+			<actions>
+				<set field="title" value="全部分类 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base2013.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/all_html5.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/zepto.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>
+			</actions>
+            <widgets>
+            	<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/product/category.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="categoryProdType">
+    	<section>
+			<actions>
+				<set field="title" value="手机通讯 - 京东触屏版"/>
+				
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/extend.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/hotel.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/airline.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/zepto.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>
+			</actions>
+            <widgets>
+            	<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/product/categoryProdType.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="register">
+    	<section>
+			<actions>
+				<set field="title" value="注册 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/login.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base2013.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/mobileRegister.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.11.1.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.min.js" global="true"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/user/register.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="register2">
+    	<section>
+			<actions>
+				<set field="title" value="注册 - 京东触屏版"/>
+				<!--<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/login.css" global="true"/>-->
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/_base2013.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.js" global="true"/>
+				<!--<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/validateCode.js" global="true"/>-->
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/user/register2.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="registerMobileValid">
+    	<section>
+			<actions>
+				<set field="title" value="注册验证 - 京东触屏版"/>
+				<!--<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/login.css" global="true"/>-->
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/_base2013.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.js" global="true"/>
+				<!--<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/validateCode.js" global="true"/>-->
+        	</actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/user/registerMobileValid.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	
+	<screen name="loginPage">
+    	<section>
+			<actions>
+				<set field="title" value="登录 - 京东触屏版"/>
+				
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base2013.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/login.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.11.1.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.min.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.6.2.min.js" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/Login.groovy"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/user/loginPage.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="findPassword">
+    	<section>
+			<actions>
+				<set field="title" value="找回密码 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base2013.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/password.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.11.1.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.js" global="true"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/user/findPassword.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="productDetail">
+    	<section>
+			<actions>
+				<set field="title" value="维达纸巾 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base2013.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/goods.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/zepto.min.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.min.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>
+                <script location="component://mobileStore/webapp/mobileStore/WEB-INF/actions/prod/Product.groovy"/>
+                <script location="component://mobileStore/webapp/mobileStore/WEB-INF/actions/prod/ProductChildren.groovy"/>
+                <!--<script location="component://mobileStore/webapp/mobileStore/WEB-INF/actions/prod/ProductDetail.groovy"/>
+                <script location="component://mobileStore/webapp/mobileStore/WEB-INF/actions/prod/ProductStoreDetailToCategory.groovy"/>--> <!-- 产品详情页面  对于的商铺 分类  查询  -->
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/product/productDetail.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="productReviews">
+		<section>
+			<actions>
+				<set field="title" value="购买评价"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/comments.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/extend.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/hotel.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/airline.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>
+				<script location="component://mobileStore/webapp/mobileStore/WEB-INF/actions/prod/productReviews.groovy"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/product/productReviews.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	
+	<screen name="productInfo">
+    	<section>
+			<actions>
+				<set field="title" value="维达纸巾 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/extend.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/hotel.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/airline.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/product/productInfo.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="shoppingCart">
+    	<section>
+			<actions>
+				<set field="title" value="购物车 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/extend.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/hotel.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/airline.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.6.2.min.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.min.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>
+                <script location="component://mobileStore/webapp/mobileStore/WEB-INF/actions/prod/ShowCartMap.groovy"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/product/shoppingCart.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	
+	<screen name="memberCenter">
+    	<section>
+			<actions>
+				<set field="title" value="个人中心 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base2013.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/myhome1.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.js" global="true"/>
+        		<script location="component://portal/webapp/portal/WEB-INF/actions/order/OrderCount.groovy"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/user/memberCenter.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="myOrders">
+    	<section>
+			<actions>
+				<set field="title" value="订单管理 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base2013.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/order.src.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.6.2.min.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.min.js" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/order/MyOrderHistory.groovy"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/order/myOrders.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="orderDetail">
+    	<section>
+			<actions>
+				<set field="title" value="查看订单 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base2013.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/order2014.src.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.6.2.min.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.min.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>
+                <script location="component://portal/webapp/portal/WEB-INF/actions/order/OrderStatus.groovy"/>
+        	</actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/order/orderDetail.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="orderAfterService">
+    	<section>
+			<actions>
+				<set field="title" value="订单售后列表 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base2013.src.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/after-sales.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.6.2.min.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/base.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/touch.js" global="true"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/order/orderAfterService.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="afterServiceDetail">
+    	<section>
+			<actions>
+				<set field="title" value="订单售后申请 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base2013.src.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/after-sales.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.6.2.min.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/base.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/touch.js" global="true"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/order/afterServiceDetail.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="afterServiceSuccess">
+    	<section>
+			<actions>
+				<set field="title" value="售后申请成功 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base2013.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/fanxiu.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.js" global="true"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/order/afterServiceSuccess.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="afterServiceProgress">
+    	<section>
+			<actions>
+				<set field="title" value="售后服务进度 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base2013.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/fanxiu.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/common.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/spin.js" global="true"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/order/afterServiceProgress.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="afterServiceProgressDetail">
+    	<section>
+			<actions>
+				<set field="title" value="进度详细信息 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base2013.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/qjyy.css" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/jquery-1.js" global="true"/>
+				<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/order/afterServiceProgressDetail.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="prodsSettlement">
+    	<section>
+			<actions>
+				<set field="title" value="商品结算 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/order.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/extend.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/hotel.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/airline.css" global="true"/>
+				<!--<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>-->
+                <script location="component://mobileStore/webapp/mobileStore/WEB-INF/actions/prod/prodsSettlement.groovy"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/order/prodsSettlement.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="orderPayment">
+		<section>
+			<actions>
+				<set field="title" value="支付订单 - 京东触屏版"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/extend.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/hotel.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/airline.css" global="true"/>
+				<!--<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>-->
+                <script location="component://mobileStore/webapp/mobileStore/WEB-INF/actions/prod/orderPayment.groovy"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/order/orderPayment.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="orderFailure">
+		<section>
+			<actions>
+				<set field="title" value="订单失败 - 京东触屏版"/>
+				<set field="showMsg" value="${groovy:request.getAttribute('_ERROR_MESSAGE_');}"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/extend.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/hotel.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/airline.css" global="true"/>
+				<!--<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>-->
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/order/orderFailure.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	
+	<screen name="AjaxFilterProdListReturn">
+		<section>
+			<actions>
+				<set field="showProdInfoList" value="${groovy:request.getAttribute('showProdInfoList');}" />
+            </actions>
+			<widgets>
+    			<platform-specific> 
+    				<html><html-template location="component://mobileStore/webapp/mobileStore/product/AjaxFilterProdListReturn.ftl"/></html>
+    			</platform-specific>
+    		</widgets>
+        </section>
+    </screen>
+	<screen name="AjaxFilterWithLostData">
+		<section>
+			<actions>
+                <script location="component://mobileStore/webapp/mobileStore/WEB-INF/actions/prod/searchProducts.groovy"/>
+            </actions>
+			<widgets>
+    			<platform-specific> 
+    				<html><html-template location="component://mobileStore/webapp/mobileStore/product/AjaxFilterProdListReturn.ftl"/></html>
+    			</platform-specific>
+    		</widgets>
+        </section>
+    </screen>
+	<screen name="shippingAddressMgr">
+		<section>
+			<actions>
+				<set field="title" value="收货地址维护 - 京东触屏版"/>
+				<set field="partyId" from-field="userLogin.partyId"></set>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/order.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/extend.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/hotel.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/airline.css" global="true"/>
+				<!--<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>-->
+                <script location="component://party/webapp/partymgr/WEB-INF/actions/party/GetContactMechs.groovy"/>
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/order/shippingAddressMgr.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="shippingAddressEdit">
+		<section>
+			<actions>
+				<set field="title" value="收货地址编辑 - 京东触屏版"/>
+				<entity-one value-field="postalAddress" entity-name="PostalAddress"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/base.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/order.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/extend.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/hotel.css" global="true"/>
+				<set field="layoutSettings.styleSheets[]" value="/mobileStore/images/css/airline.css" global="true"/>
+				<!--<set field="layoutSettings.javaScripts[]" value="/mobileStore/images/js/installapp.js" global="true"/>-->
+            </actions>
+			<widgets>
+        		<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+            		<decorator-section name="body">
+            			<platform-specific> 
+            				<html><html-template location="component://mobileStore/webapp/mobileStore/order/shippingAddressEdit.ftl"/></html>
+            			</platform-specific>
+            		</decorator-section>
+            	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	
+</screens>

@@ -41,11 +41,11 @@ public class WechatServices {
     private static final String API_KEY = "FDEE29E914BABB180E0F82942E6D730F";
     
 	/** 应用ID */
-	public static final String AppID = "wx00b8a71c1cfc4f43";
+	public static final String AppID = "";
 	/** 应用密钥 */
-	public static final String AppSecret = "321f089be6d4551acdebea4651358379";
+	public static final String AppSecret = "";
     /**回调授权**/
-    public static final String DOMAIN = "www.quzou365.com.cn";
+    public static final String DOMAIN = "";
     
 	/** AccessToken */
  	public static String AccessToken = "";
